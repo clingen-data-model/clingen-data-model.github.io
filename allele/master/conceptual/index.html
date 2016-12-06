@@ -9,10 +9,10 @@
     <link rel="icon" href="#######">
 
     <title>
-      GeneReferenceSequence
+      Conceptual
     </title>
 
-    <link href="../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../stylesheets/brand2.css" rel="stylesheet" />
+    <link href="../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../stylesheets/brand2.css" rel="stylesheet" />
 
     <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -65,8 +65,8 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >development release<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="/allele/0.1/conceptual/reference_sequence/gene_reference_sequence.html">0.1</a></li>
-                <li><a href="/allele/development/conceptual/reference_sequence/gene_reference_sequence.html">development</a></li>
+                <li><a href="/allele/0.1/conceptual/">0.1</a></li>
+                <li><a href="/allele/development/conceptual/">development</a></li>
               </ul>
             </li>
           </ul>
@@ -77,10 +77,8 @@
     <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
       <div class='col-sm-offset-4 col-md-offset-3'>
         <ol class="breadcrumb bg-none margin-none">
-          <li><a href="../../">Allele Model</a></li>
-<li><a href="../">Conceptual</a></li>
-<li><a href="./">ReferenceSequence</a></li>
-<li><a href="gene_reference_sequence.html">GeneReferenceSequence</a></li>
+          <li><a href="../">Allele Model</a></li>
+<li><a href="./">Conceptual</a></li>
 
         </ol>
       </div>
@@ -91,50 +89,39 @@
     <div class="col-sm-4 col-md-3 sidebar">
       <ul class="nav nav-sidebar">
         <li class='nav-sidebar-title'>
-          <img width="438" height="108" alt="ClinGen Documentation" class="img-responsive" src="../../images/clingen-doc-logo.png" />
+          <img width="438" height="108" alt="ClinGen Documentation" class="img-responsive" src="../images/clingen-doc-logo.png" />
           <!-- <img src="/images/clingen-doc-logo.png" width="438" height="108" alt="ClinGen Documentation" class="img-responsive"/> -->
         </li>
-        <li><a href="../../discussion/">Discussion</a></li>
-        <li><a href="../../implementation/">Implementation</a></li>
-        <li><a href="../../resource/">Resource</a></li>
-        <li class="active"><a href="../">Conceptual</a></li><ul><li><a href="../canonical_allele/">CanonicalAllele</a></li><li><a href="../contextual_allele/">ContextualAllele</a></li><li><a href="../gene/">Gene</a></li><li><a href="../provenance/">Provenance</a></li><li class="active"><a href="./">ReferenceSequence</a></li><ul><li><a href="amino_acid_reference_sequence.html">AminoAcidReferenceSequence</a></li><li><a href="chromosome_reference_sequence.html">ChromosomeReferenceSequence</a></li><li class="active"><a href="gene_reference_sequence.html">GeneReferenceSequence</a></li><li><a href="genomic_reference_sequence.html">GenomicReferenceSequence</a></li><li><a href="nucleotide_reference_sequence.html">NucleotideReferenceSequence</a></li><li><a href="reference_genome.html">ReferenceGenome</a></li><li><a href="transcript_reference_sequence.html">TranscriptReferenceSequence</a></li></ul></ul>
+        <li><a href="../discussion/">Discussion</a></li>
+        <li><a href="../implementation/">Implementation</a></li>
+        <li><a href="../resource/">Resource</a></li>
+        <li class="active"><a href="./">Conceptual</a></li><ul><li><a href="canonical_allele/">CanonicalAllele</a></li>
+<li><a href="contextual_allele/">ContextualAllele</a></li>
+<li><a href="gene/">Gene</a></li>
+<li><a href="provenance/">Provenance</a></li>
+<li><a href="reference_sequence/">ReferenceSequence</a></li>
+</ul>
       </ul>
     </div>
     <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
       <article>
-        <h1>GeneReferenceSequence</h1>
+        <h1>Conceptual</h1>
         <hr class='col-sm-12' />
-           <h2 id="scope-and-usage">Scope and Usage</h2>
+        <h2 id="overview">Overview</h2>
 
-<p>One approach to normalization and canonicalization of alleles is to define a standard consensus sequence that will be fixed over time, and which includes all elements related to a particular gene, including exons, introns, and regulatory elements.    Alleles may the be defined on this fixed sequence, and mapped from it to multiple versions of the <a href="chromosome_reference_sequence.html">ChromosomeReferenceSequence</a> and <a href="transcript_reference_sequence.html">TranscriptReferenceSequence</a>.</p>
+<p>Each entity in the conceptual model has related documentation; the purpose of this section is to provide an overall overview of the way in which the different entities interact.  For details, view the entity documentation.</p>
 
-<p>The GeneReferenceSequence manages the accessions that are provided by groups such as LRG or RefSeqGene for this purpose.</p>
+<p>The most important entity in the conceptual allele model is the CanonicalAllele.  This entity provides a stable identifier, independent of sequence version.  This stable identifier is the identifier that is used in statements about the allele, such as its population frequency or pathogenicity.</p>
 
-<h2 id="attributes">Attributes</h2>
+<p>A canonical allele may be either an allele instance, meaning that it occurs at a contiguous locus, or a complex allele, meaning that it is a collection of allele instances that occur together in cis.</p>
 
-<p>None, beyond those provided by <a href="genomic_reference_sequence.html">GenomicReferenceSequence</a>.</p>
+<p>A simple canonical allele is an aggregation of ContextualAlleles, each of which can be defined as the choice of a particular genetic sequence at a given coordinate on a given reference sequence.   With this definition a ContextualAllele contains the information that can be encoded in a particular HGVS expression.</p>
 
-<h2 id="related-entities">Related Entities</h2>
+<p>The conceptual model independently models different subtypes of reference sequence, reference coordinate, and allele instance.  For example, genomic allele instances occur at genomic reference coordinates on genomic reference sequences. With this parallel construction, the conceptual model allows type-specific attributes to be associated with type-specific entities.</p>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Relation Name</th>
-      <th>Entity Type</th>
-      <th>Cardinality</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>sequenceOf</td>
-      <td><a href="gene.html">Gene</a></td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
+<p>Complex alleles are defined only at the canonical level, because they are defined as sets of simple canonical alleles that occur together.</p>
 
-<p>sequenceOf: The GeneReferenceSequence must be the sequence of exactly one <a href="gene.html">Gene</a></p>
-
+<p><a href="../images/AlleleConceptual.svg"><img alt="Conceptual model diagram" class="img-responsive" src="../images/AlleleConceptual.svg" /></a></p>
 
       </article>
     </div>
@@ -145,7 +132,7 @@
     <!-- Bootstrap core JavaScript
          ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../javascripts/jquery.js"></script><script src="../../javascripts/bootstrap.js"></script>
+    <script src="../javascripts/jquery.js"></script><script src="../javascripts/bootstrap.js"></script>
 
   </body>
 </html>
