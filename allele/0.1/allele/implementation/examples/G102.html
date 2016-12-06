@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Documentation
+    </title>
+
+    <link href="../../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../../stylesheets/brand2.css" rel="stylesheet" />
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-49947422-3', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+
+  <body class="documentation">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header col-sm-4 col-md-3">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand " href="#">ClinGen Documentation</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="/">About</a>
+              <!-- <a href="/">About</a> -->
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                Models
+                ::
+                <span class="glyphicon glyphicon-leaf"></span>Allele
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="allele" >
+                  <li class="allele"><a href="../../"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
+                </li>
+                <li class="assertion" >
+                  <li class="assertion"><a href="../../../assertion/"><span class="glyphicon glyphicon-star"></span>Assertion</a></li>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >0.1 release<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/0.1/allele/implementation/examples/G102.html">0.1</a></li>
+                <li><a href="/development/allele/implementation/examples/G102.html">development</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
+      <div class='col-sm-offset-4 col-md-offset-3'>
+        <ol class="breadcrumb bg-none margin-none">
+          <li><a href="../../../">ClinGen Data Model</a></li>
+<li><a href="../../">Allele Model</a></li>
+<li><a href="../">Allele implementation</a></li>
+<li><a href="./">Examples</a></li>
+
+        </ol>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 col-md-3 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class='nav-sidebar-title'>
+        <img width="438" height="108" alt="ClinGen Documentation" class="img-responsive" src="../../../images/clingen-doc-logo.png" />
+          <!-- <img src="/images/clingen-doc-logo.png" width="438" height="108" alt="ClinGen Documentation" class="img-responsive"/> -->
+        </li>
+        <li><a href="../../discussion/">Discussion</a></li>
+        <li class="active"><a href="../">Implementation</a></li><ul><li><a href="../applications/">Allele Registry</a></li><li class="active"><a href="./">Examples</a></li><li><a href="../integrated_examples/">Integrated Examples</a></li><li><a href="../value_set_list/">Value Set List</a></li></ul>
+        <li><a href="../../resource/">Resource</a></li>
+        <li><a href="../../conceptual/">Conceptual</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+      <article>
+        <h1></h1>
+        <hr class='col-sm-12' />
+        <!-- <ul class="list-unstyled"> -->
+        <!--   <li class='col-sm-6 col-md-4'><a href="#introduction">Introduction</a></li> -->
+        <!--   <li class='col-sm-6 col-md-4'><a href="#selects">Selects</a></li> -->
+        <!-- </ul> -->
+        <!-- <hr class='col-sm-12' id="sticky-nav-anchor" /> -->
+        <!-- <div class='row'><div id="sticky-nav"> -->
+        <!--     <div class="navbar navbar-default col-sm-12"> -->
+        <!--       <ul class="nav navbar-nav"> -->
+        <!--         <li class="dropdown"> -->
+        <!--           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>Query Builder</strong> :: Introduction <span class="caret"></span></a> -->
+        <!--           <ul class="dropdown-menu" role="menu"> -->
+        <!--             <li><a href="#">Action</a></li> -->
+        <!--             <li><a href="#">Another action</a></li> -->
+        <!--           </ul> -->
+        <!--         </li> -->
+        <!--       </ul> -->
+        <!--       <form class="navbar-form navbar-right" role="search"> -->
+        <!--         <div class="input-group"> -->
+        <!--           <div class="input-group-btn"> -->
+        <!--             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Page <span class="caret"></span></button> -->
+        <!--             <ul class="dropdown-menu" role="menu"> -->
+        <!--               <li><a href="#">Model</a></li> -->
+        <!--               <li><a href="#">Site</a></li> -->
+        <!--             </ul> -->
+
+        <!--           </div><\!-- /btn-group -\-> -->
+        <!--           <input type="text" class="form-control" aria-label="" placeholder='Search'> -->
+        <!--           <span class="input-group-btn"> -->
+        <!--             <button class="btn btn-default" type="button">Go!</button> -->
+        <!--           </span> -->
+        <!--         </div><\!-- /input-group -\-> -->
+        <!--       </form> -->
+        <!--   </div> </div> -->
+        <!-- </div><\!-- /.navbar-collapse -\-> -->
+        <h1>G102-BRCA1</h1>
+<p class="lead">Gene example with aliases.</p>
+<h2>JSON-LD</h2>
+<pre><code>
+{
+  &quot;@context&quot;: &quot;http:&#x2F;&#x2F;clingen.org&#x2F;models&#x2F;Gene.jsonld&quot;,
+  &quot;@id&quot;: &quot;http:&#x2F;&#x2F;clingendb.clingen.org&#x2F;Gene&#x2F;G102&quot;,
+  &quot;@type&quot;: &quot;clingen:Gene&quot;,
+  &quot;id&quot;: &quot;G102&quot;,
+  &quot;xref&quot;:
+  [
+    &quot;http:&#x2F;&#x2F;www.genenames.org&#x2F;cgi-bin&#x2F;gene_symbol_report?hgnc_id=HGNC:1100&quot;,
+    &quot;http:&#x2F;&#x2F;www.ncbi.nlm.nih.gov&#x2F;gene&#x2F;672&quot;
+  ],
+  &quot;symbol&quot;: &quot;BRCA1&quot;,
+  &quot;name&quot;: &quot;breast cancer 1, early onset&quot;,
+  &quot;aliasSymbol&quot;:
+  [
+    &quot;IRIS&quot;,
+    &quot;PSCP&quot;,
+    &quot;BRCAI&quot;,
+    &quot;BRCC1&quot;,
+    &quot;FANCS&quot;,
+    &quot;PNCA4&quot;,
+    &quot;RNF53&quot;,
+    &quot;BROVCA1&quot;,
+    &quot;PPP1R53&quot;
+  ]
+}
+
+</code></pre>
+<p>example: <a href="../../../main/resources/example-jsonld-nofhir/G102-BRCA1.jsonld">G102-BRCA1.json</a></p>
+<h2>XML</h2>
+<pre><code>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;Gene xmlns=&quot;http:&#x2F;&#x2F;clingen.org&#x2F;dm&#x2F;allele&#x2F;v1&quot; xmlns:f=&quot;http:&#x2F;&#x2F;hl7.org&#x2F;fhir&quot;
+	xmlns:xsi=&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;
+	xsi:schemaLocation=&quot;http:&#x2F;&#x2F;clingen.org&#x2F;dm&#x2F;allele&#x2F;v1 ..&#x2F;clingen-xsd&#x2F;gene.xsd &quot;&gt;
+	&lt;f:id value=&quot;G102&quot;&gt;&lt;&#x2F;f:id&gt;
+	&lt;identifier&gt;
+		&lt;f:use value=&quot;official&quot;&gt;&lt;&#x2F;f:use&gt;
+		&lt;f:system value=&quot;http:&#x2F;&#x2F;www.genenames.org&#x2F;&quot;&gt;&lt;&#x2F;f:system&gt;
+		&lt;f:value value=&quot;HGNC:1100&quot;&gt;&lt;&#x2F;f:value&gt;
+	&lt;&#x2F;identifier&gt;
+	&lt;identifier&gt;
+		&lt;f:system value=&quot;http:&#x2F;&#x2F;www.ncbi.nlm.nih.gov&#x2F;gene&quot;&gt;&lt;&#x2F;f:system&gt;
+		&lt;f:value value=&quot;672&quot;&gt;&lt;&#x2F;f:value&gt;
+	&lt;&#x2F;identifier&gt;
+	&lt;symbol value=&quot;BRCA1&quot;&gt;&lt;&#x2F;symbol&gt;
+	&lt;name value=&quot;breast cancer 1, early onset&quot;&gt;&lt;&#x2F;name&gt;
+	&lt;aliasSymbol value=&quot;IRIS&quot;&gt;&lt;&#x2F;aliasSymbol&gt;
+	&lt;aliasSymbol value=&quot;PSCP&quot;&gt;&lt;&#x2F;aliasSymbol&gt;
+	&lt;aliasSymbol value=&quot;BRCAI&quot;&gt;&lt;&#x2F;aliasSymbol&gt;
+	&lt;aliasSymbol value=&quot;BRCC1&quot;&gt;&lt;&#x2F;aliasSymbol&gt;
+	&lt;aliasSymbol value=&quot;FANCS&quot;&gt;&lt;&#x2F;aliasSymbol&gt;
+	&lt;aliasSymbol value=&quot;PNCA4&quot;&gt;&lt;&#x2F;aliasSymbol&gt;
+	&lt;aliasSymbol value=&quot;RNF53&quot;&gt;&lt;&#x2F;aliasSymbol&gt;
+	&lt;aliasSymbol value=&quot;BROVCA1&quot;&gt;&lt;&#x2F;aliasSymbol&gt;
+	&lt;aliasSymbol value=&quot;PPP1R53&quot;&gt;&lt;&#x2F;aliasSymbol&gt;
+&lt;&#x2F;Gene&gt;
+
+</code></pre>
+<p>example: <a href="../../../main/resources/example-xml/G102-BRCA1.xml">G102-BRCA1.xml</a></p>
+<p>schema: <a href="../../../main/resources/clingen-xsd/gene.xsd">Gene.xsd</a></p>
+<h2>JSON</h2>
+<pre><code>
+{
+  &quot;id&quot;: &quot;G102&quot;,
+  &quot;identifier&quot;:
+  [
+    {
+      &quot;use&quot;: &quot;official&quot;,
+      &quot;system&quot;: &quot;urn:oid:2.16.840.1.113883.6.281&quot;,
+      &quot;value&quot;: &quot;HGNC:1100&quot;
+    },
+
+    {
+      &quot;system&quot;: &quot;http:&#x2F;&#x2F;www.ncbi.nlm.nih.gov&#x2F;gene&quot;,
+      &quot;value&quot;: &quot;672&quot;
+    }
+  ],
+
+  &quot;symbol&quot;: &quot;BRCA1&quot;,
+  &quot;name&quot;: &quot;breast cancer 1, early onset&quot;,
+  &quot;aliasSymbol&quot;:
+  [
+    &quot;IRIS&quot;,
+    &quot;PSCP&quot;,
+    &quot;BRCAI&quot;,
+    &quot;BRCC1&quot;,
+    &quot;FANCS&quot;,
+    &quot;PNCA4&quot;,
+    &quot;RNF53&quot;,
+    &quot;BROVCA1&quot;,
+    &quot;PPP1R53&quot;
+  ]
+}
+
+</code></pre>
+<p>example: <a href="../../../main/resources/example-json/G102-BRCA1.json">G102-BRCA1.json</a></p>
+
+
+
+
+
+      </article>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+         ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../../javascripts/jquery.js"></script><script src="../../../javascripts/bootstrap.js"></script>
+
+  </body>
+</html>

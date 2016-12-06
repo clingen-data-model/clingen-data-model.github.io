@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Data Model
+    </title>
+
+    <link href="../../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../../stylesheets/brand2.css" rel="stylesheet" /><link href="../../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header col-sm-4 col-md-3">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand " href="#">ClinGen Documentation</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                Models
+                  ::
+                  <span class="glyphicon leaf"></span>Interpretation
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                  <li class="allele" >
+                    <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
+                  </li>
+                  <li class="interpretation" >
+                    <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span>Interpretation</a></li>
+                  </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >development release<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                  <li><a href="/0.1/tech/model/entities/evidence_data-source.html">0.1</a></li>
+                  <li><a href="/development/tech/model/entities/evidence_data-source.html">development</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
+      <div class='col-sm-offset-4 col-md-offset-3'>
+        <ol class="breadcrumb bg-none margin-none">
+          <li><a href="../../../">Interpretation Model</a></li>
+<li><a href="../../">Technical Reference</a></li>
+<li><a href="../">Model</a></li>
+
+        </ol>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-4 col-md-3 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class='nav-sidebar-title'>
+              <img width="438" height="108" alt="ClinGen Documentation" class="img-responsive" src="../../../images/clingen-doc-logo.png" />
+            </li>
+
+            <li><a href="../../../welcome/">Welcome</a></li>
+            <li><a href="../../../user/">User Guide</a></li>
+            <li class="active"><a href="../../">Technical Reference</a></li><ul><li><a href="../../api/">API</a></li><li><a href="../../examples/">Examples</a></li><li class="active"><a href="../">Model</a></li><ul><li><a href="../activities/">Activity</a></li><li><a href="../agents/">Agent</a></li><li class="active"><a href="./">Entity</a></li><ul><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="evidence/">Data</a></li><li class="active"><a href="evidence_data-source.html">DataSource</a></li><li><a href="publication_status.html">PublicationStatus</a></li><li><a href="variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../secondary/">Secondary Types</a></li></ul><li><a href="../../value_sets/">Value Sets</a></li></ul>
+            <!-- Old style.  We might still need the model here? -->
+            <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+          </ul>
+        </div>
+        <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+          <article>
+
+
+            <h1>DataSource</h1>
+            <p>Citation for a Data entity</p>
+
+                <p>Descended from Entity</p>
+
+            <hr class='col-sm-12' />
+
+
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>All Data used in an interpretation came from a DataSource.  The DataSource is the citation for the Data, so that the consumer of an Interpretation can return to the DataSource and understand whether the Data has been correctly understood and represented.  A DataSource may represent a range of entities such as publications or public or private data repositories.</p>
+
+<p>The attributes of the DataSource should be sufficient to allow a consumer to locate the Data in the DataSource.   If a DataSource is versioned, the version, as well as any identifiers used in the DataSource should be represented.   The externalIdentifier and linkedIRI attributes point not just to the data repository (such as ExAC) but to the individual data element being referenced.</p>
+
+<p>Private databases, such as clinical repositories are a challenge to represent, as many will lack a publicly exposable identifier to individual elements of Data.   In this case, the externalIdentifier is meant to be a string sufficient to identify the Data, even if it is not the identifier that is actually used in the repository.</p>
+
+<p>DataSource inherits from Entity and is referred to by the used attribute of the CaptureData Activity.   Because it is an Entity, its provenance may also be stored, indicating how the DataSource itself was generated.  However, this is outside the scope of the Interpretation model, and will be implementation specific.</p>
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>dataSourceType</td>
+                <td>CodeableConcept</td>
+                <td>1..1</td>
+                <td>Classification of Data Source</td>
+            </tr>
+            <tr>
+                <td>externalIdentifier</td>
+                <td>String</td>
+                <td>1..1</td>
+                <td>Indentifier of the Data element in the DataSource</td>
+            </tr>
+            <tr>
+                <td>linkedIRI</td>
+                <td>String</td>
+                <td>0..1</td>
+                <td>IRI of the Data element</td>
+            </tr>
+            <tr>
+                <td>version</td>
+                <td>String</td>
+                <td>0..1</td>
+                <td>Version of the Data Source from which the Data was retrieved</td>
+            </tr>
+            </tbody>
+        </table>
+
+    <h2>Inherited Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Inherited From</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>wasGeneratedBy</td>
+                    <td>Activity</td>
+                    <td>0..1</td>
+                    <td>Entity</td>
+                    <td>The activity that produced this entity</td>
+                </tr>
+                <tr>
+                    <td>explanation</td>
+                    <td>String</td>
+                    <td>0..1</td>
+                    <td>Entity</td>
+                    <td>A human-readable description of the entity</td>
+                </tr>
+            </tbody>
+        </table>
+
+    <h2>Examples</h2>
+    <div id="example_view"></div>
+    <script>
+        run_on_load = function () {return $("#example_view").JSONView(
+          {"DataSrc001":{"cg:id":"DataSrc001","cg:type":"DataSource","externalIdentifier":"PMID:23633196","linkedIRI":"http://www.ncbi.nlm.nih.gov/pubmed/23633196"},"DataSrc002":{"cg:id":"DataSrc002","cg:type":"DataSource","externalIdentifier":"PMID:17081393","linkedIRI":"http://www.ncbi.nlm.nih.gov/pubmed/17081393"},"DataSrc003":{"cg:id":"DataSrc003","cg:type":"DataSource","externalIdentifier":"LMM-VARIANT:NM_000256.3(MYBPC3)c.1351+1G>A"},"DataSrc004":{"cg:id":"DataSrc004","cg:type":"DataSource","externalIdentifier":"OMIM:244400","linkedIRI":"http://omim.org/entry/244400","version":"alopez : 09/15/2016"},"DataSrc005":{"cg:id":"DataSrc005","cg:type":"DataSource","externalIdentifier":"LMM-CASE:CSER-SUBJECT-123"},"DataSrc006":{"cg:id":"DataSrc006","cg:type":"DataSource","externalIdentifier":"CLINVAR:SCV000205842.3","linkedIRI":"https://www.ncbi.nlm.nih.gov/clinvar/SCV000205842.3"},"DataSrc007":{"cg:id":"DataSrc007","cg:type":"DataSource","externalIdentifier":"LMM:GENEINSIGHT-LAB v5.3.2","linkedIRI":"https://geneinsight-lmm-test.partners.org"},"DataSrc008":{"cg:id":"DataSrc008","cg:type":"DataSource","externalIdentifier":"LMM:ALAMUT-PROD v123","linkedIRI":"https://pcpgm.partners.org/lmm"},"DataSrc009":{"cg:id":"DataSrc009","cg:type":"DataSource","externalIdentifier":"EXAC v0.2","linkedIRI":"ftp://ftp.broadinstitute.org/pub/ExAC_release/release0.2/"},"DataSrc010":{"cg:id":"DataSrc010","cg:type":"DataSource","externalIdentifier":"PMID:12698559","linkedIRI":"https://www.ncbi.nlm.nih.gov/pubmed/12698559"}},
+          { collapsed: true }
+        )}
+    </script>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../../javascripts/jquery.js"></script><script src="../../../javascripts/bootstrap.js"></script><script src="../../../javascripts/jquery.jsonview.js"></script><script src="../../../javascripts/run-run_on_load.js"></script>
+
+  </body>
+</html>

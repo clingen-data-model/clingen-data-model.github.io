@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      CanonicalAllele
+    </title>
+
+    <link href="../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../stylesheets/brand2.css" rel="stylesheet" />
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-49947422-3', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+
+  <body class="documentation">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header col-sm-4 col-md-3">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand " href="#">ClinGen Documentation</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="/">Home</a>
+              <!-- <a href="/">About</a> -->
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                Models
+                ::
+                <span class="glyphicon glyphicon-leaf"></span>Allele
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="allele" >
+                  <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
+                </li>
+                <li class="interpretation" >
+                  <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span>Interpretation</a></li>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >development release<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/allele/0.1/resource/canonical_allele/">0.1</a></li>
+                <li><a href="/allele/development/resource/canonical_allele/">development</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
+      <div class='col-sm-offset-4 col-md-offset-3'>
+        <ol class="breadcrumb bg-none margin-none">
+          <li><a href="../../">Allele Model</a></li>
+<li><a href="../">Resource Index</a></li>
+<li><a href="./">CanonicalAllele</a></li>
+
+        </ol>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 col-md-3 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class='nav-sidebar-title'>
+          <img width="438" height="108" alt="ClinGen Documentation" class="img-responsive" src="../../images/clingen-doc-logo.png" />
+          <!-- <img src="/images/clingen-doc-logo.png" width="438" height="108" alt="ClinGen Documentation" class="img-responsive"/> -->
+        </li>
+        <li><a href="#">Discussion</a></li>
+        <li><a href="../../implementation/">Implementation</a></li>
+        <li class="active"><a href="../">Resource</a></li><ul><li class="active"><a href="./">CanonicalAllele</a></li><li><a href="../contextual_allele/">ContextualAllele</a></li><li><a href="../gene/">Gene</a></li><li><a href="../provenance/">Provenance</a></li><li><a href="../reference_sequence/">ReferenceSequence</a></li></ul>
+        <li><a href="../../conceptual/">Conceptual</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+      <article>
+        <h1>CanonicalAllele</h1>
+        <hr class='col-sm-12' />
+           <h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>A CanonicalAllele is a reference to a sequence change, independent of any particular representation relative to a ReferenceSequence. Since alleles are represented as a change (or no change) relative to a ReferenceSequence, a CanonicalAllele is composed of potentially multiple such representations (ContextualAlleles) that correspond to the same CanonicalAllele. One ContextualAllele is selected as the preferred representation of a CanonicalAllele</p>
+
+<h2 id="resource-model">Resource Model</h2>
+
+<p><a href="../../images/CanonicalAlleleResource.svg"><img alt="CanonicalAllele Resource Diagram" class="img-responsive" src="../../images/CanonicalAlleleResource.svg" /></a></p>
+
+<p>Related Conceptual Entities: <a href="/allele/conceptual/canonical_allele/index.html">CanonicalAllele</a>, <a href="/allele/conceptual/canonical_allele/simple_canonical_allele.html">SimpleCanonicalAllele</a>, <a href="/allele/conceptual/canonical_allele/simple_nucleotide_canonical_allele.html">SimpleNucleotideCanonicalAllele</a>, <a href="/allele/conceptual/canonical_allele/simple_amino_acid_canonical_allele.html">SimpleAminoAcidCanonicalAllele</a>, <a href="/allele/conceptual/canonical_allele/complex_canonical_allele.html">ComplexCanonicalAllele</a>, <a href="/allele/conceptual/canonical_allele/complex_nucleotide_canonical_allele.html">ComplexNucleotideCanonicalAllele</a>, <a href="/allele/conceptual/canonical_allele/complex_amino_acid_canonical_allele.html">ComplexAminoAcidCanonicalAllele</a></p>
+
+<h2 id="notes">Notes</h2>
+
+
+   <h2>Definitions &amp; Bindings</h2>
+   <script type="text/javascript">
+   function toggle_visibility(clazz) {
+      var hidername = clazz + '-hider'
+      var hider = document.getElementById(hidername);
+      if (hider) {
+         console.log('showing');
+         hider.parentNode.removeChild(hider);
+      } else {
+         console.log('hiding');
+         hider = document.createElement('style');
+         hider.id = hidername;
+         hider.innerHTML = "." + clazz + "{ display: none; }"
+         document.body.appendChild(hider);
+      }
+   }
+   toggle_visibility('context-requirement');
+   </script>
+   <button onclick="toggle_visibility('context-requirement');">Toggle requirements</button>
+
+   <h4 class="h4-definition" id="CanonicalAllele-definition">
+      CanonicalAllele
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>The canonical representation of a set of equivalent sequence variants.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>1..1</dd><!-- Not sure why FHIR has Control of 1..1 for the top level resources, but mimic that here -->
+   </dl>
+
+   <h4 class="h4-definition" id="CanonicalAllele-id-definition">
+      CanonicalAllele.id
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>The logical identifier assigned by the source storage system.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>1..1</dd>
+      <dt>Type</dt>
+      <dd><p>Id</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="CanonicalAllele-version-definition">
+      CanonicalAllele.version
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>The publicly stable version of the CanonicalAllele instance represented by the source system.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..1</dd>
+      <dt>Type</dt>
+      <dd><p>string</p>
+</dd>
+      <dt class="context-requirement">Requirements</dt>
+      <dd class="context-requirement"><p>Version changes may occur due to changes in the set of relatedContextualAlleles.</p>
+
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="CanonicalAllele-meta-definition">
+      CanonicalAllele.meta
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..1</dd>
+      <dt>Type</dt>
+      <dd><p>Meta</p>
+</dd>
+      <dt class="context-requirement">Requirements</dt>
+      <dd class="context-requirement"><p>Version changes may occur due to changes in the set of relatedContextualAlleles.</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="CanonicalAllele-identifier-definition">
+      CanonicalAllele.identifier
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>Business identifier(s) assigned by external authorities that represents the equivalent CanonicalAllele instance represented by the source system.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..*</dd>
+      <dt>Type</dt>
+      <dd><p>Identifier</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="CanonicalAllele-relatedIdentifier-definition">
+      CanonicalAllele.relatedIdentifier
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>Business identifier(s) assigned by external authorities that are not exactly representative of the CanonicalAllele instance, but provide a noteworthy alternative representation.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..*</dd>
+      <dt>Type</dt>
+      <dd><p>Identifier</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="CanonicalAllele-active-definition">
+      CanonicalAllele.active
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>Is the CanonicalAllele active, or is it invalid or superceded by a different CanonicalAllele.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..1</dd>
+      <dt>Type</dt>
+      <dd><p>boolean</p>
+</dd>
+      <dt class="context-requirement">Requirements</dt>
+      <dd class="context-requirement"><p>The <code>replacement</code> property MUST contain one or more items if this is <em>true</em>, otherwise <code>replacement</code> MUST be empty.</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="CanonicalAllele-replacement-definition">
+      CanonicalAllele.replacement
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>The CanonicalAllele to use instead in case it is found to describe the same allele as another CanonicalAllele</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..*</dd>
+      <dt>Type</dt>
+      <dd><p>Replacement</p>
+</dd>
+      <dt class="context-requirement">Requirements</dt>
+      <dd class="context-requirement">
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="CanonicalAllele-canonicalAlleleType-definition">
+      CanonicalAllele.canonicalAlleleType
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>TODO</p>
+</dd>
+      <dt>Control</dt>
+      <dd>1..1</dd>
+      <dt>Binding</dt>
+      <dd><p>CanonicalAlleleType</p>
+</dd>
+      <dt>Type</dt>
+      <dd><p>code</p>
+</dd>
+      <dt class="context-requirement">Requirements</dt>
+      <dd class="context-requirement">
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="CanonicalAllele-complexity-definition">
+      CanonicalAllele.complexity
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>Is the CanonicalAllele represented by one ContextualAllele, or is it a composition of multiple CanonicalAlleles?</p>
+</dd>
+      <dt>Control</dt>
+      <dd>1..1</dd>
+      <dt>Binding</dt>
+      <dd><p>CanonicalAlleleComplexity</p>
+</dd>
+      <dt>Type</dt>
+      <dd><p>code</p>
+</dd>
+      <dt class="context-requirement">Requirements</dt>
+      <dd class="context-requirement"><p>If this allele is simple, then it can contain one or more ContextualAlleles in the relatedContextualAllele property. This value is immutable.</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="CanonicalAllele-nested-definition">
+      CanonicalAllele.nested
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>The set of CanonicalAlleles that compose this ComplexCanonicalAllele. The children CanonicalAlleles of a complex CanonicalAllele instance.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..*</dd>
+      <dt>Type</dt>
+      <dd><p>CanonicalAllele</p>
+</dd>
+      <dt class="context-requirement">Requirements</dt>
+      <dd class="context-requirement"><p>This is closely related to the CanonicalAllele.complexity and CanonicalAllele.relatedContextualAllele fields:</p>
+
+<ul>
+  <li>if <code>complexity</code> is simple, then this list MUST be empty</li>
+  <li>if <code>complexity</code> is complex, then this list MUST contain 2 or more CanonicalAlleles (each
+with <code>complexity</code> simple) AND relatedContextualAllele MUST be empty.</li>
+</ul>
+
+<p>Notes: - the cardinality of this property is actually 0,2..* (i.e. anything but one)
+       - currently, the idea of nesting complex CanonicalAlleles within other complex CanonicalAlleles is not supported.</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="CanonicalAllele-composite-definition">
+      CanonicalAllele.composite
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>The composite, parent or complex CanonicalAllele instance(s) that this Canonical Allele is part of.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..*</dd>
+      <dt>Type</dt>
+      <dd><p>CanonicalAllele</p>
+</dd>
+      <dt class="context-requirement">Requirements</dt>
+      <dd class="context-requirement"><ul>
+  <li>If this CanonicalAllele participates in one or more complex CanonicalAlleles then the <code>complexity</code> must be simple.</li>
+  <li>It is not requirement to pass the association to the set of complex CanonicalAlleles unless it is useful to the receiving service.</li>
+</ul>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="CanonicalAllele-replacement-definition">
+      CanonicalAllele.replacement
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>The CanonicalAllele instance(s) that subsequently replaced this CanonicalAllele.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..*</dd>
+      <dt>Binding</dt>
+      <dd><p>CanonicalAllele.Replacement</p>
+</dd>
+      <dt class="context-requirement">Requirements</dt>
+      <dd class="context-requirement"><p>If one or more <code>replacement</code> references exist then this CanonicalAllele should be <code>active</code> equal to false or inactive.</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="CanonicalAllele-replacement.replacementType-definition">
+      CanonicalAllele.replacement.replacementType
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>Code for the type of replacement that occurs when CanonicalAlleles are merged or split after being published.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>1..1</dd>
+      <dt>Binding</dt>
+      <dd><p>CanonicalAlleleReplacementType</p>
+</dd>
+      <dt>Type</dt>
+      <dd><p>code</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="CanonicalAllele-replacement.split-definition">
+      CanonicalAllele.replacement.split
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>A boolean indicating whether or not the <code>target</code> was replaced by more than one CanonicalAllele.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..1</dd>
+      <dt>Type</dt>
+      <dd><p>boolean</p>
+</dd>
+      <dt class="context-requirement">Requirements</dt>
+      <dd class="context-requirement"><p>It may be possible to conceptually split a pre-existing CanonicalAllele and replace it with more than one new CanonicalAllele, without actually creating all of the new replacements.  This indicator provides a definitive value to represent whether the <code>target</code> represented more than one CanonicalAllele to begin with.</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="CanonicalAllele-replacement.target-definition">
+      CanonicalAllele.replacement.target
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>A reference to either the CanonicalAllele that replaces or is replaced-by the primary CanonicalAllele with which it is associated.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>1..1</dd>
+      <dt>Type</dt>
+      <dd><p>CanonicalAllele</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="CanonicalAllele-relatedContextualAllele-definition">
+      CanonicalAllele.relatedContextualAllele
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>The set of ContextualAlleles that are canonically equivalent.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..*</dd>
+      <dt class="context-requirement">Requirements</dt>
+      <dd class="context-requirement"><p>If this set changes over time then the CanonicalAllele.version should be incremented to allow external references to maintain a stable representation of their original reference.</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="CanonicalAllele-relatedContextualAllele.contextualAllele-definition">
+      CanonicalAllele.relatedContextualAllele.contextualAllele
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>A reference to a ContextualAllele that is part of the set of CanonicalAllele.relatedContextualAlleles.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>1..1</dd>
+      <dt>Type</dt>
+      <dd><p>ContextualAllele</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="CanonicalAllele-relatedContextualAllele.preferred-definition">
+      CanonicalAllele.relatedContextualAllele.preferred
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>An indicator as to whether this CanonicalAllele.relatedContextualAllele is the preferred representation for the CanonicalAllele.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..1</dd>
+      <dt>Type</dt>
+      <dd><p>boolean</p>
+</dd>
+      <dt class="context-requirement">Requirements</dt>
+      <dd class="context-requirement"><ul>
+  <li>The current design provides this indicator as a basic means to producing a simplified human-readable representation of the CanonicalAllele by allowing the source system to determine which related ContextualAllele is preferred over all the others.</li>
+  <li>One and only one of the relatedContextualAlleles must be set as the preferred one.  If a new related ContextualAllele is added or an existing one updated as preferred it would automatically override the prior related ContextualAllele that was set as preferred.</li>
+</ul>
+</dd>
+   </dl>
+
+
+   <h2>Schema</h2>
+   <p>schema: <a href="../../main/resources/clingen-xsd/canonicalallele.xsd">CanonicalAllele.xsd</a></p>
+   <h2>Examples</h2>
+   <table class="table"><thead><tr><th>id</th><th>name</th></tr></thead><tbody><tr><td>CA401</td><td><a href="/allele/implementation/examples/CA401.html">CA401-NM_001014794.2-c.448+13A>G</a></td><td><a href="/main/resources/example-jsonld-nofhir/CA401-NM_001014794.2-c.448+13A&gt;G.jsonld">json-ld</a></td><td><a href="/main/resources/example-xml/CA401-NM_001014794.2-c.448+13A&gt;G.xml">xml</a></td><td><a href="/main/resources/example-json/CA401-NM_001014794.2-c.448+13A&gt;G.json">json</a></td><tr><td>CA402</td><td><a href="/allele/implementation/examples/CA402.html">CA402-NM_007294.3-BRCA1-c.5297T>G</a></td><td><a href="/main/resources/example-jsonld-nofhir/CA402-NM_007294.3-BRCA1-c.5297T&gt;G.jsonld">json-ld</a></td><td><a href="/main/resources/example-xml/CA402-NM_007294.3-BRCA1-c.5297T&gt;G.xml">xml</a></td><td><a href="/main/resources/example-json/CA402-NM_007294.3-BRCA1-c.5297T&gt;G.json">json</a></td><tr><td>CA403</td><td><a href="/allele/implementation/examples/CA403.html">CA403-NP_0099225.1-BRCA1-p.Ile1766Ser</a></td><td><a href="../../main/resources/example-jsonld-nofhir/CA403-NP_0099225.1-BRCA1-p.Ile1766Ser.jsonld">json-ld</a></td><td><a href="../../main/resources/example-xml/CA403-NP_0099225.1-BRCA1-p.Ile1766Ser.xml">xml</a></td><td><a href="../../main/resources/example-json/CA403-NP_0099225.1-BRCA1-p.Ile1766Ser.json">json</a></td></tbody></table>
+
+      </article>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+         ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../javascripts/jquery.js"></script><script src="../../javascripts/bootstrap.js"></script>
+
+  </body>
+</html>

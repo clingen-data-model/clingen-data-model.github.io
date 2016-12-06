@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ContextualAllele
+    </title>
+
+    <link href="../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../stylesheets/brand2.css" rel="stylesheet" />
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-49947422-3', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+
+  <body class="documentation">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header col-sm-4 col-md-3">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand " href="#">ClinGen Documentation</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="/">Home</a>
+              <!-- <a href="/">About</a> -->
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                Models
+                ::
+                <span class="glyphicon glyphicon-leaf"></span>Allele
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="allele" >
+                  <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
+                </li>
+                <li class="interpretation" >
+                  <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span>Interpretation</a></li>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >development release<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/allele/0.1/resource/contextual_allele/">0.1</a></li>
+                <li><a href="/allele/development/resource/contextual_allele/">development</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
+      <div class='col-sm-offset-4 col-md-offset-3'>
+        <ol class="breadcrumb bg-none margin-none">
+          <li><a href="../../">Allele Model</a></li>
+<li><a href="../">Resource Index</a></li>
+<li><a href="./">ContextualAllele</a></li>
+
+        </ol>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 col-md-3 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class='nav-sidebar-title'>
+          <img width="438" height="108" alt="ClinGen Documentation" class="img-responsive" src="../../images/clingen-doc-logo.png" />
+          <!-- <img src="/images/clingen-doc-logo.png" width="438" height="108" alt="ClinGen Documentation" class="img-responsive"/> -->
+        </li>
+        <li><a href="#">Discussion</a></li>
+        <li><a href="../../implementation/">Implementation</a></li>
+        <li class="active"><a href="../">Resource</a></li><ul><li><a href="../canonical_allele/">CanonicalAllele</a></li><li class="active"><a href="./">ContextualAllele</a></li><li><a href="../gene/">Gene</a></li><li><a href="../provenance/">Provenance</a></li><li><a href="../reference_sequence/">ReferenceSequence</a></li></ul>
+        <li><a href="../../conceptual/">Conceptual</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+      <article>
+        <h1>ContextualAllele</h1>
+        <hr class='col-sm-12' />
+           <h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>Genetic variation is often represented with respect to an explicit reference sequence.  At a locus where variation exists in the population, there exist both the allele that occurs in the reference as well as one or more alternate alleles.  Each one of these alleles (including the reference) is represented by a distinct instance of ContextualAllele.</p>
+
+<p>ContextualAllele as here defined is similar to the SO term <a href="http://www.sequenceontology.org/browser/current_svn/term/SO:0001060">sequence_variant</a>, but where that definition describes a difference with respect to a sequence, ContextualAllele explicitly allows the reference allele to be represented. Note that the reference allele is not guaranteed to be the minor allele in any population.</p>
+
+<p>A ContextualAllele should either represent a contiguous section of the ReferenceSequence, or the replacement of such a section with a new contiguous section (including an empty section forr a deletion).  While it would be possible to represent two widely spaced SNPs as a ContextualAllele that reproduces the ReferenceSequence between them, this is not the intended use; such cases should be handled through the use of a ComplexAllele.</p>
+
+<p>This definition of ContextualAllele allows for large deletions or insertions; it is left as an implementation decision whether there is a size limit above which the implementing system will no longer use this representation.</p>
+
+<p>Each ContextualAllele is the representation of an allele within a single sequence.  For example, if a variant occurs within the coding region of a transcript, three different ContextualAlleles will be used to represent the same variant: one representing the allele in the context of the ReferenceSequence for the genome, a second representing the allele in the context of the ReferenceSequence for the transcript, and a third in the context of the ReferenceSequence for the amino acid chain.</p>
+
+<h2 id="resource-model">Resource Model</h2>
+
+<p><a href="../../images/ContextualAlleleResource.svg"><img alt="ContextualAllele Resource Diagram" class="img-responsive" src="../../images/ContextualAlleleResource.svg" /></a></p>
+
+<p>Related Resources: <a href="/allele/resource/reference_sequence/index.html">ReferenceSequence</a>, <a href="/allele/resource/canonical_allele/index.html">CanonicalAllele</a></p>
+
+<h2 id="definitions--bindings">Definitions &amp; Bindings</h2>
+
+<h3 class="h4-definition" id="contextualallele">ContextualAllele</h3>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>Resource representing one of the multiple variant sequences at a contiguous region in a particular ReferenceSequence.</dd>
+  <dt>Control</dt>
+  <dd>1..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualalleleidentifier">ContextualAllele.identifier</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The set of Identifiers used to name this ContextualAllele. May be as simple as a set of one single Identifier distinguishing the ContextualAllele in the implementing system, or may expansively include the name of all ContextualAlleles in all implementing systems.</dd>
+  <dt>Type</dt>
+  <dd>Identifier</dd>
+  <dt>Control</dt>
+  <dd>0..*</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualallelecanonicalallele">ContextualAllele.canonicalAllele</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The CanonicalAllele resource to which this ContextualAllele maps.</dd>
+  <dt>Type</dt>
+  <dd>CanonicalAllele</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualallelecontextualalleletype">ContextualAllele.contextualAlleleType</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>Type of contextual allele, as defined by the type of transcript the allele is mapped on.</dd>
+  <dt>Binding</dt>
+  <dd>ContextualAlleleType <a href="/allele/implementation/value_set_list/contextual_allele_type.html">contextual-allele-types</a></dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualalleleallele">ContextualAllele.allele</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The nucleotide or amino acid sequence that is defined for this allele at the reference coordinates.  This is typically associated with the 'ALT' value in a VCF representation of a variant.</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+  <dt>Type</dt>
+  <dd>string</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualalleleprimarynucleotidechangetype">ContextualAllele.primaryNucleotideChangeType</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>Describes the change that occurs within a nucleotide contextual allele.</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+  <dt>Binding</dt>
+  <dd>PrimaryNucleotideChangeType <a href="/allele/implementation/value_set_list/primary_nucleotide_change_type.html">primary-nucleotide-change-types</a></dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Requirements</dt>
+  <dd>Required (and allowed) only if the ContextualAllele maps to a nucleotide sequence.</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualalleleancillarynucleotidechangetype">ContextualAllele.ancillaryNucleotideChangeType</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>Additional descriptors that can be applied to describe the change effected by the allele.</dd>
+  <dt>Control</dt>
+  <dd>0..*</dd>
+  <dt>Binding</dt>
+  <dd>AncillaryNucleotideChangeType <a href="/allele/implementation/value_set_list/ancillary_nucleotide_change_type.html">ancillary-nucleotide-change-types</a></dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Requirements</dt>
+  <dd>Optional, permitted only if the ContextualAllele maps to a nucleotide sequence.</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualalleleprimaryaminoacidchangetype">ContextualAllele.primaryAminoAcidChangeType</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>Describes the change that occurs within an amino acid.</dd>
+  <dt>Binding</dt>
+  <dd>PrimaryAminoAcidChangeType <a href="/allele/implementation/value_set_list/primary_amino_acid_change_type.html">primary-amino-acid-change-types</a></dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+  <dt>Requirements</dt>
+  <dd>Required (and allowed) only if the ContextualAllele describes an allele on an amino acid reference sequence.</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualalleleancillaryaminoacidchangetype">ContextualAllele.ancillaryAminoAcidChangeType</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>One of the set of allowable <a href="/allele/implementation/value_set_list/ancillary_amino_acid_change_type.html">ancillary-amino-acid-change-types</a>. Allowed only if the ContextualAllele describes an allele on an amino acid reference sequence.</dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h3 class="h4-definition" id="contextualallelereferencecoordinate">ContextualAllele.referenceCoordinate</h3>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The genetic loci of the allele.</dd>
+  <dt>Control</dt>
+  <dd>1</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualallelereferencecoordinateidentifier">ContextualAllele.referenceCoordinate.identifier</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The set of Identifiers used to name this ReferenceCoordinate. May be as simple as a set of one single Identifier distinguishing the ReferenceCoordinate in the implementing system, or may expansively include the name of all ReferenceCoordinates in all implementing systems.</dd>
+  <dt>Type</dt>
+  <dd>Identifier</dd>
+  <dt>Control</dt>
+  <dd>1..*</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualallelereferencecoordinatereferencesequence">ContextualAllele.referenceCoordinate.referenceSequence</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The <a href="/allele/resource/reference_sequence">ReferenceSequence</a> resource on which the ReferenceCoordinate (and, by extention, the ContextualAllele is mapped.</dd>
+  <dt>Type</dt>
+  <dd>ReferenceSequence</dd>
+  <dt>Control</dt>
+  <dd>1</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualallelereferencecoordinaterefallele">ContextualAllele.referenceCoordinate.refAllele</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The string of nucleotides or amino acids at this reference coordinate on the related reference genome. This is typically associated with the 'REF' value in a VCF representation of a variant.</dd>
+  <dt>Type</dt>
+  <dd>string</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualallelereferencecoordinateprimarytranscriptregiontype">ContextualAllele.referenceCoordinate.primaryTranscriptRegionType</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>One of the set of allowable <a href="/allele/implementation/value_set_list/primary_transcript_region_type.html">primary-transcript-region-types</a></dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualallelereferencecoordinateancillarytranscriptregiontype">ContextualAllele.referenceCoordinate.ancillaryTranscriptRegionType</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>One of the set of allowable <a href="/allele/implementation/value_set_list/ancillary_transcript_region_type.html">ancillary-transcript-region-types</a></dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualallelereferencecoordinatestart">ContextualAllele.referenceCoordinate.start</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The starting position of the reference coordinate. NOTE: The data model defines a <a href="/allele/coordinate_numbering.html">0-based coordinate numbering system</a> as described above.</dd>
+  <dt>Type</dt>
+  <dd>Position</dd>
+  <dt>Control</dt>
+  <dd>1</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualallelereferencecoordinateend">ContextualAllele.referenceCoordinate.end</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The end position of the reference coordinate. Note that the data model defines a 0-based coordinate system as described above.</dd>
+  <dt>Type</dt>
+  <dd>Position</dd>
+  <dt>Control</dt>
+  <dd>1</dd>
+</dl>
+
+<h4 class="h4-definition" id="position">Position</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>Information needed to locate one end of a ReferenceCoordinate.</dd>
+  <dt>Control</dt>
+  <dd>1..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="positionindex">Position.index</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>A zero-based position within the ReferenceCoordinate</dd>
+  <dt>Type</dt>
+  <dd>integer</dd>
+  <dt>Control</dt>
+  <dd>1..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="positionexternaloffsetlength">Position.externalOffsetLength</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The zero-based position of an intronic location as counted from the index attribute.</dd>
+  <dt>Type</dt>
+  <dd>integer</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="positionexternaloffsetdirection">Position.externalOffsetDirection</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The direction of the ReferenceCoordinate relative to the transcript coordinate.</dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="positionexternalgenomicreferencesequence">Position.externalGenomicReferenceSequence</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>For an intronic position in a ReferenceCoordinate defined on a transcript, the externalGenomicReferenceSequence is a genomic sequence to which the transcript is mapped.</dd>
+  <dt>Type</dt>
+  <dd>GenomicReferenceSequence</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="positionexternalgenomicpositionindex">Position.externalGenomicPositionIndex</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>For an intronic position in a ReferenceCoordinate defined on a transcript, the corresponding position on the defined externalGenomicReferenceSequence.</dd>
+  <dt>Type</dt>
+  <dd>integer</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h3 class="h4-definition" id="contextualalleleallelename">ContextualAllele.alleleName</h3>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>defintion</dt>
+  <dd>The name given to the allele by a naming organization (i.e. an HGVS expression)</dd>
+  <dt>Control</dt>
+  <dd>0..*</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualalleleallelenamenametype">ContextualAllele.alleleName.nameType</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>One of the set of allowable <a href="/allele/implementation/value_set_list/contextual_allele_name_type.html">contextual-allele-name-types</a></dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Control</dt>
+  <dd>1</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualalleleallelenamelegacy">ContextualAllele.alleleName.legacy</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>Flag set if the name is deprecated or no longer used in the relevant allele naming system. Default is false.</dd>
+  <dt>Type</dt>
+  <dd>boolean</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualalleleallelenamepreferred">ContextualAllele.alleleName.preferred</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>Flag set if the name is the preferred name for this allele in the implementing system.</dd>
+  <dt>Type</dt>
+  <dd>boolean</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h3 class="h4-definition" id="contextualallelerelated">ContextualAllele.related</h3>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>definition</dt>
+  <dd>Other, related contextual alleles, for example, the ContextualAllele that represents the amino acid change caused by a nucleotide contextual allele, and vice-versa.</dd>
+  <dt>Control</dt>
+  <dd>0..*</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualallelerelatedrelatedtype">ContextualAllele.related.relatedType</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>One of the allowable set of relationship types in <a href="/allele/implementation/value_set_list/contextual_allele_relationship_type.html">contextual-allele-relationship-type</a></dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Control</dt>
+  <dd>1</dd>
+</dl>
+
+<h4 class="h4-definition" id="contextualallelerelatedtarget">ContextualAllele.related.target</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The ContextualAllele described in the relationship.</dd>
+  <dt>Type</dt>
+  <dd>ContextualAllele</dd>
+  <dt>Control</dt>
+  <dd>1</dd>
+</dl>
+
+
+   <h2>Schema</h2>
+   <p>schema: <a href="../../main/resources/clingen-xsd/contextualallele.xsd">ContextualAllele.xsd</a></p>
+   <h2>Examples</h2>
+   <table class="table"><thead><tr><th>id</th><th>name</th></tr></thead><tbody><tr><td>AI301</td><td><a href="/allele/implementation/examples/AI301.html">AI301-NM_001014794.2-ILK-c.448+14A>G-b37</a></td><td><a href="../../main/resources/example-jsonld-nofhir/AI301.jsonld">json-ld</a></td><td><a href="/main/resources/example-xml/AI301-NM_001014794.2-ILK-c.448+14A&gt;G-b37.xml">xml</a></td><td><a href="/main/resources/example-json/AI301-NM_001014794.2-ILK-c.448+14A&gt;G-b37.json">json</a></td><tr><td>AI302</td><td><a href="/allele/implementation/examples/AI302.html">AI302-NM_001014794.2-ILK-c.448+13A>G-b38</a></td><td><a href="/main/resources/example-jsonld-nofhir/AI302-NM_001014794.2-ILK-c.448+13A&gt;G-b38.jsonld">json-ld</a></td><td><a href="/main/resources/example-xml/AI302-NM_001014794.2-ILK-c.448+13A&gt;G-b38.xml">xml</a></td><td><a href="/main/resources/example-json/AI302-NM_001014794.2-ILK-c.448+13A&gt;G-b38.json">json</a></td><tr><td>AI303</td><td><a href="/allele/implementation/examples/AI303.html">AI303-NC_000011.9-g.6630034A>G-b37</a></td><td><a href="/main/resources/example-xml/AI303-NC_000011.9-g.6630034A&gt;G-b37.xml">xml</a></td><td><a href="/main/resources/example-json/AI303-NC_000011.9-g.6630034A&gt;G-b37.json">json</a></td><tr><td>AI304</td><td><a href="/allele/implementation/examples/AI304.html">AI304-NC_000011.10-g.6608803A>G-b38</a></td><td><a href="/main/resources/example-xml/AI304-NC_000011.10-g.6608803A&gt;G-b38.xml">xml</a></td><td><a href="/main/resources/example-json/AI304-NC_000011.10-g.6608803A&gt;G-b38.json">json</a></td><tr><td>AI310</td><td><a href="/allele/implementation/examples/AI310.html">AI310-NM_007294.3-BRCA1-c.5297T>G</a></td><td><a href="/main/resources/example-xml/AI310-NM_007294.3-BRCA1-c.5297T&gt;G.xml">xml</a></td><td><a href="/main/resources/example-json/AI310-NM_007294.3-BRCA1-c.5297T&gt;G.json">json</a></td><tr><td>AI311</td><td><a href="/allele/implementation/examples/AI311.html">AI311-U14680.1-BRCA1-n.5416T>G</a></td><td><a href="/main/resources/example-xml/AI311-U14680.1-BRCA1-n.5416T&gt;G.xml">xml</a></td><td><a href="/main/resources/example-json/AI311-U14680.1-BRCA1-n.5416T&gt;G.json">json</a></td><tr><td>AI312</td><td><a href="/allele/implementation/examples/AI312.html">AI312-NP_009225.1-BRCA1-p.Ile1766Ser</a></td><td><a href="../../main/resources/example-xml/AI312-NP_009225.1-BRCA1-p.Ile1766Ser.xml">xml</a></td><td><a href="../../main/resources/example-json/AI312-NP_009225.1-BRCA1-p.Ile1766Ser.json">json</a></td><tr><td>AI313</td><td><a href="/allele/implementation/examples/AI313.html">AI313-NR_027676.1-BRCA1-n.5433T>G</a></td><td><a href="/main/resources/example-xml/AI313-NR_027676.1-BRCA1-n.5433T&gt;G.xml">xml</a></td><td><a href="/main/resources/example-json/AI313-NR_027676.1-BRCA1-n.5433T&gt;G.json">json</a></td><tr><td>AI314</td><td><a href="/allele/implementation/examples/AI314.html">AI314-NC_000017.10-g.41203115A>C-b37</a></td><td><a href="/main/resources/example-xml/AI314-NC_000017.10-g.41203115A&gt;C-b37.xml">xml</a></td><td><a href="/main/resources/example-json/AI314-NC_000017.10-g.41203115A&gt;C-b37.json">json</a></td><tr><td>AI315</td><td><a href="/allele/implementation/examples/AI315.html">AI315-NC_000017.11-g.43051098A>C-b38</a></td><td><a href="/main/resources/example-xml/AI315-NC_000017.11-g.43051098A&gt;C-b38.xml">xml</a></td><td><a href="/main/resources/example-json/AI315-NC_000017.11-g.43051098A&gt;C-b38.json">json</a></td><tr><td>AI316</td><td><a href="/allele/implementation/examples/AI316.html">AI316-NG_005905.2-BRCA1-g.166886T>G</a></td><td><a href="/main/resources/example-xml/AI316-NG_005905.2-BRCA1-g.166886T&gt;G.xml">xml</a></td><td><a href="/main/resources/example-json/AI316-NG_005905.2-BRCA1-g.166886T&gt;G.json">json</a></td><tr><td>AI317</td><td><a href="/allele/implementation/examples/AI317.html">AI317-LRG_292-BRCA1-g.166886T>G</a></td><td><a href="/main/resources/example-xml/AI317-LRG_292-BRCA1-g.166886T&gt;G.xml">xml</a></td><td><a href="/main/resources/example-json/AI317-LRG_292-BRCA1-g.166886T&gt;G.json">json</a></td><tr><td>AI318</td><td><a href="/allele/implementation/examples/AI318.html">AI318-LRG_292t1-BRCA1-c.5297T>G</a></td><td><a href="/main/resources/example-xml/AI318-LRG_292t1-BRCA1-c.5297T&gt;G.xml">xml</a></td><td><a href="/main/resources/example-json/AI318-LRG_292t1-BRCA1-c.5297T&gt;G.json">json</a></td><tr><td>AI319</td><td><a href="/allele/implementation/examples/AI319.html">AI319-LRG_292p1-BRCA1-p.Ile1766Ser</a></td><td><a href="../../main/resources/example-xml/AI319-LRG_292p1-BRCA1-p.Ile1766Ser.xml">xml</a></td><td><a href="../../main/resources/example-json/AI319-LRG_292p1-BRCA1-p.Ile1766Ser.json">json</a></td></tbody></table>
+
+      </article>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+         ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../javascripts/jquery.js"></script><script src="../../javascripts/bootstrap.js"></script>
+
+  </body>
+</html>

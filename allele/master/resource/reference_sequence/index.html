@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ReferenceSequence
+    </title>
+
+    <link href="../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../stylesheets/brand2.css" rel="stylesheet" />
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-49947422-3', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+
+  <body class="documentation">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header col-sm-4 col-md-3">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand " href="#">ClinGen Documentation</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="/">Home</a>
+              <!-- <a href="/">About</a> -->
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                Models
+                ::
+                <span class="glyphicon glyphicon-leaf"></span>Allele
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="allele" >
+                  <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
+                </li>
+                <li class="interpretation" >
+                  <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span>Interpretation</a></li>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >development release<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/allele/0.1/resource/reference_sequence/">0.1</a></li>
+                <li><a href="/allele/development/resource/reference_sequence/">development</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
+      <div class='col-sm-offset-4 col-md-offset-3'>
+        <ol class="breadcrumb bg-none margin-none">
+          <li><a href="../../">Allele Model</a></li>
+<li><a href="../">Resource Index</a></li>
+<li><a href="./">ReferenceSequence</a></li>
+
+        </ol>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 col-md-3 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class='nav-sidebar-title'>
+          <img width="438" height="108" alt="ClinGen Documentation" class="img-responsive" src="../../images/clingen-doc-logo.png" />
+          <!-- <img src="/images/clingen-doc-logo.png" width="438" height="108" alt="ClinGen Documentation" class="img-responsive"/> -->
+        </li>
+        <li><a href="#">Discussion</a></li>
+        <li><a href="../../implementation/">Implementation</a></li>
+        <li class="active"><a href="../">Resource</a></li><ul><li><a href="../canonical_allele/">CanonicalAllele</a></li><li><a href="../contextual_allele/">ContextualAllele</a></li><li><a href="../gene/">Gene</a></li><li><a href="../provenance/">Provenance</a></li><li class="active"><a href="./">ReferenceSequence</a></li></ul>
+        <li><a href="../../conceptual/">Conceptual</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+      <article>
+        <h1>ReferenceSequence</h1>
+        <hr class='col-sm-12' />
+           <h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>All alleles are described relative to a ReferenceSequence by way of the ContextualAllele.ReferenceCoordinate 
+<a href="../contextual_allele/">see ContextualAllele</a>. Both the ContextualAllele position (or coordinate) and sequence 
+at that postion are relative to the ReferenceSequence.</p>
+
+<p>The current version of the model was based on four specific types of conceptual reference sequences; 
+ChromosomeReferenceSequence, GeneReferenceSequence, TranscriptReferenceSequence and AminoAcidReferenceSequence.</p>
+
+<h2 id="resource-model">Resource Model</h2>
+
+<p><a href="../../images/ReferenceSequenceResource.svg"><img alt="ReferenceSequence Resource Diagram" class="img-responsive" src="../../images/ReferenceSequenceResource.svg" /></a></p>
+
+<p>Related Resources: <a href="/allele/resource/contextual_allele">ContextualAllele</a> &amp; <a href="/allele/resource/gene">Gene</a></p>
+
+<h2 id="notes">Notes</h2>
+
+<ul>
+  <li>This version of the ReferenceSequence resource only considers the related reference sequence associations 
+between amino acid and transcript reference sequences. This has constrained the scope of codes in the 
+<a href="/allele/implementation/value_set_list/reference_sequence_relationship_type.html">value set</a> for the 
+ReferenceSequence.related.relatedType attribute.</li>
+</ul>
+
+   <h2>Definitions &amp; Bindings</h2>
+   <script type="text/javascript">
+   function toggle_visibility(clazz) {
+      var hidername = clazz + '-hider'
+      var hider = document.getElementById(hidername);
+      if (hider) {
+         console.log('showing');
+         hider.parentNode.removeChild(hider);
+      } else {
+         console.log('hiding');
+         hider = document.createElement('style');
+         hider.id = hidername;
+         hider.innerHTML = "." + clazz + "{ display: none; }"
+         document.body.appendChild(hider);
+      }
+   }
+   toggle_visibility('context-requirement');
+   </script>
+   <button onclick="toggle_visibility('context-requirement');">Toggle requirements</button>
+
+   <h4 class="h4-definition" id="ReferenceSequence-definition">
+      ReferenceSequence
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>Stable, reliable, public consensus sequence of a portion of the genome against which alleles are aligned and described.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>1..1</dd><!-- Not sure why FHIR has Control of 1..1 for the top level resources, but mimic that here -->
+      <dt class="context-requirement">Requirements</dt>
+      <dd class="context-requirement"><p>For every ContextualAllele.ReferenceCoordinate there must be a corresponding reference sequence.</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="ReferenceSequence-identifier-definition">
+      ReferenceSequence.identifier
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>The versioned accession that can be used to uniquely identify the sequence in a public database. All users of reference sequences SHALL be sure of the identity of the reference sequence.  Often only one identifier will be used, but if more then one reference accession is used it's required to map the same sequence.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..*</dd>
+      <dt>Type</dt>
+      <dd><p>Identifier</p>
+</dd>
+      <dt class="context-requirement">Requirements</dt>
+      <dd class="context-requirement"><p>For <code>ReferenceSequence</code>, an identifier is valid unless the accession is withdrawn. If a new version 
+of a sequence is created, it will be given a different versioned accession, and therefore a different 
+identifier. In this case, the previous identifier is still valid: it can still be used to retrieve 
+the given sequence, even if that sequence is no longer the most recent sequence associated with a 
+given entity.</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="ReferenceSequence-referenceSequenceType-definition">
+      ReferenceSequence.referenceSequenceType
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>The type of reference sequence.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>1..1</dd>
+      <dt>Binding</dt>
+      <dd><p>ReferenceSequenceType: <a href="/allele/implementation/value_set_list/reference_sequence_type.html">reference-sequence-type</a>
+(Codes identifying kinds of reference sequences)</p>
+</dd>
+      <dt>Type</dt>
+      <dd><p>code</p>
+</dd>
+      <dt class="context-requirement">Requirements</dt>
+      <dd class="context-requirement"><p>Currently, the supported types are transcript, gene, chromosome and amino_acid (see Binding).</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="ReferenceSequence-chromosome-definition">
+      ReferenceSequence.chromosome
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>The chromosome to which the reference sequence is naturally bound.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..1</dd>
+      <dt>Binding</dt>
+      <dd><p>ReferenceSequenceChromosome: <a href="/allele/implementation/value_set_list/reference_sequence_chromosome.html">reference-sequence-chromosome</a> (Codes identifying human chromosomes.)</p>
+</dd>
+      <dt>Type</dt>
+      <dd><p>code</p>
+</dd>
+      <dt class="context-requirement">Requirements</dt>
+      <dd class="context-requirement"><p>This should be provided when the sequence represents a 'chromosome'.</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="ReferenceSequence-cdsStart-definition">
+      ReferenceSequence.cdsStart
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>The offset of the start of the coding region from the start of the reference sequence. This should be provided when the sequence represents a 'transcript'.</p>
+
+<p>NOTE: Unlike reference coordinates, this is a 1-based index representing the position of the nucleotide that starts the coding region.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..1</dd>
+      <dt>Type</dt>
+      <dd><p>integer</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="ReferenceSequence-cdsEnd-definition">
+      ReferenceSequence.cdsEnd
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>The offset of the end of the coding region from the start of the reference sequence. This should be provided when the sequence represents a 'transcript'.</p>
+
+<p>NOTE: Unlike reference coordinates, this is a 1-based index representing the position of the nucleotide that ends the coding region.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..1</dd>
+      <dt>Type</dt>
+      <dd><p>integer</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="ReferenceSequence-gene-definition">
+      ReferenceSequence.gene
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>Identifies the gene related to a 'gene' or 'transcript' reference sequence.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..1</dd>
+      <dt>Type</dt>
+      <dd><p>Resource(<a href="../gene/">Gene</a>)</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="ReferenceSequence-referenceGenome-definition">
+      ReferenceSequence.referenceGenome
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>The genome build in which the chromosomal reference sequence is referenced.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..1</dd>
+      <dt>Type</dt>
+      <dd><p>CodeableConcept</p>
+</dd>
+      <dt class="context-requirement">Requirements</dt>
+      <dd class="context-requirement"><p>The current version of the model does not provide for the same version of a chromosomal reference sequence to be associated with more than one reference genome build.</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="ReferenceSequence-related-definition">
+      ReferenceSequence.related
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>The relationship between a different reference sequence to provide additional context.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..1</dd>
+      <dt class="context-requirement">Requirements</dt>
+      <dd class="context-requirement"><p>The current version of the resource only defines relationship type terminology bindings 
+to support the relationship between transcript and amino acid reference sequences.</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="ReferenceSequence-related.relatedType-definition">
+      ReferenceSequence.related.relatedType
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>The type or relationship between an amino acid and transcript or vice versa.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..1</dd>
+      <dt>Binding</dt>
+      <dd><p>ReferenceSequenceRelationshipType: <a href="/allele/implementation/value_set_list/reference_sequence_relationship_type.html">reference-sequence-relationship-type</a> (Codes describing the relationships between ReferenceSequences)</p>
+</dd>
+      <dt>Type</dt>
+      <dd><p>code</p>
+</dd>
+   </dl>
+
+   <h4 class="h4-definition" id="ReferenceSequence-related.target-definition">
+      ReferenceSequence.related.target
+   </h4>
+
+   <dl class="dl-horizontal dl-definition">
+      <dt>Definition</dt>
+      <dd><p>The target reference sequence for the specified related.relatedType.</p>
+</dd>
+      <dt>Control</dt>
+      <dd>0..1</dd>
+      <dt>Type</dt>
+      <dd><p>Resource(<a href="./">ReferenceSequence</a>)</p>
+</dd>
+   </dl>
+
+
+   <h2>Schema</h2>
+   <p>schema: <a href="../../main/resources/clingen-xsd/referencesequence.xsd">ReferenceSequence.xsd</a></p>
+   <h2>Examples</h2>
+   <table class="table"><thead><tr><th>id</th><th>name</th></tr></thead><tbody><tr><td>RS201</td><td><a href="/allele/implementation/examples/RS201.html">RS201-NM_001014794.2-ILK</a></td><td><a href="../../main/resources/example-jsonld-nofhir/RS201-NM_001014794.2-ILK.jsonld">json-ld</a></td><td><a href="../../main/resources/example-xml/RS201-NM_001014794.2-ILK.xml">xml</a></td><td><a href="../../main/resources/example-json/RS201-NM_001014794.2-ILK.json">json</a></td><tr><td>RS202</td><td><a href="/allele/implementation/examples/RS202.html">RS202-NC_000011.9-b37</a></td><td><a href="../../main/resources/example-jsonld-nofhir/RS202-NC_000011.9-b37.jsonld">json-ld</a></td><td><a href="../../main/resources/example-xml/RS202-NC_000011.9-b37.xml">xml</a></td><td><a href="../../main/resources/example-json/RS202-NC_000011.9-b37.json">json</a></td><tr><td>RS203</td><td><a href="/allele/implementation/examples/RS203.html">RS203-NC_000011.10-b38</a></td><td><a href="../../main/resources/example-jsonld-nofhir/RS202-NC_000011.9-b37.jsonld">json-ld</a></td><td><a href="../../main/resources/example-xml/RS203-NC_000011.10-b38.xml">xml</a></td><td><a href="../../main/resources/example-json/RS203-NC_000011.10-b38.json">json</a></td><tr><td>RS210</td><td><a href="/allele/implementation/examples/RS210.html">RS210-NC_000017.11-b38</a></td><td><a href="../../main/resources/example-xml/RS210-NC_000017.11-b38.xml">xml</a></td><td><a href="../../main/resources/example-json/RS210-NC_000017.11-b38.json">json</a></td><tr><td>RS211</td><td><a href="/allele/implementation/examples/RS211.html">RS211-NC_000017.10-b37</a></td><td><a href="../../main/resources/example-xml/RS211-NC_000017.10-b37.xml">xml</a></td><td><a href="../../main/resources/example-json/RS211-NC_000017.10-b37.json">json</a></td><tr><td>RS212</td><td><a href="/allele/implementation/examples/RS212.html">RS212-NG_005905.2-BRCA1</a></td><td><a href="../../main/resources/example-xml/RS212-NG_005905.2-BRCA1.xml">xml</a></td><td><a href="../../main/resources/example-json/RS212-NG_005905.2-BRCA1.json">json</a></td><tr><td>RS213</td><td><a href="/allele/implementation/examples/RS213.html">RS213-NM_007294.3-BRCA1</a></td><td><a href="../../main/resources/example-xml/RS213-NM_007294.3-BRCA1.xml">xml</a></td><td><a href="../../main/resources/example-json/RS213-NM_007294.3-BRCA1.json">json</a></td><tr><td>RS214</td><td><a href="/allele/implementation/examples/RS214.html">RS214-NP_009225.1-BRCA1</a></td><td><a href="../../main/resources/example-xml/RS214-NP_009225.1-BRCA1.xml">xml</a></td><td><a href="../../main/resources/example-json/RS214-NP_009225.1-BRCA1.json">json</a></td><tr><td>RS215</td><td><a href="/allele/implementation/examples/RS215.html">RS215-U14680.1-BRCA1</a></td><td><a href="../../main/resources/example-xml/RS215-U14680.1-BRCA1.xml">xml</a></td><td><a href="../../main/resources/example-json/RS215-U14680.1-BRCA1.json">json</a></td><tr><td>RS216</td><td><a href="/allele/implementation/examples/RS216.html">RS216-LRG_292p1-BRCA1</a></td><td><a href="../../main/resources/example-xml/RS216-LRG_292p1-BRCA1.xml">xml</a></td><td><a href="../../main/resources/example-json/RS216-LRG_292p1-BRCA1.json">json</a></td><tr><td>RS217</td><td><a href="/allele/implementation/examples/RS217.html">RS217-LRG_292t1-BRCA1</a></td><td><a href="../../main/resources/example-xml/RS217-LRG_292t1-BRCA1.xml">xml</a></td><td><a href="../../main/resources/example-json/RS217-LRG_292t1-BRCA1.json">json</a></td><tr><td>RS218</td><td><a href="/allele/implementation/examples/RS218.html">RS218-LRG_292-BRCA1</a></td><td><a href="../../main/resources/example-xml/RS218-LRG_292-BRCA1.xml">xml</a></td><td><a href="../../main/resources/example-json/RS218-LRG_292-BRCA1.json">json</a></td></tbody></table>
+
+      </article>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+         ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../javascripts/jquery.js"></script><script src="../../javascripts/bootstrap.js"></script>
+
+  </body>
+</html>

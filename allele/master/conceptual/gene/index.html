@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      Gene
+    </title>
+
+    <link href="../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../stylesheets/brand2.css" rel="stylesheet" />
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-49947422-3', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+
+  <body class="documentation">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header col-sm-4 col-md-3">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand " href="#">ClinGen Documentation</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="/">Home</a>
+              <!-- <a href="/">About</a> -->
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                Models
+                ::
+                <span class="glyphicon glyphicon-leaf"></span>Allele
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="allele" >
+                  <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
+                </li>
+                <li class="interpretation" >
+                  <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span>Interpretation</a></li>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >development release<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/allele/0.1/conceptual/gene/">0.1</a></li>
+                <li><a href="/allele/development/conceptual/gene/">development</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
+      <div class='col-sm-offset-4 col-md-offset-3'>
+        <ol class="breadcrumb bg-none margin-none">
+          <li><a href="../../">Allele Model</a></li>
+<li><a href="../">Conceptual</a></li>
+<li><a href="./">Gene</a></li>
+
+        </ol>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 col-md-3 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class='nav-sidebar-title'>
+          <img width="438" height="108" alt="ClinGen Documentation" class="img-responsive" src="../../images/clingen-doc-logo.png" />
+          <!-- <img src="/images/clingen-doc-logo.png" width="438" height="108" alt="ClinGen Documentation" class="img-responsive"/> -->
+        </li>
+        <li><a href="#">Discussion</a></li>
+        <li><a href="../../implementation/">Implementation</a></li>
+        <li><a href="../../resource/">Resource</a></li>
+        <li class="active"><a href="../">Conceptual</a></li><ul><li><a href="../canonical_allele/">CanonicalAllele</a></li><li><a href="../contextual_allele/">ContextualAllele</a></li><li class="active"><a href="./">Gene</a></li><li><a href="../provenance/">Provenance</a></li><li><a href="../reference_sequence/">ReferenceSequence</a></li></ul>
+      </ul>
+    </div>
+    <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+      <article>
+        <h1>Gene</h1>
+        <hr class='col-sm-12' />
+           <h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>Included under this definition of gene are:</p>
+
+<ul>
+  <li>Protein coding genes</li>
+  <li>Pseudogenes</li>
+  <li>Non-Coding RNA sequences</li>
+  <li>Computationally Predicted Genes</li>
+</ul>
+
+<p>There is no guarantee that a gene is ever transcribed, such as some computationally predicted genes or pseudogenes.   Furthermore, many genes are untranslated.</p>
+
+<p>The assignment of names, and the association of <a href="../reference_sequence/transcript_reference_sequence.html">TranscriptReferenceSequences</a> must be performed by a recognized public group such as NCBI or HGNC.  Note that different agencies may be responsible for names and for associations with sequences.</p>
+
+<h2 id="exclusions-and-limitations">Exclusions and Limitations</h2>
+
+<p>The Identifiers in Gene are used to track the symbols granted by agencies such as HGNC.  However, the long-form name is not similarly tracked.  Instead a single name is chosen for the Gene, and that name is not guaranteed to either be fixed over time, or to be chosen from one of the names provided by an agency.</p>
+
+<h2 id="conceptual-model">Conceptual Model</h2>
+
+<p><a href="../../images/GeneConceptual.svg"><img alt="Gene Conceptual Diagram" class="img-responsive" src="../../images/GeneConceptual.svg" /></a></p>
+
+<p>Resource Model: <a href="/allele/resource/gene/index.html#resource-model">Gene</a></p>
+
+<h2 id="attributes">Attributes</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Attribute Name</th>
+      <th>Attribute Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>identifier</td>
+      <td>Identifier[]</td>
+    </tr>
+    <tr>
+      <td>symbol</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>String</td>
+    </tr>
+    <tr>
+      <td>aliasSymbol</td>
+      <td>String[]</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The identifier attribute contains an array of Identifier entities. Each Identifier is given for each symbol granted to the gene by a naming entity.  If a naming agency withdraws a name, the period attribute of the Identifier is given a end value of the date of withdrawl.  This signifies that the Identifier is not valid.</p>
+
+<p>symbol: The human-readable symbol for the gene used in the implementing system.  Note that this symbol is not fixed; the implementing system may change the symbol of a particular gene.  Typically, the symbol for a gene will be one of the symbols granted by a naming agency.  The implementing system should be consistent, and chose a naming agency from which to pick symbols.  At any given time, an officialSymbol should be unique in the implementing system.</p>
+
+<p>name: The human-readable name for a gene.  Note that the name is not fixed; the implementing system may change the name of a particular gene.  Typically, the name for a gene will be one of the names granted by a naming agency.  The implementing system should be consistent, and chose a single naming agency from which to pick symbols.</p>
+
+<p>aliasSymbol: A list of Strings that contain other symbols that may or may have been used to refer to this gene.  A useful set of values would include symbols from identifiers other than the one chosen for officialSymbol, as well as any previous values of officialSymbol used in the implementing system.  There is no guarantee that an alias symbol will not be an aliasSymbol or officialSymbol of another gene.</p>
+
+<h2 id="related-entities">Related Entities</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Relation Name</th>
+      <th>Entity Type</th>
+      <th>Cardinality</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>hasTranscript</td>
+      <td><a href="../reference_sequence/transcript_reference_sequence.html">TranscriptReferenceSequence</a></td>
+      <td>1..*</td>
+    </tr>
+    <tr>
+      <td>hasGeneSequence</td>
+      <td><a href="../reference_sequence/gene_reference_sequence.html">GeneReferenceSequence</a></td>
+      <td>0..*</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>hasTranscript:   Each gene must have at least one transcript; it may have more than one because of alternate splicing or different transcripts being created by differing groups such as NCBI and Ensembl.</p>
+
+<p>hasGeneSequence:  Each gene may have an associated gene sequence, such as those from LRG or RefSeqGene</p>
+
+
+      </article>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+         ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../javascripts/jquery.js"></script><script src="../../javascripts/bootstrap.js"></script>
+
+  </body>
+</html>

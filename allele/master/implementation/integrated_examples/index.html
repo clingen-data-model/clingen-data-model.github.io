@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      Integrated Examples
+    </title>
+
+    <link href="../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../stylesheets/brand2.css" rel="stylesheet" />
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-49947422-3', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+
+  <body class="documentation">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header col-sm-4 col-md-3">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand " href="#">ClinGen Documentation</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="/">Home</a>
+              <!-- <a href="/">About</a> -->
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                Models
+                ::
+                <span class="glyphicon glyphicon-leaf"></span>Allele
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="allele" >
+                  <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
+                </li>
+                <li class="interpretation" >
+                  <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span>Interpretation</a></li>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >development release<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/allele/0.1/implementation/integrated_examples/">0.1</a></li>
+                <li><a href="/allele/development/implementation/integrated_examples/">development</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
+      <div class='col-sm-offset-4 col-md-offset-3'>
+        <ol class="breadcrumb bg-none margin-none">
+          <li><a href="../../">Allele Model</a></li>
+<li><a href="../">Allele implementation</a></li>
+<li><a href="./">Integrated Examples</a></li>
+
+        </ol>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 col-md-3 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class='nav-sidebar-title'>
+          <img width="438" height="108" alt="ClinGen Documentation" class="img-responsive" src="../../images/clingen-doc-logo.png" />
+          <!-- <img src="/images/clingen-doc-logo.png" width="438" height="108" alt="ClinGen Documentation" class="img-responsive"/> -->
+        </li>
+        <li><a href="#">Discussion</a></li>
+        <li class="active"><a href="../">Implementation</a></li><ul><li><a href="../applications/">Allele Registry</a></li><li><a href="../examples/">Examples</a></li><li class="active"><a href="./">Integrated Examples</a></li><ul><li><a href="scenario_group_1.html">I. Basic Nucleotide & Amino Acid Alleles</a></li>
+<li><a href="scenario_group_2.html">II. Coordinate Numbering Disparities</a></li>
+<li><a href="scenario_group_3.html">III. Deletion/Insertion/Duplication/Frameshift Alleles</a></li>
+<li><a href="scenario_group_4.html">IV. Complex Alleles</a></li>
+</ul><li><a href="../value_set_list/">Value Set List</a></li></ul>
+        <li><a href="../../resource/">Resource</a></li>
+        <li><a href="../../conceptual/">Conceptual</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+      <article>
+        <h1>Integrated Examples</h1>
+        <hr class='col-sm-12' />
+        <h2 id="introduction">Introduction</h2>
+
+<p>When creating a central repository for genomic variants, it is critical to ensure that any representation of the same allele be recognized as such. An allele may be represented multiple ways for a variety of reasons such as use of historical versus standardized nomenclature or use of different reference sequences.  The ClinGen Allele Data Model v0.1 addresses this by tying all representation of an allele, referred to as <a href="/allele/resource/contextual_allele/index.html">contextual alleles</a>, to a single identifier, referred to as the <a href="/allele/resource/canonical_allele/index.html">CanonicalAllele</a>.</p>
+
+<p>In practice, a clinician may review a genetic test report for Gaucher disease which describes a variant in the GBA gene, c.1226A&gt;G (N409S), using the standardized description in Human Genome Variation Society (HGVS) nomenclature. Historically, and throughout the literature however, this allele was referred to as N370S.  If the clinician makes this connection, he or she will use N409S and N370S interchangeably as they search literature or variant databases for information on this variant. However, making this connection between representations of the same allele is often not straightforward.  Therefore, a consistent method for doing so is needed.  For this reason, the ClinGen Allele Data Model v0.1 instituted the <a href="/allele/resource/canonical_allele/index.html">CanonicalAllele</a> to serve as the connection between different representations of the same allele.</p>
+
+<p>The CanonicalAllele is especially important in the course of variant curation. When evidence is gathered on an allele, it will be collected from multiple sources - literature, laboratory data, variant databases, patient test reports etc. It is imperative to extract data on any contextual allele to ensure that all data on a single allele is aggregated appropriately under a CanonicalAllele.</p>
+
+<p>The following examples outline scenarios which highlight the value of a CanonicalAllele.</p>
+
+<h2 id="example-scenarios">Example Scenarios</h2>
+
+<p>I. <a href="scenario_group_1.html">Basic Nucleotide &amp; Amino Acid Alleles</a></p>
+
+<p>Several examples of baseline use cases that demonstrate the fundamental approaches to representing both nucleotide and amino acid contextual alleles. In addition, these examples highlight the many names and representations for a single "canonical" allele and how alternate reference coordinates along with their underlying reference sequences can create a very different set of representations.</p>
+
+<p>II. <a href="scenario_group_2.html">Coordinate Numbering Disparities</a></p>
+
+<p>Genetic testing processes use a number of tools to align and call variants. In addition, other sources such as, downstream applications, literature curation, manufacturer's test kits, etc. may end up driving the final representation of the called variant.  All of these sources stem from some reference sequence. The reference sequences versions and sources can contain changes that have subtle but potentially significant impact on the coordinate portion of the represented allele.  These examples highlight several cases that may occur and how they would be organized in the allele model.</p>
+
+<p>III. <a href="scenario_group_3.html">Frameshift Alleles</a></p>
+
+<p>Here are several examples of frameshifting alleles and discussion about the various ways the underlying nucleotide changes relate.</p>
+
+<p>IV. <a href="scenario_group_4.html">Complex Alleles</a></p>
+
+<p>These complex allele scenarios demonstrate the basic design behind the idea of organizing multiple contextual alleles on the same copy of a chromosome as a single canonical allele concept. The most prevelant scenario whereby this concept is used is in the area of pharmacogenetics, specifically, the start allele representation.  Several examples of star alleles are provided for examination.</p>
+
+      </article>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+         ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../javascripts/jquery.js"></script><script src="../../javascripts/bootstrap.js"></script>
+
+  </body>
+</html>
