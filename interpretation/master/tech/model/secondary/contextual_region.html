@@ -174,10 +174,25 @@
     <h2>Examples</h2>
     <div id="example_view"></div>
     <script>
-        run_on_load = function () {return $("#example_view").JSONView(
+window.addEventListener('load', function () {
+    var view = $("#example_view").JSONView(
           {"CtxReg001":{"cg:id":"CtxReg001","cg:type":"ContextualRegion","referenceSequence":{"cg:id":"RefSeq002","cg:type":"ReferenceSequence","identifier":"NP_005219.2"},"start":704,"stop":1016},"CtxReg002":{"cg:id":"CtxReg002","cg:type":"ContextualRegion","referenceSequence":{"cg:id":"RefSeq003","cg:type":"ReferenceSequence","identifier":"NM_004333.4"},"start":1803,"stop":1921},"CtxReg003":{"cg:id":"CtxReg003","cg:type":"ContextualRegion","referenceSequence":{"cg:id":"RefSeq004","cg:type":"ReferenceSequence","identifier":"NM_000169.2"},"start":996,"stop":1012},"CtxReg004":{"cg:id":"CtxReg004","cg:type":"ContextualRegion","referenceSequence":{"cg:id":"RefSeq005","cg:type":"ReferenceSequence","identifier":"NP_001360.1"},"start":2490,"stop":2496},"CtxReg005":{"cg:id":"CtxReg005","cg:type":"ContextualRegion","referenceSequence":{"cg:id":"RefSeq006","cg:type":"ReferenceSequence","identifier":"NP_056375.2"},"start":35,"stop":43},"CtxReg006":{"cg:id":"CtxReg006","cg:type":"ContextualRegion","referenceSequence":{"cg:id":"RefSeq007","cg:type":"ReferenceSequence","identifier":"NP_003915.2"},"start":241,"stop":260},"CtxReg007":{"cg:id":"CtxReg007","cg:type":"ContextualRegion","referenceSequence":{"cg:id":"RefSeq008","cg:type":"ReferenceSequence","identifier":"NM_001271208.1"},"start":154,"stop":183},"CtxReg008":{"cg:id":"CtxReg008","cg:type":"ContextualRegion","referenceSequence":{"cg:id":"RefSeq009","cg:type":"ReferenceSequence","identifier":"NM_133378.4"},"start":6509,"stop":39262},"CtxReg009":{"cg:id":"CtxReg009","cg:type":"ContextualRegion","referenceSequence":{"cg:id":"RefSeq010","cg:type":"ReferenceSequence","identifier":"NM_147196.2"},"start":522,"stop":548}},
           { collapsed: true }
-        )}
+    )
+
+    var fix_ellipses = function () {
+        $('#example_view ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
+            $(this).html('<em>' + $(this).next('ul').find('a:contains("cg:id")').next('.string')[0].innerText + ', …</em>')
+        })
+
+        $('#example_view ul.array').each(function () {
+            $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+        })
+    }
+    fix_ellipses()
+    $('#example_view .collapser').click(fix_ellipses)
+    $('#example_view .collapser').next('a.prop').click(fix_ellipses)
+})
     </script>
 
 
@@ -189,7 +204,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../javascripts/jquery.js"></script><script src="../../../javascripts/bootstrap.js"></script><script src="../../../javascripts/jquery.jsonview.js"></script><script src="../../../javascripts/run-run_on_load.js"></script>
+    <script src="../../../javascripts/jquery.js"></script><script src="../../../javascripts/bootstrap.js"></script><script src="../../../javascripts/jquery.jsonview.js"></script>
 
   </body>
 </html>

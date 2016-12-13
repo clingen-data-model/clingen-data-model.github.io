@@ -190,10 +190,25 @@
     <h2>Examples</h2>
     <div id="example_view"></div>
     <script>
-        run_on_load = function () {return $("#example_view").JSONView(
+window.addEventListener('load', function () {
+    var view = $("#example_view").JSONView(
           {"DeNovo014":{"cg:id":"DeNovo014","cg:type":"DeNovoAllele","explanation":"parentage confirmed via haplotyping.","canonicalAllele":{"cg:id":"CanAll014","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll017","identifier":"http://reg.genome.network/allele/CA016441"},"individual":{"cg:id":"Indiv001","cg:type":"Individual","description":"individual #001"},"maternityConfirmed":true,"paternityConfirmed":true},"DeNovo017":{"cg:id":"DeNovo017","cg:type":"DeNovoAllele","explanation":"Non-paternity was excluded by assessment with microsatellites","canonicalAllele":{"cg:id":"CanAll015","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll018","identifier":"http://reg.genome.network/allele/CA257646"},"individual":{"cg:id":"Indiv002","cg:type":"Individual","description":"individual #002"},"maternityConfirmed":true,"paternityConfirmed":true},"DeNovo020":{"cg:id":"DeNovo020","cg:type":"DeNovoAllele","explanation":"Variant from trio WES, which confirmed parentage","canonicalAllele":{"cg:id":"CanAll016","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll019"},"individual":{"cg:id":"Indiv003","cg:type":"Individual","description":"individual #003"},"maternityConfirmed":true,"paternityConfirmed":true},"DeNovo087":{"cg:id":"DeNovo087","cg:type":"DeNovoAllele","explanation":"parentage confirmation not mentioned in the source article","canonicalAllele":{"cg:id":"CanAll059","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll063","identifier":"http://reg.genome.network/allele/CA090951"},"individual":{"cg:id":"Ind007"},"maternityConfirmed":true,"paternityConfirmed":true},"DeNovo088":{"cg:id":"DeNovo088","cg:type":"DeNovoAllele","explanation":"parentage confirmation not mentioned in the source article","canonicalAllele":{"cg:id":"CanAll059","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll063","identifier":"http://reg.genome.network/allele/CA090951"},"individual":{"cg:id":"Ind008"},"maternityConfirmed":true,"paternityConfirmed":true},"DeNovo091":{"cg:id":"DeNovo091","cg:type":"DeNovoAllele","explanation":"parentage confirmation not mentioned in the source article","canonicalAllele":{"cg:id":"CanAll060","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll064","identifier":"http://reg.genome.network/allele/CA279966"},"individual":{"cg:id":"Ind009"},"maternityConfirmed":true,"paternityConfirmed":true},"DeNovo094":{"cg:id":"DeNovo094","cg:type":"DeNovoAllele","canonicalAllele":{"cg:id":"CanAll061","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll065","identifier":"http://reg.genome.network/allele/CA279976"},"individual":{"cg:id":"Ind010"},"maternityConfirmed":true,"paternityConfirmed":true},"DeNovo097":{"cg:id":"DeNovo097","cg:type":"DeNovoAllele","canonicalAllele":{"cg:id":"CanAll061","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll065","identifier":"http://reg.genome.network/allele/CA279976"},"individual":{"cg:id":"Ind011"},"maternityConfirmed":true,"paternityConfirmed":true},"DeNovo100":{"cg:id":"DeNovo100","cg:type":"DeNovoAllele","canonicalAllele":{"cg:id":"CanAll061","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll065","identifier":"http://reg.genome.network/allele/CA279976"},"individual":{"cg:id":"Ind012"},"maternityConfirmed":true,"paternityConfirmed":true}},
           { collapsed: true }
-        )}
+    )
+
+    var fix_ellipses = function () {
+        $('#example_view ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
+            $(this).html('<em>' + $(this).next('ul').find('a:contains("cg:id")').next('.string')[0].innerText + ', …</em>')
+        })
+
+        $('#example_view ul.array').each(function () {
+            $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+        })
+    }
+    fix_ellipses()
+    $('#example_view .collapser').click(fix_ellipses)
+    $('#example_view .collapser').next('a.prop').click(fix_ellipses)
+})
     </script>
 
 
@@ -205,7 +220,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script><script src="../../../../javascripts/run-run_on_load.js"></script>
+    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script>
 
   </body>
 </html>

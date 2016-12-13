@@ -215,10 +215,25 @@
     <h2>Examples</h2>
     <div id="example_view"></div>
     <script>
-        run_on_load = function () {return $("#example_view").JSONView(
+window.addEventListener('load', function () {
+    var view = $("#example_view").JSONView(
           {"CondMech002":{"cg:id":"CondMech002","cg:type":"ConditionMechanism","explanation":"HNRNPU is not associated with any conditions, and therefore LOF is not an established mechanism of any condition for this gene.","mechanism":"SO:0002054","established":true,"gene":{"cg:id":"G001","cg:type":"Gene","symbol":"HNRNPU"}},"CondMech004":{"cg:id":"CondMech004","cg:type":"ConditionMechanism","explanation":"This is so well-known that it does not require a citation.","mechanism":"SO:0002054","established":true,"gene":{"cg:id":"G002","cg:type":"Gene","symbol":"BRCA2"},"condition":{"cg:id":"Cond001","cg:type":"Condition","name":"Breast Ovarian Cancer","code":"D061325"}},"CondMech007":{"cg:id":"CondMech007","cg:type":"ConditionMechanism","mechanism":"SO:0002054","established":true,"gene":{"cg:id":"G003","cg:type":"Gene","symbol":"TTN"},"condition":{"cg:id":"Cond002","cg:type":"Condition","name":"Dilated Cardiomyopathy","code":"217604"}},"CondMech118":{"cg:id":"CondMech118","cg:type":"ConditionMechanism","explanation":"Of 178 pathogenic  alleles in ClinVar, 149 are missense.","mechanism":"SO:0001583","common":true,"gene":{"cg:id":"G008","cg:type":"Gene","symbol":"MYH7"}},"CondMech199":{"cg:id":"CondMech199","cg:type":"ConditionMechanism","explanation":"ClinVar shows 421 variants in BRCA2 that are pathogenic for HBOC. 402 of these (~95%) are frameshift, nonsense, or splice-site variants.","mechanism":"SO:0002054","primary":true,"gene":{"cg:id":"G002","cg:type":"Gene","symbol":"BRCA2"},"condition":{"cg:id":"Cond034","cg:type":"Condition","name":"macrocephaly","code":"0000256"}},"CondMech200":{"cg:id":"CondMech200","cg:type":"ConditionMechanism","explanation":"ClinVar shows 61 variants in BRCA2 that are pathogenic for Fanconi Anemia. 55 of these (~90%) are frameshift, nonsense, or splice-site variants.","mechanism":"SO:0002054","primary":true,"gene":{"cg:id":"G002","cg:type":"Gene","symbol":"BRCA2"},"condition":{"cg:id":"Cond035","cg:type":"Condition","name":"Familial Hypercholesterolemia","code":"D006938"}},"CondMech202":{"cg:id":"CondMech202","cg:type":"ConditionMechanism","explanation":"shown in both humans and mouse models","mechanism":"SO:0002054","primary":true,"gene":{"cg:id":"G048","cg:type":"Gene","symbol":"LOXHD1"},"condition":{"cg:id":"Cond010","cg:type":"Condition","name":"Hearing Loss","code":"87884"}},"CondMech204":{"cg:id":"CondMech204","cg:type":"ConditionMechanism","mechanism":"SO:0002054","primary":true,"gene":{"cg:id":"G003","cg:type":"Gene","symbol":"TTN"},"condition":{"cg:id":"Cond002","cg:type":"Condition","name":"Dilated Cardiomyopathy","code":"217604"}},"CondMech205":{"cg:id":"CondMech205","cg:type":"ConditionMechanism","explanation":"Truncating variants in TTN are associated with DCM. However, if missense variants are located in the A-band, impact the A-band, or are in a highly expressed region, they can also be associated with DCM.","mechanism":"SO:0001583","established":true,"primary":true,"gene":{"cg:id":"G003","cg:type":"Gene","symbol":"TTN"},"condition":{"cg:id":"Cond002","cg:type":"Condition","name":"Dilated Cardiomyopathy","code":"217604"}}},
           { collapsed: true }
-        )}
+    )
+
+    var fix_ellipses = function () {
+        $('#example_view ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
+            $(this).html('<em>' + $(this).next('ul').find('a:contains("cg:id")').next('.string')[0].innerText + ', …</em>')
+        })
+
+        $('#example_view ul.array').each(function () {
+            $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+        })
+    }
+    fix_ellipses()
+    $('#example_view .collapser').click(fix_ellipses)
+    $('#example_view .collapser').next('a.prop').click(fix_ellipses)
+})
     </script>
 
 
@@ -230,7 +245,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script><script src="../../../../javascripts/run-run_on_load.js"></script>
+    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script>
 
   </body>
 </html>

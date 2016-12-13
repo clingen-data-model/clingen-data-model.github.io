@@ -186,10 +186,25 @@
     <h2>Examples</h2>
     <div id="example_view"></div>
     <script>
-        run_on_load = function () {return $("#example_view").JSONView(
+window.addEventListener('load', function () {
+    var view = $("#example_view").JSONView(
           {"CondEtiol148":{"cg:id":"CondEtiol148","cg:type":"ConditionEtiology","explanation":"HHT type 1 is only known to be caused by variants in ENG -","condition":{"cg:id":"Cond022","cg:type":"Condition","name":"Hereditary Hemorrhagic Telangiectasia Type 1","code":"774"},"gene":{"cg:id":"G035","cg:type":"Gene","symbol":"ENG"},"specificity":"complete"},"CondEtiol149":{"cg:id":"CondEtiol149","cg:type":"ConditionEtiology","explanation":"1.Only ~50% of HCM is genetic (can be caused by environment) \n2. More than 10 genes can cause HCM (specifically 9 sarcomere genes)","condition":{"cg:id":"Cond020","cg:type":"Condition","name":"Hypertrophic Cardiomyopathy","code":"217569"},"gene":{"cg:id":"G008","cg:type":"Gene","symbol":"MYH7"},"specificity":"low"}},
           { collapsed: true }
-        )}
+    )
+
+    var fix_ellipses = function () {
+        $('#example_view ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
+            $(this).html('<em>' + $(this).next('ul').find('a:contains("cg:id")').next('.string')[0].innerText + ', …</em>')
+        })
+
+        $('#example_view ul.array').each(function () {
+            $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+        })
+    }
+    fix_ellipses()
+    $('#example_view .collapser').click(fix_ellipses)
+    $('#example_view .collapser').next('a.prop').click(fix_ellipses)
+})
     </script>
 
 
@@ -201,7 +216,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script><script src="../../../../javascripts/run-run_on_load.js"></script>
+    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script>
 
   </body>
 </html>

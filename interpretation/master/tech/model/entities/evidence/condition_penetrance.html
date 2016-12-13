@@ -178,10 +178,25 @@
     <h2>Examples</h2>
     <div id="example_view"></div>
     <script>
-        run_on_load = function () {return $("#example_view").JSONView(
+window.addEventListener('load', function () {
+    var view = $("#example_view").JSONView(
           {"CondPenet160":{"cg:id":"CondPenet160","cg:type":"ConditionPenetrance","condition":{"cg:id":"Cond028","cg:type":"Condition","name":"Perrault Syndrome","code":"2855"},"penetrance":"CG:high"},"CondPenet164":{"cg:id":"CondPenet164","cg:type":"ConditionPenetrance","condition":{"cg:id":"Cond027","cg:type":"Condition","name":"Mitochondrial complex 1 deficiency","code":"2609"},"penetrance":"CG:high"},"CondPenet168":{"cg:id":"CondPenet168","cg:type":"ConditionPenetrance","condition":{"cg:id":"Cond028","cg:type":"Condition","name":"Perrault Syndrome","code":"2855"},"penetrance":"CG:high"},"CondPenet170":{"cg:id":"CondPenet170","cg:type":"ConditionPenetrance","explanation":"The evidence for full penetrance is not great, due to the rarity of the disease, but the fact that it's diagnosed at a young age and majority of cases are de novo is suggestive","condition":{"cg:id":"Cond031","cg:type":"Condition","name":"Pendred syndrome","code":"705"},"penetrance":"CG:complete"},"CondPenet176":{"cg:id":"CondPenet176","cg:type":"ConditionPenetrance","explanation":"the disease manifests as hundreds of colorectal ademonas during adolescence. This can progress to colorectal cancer later in life, but the adenomas manifest early.","condition":{"cg:id":"Cond030","cg:type":"Condition","name":"Familial Adenomatous Polyposis","code":"733"},"penetrance":"CG:complete"},"CondPenet186":{"cg:id":"CondPenet186","cg:type":"ConditionPenetrance","explanation":"Marfan syndrome involves a range of skeletal features that should be identifiable at birth, if not during adolescence. The ocular and cardiovascular aspects may manifest later. 1/4 of mutations are de novo.","condition":{"cg:id":"Cond026","cg:type":"Condition","name":"Marfan Syndrome","code":"558"},"penetrance":"CG:complete"},"CondPenet218":{"cg:id":"CondPenet218","cg:type":"ConditionPenetrance","condition":{"cg:id":"Cond007","cg:type":"Condition","name":"Cardiomyopathy","code":"167848"},"penetrance":"CG:incomplete"}},
           { collapsed: true }
-        )}
+    )
+
+    var fix_ellipses = function () {
+        $('#example_view ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
+            $(this).html('<em>' + $(this).next('ul').find('a:contains("cg:id")').next('.string')[0].innerText + ', …</em>')
+        })
+
+        $('#example_view ul.array').each(function () {
+            $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+        })
+    }
+    fix_ellipses()
+    $('#example_view .collapser').click(fix_ellipses)
+    $('#example_view .collapser').next('a.prop').click(fix_ellipses)
+})
     </script>
 
 
@@ -193,7 +208,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script><script src="../../../../javascripts/run-run_on_load.js"></script>
+    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script>
 
   </body>
 </html>

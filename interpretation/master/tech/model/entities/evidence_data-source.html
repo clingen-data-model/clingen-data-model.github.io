@@ -198,10 +198,25 @@
     <h2>Examples</h2>
     <div id="example_view"></div>
     <script>
-        run_on_load = function () {return $("#example_view").JSONView(
+window.addEventListener('load', function () {
+    var view = $("#example_view").JSONView(
           {"DataSrc001":{"cg:id":"DataSrc001","cg:type":"DataSource","externalIdentifier":"PMID:23633196","linkedIRI":"http://www.ncbi.nlm.nih.gov/pubmed/23633196"},"DataSrc002":{"cg:id":"DataSrc002","cg:type":"DataSource","externalIdentifier":"PMID:17081393","linkedIRI":"http://www.ncbi.nlm.nih.gov/pubmed/17081393"},"DataSrc003":{"cg:id":"DataSrc003","cg:type":"DataSource","externalIdentifier":"LMM-VARIANT:NM_000256.3(MYBPC3)c.1351+1G>A"},"DataSrc004":{"cg:id":"DataSrc004","cg:type":"DataSource","externalIdentifier":"OMIM:244400","linkedIRI":"http://omim.org/entry/244400","version":"alopez : 09/15/2016"},"DataSrc005":{"cg:id":"DataSrc005","cg:type":"DataSource","externalIdentifier":"LMM-CASE:CSER-SUBJECT-123"},"DataSrc006":{"cg:id":"DataSrc006","cg:type":"DataSource","externalIdentifier":"CLINVAR:SCV000205842.3","linkedIRI":"https://www.ncbi.nlm.nih.gov/clinvar/SCV000205842.3"},"DataSrc007":{"cg:id":"DataSrc007","cg:type":"DataSource","externalIdentifier":"LMM:GENEINSIGHT-LAB v5.3.2","linkedIRI":"https://geneinsight-lmm-test.partners.org"},"DataSrc008":{"cg:id":"DataSrc008","cg:type":"DataSource","externalIdentifier":"LMM:ALAMUT-PROD v123","linkedIRI":"https://pcpgm.partners.org/lmm"},"DataSrc009":{"cg:id":"DataSrc009","cg:type":"DataSource","externalIdentifier":"EXAC v0.2","linkedIRI":"ftp://ftp.broadinstitute.org/pub/ExAC_release/release0.2/"},"DataSrc010":{"cg:id":"DataSrc010","cg:type":"DataSource","externalIdentifier":"PMID:12698559","linkedIRI":"https://www.ncbi.nlm.nih.gov/pubmed/12698559"}},
           { collapsed: true }
-        )}
+    )
+
+    var fix_ellipses = function () {
+        $('#example_view ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
+            $(this).html('<em>' + $(this).next('ul').find('a:contains("cg:id")').next('.string')[0].innerText + ', …</em>')
+        })
+
+        $('#example_view ul.array').each(function () {
+            $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+        })
+    }
+    fix_ellipses()
+    $('#example_view .collapser').click(fix_ellipses)
+    $('#example_view .collapser').next('a.prop').click(fix_ellipses)
+})
     </script>
 
 
@@ -213,7 +228,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../javascripts/jquery.js"></script><script src="../../../javascripts/bootstrap.js"></script><script src="../../../javascripts/jquery.jsonview.js"></script><script src="../../../javascripts/run-run_on_load.js"></script>
+    <script src="../../../javascripts/jquery.js"></script><script src="../../../javascripts/bootstrap.js"></script><script src="../../../javascripts/jquery.jsonview.js"></script>
 
   </body>
 </html>

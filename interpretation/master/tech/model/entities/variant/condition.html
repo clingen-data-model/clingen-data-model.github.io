@@ -181,10 +181,25 @@
     <h2>Examples</h2>
     <div id="example_view"></div>
     <script>
-        run_on_load = function () {return $("#example_view").JSONView(
+window.addEventListener('load', function () {
+    var view = $("#example_view").JSONView(
           {"Cond001":{"cg:id":"Cond001","cg:type":"Condition","name":"Breast Ovarian Cancer","code":"D061325"},"Cond002":{"cg:id":"Cond002","cg:type":"Condition","name":"Dilated Cardiomyopathy","code":"217604"},"Cond003":{"cg:id":"Cond003","cg:type":"Condition","name":"Noonan Syndrome","code":"648"},"Cond004":{"cg:id":"Cond004","cg:type":"Condition","name":"Primary Ciliary Dyskenisia","code":"244"},"Cond005":{"cg:id":"Cond005","cg:type":"Condition","name":"Costello Syndrome","code":"3071"},"Cond006":{"cg:id":"Cond006","cg:type":"Condition","name":"Noonan syndrome 3","code":"609942"},"Cond007":{"cg:id":"Cond007","cg:type":"Condition","name":"Cardiomyopathy","code":"167848"},"Cond008":{"cg:id":"Cond008","cg:type":"Condition","name":"desmin related myopathy","code":"98909"},"Cond009":{"cg:id":"Cond009","cg:type":"Condition","name":"Epilepsy with Mental Retardation","code":"???"},"Cond010":{"cg:id":"Cond010","cg:type":"Condition","name":"Hearing Loss","code":"87884"},"Cond011":{"cg:id":"Cond011","cg:type":"Condition","name":"Malignant Hyperthermia","code":"423"},"Cond012":{"cg:id":"Cond012","cg:type":"Condition","name":"Abnormal glucose homeostasis","code":"0011014"},"Cond013":{"cg:id":"Cond013","cg:type":"Condition","name":"Fabry Disease","code":"324"},"Cond014":{"cg:id":"Cond014","cg:type":"Condition","name":"outer dynein arm (ODA) defects","code":"0200106"},"Cond015":{"cg:id":"Cond015","cg:type":"Condition","name":"neuronal ceroid lipofuscinosis","code":"216"},"Cond016":{"cg:id":"Cond016","cg:type":"Condition","name":"Primary familial hypertrophic cardiomyopathy","code":"217569"},"Cond017":{"cg:id":"Cond017","cg:type":"Condition","name":"Ornithine carbamoyltransferase deficiency","code":"664"},"Cond018":{"cg:id":"Cond018","cg:type":"Condition","name":"Birt-Hogg-Dube Syndrome","code":"122"},"Cond019":{"cg:id":"Cond019","cg:type":"Condition","name":"Cardio-facio-cutaneous (CFC) syndrome","code":"1340"},"Cond020":{"cg:id":"Cond020","cg:type":"Condition","name":"Hypertrophic Cardiomyopathy","code":"217569"},"Cond021":{"cg:id":"Cond021","cg:type":"Condition","name":"Usher syndrome","code":"886"},"Cond022":{"cg:id":"Cond022","cg:type":"Condition","name":"Hereditary Hemorrhagic Telangiectasia Type 1","code":"774"},"Cond023":{"cg:id":"Cond023","cg:type":"Condition","name":"Breast-ovarian cancer, familial 2","code":"612555"},"Cond024":{"cg:id":"Cond024","cg:type":"Condition","name":"Myopathy, distal, 4","code":"63273"},"Cond025":{"cg:id":"Cond025","cg:type":"Condition","name":"Cystic Fibrosis","code":"586"},"Cond026":{"cg:id":"Cond026","cg:type":"Condition","name":"Marfan Syndrome","code":"558"},"Cond027":{"cg:id":"Cond027","cg:type":"Condition","name":"Mitochondrial complex 1 deficiency","code":"2609"},"Cond028":{"cg:id":"Cond028","cg:type":"Condition","name":"Perrault Syndrome","code":"2855"},"Cond029":{"cg:id":"Cond029","cg:type":"Condition","name":"Wiedemann-Steiner syndrome","code":"319182"},"Cond030":{"cg:id":"Cond030","cg:type":"Condition","name":"Familial Adenomatous Polyposis","code":"733"},"Cond031":{"cg:id":"Cond031","cg:type":"Condition","name":"Pendred syndrome","code":"705"},"Cond032":{"cg:id":"Cond032","cg:type":"Condition","name":"café au lait macules (CALMs)","code":"0000957"},"Cond033":{"cg:id":"Cond033","cg:type":"Condition","name":"axillary freckling","code":"0000997"},"Cond034":{"cg:id":"Cond034","cg:type":"Condition","name":"macrocephaly","code":"0000256"},"Cond035":{"cg:id":"Cond035","cg:type":"Condition","name":"Familial Hypercholesterolemia","code":"D006938"},"Cond036":{"cg:id":"Cond036","cg:type":"Condition","name":"Hereditary Breast and Ovarian Cancer","code":"D061325"},"Cond037":{"cg:id":"Cond037","cg:type":"Condition","name":"Fanconi Anemia","code":"84"},"Cond038":{"cg:id":"Cond038","cg:type":"Condition","name":"Retinitis Pigmentosa","code":"791"},"Cond039":{"cg:id":"Cond039","cg:type":"Condition","name":"Congenital Absence of the Vas Deferens","code":"0012873"},"Cond040":{"cg:id":"Cond040","cg:type":"Condition","name":"Primary bone dysplasia","code":"94068"},"Cond041":{"cg:id":"Cond041","cg:type":"Condition","name":"Pseudoachondroplasia","code":"750"},"Cond042":{"cg:id":"Cond042","cg:type":"Condition","name":"Pseudoachondroplastic spondyloepiphyseal dysplasia syndrome","code":"750"},"Cond043":{"cg:id":"Cond043","cg:type":"Condition","name":"Familial Cancer of Breast","code":"114480"},"Cond044":{"cg:id":"Cond044","cg:type":"Condition","name":"Gyrate atrophy of choroid and retina","code":"414"},"Cond045":{"cg:id":"Cond045","cg:type":"Condition","name":"Rasopathy","code":"98733"}},
           { collapsed: true }
-        )}
+    )
+
+    var fix_ellipses = function () {
+        $('#example_view ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
+            $(this).html('<em>' + $(this).next('ul').find('a:contains("cg:id")').next('.string')[0].innerText + ', …</em>')
+        })
+
+        $('#example_view ul.array').each(function () {
+            $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+        })
+    }
+    fix_ellipses()
+    $('#example_view .collapser').click(fix_ellipses)
+    $('#example_view .collapser').next('a.prop').click(fix_ellipses)
+})
     </script>
 
 
@@ -196,7 +211,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script><script src="../../../../javascripts/run-run_on_load.js"></script>
+    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script>
 
   </body>
 </html>

@@ -190,10 +190,25 @@
     <h2>Examples</h2>
     <div id="example_view"></div>
     <script>
-        run_on_load = function () {return $("#example_view").JSONView(
+window.addEventListener('load', function () {
+    var view = $("#example_view").JSONView(
           {"Conserv259":{"cg:id":"Conserv259","cg:type":"Conservation","allele":{"cg:id":"CanAll117","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll123","identifier":"http://reg.genome.network/allele/CA501232"},"conserved":true,"method":"phyloP","score":-2.297},"Conserv260":{"cg:id":"Conserv260","cg:type":"Conservation","allele":{"cg:id":"CanAll117","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll123","identifier":"http://reg.genome.network/allele/CA501232"},"conserved":true,"method":"PhastCons","score":0.039},"Conserv263":{"cg:id":"Conserv263","cg:type":"Conservation","allele":{"cg:id":"CanAll118","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll124","identifier":"http://reg.genome.network/allele/CA013536"},"conserved":true,"method":"phyloP","score":-0.76},"Conserv264":{"cg:id":"Conserv264","cg:type":"Conservation","allele":{"cg:id":"CanAll118","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll124","identifier":"http://reg.genome.network/allele/CA013536"},"conserved":true,"method":"PhastCons","score":0.63},"Conserv267":{"cg:id":"Conserv267","cg:type":"Conservation","allele":{"cg:id":"CanAll119","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll125","identifier":"http://reg.genome.network/allele/CA177682"},"conserved":true,"method":"phyloP","score":0.45},"Conserv268":{"cg:id":"Conserv268","cg:type":"Conservation","allele":{"cg:id":"CanAll119","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll125","identifier":"http://reg.genome.network/allele/CA177682"},"conserved":true,"method":"PhastCons","score":1.0}},
           { collapsed: true }
-        )}
+    )
+
+    var fix_ellipses = function () {
+        $('#example_view ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
+            $(this).html('<em>' + $(this).next('ul').find('a:contains("cg:id")').next('.string')[0].innerText + ', …</em>')
+        })
+
+        $('#example_view ul.array').each(function () {
+            $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+        })
+    }
+    fix_ellipses()
+    $('#example_view .collapser').click(fix_ellipses)
+    $('#example_view .collapser').next('a.prop').click(fix_ellipses)
+})
     </script>
 
 
@@ -205,7 +220,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script><script src="../../../../javascripts/run-run_on_load.js"></script>
+    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script>
 
   </body>
 </html>
