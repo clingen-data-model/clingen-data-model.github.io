@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      Allele Model
+    </title>
+
+    <link href="stylesheets/bootstrap.css" rel="stylesheet" /><link href="stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="stylesheets/brand2.css" rel="stylesheet" />
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-49947422-3', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+
+  <body class="documentation">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header col-sm-4 col-md-3">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand " href="#">ClinGen Documentation</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="/">Home</a>
+              <!-- <a href="/">About</a> -->
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                Models
+                ::
+                <span class="glyphicon glyphicon-leaf"></span>Allele
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="allele" >
+                  <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
+                </li>
+                <li class="interpretation" >
+                  <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span>Interpretation</a></li>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >development release<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/allele/0.1/">0.1</a></li>
+                <li><a href="/allele/development/">development</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
+      <div class='col-sm-offset-4 col-md-offset-3'>
+        <ol class="breadcrumb bg-none margin-none">
+          <li><a href="./">Allele Model</a></li>
+
+        </ol>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 col-md-3 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class='nav-sidebar-title'>
+          <img width="438" height="108" alt="ClinGen Documentation" class="img-responsive" src="images/clingen-doc-logo.png" />
+          <!-- <img src="/images/clingen-doc-logo.png" width="438" height="108" alt="ClinGen Documentation" class="img-responsive"/> -->
+        </li>
+        <li><a href="discussion/">Discussion</a></li>
+        <li><a href="implementation/">Implementation</a></li>
+        <li><a href="resource/">Resource</a></li>
+        <li><a href="conceptual/">Conceptual</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+      <article>
+        <h1>Allele Model</h1>
+        <hr class='col-sm-12' />
+        <h2 id="introduction">Introduction</h2>
+
+<p>The purpose of the Allele Data Model is to provide a referenceable entity that represents the choice of particular allele at a site of genetic variation.  This entity should be resilient to updates in reference sequences, while containing sufficient information to uniquely specify the allele.</p>
+
+<h2 id="status">Status</h2>
+
+<p>The Allele model is in pre-release status. While the overall structure of the model is stable, variables and codes are likely to change as a first implementation is built (the <a href="/allele/implementation/applications/">Allele Registry</a>). Use caution when building software based on this model (see <a href="/release_management.html">release management</a>).</p>
+
+<h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>An allele is here defined as one of a particular choice of sequences that may occur at a set of locations in a given sequence.</p>
+
+<p>Once an allele is defined and given a stable identifier, statements may be made about this allele.  For instance:</p>
+
+<ul>
+  <li>Person X contains 2 copies of allele A</li>
+  <li>The frequency of allele A in population P is 0.2</li>
+  <li>Allele A is likely pathogenic for condition C</li>
+</ul>
+
+<p>The purpose of the Allele Model is not to make any of these statements, but to provide the entity about which any of these statements could be made.  Modeling the statements about alleles will be the subject of future work, specifically models involving individuals, populations, and assertions.</p>
+
+<p>In the allele model, different representations of the same allele, such as the same change on different versions of a reference, or on different transcripts, are aggregated together into a CanonicalVariant.  The allele model does not define the rules that are used to perform this canonicalization, but does model metadata about canonicalization.</p>
+
+<p>One feature of canonicalization that differs from common usage is that alleles on amino acid sequences are canonicalized separately from alleles on nucleic acid sequences.  Alleles that are aggregated into the same CanonicalAllele are assumed to be identical.  However, because of degeneracy, multiple nucleic acid alleles, which would not be canonically the same, may give rise to the same amino acid allele.  Therefore, we separate amino acid alleles from nucleic acid alleles for the purposes of canonicalization.</p>
+
+<p>In addition to (contiguous) allele instances , the allele model can be used to represent sets of allele instances that all occur in cis with one another.  These complex alleles can be used to represent haplotypes such as pharmacogenomic star alleles.</p>
+
+<h2 id="conceptual-and-resource-models">Conceptual and Resource Models</h2>
+
+<p>The fundamental representation of the allele model is a conceptual model defined in UML.  This conceptual model represents a fine-grained attempt to capture the relevant entities and attributes related to alleles.  Furthermore, the conceptual model is implementation-independent.  The same conceptual model should be adaptable, for instance, to either a relational schema or a document model.</p>
+
+<p>Physical models typically simplify the conceptual model to allow for more practical implementations.  Concepts such as inheritance and normalization, while useful in defining concepts, may hinder implementation.  While physical models simplify the conceptual model, they derive from the conceptual model; updates to the allele model consist of first modeling the change at the conceptual level, and then pushing those changes down to the physical models.</p>
+
+<p>While multiple physical models are definable, we specify a particular document resource model, which is meant to be the particular model used in communication within the ClinGen project.  Implementers will therefore be most specifically interested in the resource model, but we advise that Implementers pay close attention to the conceptual model that underlies it.</p>
+
+<h2 id="exclusions-and-limitations">Exclusions and Limitations</h2>
+
+<p>Allele Model v0.1(beta) does not model structural variants such as large duplications, translocations or copy number variation.</p>
+
+<p>The Allele Model v0.1(beta) is dependent on the existence of one or more canonicalization methods that</p>
+
+<ol>
+  <li>Aggregate allele instances and</li>
+  <li>Can recognize that a new allele instance should be aggregated into a known canonical allele.</li>
+</ol>
+
+<p>However, the allele model does not specify the algorithm used to perform this canonicalization.</p>
+
+<p>The resource model given is one possible physical implementation derived from the conceptual model.  While other models, such as a relational model may also be derived, they are not provided within the allele model v0.1(beta).</p>
+
+
+      </article>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+         ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="javascripts/jquery.js"></script><script src="javascripts/bootstrap.js"></script>
+
+  </body>
+</html>

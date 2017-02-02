@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      Canonicalization
+    </title>
+
+    <link href="../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../stylesheets/brand2.css" rel="stylesheet" />
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-49947422-3', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+
+  <body class="documentation">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header col-sm-4 col-md-3">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand " href="#">ClinGen Documentation</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="/">Home</a>
+              <!-- <a href="/">About</a> -->
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                Models
+                ::
+                <span class="glyphicon glyphicon-leaf"></span>Allele
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="allele" >
+                  <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
+                </li>
+                <li class="interpretation" >
+                  <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span>Interpretation</a></li>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >development release<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/allele/0.1/discussion/canonicalization.html">0.1</a></li>
+                <li><a href="/allele/development/discussion/canonicalization.html">development</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
+      <div class='col-sm-offset-4 col-md-offset-3'>
+        <ol class="breadcrumb bg-none margin-none">
+          <li><a href="../">Allele Model</a></li>
+<li><a href="./">Coordinate Numbering</a></li>
+<li><a href="canonicalization.html">Canonicalization</a></li>
+
+        </ol>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 col-md-3 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class='nav-sidebar-title'>
+          <img width="438" height="108" alt="ClinGen Documentation" class="img-responsive" src="../images/clingen-doc-logo.png" />
+          <!-- <img src="/images/clingen-doc-logo.png" width="438" height="108" alt="ClinGen Documentation" class="img-responsive"/> -->
+        </li>
+        <li class="active"><a href="./">Discussion</a></li><ul><li><a href="allele_naming.html">Allele Naming</a></li><li class="active"><a href="canonicalization.html">Canonicalization</a></li><li><a href="sequence_ontology.html">Sequence Ontology</a></li></ul>
+        <li><a href="../implementation/">Implementation</a></li>
+        <li><a href="../resource/">Resource</a></li>
+        <li><a href="../conceptual/">Conceptual</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+      <article>
+        <h1>Canonicalization</h1>
+        <hr class='col-sm-12' />
+        <p>A specific allele may have multiple representations, both because of the variety of reference sequences to which the allele can be mapped and because not all alleles can be uniquely mapped to a given sequence. The <a href="/allele/conceptual/canonical_allele">CanonicalAllele</a> concept is meant to provide a representation that can aggregate these representations for the purpose of recognizing common entities on which assertions can be made.</p>
+
+<h2 id="types-of-alleles-that-that-can-be-mapped-to-one-canonicalallele">Types of alleles that that can be mapped to one CanonicalAllele</h2>
+
+<h3 id="the-same-allele-in-the-context-of-different-referencesequences">The same allele in the context of different ReferenceSequences</h3>
+
+<p>ReferenceSequences are not completely stable; over time, new sequences are discovered and old sequences are modified.  If an <code>Allele</code> is defined against an old sequence, and against the new sequence, both position and reference allele may vary across these representations. Furthermore, if a genomic variant occurs in a transcript, the allele may be defined with respect to either the genomic sequence, or the transcript sequence.</p>
+
+<p>The problem of multiple representations of the same entity is compounded by the fact that none of these representations may be chosen as stable: any one of the reference sequences may be updated in the future, tying any preferred representation to an obsolete reference sequence.</p>
+
+<p>Transcripts are not necessarily uniquely mapped to a reference genome. A canonicalizer should specify what source of transcript mappings are used (for example, NCBI, UCSC, or <a href="https://bitbucket.org/biocommons/uta">UTA</a>).</p>
+
+<h3 id="different-spellings-of-the-same-allele">Different "spellings" of the same allele</h3>
+
+<p>Multiple representations of an allele are often produced when tandem repeats occur in the genome. For instance, if a region with three contiguous T bases is replaced with only 2 T bases, differing tools have several ways to represent the change (for instance, the removal of each of the three bases independently could all be reported, and would often be seen as different alleles, though they are indistinguishable, and should be aggregated together).</p>
+
+<p>Current approaches to this problem include the normalization code in <a href="https://github.com/amplab/smash">SMaSH</a> and <a href="https://github.com/atks/vt">vt</a> (the latter further described <a href="http://genome.sph.umich.edu/wiki/Variant_Normalization">here</a>).</p>
+
+<p>It is important to note that the convention in many genome seqencing/VCF tools is to "left-align" variants, e.g. shift them to the lowest possible genomic coordinate. The recommendations of HGVS for transcript/protein coordinates, on the other hand is to represent variants to the most 3' or carboxy-proximal position relative to the <em>transcript</em> or predicted amino acid sequence.</p>
+
+<p>It is expected that a canonicalizer would recognize any of a set of equivalent alleles</p>
+
+<h2 id="the-process-of-canonicalization">The process of canonicalization</h2>
+
+<p>Implementers must choose a canonicalization method: a procedure for determining whether a given allele defined with respect to a particular ReferenceSequence can be aggregated into a previously known <code>CanonicalAllele</code>, and to provide a new <code>CanonicalAllele</code> when it cannot.   Because <code>CanonicalAllele</code> represents a potentially useful way to communicate about alleles with external systems, it would be beneficial to choose a canonicalization scheme that is externally implemented and can be used consistently by multiple parties.</p>
+
+<p>One such canonicalization scheme (for DNA Alleles) would be to use dbSNP ids and the alternate allele as the <code>CanonicalAllele</code> identifier.  To canonicalize an allele, the NCBI Variation Reporter API would be queried for that allele.  If the alleles is known, then the dbSNP id would be returned and could be used.    In the case where the allele is not returned, however, a submission to dbSNP would then need to be instituted.  Because rsids are not immediately awarded, a temporary identifier would have to be used by the implementing system, to be updated once an rsid was granted, which may take as long as one month.  Another limitation of such an approach is that dbSNP ids can not be used for CanonicalProteinAlleles, so a different canonicalization approach must be made for that case.</p>
+
+<p><code>CanonicalAllele</code> contains both an id and the name of the system that created this id.  This allows for transmission of information about alleles between systems using different canonicalization schemes.  For instance, suppose that system A and system B each canoicalize alleles themselves, and system A wants to retrieve allele information from system B.  System B can send a message containing canonical alleles, as defined by system B.  Because the system namespace is different, there is no confusion that the id given to the allele will be the same id in the two systems.  Indeed, system A may choose to dissociate the different representations of the allele and re-canonicalize them using its own canonicalizer.  If system A wants to maintain system B's id for the canonical allele, it can add a CanonicalAlleleIdentifier.</p>
+
+      </article>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+         ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../javascripts/jquery.js"></script><script src="../javascripts/bootstrap.js"></script>
+
+  </body>
+</html>

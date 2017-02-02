@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Documentation
+    </title>
+
+    <link href="../../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../../stylesheets/brand2.css" rel="stylesheet" />
+      <link href="../../../stylesheets/provn-diagram.css" rel="stylesheet" />
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-49947422-3', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+
+  <body class="documentation">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header col-sm-4 col-md-3">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand " href="#">ClinGen Documentation</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="/">About</a>
+              <!-- <a href="/">About</a> -->
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                Models
+                ::
+                <span class="glyphicon glyphicon-star"></span>Assertion
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="allele" >
+                  <li class="allele"><a href="../../../allele/"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
+                </li>
+                <li class="assertion" >
+                  <li class="assertion"><a href="../../"><span class="glyphicon glyphicon-star"></span>Assertion</a></li>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >0.1 release<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/0.1/assertion/implementation/examples/paper_curation.html">0.1</a></li>
+                <li><a href="/development/assertion/implementation/examples/paper_curation.html">development</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
+      <div class='col-sm-offset-4 col-md-offset-3'>
+        <ol class="breadcrumb bg-none margin-none">
+          <li><a href="../../../">ClinGen Data Model</a></li>
+<li><a href="../../">Assertion Model</a></li>
+<li><a href="../">Implementation of assertion model</a></li>
+<li><a href="./">Assertion examples</a></li>
+
+        </ol>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 col-md-3 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class='nav-sidebar-title'>
+        <img width="438" height="108" alt="ClinGen Documentation" class="img-responsive" src="../../../images/clingen-doc-logo.png" />
+          <!-- <img src="/images/clingen-doc-logo.png" width="438" height="108" alt="ClinGen Documentation" class="img-responsive"/> -->
+        </li>
+        <li><a href="../../discussion/">Discussion</a></li>
+        <li class="active"><a href="../">Implementation</a></li><ul><li class="active"><a href="./">Assertion examples</a></li></ul>
+        <li><a href="../../resource/">Resource</a></li>
+        <li><a href="../../conceptual/">Conceptual</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+      <article>
+        <h1></h1>
+        <hr class='col-sm-12' />
+        <!-- <ul class="list-unstyled"> -->
+        <!--   <li class='col-sm-6 col-md-4'><a href="#introduction">Introduction</a></li> -->
+        <!--   <li class='col-sm-6 col-md-4'><a href="#selects">Selects</a></li> -->
+        <!-- </ul> -->
+        <!-- <hr class='col-sm-12' id="sticky-nav-anchor" /> -->
+        <!-- <div class='row'><div id="sticky-nav"> -->
+        <!--     <div class="navbar navbar-default col-sm-12"> -->
+        <!--       <ul class="nav navbar-nav"> -->
+        <!--         <li class="dropdown"> -->
+        <!--           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>Query Builder</strong> :: Introduction <span class="caret"></span></a> -->
+        <!--           <ul class="dropdown-menu" role="menu"> -->
+        <!--             <li><a href="#">Action</a></li> -->
+        <!--             <li><a href="#">Another action</a></li> -->
+        <!--           </ul> -->
+        <!--         </li> -->
+        <!--       </ul> -->
+        <!--       <form class="navbar-form navbar-right" role="search"> -->
+        <!--         <div class="input-group"> -->
+        <!--           <div class="input-group-btn"> -->
+        <!--             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Page <span class="caret"></span></button> -->
+        <!--             <ul class="dropdown-menu" role="menu"> -->
+        <!--               <li><a href="#">Model</a></li> -->
+        <!--               <li><a href="#">Site</a></li> -->
+        <!--             </ul> -->
+
+        <!--           </div><\!-- /btn-group -\-> -->
+        <!--           <input type="text" class="form-control" aria-label="" placeholder='Search'> -->
+        <!--           <span class="input-group-btn"> -->
+        <!--             <button class="btn btn-default" type="button">Go!</button> -->
+        <!--           </span> -->
+        <!--         </div><\!-- /input-group -\-> -->
+        <!--       </form> -->
+        <!--   </div> </div> -->
+        <!-- </div><\!-- /.navbar-collapse -\-> -->
+        <h1></h1>
+
+<div id="provn-errors" class="alert alert-danger" role="alert" style="display:none"></div>
+<div id="diagram" class="prov-svg-container"></div>
+
+<pre><code id="provn">
+&#x2F;*
+Situation: A curator finds a piece of information and enters it into the database.
+
+Sample Data: This covers EV7, EV8.
+
+Assumptions:
+The following items are assumed to have ClinGen IDs already.  These are grouped into the Prov groupings of Entity&#x2F;Actor&#x2F;Activity.  Each entry is in the form
+ClinGenID: what it is
+
+Entities: 
+InformationType&#x2F;ID1: The information that is being entered. e.g. an allele 
+                     frequency.  We know the type of this information.  In the 
+                     example, we&#x27;ll use &quot;infotype&quot;, but really it would be 
+                     something like &quot;allelefrequency&quot;
+Article&#x2F;PMID1: An entry tracking the existence of a paper.  
+
+Actors:
+Person&#x2F;CuratorID1: A particular person getting the information out of the 
+                    paper and entering it into the database.  If these are not 
+                    the same (and if that distinction is important) then we 
+                    need a more complex use case.
+
+Activities:
+Curation&#x2F;CurationID1: The act of deriving this data from that paper and 
+                      entering it into the database. This activity transpired
+                      between 13:00 and 14:00 on Apr 28, 2015.
+
+-----
+
+Note: this case does not cover the provenance of the entry of the paper.
+
+Note: this case does not cover the entry of the data via the curation interface
+      as a separate activity. 
+
+Note: Do we want to include role?
+*&#x2F;
+
+document
+
+prefix cg &lt;http:&#x2F;&#x2F;clingen.org&#x2F;&gt;
+
+bundle cg:prov-curation-ID1
+    entity(cg:InformationType&#x2F;ID1, [ prov:type=&quot;cg:infotype&quot; ] )
+    entity(cg:Article&#x2F;PMID1, [ prov:type=&quot;prov:Publication&quot; ] )
+    agent(cg:Person&#x2F;CuratorID1, [prov:type=&quot;prov:Person&quot;] )
+    activity(cg:Curation&#x2F;CurationID1, 2015-04-28T13:00:10, 
+             2015-04-28T14:00:10, [prov:type=&quot;cg:curation&quot;] )
+    wasGeneratedBy(cg:InformationType&#x2F;ID1, cg:Curation&#x2F;CurationID1, -)
+    used(cg:Curation&#x2F;CurationID1, cg:Article&#x2F;PMID1, -)
+    wasAssociatedWith(cg:Curation&#x2F;CurationID1, cg:Person&#x2F;CuratorID1, -)
+endBundle
+endDocument
+
+</code></pre>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+
+      </article>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+         ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../../javascripts/jquery.js"></script><script src="../../../javascripts/bootstrap.js"></script>
+      <script src="../../../javascripts/provn-nodes-links.js"></script>
+      <script src="../../../javascripts/dagre-d3.min.js"></script>
+      <script src="../../../javascripts/provn-dagre.js"></script>
+
+  </body>
+</html>

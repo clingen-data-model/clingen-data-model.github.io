@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      SimpleAllele
+    </title>
+
+    <link href="../../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../../stylesheets/brand2.css" rel="stylesheet" />
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-49947422-3', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+
+  <body class="documentation">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header col-sm-4 col-md-3">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand " href="#">ClinGen Documentation</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="/">About</a>
+              <!-- <a href="/">About</a> -->
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                Models
+                ::
+                <span class="glyphicon glyphicon-leaf"></span>Allele
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="allele" >
+                  <li class="allele"><a href="../../"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
+                </li>
+                <li class="assertion" >
+                  <li class="assertion"><a href="../../../assertion/"><span class="glyphicon glyphicon-star"></span>Assertion</a></li>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >0.1 release<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/0.1/allele/resource/simple_allele/">0.1</a></li>
+                <li><a href="/development/allele/resource/simple_allele/">development</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
+      <div class='col-sm-offset-4 col-md-offset-3'>
+        <ol class="breadcrumb bg-none margin-none">
+          <li><a href="../../../">ClinGen Data Model</a></li>
+<li><a href="../../">Allele Model</a></li>
+<li><a href="../">Resource Index</a></li>
+<li><a href="./">SimpleAllele</a></li>
+
+        </ol>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 col-md-3 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class='nav-sidebar-title'>
+        <img width="438" height="108" alt="ClinGen Documentation" class="img-responsive" src="../../../images/clingen-doc-logo.png" />
+          <!-- <img src="/images/clingen-doc-logo.png" width="438" height="108" alt="ClinGen Documentation" class="img-responsive"/> -->
+        </li>
+        <li><a href="../../discussion/">Discussion</a></li>
+        <li><a href="../../implementation/">Implementation</a></li>
+        <li class="active"><a href="../">Resource</a></li><ul><li><a href="../canonical_allele/">CanonicalAllele</a></li><li><a href="../gene/">Gene</a></li><li><a href="../provenance/">Provenance</a></li><li><a href="../reference_sequence/">ReferenceSequence</a></li><li class="active"><a href="./">SimpleAllele</a></li></ul>
+        <li><a href="../../conceptual/">Conceptual</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+      <article>
+        <h1>SimpleAllele</h1>
+        <hr class='col-sm-12' />
+        <!-- <ul class="list-unstyled"> -->
+        <!--   <li class='col-sm-6 col-md-4'><a href="#introduction">Introduction</a></li> -->
+        <!--   <li class='col-sm-6 col-md-4'><a href="#selects">Selects</a></li> -->
+        <!-- </ul> -->
+        <!-- <hr class='col-sm-12' id="sticky-nav-anchor" /> -->
+        <!-- <div class='row'><div id="sticky-nav"> -->
+        <!--     <div class="navbar navbar-default col-sm-12"> -->
+        <!--       <ul class="nav navbar-nav"> -->
+        <!--         <li class="dropdown"> -->
+        <!--           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><strong>Query Builder</strong> :: Introduction <span class="caret"></span></a> -->
+        <!--           <ul class="dropdown-menu" role="menu"> -->
+        <!--             <li><a href="#">Action</a></li> -->
+        <!--             <li><a href="#">Another action</a></li> -->
+        <!--           </ul> -->
+        <!--         </li> -->
+        <!--       </ul> -->
+        <!--       <form class="navbar-form navbar-right" role="search"> -->
+        <!--         <div class="input-group"> -->
+        <!--           <div class="input-group-btn"> -->
+        <!--             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Page <span class="caret"></span></button> -->
+        <!--             <ul class="dropdown-menu" role="menu"> -->
+        <!--               <li><a href="#">Model</a></li> -->
+        <!--               <li><a href="#">Site</a></li> -->
+        <!--             </ul> -->
+
+        <!--           </div><\!-- /btn-group -\-> -->
+        <!--           <input type="text" class="form-control" aria-label="" placeholder='Search'> -->
+        <!--           <span class="input-group-btn"> -->
+        <!--             <button class="btn btn-default" type="button">Go!</button> -->
+        <!--           </span> -->
+        <!--         </div><\!-- /input-group -\-> -->
+        <!--       </form> -->
+        <!--   </div> </div> -->
+        <!-- </div><\!-- /.navbar-collapse -\-> -->
+           <h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>Genetic variation is often represented with respect to an explicit reference sequence.  At a locus where variation exists in the population, there exist both the allele that occurs in the reference as well as one or more alternate alleles.  Each one of these alleles (including the reference) is represented by a distinct instance of SimpleAllele.</p>
+
+<p>SimpleAllele as here defined is similar to the SO term <a href="http://www.sequenceontology.org/browser/current_svn/term/SO:0001060">sequence_variant</a>, but where that definition describes a difference with respect to a sequence, SimpleAllele explicitly allows the reference allele to be represented. Note that the reference allele is not guaranteed to be the minor allele in any population.</p>
+
+<p>A SimpleAllele should either represent a contiguous section of the ReferenceSequence, or the replacement of such a section with a new contiguous section (including an empty section forr a deletion).  While it would be possible to represent two widely spaced SNPs as a SimpleAllele that reproduces the ReferenceSequence between them, this is not the intended use; such cases should be handled through the use of a ComplexAllele.</p>
+
+<p>This definition of SimpleAllele allows for large deletions or insertions; it is left as an implementation decision whether there is a size limit above which the implementing system will no longer use this representation.</p>
+
+<p>Each SimpleAllele is the representation of an allele within a single sequence.  For example, if a variant occurs within the coding region of a transcript, three different SimpleAlleles will be used to represent the same variant: one representing the allele in the context of the ReferenceSequence for the genome, a second representing the allele in the context of the ReferenceSequence for the transcript, and a third in the context of the ReferenceSequence for the amino acid chain.</p>
+
+<h2 id="resource-model">Resource Model</h2>
+
+<p><a href="../../../images/SimpleAlleleResource.svg"><img alt="SimpleAllele Resource Diagram" class="img-responsive" src="../../../images/SimpleAlleleResource.svg" /></a></p>
+
+<p>Related Resources: <a href="../reference_sequence/">ReferenceSequence</a>, <a href="../canonical_allele/">CanonicalAllele</a></p>
+
+<h2 id="definitions--bindings">Definitions &amp; Bindings</h2>
+
+<h3 class="h4-definition" id="simpleallele">SimpleAllele</h3>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>Resource representing one of the multiple variant sequences at a contiguous region in a particular ReferenceSequence.</dd>
+  <dt>Control</dt>
+  <dd>1..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="simplealleleidentifier">SimpleAllele.identifier</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The set of Identifiers used to name this SimpleAllele. May be as simple as a set of one single Identifier distinguishing the SimpleAllele in the implementing system, or may expansively include the name of all SimpleAlleles in all implementing systems.</dd>
+  <dt>Type</dt>
+  <dd>Identifier</dd>
+  <dt>Control</dt>
+  <dd>0..*</dd>
+</dl>
+
+<h4 class="h4-definition" id="simpleallelecanonicalallele">SimpleAllele.canonicalAllele</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The CanonicalAllele resource to which this SimpleAllele maps.</dd>
+  <dt>Type</dt>
+  <dd>CanonicalAllele</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="simpleallelesimplealleletype">SimpleAllele.simpleAlleleType</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>Type of simple allele, as defined by the type of transcript the allele is mapped on.</dd>
+  <dt>Binding</dt>
+  <dd>SimpleAlleleType <a href="../../implementation/value_set_list/simple_allele_type.html">simple-allele-types</a></dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="simplealleleallele">SimpleAllele.allele</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The nucleotide or amino acid sequence that is defined for this allele at the reference coordinates.  This is typically associated with the 'ALT' value in a VCF representation of a variant.</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+  <dt>Type</dt>
+  <dd>string</dd>
+</dl>
+
+<h4 class="h4-definition" id="simplealleleprimarynucleotidechangetype">SimpleAllele.primaryNucleotideChangeType</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>Describes the change that occurs within a nucleotide simple allele.</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+  <dt>Binding</dt>
+  <dd>PrimaryNucleotideChangeType <a href="../../implementation/value_set_list/primary_nucleotide_change_type.html">primary-nucleotide-change-types</a></dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Requirements</dt>
+  <dd>Required (and allowed) only if the SimpleAllele maps to a nucleotide sequence.</dd>
+</dl>
+
+<h4 class="h4-definition" id="simplealleleancillarynucleotidechangetype">SimpleAllele.ancillaryNucleotideChangeType</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>Additional descriptors that can be applied to describe the change effected by the allele.</dd>
+  <dt>Control</dt>
+  <dd>0..*</dd>
+  <dt>Binding</dt>
+  <dd>AncillaryNucleotideChangeType <a href="../../implementation/value_set_list/ancillary_nucleotide_change_type.html">ancillary-nucleotide-change-types</a></dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Requirements</dt>
+  <dd>Optional, permitted only if the SimpleAllele maps to a nucleotide sequence.</dd>
+</dl>
+
+<h4 class="h4-definition" id="simplealleleprimaryaminoacidchangetype">SimpleAllele.primaryAminoAcidChangeType</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>Describes the change that occurs within an amino acid.</dd>
+  <dt>Binding</dt>
+  <dd>PrimaryAminoAcidChangeType <a href="../../implementation/value_set_list/primary_amino_acid_change_type.html">primary-amino-acid-change-types</a></dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+  <dt>Requirements</dt>
+  <dd>Required (and allowed) only if the SimpleAllele describes an allele on an amino acid reference sequence.</dd>
+</dl>
+
+<h4 class="h4-definition" id="simplealleleancillaryaminoacidchangetype">SimpleAllele.ancillaryAminoAcidChangeType</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>One of the set of allowable <a href="../../implementation/value_set_list/ancillary_amino_acid_change_type.html">ancillary-amino-acid-change-types</a>. Allowed only if the SimpleAllele describes an allele on an amino acid reference sequence.</dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h3 class="h4-definition" id="simpleallelereferencecoordinate">SimpleAllele.referenceCoordinate</h3>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The genetic loci of the variant.</dd>
+  <dt>Control</dt>
+  <dd>1</dd>
+</dl>
+
+<h4 class="h4-definition" id="simpleallelereferencecoordinateidentifier">SimpleAllele.referenceCoordinate.identifier</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The set of Identifiers used to name this ReferenceCoordinate. May be as simple as a set of one single Identifier distinguishing the ReferenceCoordinate in the implementing system, or may expansively include the name of all ReferenceCoordinates in all implementing systems.</dd>
+  <dt>Type</dt>
+  <dd>Identifier</dd>
+  <dt>Control</dt>
+  <dd>1..*</dd>
+</dl>
+
+<h4 class="h4-definition" id="simpleallelereferencecoordinatereferencesequence">SimpleAllele.referenceCoordinate.referenceSequence</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The <a href="/allele/resource/reference_sequence">ReferenceSequence</a> resource on which the ReferenceCoordinate (and, by extention, the SimpleAllele is mapped.</dd>
+  <dt>Type</dt>
+  <dd>ReferenceSequence</dd>
+  <dt>Control</dt>
+  <dd>1</dd>
+</dl>
+
+<h4 class="h4-definition" id="simpleallelereferencecoordinatestart">SimpleAllele.referenceCoordinate.start</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The starting position of the reference coordinate. NOTE: The data model defines a <a href="/allele/coordinate_numbering.html">0-based coordinate numbering system</a> as described above.</dd>
+  <dt>Type</dt>
+  <dd>integer</dd>
+  <dt>Control</dt>
+  <dd>1</dd>
+</dl>
+
+<h4 class="h4-definition" id="simpleallelereferencecoordinateend">SimpleAllele.referenceCoordinate.end</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The end position of the reference coordinate. Note that the data model defines a 0-based coordinate system as described above.</dd>
+  <dt>Type</dt>
+  <dd>integer</dd>
+  <dt>Control</dt>
+  <dd>1</dd>
+</dl>
+
+<h4 class="h4-definition" id="simpleallelereferencecoordinaterefallele">SimpleAllele.referenceCoordinate.refAllele</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The string of nucleotides or amino acids at this reference coordinate on the related reference genome. This is typically associated with the 'REF' value in a VCF representation of a variant.</dd>
+  <dt>Type</dt>
+  <dd>string</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="simpleallelereferencecoordinateprimarytranscriptregiontype">SimpleAllele.referenceCoordinate.primaryTranscriptRegionType</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>One of the set of allowable <a href="../../implementation/value_set_list/primary_transcript_region_type.html">primary-transcript-region-types</a></dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="simpleallelereferencecoordinateancillarytranscriptregiontype">SimpleAllele.referenceCoordinate.ancillaryTranscriptRegionType</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>One of the set of allowable <a href="../../implementation/value_set_list/ancillary_transcript_region_type.html">ancillary-transcript-region-types</a></dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="simpleallelereferencecoordinateintronoffsetstart">SimpleAllele.referenceCoordinate.intronOffsetStart</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The start of the ReferenceCoordinate relative to the transcript coordinate. Required when the coordinate is described as an offset relative to an exonic transcript (should only apply to ReferenceCoordinates of type interior_intron described relative to a ReferenceSequence of type transcript_reference_sequence).</dd>
+  <dt>Type</dt>
+  <dd>integer</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="simpleallelereferencecoordinateintronoffsetend">SimpleAllele.referenceCoordinate.intronOffsetEnd</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The end of the ReferenceCoordinate relative to the transcript coordinate. Requirements are the same as for intronOffsetStart.</dd>
+  <dt>Type</dt>
+  <dd>integer</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="simpleallelereferencecoordinateintronoffsetdirection">SimpleAllele.referenceCoordinate.intronOffsetDirection</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The direction of the ReferenceCoordinate relative to the transcript coordinate. Requirements are the same as for intronOffsetStart.</dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h3 class="h4-definition" id="simplealleleallelename">SimpleAllele.alleleName</h3>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>defintion</dt>
+  <dd>The name given to the allele by a naming organization (i.e. an HGVS expression)</dd>
+  <dt>Control</dt>
+  <dd>0..*</dd>
+</dl>
+
+<h4 class="h4-definition" id="simplealleleallelenamenametype">SimpleAllele.alleleName.nameType</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>One of the set of allowable <a href="../../implementation/value_set_list/simple_allele_name_type.html">simple-allele-name-types</a></dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Control</dt>
+  <dd>1</dd>
+</dl>
+
+<h4 class="h4-definition" id="simplealleleallelenamelegacy">SimpleAllele.alleleName.legacy</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>Flag set if the name is deprecated or no longer used in the relevant allele naming system. Default is false.</dd>
+  <dt>Type</dt>
+  <dd>boolean</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="simplealleleallelenamepreferred">SimpleAllele.alleleName.preferred</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>Flag set if the name is the preferred name for this allele in the implementing system.</dd>
+  <dt>Type</dt>
+  <dd>boolean</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h3 class="h4-definition" id="simpleallelerelated">SimpleAllele.related</h3>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>definition</dt>
+  <dd>Other, related simple alleles, for example, the SimpleAllele that represents the amino acid change caused by a nucleotide simple allele, and vice-versa.</dd>
+  <dt>Control</dt>
+  <dd>0..*</dd>
+</dl>
+
+<h4 class="h4-definition" id="simpleallelerelatedrelatedtype">SimpleAllele.related.relatedType</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>One of the allowable set of relationship types in <a href="../../implementation/value_set_list/simple_allele_relationship_type.html">simple-allele-relationship-type</a></dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Control</dt>
+  <dd>1</dd>
+</dl>
+
+<h4 class="h4-definition" id="simpleallelerelatedtarget">SimpleAllele.related.target</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The SimpleAllele described in the relationship.</dd>
+  <dt>Type</dt>
+  <dd>SimpleAllele</dd>
+  <dt>Control</dt>
+  <dd>1</dd>
+</dl>
+
+
+   <h2>Schema</h2>
+   <p>schema: <a href="../../../main/resources/clingen-xsd/simpleallele.xsd">SimpleAllele.xsd</a></p>
+   <h2>Examples</h2>
+   <table class="table"><thead><tr><th>id</th><th>name</th></tr></thead><tbody><tr><td>SA301</td><td><a href="../../implementation/examples/SA301.html">SA301-NM_001014794.2-ILK-c.448+14A>G-b37</a></td><td><a href="../../../main/resources/example-jsonld-nofhir/SA301.jsonld">json-ld</a></td><td><a href="/main/resources/example-xml/SA301-NM_001014794.2-ILK-c.448+14A&gt;G-b37.xml">xml</a></td><td><a href="/main/resources/example-json/SA301-NM_001014794.2-ILK-c.448+14A&gt;G-b37.json">json</a></td><tr><td>SA302</td><td><a href="../../implementation/examples/SA302.html">SA302-NM_001014794.2-ILK-c.448+13A>G-b38</a></td><td><a href="/main/resources/example-jsonld-nofhir/SA302-NM_001014794.2-ILK-c.448+13A&gt;G-b38.jsonld">json-ld</a></td><td><a href="/main/resources/example-xml/SA302-NM_001014794.2-ILK-c.448+13A&gt;G-b38.xml">xml</a></td><td><a href="/main/resources/example-json/SA302-NM_001014794.2-ILK-c.448+13A&gt;G-b38.json">json</a></td><tr><td>SA303</td><td><a href="../../implementation/examples/SA303.html">SA303-NC_000011.9-g.6630034A>G-b37</a></td><td><a href="/main/resources/example-xml/SA303-NC_000011.9-g.6630034A&gt;G-b37.xml">xml</a></td><td><a href="/main/resources/example-json/SA303-NC_000011.9-g.6630034A&gt;G-b37.json">json</a></td><tr><td>SA304</td><td><a href="../../implementation/examples/SA304.html">SA304-NC_000011.10-g.6608803A>G-b38</a></td><td><a href="/main/resources/example-xml/SA304-NC_000011.10-g.6608803A&gt;G-b38.xml">xml</a></td><td><a href="/main/resources/example-json/SA304-NC_000011.10-g.6608803A&gt;G-b38.json">json</a></td><tr><td>SA310</td><td><a href="../../implementation/examples/SA310.html">SA310-NM_007294.3-BRCA1-c.5297T>G</a></td><td><a href="/main/resources/example-xml/SA310-NM_007294.3-BRCA1-c.5297T&gt;G.xml">xml</a></td><td><a href="/main/resources/example-json/SA310-NM_007294.3-BRCA1-c.5297T&gt;G.json">json</a></td><tr><td>SA311</td><td><a href="../../implementation/examples/SA311.html">SA311-U14680.1-BRCA1-n.5416T>G</a></td><td><a href="/main/resources/example-xml/SA311-U14680.1-BRCA1-n.5416T&gt;G.xml">xml</a></td><td><a href="/main/resources/example-json/SA311-U14680.1-BRCA1-n.5416T&gt;G.json">json</a></td><tr><td>SA312</td><td><a href="../../implementation/examples/SA312.html">SA312-NP_009225.1-BRCA1-p.Ile1766Ser</a></td><td><a href="../../../main/resources/example-xml/SA312-NP_009225.1-BRCA1-p.Ile1766Ser.xml">xml</a></td><td><a href="../../../main/resources/example-json/SA312-NP_009225.1-BRCA1-p.Ile1766Ser.json">json</a></td><tr><td>SA313</td><td><a href="../../implementation/examples/SA313.html">SA313-NR_027676.1-BRCA1-n.5433T>G</a></td><td><a href="/main/resources/example-xml/SA313-NR_027676.1-BRCA1-n.5433T&gt;G.xml">xml</a></td><td><a href="/main/resources/example-json/SA313-NR_027676.1-BRCA1-n.5433T&gt;G.json">json</a></td><tr><td>SA314</td><td><a href="../../implementation/examples/SA314.html">SA314-NC_000017.10-g.41203115A>C-b37</a></td><td><a href="/main/resources/example-xml/SA314-NC_000017.10-g.41203115A&gt;C-b37.xml">xml</a></td><td><a href="/main/resources/example-json/SA314-NC_000017.10-g.41203115A&gt;C-b37.json">json</a></td><tr><td>SA315</td><td><a href="../../implementation/examples/SA315.html">SA315-NC_000017.11-g.43051098A>C-b38</a></td><td><a href="/main/resources/example-xml/SA315-NC_000017.11-g.43051098A&gt;C-b38.xml">xml</a></td><td><a href="/main/resources/example-json/SA315-NC_000017.11-g.43051098A&gt;C-b38.json">json</a></td><tr><td>SA316</td><td><a href="../../implementation/examples/SA316.html">SA316-NG_005905.2-BRCA1-g.166886T>G</a></td><td><a href="/main/resources/example-xml/SA316-NG_005905.2-BRCA1-g.166886T&gt;G.xml">xml</a></td><td><a href="/main/resources/example-json/SA316-NG_005905.2-BRCA1-g.166886T&gt;G.json">json</a></td><tr><td>SA317</td><td><a href="../../implementation/examples/SA317.html">SA317-LRG_292-BRCA1-g.166886T>G</a></td><td><a href="/main/resources/example-xml/SA317-LRG_292-BRCA1-g.166886T&gt;G.xml">xml</a></td><td><a href="/main/resources/example-json/SA317-LRG_292-BRCA1-g.166886T&gt;G.json">json</a></td><tr><td>SA318</td><td><a href="../../implementation/examples/SA318.html">SA318-LRG_292t1-BRCA1-c.5297T>G</a></td><td><a href="/main/resources/example-xml/SA318-LRG_292t1-BRCA1-c.5297T&gt;G.xml">xml</a></td><td><a href="/main/resources/example-json/SA318-LRG_292t1-BRCA1-c.5297T&gt;G.json">json</a></td><tr><td>SA319</td><td><a href="../../implementation/examples/SA319.html">SA319-LRG_292p1-BRCA1-p.Ile1766Ser</a></td><td><a href="../../../main/resources/example-xml/SA319-LRG_292p1-BRCA1-p.Ile1766Ser.xml">xml</a></td><td><a href="../../../main/resources/example-json/SA319-LRG_292p1-BRCA1-p.Ile1766Ser.json">json</a></td></tbody></table>
+
+      </article>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+         ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../../javascripts/jquery.js"></script><script src="../../../javascripts/bootstrap.js"></script>
+
+  </body>
+</html>

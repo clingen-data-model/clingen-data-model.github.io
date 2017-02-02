@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      Provenance
+    </title>
+
+    <link href="../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../stylesheets/brand2.css" rel="stylesheet" />
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-49947422-3', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+
+  <body class="documentation">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header col-sm-4 col-md-3">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand " href="#">ClinGen Documentation</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="/">Home</a>
+              <!-- <a href="/">About</a> -->
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                Models
+                ::
+                <span class="glyphicon glyphicon-leaf"></span>Allele
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="allele" >
+                  <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
+                </li>
+                <li class="interpretation" >
+                  <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span>Interpretation</a></li>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >development release<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/allele/0.1/resource/provenance/">0.1</a></li>
+                <li><a href="/allele/development/resource/provenance/">development</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
+      <div class='col-sm-offset-4 col-md-offset-3'>
+        <ol class="breadcrumb bg-none margin-none">
+          <li><a href="../../">Allele Model</a></li>
+<li><a href="../">Resource Index</a></li>
+<li><a href="./">Provenance</a></li>
+
+        </ol>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 col-md-3 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class='nav-sidebar-title'>
+          <img width="438" height="108" alt="ClinGen Documentation" class="img-responsive" src="../../images/clingen-doc-logo.png" />
+          <!-- <img src="/images/clingen-doc-logo.png" width="438" height="108" alt="ClinGen Documentation" class="img-responsive"/> -->
+        </li>
+        <li><a href="../../discussion/">Discussion</a></li>
+        <li><a href="../../implementation/">Implementation</a></li>
+        <li class="active"><a href="../">Resource</a></li><ul><li><a href="../canonical_allele/">CanonicalAllele</a></li><li><a href="../contextual_allele/">ContextualAllele</a></li><li><a href="../gene/">Gene</a></li><li class="active"><a href="./">Provenance</a></li><li><a href="../reference_sequence/">ReferenceSequence</a></li></ul>
+        <li><a href="../../conceptual/">Conceptual</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+      <article>
+        <h1>Provenance</h1>
+        <hr class='col-sm-12' />
+           <h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>All resources in a system have a provenance; each resource was created via some activity by one or more agents, potentially using other resources as the input to that activity.  Provenance resources record that information.</p>
+
+<p>In the context of the allele model, Provenance resources are attached to Contextual and Canonical Alleles.   The Provenance of a Contextual Allele describes how how that Contextual Allele came to be loaded into the implementing system.  The Provenance of a Canonical Allele provides information on the canonicalization process that aggregated the associated Contextual Alleles.</p>
+
+<p>Note that a Provenance resource may have multiple targets, implying that multiple alleles may share a Provenance resource.  For instance, if a script loads alleles into a system, that single activity may create multiple allele instances.  These alleles may then share a Provenance resource, or each may have its own Provenance, which contains the same information.    This choice is left to the discretion of the implementing system.</p>
+
+<p>The ClinGen Provenance model is a simplification of the FHIR provenance model, which is in turn based on the W3C Provenance model.  In the FHIR model, the Provenance resource fills the role of the Activity in W3C.  FHIR entities linked to the provenance via the entity attribute are, in the W3C parlance, the used entities. 
+See <a href="http://hl7-fhir.github.io/provenance.html">FHIR Provenance Resource</a> and <a href="http://www.w3.org/TR/prov-overview/">W3C Provenance</a>.</p>
+
+<h2 id="resource-model">Resource Model</h2>
+
+<p><a href="../../images/ProvenanceResource.svg"><img alt="Provenance Resource Diagram" class="img-responsive" src="../../images/ProvenanceResource.svg" /></a></p>
+
+<h2 id="defintions--bindings">Defintions &amp; Bindings</h2>
+
+<h3 class="h4-definition" id="provenance">Provenance</h3>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>Resource representing the origin of a Contextual Allele or Canonical Allele</dd>
+  <dt>Control</dt>
+  <dd>1..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="provenancetarget">Provenance.target</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The set of resources that were created by the activities described in this Provenance resource.</dd>
+  <dt>Type</dt>
+  <dd>CanonicalAllele or ContextualAllele</dd>
+  <dt>Control</dt>
+  <dd>1..*</dd>
+</dl>
+
+<h4 class="h4-definition" id="provenanceperiod">Provenance.period</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The time period over which the target resource was created.</dd>
+  <dt>Type</dt>
+  <dd>FHIR Period</dd>
+  <dt>Control</dt>
+  <dd>1..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="provenancerecorded">Provenance.recorded</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The instant time at which provenance was recorded.</dd>
+  <dt>Type</dt>
+  <dd>dateTime</dd>
+  <dt>Control</dt>
+  <dd>1..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="provenancereason">Provenance.reason</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The reason the activity was taking place.</dd>
+  <dt>Type</dt>
+  <dd>CodeableConcept</dd>
+  <dt>Control</dt>
+  <dd>0..1</dd>
+</dl>
+
+<h4 class="h4-definition" id="provenanceentity">Provenance.entity</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>An entity that was used in the activity</dd>
+  <dt>Control</dt>
+  <dd>0..*</dd>
+</dl>
+
+<h4 class="h4-definition" id="provenanceentityrole">Provenance.entity.role</h4>
+
+<dl class="dl-horizontal dl-definition">
+  <dt>Definition</dt>
+  <dd>The role fulfilled by an entity in an activity</dd>
+  <dt>Type</dt>
+  <dd>Code</dd>
+  <dt>Control</dt>
+  <dd>1</dd>
+</dl>
+
+
+   <h2>Schema</h2>
+   <p>schema: <a href="#">Provenance.xsd</a></p>
+   <h2>Examples</h2>
+   <table class="table"><thead><tr><th>id</th><th>name</th></tr></thead><tbody></tbody></table>
+
+      </article>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+         ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../javascripts/jquery.js"></script><script src="../../javascripts/bootstrap.js"></script>
+
+  </body>
+</html>

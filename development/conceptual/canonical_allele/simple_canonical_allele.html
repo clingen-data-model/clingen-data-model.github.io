@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      SimpleCanonicalAllele
+    </title>
+
+    <link href="../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../stylesheets/brand2.css" rel="stylesheet" />
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-49947422-3', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+  </head>
+
+  <body class="documentation">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header col-sm-4 col-md-3">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand " href="#">ClinGen Documentation</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="/">Home</a>
+              <!-- <a href="/">About</a> -->
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                Models
+                ::
+                <span class="glyphicon glyphicon-leaf"></span>Allele
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li class="allele" >
+                  <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
+                </li>
+                <li class="interpretation" >
+                  <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span>Interpretation</a></li>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >development release<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/allele/0.1/conceptual/canonical_allele/simple_canonical_allele.html">0.1</a></li>
+                <li><a href="/allele/development/conceptual/canonical_allele/simple_canonical_allele.html">development</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
+      <div class='col-sm-offset-4 col-md-offset-3'>
+        <ol class="breadcrumb bg-none margin-none">
+          <li><a href="../../">Allele Model</a></li>
+<li><a href="../">Conceptual</a></li>
+<li><a href="./">CanonicalAllele</a></li>
+<li><a href="simple_canonical_allele.html">SimpleCanonicalAllele</a></li>
+
+        </ol>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4 col-md-3 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class='nav-sidebar-title'>
+          <img width="438" height="108" alt="ClinGen Documentation" class="img-responsive" src="../../images/clingen-doc-logo.png" />
+          <!-- <img src="/images/clingen-doc-logo.png" width="438" height="108" alt="ClinGen Documentation" class="img-responsive"/> -->
+        </li>
+        <li><a href="../../discussion/">Discussion</a></li>
+        <li><a href="../../implementation/">Implementation</a></li>
+        <li><a href="../../resource/">Resource</a></li>
+        <li class="active"><a href="../">Conceptual</a></li><ul><li class="active"><a href="./">CanonicalAllele</a></li><ul><li><a href="complex_amino_acid_canonical_allele.html">ComplexAminoAcidCanonicalAllele</a></li><li><a href="complex_canonical_allele.html">ComplexCanonicalAllele</a></li><li><a href="complex_nucleotide_canonical_allele.html">ComplexNucleotideCanonicalAllele</a></li><li><a href="simple_amino_acid_canonical_allele.html">SimpleAminoAcidCanonicalAllele</a></li><li class="active"><a href="simple_canonical_allele.html">SimpleCanonicalAllele</a></li><li><a href="simple_nucleotide_canonical_allele.html">SimpleNucleotideCanonicalAllele</a></li></ul><li><a href="../contextual_allele/">ContextualAllele</a></li><li><a href="../gene/">Gene</a></li><li><a href="../provenance/">Provenance</a></li><li><a href="../reference_sequence/">ReferenceSequence</a></li></ul>
+      </ul>
+    </div>
+    <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+      <article>
+        <h1>SimpleCanonicalAllele</h1>
+        <hr class='col-sm-12' />
+           <h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>SimpleCanonicalAllele is a CanonicalAllele that is derived from the aggregation of multiple ContextualAlleles, which each record a particular choice of a variant sequence at a particular contiguous region in a particular ReferenceSequence.</p>
+
+<p>SimpleCanonicalAllele is an abstract class, so no instances of bare SimpleCanonicalAllele can exist; every instance must either be a SimpleNucleotideCanonicalAllele or a SimpleAminoAcidCanonicalAllele.</p>
+
+<p>Like any CanonicalAllele, a SimpleCanonicalAllele has a stable identifier that is independent of updates or additions to the underlying ReferenceSequences.  In addition, a SimpleCanonicalAllele, because it refers to a single contiguous region, may have a LocusIdentifier, that canonically describes that contiguous region, independent of particular references.</p>
+
+<p>While NucleotideContextualAlleles may be aggregated together into a SimpleNucleotideCanonicalAllele, and AminoAcidContextualAlleles may be aggregated together into a SimpleAminoAcidCanonicalAllele, NucleotideContextualAlleles may not be aggregated with AminoAcidContextualAlleles.  Aggregation of this type would imply identity between these two types of alleles, which is invalid, since multiple nucleotide alleles may lead to the same amino acid allele instance, due to codon degeneracy.</p>
+
+<h2 id="exclusions-and-limitations">Exclusions and Limitations</h2>
+
+<p>Given, for example, two nearby SNPs, one technically possible representation would be to write a ContextualAllele that includes the entire reference stretch between them.   While this is not explicitly disallowed by the model, suggested that a more useful approach is to treat this situation with two ContextualAlleles (corresponding to the two SNPs) aggregated into a ComplexNucleotideCanonicalAllele</p>
+
+<h2 id="see-also">See Also</h2>
+
+<p><a href="../contextual_allele/">ContextualAllele</a>, <a href="./">CanonicalAllele</a></p>
+
+<p>Related Resources: <a href="/allele/resource/canonical_allele/index.html">CanonicalAllele</a></p>
+
+
+      </article>
+    </div>
+  </div>
+</div>
+
+
+    <!-- Bootstrap core JavaScript
+         ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../javascripts/jquery.js"></script><script src="../../javascripts/bootstrap.js"></script>
+
+  </body>
+</html>
