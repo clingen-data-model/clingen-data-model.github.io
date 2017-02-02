@@ -159,12 +159,26 @@
     <h2>Examples</h2>
     <div id="example_view"></div>
     <script>
-        run_on_load = function () {return $("#example_view").JSONView(
+window.addEventListener('load', function () {
+    var view = $("#example_view").JSONView(
           {"Agent001":{"cg:id":"Agent001","cg:type":"Agent","description":"SH","name":"Steven Harrison"},"Agent002":{"cg:id":"Agent002","cg:type":"Agent","description":"CB","name":"Chris Bizon"},"Agent003":{"cg:id":"Agent003","cg:type":"Agent","description":"TS","name":"Tasha Strande"},"Agent004":{"cg:id":"Agent004","cg:type":"Agent","description":"NWG","name":"Noonan/Rasopathy WG (ClinGen)"},"Agent005":{"cg:id":"Agent005","cg:type":"Agent","description":"CSER","name":"CSER Bake Off Project"},"Agent006":{"cg:id":"Agent006","cg:type":"Agent","description":"RG","name":"Rajarshi Ghosh"},"Agent007":{"cg:id":"Agent007","cg:type":"Agent","description":"CPC","name":"ClinGen Pathogenicity Calculator v1"},"Agent008":{"cg:id":"Agent008","cg:type":"Agent","description":"MDS","name":"Marina DiStefano"}},
           { collapsed: true }
-        )}
-    </script>
+    )
 
+    var fix_ellipses = function () {
+        $('#example_view ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
+            $(this).html('<em>' + $(this).next('ul').find('a:contains("cg:id")').next('.string')[0].innerText + ', …</em>')
+        })
+
+        $('#example_view ul.array').each(function () {
+            $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+        })
+    }
+    fix_ellipses()
+    $('#example_view .collapser').click(fix_ellipses)
+    $('#example_view .collapser').next('a.prop').click(fix_ellipses)
+})
+    </script>
 
 
           </article>
@@ -175,7 +189,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../javascripts/jquery.js"></script><script src="../../../javascripts/bootstrap.js"></script><script src="../../../javascripts/jquery.jsonview.js"></script><script src="../../../javascripts/run-run_on_load.js"></script>
+    <script src="../../../javascripts/jquery.js"></script><script src="../../../javascripts/bootstrap.js"></script><script src="../../../javascripts/jquery.jsonview.js"></script>
 
   </body>
 </html>

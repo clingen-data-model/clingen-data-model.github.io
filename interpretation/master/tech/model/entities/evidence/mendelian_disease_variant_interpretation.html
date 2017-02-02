@@ -93,7 +93,7 @@
 
             <li><a href="../../../../welcome/">Welcome</a></li>
             <li><a href="../../../../user/">User Guide</a></li>
-            <li class="active"><a href="../../../">Technical Reference</a></li><ul><li><a href="../../../api/">API</a></li><li><a href="../../../examples/">Examples</a></li><li class="active"><a href="../../">Model</a></li><ul><li><a href="../../activities/">Activity</a></li><li><a href="../../agents/">Agent</a></li><li class="active"><a href="../">Entity</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_inheritance.html">ConditionInheritance</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="group_allele_frequency.html">GroupAlleleFrequency</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li class="active"><a href="mendelian_disease_variant_interpretation.html">MendelianDiseaseVariantPathogenicityInterpretation</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="population_allele_frequency.html">PopulationAlleleFrequency</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li><li><a href="region_contains_allele.html">RegionContainsAllele</a></li></ul><li><a href="../evidence_data-source.html">DataSource</a></li><li><a href="../publication_status.html">PublicationStatus</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../../secondary/">Secondary Types</a></li></ul><li><a href="../../../value_sets/">Value Sets</a></li></ul>
+            <li class="active"><a href="../../../">Technical Reference</a></li><ul><li><a href="../../../api/">API</a></li><li><a href="../../../examples/">Examples</a></li><li class="active"><a href="../../">Model</a></li><ul><li><a href="../../activities/">Activity</a></li><li><a href="../../agents/">Agent</a></li><li class="active"><a href="../">Entity</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_inheritance.html">ConditionInheritance</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li class="active"><a href="mendelian_disease_variant_interpretation.html">MendelianDiseaseVariantPathogenicityInterpretation</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionTypesAndAlleles</a></li></ul><li><a href="../evidence_data-source.html">DataSource</a></li><li><a href="../publication_status.html">PublicationStatus</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../../secondary/">Secondary Types</a></li></ul><li><a href="../../../value_sets/">Value Sets</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -113,7 +113,9 @@
             
 
     <!-- this is primarily the Scope and Usage section -->
-    
+    <h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>This element represents a pathogenicity interpretation when that interpretation is being used as evidence.  Such interpretations may come from an external source, such as ClinVar, or may be an earlier interpretation from an internal source.</p>
 
 
     <!-- image here if available -->
@@ -188,12 +190,848 @@
         </table>
 
     <h2>Examples</h2>
-    <div id="example_view"></div>
+    <table class="table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>description</th>
+        <th>json</th>
+        <th>diagram</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>MenDisVarInterp008</td>
+          <td>NM_002834.3:c.855T>G Pathogenic for Noonan Syndrome</td>
+          <td><div class="example_view" id="MenDisVarInterp008"><pre><code>{
+  "cg:id": "MenDisVarInterp008",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "explanation": "NM_002834.3:c.855T>G Pathogenic for Noonan Syndrome",
+  "canonicalAllele": {
+    "cg:id": "CanAll005",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll006",
+    "identifier": "http://reg.genome.network/allele/CA220155"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond003",
+      "cg:type": "Condition",
+      "name": "Noonan Syndrome",
+      "code": "648"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp008">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp009</td>
+          <td>NM_001369.2:c.6249G>A Pathogenic for PCD</td>
+          <td><div class="example_view" id="MenDisVarInterp009"><pre><code>{
+  "cg:id": "MenDisVarInterp009",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "explanation": "NM_001369.2:c.6249G>A Pathogenic for PCD",
+  "canonicalAllele": {
+    "cg:id": "CanAll008",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll009",
+    "identifier": "http://reg.genome.network/allele/CA501221"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond004",
+      "cg:type": "Condition",
+      "name": "Primary Ciliary Dyskenisia",
+      "code": "244"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp009">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp010</td>
+          <td>NM_004985.4(KRAS):c.173C>T (p.Thr58Ile) Pathogenic for Noonan Syndrome 3</td>
+          <td><div class="example_view" id="MenDisVarInterp010"><pre><code>{
+  "cg:id": "MenDisVarInterp010",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "explanation": "NM_004985.4(KRAS):c.173C>T (p.Thr58Ile) Pathogenic for Noonan Syndrome 3",
+  "canonicalAllele": {
+    "cg:id": "CanAll011",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll014",
+    "identifier": "http://reg.genome.network/allele/CA256480"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond006",
+      "cg:type": "Condition",
+      "name": "Noonan syndrome 3",
+      "code": "609942"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp010">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp011</td>
+          <td>NM_004985.4(KRAS):c.173C>T (p.Thr58Ile) Pathogenic for Costello syndrome</td>
+          <td><div class="example_view" id="MenDisVarInterp011"><pre><code>{
+  "cg:id": "MenDisVarInterp011",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "explanation": "NM_004985.4(KRAS):c.173C>T (p.Thr58Ile) Pathogenic for Costello syndrome",
+  "canonicalAllele": {
+    "cg:id": "CanAll011",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll014",
+    "identifier": "http://reg.genome.network/allele/CA256480"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond045",
+      "cg:type": "Condition",
+      "name": "Rasopathy",
+      "code": "98733"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp011">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp042</td>
+          <td>Uncertain Sig(not specified) NM_000363.4(TNNI3):c.484C>T (p.Arg162Trp)</td>
+          <td><div class="example_view" id="MenDisVarInterp042"><pre><code>{
+  "cg:id": "MenDisVarInterp042",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "wasGeneratedBy": {
+    "cg:id": "CapDataXX"
+  },
+  "explanation": "Uncertain Sig(not specified) NM_000363.4(TNNI3):c.484C>T (p.Arg162Trp)",
+  "canonicalAllele": {
+    "cg:id": "CanAll049",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll053",
+    "identifier": "http://reg.genome.network/allele/CA021738"
+  },
+  "clinicalSignificance": "LN:LA26333-7"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp042">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp047</td>
+          <td></td>
+          <td><div class="example_view" id="MenDisVarInterp047"><pre><code>{
+  "cg:id": "MenDisVarInterp047",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "canonicalAllele": {
+    "cg:id": "CanAll028",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll031",
+    "identifier": "http://reg.genome.network/allele/CA022141"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond013",
+      "cg:type": "Condition",
+      "name": "Fabry Disease",
+      "code": "324"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp047">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp048</td>
+          <td></td>
+          <td><div class="example_view" id="MenDisVarInterp048"><pre><code>{
+  "cg:id": "MenDisVarInterp048",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "canonicalAllele": {
+    "cg:id": "CanAll029",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll032",
+    "identifier": "http://reg.genome.network/allele/CA022153"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond013",
+      "cg:type": "Condition",
+      "name": "Fabry Disease",
+      "code": "324"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp048">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp049</td>
+          <td></td>
+          <td><div class="example_view" id="MenDisVarInterp049"><pre><code>{
+  "cg:id": "MenDisVarInterp049",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "canonicalAllele": {
+    "cg:id": "CanAll030",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll033",
+    "identifier": "http://reg.genome.network/allele/CA022159"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond013",
+      "cg:type": "Condition",
+      "name": "Fabry Disease",
+      "code": "324"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp049">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp050</td>
+          <td></td>
+          <td><div class="example_view" id="MenDisVarInterp050"><pre><code>{
+  "cg:id": "MenDisVarInterp050",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "canonicalAllele": {
+    "cg:id": "CanAll031",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll034",
+    "identifier": "http://reg.genome.network/allele/CA022189"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond013",
+      "cg:type": "Condition",
+      "name": "Fabry Disease",
+      "code": "324"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp050">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp057</td>
+          <td></td>
+          <td><div class="example_view" id="MenDisVarInterp057"><pre><code>{
+  "cg:id": "MenDisVarInterp057",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "wasGeneratedBy": {
+    "cg:id": "CapData078",
+    "cg:type": "CaptureData",
+    "startedAtTime": "2016-05-31T11:00:59+00:00",
+    "endedAtTime": "2016-05-31T11:00:59+00:00",
+    "dataSource": {
+      "cg:id": "DataSrc006",
+      "cg:type": "DataSource",
+      "externalIdentifier": "CLINVAR:SCV000205842.3",
+      "linkedIRI": "https://www.ncbi.nlm.nih.gov/clinvar/SCV000205842.3"
+    },
+    "wasAssociatedWith": [
+      {
+        "cg:id": "Agent008",
+        "cg:type": "Agent",
+        "description": "MDS",
+        "name": "Marina DiStefano"
+      }
+    ]
+  },
+  "canonicalAllele": {
+    "cg:id": "CanAll036",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll040",
+    "identifier": "http://reg.genome.network/allele/CA273615"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond004",
+      "cg:type": "Condition",
+      "name": "Primary Ciliary Dyskenisia",
+      "code": "244"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp057">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp059</td>
+          <td></td>
+          <td><div class="example_view" id="MenDisVarInterp059"><pre><code>{
+  "cg:id": "MenDisVarInterp059",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "canonicalAllele": {
+    "cg:id": "CanAll038",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll042",
+    "identifier": "http://reg.genome.network/allele/CA501223"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond010",
+      "cg:type": "Condition",
+      "name": "Hearing Loss",
+      "code": "87884"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp059">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp078</td>
+          <td></td>
+          <td><div class="example_view" id="MenDisVarInterp078"><pre><code>{
+  "cg:id": "MenDisVarInterp078",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "wasGeneratedBy": {
+    "cg:id": "CapDataXX"
+  },
+  "canonicalAllele": {
+    "cg:id": "CanAll047",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll051",
+    "identifier": "http://reg.genome.network/allele/CA021749"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond016",
+      "cg:type": "Condition",
+      "name": "Primary familial hypertrophic cardiomyopathy",
+      "code": "217569"
+    }
+  ],
+  "clinicalSignificance": "LN:LA26332-9"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp078">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp079</td>
+          <td></td>
+          <td><div class="example_view" id="MenDisVarInterp079"><pre><code>{
+  "cg:id": "MenDisVarInterp079",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "wasGeneratedBy": {
+    "cg:id": "CapDataXX"
+  },
+  "canonicalAllele": {
+    "cg:id": "CanAll049",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll053",
+    "identifier": "http://reg.genome.network/allele/CA021738"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond016",
+      "cg:type": "Condition",
+      "name": "Primary familial hypertrophic cardiomyopathy",
+      "code": "217569"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp079">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp080</td>
+          <td></td>
+          <td><div class="example_view" id="MenDisVarInterp080"><pre><code>{
+  "cg:id": "MenDisVarInterp080",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "canonicalAllele": {
+    "cg:id": "CanAll053",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll057",
+    "identifier": "http://reg.genome.network/allele/CA224454"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond018",
+      "cg:type": "Condition",
+      "name": "Birt-Hogg-Dube Syndrome",
+      "code": "122"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp080">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp081</td>
+          <td></td>
+          <td><div class="example_view" id="MenDisVarInterp081"><pre><code>{
+  "cg:id": "MenDisVarInterp081",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "canonicalAllele": {
+    "cg:id": "CanAll057",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll061",
+    "identifier": "http://reg.genome.network/allele/CA003449"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond001",
+      "cg:type": "Condition",
+      "name": "Breast Ovarian Cancer",
+      "code": "D061325"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp081">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp150</td>
+          <td>Variant has been classified as “Pathogenic” by Sharing Clinical Reports Project (SCV000054057.3)</td>
+          <td><div class="example_view" id="MenDisVarInterp150"><pre><code>{
+  "cg:id": "MenDisVarInterp150",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "explanation": "Variant has been classified as “Pathogenic” by Sharing Clinical Reports Project (SCV000054057.3)",
+  "canonicalAllele": {
+    "cg:id": "CanAll072",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll078",
+    "identifier": "http://reg.genome.network/allele/CA019369"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond023",
+      "cg:type": "Condition",
+      "name": "Breast-ovarian cancer, familial 2",
+      "code": "612555"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp150">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp151</td>
+          <td>Variant has been classified as “Pathogenic” by OMIM (SCV000043718.1)</td>
+          <td><div class="example_view" id="MenDisVarInterp151"><pre><code>{
+  "cg:id": "MenDisVarInterp151",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "explanation": "Variant has been classified as “Pathogenic” by OMIM (SCV000043718.1)",
+  "canonicalAllele": {
+    "cg:id": "CanAll073",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll079",
+    "identifier": "http://reg.genome.network/allele/CA128479"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond024",
+      "cg:type": "Condition",
+      "name": "Myopathy, distal, 4",
+      "code": "63273"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp151">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp152</td>
+          <td>Variant has been classified as “Pathogenic” by Expert panel CFTR (SCV000245981.1)</td>
+          <td><div class="example_view" id="MenDisVarInterp152"><pre><code>{
+  "cg:id": "MenDisVarInterp152",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "explanation": "Variant has been classified as “Pathogenic” by Expert panel CFTR (SCV000245981.1)",
+  "canonicalAllele": {
+    "cg:id": "CanAll074",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll080",
+    "identifier": "http://reg.genome.network/allele/CA276116"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond026",
+      "cg:type": "Condition",
+      "name": "Marfan Syndrome",
+      "code": "558"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp152">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp210</td>
+          <td></td>
+          <td><div class="example_view" id="MenDisVarInterp210"><pre><code>{
+  "cg:id": "MenDisVarInterp210",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "canonicalAllele": {
+    "cg:id": "CanAll095",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll101",
+    "identifier": "http://reg.genome.network/allele/CA252233"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond038",
+      "cg:type": "Condition",
+      "name": "Retinitis Pigmentosa",
+      "code": "791"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp210">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp213</td>
+          <td></td>
+          <td><div class="example_view" id="MenDisVarInterp213"><pre><code>{
+  "cg:id": "MenDisVarInterp213",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "canonicalAllele": {
+    "cg:id": "CanAll097",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll103",
+    "identifier": "http://reg.genome.network/allele/CA182839"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond039",
+      "cg:type": "Condition",
+      "name": "Congenital Absence of the Vas Deferens",
+      "code": "0012873"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp213">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp216</td>
+          <td></td>
+          <td><div class="example_view" id="MenDisVarInterp216"><pre><code>{
+  "cg:id": "MenDisVarInterp216",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "canonicalAllele": {
+    "cg:id": "CanAll099",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll105",
+    "identifier": "http://reg.genome.network/allele/CA501236"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond007",
+      "cg:type": "Condition",
+      "name": "Cardiomyopathy",
+      "code": "167848"
+    }
+  ],
+  "clinicalSignificance": "LN:LA26333-7"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp216">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp243</td>
+          <td></td>
+          <td><div class="example_view" id="MenDisVarInterp243"><pre><code>{
+  "cg:id": "MenDisVarInterp243",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "canonicalAllele": {
+    "cg:id": "CanAll106",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll112",
+    "identifier": "http://reg.genome.network/allele/CA012381"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond020",
+      "cg:type": "Condition",
+      "name": "Hypertrophic Cardiomyopathy",
+      "code": "217569"
+    }
+  ],
+  "clinicalSignificance": "LN:LA26332-9"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp243">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp247</td>
+          <td></td>
+          <td><div class="example_view" id="MenDisVarInterp247"><pre><code>{
+  "cg:id": "MenDisVarInterp247",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "canonicalAllele": {
+    "cg:id": "CanAll109",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll115",
+    "identifier": "http://reg.genome.network/allele/CA172240"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond010",
+      "cg:type": "Condition",
+      "name": "Hearing Loss",
+      "code": "87884"
+    }
+  ],
+  "clinicalSignificance": "LN:LA26332-9"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp247">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp248</td>
+          <td></td>
+          <td><div class="example_view" id="MenDisVarInterp248"><pre><code>{
+  "cg:id": "MenDisVarInterp248",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "canonicalAllele": {
+    "cg:id": "CanAll110",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll116",
+    "identifier": "http://reg.genome.network/allele/CA274460"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond010",
+      "cg:type": "Condition",
+      "name": "Hearing Loss",
+      "code": "87884"
+    }
+  ],
+  "clinicalSignificance": "LN:LA26332-9"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp248">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp251</td>
+          <td></td>
+          <td><div class="example_view" id="MenDisVarInterp251"><pre><code>{
+  "cg:id": "MenDisVarInterp251",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "canonicalAllele": {
+    "cg:id": "CanAll108",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll114",
+    "identifier": "http://reg.genome.network/allele/CA137502"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond021",
+      "cg:type": "Condition",
+      "name": "Usher syndrome",
+      "code": "886"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp251">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp254</td>
+          <td></td>
+          <td><div class="example_view" id="MenDisVarInterp254"><pre><code>{
+  "cg:id": "MenDisVarInterp254",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "canonicalAllele": {
+    "cg:id": "CanAll113",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll119",
+    "identifier": "http://reg.genome.network/allele/CA254703"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond042",
+      "cg:type": "Condition",
+      "name": "Pseudoachondroplastic spondyloepiphyseal dysplasia syndrome",
+      "code": "750"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp254">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp255</td>
+          <td>classified by ENIGMA.</td>
+          <td><div class="example_view" id="MenDisVarInterp255"><pre><code>{
+  "cg:id": "MenDisVarInterp255",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "explanation": "classified by ENIGMA.",
+  "canonicalAllele": {
+    "cg:id": "CanAll114",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll120"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond036",
+      "cg:type": "Condition",
+      "name": "Hereditary Breast and Ovarian Cancer",
+      "code": "D061325"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6675-8"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp255">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp256</td>
+          <td>classified by Sharing Clinical Reports Project.</td>
+          <td><div class="example_view" id="MenDisVarInterp256"><pre><code>{
+  "cg:id": "MenDisVarInterp256",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "explanation": "classified by Sharing Clinical Reports Project.",
+  "canonicalAllele": {
+    "cg:id": "CanAll115",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll121",
+    "identifier": "http://reg.genome.network/allele/CA016113"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond043",
+      "cg:type": "Condition",
+      "name": "Familial Cancer of Breast",
+      "code": "114480"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6675-8"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp256">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp257</td>
+          <td>classified by OMIM</td>
+          <td><div class="example_view" id="MenDisVarInterp257"><pre><code>{
+  "cg:id": "MenDisVarInterp257",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "explanation": "classified by OMIM",
+  "canonicalAllele": {
+    "cg:id": "CanAll116",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll122",
+    "identifier": "http://reg.genome.network/allele/CA113946"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond044",
+      "cg:type": "Condition",
+      "name": "Gyrate atrophy of choroid and retina",
+      "code": "414"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6675-8"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp257">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MenDisVarInterp270</td>
+          <td>Pseudoachondroplastic spondyloepiphyseal dysplasia syndrome is caused by a combination of a pathogenic variant in COL2A1 and another in COMP.   So CA113 may be involved, but is not the sole cause.</td>
+          <td><div class="example_view" id="MenDisVarInterp270"><pre><code>{
+  "cg:id": "MenDisVarInterp270",
+  "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
+  "explanation": "Pseudoachondroplastic spondyloepiphyseal dysplasia syndrome is caused by a combination of a pathogenic variant in COL2A1 and another in COMP.   So CA113 may be involved, but is not the sole cause.",
+  "canonicalAllele": {
+    "cg:id": "CanAll113",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll119",
+    "identifier": "http://reg.genome.network/allele/CA254703"
+  },
+  "condition": [
+    {
+      "cg:id": "Cond041",
+      "cg:type": "Condition",
+      "name": "Pseudoachondroplasia",
+      "code": "750"
+    }
+  ],
+  "clinicalSignificance": "LN:LA26333-7"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MenDisVarInterp270">diagram</a></td>
+        </tr>
+
+      </tbody>
+    </table>
     <script>
-        run_on_load = function () {return $("#example_view").JSONView(
-          {"MenDisVarInterp008":{"cg:id":"MenDisVarInterp008","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","explanation":"NM_002834.3:c.855T>G Pathogenic for Noonan Syndrome","canonicalAllele":{"cg:id":"CanAll005","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll006","identifier":"http://reg.genome.network/allele/CA220155"},"condition":{"cg:id":"Cond003","cg:type":"Condition","name":"Noonan Syndrome","code":"648"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp009":{"cg:id":"MenDisVarInterp009","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","explanation":"NM_001369.2:c.6249G>A Pathogenic for PCD","canonicalAllele":{"cg:id":"CanAll008","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll009","identifier":"http://reg.genome.network/allele/CA501221"},"condition":{"cg:id":"Cond004","cg:type":"Condition","name":"Primary Ciliary Dyskenisia","code":"244"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp010":{"cg:id":"MenDisVarInterp010","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","explanation":"NM_004985.4(KRAS):c.173C>T (p.Thr58Ile) Pathogenic for Noonan Syndrome 3","canonicalAllele":{"cg:id":"CanAll011","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll014","identifier":"http://reg.genome.network/allele/CA256480"},"condition":{"cg:id":"Cond006","cg:type":"Condition","name":"Noonan syndrome 3","code":"609942"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp011":{"cg:id":"MenDisVarInterp011","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","explanation":"NM_004985.4(KRAS):c.173C>T (p.Thr58Ile) Pathogenic for Costello syndrome","canonicalAllele":{"cg:id":"CanAll011","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll014","identifier":"http://reg.genome.network/allele/CA256480"},"condition":{"cg:id":"Cond005","cg:type":"Condition","name":"Costello Syndrome","code":"3071"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp042":{"cg:id":"MenDisVarInterp042","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","wasGeneratedBy":{"cg:id":"CapDataXX"},"explanation":"Uncertain Sig(not specified) NM_000363.4(TNNI3):c.484C>T (p.Arg162Trp)","canonicalAllele":{"cg:id":"CanAll049","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll053","identifier":"http://reg.genome.network/allele/CA021738"},"clinicalSignificance":"LN:LA6682-4"},"MenDisVarInterp047":{"cg:id":"MenDisVarInterp047","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","canonicalAllele":{"cg:id":"CanAll028","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll031","identifier":"http://reg.genome.network/allele/CA022141"},"condition":{"cg:id":"Cond013","cg:type":"Condition","name":"Fabry Disease","code":"324"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp048":{"cg:id":"MenDisVarInterp048","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","canonicalAllele":{"cg:id":"CanAll029","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll032","identifier":"http://reg.genome.network/allele/CA022153"},"condition":{"cg:id":"Cond013","cg:type":"Condition","name":"Fabry Disease","code":"324"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp049":{"cg:id":"MenDisVarInterp049","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","canonicalAllele":{"cg:id":"CanAll030","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll033","identifier":"http://reg.genome.network/allele/CA022159"},"condition":{"cg:id":"Cond013","cg:type":"Condition","name":"Fabry Disease","code":"324"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp050":{"cg:id":"MenDisVarInterp050","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","canonicalAllele":{"cg:id":"CanAll031","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll034","identifier":"http://reg.genome.network/allele/CA022189"},"condition":{"cg:id":"Cond013","cg:type":"Condition","name":"Fabry Disease","code":"324"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp057":{"cg:id":"MenDisVarInterp057","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","wasGeneratedBy":{"cg:id":"CapData078","cg:type":"CaptureData","startedAtTime":{"cg:id":"2016-05-31T11:00:59+00:00"},"endedAtTime":{"cg:id":"2016-05-31T11:00:59+00:00"},"wasAssociatedWith":[{"agent":{"cg:id":"Agent008","cg:type":"Agent","description":"MDS","name":"Marina DiStefano"},"role":"capturer"}],"used":{"DataSource":[{"cg:id":"DataSrc006","cg:type":"DataSource","externalIdentifier":"CLINVAR:SCV000205842.3","linkedIRI":"https://www.ncbi.nlm.nih.gov/clinvar/SCV000205842.3"}]}},"canonicalAllele":{"cg:id":"CanAll036","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll040","identifier":"http://reg.genome.network/allele/CA273615"},"condition":{"cg:id":"Cond004","cg:type":"Condition","name":"Primary Ciliary Dyskenisia","code":"244"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp059":{"cg:id":"MenDisVarInterp059","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","canonicalAllele":{"cg:id":"CanAll038","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll042","identifier":"http://reg.genome.network/allele/CA501223"},"condition":{"cg:id":"Cond010","cg:type":"Condition","name":"Hearing Loss","code":"87884"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp078":{"cg:id":"MenDisVarInterp078","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","wasGeneratedBy":{"cg:id":"CapDataXX"},"canonicalAllele":{"cg:id":"CanAll047","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll051","identifier":"http://reg.genome.network/allele/CA021749"},"condition":{"cg:id":"Cond016","cg:type":"Condition","name":"Primary familial hypertrophic cardiomyopathy","code":"217569"},"clinicalSignificance":"LN:LA6669-1"},"MenDisVarInterp079":{"cg:id":"MenDisVarInterp079","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","wasGeneratedBy":{"cg:id":"CapDataXX"},"canonicalAllele":{"cg:id":"CanAll049","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll053","identifier":"http://reg.genome.network/allele/CA021738"},"condition":{"cg:id":"Cond016","cg:type":"Condition","name":"Primary familial hypertrophic cardiomyopathy","code":"217569"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp080":{"cg:id":"MenDisVarInterp080","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","canonicalAllele":{"cg:id":"CanAll053","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll057","identifier":"http://reg.genome.network/allele/CA224454"},"condition":{"cg:id":"Cond018","cg:type":"Condition","name":"Birt-Hogg-Dube Syndrome","code":"122"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp081":{"cg:id":"MenDisVarInterp081","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","canonicalAllele":{"cg:id":"CanAll057","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll061","identifier":"http://reg.genome.network/allele/CA003449"},"condition":{"cg:id":"Cond001","cg:type":"Condition","name":"Breast Ovarian Cancer","code":"D061325"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp150":{"cg:id":"MenDisVarInterp150","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","explanation":"Variant has been classified as “Pathogenic” by Sharing Clinical Reports Project (SCV000054057.3)","canonicalAllele":{"cg:id":"CanAll072","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll078","identifier":"http://reg.genome.network/allele/CA019369"},"condition":{"cg:id":"Cond023","cg:type":"Condition","name":"Breast-ovarian cancer, familial 2","code":"612555"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp151":{"cg:id":"MenDisVarInterp151","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","explanation":"Variant has been classified as “Pathogenic” by OMIM (SCV000043718.1)","canonicalAllele":{"cg:id":"CanAll073","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll079","identifier":"http://reg.genome.network/allele/CA128479"},"condition":{"cg:id":"Cond024","cg:type":"Condition","name":"Myopathy, distal, 4","code":"63273"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp152":{"cg:id":"MenDisVarInterp152","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","explanation":"Variant has been classified as “Pathogenic” by Expert panel CFTR (SCV000245981.1)","canonicalAllele":{"cg:id":"CanAll074","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll080","identifier":"http://reg.genome.network/allele/CA276116"},"condition":{"cg:id":"Cond026","cg:type":"Condition","name":"Marfan Syndrome","code":"558"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp210":{"cg:id":"MenDisVarInterp210","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","canonicalAllele":{"cg:id":"CanAll095","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll101","identifier":"http://reg.genome.network/allele/CA252233"},"condition":{"cg:id":"Cond038","cg:type":"Condition","name":"Retinitis Pigmentosa","code":"791"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp213":{"cg:id":"MenDisVarInterp213","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","canonicalAllele":{"cg:id":"CanAll097","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll103","identifier":"http://reg.genome.network/allele/CA182839"},"condition":{"cg:id":"Cond039","cg:type":"Condition","name":"Congenital Absence of the Vas Deferens","code":"0012873"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp216":{"cg:id":"MenDisVarInterp216","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","canonicalAllele":{"cg:id":"CanAll099","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll105","identifier":"http://reg.genome.network/allele/CA501236"},"condition":{"cg:id":"Cond007","cg:type":"Condition","name":"Cardiomyopathy","code":"167848"},"clinicalSignificance":"LN:LA6682-4"},"MenDisVarInterp243":{"cg:id":"MenDisVarInterp243","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","canonicalAllele":{"cg:id":"CanAll106","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll112","identifier":"http://reg.genome.network/allele/CA012381"},"condition":{"cg:id":"Cond020","cg:type":"Condition","name":"Hypertrophic Cardiomyopathy","code":"217569"},"clinicalSignificance":"LN:LA6669-1"},"MenDisVarInterp247":{"cg:id":"MenDisVarInterp247","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","canonicalAllele":{"cg:id":"CanAll109","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll115","identifier":"http://reg.genome.network/allele/CA172240"},"condition":{"cg:id":"Cond010","cg:type":"Condition","name":"Hearing Loss","code":"87884"},"clinicalSignificance":"LN:LA6669-1"},"MenDisVarInterp248":{"cg:id":"MenDisVarInterp248","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","canonicalAllele":{"cg:id":"CanAll110","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll116","identifier":"http://reg.genome.network/allele/CA274460"},"condition":{"cg:id":"Cond010","cg:type":"Condition","name":"Hearing Loss","code":"87884"},"clinicalSignificance":"LN:LA6669-1"},"MenDisVarInterp251":{"cg:id":"MenDisVarInterp251","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","canonicalAllele":{"cg:id":"CanAll108","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll114","identifier":"http://reg.genome.network/allele/CA137502"},"condition":{"cg:id":"Cond021","cg:type":"Condition","name":"Usher syndrome","code":"886"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp254":{"cg:id":"MenDisVarInterp254","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","canonicalAllele":{"cg:id":"CanAll113","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll119","identifier":"http://reg.genome.network/allele/CA254703"},"condition":{"cg:id":"Cond042","cg:type":"Condition","name":"Pseudoachondroplastic spondyloepiphyseal dysplasia syndrome","code":"750"},"clinicalSignificance":"LN:LA6668-3"},"MenDisVarInterp255":{"cg:id":"MenDisVarInterp255","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","explanation":"classified by ENIGMA.","canonicalAllele":{"cg:id":"CanAll114","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll120"},"condition":{"cg:id":"Cond036","cg:type":"Condition","name":"Hereditary Breast and Ovarian Cancer","code":"D061325"},"clinicalSignificance":"LN:LA6675-8"},"MenDisVarInterp256":{"cg:id":"MenDisVarInterp256","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","explanation":"classified by Sharing Clinical Reports Project.","canonicalAllele":{"cg:id":"CanAll115","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll121","identifier":"http://reg.genome.network/allele/CA016113"},"condition":{"cg:id":"Cond043","cg:type":"Condition","name":"Familial Cancer of Breast","code":"114480"},"clinicalSignificance":"LN:LA6675-8"},"MenDisVarInterp257":{"cg:id":"MenDisVarInterp257","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","explanation":"classified by OMIM","canonicalAllele":{"cg:id":"CanAll116","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll122","identifier":"http://reg.genome.network/allele/CA113946"},"condition":{"cg:id":"Cond044","cg:type":"Condition","name":"Gyrate atrophy of choroid and retina","code":"414"},"clinicalSignificance":"LN:LA6675-8"},"MenDisVarInterp270":{"cg:id":"MenDisVarInterp270","cg:type":"MendelianDiseaseVariantPathogenicityInterpretation","explanation":"Pseudoachondroplastic spondyloepiphyseal dysplasia syndrome is caused by a combination of a pathogenic variant in COL2A1 and another in COMP.   So CA113 may be involved, but is not the sole cause.","canonicalAllele":{"cg:id":"CanAll113","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll119","identifier":"http://reg.genome.network/allele/CA254703"},"condition":{"cg:id":"Cond041","cg:type":"Condition","name":"Pseudoachondroplasia","code":"750"},"clinicalSignificance":"LN:LA6682-4"}},
-          { collapsed: true }
-        )}
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("cg:id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
     </script>
 
 
@@ -205,7 +1043,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script><script src="../../../../javascripts/run-run_on_load.js"></script>
+    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script>
 
   </body>
 </html>

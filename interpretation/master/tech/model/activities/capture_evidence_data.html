@@ -141,9 +141,15 @@
             </thead>
             <tbody>
             <tr>
-                <td>capturer</td>
-                <td>Agent</td>
-                <td>1..n</td>
+                <td>capturedEvidence</td>
+                <td>Data</td>
+                <td>1..*</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>dataSource</td>
+                <td>DataSource</td>
+                <td>0..1</td>
                 <td></td>
             </tr>
             </tbody>
@@ -197,12 +203,26 @@
     <h2>Examples</h2>
     <div id="example_view"></div>
     <script>
-        run_on_load = function () {return $("#example_view").JSONView(
-          {"CapData073":{"cg:id":"CapData073","cg:type":"CaptureData","startedAtTime":{"cg:id":"2016-09-13T00:00:00+00:00"},"endedAtTime":{"cg:id":"2016-09-13T00:00:00+00:00"},"wasAssociatedWith":[{"agent":{"cg:id":"Agent001","cg:type":"Agent","description":"SH","name":"Steven Harrison"},"role":"capturer"}],"used":{"DataSource":[{"cg:id":"DataSrc001","cg:type":"DataSource","externalIdentifier":"PMID:23633196","linkedIRI":"http://www.ncbi.nlm.nih.gov/pubmed/23633196"}]}},"CapData076":{"cg:id":"CapData076","cg:type":"CaptureData","startedAtTime":{"cg:id":"2016-05-31T08:45:59+00:00"},"endedAtTime":{"cg:id":"2016-05-31T08:45:59+00:00"},"wasAssociatedWith":[{"agent":{"cg:id":"Agent008","cg:type":"Agent","description":"MDS","name":"Marina DiStefano"},"role":"capturer"}],"used":{"DataSource":[{"cg:id":"DataSrc004","cg:type":"DataSource","externalIdentifier":"OMIM:244400","linkedIRI":"http://omim.org/entry/244400","version":"alopez : 09/15/2016"}]}},"CapData077":{"cg:id":"CapData077","cg:type":"CaptureData","startedAtTime":{"cg:id":"2016-05-31T09:14:59+00:00"},"endedAtTime":{"cg:id":"2016-05-31T09:14:59+00:00"},"wasAssociatedWith":[{"agent":{"cg:id":"Agent001","cg:type":"Agent","description":"SH","name":"Steven Harrison"},"role":"capturer"}],"used":{"DataSource":[{"cg:id":"DataSrc005","cg:type":"DataSource","externalIdentifier":"LMM-CASE:CSER-SUBJECT-123"}]}},"CapData078":{"cg:id":"CapData078","cg:type":"CaptureData","startedAtTime":{"cg:id":"2016-05-31T11:00:59+00:00"},"endedAtTime":{"cg:id":"2016-05-31T11:00:59+00:00"},"wasAssociatedWith":[{"agent":{"cg:id":"Agent008","cg:type":"Agent","description":"MDS","name":"Marina DiStefano"},"role":"capturer"}],"used":{"DataSource":[{"cg:id":"DataSrc006","cg:type":"DataSource","externalIdentifier":"CLINVAR:SCV000205842.3","linkedIRI":"https://www.ncbi.nlm.nih.gov/clinvar/SCV000205842.3"}]}},"CapData079":{"cg:id":"CapData079","cg:type":"CaptureData","startedAtTime":{"cg:id":"2016-06-01T14:03:00+00:00"},"endedAtTime":{"cg:id":"2016-06-01T14:03:00+00:00"},"wasAssociatedWith":[{"agent":{"cg:id":"Agent001","cg:type":"Agent","description":"SH","name":"Steven Harrison"},"role":"capturer"}],"used":{"DataSource":[{"cg:id":"DataSrc007","cg:type":"DataSource","externalIdentifier":"LMM:GENEINSIGHT-LAB v5.3.2","linkedIRI":"https://geneinsight-lmm-test.partners.org"}]}},"CapData080":{"cg:id":"CapData080","cg:type":"CaptureData","startedAtTime":{"cg:id":"2016-06-01T14:10:00+00:00"},"endedAtTime":{"cg:id":"2016-06-01T14:10:00+00:00"},"wasAssociatedWith":[{"agent":{"cg:id":"Agent008","cg:type":"Agent","description":"MDS","name":"Marina DiStefano"},"role":"capturer"}],"used":{"DataSource":[{"cg:id":"DataSrc008","cg:type":"DataSource","externalIdentifier":"LMM:ALAMUT-PROD v123","linkedIRI":"https://pcpgm.partners.org/lmm"}]}},"CapData081":{"cg:id":"CapData081","cg:type":"CaptureData","startedAtTime":{"cg:id":"2016-06-01T14:15:00+00:00"},"endedAtTime":{"cg:id":"2016-06-01T14:15:00+00:00"},"wasAssociatedWith":[{"agent":{"cg:id":"Agent001","cg:type":"Agent","description":"SH","name":"Steven Harrison"},"role":"capturer"}],"used":{"DataSource":[{"cg:id":"DataSrc009","cg:type":"DataSource","externalIdentifier":"EXAC v0.2","linkedIRI":"ftp://ftp.broadinstitute.org/pub/ExAC_release/release0.2/"}]}},"CapData074":{"cg:id":"CapData074","cg:type":"CaptureData","startedAtTime":{"cg:id":"2016-09-13T00:00:00+00:00"},"endedAtTime":{"cg:id":"2016-09-13T00:00:00+00:00"},"wasAssociatedWith":[{"agent":{"cg:id":"Agent008","cg:type":"Agent","description":"MDS","name":"Marina DiStefano"},"role":"capturer"}],"used":{"DataSource":[{"cg:id":"DataSrc002","cg:type":"DataSource","externalIdentifier":"PMID:17081393","linkedIRI":"http://www.ncbi.nlm.nih.gov/pubmed/17081393"}]}},"CapData075":{"cg:id":"CapData075","cg:type":"CaptureData","startedAtTime":{"cg:id":"2016-09-13T00:00:00+00:00"},"endedAtTime":{"cg:id":"2016-09-13T00:00:00+00:00"},"wasAssociatedWith":[{"agent":{"cg:id":"Agent001","cg:type":"Agent","description":"SH","name":"Steven Harrison"},"role":"capturer"}],"used":{"DataSource":[{"cg:id":"DataSrc003","cg:type":"DataSource","externalIdentifier":"LMM-VARIANT:NM_000256.3(MYBPC3)c.1351+1G>A"}]}},"CapData033":{"cg:id":"CapData033","cg:type":"CaptureData","startedAtTime":{"cg:id":"2016-07-13T08:45:59+00:00"},"endedAtTime":{"cg:id":"2016-07-13T08:45:59+00:00"},"wasAssociatedWith":[{"agent":{"cg:id":"Agent001","cg:type":"Agent","description":"SH","name":"Steven Harrison"},"role":"capturer"}],"used":{"CanonicalAllele":[{"cg:id":"CanAll035","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll039","identifier":"http://reg.genome.network/allele/CA090919"}],"DataSource":[{"cg:id":"DataSrc010","cg:type":"DataSource","externalIdentifier":"PMID:12698559","linkedIRI":"https://www.ncbi.nlm.nih.gov/pubmed/12698559"}]}}},
+window.addEventListener('load', function () {
+    var view = $("#example_view").JSONView(
+          {"CapData073":{"cg:id":"CapData073","cg:type":"CaptureData","startedAtTime":"2016-09-13T00:00:00+00:00","endedAtTime":"2016-09-13T00:00:00+00:00","dataSource":{"cg:id":"DataSrc001","cg:type":"DataSource","externalIdentifier":"PMID:23633196","linkedIRI":"http://www.ncbi.nlm.nih.gov/pubmed/23633196"},"wasAssociatedWith":[{"cg:id":"Agent001","cg:type":"Agent","description":"SH","name":"Steven Harrison"}]},"CapData076":{"cg:id":"CapData076","cg:type":"CaptureData","startedAtTime":"2016-05-31T08:45:59+00:00","endedAtTime":"2016-05-31T08:45:59+00:00","dataSource":{"cg:id":"DataSrc004","cg:type":"DataSource","externalIdentifier":"OMIM:244400","linkedIRI":"http://omim.org/entry/244400","version":"alopez : 09/15/2016"},"wasAssociatedWith":[{"cg:id":"Agent008","cg:type":"Agent","description":"MDS","name":"Marina DiStefano"}]},"CapData077":{"cg:id":"CapData077","cg:type":"CaptureData","startedAtTime":"2016-05-31T09:14:59+00:00","endedAtTime":"2016-05-31T09:14:59+00:00","dataSource":{"cg:id":"DataSrc005","cg:type":"DataSource","externalIdentifier":"LMM-CASE:CSER-SUBJECT-123"},"wasAssociatedWith":[{"cg:id":"Agent001","cg:type":"Agent","description":"SH","name":"Steven Harrison"}]},"CapData078":{"cg:id":"CapData078","cg:type":"CaptureData","startedAtTime":"2016-05-31T11:00:59+00:00","endedAtTime":"2016-05-31T11:00:59+00:00","dataSource":{"cg:id":"DataSrc006","cg:type":"DataSource","externalIdentifier":"CLINVAR:SCV000205842.3","linkedIRI":"https://www.ncbi.nlm.nih.gov/clinvar/SCV000205842.3"},"wasAssociatedWith":[{"cg:id":"Agent008","cg:type":"Agent","description":"MDS","name":"Marina DiStefano"}]},"CapData079":{"cg:id":"CapData079","cg:type":"CaptureData","startedAtTime":"2016-06-01T14:03:00+00:00","endedAtTime":"2016-06-01T14:03:00+00:00","dataSource":{"cg:id":"DataSrc007","cg:type":"DataSource","externalIdentifier":"LMM:GENEINSIGHT-LAB v5.3.2","linkedIRI":"https://geneinsight-lmm-test.partners.org"},"wasAssociatedWith":[{"cg:id":"Agent001","cg:type":"Agent","description":"SH","name":"Steven Harrison"}]},"CapData080":{"cg:id":"CapData080","cg:type":"CaptureData","startedAtTime":"2016-06-01T14:10:00+00:00","endedAtTime":"2016-06-01T14:10:00+00:00","dataSource":{"cg:id":"DataSrc008","cg:type":"DataSource","externalIdentifier":"LMM:ALAMUT-PROD v123","linkedIRI":"https://pcpgm.partners.org/lmm"},"wasAssociatedWith":[{"cg:id":"Agent008","cg:type":"Agent","description":"MDS","name":"Marina DiStefano"}]},"CapData081":{"cg:id":"CapData081","cg:type":"CaptureData","startedAtTime":"2016-06-01T14:15:00+00:00","endedAtTime":"2016-06-01T14:15:00+00:00","dataSource":{"cg:id":"DataSrc009","cg:type":"DataSource","externalIdentifier":"EXAC v0.2","linkedIRI":"ftp://ftp.broadinstitute.org/pub/ExAC_release/release0.2/"},"wasAssociatedWith":[{"cg:id":"Agent001","cg:type":"Agent","description":"SH","name":"Steven Harrison"}]},"CapData074":{"cg:id":"CapData074","cg:type":"CaptureData","startedAtTime":"2016-09-13T00:00:00+00:00","endedAtTime":"2016-09-13T00:00:00+00:00","dataSource":{"cg:id":"DataSrc002","cg:type":"DataSource","externalIdentifier":"PMID:17081393","linkedIRI":"http://www.ncbi.nlm.nih.gov/pubmed/17081393"},"wasAssociatedWith":[{"cg:id":"Agent008","cg:type":"Agent","description":"MDS","name":"Marina DiStefano"}]},"CapData075":{"cg:id":"CapData075","cg:type":"CaptureData","startedAtTime":"2016-09-13T00:00:00+00:00","endedAtTime":"2016-09-13T00:00:00+00:00","dataSource":{"cg:id":"DataSrc003","cg:type":"DataSource","externalIdentifier":"LMM-VARIANT:NM_000256.3(MYBPC3)c.1351+1G>A"},"wasAssociatedWith":[{"cg:id":"Agent001","cg:type":"Agent","description":"SH","name":"Steven Harrison"}]},"CapData033":{"cg:id":"CapData033","cg:type":"CaptureData","startedAtTime":"2016-07-13T08:45:59+00:00","endedAtTime":"2016-07-13T08:45:59+00:00","capturedEvidence":[{"cg:id":"CanAll035","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll039","identifier":"http://reg.genome.network/allele/CA090919"}],"dataSource":{"cg:id":"DataSrc010","cg:type":"DataSource","externalIdentifier":"PMID:12698559","linkedIRI":"https://www.ncbi.nlm.nih.gov/pubmed/12698559"},"wasAssociatedWith":[{"cg:id":"Agent001","cg:type":"Agent","description":"SH","name":"Steven Harrison"}]}},
           { collapsed: true }
-        )}
-    </script>
+    )
 
+    var fix_ellipses = function () {
+        $('#example_view ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
+            $(this).html('<em>' + $(this).next('ul').find('a:contains("cg:id")').next('.string')[0].innerText + ', …</em>')
+        })
+
+        $('#example_view ul.array').each(function () {
+            $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+        })
+    }
+    fix_ellipses()
+    $('#example_view .collapser').click(fix_ellipses)
+    $('#example_view .collapser').next('a.prop').click(fix_ellipses)
+})
+    </script>
 
 
           </article>
@@ -213,7 +233,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../javascripts/jquery.js"></script><script src="../../../javascripts/bootstrap.js"></script><script src="../../../javascripts/jquery.jsonview.js"></script><script src="../../../javascripts/run-run_on_load.js"></script>
+    <script src="../../../javascripts/jquery.js"></script><script src="../../../javascripts/bootstrap.js"></script><script src="../../../javascripts/jquery.jsonview.js"></script>
 
   </body>
 </html>

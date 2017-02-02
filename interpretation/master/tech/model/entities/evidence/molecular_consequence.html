@@ -93,7 +93,7 @@
 
             <li><a href="../../../../welcome/">Welcome</a></li>
             <li><a href="../../../../user/">User Guide</a></li>
-            <li class="active"><a href="../../../">Technical Reference</a></li><ul><li><a href="../../../api/">API</a></li><li><a href="../../../examples/">Examples</a></li><li class="active"><a href="../../">Model</a></li><ul><li><a href="../../activities/">Activity</a></li><li><a href="../../agents/">Agent</a></li><li class="active"><a href="../">Entity</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_inheritance.html">ConditionInheritance</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="group_allele_frequency.html">GroupAlleleFrequency</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_disease_variant_interpretation.html">MendelianDiseaseVariantPathogenicityInterpretation</a></li><li class="active"><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="population_allele_frequency.html">PopulationAlleleFrequency</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li><li><a href="region_contains_allele.html">RegionContainsAllele</a></li></ul><li><a href="../evidence_data-source.html">DataSource</a></li><li><a href="../publication_status.html">PublicationStatus</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../../secondary/">Secondary Types</a></li></ul><li><a href="../../../value_sets/">Value Sets</a></li></ul>
+            <li class="active"><a href="../../../">Technical Reference</a></li><ul><li><a href="../../../api/">API</a></li><li><a href="../../../examples/">Examples</a></li><li class="active"><a href="../../">Model</a></li><ul><li><a href="../../activities/">Activity</a></li><li><a href="../../agents/">Agent</a></li><li class="active"><a href="../">Entity</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_inheritance.html">ConditionInheritance</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_disease_variant_interpretation.html">MendelianDiseaseVariantPathogenicityInterpretation</a></li><li class="active"><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionTypesAndAlleles</a></li></ul><li><a href="../evidence_data-source.html">DataSource</a></li><li><a href="../publication_status.html">PublicationStatus</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../../secondary/">Secondary Types</a></li></ul><li><a href="../../../value_sets/">Value Sets</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -113,7 +113,9 @@
             
 
     <!-- this is primarily the Scope and Usage section -->
-    
+    <h2 id="scope-and-usage">Scope and Usage:</h2>
+
+<p>An allele can be classified by the effect that it has on the gene product.  For instance, an allele may create a stop codon or modify an amino acid.  These effects are considered as a consequence; terms for these consequences have been compiled in the Sequence Ontology.  In addition, some of these consequences can be grouped into whether or not they cause a loss of function.  That is, the consequence is so severe that the resulting gene product is non-functional.   The lof attribute captures information about whether the given ContextualAllele causes such a loss of function.  Note that the lof is highly correlated with consequence, some care must be taken in assigning lof status based on consequence.  For example, stop-gain mutations are generally considered LOF, but if the stop is created near the end of the transcript, a partially functional product may result.</p>
 
 
     <!-- image here if available -->
@@ -182,12 +184,481 @@
         </table>
 
     <h2>Examples</h2>
-    <div id="example_view"></div>
+    <table class="table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>description</th>
+        <th>json</th>
+        <th>diagram</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>MolCon001</td>
+          <td>Protein ends at p.826 and this frameshift would create stop at p.852 (769+83) thus NMD would not occur. Instead an elongated protein</td>
+          <td><div class="example_view" id="MolCon001"><pre><code>{
+  "cg:id": "MolCon001",
+  "cg:type": "MolecularConsequence",
+  "explanation": "Protein ends at p.826 and this frameshift would create stop at p.852 (769+83) thus NMD would not occur. Instead an elongated protein",
+  "contextualAllele": {
+    "cg:id": "CtxAll001",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll001",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll001",
+      "identifier": "http://reg.genome.network/allele/CA090943"
+    },
+    "alleleName": "NM_031844.2(HNRNPU):c.2304_2305del (p.Gly769Glufs*83)"
+  },
+  "consequence": "SO:0001589",
+  "lof": true
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MolCon001">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MolCon003</td>
+          <td>LOF is predicted to occur as variant is >55bp from penultimate exon</td>
+          <td><div class="example_view" id="MolCon003"><pre><code>{
+  "cg:id": "MolCon003",
+  "cg:type": "MolecularConsequence",
+  "explanation": "LOF is predicted to occur as variant is >55bp from penultimate exon",
+  "contextualAllele": {
+    "cg:id": "CtxAll002",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll002",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll002"
+    },
+    "alleleName": "NM_000059.3(BRCA2):c.7762_7764delinsTT"
+  },
+  "consequence": "SO:0001589",
+  "lof": true
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MolCon003">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MolCon005</td>
+          <td>LOF is predicted but this transcript is rare</td>
+          <td><div class="example_view" id="MolCon005"><pre><code>{
+  "cg:id": "MolCon005",
+  "cg:type": "MolecularConsequence",
+  "explanation": "LOF is predicted but this transcript is rare",
+  "contextualAllele": {
+    "cg:id": "CtxAll003",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll003",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll003",
+      "identifier": "http://reg.genome.network/allele/CA238217"
+    },
+    "alleleName": "NM_133437.4(TTN):c.10670dupG "
+  },
+  "consequence": "SO:0001589",
+  "lof": true
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MolCon005">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MolCon006</td>
+          <td></td>
+          <td><div class="example_view" id="MolCon006"><pre><code>{
+  "cg:id": "MolCon006",
+  "cg:type": "MolecularConsequence",
+  "contextualAllele": {
+    "cg:id": "CtxAll004",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll003",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll003",
+      "identifier": "http://reg.genome.network/allele/CA238217"
+    },
+    "alleleName": "LRG_391t2:c.10303+2691dupG"
+  },
+  "consequence": "SO:0000191",
+  "lof": true
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MolCon006">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MolCon066</td>
+          <td></td>
+          <td><div class="example_view" id="MolCon066"><pre><code>{
+  "cg:id": "MolCon066",
+  "cg:type": "MolecularConsequence",
+  "wasGeneratedBy": {
+    "cg:id": "CapData079",
+    "cg:type": "CaptureData",
+    "startedAtTime": "2016-06-01T14:03:00+00:00",
+    "endedAtTime": "2016-06-01T14:03:00+00:00",
+    "dataSource": {
+      "cg:id": "DataSrc007",
+      "cg:type": "DataSource",
+      "externalIdentifier": "LMM:GENEINSIGHT-LAB v5.3.2",
+      "linkedIRI": "https://geneinsight-lmm-test.partners.org"
+    },
+    "wasAssociatedWith": [
+      {
+        "cg:id": "Agent001",
+        "cg:type": "Agent",
+        "description": "SH",
+        "name": "Steven Harrison"
+      }
+    ]
+  },
+  "contextualAllele": {
+    "cg:id": "CtxAll044",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll040",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll044",
+      "identifier": "http://reg.genome.network/allele/CA273136"
+    },
+    "alleleName": "NP_001360.1:p.Trp2490_Leu2496del"
+  },
+  "consequence": "SO:0001825"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MolCon066">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MolCon070</td>
+          <td></td>
+          <td><div class="example_view" id="MolCon070"><pre><code>{
+  "cg:id": "MolCon070",
+  "cg:type": "MolecularConsequence",
+  "contextualAllele": {
+    "cg:id": "CtxAll046",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll042",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll046",
+      "identifier": "http://reg.genome.network/allele/CA322149"
+    },
+    "alleleName": "NP_056375.2:p.Arg38_Ser43del"
+  },
+  "consequence": "SO:0001825"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MolCon070">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MolCon074</td>
+          <td></td>
+          <td><div class="example_view" id="MolCon074"><pre><code>{
+  "cg:id": "MolCon074",
+  "cg:type": "MolecularConsequence",
+  "contextualAllele": {
+    "cg:id": "CtxAll048",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll044",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll048",
+      "identifier": "http://reg.genome.network/allele/CA501225"
+    },
+    "alleleName": "NP_003915.2:p.Ala260_Gly261insAlaAlaAlaAlaAla"
+  },
+  "consequence": "SO:0001823"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MolCon074">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MolCon117</td>
+          <td></td>
+          <td><div class="example_view" id="MolCon117"><pre><code>{
+  "cg:id": "MolCon117",
+  "cg:type": "MolecularConsequence",
+  "contextualAllele": {
+    "cg:id": "CtxAll070",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll066",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll070",
+      "identifier": "http://reg.genome.network/allele/CA016087"
+    },
+    "alleleName": "NM_000257.3(MYH7):c.5401G>A"
+  },
+  "consequence": "SO:0001583",
+  "lof": true
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MolCon117">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MolCon198</td>
+          <td></td>
+          <td><div class="example_view" id="MolCon198"><pre><code>{
+  "cg:id": "MolCon198",
+  "cg:type": "MolecularConsequence",
+  "contextualAllele": {
+    "cg:id": "CtxAll097",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll091",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll097",
+      "identifier": "http://reg.genome.network/allele/CA020822"
+    },
+    "alleleName": "NM_000059.3(BRCA2) :c.4779A>C"
+  },
+  "consequence": "SO:0001583",
+  "lof": true
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MolCon198">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MolCon201</td>
+          <td></td>
+          <td><div class="example_view" id="MolCon201"><pre><code>{
+  "cg:id": "MolCon201",
+  "cg:type": "MolecularConsequence",
+  "contextualAllele": {
+    "cg:id": "CtxAll098",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll092",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll098",
+      "identifier": "http://reg.genome.network/allele/CA090950"
+    },
+    "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
+  },
+  "consequence": "SO:0001583",
+  "lof": true
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MolCon201">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MolCon203</td>
+          <td></td>
+          <td><div class="example_view" id="MolCon203"><pre><code>{
+  "cg:id": "MolCon203",
+  "cg:type": "MolecularConsequence",
+  "contextualAllele": {
+    "cg:id": "CtxAll099",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll093",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll099",
+      "identifier": "http://reg.genome.network/allele/CA256496"
+    },
+    "alleleName": "NM_133378.4(TTN): c.2926T>C"
+  },
+  "consequence": "SO:0001583",
+  "lof": true
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MolCon203">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MolCon223</td>
+          <td></td>
+          <td><div class="example_view" id="MolCon223"><pre><code>{
+  "cg:id": "MolCon223",
+  "cg:type": "MolecularConsequence",
+  "consequence": "SO:0001825",
+  "contextualAllele": {
+    "cg:id": "CtxAll106",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll100",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll106",
+      "identifier": "http://reg.genome.network/allele/CA148212"
+    },
+    "alleleName": "NM_001271208.1(NEB):c.169_183delCTGGCACAGCCAGCA"
+  }
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MolCon223">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MolCon227</td>
+          <td></td>
+          <td><div class="example_view" id="MolCon227"><pre><code>{
+  "cg:id": "MolCon227",
+  "cg:type": "MolecularConsequence",
+  "consequence": "SO:0001589",
+  "contextualAllele": {
+    "cg:id": "CtxAll107",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll101",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll107",
+      "identifier": "http://reg.genome.network/allele/CA273551"
+    },
+    "alleleName": "NM_133378.4 (TTN): c.26752_26761delACGGCAGAGC"
+  }
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MolCon227">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MolCon231</td>
+          <td></td>
+          <td><div class="example_view" id="MolCon231"><pre><code>{
+  "cg:id": "MolCon231",
+  "cg:type": "MolecularConsequence",
+  "consequence": "SO:0001823",
+  "contextualAllele": {
+    "cg:id": "CtxAll108",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll102",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll108",
+      "identifier": "http://reg.genome.network/allele/CA184168"
+    },
+    "alleleName": "NM_147196.2(TMIE):c.391_393dupAAG"
+  }
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MolCon231">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MolCon261</td>
+          <td></td>
+          <td><div class="example_view" id="MolCon261"><pre><code>{
+  "cg:id": "MolCon261",
+  "cg:type": "MolecularConsequence",
+  "consequence": "SO:0001819",
+  "contextualAllele": {
+    "cg:id": "CtxAll123",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll117",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll123",
+      "identifier": "http://reg.genome.network/allele/CA501232"
+    },
+    "alleleName": "NM_138691.2 (TMC1): c.684C>T"
+  }
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MolCon261">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MolCon265</td>
+          <td></td>
+          <td><div class="example_view" id="MolCon265"><pre><code>{
+  "cg:id": "MolCon265",
+  "cg:type": "MolecularConsequence",
+  "consequence": "SO:0001819",
+  "contextualAllele": {
+    "cg:id": "CtxAll124",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll118",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll124",
+      "identifier": "http://reg.genome.network/allele/CA013536"
+    },
+    "alleleName": "NM_000257.2(MYH7):c.327C>T"
+  }
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MolCon265">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MolCon269</td>
+          <td></td>
+          <td><div class="example_view" id="MolCon269"><pre><code>{
+  "cg:id": "MolCon269",
+  "cg:type": "MolecularConsequence",
+  "consequence": "SO:0001819",
+  "contextualAllele": {
+    "cg:id": "CtxAll125",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll119",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll125",
+      "identifier": "http://reg.genome.network/allele/CA177682"
+    },
+    "alleleName": "NM_002880.3(RAF1):c.321T>C"
+  }
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MolCon269">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>MolCon272</td>
+          <td>This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466).</td>
+          <td><div class="example_view" id="MolCon272"><pre><code>{
+  "cg:id": "MolCon272",
+  "cg:type": "MolecularConsequence",
+  "explanation": "This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466).",
+  "contextualAllele": {
+    "cg:id": "CtxAll127",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll121",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll127"
+    },
+    "alleleName": "NM_024422.3(DSC2): c.631-2A>G (p.?)"
+  },
+  "consequence": "SO:0001629",
+  "lof": true
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#MolCon272">diagram</a></td>
+        </tr>
+
+      </tbody>
+    </table>
     <script>
-        run_on_load = function () {return $("#example_view").JSONView(
-          {"MolCon001":{"cg:id":"MolCon001","cg:type":"MolecularConsequence","explanation":"Protein ends at p.826 and this frameshift would create stop at p.852 (769+83) thus NMD would not occur. Instead an elongated protein","contextualAllele":{"cg:id":"CtxAll001","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll001","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll001","identifier":"http://reg.genome.network/allele/CA090943"},"alleleName":"NM_031844.2(HNRNPU):c.2304_2305del (p.Gly769Glufs*83)"},"consequence":"SO:0001589","lof":true},"MolCon003":{"cg:id":"MolCon003","cg:type":"MolecularConsequence","explanation":"LOF is predicted to occur as variant is >55bp from penultimate exon","contextualAllele":{"cg:id":"CtxAll002","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll002","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll002"},"alleleName":"NM_000059.3(BRCA2):c.7762_7764delinsTT"},"consequence":"SO:0001589","lof":true},"MolCon005":{"cg:id":"MolCon005","cg:type":"MolecularConsequence","explanation":"LOF is predicted but this transcript is rare","contextualAllele":{"cg:id":"CtxAll003","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll003","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll003","identifier":"http://reg.genome.network/allele/CA238217"},"alleleName":"NM_133437.4(TTN):c.10670dupG "},"consequence":"SO:0001589","lof":true},"MolCon006":{"cg:id":"MolCon006","cg:type":"MolecularConsequence","contextualAllele":{"cg:id":"CtxAll004","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll003","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll003","identifier":"http://reg.genome.network/allele/CA238217"},"alleleName":"LRG_391t2:c.10303+2691dupG"},"consequence":"SO:0000191","lof":true},"MolCon066":{"cg:id":"MolCon066","cg:type":"MolecularConsequence","wasGeneratedBy":{"cg:id":"CapData079","cg:type":"CaptureData","startedAtTime":{"cg:id":"2016-06-01T14:03:00+00:00"},"endedAtTime":{"cg:id":"2016-06-01T14:03:00+00:00"},"wasAssociatedWith":[{"agent":{"cg:id":"Agent001","cg:type":"Agent","description":"SH","name":"Steven Harrison"},"role":"capturer"}],"used":{"DataSource":[{"cg:id":"DataSrc007","cg:type":"DataSource","externalIdentifier":"LMM:GENEINSIGHT-LAB v5.3.2","linkedIRI":"https://geneinsight-lmm-test.partners.org"}]}},"contextualAllele":{"cg:id":"CtxAll044","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll040","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll044","identifier":"http://reg.genome.network/allele/CA273136"},"alleleName":"NP_001360.1:p.Trp2490_Leu2496del"},"consequence":"SO:0001825"},"MolCon070":{"cg:id":"MolCon070","cg:type":"MolecularConsequence","contextualAllele":{"cg:id":"CtxAll046","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll042","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll046","identifier":"http://reg.genome.network/allele/CA322149"},"alleleName":"NP_056375.2:p.Arg38_Ser43del"},"consequence":"SO:0001825"},"MolCon074":{"cg:id":"MolCon074","cg:type":"MolecularConsequence","contextualAllele":{"cg:id":"CtxAll048","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll044","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll048","identifier":"http://reg.genome.network/allele/CA501225"},"alleleName":"NP_003915.2:p.Ala260_Gly261insAlaAlaAlaAlaAla"},"consequence":"SO:0001823"},"MolCon117":{"cg:id":"MolCon117","cg:type":"MolecularConsequence","contextualAllele":{"cg:id":"CtxAll070","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll066","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll070","identifier":"http://reg.genome.network/allele/CA016087"},"alleleName":"NM_000257.3(MYH7):c.5401G>A"},"consequence":"SO:0001583","lof":true},"MolCon198":{"cg:id":"MolCon198","cg:type":"MolecularConsequence","contextualAllele":{"cg:id":"CtxAll097","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll091","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll097","identifier":"http://reg.genome.network/allele/CA020822"},"alleleName":"NM_000059.3(BRCA2) :c.4779A>C"},"consequence":"SO:0001583","lof":true},"MolCon201":{"cg:id":"MolCon201","cg:type":"MolecularConsequence","contextualAllele":{"cg:id":"CtxAll098","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll092","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll098","identifier":"http://reg.genome.network/allele/CA090950"},"alleleName":"NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"},"consequence":"SO:0001583","lof":true},"MolCon203":{"cg:id":"MolCon203","cg:type":"MolecularConsequence","contextualAllele":{"cg:id":"CtxAll099","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll093","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll099","identifier":"http://reg.genome.network/allele/CA256496"},"alleleName":"NM_133378.4(TTN): c.2926T>C"},"consequence":"SO:0001583","lof":true},"MolCon223":{"cg:id":"MolCon223","cg:type":"MolecularConsequence","consequence":"SO:0001825","contextualAllele":{"cg:id":"CtxAll106","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll100","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll106","identifier":"http://reg.genome.network/allele/CA148212"},"alleleName":"NM_001271208.1(NEB):c.169_183delCTGGCACAGCCAGCA"}},"MolCon227":{"cg:id":"MolCon227","cg:type":"MolecularConsequence","consequence":"SO:0001589","contextualAllele":{"cg:id":"CtxAll107","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll101","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll107","identifier":"http://reg.genome.network/allele/CA273551"},"alleleName":"NM_133378.4 (TTN): c.26752_26761delACGGCAGAGC"}},"MolCon231":{"cg:id":"MolCon231","cg:type":"MolecularConsequence","consequence":"SO:0001823","contextualAllele":{"cg:id":"CtxAll108","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll102","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll108","identifier":"http://reg.genome.network/allele/CA184168"},"alleleName":"NM_147196.2(TMIE):c.391_393dupAAG"}},"MolCon261":{"cg:id":"MolCon261","cg:type":"MolecularConsequence","consequence":"SO:0001819","contextualAllele":{"cg:id":"CtxAll123","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll117","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll123","identifier":"http://reg.genome.network/allele/CA501232"},"alleleName":"NM_138691.2 (TMC1): c.684C>T"}},"MolCon265":{"cg:id":"MolCon265","cg:type":"MolecularConsequence","consequence":"SO:0001819","contextualAllele":{"cg:id":"CtxAll124","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll118","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll124","identifier":"http://reg.genome.network/allele/CA013536"},"alleleName":"NM_000257.2(MYH7):c.327C>T"}},"MolCon269":{"cg:id":"MolCon269","cg:type":"MolecularConsequence","consequence":"SO:0001819","contextualAllele":{"cg:id":"CtxAll125","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll119","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll125","identifier":"http://reg.genome.network/allele/CA177682"},"alleleName":"NM_002880.3(RAF1):c.321T>C"}}},
-          { collapsed: true }
-        )}
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("cg:id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
     </script>
 
 
@@ -199,7 +670,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script><script src="../../../../javascripts/run-run_on_load.js"></script>
+    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script>
 
   </body>
 </html>

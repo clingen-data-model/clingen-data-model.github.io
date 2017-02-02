@@ -93,7 +93,7 @@
 
             <li><a href="../../../../welcome/">Welcome</a></li>
             <li><a href="../../../../user/">User Guide</a></li>
-            <li class="active"><a href="../../../">Technical Reference</a></li><ul><li><a href="../../../api/">API</a></li><li><a href="../../../examples/">Examples</a></li><li class="active"><a href="../../">Model</a></li><ul><li><a href="../../activities/">Activity</a></li><li><a href="../../agents/">Agent</a></li><li class="active"><a href="../">Entity</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_inheritance.html">ConditionInheritance</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="group_allele_frequency.html">GroupAlleleFrequency</a></li><li class="active"><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_disease_variant_interpretation.html">MendelianDiseaseVariantPathogenicityInterpretation</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="population_allele_frequency.html">PopulationAlleleFrequency</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li><li><a href="region_contains_allele.html">RegionContainsAllele</a></li></ul><li><a href="../evidence_data-source.html">DataSource</a></li><li><a href="../publication_status.html">PublicationStatus</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../../secondary/">Secondary Types</a></li></ul><li><a href="../../../value_sets/">Value Sets</a></li></ul>
+            <li class="active"><a href="../../../">Technical Reference</a></li><ul><li><a href="../../../api/">API</a></li><li><a href="../../../examples/">Examples</a></li><li class="active"><a href="../../">Model</a></li><ul><li><a href="../../activities/">Activity</a></li><li><a href="../../agents/">Agent</a></li><li class="active"><a href="../">Entity</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_inheritance.html">ConditionInheritance</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li class="active"><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_disease_variant_interpretation.html">MendelianDiseaseVariantPathogenicityInterpretation</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionTypesAndAlleles</a></li></ul><li><a href="../evidence_data-source.html">DataSource</a></li><li><a href="../publication_status.html">PublicationStatus</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../../secondary/">Secondary Types</a></li></ul><li><a href="../../../value_sets/">Value Sets</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -113,7 +113,9 @@
             
 
     <!-- this is primarily the Scope and Usage section -->
-    
+    <h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>Computational tools can make predictions about the effect of a sequence allele on the normal function and splicing of a gene product.  The InSilicoPrediction element represents these predictions.  ContextualAlleles are used because a ContextualAllele represents an allele within a given sequence, e.g. a particular transcript, since in order to make predictions, these tools require a specific transcript to be specified.</p>
 
 
     <!-- image here if available -->
@@ -188,12 +190,1034 @@
         </table>
 
     <h2>Examples</h2>
-    <div id="example_view"></div>
+    <table class="table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>description</th>
+        <th>json</th>
+        <th>diagram</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td>InSilicoPred120</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred120"><pre><code>{
+  "cg:id": "InSilicoPred120",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll071",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll067",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll071",
+      "identifier": "http://reg.genome.network/allele/CA090928"
+    },
+    "alleleName": "NM_005228.3(EGFR):c.2369C>T"
+  },
+  "type": "CG:me",
+  "tool": "SIFT",
+  "value": "Damaging"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred120">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred121</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred121"><pre><code>{
+  "cg:id": "InSilicoPred121",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll071",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll067",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll071",
+      "identifier": "http://reg.genome.network/allele/CA090928"
+    },
+    "alleleName": "NM_005228.3(EGFR):c.2369C>T"
+  },
+  "type": "CG:me",
+  "tool": "Polyphen",
+  "value": "Probably damaging"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred121">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred122</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred122"><pre><code>{
+  "cg:id": "InSilicoPred122",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll071",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll067",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll071",
+      "identifier": "http://reg.genome.network/allele/CA090928"
+    },
+    "alleleName": "NM_005228.3(EGFR):c.2369C>T"
+  },
+  "type": "CG:me",
+  "tool": "FATHMM",
+  "value": "Tolerated"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred122">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred123</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred123"><pre><code>{
+  "cg:id": "InSilicoPred123",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll071",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll067",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll071",
+      "identifier": "http://reg.genome.network/allele/CA090928"
+    },
+    "alleleName": "NM_005228.3(EGFR):c.2369C>T"
+  },
+  "type": "CG:me",
+  "tool": "LRT",
+  "value": "Damaging"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred123">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred124</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred124"><pre><code>{
+  "cg:id": "InSilicoPred124",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll071",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll067",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll071",
+      "identifier": "http://reg.genome.network/allele/CA090928"
+    },
+    "alleleName": "NM_005228.3(EGFR):c.2369C>T"
+  },
+  "type": "CG:me",
+  "tool": "MetaSVM",
+  "value": "Tolerated"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred124">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred125</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred125"><pre><code>{
+  "cg:id": "InSilicoPred125",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll071",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll067",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll071",
+      "identifier": "http://reg.genome.network/allele/CA090928"
+    },
+    "alleleName": "NM_005228.3(EGFR):c.2369C>T"
+  },
+  "type": "CG:me",
+  "tool": "Mutation assessor",
+  "value": "Tolerated"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred125">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred126</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred126"><pre><code>{
+  "cg:id": "InSilicoPred126",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll071",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll067",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll071",
+      "identifier": "http://reg.genome.network/allele/CA090928"
+    },
+    "alleleName": "NM_005228.3(EGFR):c.2369C>T"
+  },
+  "type": "CG:me",
+  "tool": "Mutation taster",
+  "value": "Disease-causing"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred126">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred127</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred127"><pre><code>{
+  "cg:id": "InSilicoPred127",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll071",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll067",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll071",
+      "identifier": "http://reg.genome.network/allele/CA090928"
+    },
+    "alleleName": "NM_005228.3(EGFR):c.2369C>T"
+  },
+  "type": "CG:me",
+  "tool": "Provean",
+  "value": "Damaging"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred127">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred128</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred128"><pre><code>{
+  "cg:id": "InSilicoPred128",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll071",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll067",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll071",
+      "identifier": "http://reg.genome.network/allele/CA090928"
+    },
+    "alleleName": "NM_005228.3(EGFR):c.2369C>T"
+  },
+  "type": "CG:me",
+  "tool": "Condel",
+  "value": "deleterious"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred128">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred129</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred129"><pre><code>{
+  "cg:id": "InSilicoPred129",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll074",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll068",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll072",
+      "identifier": "http://reg.genome.network/allele/CA090884"
+    },
+    "alleleName": "ENST00000566221.5:c.127C>T"
+  },
+  "type": "CG:me",
+  "tool": "SIFT",
+  "value": "deleterious"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred129">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred130</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred130"><pre><code>{
+  "cg:id": "InSilicoPred130",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll074",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll068",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll072",
+      "identifier": "http://reg.genome.network/allele/CA090884"
+    },
+    "alleleName": "ENST00000566221.5:c.127C>T"
+  },
+  "type": "CG:me",
+  "tool": "Polyphen",
+  "value": "Probably damaging"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred130">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred131</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred131"><pre><code>{
+  "cg:id": "InSilicoPred131",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll074",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll068",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll072",
+      "identifier": "http://reg.genome.network/allele/CA090884"
+    },
+    "alleleName": "ENST00000566221.5:c.127C>T"
+  },
+  "type": "CG:me",
+  "tool": "FATHMM",
+  "value": "Damaging"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred131">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred132</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred132"><pre><code>{
+  "cg:id": "InSilicoPred132",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll074",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll068",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll072",
+      "identifier": "http://reg.genome.network/allele/CA090884"
+    },
+    "alleleName": "ENST00000566221.5:c.127C>T"
+  },
+  "type": "CG:me",
+  "tool": "LRT",
+  "value": "Damaging"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred132">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred133</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred133"><pre><code>{
+  "cg:id": "InSilicoPred133",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll074",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll068",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll072",
+      "identifier": "http://reg.genome.network/allele/CA090884"
+    },
+    "alleleName": "ENST00000566221.5:c.127C>T"
+  },
+  "type": "CG:me",
+  "tool": "MetaSVM",
+  "value": "Tolerated"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred133">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred134</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred134"><pre><code>{
+  "cg:id": "InSilicoPred134",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll074",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll068",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll072",
+      "identifier": "http://reg.genome.network/allele/CA090884"
+    },
+    "alleleName": "ENST00000566221.5:c.127C>T"
+  },
+  "type": "CG:me",
+  "tool": "Mutation assessor",
+  "value": "Medium functional impact"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred134">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred135</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred135"><pre><code>{
+  "cg:id": "InSilicoPred135",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll074",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll068",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll072",
+      "identifier": "http://reg.genome.network/allele/CA090884"
+    },
+    "alleleName": "ENST00000566221.5:c.127C>T"
+  },
+  "type": "CG:me",
+  "tool": "Mutation taster",
+  "value": "Disease-causing"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred135">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred136</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred136"><pre><code>{
+  "cg:id": "InSilicoPred136",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll074",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll068",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll072",
+      "identifier": "http://reg.genome.network/allele/CA090884"
+    },
+    "alleleName": "ENST00000566221.5:c.127C>T"
+  },
+  "type": "CG:me",
+  "tool": "Provean",
+  "value": "Damaging"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred136">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred137</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred137"><pre><code>{
+  "cg:id": "InSilicoPred137",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll074",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll068",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll072",
+      "identifier": "http://reg.genome.network/allele/CA090884"
+    },
+    "alleleName": "ENST00000566221.5:c.127C>T"
+  },
+  "type": "CG:me",
+  "tool": "Condel",
+  "value": "deleterious"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred137">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred138</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred138"><pre><code>{
+  "cg:id": "InSilicoPred138",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll075",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll069",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll075",
+      "identifier": "http://reg.genome.network/allele/CA022019"
+    },
+    "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+  },
+  "type": "CG:me",
+  "tool": "SIFT",
+  "value": "Tolerated"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred138">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred139</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred139"><pre><code>{
+  "cg:id": "InSilicoPred139",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll075",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll069",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll075",
+      "identifier": "http://reg.genome.network/allele/CA022019"
+    },
+    "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+  },
+  "type": "CG:me",
+  "tool": "Polyphen2",
+  "value": "benign"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred139">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred140</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred140"><pre><code>{
+  "cg:id": "InSilicoPred140",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll075",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll069",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll075",
+      "identifier": "http://reg.genome.network/allele/CA022019"
+    },
+    "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+  },
+  "type": "CG:me",
+  "tool": "AlignGVGD",
+  "value": "C0 (benign)"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred140">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred141</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred141"><pre><code>{
+  "cg:id": "InSilicoPred141",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll075",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll069",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll075",
+      "identifier": "http://reg.genome.network/allele/CA022019"
+    },
+    "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+  },
+  "type": "CG:me",
+  "tool": "MAPP",
+  "value": "good (benign)"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred141">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred142</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred142"><pre><code>{
+  "cg:id": "InSilicoPred142",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll075",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll069",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll075",
+      "identifier": "http://reg.genome.network/allele/CA022019"
+    },
+    "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+  },
+  "type": "CG:me",
+  "tool": "MutationTaster",
+  "value": "disease-causing"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred142">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred143</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred143"><pre><code>{
+  "cg:id": "InSilicoPred143",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll075",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll069",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll075",
+      "identifier": "http://reg.genome.network/allele/CA022019"
+    },
+    "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+  },
+  "type": "CG:sp",
+  "tool": "SSF",
+  "value": 71.53
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred143">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred144</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred144"><pre><code>{
+  "cg:id": "InSilicoPred144",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll075",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll069",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll075",
+      "identifier": "http://reg.genome.network/allele/CA022019"
+    },
+    "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+  },
+  "type": "CG:sp",
+  "tool": "MaxEnt",
+  "value": 7.39
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred144">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred145</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred145"><pre><code>{
+  "cg:id": "InSilicoPred145",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll075",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll069",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll075",
+      "identifier": "http://reg.genome.network/allele/CA022019"
+    },
+    "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+  },
+  "type": "CG:sp",
+  "tool": "NNSPLICE",
+  "value": 0.87
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred145">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred146</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred146"><pre><code>{
+  "cg:id": "InSilicoPred146",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll075",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll069",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll075",
+      "identifier": "http://reg.genome.network/allele/CA022019"
+    },
+    "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+  },
+  "type": "CG:sp",
+  "tool": "GeneSplicer",
+  "value": 7.75
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred146">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred147</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred147"><pre><code>{
+  "cg:id": "InSilicoPred147",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll075",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll069",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll075",
+      "identifier": "http://reg.genome.network/allele/CA022019"
+    },
+    "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+  },
+  "type": "CG:sp",
+  "tool": "HSF",
+  "value": 81.75
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred147">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred232</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred232"><pre><code>{
+  "cg:id": "InSilicoPred232",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll109",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll103",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll109",
+      "identifier": "http://reg.genome.network/allele/CA020822"
+    },
+    "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
+  },
+  "type": "CG:me",
+  "tool": "SIFT",
+  "value": "Benign"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred232">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred233</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred233"><pre><code>{
+  "cg:id": "InSilicoPred233",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll109",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll103",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll109",
+      "identifier": "http://reg.genome.network/allele/CA020822"
+    },
+    "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
+  },
+  "type": "CG:me",
+  "tool": "Polyphen",
+  "value": "Possibly damaging"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred233">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred234</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred234"><pre><code>{
+  "cg:id": "InSilicoPred234",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll109",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll103",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll109",
+      "identifier": "http://reg.genome.network/allele/CA020822"
+    },
+    "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
+  },
+  "type": "CG:me",
+  "tool": "FATHMM",
+  "value": "Benign"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred234">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred235</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred235"><pre><code>{
+  "cg:id": "InSilicoPred235",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll109",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll103",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll109",
+      "identifier": "http://reg.genome.network/allele/CA020822"
+    },
+    "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
+  },
+  "type": "CG:me",
+  "tool": "LRT",
+  "value": "Benign"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred235">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred236</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred236"><pre><code>{
+  "cg:id": "InSilicoPred236",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll109",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll103",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll109",
+      "identifier": "http://reg.genome.network/allele/CA020822"
+    },
+    "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
+  },
+  "type": "CG:me",
+  "tool": "MetaSVM",
+  "value": "Benign"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred236">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred237</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred237"><pre><code>{
+  "cg:id": "InSilicoPred237",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll109",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll103",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll109",
+      "identifier": "http://reg.genome.network/allele/CA020822"
+    },
+    "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
+  },
+  "type": "CG:me",
+  "tool": "Mutation assessor",
+  "value": "Benign"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred237">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred238</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred238"><pre><code>{
+  "cg:id": "InSilicoPred238",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll109",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll103",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll109",
+      "identifier": "http://reg.genome.network/allele/CA020822"
+    },
+    "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
+  },
+  "type": "CG:me",
+  "tool": "Mutation taster",
+  "value": "Benign"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred238">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred239</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred239"><pre><code>{
+  "cg:id": "InSilicoPred239",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll109",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll103",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll109",
+      "identifier": "http://reg.genome.network/allele/CA020822"
+    },
+    "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
+  },
+  "type": "CG:me",
+  "tool": "Provean",
+  "value": "Benign"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred239">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred240</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred240"><pre><code>{
+  "cg:id": "InSilicoPred240",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll109",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll103",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll109",
+      "identifier": "http://reg.genome.network/allele/CA020822"
+    },
+    "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
+  },
+  "type": "CG:me",
+  "tool": "Condel",
+  "value": "deleterious"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred240">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred258</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred258"><pre><code>{
+  "cg:id": "InSilicoPred258",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll123",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll117",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll123",
+      "identifier": "http://reg.genome.network/allele/CA501232"
+    },
+    "alleleName": "NM_138691.2 (TMC1): c.684C>T"
+  },
+  "type": "CG:sp",
+  "value": "no impact"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred258">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred262</td>
+          <td>Provenance would show that this comes from Alamut</td>
+          <td><div class="example_view" id="InSilicoPred262"><pre><code>{
+  "cg:id": "InSilicoPred262",
+  "cg:type": "InSilicoPrediction",
+  "explanation": "Provenance would show that this comes from Alamut",
+  "contextualAllele": {
+    "cg:id": "CtxAll124",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll118",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll124",
+      "identifier": "http://reg.genome.network/allele/CA013536"
+    },
+    "alleleName": "NM_000257.2(MYH7):c.327C>T"
+  },
+  "type": "CG:sp",
+  "value": "no impact"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred262">diagram</a></td>
+        </tr>
+
+        <tr>
+          <td>InSilicoPred266</td>
+          <td></td>
+          <td><div class="example_view" id="InSilicoPred266"><pre><code>{
+  "cg:id": "InSilicoPred266",
+  "cg:type": "InSilicoPrediction",
+  "contextualAllele": {
+    "cg:id": "CtxAll125",
+    "cg:type": "ContextualAllele",
+    "relatedCanonicalAllele": {
+      "cg:id": "CanAll119",
+      "cg:type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll125",
+      "identifier": "http://reg.genome.network/allele/CA177682"
+    },
+    "alleleName": "NM_002880.3(RAF1):c.321T>C"
+  },
+  "type": "CG:sp",
+  "value": "no impact"
+}
+          </code></pre></div></td>
+          <td><a href="../../examples/diagram.html#InSilicoPred266">diagram</a></td>
+        </tr>
+
+      </tbody>
+    </table>
     <script>
-        run_on_load = function () {return $("#example_view").JSONView(
-          {"InSilicoPred120":{"cg:id":"InSilicoPred120","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll071","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll067","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll071","identifier":"http://reg.genome.network/allele/CA090928"},"alleleName":"NM_005228.3(EGFR):c.2369C>T"},"type":"CG:me","tool":"SIFT","value":"Damaging"},"InSilicoPred121":{"cg:id":"InSilicoPred121","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll071","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll067","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll071","identifier":"http://reg.genome.network/allele/CA090928"},"alleleName":"NM_005228.3(EGFR):c.2369C>T"},"type":"CG:me","tool":"Polyphen","value":"Probably damaging"},"InSilicoPred122":{"cg:id":"InSilicoPred122","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll071","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll067","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll071","identifier":"http://reg.genome.network/allele/CA090928"},"alleleName":"NM_005228.3(EGFR):c.2369C>T"},"type":"CG:me","tool":"FATHMM","value":"Tolerated"},"InSilicoPred123":{"cg:id":"InSilicoPred123","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll071","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll067","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll071","identifier":"http://reg.genome.network/allele/CA090928"},"alleleName":"NM_005228.3(EGFR):c.2369C>T"},"type":"CG:me","tool":"LRT","value":"Damaging"},"InSilicoPred124":{"cg:id":"InSilicoPred124","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll071","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll067","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll071","identifier":"http://reg.genome.network/allele/CA090928"},"alleleName":"NM_005228.3(EGFR):c.2369C>T"},"type":"CG:me","tool":"MetaSVM","value":"Tolerated"},"InSilicoPred125":{"cg:id":"InSilicoPred125","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll071","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll067","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll071","identifier":"http://reg.genome.network/allele/CA090928"},"alleleName":"NM_005228.3(EGFR):c.2369C>T"},"type":"CG:me","tool":"Mutation assessor","value":"Tolerated"},"InSilicoPred126":{"cg:id":"InSilicoPred126","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll071","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll067","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll071","identifier":"http://reg.genome.network/allele/CA090928"},"alleleName":"NM_005228.3(EGFR):c.2369C>T"},"type":"CG:me","tool":"Mutation taster","value":"Disease-causing"},"InSilicoPred127":{"cg:id":"InSilicoPred127","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll071","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll067","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll071","identifier":"http://reg.genome.network/allele/CA090928"},"alleleName":"NM_005228.3(EGFR):c.2369C>T"},"type":"CG:me","tool":"Provean","value":"Damaging"},"InSilicoPred128":{"cg:id":"InSilicoPred128","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll071","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll067","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll071","identifier":"http://reg.genome.network/allele/CA090928"},"alleleName":"NM_005228.3(EGFR):c.2369C>T"},"type":"CG:me","tool":"Condel","value":"deleterious"},"InSilicoPred129":{"cg:id":"InSilicoPred129","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll074","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll068","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll072","identifier":"http://reg.genome.network/allele/CA090884"},"alleleName":"ENST00000566221.5:c.127C>T"},"type":"CG:me","tool":"SIFT","value":"deleterious"},"InSilicoPred130":{"cg:id":"InSilicoPred130","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll074","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll068","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll072","identifier":"http://reg.genome.network/allele/CA090884"},"alleleName":"ENST00000566221.5:c.127C>T"},"type":"CG:me","tool":"Polyphen","value":"Probably damaging"},"InSilicoPred131":{"cg:id":"InSilicoPred131","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll074","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll068","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll072","identifier":"http://reg.genome.network/allele/CA090884"},"alleleName":"ENST00000566221.5:c.127C>T"},"type":"CG:me","tool":"FATHMM","value":"Damaging"},"InSilicoPred132":{"cg:id":"InSilicoPred132","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll074","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll068","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll072","identifier":"http://reg.genome.network/allele/CA090884"},"alleleName":"ENST00000566221.5:c.127C>T"},"type":"CG:me","tool":"LRT","value":"Damaging"},"InSilicoPred133":{"cg:id":"InSilicoPred133","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll074","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll068","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll072","identifier":"http://reg.genome.network/allele/CA090884"},"alleleName":"ENST00000566221.5:c.127C>T"},"type":"CG:me","tool":"MetaSVM","value":"Tolerated"},"InSilicoPred134":{"cg:id":"InSilicoPred134","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll074","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll068","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll072","identifier":"http://reg.genome.network/allele/CA090884"},"alleleName":"ENST00000566221.5:c.127C>T"},"type":"CG:me","tool":"Mutation assessor","value":"Medium functional impact"},"InSilicoPred135":{"cg:id":"InSilicoPred135","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll074","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll068","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll072","identifier":"http://reg.genome.network/allele/CA090884"},"alleleName":"ENST00000566221.5:c.127C>T"},"type":"CG:me","tool":"Mutation taster","value":"Disease-causing"},"InSilicoPred136":{"cg:id":"InSilicoPred136","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll074","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll068","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll072","identifier":"http://reg.genome.network/allele/CA090884"},"alleleName":"ENST00000566221.5:c.127C>T"},"type":"CG:me","tool":"Provean","value":"Damaging"},"InSilicoPred137":{"cg:id":"InSilicoPred137","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll074","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll068","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll072","identifier":"http://reg.genome.network/allele/CA090884"},"alleleName":"ENST00000566221.5:c.127C>T"},"type":"CG:me","tool":"Condel","value":"deleterious"},"InSilicoPred138":{"cg:id":"InSilicoPred138","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll075","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll069","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll075","identifier":"http://reg.genome.network/allele/CA022019"},"alleleName":"NM_000363.4(TNNI3):c.592C>G"},"type":"CG:me","tool":"SIFT","value":"Tolerated"},"InSilicoPred139":{"cg:id":"InSilicoPred139","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll075","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll069","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll075","identifier":"http://reg.genome.network/allele/CA022019"},"alleleName":"NM_000363.4(TNNI3):c.592C>G"},"type":"CG:me","tool":"Polyphen2","value":"benign"},"InSilicoPred140":{"cg:id":"InSilicoPred140","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll075","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll069","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll075","identifier":"http://reg.genome.network/allele/CA022019"},"alleleName":"NM_000363.4(TNNI3):c.592C>G"},"type":"CG:me","tool":"AlignGVGD","value":"C0 (benign)"},"InSilicoPred141":{"cg:id":"InSilicoPred141","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll075","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll069","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll075","identifier":"http://reg.genome.network/allele/CA022019"},"alleleName":"NM_000363.4(TNNI3):c.592C>G"},"type":"CG:me","tool":"MAPP","value":"good (benign)"},"InSilicoPred142":{"cg:id":"InSilicoPred142","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll075","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll069","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll075","identifier":"http://reg.genome.network/allele/CA022019"},"alleleName":"NM_000363.4(TNNI3):c.592C>G"},"type":"CG:me","tool":"MutationTaster","value":"disease-causing"},"InSilicoPred143":{"cg:id":"InSilicoPred143","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll075","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll069","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll075","identifier":"http://reg.genome.network/allele/CA022019"},"alleleName":"NM_000363.4(TNNI3):c.592C>G"},"type":"CG:sp","tool":"SSF","value":71.53},"InSilicoPred144":{"cg:id":"InSilicoPred144","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll075","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll069","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll075","identifier":"http://reg.genome.network/allele/CA022019"},"alleleName":"NM_000363.4(TNNI3):c.592C>G"},"type":"CG:sp","tool":"MaxEnt","value":7.39},"InSilicoPred145":{"cg:id":"InSilicoPred145","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll075","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll069","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll075","identifier":"http://reg.genome.network/allele/CA022019"},"alleleName":"NM_000363.4(TNNI3):c.592C>G"},"type":"CG:sp","tool":"NNSPLICE","value":0.87},"InSilicoPred146":{"cg:id":"InSilicoPred146","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll075","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll069","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll075","identifier":"http://reg.genome.network/allele/CA022019"},"alleleName":"NM_000363.4(TNNI3):c.592C>G"},"type":"CG:sp","tool":"GeneSplicer","value":7.75},"InSilicoPred147":{"cg:id":"InSilicoPred147","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll075","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll069","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll075","identifier":"http://reg.genome.network/allele/CA022019"},"alleleName":"NM_000363.4(TNNI3):c.592C>G"},"type":"CG:sp","tool":"HSF","value":81.75},"InSilicoPred232":{"cg:id":"InSilicoPred232","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll109","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll103","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll109","identifier":"http://reg.genome.network/allele/CA020822"},"alleleName":"NM_000059.3(BRCA2):c.4779A>C"},"type":"CG:me","tool":"SIFT","value":"Benign"},"InSilicoPred233":{"cg:id":"InSilicoPred233","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll109","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll103","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll109","identifier":"http://reg.genome.network/allele/CA020822"},"alleleName":"NM_000059.3(BRCA2):c.4779A>C"},"type":"CG:me","tool":"Polyphen","value":"Possibly damaging"},"InSilicoPred234":{"cg:id":"InSilicoPred234","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll109","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll103","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll109","identifier":"http://reg.genome.network/allele/CA020822"},"alleleName":"NM_000059.3(BRCA2):c.4779A>C"},"type":"CG:me","tool":"FATHMM","value":"Benign"},"InSilicoPred235":{"cg:id":"InSilicoPred235","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll109","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll103","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll109","identifier":"http://reg.genome.network/allele/CA020822"},"alleleName":"NM_000059.3(BRCA2):c.4779A>C"},"type":"CG:me","tool":"LRT","value":"Benign"},"InSilicoPred236":{"cg:id":"InSilicoPred236","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll109","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll103","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll109","identifier":"http://reg.genome.network/allele/CA020822"},"alleleName":"NM_000059.3(BRCA2):c.4779A>C"},"type":"CG:me","tool":"MetaSVM","value":"Benign"},"InSilicoPred237":{"cg:id":"InSilicoPred237","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll109","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll103","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll109","identifier":"http://reg.genome.network/allele/CA020822"},"alleleName":"NM_000059.3(BRCA2):c.4779A>C"},"type":"CG:me","tool":"Mutation assessor","value":"Benign"},"InSilicoPred238":{"cg:id":"InSilicoPred238","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll109","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll103","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll109","identifier":"http://reg.genome.network/allele/CA020822"},"alleleName":"NM_000059.3(BRCA2):c.4779A>C"},"type":"CG:me","tool":"Mutation taster","value":"Benign"},"InSilicoPred239":{"cg:id":"InSilicoPred239","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll109","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll103","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll109","identifier":"http://reg.genome.network/allele/CA020822"},"alleleName":"NM_000059.3(BRCA2):c.4779A>C"},"type":"CG:me","tool":"Provean","value":"Benign"},"InSilicoPred240":{"cg:id":"InSilicoPred240","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll109","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll103","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll109","identifier":"http://reg.genome.network/allele/CA020822"},"alleleName":"NM_000059.3(BRCA2):c.4779A>C"},"type":"CG:me","tool":"Condel","value":"deleterious"},"InSilicoPred258":{"cg:id":"InSilicoPred258","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll123","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll117","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll123","identifier":"http://reg.genome.network/allele/CA501232"},"alleleName":"NM_138691.2 (TMC1): c.684C>T"},"type":"CG:sp","value":"no impact"},"InSilicoPred262":{"cg:id":"InSilicoPred262","cg:type":"InSilicoPrediction","explanation":"Provenance would show that this comes from Alamut","contextualAllele":{"cg:id":"CtxAll124","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll118","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll124","identifier":"http://reg.genome.network/allele/CA013536"},"alleleName":"NM_000257.2(MYH7):c.327C>T"},"type":"CG:sp","value":"no impact"},"InSilicoPred266":{"cg:id":"InSilicoPred266","cg:type":"InSilicoPrediction","contextualAllele":{"cg:id":"CtxAll125","cg:type":"ContextualAllele","relatedCanonicalAllele":{"cg:id":"CanAll119","cg:type":"CanonicalAllele","preferredCtxAllele":"CtxAll125","identifier":"http://reg.genome.network/allele/CA177682"},"alleleName":"NM_002880.3(RAF1):c.321T>C"},"type":"CG:sp","value":"no impact"}},
-          { collapsed: true }
-        )}
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("cg:id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
     </script>
 
 
@@ -205,7 +1229,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script><script src="../../../../javascripts/run-run_on_load.js"></script>
+    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script>
 
   </body>
 </html>
