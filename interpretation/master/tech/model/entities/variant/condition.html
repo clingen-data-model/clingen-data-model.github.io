@@ -12,6 +12,8 @@
       ClinGen Data Model
     </title>
 
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
     <link href="../../../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../../../stylesheets/brand2.css" rel="stylesheet" /><link href="../../../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
 
       <script>
@@ -90,7 +92,7 @@
 
             <li><a href="../../../../welcome/">Welcome</a></li>
             <li><a href="../../../../user/">User Guide</a></li>
-            <li class="active"><a href="../../../">Technical Reference</a></li><ul><li><a href="../../../api/">API</a></li><li><a href="../../../examples/">Examples</a></li><li class="active"><a href="../../">Model</a></li><ul><li><a href="../../agents/">Agent</a></li><li class="active"><a href="../">Entity</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../evidence/">Data</a></li><li><a href="../evidence_data-source.html">DataSource</a></li><li><a href="../publication_status.html">PublicationStatus</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../../secondary/">Secondary Types</a></li></ul><li><a href="../../../value_sets/">Value Sets</a></li></ul>
+            <li class="active"><a href="../../../">Technical Reference</a></li><ul><li><a href="../../../api/">API</a></li><li><a href="../../../examples/">Examples</a></li><li class="active"><a href="../../">Model</a></li><ul><li><a href="../../agents/">Agent</a></li><li class="active"><a href="../">Entity</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../evidence/">Data</a></li><li><a href="../evidence_data-source.html">DataSource</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../../secondary/">Secondary Types</a></li></ul><li><a href="../../../value_sets/">Value Sets</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -99,7 +101,7 @@
           <article>
 
 
-            <h1>Condition</h1>
+            <h1>MendelianCondition</h1>
             <p>*TODO* short description needed</p>
 
                 <p>Descended from Entity</p>
@@ -134,19 +136,32 @@
                 <td></td>
             </tr>
             <tr>
-                <td>code</td>
-                <td>String</td>
+                <td>disease</td>
+                <td>CodeableConcept</td>
+                <td>0..*</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>phenotype</td>
+                <td>CodeableConcept</td>
+                <td>0..*</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>modeOfInheritance</td>
+                <td>CodeableConcept</td>
                 <td>0..1</td>
                 <td></td>
             </tr>
             <tr>
-                <td>monarchCode</td>
-                <td>String</td>
+                <td>gene</td>
+                <td>Gene</td>
                 <td>0..1</td>
                 <td></td>
             </tr>
             </tbody>
         </table>
+
 
     <h2>Inherited Attributes</h2>
 
@@ -162,631 +177,1337 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>wasGeneratedBy</td>
-                    <td>Activity</td>
-                    <td>0..1</td>
-                    <td>Entity</td>
-                    <td>The activity that produced this entity</td>
-                </tr>
-                <tr>
                     <td>explanation</td>
                     <td>String</td>
                     <td>0..1</td>
-                    <td>Entity</td>
+                    <td></td>
                     <td>A human-readable description of the entity</td>
+                </tr>
+                <tr>
+                    <td>wasGeneratedBy</td>
+                    <td>Activity</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>The activity that produced this entity</td>
+                </tr>
+                <tr>
+                    <td>wasDerivedFrom</td>
+                    <td>Data</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>Another entityy which was a former derivation of this entity.</td>
                 </tr>
             </tbody>
         </table>
 
     <h2>Examples</h2>
-    <table class="table table-striped table-bordered" cellspacing=0 width="100%">
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
         <th>description</th>
-        <th>json</th>
-        <th>diagram</th>
+        <th>name</th>
+        <th>disease</th>
+        <th>phenotype</th>
+        <th>modeOfInheritance</th>
+        <th>gene</th>
       </tr></thead>
       <tbody>
         <tr>
-          <td>Cond001</td>
-          <td>Breast Ovarian Cancer</td>
-          <td><div class="example_view" id="Cond001"><pre><code>{
-  "cg:id": "Cond001",
-  "cg:type": "Condition",
-  "name": "Breast Ovarian Cancer",
-  "code": "D061325"
+          <td><p><a href="../../../examples/details.html#MendCond001">MendCond001</a></p></td>
+          <td>Breast Ovarian Cancer, autosomal recessive</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond001"><pre><code>{
+  "cg:id": "MendCond001",
+  "cg:type": "MendelianCondition",
+  "explanation": "Breast Ovarian Cancer, autosomal recessive"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond001">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond002</td>
-          <td>Dilated Cardiomyopathy</td>
-          <td><div class="example_view" id="Cond002"><pre><code>{
-  "cg:id": "Cond002",
-  "cg:type": "Condition",
-  "name": "Dilated Cardiomyopathy",
-  "code": "217604"
+          <td><p><a href="../../../examples/details.html#MendCond002">MendCond002</a></p></td>
+          <td>dilated cardiomyopathy, Autosomal Dominant</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond002"><pre><code>{
+  "cg:id": "MendCond002",
+  "cg:type": "MendelianCondition",
+  "explanation": "dilated cardiomyopathy, Autosomal Dominant"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond002">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond003</td>
-          <td>Noonan Syndrome</td>
-          <td><div class="example_view" id="Cond003"><pre><code>{
-  "cg:id": "Cond003",
-  "cg:type": "Condition",
-  "name": "Noonan Syndrome",
-  "code": "648"
+          <td><p><a href="../../../examples/details.html#MendCond003">MendCond003</a></p></td>
+          <td>noonan syndrome, Autosomal Recessive</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond003"><pre><code>{
+  "cg:id": "MendCond003",
+  "cg:type": "MendelianCondition",
+  "explanation": "noonan syndrome, Autosomal Recessive"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond003">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond004</td>
-          <td>Primary Ciliary Dyskenisia</td>
-          <td><div class="example_view" id="Cond004"><pre><code>{
-  "cg:id": "Cond004",
-  "cg:type": "Condition",
-  "name": "Primary Ciliary Dyskenisia",
-  "code": "244"
+          <td><p><a href="../../../examples/details.html#MendCond004">MendCond004</a></p></td>
+          <td>Primary ciliary dyskenisia, Autosomal Recessive</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond004"><pre><code>{
+  "cg:id": "MendCond004",
+  "cg:type": "MendelianCondition",
+  "explanation": "Primary ciliary dyskenisia, Autosomal Recessive"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond004">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond005</td>
-          <td>Costello Syndrome</td>
-          <td><div class="example_view" id="Cond005"><pre><code>{
-  "cg:id": "Cond005",
-  "cg:type": "Condition",
-  "name": "Costello Syndrome",
-  "code": "3071"
+          <td><p><a href="../../../examples/details.html#MendCond005">MendCond005</a></p></td>
+          <td>costello syndrome, Autosomal Recessive</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond005"><pre><code>{
+  "cg:id": "MendCond005",
+  "cg:type": "MendelianCondition",
+  "explanation": "costello syndrome, Autosomal Recessive"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond005">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond006</td>
-          <td>Noonan syndrome 3</td>
-          <td><div class="example_view" id="Cond006"><pre><code>{
-  "cg:id": "Cond006",
-  "cg:type": "Condition",
-  "name": "Noonan syndrome 3",
-  "code": "609942"
+          <td><p><a href="../../../examples/details.html#MendCond006">MendCond006</a></p></td>
+          <td>noonan syndrome 3, Autosomal Recessive</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond006"><pre><code>{
+  "cg:id": "MendCond006",
+  "cg:type": "MendelianCondition",
+  "explanation": "noonan syndrome 3, Autosomal Recessive"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond006">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond007</td>
-          <td>Cardiomyopathy</td>
-          <td><div class="example_view" id="Cond007"><pre><code>{
-  "cg:id": "Cond007",
-  "cg:type": "Condition",
-  "name": "Cardiomyopathy",
-  "code": "167848"
+          <td><p><a href="../../../examples/details.html#MendCond007">MendCond007</a></p></td>
+          <td>cardiomyopathy, Autosomal Dominant</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond007"><pre><code>{
+  "cg:id": "MendCond007",
+  "cg:type": "MendelianCondition",
+  "explanation": "cardiomyopathy, Autosomal Dominant"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond007">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond008</td>
-          <td>desmin related myopathy</td>
-          <td><div class="example_view" id="Cond008"><pre><code>{
-  "cg:id": "Cond008",
-  "cg:type": "Condition",
-  "name": "desmin related myopathy",
-  "code": "98909"
+          <td><p><a href="../../../examples/details.html#MendCond008">MendCond008</a></p></td>
+          <td>myofibrillar myopathy 1</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond008"><pre><code>{
+  "cg:id": "MendCond008",
+  "cg:type": "MendelianCondition",
+  "explanation": "myofibrillar myopathy 1"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond008">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond009</td>
+          <td><p><a href="../../../examples/details.html#MendCond009">MendCond009</a></p></td>
           <td>Epilepsy with Mental Retardation</td>
-          <td><div class="example_view" id="Cond009"><pre><code>{
-  "cg:id": "Cond009",
-  "cg:type": "Condition",
-  "name": "Epilepsy with Mental Retardation",
-  "code": "???"
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond009"><pre><code>{
+  "cg:id": "MendCond009",
+  "cg:type": "MendelianCondition",
+  "explanation": "Epilepsy with Mental Retardation"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond009">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond010</td>
-          <td>Hearing Loss</td>
-          <td><div class="example_view" id="Cond010"><pre><code>{
-  "cg:id": "Cond010",
-  "cg:type": "Condition",
-  "name": "Hearing Loss",
-  "code": "87884"
+          <td><p><a href="../../../examples/details.html#MendCond010">MendCond010</a></p></td>
+          <td>nonsyndromic deafness, Autosomal Recessive, GIPC3</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond010"><pre><code>{
+  "cg:id": "MendCond010",
+  "cg:type": "MendelianCondition",
+  "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond010">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond011</td>
-          <td>Malignant Hyperthermia</td>
-          <td><div class="example_view" id="Cond011"><pre><code>{
-  "cg:id": "Cond011",
-  "cg:type": "Condition",
-  "name": "Malignant Hyperthermia",
-  "code": "423"
+          <td><p><a href="../../../examples/details.html#MendCond011">MendCond011</a></p></td>
+          <td>Malignant hyperthermia</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond011"><pre><code>{
+  "cg:id": "MendCond011",
+  "cg:type": "MendelianCondition",
+  "explanation": "Malignant hyperthermia"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond011">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond012</td>
-          <td>Abnormal glucose homeostasis</td>
-          <td><div class="example_view" id="Cond012"><pre><code>{
-  "cg:id": "Cond012",
-  "cg:type": "Condition",
-  "name": "Abnormal glucose homeostasis",
-  "code": "0011014"
+          <td><p><a href="../../../examples/details.html#MendCond012">MendCond012</a></p></td>
+          <td>Abnormal Glucose Homeostasis</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond012"><pre><code>{
+  "cg:id": "MendCond012",
+  "cg:type": "MendelianCondition",
+  "explanation": "Abnormal Glucose Homeostasis"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond012">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond013</td>
-          <td>Fabry Disease</td>
-          <td><div class="example_view" id="Cond013"><pre><code>{
-  "cg:id": "Cond013",
-  "cg:type": "Condition",
-  "name": "Fabry Disease",
-  "code": "324"
+          <td><p><a href="../../../examples/details.html#MendCond013">MendCond013</a></p></td>
+          <td>Fabry disease</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond013"><pre><code>{
+  "cg:id": "MendCond013",
+  "cg:type": "MendelianCondition",
+  "explanation": "Fabry disease"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond013">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond014</td>
-          <td>outer dynein arm (ODA) defects</td>
-          <td><div class="example_view" id="Cond014"><pre><code>{
-  "cg:id": "Cond014",
-  "cg:type": "Condition",
-  "name": "outer dynein arm (ODA) defects",
-  "code": "0200106"
+          <td><p><a href="../../../examples/details.html#MendCond014">MendCond014</a></p></td>
+          <td>PCD autosomal recessive w/ outer dynein arm (ODA) defects</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond014"><pre><code>{
+  "cg:id": "MendCond014",
+  "cg:type": "MendelianCondition",
+  "explanation": "PCD autosomal recessive w/ outer dynein arm (ODA) defects"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond014">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond015</td>
-          <td>neuronal ceroid lipofuscinosis</td>
-          <td><div class="example_view" id="Cond015"><pre><code>{
-  "cg:id": "Cond015",
-  "cg:type": "Condition",
-  "name": "neuronal ceroid lipofuscinosis",
-  "code": "216"
+          <td><p><a href="../../../examples/details.html#MendCond015">MendCond015</a></p></td>
+          <td>neuronal ceroid lipofuscinosis, Autosomal Recessive, TTP1</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond015"><pre><code>{
+  "cg:id": "MendCond015",
+  "cg:type": "MendelianCondition",
+  "explanation": "neuronal ceroid lipofuscinosis, Autosomal Recessive, TTP1"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond015">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond016</td>
-          <td>Primary familial hypertrophic cardiomyopathy</td>
-          <td><div class="example_view" id="Cond016"><pre><code>{
-  "cg:id": "Cond016",
-  "cg:type": "Condition",
-  "name": "Primary familial hypertrophic cardiomyopathy",
-  "code": "217569"
+          <td><p><a href="../../../examples/details.html#MendCond016">MendCond016</a></p></td>
+          <td>hypertrophic cardiomyopathy</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond016"><pre><code>{
+  "cg:id": "MendCond016",
+  "cg:type": "MendelianCondition",
+  "explanation": "hypertrophic cardiomyopathy"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond016">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond017</td>
+          <td><p><a href="../../../examples/details.html#MendCond017">MendCond017</a></p></td>
           <td>Ornithine carbamoyltransferase deficiency</td>
-          <td><div class="example_view" id="Cond017"><pre><code>{
-  "cg:id": "Cond017",
-  "cg:type": "Condition",
-  "name": "Ornithine carbamoyltransferase deficiency",
-  "code": "664"
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond017"><pre><code>{
+  "cg:id": "MendCond017",
+  "cg:type": "MendelianCondition",
+  "explanation": "Ornithine carbamoyltransferase deficiency"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond017">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond018</td>
+          <td><p><a href="../../../examples/details.html#MendCond018">MendCond018</a></p></td>
           <td>Birt-Hogg-Dube Syndrome</td>
-          <td><div class="example_view" id="Cond018"><pre><code>{
-  "cg:id": "Cond018",
-  "cg:type": "Condition",
-  "name": "Birt-Hogg-Dube Syndrome",
-  "code": "122"
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond018"><pre><code>{
+  "cg:id": "MendCond018",
+  "cg:type": "MendelianCondition",
+  "explanation": "Birt-Hogg-Dube Syndrome"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond018">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond019</td>
-          <td>Cardio-facio-cutaneous (CFC) syndrome</td>
-          <td><div class="example_view" id="Cond019"><pre><code>{
-  "cg:id": "Cond019",
-  "cg:type": "Condition",
-  "name": "Cardio-facio-cutaneous (CFC) syndrome",
-  "code": "1340"
+          <td><p><a href="../../../examples/details.html#MendCond019">MendCond019</a></p></td>
+          <td>cardiofaciocutaneous syndrome</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond019"><pre><code>{
+  "cg:id": "MendCond019",
+  "cg:type": "MendelianCondition",
+  "explanation": "cardiofaciocutaneous syndrome"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond019">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond020</td>
-          <td>Hypertrophic Cardiomyopathy</td>
-          <td><div class="example_view" id="Cond020"><pre><code>{
-  "cg:id": "Cond020",
-  "cg:type": "Condition",
-  "name": "Hypertrophic Cardiomyopathy",
-  "code": "217569"
+          <td><p><a href="../../../examples/details.html#MendCond020">MendCond020</a></p></td>
+          <td>hypertrophic cardiomyopathy, Autosomal Dominant</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond020"><pre><code>{
+  "cg:id": "MendCond020",
+  "cg:type": "MendelianCondition",
+  "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond020">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond021</td>
-          <td>Usher syndrome</td>
-          <td><div class="example_view" id="Cond021"><pre><code>{
-  "cg:id": "Cond021",
-  "cg:type": "Condition",
-  "name": "Usher syndrome",
-  "code": "886"
+          <td><p><a href="../../../examples/details.html#MendCond021">MendCond021</a></p></td>
+          <td>Usher syndrome, Autosomal Recessive</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond021"><pre><code>{
+  "cg:id": "MendCond021",
+  "cg:type": "MendelianCondition",
+  "explanation": "Usher syndrome, Autosomal Recessive"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond021">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond022</td>
-          <td>Hereditary Hemorrhagic Telangiectasia Type 1</td>
-          <td><div class="example_view" id="Cond022"><pre><code>{
-  "cg:id": "Cond022",
-  "cg:type": "Condition",
-  "name": "Hereditary Hemorrhagic Telangiectasia Type 1",
-  "code": "774"
+          <td><p><a href="../../../examples/details.html#MendCond022">MendCond022</a></p></td>
+          <td>hereditary hemorrhagic telangiectasia</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond022"><pre><code>{
+  "cg:id": "MendCond022",
+  "cg:type": "MendelianCondition",
+  "explanation": "hereditary hemorrhagic telangiectasia"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond022">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond023</td>
-          <td>Breast-ovarian cancer, familial 2</td>
-          <td><div class="example_view" id="Cond023"><pre><code>{
-  "cg:id": "Cond023",
-  "cg:type": "Condition",
-  "name": "Breast-ovarian cancer, familial 2",
-  "code": "612555"
+          <td><p><a href="../../../examples/details.html#MendCond023">MendCond023</a></p></td>
+          <td>Breast-Ovarian Cancer, Familial, Susceptibility To, 2</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond023"><pre><code>{
+  "cg:id": "MendCond023",
+  "cg:type": "MendelianCondition",
+  "explanation": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond023">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond024</td>
-          <td>Myopathy, distal, 4</td>
-          <td><div class="example_view" id="Cond024"><pre><code>{
-  "cg:id": "Cond024",
-  "cg:type": "Condition",
-  "name": "Myopathy, distal, 4",
-  "code": "63273"
+          <td><p><a href="../../../examples/details.html#MendCond024">MendCond024</a></p></td>
+          <td>Distal myopathy with posterior leg and anterior hand involvement</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond024"><pre><code>{
+  "cg:id": "MendCond024",
+  "cg:type": "MendelianCondition",
+  "explanation": "Distal myopathy with posterior leg and anterior hand involvement"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond024">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond025</td>
+          <td><p><a href="../../../examples/details.html#MendCond025">MendCond025</a></p></td>
           <td>Cystic Fibrosis</td>
-          <td><div class="example_view" id="Cond025"><pre><code>{
-  "cg:id": "Cond025",
-  "cg:type": "Condition",
-  "name": "Cystic Fibrosis",
-  "code": "586"
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond025"><pre><code>{
+  "cg:id": "MendCond025",
+  "cg:type": "MendelianCondition",
+  "explanation": "Cystic Fibrosis"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond025">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond026</td>
-          <td>Marfan Syndrome</td>
-          <td><div class="example_view" id="Cond026"><pre><code>{
-  "cg:id": "Cond026",
-  "cg:type": "Condition",
-  "name": "Marfan Syndrome",
-  "code": "558"
+          <td><p><a href="../../../examples/details.html#MendCond026">MendCond026</a></p></td>
+          <td>Marfan Syndrome, Autosomal Dominant</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond026"><pre><code>{
+  "cg:id": "MendCond026",
+  "cg:type": "MendelianCondition",
+  "explanation": "Marfan Syndrome, Autosomal Dominant"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond026">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond027</td>
-          <td>Mitochondrial complex 1 deficiency</td>
-          <td><div class="example_view" id="Cond027"><pre><code>{
-  "cg:id": "Cond027",
-  "cg:type": "Condition",
-  "name": "Mitochondrial complex 1 deficiency",
-  "code": "2609"
+          <td><p><a href="../../../examples/details.html#MendCond027">MendCond027</a></p></td>
+          <td>Mitochondrial complex 1 deficiency, X-linked dominant inheritance</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond027"><pre><code>{
+  "cg:id": "MendCond027",
+  "cg:type": "MendelianCondition",
+  "explanation": "Mitochondrial complex 1 deficiency, X-linked dominant inheritance"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond027">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond028</td>
-          <td>Perrault Syndrome</td>
-          <td><div class="example_view" id="Cond028"><pre><code>{
-  "cg:id": "Cond028",
-  "cg:type": "Condition",
-  "name": "Perrault Syndrome",
-  "code": "2855"
+          <td><p><a href="../../../examples/details.html#MendCond028">MendCond028</a></p></td>
+          <td>Perrault Syndrome, Autosomal Dominant</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond028"><pre><code>{
+  "cg:id": "MendCond028",
+  "cg:type": "MendelianCondition",
+  "explanation": "Perrault Syndrome, Autosomal Dominant"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond028">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond029</td>
-          <td>Wiedemann-Steiner syndrome</td>
-          <td><div class="example_view" id="Cond029"><pre><code>{
-  "cg:id": "Cond029",
-  "cg:type": "Condition",
-  "name": "Wiedemann-Steiner syndrome",
-  "code": "319182"
+          <td><p><a href="../../../examples/details.html#MendCond029">MendCond029</a></p></td>
+          <td>Wiedemann-Steiner syndrome, Autosomal Dominant</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond029"><pre><code>{
+  "cg:id": "MendCond029",
+  "cg:type": "MendelianCondition",
+  "explanation": "Wiedemann-Steiner syndrome, Autosomal Dominant"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond029">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond030</td>
-          <td>Familial Adenomatous Polyposis</td>
-          <td><div class="example_view" id="Cond030"><pre><code>{
-  "cg:id": "Cond030",
-  "cg:type": "Condition",
-  "name": "Familial Adenomatous Polyposis",
-  "code": "733"
+          <td><p><a href="../../../examples/details.html#MendCond030">MendCond030</a></p></td>
+          <td>Familial Adenomatous Polyposis, Autosomal Dominant</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond030"><pre><code>{
+  "cg:id": "MendCond030",
+  "cg:type": "MendelianCondition",
+  "explanation": "Familial Adenomatous Polyposis, Autosomal Dominant"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond030">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond031</td>
-          <td>Pendred syndrome</td>
-          <td><div class="example_view" id="Cond031"><pre><code>{
-  "cg:id": "Cond031",
-  "cg:type": "Condition",
-  "name": "Pendred syndrome",
-  "code": "705"
+          <td><p><a href="../../../examples/details.html#MendCond031">MendCond031</a></p></td>
+          <td>Pendred syndrome, Autosomal Dominant</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond031"><pre><code>{
+  "cg:id": "MendCond031",
+  "cg:type": "MendelianCondition",
+  "explanation": "Pendred syndrome, Autosomal Dominant"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond031">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond032</td>
+          <td><p><a href="../../../examples/details.html#MendCond032">MendCond032</a></p></td>
           <td>café au lait macules (CALMs)</td>
-          <td><div class="example_view" id="Cond032"><pre><code>{
-  "cg:id": "Cond032",
-  "cg:type": "Condition",
-  "name": "café au lait macules (CALMs)",
-  "code": "0000957"
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond032"><pre><code>{
+  "cg:id": "MendCond032",
+  "cg:type": "MendelianCondition",
+  "explanation": "café au lait macules (CALMs)"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond032">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond033</td>
+          <td><p><a href="../../../examples/details.html#MendCond033">MendCond033</a></p></td>
           <td>axillary freckling</td>
-          <td><div class="example_view" id="Cond033"><pre><code>{
-  "cg:id": "Cond033",
-  "cg:type": "Condition",
-  "name": "axillary freckling",
-  "code": "0000997"
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond033"><pre><code>{
+  "cg:id": "MendCond033",
+  "cg:type": "MendelianCondition",
+  "explanation": "axillary freckling"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond033">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond034</td>
+          <td><p><a href="../../../examples/details.html#MendCond034">MendCond034</a></p></td>
           <td>macrocephaly</td>
-          <td><div class="example_view" id="Cond034"><pre><code>{
-  "cg:id": "Cond034",
-  "cg:type": "Condition",
-  "name": "macrocephaly",
-  "code": "0000256"
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond034"><pre><code>{
+  "cg:id": "MendCond034",
+  "cg:type": "MendelianCondition",
+  "explanation": "macrocephaly"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond034">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond035</td>
+          <td><p><a href="../../../examples/details.html#MendCond035">MendCond035</a></p></td>
           <td>Familial Hypercholesterolemia</td>
-          <td><div class="example_view" id="Cond035"><pre><code>{
-  "cg:id": "Cond035",
-  "cg:type": "Condition",
-  "name": "Familial Hypercholesterolemia",
-  "code": "D006938"
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond035"><pre><code>{
+  "cg:id": "MendCond035",
+  "cg:type": "MendelianCondition",
+  "explanation": "Familial Hypercholesterolemia"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond035">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond036</td>
-          <td>Hereditary Breast and Ovarian Cancer</td>
-          <td><div class="example_view" id="Cond036"><pre><code>{
-  "cg:id": "Cond036",
-  "cg:type": "Condition",
-  "name": "Hereditary Breast and Ovarian Cancer",
-  "code": "D061325"
+          <td><p><a href="../../../examples/details.html#MendCond036">MendCond036</a></p></td>
+          <td>hereditary breast ovarian cancer</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond036"><pre><code>{
+  "cg:id": "MendCond036",
+  "cg:type": "MendelianCondition",
+  "explanation": "hereditary breast ovarian cancer"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond036">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond037</td>
+          <td><p><a href="../../../examples/details.html#MendCond037">MendCond037</a></p></td>
           <td>Fanconi Anemia</td>
-          <td><div class="example_view" id="Cond037"><pre><code>{
-  "cg:id": "Cond037",
-  "cg:type": "Condition",
-  "name": "Fanconi Anemia",
-  "code": "84"
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond037"><pre><code>{
+  "cg:id": "MendCond037",
+  "cg:type": "MendelianCondition",
+  "explanation": "Fanconi Anemia"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond037">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond038</td>
-          <td>Retinitis Pigmentosa</td>
-          <td><div class="example_view" id="Cond038"><pre><code>{
-  "cg:id": "Cond038",
-  "cg:type": "Condition",
-  "name": "Retinitis Pigmentosa",
-  "code": "791"
+          <td><p><a href="../../../examples/details.html#MendCond038">MendCond038</a></p></td>
+          <td>Retinitis Pigmentosa, Autosomal Dominant</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond038"><pre><code>{
+  "cg:id": "MendCond038",
+  "cg:type": "MendelianCondition",
+  "explanation": "Retinitis Pigmentosa, Autosomal Dominant"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond038">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond039</td>
-          <td>Congenital Absence of the Vas Deferens</td>
-          <td><div class="example_view" id="Cond039"><pre><code>{
-  "cg:id": "Cond039",
-  "cg:type": "Condition",
-  "name": "Congenital Absence of the Vas Deferens",
-  "code": "0012873"
+          <td><p><a href="../../../examples/details.html#MendCond039">MendCond039</a></p></td>
+          <td>Absent vas deferens</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond039"><pre><code>{
+  "cg:id": "MendCond039",
+  "cg:type": "MendelianCondition",
+  "explanation": "Absent vas deferens"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond039">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond040</td>
-          <td>Primary bone dysplasia</td>
-          <td><div class="example_view" id="Cond040"><pre><code>{
-  "cg:id": "Cond040",
-  "cg:type": "Condition",
-  "name": "Primary bone dysplasia",
-  "code": "94068"
+          <td><p><a href="../../../examples/details.html#MendCond040">MendCond040</a></p></td>
+          <td>spondyloepiphyseal dysplasia congenita</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond040"><pre><code>{
+  "cg:id": "MendCond040",
+  "cg:type": "MendelianCondition",
+  "explanation": "spondyloepiphyseal dysplasia congenita"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond040">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond041</td>
-          <td>Pseudoachondroplasia</td>
-          <td><div class="example_view" id="Cond041"><pre><code>{
-  "cg:id": "Cond041",
-  "cg:type": "Condition",
-  "name": "Pseudoachondroplasia",
-  "code": "750"
+          <td><p><a href="../../../examples/details.html#MendCond041">MendCond041</a></p></td>
+          <td>pseudoachondroplasia</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond041"><pre><code>{
+  "cg:id": "MendCond041",
+  "cg:type": "MendelianCondition",
+  "explanation": "pseudoachondroplasia"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond041">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond042</td>
-          <td>Pseudoachondroplastic spondyloepiphyseal dysplasia syndrome</td>
-          <td><div class="example_view" id="Cond042"><pre><code>{
-  "cg:id": "Cond042",
-  "cg:type": "Condition",
-  "name": "Pseudoachondroplastic spondyloepiphyseal dysplasia syndrome",
-  "code": "750"
+          <td><p><a href="../../../examples/details.html#MendCond042">MendCond042</a></p></td>
+          <td>pseudoachondroplasia</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond042"><pre><code>{
+  "cg:id": "MendCond042",
+  "cg:type": "MendelianCondition",
+  "explanation": "pseudoachondroplasia"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond042">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond043</td>
-          <td>Familial Cancer of Breast</td>
-          <td><div class="example_view" id="Cond043"><pre><code>{
-  "cg:id": "Cond043",
-  "cg:type": "Condition",
-  "name": "Familial Cancer of Breast",
-  "code": "114480"
+          <td><p><a href="../../../examples/details.html#MendCond043">MendCond043</a></p></td>
+          <td>Breast Cancer</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond043"><pre><code>{
+  "cg:id": "MendCond043",
+  "cg:type": "MendelianCondition",
+  "explanation": "Breast Cancer"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond043">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond044</td>
-          <td>Gyrate atrophy of choroid and retina</td>
-          <td><div class="example_view" id="Cond044"><pre><code>{
-  "cg:id": "Cond044",
-  "cg:type": "Condition",
-  "name": "Gyrate atrophy of choroid and retina",
-  "code": "414"
+          <td><p><a href="../../../examples/details.html#MendCond044">MendCond044</a></p></td>
+          <td>gyrate atrophy</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond044"><pre><code>{
+  "cg:id": "MendCond044",
+  "cg:type": "MendelianCondition",
+  "explanation": "gyrate atrophy"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond044">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond045</td>
-          <td>Rasopathy</td>
-          <td><div class="example_view" id="Cond045"><pre><code>{
-  "cg:id": "Cond045",
-  "cg:type": "Condition",
-  "name": "Rasopathy",
-  "code": "98733"
+          <td><p><a href="../../../examples/details.html#MendCond045">MendCond045</a></p></td>
+          <td>Noonan syndrome and noonan-related syndrom</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond045"><pre><code>{
+  "cg:id": "MendCond045",
+  "cg:type": "MendelianCondition",
+  "explanation": "Noonan syndrome and noonan-related syndrom"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond045">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>Cond046</td>
-          <td>Arrhythmogenic right ventricular cardiomyopathy</td>
-          <td><div class="example_view" id="Cond046"><pre><code>{
-  "cg:id": "Cond046",
-  "cg:type": "Condition",
-  "name": "Arrhythmogenic right ventricular cardiomyopathy",
-  "code": "247"
+          <td><p><a href="../../../examples/details.html#MendCond046">MendCond046</a></p></td>
+          <td>arrhythmogenic right ventricular cardiomyopathy</td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MendCond046"><pre><code>{
+  "cg:id": "MendCond046",
+  "cg:type": "MendelianCondition",
+  "explanation": "arrhythmogenic right ventricular cardiomyopathy"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#Cond046">diagram</a></td>
+          -->
         </tr>
 
       </tbody>
     </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
     <script>
 var fix_ellipses = function ($view) {
     $view.find('ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
@@ -808,6 +1529,7 @@ window.addEventListener('load', function () {
 
 })
     </script>
+    -->
 
 
           </article>
@@ -819,6 +1541,7 @@ window.addEventListener('load', function () {
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
 
   </body>
 </html>

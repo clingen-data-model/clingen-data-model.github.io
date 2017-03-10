@@ -12,6 +12,8 @@
       ClinGen Data Model
     </title>
 
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
     <link href="../../../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../../../stylesheets/brand2.css" rel="stylesheet" /><link href="../../../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
 
       <script>
@@ -90,7 +92,7 @@
 
             <li><a href="../../../../welcome/">Welcome</a></li>
             <li><a href="../../../../user/">User Guide</a></li>
-            <li class="active"><a href="../../../">Technical Reference</a></li><ul><li><a href="../../../api/">API</a></li><li><a href="../../../examples/">Examples</a></li><li class="active"><a href="../../">Model</a></li><ul><li><a href="../../agents/">Agent</a></li><li class="active"><a href="../">Entity</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../evidence/">Data</a></li><li><a href="../evidence_data-source.html">DataSource</a></li><li><a href="../publication_status.html">PublicationStatus</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../../secondary/">Secondary Types</a></li></ul><li><a href="../../../value_sets/">Value Sets</a></li></ul>
+            <li class="active"><a href="../../../">Technical Reference</a></li><ul><li><a href="../../../api/">API</a></li><li><a href="../../../examples/">Examples</a></li><li class="active"><a href="../../">Model</a></li><ul><li><a href="../../agents/">Agent</a></li><li class="active"><a href="../">Entity</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../evidence/">Data</a></li><li><a href="../evidence_data-source.html">DataSource</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../../secondary/">Secondary Types</a></li></ul><li><a href="../../../value_sets/">Value Sets</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -102,6 +104,7 @@
             <h1>ScoringAlgorithm</h1>
             <p>The rules for combining CriterionAssessments into an Interpretation</p>
 
+                <p>Descended from Entity</p>
 
             <hr class='col-sm-12' />
 
@@ -135,6 +138,7 @@
             </tbody>
         </table>
 
+
     <h2>Inherited Attributes</h2>
 
         <table class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -148,32 +152,62 @@
             </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>explanation</td>
+                    <td>String</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>A human-readable description of the entity</td>
+                </tr>
+                <tr>
+                    <td>wasGeneratedBy</td>
+                    <td>Activity</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>The activity that produced this entity</td>
+                </tr>
+                <tr>
+                    <td>wasDerivedFrom</td>
+                    <td>Data</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>Another entityy which was a former derivation of this entity.</td>
+                </tr>
             </tbody>
         </table>
 
     <h2>Examples</h2>
-    <table class="table table-striped table-bordered" cellspacing=0 width="100%">
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
         <th>description</th>
-        <th>json</th>
-        <th>diagram</th>
+        <th>description</th>
       </tr></thead>
       <tbody>
         <tr>
-          <td>ScorAlg01</td>
+          <td><p><a href="../../../examples/details.html#ScorAlg01">ScorAlg01</a></p></td>
           <td>This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance.</td>
+          <td>
+              <p>This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance.</p>
+         </td>
+          <!--
           <td><div class="example_view" id="ScorAlg01"><pre><code>{
   "cg:id": "ScorAlg01",
   "cg:type": "ScoringAlgorithm",
   "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance."
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#ScorAlg01">diagram</a></td>
+          -->
         </tr>
 
       </tbody>
     </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
     <script>
 var fix_ellipses = function ($view) {
     $view.find('ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
@@ -195,6 +229,7 @@ window.addEventListener('load', function () {
 
 })
     </script>
+    -->
 
 
           </article>
@@ -206,6 +241,7 @@ window.addEventListener('load', function () {
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
 
   </body>
 </html>

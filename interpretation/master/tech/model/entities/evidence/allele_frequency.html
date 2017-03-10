@@ -12,6 +12,8 @@
       ClinGen Data Model
     </title>
 
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
     <link href="../../../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../../../stylesheets/brand2.css" rel="stylesheet" /><link href="../../../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
 
       <script>
@@ -93,7 +95,7 @@
 
             <li><a href="../../../../welcome/">Welcome</a></li>
             <li><a href="../../../../user/">User Guide</a></li>
-            <li class="active"><a href="../../../">Technical Reference</a></li><ul><li><a href="../../../api/">API</a></li><li><a href="../../../examples/">Examples</a></li><li class="active"><a href="../../">Model</a></li><ul><li><a href="../../agents/">Agent</a></li><li class="active"><a href="../">Entity</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li class="active"><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_inheritance.html">ConditionInheritance</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_disease_variant_interpretation.html">MendelianDiseaseVariantPathogenicityInterpretation</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionTypesAndAlleles</a></li></ul><li><a href="../evidence_data-source.html">DataSource</a></li><li><a href="../publication_status.html">PublicationStatus</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../../secondary/">Secondary Types</a></li></ul><li><a href="../../../value_sets/">Value Sets</a></li></ul>
+            <li class="active"><a href="../../../">Technical Reference</a></li><ul><li><a href="../../../api/">API</a></li><li><a href="../../../examples/">Examples</a></li><li class="active"><a href="../../">Model</a></li><ul><li><a href="../../agents/">Agent</a></li><li class="active"><a href="../">Entity</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li class="active"><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionTypesAndAlleles</a></li></ul><li><a href="../evidence_data-source.html">DataSource</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../../secondary/">Secondary Types</a></li></ul><li><a href="../../../value_sets/">Value Sets</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -148,7 +150,7 @@
             </tr>
             <tr>
                 <td>ascertainment</td>
-                <td>CodeableConcept</td>
+                <td>String</td>
                 <td>0..1</td>
                 <td>The criteria applied to create the dataset in which the frequency was measured</td>
             </tr>
@@ -203,6 +205,7 @@
             </tbody>
         </table>
 
+
     <h2>Inherited Attributes</h2>
 
         <table class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -217,34 +220,84 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>wasGeneratedBy</td>
-                    <td>Activity</td>
-                    <td>0..1</td>
-                    <td>Entity</td>
-                    <td>The activity that produced this entity</td>
-                </tr>
-                <tr>
                     <td>explanation</td>
                     <td>String</td>
                     <td>0..1</td>
-                    <td>Entity</td>
+                    <td></td>
                     <td>A human-readable description of the entity</td>
+                </tr>
+                <tr>
+                    <td>wasGeneratedBy</td>
+                    <td>Activity</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>The activity that produced this entity</td>
+                </tr>
+                <tr>
+                    <td>wasDerivedFrom</td>
+                    <td>Data</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>Another entityy which was a former derivation of this entity.</td>
                 </tr>
             </tbody>
         </table>
 
     <h2>Examples</h2>
-    <table class="table table-striped table-bordered" cellspacing=0 width="100%">
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
         <th>description</th>
-        <th>json</th>
-        <th>diagram</th>
+        <th>allele</th>
+        <th>population</th>
+        <th>ascertainment</th>
+        <th>alleleFrequency</th>
+        <th>alleleCount</th>
+        <th>alleleNumber</th>
+        <th>individualCount</th>
+        <th>homozygousAlleleIndividualCount</th>
+        <th>heterozygousAlleleIndividualCount</th>
+        <th>hemizygousAlleleIndividualCount</th>
+        <th>medianCoverage</th>
       </tr></thead>
       <tbody>
         <tr>
-          <td>AllFreq028</td>
+          <td><p><a href="../../../examples/details.html#AllFreq028">AllFreq028</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll022">CanAll022</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>ExAC</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>105</p>
+         </td>
+          <td>
+              <p>121336</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="AllFreq028"><pre><code>{
   "cg:id": "AllFreq028",
   "cg:type": "AlleleFrequency",
@@ -259,12 +312,46 @@
   "alleleNumber": 121336
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#AllFreq028">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>AllFreq029</td>
+          <td><p><a href="../../../examples/details.html#AllFreq029">AllFreq029</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll022">CanAll022</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Across all published data (and LMM data) with hearing loss.</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>32</p>
+         </td>
+          <td>
+              <p>4076</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="AllFreq029"><pre><code>{
   "cg:id": "AllFreq029",
   "cg:type": "AlleleFrequency",
@@ -279,12 +366,46 @@
   "alleleNumber": 4076
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#AllFreq029">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>AllFreq031</td>
+          <td><p><a href="../../../examples/details.html#AllFreq031">AllFreq031</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll023">CanAll023</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>ExAC</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>9</p>
+         </td>
+          <td>
+              <p>66740</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="AllFreq031"><pre><code>{
   "cg:id": "AllFreq031",
   "cg:type": "AlleleFrequency",
@@ -299,12 +420,46 @@
   "alleleNumber": 66740
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#AllFreq031">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>AllFreq032</td>
+          <td><p><a href="../../../examples/details.html#AllFreq032">AllFreq032</a></p></td>
           <td>This allele is thought to account for between 2% and 10% of patients with Malignant hyperthermia.</td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll023">CanAll023</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="AllFreq032"><pre><code>{
   "cg:id": "AllFreq032",
   "cg:type": "AlleleFrequency",
@@ -317,12 +472,46 @@
   }
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#AllFreq032">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>AllFreq034</td>
+          <td><p><a href="../../../examples/details.html#AllFreq034">AllFreq034</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll024">CanAll024</a></p>
+         </td>
+          <td>
+              <p>EX:nfe</p>
+         </td>
+          <td>
+              <p>Case group is composed of cases from six cohorts from the GENIUS T2D consortium.  Case status is defined per-cohort.</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>1198</p>
+         </td>
+          <td>
+              <p>7344</p>
+         </td>
+          <td>
+              <p>3672</p>
+         </td>
+          <td>
+              <p>113</p>
+         </td>
+          <td>
+              <p>972</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="AllFreq034"><pre><code>{
   "cg:id": "AllFreq034",
   "cg:type": "AlleleFrequency",
@@ -341,12 +530,46 @@
   "population": "EX:nfe"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#AllFreq034">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>AllFreq035</td>
+          <td><p><a href="../../../examples/details.html#AllFreq035">AllFreq035</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll024">CanAll024</a></p>
+         </td>
+          <td>
+              <p>EX:nfe</p>
+         </td>
+          <td>
+              <p>Controls group is composed of controls from six cohorts from the GENIUS T2D consortium.  Controls status is defined per-cohort.</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>936</p>
+         </td>
+          <td>
+              <p>5870</p>
+         </td>
+          <td>
+              <p>2935</p>
+         </td>
+          <td>
+              <p>77</p>
+         </td>
+          <td>
+              <p>782</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="AllFreq035"><pre><code>{
   "cg:id": "AllFreq035",
   "cg:type": "AlleleFrequency",
@@ -365,12 +588,158 @@
   "population": "EX:nfe"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#AllFreq035">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>AllFreq051</td>
+          <td><p><a href="../../../examples/details.html#AllFreq037">AllFreq037</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll118">CanAll118</a></p>
+         </td>
+          <td>
+              <p>EX:sas</p>
+         </td>
+          <td>
+              <p>ExAC</p>
+         </td>
+          <td>
+              <p>0.02</p>
+         </td>
+          <td>
+              <p>31</p>
+         </td>
+          <td>
+              <p>16512</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="AllFreq037"><pre><code>{
+  "cg:id": "AllFreq037",
+  "cg:type": "AlleleFrequency",
+  "ascertainment": "ExAC",
+  "allele": {
+    "cg:id": "CanAll118",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll124",
+    "identifier": "http://reg.genome.network/allele/CA013536"
+  },
+  "alleleCount": 31,
+  "alleleNumber": 16512,
+  "alleleFrequency": 0.02,
+  "population": "EX:sas"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../examples/details.html#AllFreq038">AllFreq038</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll092">CanAll092</a></p>
+         </td>
+          <td>
+              <p>EX:afr</p>
+         </td>
+          <td>
+              <p>ExAC</p>
+         </td>
+          <td>
+              <p>0.02</p>
+         </td>
+          <td>
+              <p>27</p>
+         </td>
+          <td>
+              <p>1384</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="AllFreq038"><pre><code>{
+  "cg:id": "AllFreq038",
+  "cg:type": "AlleleFrequency",
+  "ascertainment": "ExAC",
+  "allele": {
+    "cg:id": "CanAll092",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll098",
+    "identifier": "http://reg.genome.network/allele/CA090950"
+  },
+  "alleleCount": 27,
+  "alleleNumber": 1384,
+  "alleleFrequency": 0.02,
+  "population": "EX:afr"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../examples/details.html#AllFreq051">AllFreq051</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll032">CanAll032</a></p>
+         </td>
+          <td>
+              <p>EX:nfe</p>
+         </td>
+          <td>
+              <p>ExAC</p>
+         </td>
+          <td>
+              <p>1.499e-05</p>
+         </td>
+          <td>
+              <p>66706</p>
+         </td>
+          <td>
+              <p>1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>0</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="AllFreq051"><pre><code>{
   "cg:id": "AllFreq051",
   "cg:type": "AlleleFrequency",
@@ -388,12 +757,46 @@
   "homozygousAlleleIndividualCount": 0
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#AllFreq051">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>AllFreq052</td>
+          <td><p><a href="../../../examples/details.html#AllFreq052">AllFreq052</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll032">CanAll032</a></p>
+         </td>
+          <td>
+              <p>CG:combined</p>
+         </td>
+          <td>
+              <p>ExAC</p>
+         </td>
+          <td>
+              <p>8.24e-06</p>
+         </td>
+          <td>
+              <p>121366</p>
+         </td>
+          <td>
+              <p>1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>0</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="AllFreq052"><pre><code>{
   "cg:id": "AllFreq052",
   "cg:type": "AlleleFrequency",
@@ -411,12 +814,46 @@
   "homozygousAlleleIndividualCount": 0
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#AllFreq052">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>AllFreq053</td>
+          <td><p><a href="../../../examples/details.html#AllFreq053">AllFreq053</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll033">CanAll033</a></p>
+         </td>
+          <td>
+              <p>EX:fin</p>
+         </td>
+          <td>
+              <p>ExAC</p>
+         </td>
+          <td>
+              <p>0.07771</p>
+         </td>
+          <td>
+              <p>6614</p>
+         </td>
+          <td>
+              <p>514</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>21</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>100.0</p>
+         </td>
+          <!--
           <td><div class="example_view" id="AllFreq053"><pre><code>{
   "cg:id": "AllFreq053",
   "cg:type": "AlleleFrequency",
@@ -435,12 +872,46 @@
   "medianCoverage": 100.0
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#AllFreq053">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>AllFreq054</td>
+          <td><p><a href="../../../examples/details.html#AllFreq054">AllFreq054</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll034">CanAll034</a></p>
+         </td>
+          <td>
+              <p>CG:combined</p>
+         </td>
+          <td>
+              <p>ExAC</p>
+         </td>
+          <td>
+              <p>0.0</p>
+         </td>
+          <td>
+              <p>0</p>
+         </td>
+          <td>
+              <p>0</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>11.0</p>
+         </td>
+          <!--
           <td><div class="example_view" id="AllFreq054"><pre><code>{
   "cg:id": "AllFreq054",
   "cg:type": "AlleleFrequency",
@@ -458,15 +929,63 @@
   "medianCoverage": 11.0
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#AllFreq054">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>AllFreq082</td>
+          <td><p><a href="../../../examples/details.html#AllFreq082">AllFreq082</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll035">CanAll035</a></p>
+         </td>
+          <td>
+              <p>CG:combined</p>
+         </td>
+          <td>
+              <p>ExAC</p>
+         </td>
+          <td>
+              <p>0.0</p>
+         </td>
+          <td>
+              <p>0</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>11.0</p>
+         </td>
+          <!--
           <td><div class="example_view" id="AllFreq082"><pre><code>{
   "cg:id": "AllFreq082",
   "cg:type": "AlleleFrequency",
+  "wasGeneratedBy": {
+    "cg:id": "CapData081",
+    "cg:type": "CaptureData",
+    "startedAtTime": "2016-06-01T14:15:00+00:00",
+    "endedAtTime": "2016-06-01T14:15:00+00:00",
+    "wasAssociatedWith": [
+      {
+        "cg:id": "Agent001",
+        "cg:type": "Agent",
+        "description": "SH",
+        "name": "Steven Harrison"
+      }
+    ]
+  },
   "ascertainment": "ExAC",
   "population": "CG:combined",
   "allele": {
@@ -477,31 +996,49 @@
   },
   "alleleCount": 0,
   "alleleFrequency": 0.0,
-  "medianCoverage": 11.0,
-  "startedAtTime": "2016-06-01T14:15:00+00:00",
-  "endedAtTime": "2016-06-01T14:15:00+00:00",
-  "dataSource": {
-    "cg:id": "DataSrc009",
-    "cg:type": "DataSource",
-    "externalIdentifier": "EXAC v0.2",
-    "linkedIRI": "ftp://ftp.broadinstitute.org/pub/ExAC_release/release0.2/"
-  },
-  "wasAssociatedWith": [
-    {
-      "cg:id": "Agent001",
-      "cg:type": "Agent",
-      "description": "SH",
-      "name": "Steven Harrison"
-    }
-  ]
+  "medianCoverage": 11.0
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#AllFreq082">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>AllFreq153</td>
+          <td><p><a href="../../../examples/details.html#AllFreq153">AllFreq153</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll075">CanAll075</a></p>
+         </td>
+          <td>
+              <p>CG:combined</p>
+         </td>
+          <td>
+              <p>ExAC</p>
+         </td>
+          <td>
+              <p>0.05591</p>
+         </td>
+          <td>
+              <p>6732</p>
+         </td>
+          <td>
+              <p>120402</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>223</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="AllFreq153"><pre><code>{
   "cg:id": "AllFreq153",
   "cg:type": "AlleleFrequency",
@@ -519,12 +1056,46 @@
   "homozygousAlleleIndividualCount": 223
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#AllFreq153">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>AllFreq154</td>
+          <td><p><a href="../../../examples/details.html#AllFreq154">AllFreq154</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll076">CanAll076</a></p>
+         </td>
+          <td>
+              <p>CG:combined</p>
+         </td>
+          <td>
+              <p>ExAC</p>
+         </td>
+          <td>
+              <p>0.04538</p>
+         </td>
+          <td>
+              <p>5507</p>
+         </td>
+          <td>
+              <p>121350</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>768</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="AllFreq154"><pre><code>{
   "cg:id": "AllFreq154",
   "cg:type": "AlleleFrequency",
@@ -542,12 +1113,46 @@
   "homozygousAlleleIndividualCount": 768
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#AllFreq154">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>AllFreq155</td>
+          <td><p><a href="../../../examples/details.html#AllFreq155">AllFreq155</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll076">CanAll076</a></p>
+         </td>
+          <td>
+              <p>EX:eas</p>
+         </td>
+          <td>
+              <p>ExAC</p>
+         </td>
+          <td>
+              <p>0.2917</p>
+         </td>
+          <td>
+              <p>2518</p>
+         </td>
+          <td>
+              <p>8632</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>405</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="AllFreq155"><pre><code>{
   "cg:id": "AllFreq155",
   "cg:type": "AlleleFrequency",
@@ -565,12 +1170,46 @@
   "homozygousAlleleIndividualCount": 405
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#AllFreq155">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>AllFreq157</td>
+          <td><p><a href="../../../examples/details.html#AllFreq157">AllFreq157</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll077">CanAll077</a></p>
+         </td>
+          <td>
+              <p>CG:combined</p>
+         </td>
+          <td>
+              <p>ExAC</p>
+         </td>
+          <td>
+              <p>0.0001158</p>
+         </td>
+          <td>
+              <p>14</p>
+         </td>
+          <td>
+              <p>121100</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>0</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="AllFreq157"><pre><code>{
   "cg:id": "AllFreq157",
   "cg:type": "AlleleFrequency",
@@ -588,12 +1227,46 @@
   "homozygousAlleleIndividualCount": 0
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#AllFreq157">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>AllFreq158</td>
+          <td><p><a href="../../../examples/details.html#AllFreq158">AllFreq158</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll078">CanAll078</a></p>
+         </td>
+          <td>
+              <p>CG:combined</p>
+         </td>
+          <td>
+              <p>ExAC</p>
+         </td>
+          <td>
+              <p>0.0007</p>
+         </td>
+          <td>
+              <p>89</p>
+         </td>
+          <td>
+              <p>121410</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="AllFreq158"><pre><code>{
   "cg:id": "AllFreq158",
   "cg:type": "AlleleFrequency",
@@ -611,12 +1284,46 @@
   "homozygousAlleleIndividualCount": 1
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#AllFreq158">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>AllFreq162</td>
+          <td><p><a href="../../../examples/details.html#AllFreq162">AllFreq162</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll079">CanAll079</a></p>
+         </td>
+          <td>
+              <p>CG:combined</p>
+         </td>
+          <td>
+              <p>ExAC</p>
+         </td>
+          <td>
+              <p>0.00625</p>
+         </td>
+          <td>
+              <p>545</p>
+         </td>
+          <td>
+              <p>87696</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>206</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="AllFreq162"><pre><code>{
   "cg:id": "AllFreq162",
   "cg:type": "AlleleFrequency",
@@ -635,12 +1342,46 @@
   "hemizygousAlleleIndividualCount": 206
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#AllFreq162">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>AllFreq166</td>
+          <td><p><a href="../../../examples/details.html#AllFreq166">AllFreq166</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll080">CanAll080</a></p>
+         </td>
+          <td>
+              <p>CG:combined</p>
+         </td>
+          <td>
+              <p>ExAC</p>
+         </td>
+          <td>
+              <p>2.4e-05</p>
+         </td>
+          <td>
+              <p>3</p>
+         </td>
+          <td>
+              <p>120870</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="AllFreq166"><pre><code>{
   "cg:id": "AllFreq166",
   "cg:type": "AlleleFrequency",
@@ -657,11 +1398,73 @@
   "alleleFrequency": 2.4e-05
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#AllFreq166">diagram</a></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../examples/details.html#AllFreq370">AllFreq370</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll121">CanAll121</a></p>
+         </td>
+          <td>
+              <p>EX:nfe</p>
+         </td>
+          <td>
+              <p>ExAC</p>
+         </td>
+          <td>
+              <p>1.5e-05</p>
+         </td>
+          <td>
+              <p>1</p>
+         </td>
+          <td>
+              <p>66564</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>0</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="AllFreq370"><pre><code>{
+  "cg:id": "AllFreq370",
+  "cg:type": "AlleleFrequency",
+  "ascertainment": "ExAC",
+  "population": "EX:nfe",
+  "allele": {
+    "cg:id": "CanAll121",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll127"
+  },
+  "alleleCount": 1,
+  "alleleNumber": 66564,
+  "alleleFrequency": 1.5e-05,
+  "homozygousAlleleIndividualCount": 0
+}
+          </code></pre></div></td>
+          -->
         </tr>
 
       </tbody>
     </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
     <script>
 var fix_ellipses = function ($view) {
     $view.find('ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
@@ -683,6 +1486,7 @@ window.addEventListener('load', function () {
 
 })
     </script>
+    -->
 
 
           </article>
@@ -694,6 +1498,7 @@ window.addEventListener('load', function () {
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
 
   </body>
 </html>

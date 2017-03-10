@@ -12,6 +12,8 @@
       ClinGen Data Model
     </title>
 
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
     <link href="../../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../../stylesheets/brand2.css" rel="stylesheet" /><link href="../../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
 
       <script>
@@ -93,7 +95,7 @@
 
             <li><a href="../../../welcome/">Welcome</a></li>
             <li><a href="../../../user/">User Guide</a></li>
-            <li class="active"><a href="../../">Technical Reference</a></li><ul><li><a href="../../api/">API</a></li><li><a href="../../examples/">Examples</a></li><li class="active"><a href="../">Model</a></li><ul><li><a href="../agents/">Agent</a></li><li class="active"><a href="./">Entity</a></li><ul><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="evidence/">Data</a></li><li class="active"><a href="evidence_data-source.html">DataSource</a></li><li><a href="publication_status.html">PublicationStatus</a></li><li><a href="variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../secondary/">Secondary Types</a></li></ul><li><a href="../../value_sets/">Value Sets</a></li></ul>
+            <li class="active"><a href="../../">Technical Reference</a></li><ul><li><a href="../../api/">API</a></li><li><a href="../../examples/">Examples</a></li><li class="active"><a href="../">Model</a></li><ul><li><a href="../agents/">Agent</a></li><li class="active"><a href="./">Entity</a></li><ul><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="evidence/">Data</a></li><li class="active"><a href="evidence_data-source.html">DataSource</a></li><li><a href="variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../secondary/">Secondary Types</a></li></ul><li><a href="../../value_sets/">Value Sets</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -165,6 +167,7 @@
             </tbody>
         </table>
 
+
     <h2>Inherited Attributes</h2>
 
         <table class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -179,34 +182,56 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>wasGeneratedBy</td>
-                    <td>Activity</td>
-                    <td>0..1</td>
-                    <td>Entity</td>
-                    <td>The activity that produced this entity</td>
-                </tr>
-                <tr>
                     <td>explanation</td>
                     <td>String</td>
                     <td>0..1</td>
-                    <td>Entity</td>
+                    <td></td>
                     <td>A human-readable description of the entity</td>
+                </tr>
+                <tr>
+                    <td>wasGeneratedBy</td>
+                    <td>Activity</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>The activity that produced this entity</td>
+                </tr>
+                <tr>
+                    <td>wasDerivedFrom</td>
+                    <td>Data</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>Another entityy which was a former derivation of this entity.</td>
                 </tr>
             </tbody>
         </table>
 
     <h2>Examples</h2>
-    <table class="table table-striped table-bordered" cellspacing=0 width="100%">
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
         <th>description</th>
-        <th>json</th>
-        <th>diagram</th>
+        <th>dataSourceType</th>
+        <th>externalIdentifier</th>
+        <th>linkedIRI</th>
+        <th>version</th>
       </tr></thead>
       <tbody>
         <tr>
-          <td>DataSrc001</td>
+          <td><p><a href="../../examples/details.html#DataSrc001">DataSrc001</a></p></td>
           <td></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>PMID:23633196</p>
+         </td>
+          <td>
+              <p>http://www.ncbi.nlm.nih.gov/pubmed/23633196</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="DataSrc001"><pre><code>{
   "cg:id": "DataSrc001",
   "cg:type": "DataSource",
@@ -214,12 +239,25 @@
   "linkedIRI": "http://www.ncbi.nlm.nih.gov/pubmed/23633196"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DataSrc001">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>DataSrc002</td>
+          <td><p><a href="../../examples/details.html#DataSrc002">DataSrc002</a></p></td>
           <td></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>PMID:17081393</p>
+         </td>
+          <td>
+              <p>http://www.ncbi.nlm.nih.gov/pubmed/17081393</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="DataSrc002"><pre><code>{
   "cg:id": "DataSrc002",
   "cg:type": "DataSource",
@@ -227,24 +265,50 @@
   "linkedIRI": "http://www.ncbi.nlm.nih.gov/pubmed/17081393"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DataSrc002">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>DataSrc003</td>
+          <td><p><a href="../../examples/details.html#DataSrc003">DataSrc003</a></p></td>
           <td></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>LMM-VARIANT:NM_000256.3(MYBPC3)c.1351+1G>A</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="DataSrc003"><pre><code>{
   "cg:id": "DataSrc003",
   "cg:type": "DataSource",
   "externalIdentifier": "LMM-VARIANT:NM_000256.3(MYBPC3)c.1351+1G>A"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DataSrc003">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>DataSrc004</td>
+          <td><p><a href="../../examples/details.html#DataSrc004">DataSrc004</a></p></td>
           <td></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>OMIM:244400</p>
+         </td>
+          <td>
+              <p>http://omim.org/entry/244400</p>
+         </td>
+          <td>
+              <p>alopez : 09/15/2016</p>
+         </td>
+          <!--
           <td><div class="example_view" id="DataSrc004"><pre><code>{
   "cg:id": "DataSrc004",
   "cg:type": "DataSource",
@@ -253,24 +317,50 @@
   "version": "alopez : 09/15/2016"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DataSrc004">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>DataSrc005</td>
+          <td><p><a href="../../examples/details.html#DataSrc005">DataSrc005</a></p></td>
           <td></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>LMM-CASE:CSER-SUBJECT-123</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="DataSrc005"><pre><code>{
   "cg:id": "DataSrc005",
   "cg:type": "DataSource",
   "externalIdentifier": "LMM-CASE:CSER-SUBJECT-123"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DataSrc005">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>DataSrc006</td>
+          <td><p><a href="../../examples/details.html#DataSrc006">DataSrc006</a></p></td>
           <td></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CLINVAR:SCV000205842.3</p>
+         </td>
+          <td>
+              <p>https://www.ncbi.nlm.nih.gov/clinvar/SCV000205842.3</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="DataSrc006"><pre><code>{
   "cg:id": "DataSrc006",
   "cg:type": "DataSource",
@@ -278,12 +368,25 @@
   "linkedIRI": "https://www.ncbi.nlm.nih.gov/clinvar/SCV000205842.3"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DataSrc006">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>DataSrc007</td>
+          <td><p><a href="../../examples/details.html#DataSrc007">DataSrc007</a></p></td>
           <td></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>LMM:GENEINSIGHT-LAB v5.3.2</p>
+         </td>
+          <td>
+              <p>https://geneinsight-lmm-test.partners.org</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="DataSrc007"><pre><code>{
   "cg:id": "DataSrc007",
   "cg:type": "DataSource",
@@ -291,12 +394,25 @@
   "linkedIRI": "https://geneinsight-lmm-test.partners.org"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DataSrc007">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>DataSrc008</td>
+          <td><p><a href="../../examples/details.html#DataSrc008">DataSrc008</a></p></td>
           <td></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>LMM:ALAMUT-PROD v123</p>
+         </td>
+          <td>
+              <p>https://pcpgm.partners.org/lmm</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="DataSrc008"><pre><code>{
   "cg:id": "DataSrc008",
   "cg:type": "DataSource",
@@ -304,12 +420,25 @@
   "linkedIRI": "https://pcpgm.partners.org/lmm"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DataSrc008">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>DataSrc009</td>
+          <td><p><a href="../../examples/details.html#DataSrc009">DataSrc009</a></p></td>
           <td></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>EXAC v0.2</p>
+         </td>
+          <td>
+              <p>ftp://ftp.broadinstitute.org/pub/ExAC_release/release0.2/</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="DataSrc009"><pre><code>{
   "cg:id": "DataSrc009",
   "cg:type": "DataSource",
@@ -317,12 +446,25 @@
   "linkedIRI": "ftp://ftp.broadinstitute.org/pub/ExAC_release/release0.2/"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DataSrc009">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>DataSrc010</td>
+          <td><p><a href="../../examples/details.html#DataSrc010">DataSrc010</a></p></td>
           <td></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>PMID:12698559</p>
+         </td>
+          <td>
+              <p>https://www.ncbi.nlm.nih.gov/pubmed/12698559</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="DataSrc010"><pre><code>{
   "cg:id": "DataSrc010",
   "cg:type": "DataSource",
@@ -330,11 +472,17 @@
   "linkedIRI": "https://www.ncbi.nlm.nih.gov/pubmed/12698559"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DataSrc010">diagram</a></td>
+          -->
         </tr>
 
       </tbody>
     </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
     <script>
 var fix_ellipses = function ($view) {
     $view.find('ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
@@ -356,6 +504,7 @@ window.addEventListener('load', function () {
 
 })
     </script>
+    -->
 
 
           </article>
@@ -367,6 +516,7 @@ window.addEventListener('load', function () {
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../../../javascripts/jquery.js"></script><script src="../../../javascripts/bootstrap.js"></script><script src="../../../javascripts/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
 
   </body>
 </html>

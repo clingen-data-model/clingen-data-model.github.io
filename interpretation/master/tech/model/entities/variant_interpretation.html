@@ -12,6 +12,8 @@
       ClinGen Data Model
     </title>
 
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
     <link href="../../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../../stylesheets/brand2.css" rel="stylesheet" /><link href="../../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
 
       <script>
@@ -93,7 +95,7 @@
 
             <li><a href="../../../welcome/">Welcome</a></li>
             <li><a href="../../../user/">User Guide</a></li>
-            <li class="active"><a href="../../">Technical Reference</a></li><ul><li><a href="../../api/">API</a></li><li><a href="../../examples/">Examples</a></li><li class="active"><a href="../">Model</a></li><ul><li><a href="../agents/">Agent</a></li><li class="active"><a href="./">Entity</a></li><ul><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="evidence/">Data</a></li><li><a href="evidence_data-source.html">DataSource</a></li><li><a href="publication_status.html">PublicationStatus</a></li><li class="active"><a href="variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../secondary/">Secondary Types</a></li></ul><li><a href="../../value_sets/">Value Sets</a></li></ul>
+            <li class="active"><a href="../../">Technical Reference</a></li><ul><li><a href="../../api/">API</a></li><li><a href="../../examples/">Examples</a></li><li class="active"><a href="../">Model</a></li><ul><li><a href="../agents/">Agent</a></li><li class="active"><a href="./">Entity</a></li><ul><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="evidence/">Data</a></li><li><a href="evidence_data-source.html">DataSource</a></li><li class="active"><a href="variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../secondary/">Secondary Types</a></li></ul><li><a href="../../value_sets/">Value Sets</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -105,7 +107,7 @@
             <h1>VariantInterpretation</h1>
             <p>Evidence-based conclusion about the pathogenicity of a sequence variant</p>
 
-                <p>Descended from Entity</p>
+                <p>Descended from Data</p>
 
             <hr class='col-sm-12' />
 
@@ -152,12 +154,12 @@
             </tr>
             <tr>
                 <td>condition</td>
-                <td>Condition</td>
+                <td>MendelianCondition</td>
                 <td>0..*</td>
                 <td>The condition for which the variant's pathogenicity is described</td>
             </tr>
             <tr>
-                <td>interpretationCode</td>
+                <td>clinicalSignificance</td>
                 <td>CodeableConcept</td>
                 <td>1..1</td>
                 <td>The coded pathogenicity of the variant for the condition</td>
@@ -169,19 +171,14 @@
                 <td>The  framework that formally defines the methodology used in creating this interpretation.</td>
             </tr>
             <tr>
-                <td>wasDerivedFrom</td>
-                <td>VariantInterpretation</td>
-                <td>0..1</td>
-                <td>A previous interpretation from which the current interpretation was derived</td>
-            </tr>
-            <tr>
-                <td>modeOfInheritance</td>
-                <td>CodeableConcept</td>
-                <td>0..1</td>
-                <td>Mode of inheritance for the condition, as defined in HP terms</td>
+                <td>hasEvidence</td>
+                <td>EvidenceLine</td>
+                <td>0..*</td>
+                <td>** TODO **</td>
             </tr>
             </tbody>
         </table>
+
 
     <h2>Inherited Attributes</h2>
 
@@ -197,431 +194,2438 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>wasGeneratedBy</td>
-                    <td>Activity</td>
-                    <td>0..1</td>
-                    <td>Entity</td>
-                    <td>The activity that produced this entity</td>
-                </tr>
-                <tr>
                     <td>explanation</td>
                     <td>String</td>
                     <td>0..1</td>
-                    <td>Entity</td>
+                    <td></td>
                     <td>A human-readable description of the entity</td>
+                </tr>
+                <tr>
+                    <td>wasGeneratedBy</td>
+                    <td>Activity</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>The activity that produced this entity</td>
+                </tr>
+                <tr>
+                    <td>wasDerivedFrom</td>
+                    <td>Data</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>Another entityy which was a former derivation of this entity.</td>
                 </tr>
             </tbody>
         </table>
 
     <h2>Examples</h2>
-    <table class="table table-striped table-bordered" cellspacing=0 width="100%">
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
         <th>description</th>
-        <th>json</th>
-        <th>diagram</th>
+        <th>variant</th>
+        <th>condition</th>
+        <th>clinicalSignificance</th>
+        <th>assertionMethod</th>
+        <th>hasEvidence</th>
       </tr></thead>
       <tbody>
         <tr>
-          <td>VarInterp001</td>
-          <td>The Trp2490_Leu2496del variant in DNAH5 leads to an in-frame deletion of 7 amino acids. This variant has been reported together with a second DNAH5 variant (Met2083Ile) in one individual with PCD and situs inversus (Berg 2011). In addition, this variant has been identified in trans configuration with a disease-causing variant in one affected proband (LMM unpublished data). Data from large population studies is insufficient to determine whether this variant is present in the general population. In summary, this variant is likely pathogenic, though additional studies are required to fully establish its clinical significance.</td>
-          <td><div class="example_view" id="VarInterp001"><pre><code>{
-  "cg:id": "VarInterp001",
+          <td><p><a href="../../examples/details.html#VarInterp008">VarInterp008</a></p></td>
+          <td>NM_002834.3:c.855T>G Pathogenic for Noonan Syndrome</td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll005">CanAll005</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond003">MendCond003</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp008"><pre><code>{
+  "cg:id": "VarInterp008",
   "cg:type": "VariantInterpretation",
+  "explanation": "NM_002834.3:c.855T>G Pathogenic for Noonan Syndrome",
+  "variant": {
+    "cg:id": "CanAll005",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll006",
+    "identifier": "http://reg.genome.network/allele/CA220155"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond003",
+      "cg:type": "MendelianCondition",
+      "explanation": "noonan syndrome, Autosomal Recessive"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp009">VarInterp009</a></p></td>
+          <td>NM_001369.2:c.6249G>A Pathogenic for PCD</td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll008">CanAll008</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond004">MendCond004</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp009"><pre><code>{
+  "cg:id": "VarInterp009",
+  "cg:type": "VariantInterpretation",
+  "explanation": "NM_001369.2:c.6249G>A Pathogenic for PCD",
+  "variant": {
+    "cg:id": "CanAll008",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll009",
+    "identifier": "http://reg.genome.network/allele/CA501221"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond004",
+      "cg:type": "MendelianCondition",
+      "explanation": "Primary ciliary dyskenisia, Autosomal Recessive"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp010">VarInterp010</a></p></td>
+          <td>NM_004985.4(KRAS):c.173C>T (p.Thr58Ile) Pathogenic for Noonan Syndrome 3</td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll011">CanAll011</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond006">MendCond006</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp010"><pre><code>{
+  "cg:id": "VarInterp010",
+  "cg:type": "VariantInterpretation",
+  "explanation": "NM_004985.4(KRAS):c.173C>T (p.Thr58Ile) Pathogenic for Noonan Syndrome 3",
+  "variant": {
+    "cg:id": "CanAll011",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll014",
+    "identifier": "http://reg.genome.network/allele/CA256480"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond006",
+      "cg:type": "MendelianCondition",
+      "explanation": "noonan syndrome 3, Autosomal Recessive"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp011">VarInterp011</a></p></td>
+          <td>NM_004985.4(KRAS):c.173C>T (p.Thr58Ile) Pathogenic for Costello syndrome</td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll011">CanAll011</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond045">MendCond045</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp011"><pre><code>{
+  "cg:id": "VarInterp011",
+  "cg:type": "VariantInterpretation",
+  "explanation": "NM_004985.4(KRAS):c.173C>T (p.Thr58Ile) Pathogenic for Costello syndrome",
+  "variant": {
+    "cg:id": "CanAll011",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll014",
+    "identifier": "http://reg.genome.network/allele/CA256480"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond045",
+      "cg:type": "MendelianCondition",
+      "explanation": "Noonan syndrome and noonan-related syndrom"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp041">VarInterp041</a></p></td>
+          <td>Arg343His in Exon 08 of LOXHD1: This variant is not expected to have clinical significance because it has been identified in 2.0% (27/1384) of African American chromosomes by the NHLBI Exome Sequencing Project (http://evs.gs.washington.edu/EVS).</td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll092">CanAll092</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond010">MendCond010</a></p>
+         </td>
+          <td>
+              <p>LN:LA6675-8</p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#AssertMeth001">AssertMeth001</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#EvLn113">EvLn113</a></p><p><a href="../../examples/details.html#EvLn114">EvLn114</a></p><p><a href="../../examples/details.html#EvLn115">EvLn115</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp041"><pre><code>{
+  "cg:id": "VarInterp041",
+  "cg:type": "VariantInterpretation",
+  "explanation": "Arg343His in Exon 08 of LOXHD1: This variant is not expected to have clinical significance because it has been identified in 2.0% (27/1384) of African American chromosomes by the NHLBI Exome Sequencing Project (http://evs.gs.washington.edu/EVS).",
+  "wasGeneratedBy": {
+    "cg:id": "GenVarInterp045",
+    "cg:type": "GenerateVariantInterpretation",
+    "startedAtTime": "2015-06-26T12:05:59+00:00",
+    "endedAtTime": "2015-06-26T12:02:59+00:00",
+    "wasAssociatedWith": [
+      {
+        "cg:id": "Agent010",
+        "cg:type": "Agent",
+        "description": "CSER6",
+        "name": "CSER classifer #6"
+      }
+    ]
+  },
+  "variant": {
+    "cg:id": "CanAll092",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll098",
+    "identifier": "http://reg.genome.network/allele/CA090950"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond010",
+      "cg:type": "MendelianCondition",
+      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6675-8",
+  "assertionMethod": {
+    "cg:id": "AssertMeth001",
+    "cg:type": "AssertionMethod",
+    "description": "ACMG ISV guidelines 2015",
+    "version": "1.0",
+    "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
+    "scoringAlgorithm": {
+      "cg:id": "ScorAlg01",
+      "cg:type": "ScoringAlgorithm",
+      "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance."
+    }
+  },
+  "hasEvidence": [
+    {
+      "cg:id": "EvLn113",
+      "cg:type": "EvidenceLine",
+      "strength": "CG:STRONG",
+      "supportingData": [
+        {
+          "cg:id": "CritAssess372",
+          "cg:type": "CriterionAssessment",
+          "explanation": "This variant is present in 2% (27/1384) of African American Chromosomes in ESP.",
+          "wasGeneratedBy": {
+            "cg:id": "AssessCrit102",
+            "cg:type": "AssessCriterion",
+            "startedAtTime": "2017-03-08T09:46:00+00:00",
+            "endedAtTime": "2017-03-08T09:46:00+00:00",
+            "wasAssociatedWith": [
+              {
+                "cg:id": "Agent008",
+                "cg:type": "Agent",
+                "description": "MDS",
+                "name": "Marina DiStefano"
+              }
+            ]
+          },
+          "criterion": {
+            "cg:id": "BS1",
+            "cg:type": "Criterion",
+            "description": "Allele frequency is greater than expected for disorder",
+            "shortDescription": "MAF too high for disorder",
+            "defaultOutcome": "CG:S",
+            "targetInterpretation": "LN:LA6675-8"
+          },
+          "variant": {
+            "cg:id": "CanAll092",
+            "cg:type": "CanonicalAllele",
+            "preferredCtxAllele": "CtxAll098",
+            "identifier": "http://reg.genome.network/allele/CA090950"
+          },
+          "outcome": "CG:MET",
+          "hasSupportingEvidence": [
+            {
+              "cg:id": "EvLn109",
+              "supportingData": [
+                {
+                  "cg:id": "AllFreq038",
+                  "cg:type": "AlleleFrequency",
+                  "ascertainment": "ExAC",
+                  "allele": {
+                    "cg:id": "CanAll092",
+                    "cg:type": "CanonicalAllele",
+                    "preferredCtxAllele": "CtxAll098",
+                    "identifier": "http://reg.genome.network/allele/CA090950"
+                  },
+                  "alleleCount": 27,
+                  "alleleNumber": 1384,
+                  "alleleFrequency": 0.02,
+                  "population": "EX:afr"
+                },
+                {
+                  "cg:id": "CondPrev039",
+                  "cg:type": "ConditionPrevelance",
+                  "condition": [
+                    {
+                      "cg:id": "MendCond010",
+                      "cg:type": "MendelianCondition",
+                      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+                    }
+                  ],
+                  "minimum": 1.0,
+                  "maximum": 1.0,
+                  "population": "CG:overall"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cg:id": "EvLn114",
+      "cg:type": "EvidenceLine",
+      "strength": "CG:SUPPORTING",
+      "supportingData": [
+        {
+          "cg:id": "CritAssess340",
+          "cg:type": "CriterionAssessment",
+          "explanation": "Homozygous truncating variants in LOXHD1 are associated with autosomal recessive hearing loss. This was demonstrated by both identification in human patients and a mouse model. (I used the OMIM entry as a source, but you could also directly use the papers.)",
+          "wasGeneratedBy": {
+            "cg:id": "AssessCrit068",
+            "cg:type": "AssessCriterion",
+            "startedAtTime": "2016-09-06T09:59:59+00:00",
+            "endedAtTime": "2016-09-06T09:59:59+00:00",
+            "wasAssociatedWith": [
+              {
+                "cg:id": "Agent008",
+                "cg:type": "Agent",
+                "description": "MDS",
+                "name": "Marina DiStefano"
+              }
+            ]
+          },
+          "criterion": {
+            "cg:id": "BP1",
+            "cg:type": "Criterion",
+            "description": "Missense variant in a gene for which primarily truncating variants are known to cause disease",
+            "shortDescription": "missense variant when truncating is pathogenic\n",
+            "defaultOutcome": "CG:P",
+            "targetInterpretation": "LN:LA6675-8"
+          },
+          "variant": {
+            "cg:id": "CanAll092",
+            "cg:type": "CanonicalAllele",
+            "preferredCtxAllele": "CtxAll098",
+            "identifier": "http://reg.genome.network/allele/CA090950"
+          },
+          "condition": [
+            {
+              "cg:id": "MendCond010",
+              "cg:type": "MendelianCondition",
+              "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+            }
+          ],
+          "outcome": "CG:MET",
+          "hasSupportingEvidence": [
+            {
+              "cg:id": "EvLn083",
+              "supportingData": [
+                {
+                  "cg:id": "MolCon201",
+                  "cg:type": "MolecularConsequence",
+                  "contextualAllele": {
+                    "cg:id": "CtxAll098",
+                    "cg:type": "ContextualAllele",
+                    "relatedCanonicalAllele": {
+                      "cg:id": "CanAll092",
+                      "cg:type": "CanonicalAllele",
+                      "preferredCtxAllele": "CtxAll098",
+                      "identifier": "http://reg.genome.network/allele/CA090950"
+                    },
+                    "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
+                  },
+                  "consequence": "SO:0001583",
+                  "lof": true
+                },
+                {
+                  "cg:id": "CondMech202",
+                  "cg:type": "ConditionMechanism",
+                  "explanation": "shown in both humans and mouse models",
+                  "mechanism": "SO:0002054",
+                  "strength": "CG:primary",
+                  "gene": {
+                    "cg:id": "G048",
+                    "cg:type": "Gene",
+                    "symbol": "LOXHD1"
+                  },
+                  "condition": {
+                    "cg:id": "MendCond010",
+                    "cg:type": "MendelianCondition",
+                    "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cg:id": "EvLn115",
+      "cg:type": "EvidenceLine",
+      "strength": "CG:SUPPORTING",
+      "supportingData": [
+        {
+          "cg:id": "CritAssess363",
+          "cg:type": "CriterionAssessment",
+          "explanation": "This variant was identified in one individual with pathogenic variants in another gene. Internal LMM data: The proband had one pathogenic and one likely pathogenic variant in (in trans) in SLC26A4. This proband had mild to profound hearing loss with EVA, which is characteristic of Pendred Syndrome. SLC26A4 is the only gene associated with Pendred Syndrome",
+          "wasGeneratedBy": {
+            "cg:id": "AssessCrit099",
+            "cg:type": "AssessCriterion",
+            "startedAtTime": "2017-03-07T16:30:00+00:00",
+            "endedAtTime": "2017-03-07T16:30:00+00:00",
+            "wasAssociatedWith": [
+              {
+                "cg:id": "Agent008",
+                "cg:type": "Agent",
+                "description": "MDS",
+                "name": "Marina DiStefano"
+              }
+            ]
+          },
+          "criterion": {
+            "cg:id": "BP5",
+            "cg:type": "Criterion",
+            "description": "Variant found in a case with an alternate molecular basis for disease",
+            "shortDescription": "alternate cause of disease",
+            "defaultOutcome": "CG:P",
+            "targetInterpretation": "LN:LA6675-8"
+          },
+          "variant": {
+            "cg:id": "CanAll092",
+            "cg:type": "CanonicalAllele",
+            "preferredCtxAllele": "CtxAll098",
+            "identifier": "http://reg.genome.network/allele/CA090950"
+          },
+          "condition": [
+            {
+              "cg:id": "MendCond010",
+              "cg:type": "MendelianCondition",
+              "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+            }
+          ],
+          "outcome": "CG:MET",
+          "hasSupportingEvidence": [
+            {
+              "cg:id": "EvLn106",
+              "supportingData": [
+                {
+                  "cg:id": "VarInterp364",
+                  "cg:type": "VariantInterpretation",
+                  "variant": {
+                    "cg:id": "CanAll122",
+                    "cg:type": "CanonicalAllele",
+                    "preferredCtxAllele": "CtxAll128"
+                  },
+                  "condition": [
+                    {
+                      "cg:id": "MendCond010",
+                      "cg:type": "MendelianCondition",
+                      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+                    }
+                  ],
+                  "clinicalSignificance": "LN:LA26332-9"
+                },
+                {
+                  "cg:id": "VarInterp365",
+                  "cg:type": "VariantInterpretation",
+                  "variant": {
+                    "cg:id": "CanAll123",
+                    "cg:type": "CanonicalAllele",
+                    "preferredCtxAllele": "CtxAll129"
+                  },
+                  "condition": [
+                    {
+                      "cg:id": "MendCond010",
+                      "cg:type": "MendelianCondition",
+                      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+                    }
+                  ],
+                  "clinicalSignificance": "LN:LA6668-3"
+                },
+                {
+                  "cg:id": "IndAll366",
+                  "cg:type": "IndividualAllele",
+                  "individual": {
+                    "cg:id": "Indiv029",
+                    "cg:type": "Individual",
+                    "description": "individual #029"
+                  },
+                  "primaryAllele": {
+                    "cg:id": "CanAll092",
+                    "cg:type": "CanonicalAllele",
+                    "preferredCtxAllele": "CtxAll098",
+                    "identifier": "http://reg.genome.network/allele/CA090950"
+                  },
+                  "secondaryAllele": {
+                    "cg:id": "CanAll122",
+                    "cg:type": "CanonicalAllele",
+                    "preferredCtxAllele": "CtxAll128"
+                  },
+                  "phase": "CG:trans"
+                },
+                {
+                  "cg:id": "IndAll367",
+                  "cg:type": "IndividualAllele",
+                  "individual": {
+                    "cg:id": "Indiv029",
+                    "cg:type": "Individual",
+                    "description": "individual #029"
+                  },
+                  "primaryAllele": {
+                    "cg:id": "CanAll092",
+                    "cg:type": "CanonicalAllele",
+                    "preferredCtxAllele": "CtxAll098",
+                    "identifier": "http://reg.genome.network/allele/CA090950"
+                  },
+                  "secondaryAllele": {
+                    "cg:id": "CanAll123",
+                    "cg:type": "CanonicalAllele",
+                    "preferredCtxAllele": "CtxAll129"
+                  },
+                  "phase": "CG:trans"
+                },
+                {
+                  "cg:id": "IndCond368",
+                  "cg:type": "IndividualCondition",
+                  "explanation": "This proband had mild to profound hearing loss with EVA, which is characteristic of Pendred Syndrome.",
+                  "individual": {
+                    "cg:id": "Indiv029",
+                    "cg:type": "Individual",
+                    "description": "individual #029"
+                  },
+                  "condition": [
+                    {
+                      "cg:id": "MendCond010",
+                      "cg:type": "MendelianCondition",
+                      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+                    }
+                  ],
+                  "hasCondition": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp042">VarInterp042</a></p></td>
+          <td>Uncertain Sig(not specified) NM_000363.4(TNNI3):c.484C>T (p.Arg162Trp)</td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll049">CanAll049</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>LN:LA26333-7</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp042"><pre><code>{
+  "cg:id": "VarInterp042",
+  "cg:type": "VariantInterpretation",
+  "explanation": "Uncertain Sig(not specified) NM_000363.4(TNNI3):c.484C>T (p.Arg162Trp)",
+  "wasGeneratedBy": {
+    "cg:id": "CapDataXX"
+  },
+  "variant": {
+    "cg:id": "CanAll049",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll053",
+    "identifier": "http://reg.genome.network/allele/CA021738"
+  },
+  "clinicalSignificance": "LN:LA26333-7"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp044">VarInterp044</a></p></td>
+          <td>p.Tyr109Tyr in exon 4 of MYH7: This variant is not expected to have clinical significance because it does not alter an amino acid residue and is not located near a splice junction. It has been identified in 0.2% (31/16512) of South Asian chromosomes by the Exome Aggregation Consortium (ExAC, http://exac.broadinstitute.org; dbSNP rs36211408).</td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll118">CanAll118</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>LN:LA26334-5</p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#AssertMeth001">AssertMeth001</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp044"><pre><code>{
+  "cg:id": "VarInterp044",
+  "cg:type": "VariantInterpretation",
+  "explanation": "p.Tyr109Tyr in exon 4 of MYH7: This variant is not expected to have clinical significance because it does not alter an amino acid residue and is not located near a splice junction. It has been identified in 0.2% (31/16512) of South Asian chromosomes by the Exome Aggregation Consortium (ExAC, http://exac.broadinstitute.org; dbSNP rs36211408).",
+  "wasGeneratedBy": {
+    "cg:id": "GenVarInterp060",
+    "cg:type": "GenerateVariantInterpretation",
+    "startedAtTime": "2015-06-26T12:05:59+00:00",
+    "endedAtTime": "2015-06-26T12:02:59+00:00",
+    "wasAssociatedWith": [
+      {
+        "cg:id": "Agent010",
+        "cg:type": "Agent",
+        "description": "CSER6",
+        "name": "CSER classifer #6"
+      }
+    ]
+  },
+  "variant": {
+    "cg:id": "CanAll118",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll124",
+    "identifier": "http://reg.genome.network/allele/CA013536"
+  },
+  "clinicalSignificance": "LN:LA26334-5",
+  "assertionMethod": {
+    "cg:id": "AssertMeth001",
+    "cg:type": "AssertionMethod",
+    "description": "ACMG ISV guidelines 2015",
+    "version": "1.0",
+    "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
+    "scoringAlgorithm": {
+      "cg:id": "ScorAlg01",
+      "cg:type": "ScoringAlgorithm",
+      "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance."
+    }
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp045">VarInterp045</a></p></td>
+          <td>The c.631-2A>G variant in DSC2 has been reported in 1 Caucasian individual with ARVC (Heuser 2006). This variant has also been identified by our laboratory in 2 individuals (1 with ARVC and 1 with LVNC). This variant has been reported in 1/66564 European chromosomes by the Exome Aggregation Consortium (ExAC, http://exac.broadinstitute.org; dbSNP rs397514042). This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006). Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/). In summary, although additional studies are required to fully establish its clinical significance, the c.631-2A>G variant is likely pathogenic.</td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll121">CanAll121</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>LN:LA26332-9</p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#AssertMeth001">AssertMeth001</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp045"><pre><code>{
+  "cg:id": "VarInterp045",
+  "cg:type": "VariantInterpretation",
+  "explanation": "The c.631-2A>G variant in DSC2 has been reported in 1 Caucasian individual with ARVC (Heuser 2006). This variant has also been identified by our laboratory in 2 individuals (1 with ARVC and 1 with LVNC). This variant has been reported in 1/66564 European chromosomes by the Exome Aggregation Consortium (ExAC, http://exac.broadinstitute.org; dbSNP rs397514042). This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006). Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/). In summary, although additional studies are required to fully establish its clinical significance, the c.631-2A>G variant is likely pathogenic.",
+  "wasGeneratedBy": {
+    "cg:id": "GenVarInterp086",
+    "cg:type": "GenerateVariantInterpretation",
+    "startedAtTime": "2015-06-26T12:05:59+00:00",
+    "endedAtTime": "2015-06-26T12:02:59+00:00",
+    "wasAssociatedWith": [
+      {
+        "cg:id": "Agent010",
+        "cg:type": "Agent",
+        "description": "CSER6",
+        "name": "CSER classifer #6"
+      }
+    ]
+  },
+  "variant": {
+    "cg:id": "CanAll121",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll127"
+  },
+  "clinicalSignificance": "LN:LA26332-9",
+  "assertionMethod": {
+    "cg:id": "AssertMeth001",
+    "cg:type": "AssertionMethod",
+    "description": "ACMG ISV guidelines 2015",
+    "version": "1.0",
+    "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
+    "scoringAlgorithm": {
+      "cg:id": "ScorAlg01",
+      "cg:type": "ScoringAlgorithm",
+      "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance."
+    }
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp047">VarInterp047</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll028">CanAll028</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond013">MendCond013</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp047"><pre><code>{
+  "cg:id": "VarInterp047",
+  "cg:type": "VariantInterpretation",
+  "variant": {
+    "cg:id": "CanAll028",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll031",
+    "identifier": "http://reg.genome.network/allele/CA022141"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond013",
+      "cg:type": "MendelianCondition",
+      "explanation": "Fabry disease"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp048">VarInterp048</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll029">CanAll029</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond013">MendCond013</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp048"><pre><code>{
+  "cg:id": "VarInterp048",
+  "cg:type": "VariantInterpretation",
+  "variant": {
+    "cg:id": "CanAll029",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll032",
+    "identifier": "http://reg.genome.network/allele/CA022153"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond013",
+      "cg:type": "MendelianCondition",
+      "explanation": "Fabry disease"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp049">VarInterp049</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll030">CanAll030</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond013">MendCond013</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp049"><pre><code>{
+  "cg:id": "VarInterp049",
+  "cg:type": "VariantInterpretation",
+  "variant": {
+    "cg:id": "CanAll030",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll033",
+    "identifier": "http://reg.genome.network/allele/CA022159"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond013",
+      "cg:type": "MendelianCondition",
+      "explanation": "Fabry disease"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp050">VarInterp050</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll031">CanAll031</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond013">MendCond013</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp050"><pre><code>{
+  "cg:id": "VarInterp050",
+  "cg:type": "VariantInterpretation",
+  "variant": {
+    "cg:id": "CanAll031",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll034",
+    "identifier": "http://reg.genome.network/allele/CA022189"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond013",
+      "cg:type": "MendelianCondition",
+      "explanation": "Fabry disease"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp055">VarInterp055</a></p></td>
+          <td>The Tyr337Cys variant in SOS1 has been reported in 1 individual with clinical features of Noonan syndrome (Roberts 2007), but has also been reported to be present in 2 unaffected individuals from one family (Personal Communication). This variant was absent from large population studies. Studies have shown that the Tyr337Cys variant may impact protein function by increasing its activity though these results are inconclusive and these in vitro assays may not accurately represent biological function (Smith 2013). Due to the conflicting data about this variant, the clinical significance of the Tyr337Cys variant is uncertain.</td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll124">CanAll124</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>LN:LA26333-7</p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#AssertMeth001">AssertMeth001</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp055"><pre><code>{
+  "cg:id": "VarInterp055",
+  "cg:type": "VariantInterpretation",
+  "explanation": "The Tyr337Cys variant in SOS1 has been reported in 1 individual with clinical features of Noonan syndrome (Roberts 2007), but has also been reported to be present in 2 unaffected individuals from one family (Personal Communication). This variant was absent from large population studies. Studies have shown that the Tyr337Cys variant may impact protein function by increasing its activity though these results are inconclusive and these in vitro assays may not accurately represent biological function (Smith 2013). Due to the conflicting data about this variant, the clinical significance of the Tyr337Cys variant is uncertain.",
+  "wasGeneratedBy": {
+    "cg:id": "GenVarInterp104",
+    "cg:type": "GenerateVariantInterpretation",
+    "startedAtTime": "2014-08-14T10:28:59+00:00",
+    "endedAtTime": "2014-08-14T10:28:59+00:00",
+    "wasAssociatedWith": [
+      {
+        "cg:id": "Agent011",
+        "cg:type": "Agent",
+        "description": "GG1",
+        "name": "Gene Geneticist"
+      }
+    ]
+  },
+  "variant": {
+    "cg:id": "CanAll124",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll130"
+  },
+  "clinicalSignificance": "LN:LA26333-7",
+  "assertionMethod": {
+    "cg:id": "AssertMeth001",
+    "cg:type": "AssertionMethod",
+    "description": "ACMG ISV guidelines 2015",
+    "version": "1.0",
+    "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
+    "scoringAlgorithm": {
+      "cg:id": "ScorAlg01",
+      "cg:type": "ScoringAlgorithm",
+      "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance."
+    }
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp057">VarInterp057</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll036">CanAll036</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond004">MendCond004</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp057"><pre><code>{
+  "cg:id": "VarInterp057",
+  "cg:type": "VariantInterpretation",
+  "wasGeneratedBy": {
+    "cg:id": "CapData078",
+    "cg:type": "CaptureData",
+    "startedAtTime": "2016-05-31T11:00:59+00:00",
+    "endedAtTime": "2016-05-31T11:00:59+00:00",
+    "wasAssociatedWith": [
+      {
+        "cg:id": "Agent008",
+        "cg:type": "Agent",
+        "description": "MDS",
+        "name": "Marina DiStefano"
+      }
+    ]
+  },
+  "variant": {
+    "cg:id": "CanAll036",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll040",
+    "identifier": "http://reg.genome.network/allele/CA273615"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond004",
+      "cg:type": "MendelianCondition",
+      "explanation": "Primary ciliary dyskenisia, Autosomal Recessive"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp059">VarInterp059</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll038">CanAll038</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond010">MendCond010</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp059"><pre><code>{
+  "cg:id": "VarInterp059",
+  "cg:type": "VariantInterpretation",
+  "variant": {
+    "cg:id": "CanAll038",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll042",
+    "identifier": "http://reg.genome.network/allele/CA501223"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond010",
+      "cg:type": "MendelianCondition",
+      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp063">VarInterp063</a></p></td>
+          <td>The Lys483Gln variant in BRAF has been identified in one proband with clinical features of Cardio-facio-cutaneous syndrome, and was not identified in either of this individual's parents (LMM unpublished data). This variant has not been identified in large population studies. In addition, another variant at the same residue (Lys483Asn) was identified as a de novo variant in an individual with features of a Noonan spectrum disorder (LMM unpublished data). Computational analyses (biochemical amino acid properties, conservation, AlignGVGD, PolyPhen2, and SIFT) suggest that the Lys483Gln variant may impact the normal function of the protein. In summary, this variant is likely pathogenic, though additional studies are required to fully establish its clinical significance.</td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll125">CanAll125</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>LN:LA26332-9</p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#AssertMeth001">AssertMeth001</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp063"><pre><code>{
+  "cg:id": "VarInterp063",
+  "cg:type": "VariantInterpretation",
+  "explanation": "The Lys483Gln variant in BRAF has been identified in one proband with clinical features of Cardio-facio-cutaneous syndrome, and was not identified in either of this individual's parents (LMM unpublished data). This variant has not been identified in large population studies. In addition, another variant at the same residue (Lys483Asn) was identified as a de novo variant in an individual with features of a Noonan spectrum disorder (LMM unpublished data). Computational analyses (biochemical amino acid properties, conservation, AlignGVGD, PolyPhen2, and SIFT) suggest that the Lys483Gln variant may impact the normal function of the protein. In summary, this variant is likely pathogenic, though additional studies are required to fully establish its clinical significance.",
+  "wasGeneratedBy": {
+    "cg:id": "GenVarInterp105",
+    "cg:type": "GenerateVariantInterpretation",
+    "startedAtTime": "2014-08-14T10:28:59+00:00",
+    "endedAtTime": "2014-08-14T10:28:59+00:00",
+    "wasAssociatedWith": [
+      {
+        "cg:id": "Agent012",
+        "cg:type": "Agent",
+        "description": "GG2",
+        "name": "George Geneticist"
+      }
+    ]
+  },
+  "variant": {
+    "cg:id": "CanAll125",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll131"
+  },
+  "clinicalSignificance": "LN:LA26332-9",
+  "assertionMethod": {
+    "cg:id": "AssertMeth001",
+    "cg:type": "AssertionMethod",
+    "description": "ACMG ISV guidelines 2015",
+    "version": "1.0",
+    "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
+    "scoringAlgorithm": {
+      "cg:id": "ScorAlg01",
+      "cg:type": "ScoringAlgorithm",
+      "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance."
+    }
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp078">VarInterp078</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll047">CanAll047</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond016">MendCond016</a></p>
+         </td>
+          <td>
+              <p>LN:LA26332-9</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp078"><pre><code>{
+  "cg:id": "VarInterp078",
+  "cg:type": "VariantInterpretation",
+  "wasGeneratedBy": {
+    "cg:id": "CapDataXX"
+  },
+  "variant": {
+    "cg:id": "CanAll047",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll051",
+    "identifier": "http://reg.genome.network/allele/CA021749"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond016",
+      "cg:type": "MendelianCondition",
+      "explanation": "hypertrophic cardiomyopathy"
+    }
+  ],
+  "clinicalSignificance": "LN:LA26332-9"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp079">VarInterp079</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll049">CanAll049</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond016">MendCond016</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp079"><pre><code>{
+  "cg:id": "VarInterp079",
+  "cg:type": "VariantInterpretation",
+  "wasGeneratedBy": {
+    "cg:id": "CapDataXX"
+  },
+  "variant": {
+    "cg:id": "CanAll049",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll053",
+    "identifier": "http://reg.genome.network/allele/CA021738"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond016",
+      "cg:type": "MendelianCondition",
+      "explanation": "hypertrophic cardiomyopathy"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp080">VarInterp080</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll053">CanAll053</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond018">MendCond018</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp080"><pre><code>{
+  "cg:id": "VarInterp080",
+  "cg:type": "VariantInterpretation",
+  "variant": {
+    "cg:id": "CanAll053",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll057",
+    "identifier": "http://reg.genome.network/allele/CA224454"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond018",
+      "cg:type": "MendelianCondition",
+      "explanation": "Birt-Hogg-Dube Syndrome"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp081">VarInterp081</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll057">CanAll057</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond001">MendCond001</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp081"><pre><code>{
+  "cg:id": "VarInterp081",
+  "cg:type": "VariantInterpretation",
+  "variant": {
+    "cg:id": "CanAll057",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll061",
+    "identifier": "http://reg.genome.network/allele/CA003449"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond001",
+      "cg:type": "MendelianCondition",
+      "explanation": "Breast Ovarian Cancer, autosomal recessive"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp150">VarInterp150</a></p></td>
+          <td>Variant has been classified as “Pathogenic” by Sharing Clinical Reports Project (SCV000054057.3)</td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll072">CanAll072</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond023">MendCond023</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp150"><pre><code>{
+  "cg:id": "VarInterp150",
+  "cg:type": "VariantInterpretation",
+  "explanation": "Variant has been classified as “Pathogenic” by Sharing Clinical Reports Project (SCV000054057.3)",
+  "variant": {
+    "cg:id": "CanAll072",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll078",
+    "identifier": "http://reg.genome.network/allele/CA019369"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond023",
+      "cg:type": "MendelianCondition",
+      "explanation": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp151">VarInterp151</a></p></td>
+          <td>Variant has been classified as “Pathogenic” by OMIM (SCV000043718.1)</td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll073">CanAll073</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond024">MendCond024</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp151"><pre><code>{
+  "cg:id": "VarInterp151",
+  "cg:type": "VariantInterpretation",
+  "explanation": "Variant has been classified as “Pathogenic” by OMIM (SCV000043718.1)",
+  "variant": {
+    "cg:id": "CanAll073",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll079",
+    "identifier": "http://reg.genome.network/allele/CA128479"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond024",
+      "cg:type": "MendelianCondition",
+      "explanation": "Distal myopathy with posterior leg and anterior hand involvement"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp152">VarInterp152</a></p></td>
+          <td>Variant has been classified as “Pathogenic” by Expert panel CFTR (SCV000245981.1)</td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll074">CanAll074</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond026">MendCond026</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp152"><pre><code>{
+  "cg:id": "VarInterp152",
+  "cg:type": "VariantInterpretation",
+  "explanation": "Variant has been classified as “Pathogenic” by Expert panel CFTR (SCV000245981.1)",
+  "variant": {
+    "cg:id": "CanAll074",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll080",
+    "identifier": "http://reg.genome.network/allele/CA276116"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond026",
+      "cg:type": "MendelianCondition",
+      "explanation": "Marfan Syndrome, Autosomal Dominant"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp210">VarInterp210</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll095">CanAll095</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond038">MendCond038</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp210"><pre><code>{
+  "cg:id": "VarInterp210",
+  "cg:type": "VariantInterpretation",
+  "variant": {
+    "cg:id": "CanAll095",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll101",
+    "identifier": "http://reg.genome.network/allele/CA252233"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond038",
+      "cg:type": "MendelianCondition",
+      "explanation": "Retinitis Pigmentosa, Autosomal Dominant"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp213">VarInterp213</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll097">CanAll097</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond039">MendCond039</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp213"><pre><code>{
+  "cg:id": "VarInterp213",
+  "cg:type": "VariantInterpretation",
+  "variant": {
+    "cg:id": "CanAll097",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll103",
+    "identifier": "http://reg.genome.network/allele/CA182839"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond039",
+      "cg:type": "MendelianCondition",
+      "explanation": "Absent vas deferens"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp216">VarInterp216</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll099">CanAll099</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond007">MendCond007</a></p>
+         </td>
+          <td>
+              <p>LN:LA26333-7</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp216"><pre><code>{
+  "cg:id": "VarInterp216",
+  "cg:type": "VariantInterpretation",
+  "variant": {
+    "cg:id": "CanAll099",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll105",
+    "identifier": "http://reg.genome.network/allele/CA501236"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond007",
+      "cg:type": "MendelianCondition",
+      "explanation": "cardiomyopathy, Autosomal Dominant"
+    }
+  ],
+  "clinicalSignificance": "LN:LA26333-7"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp243">VarInterp243</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll106">CanAll106</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond020">MendCond020</a></p>
+         </td>
+          <td>
+              <p>LN:LA26332-9</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp243"><pre><code>{
+  "cg:id": "VarInterp243",
+  "cg:type": "VariantInterpretation",
+  "variant": {
+    "cg:id": "CanAll106",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll112",
+    "identifier": "http://reg.genome.network/allele/CA012381"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond020",
+      "cg:type": "MendelianCondition",
+      "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant"
+    }
+  ],
+  "clinicalSignificance": "LN:LA26332-9"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp247">VarInterp247</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll109">CanAll109</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond010">MendCond010</a></p>
+         </td>
+          <td>
+              <p>LN:LA26332-9</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp247"><pre><code>{
+  "cg:id": "VarInterp247",
+  "cg:type": "VariantInterpretation",
+  "variant": {
+    "cg:id": "CanAll109",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll115",
+    "identifier": "http://reg.genome.network/allele/CA172240"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond010",
+      "cg:type": "MendelianCondition",
+      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+    }
+  ],
+  "clinicalSignificance": "LN:LA26332-9"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp248">VarInterp248</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll110">CanAll110</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond010">MendCond010</a></p>
+         </td>
+          <td>
+              <p>LN:LA26332-9</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp248"><pre><code>{
+  "cg:id": "VarInterp248",
+  "cg:type": "VariantInterpretation",
+  "variant": {
+    "cg:id": "CanAll110",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll116",
+    "identifier": "http://reg.genome.network/allele/CA274460"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond010",
+      "cg:type": "MendelianCondition",
+      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+    }
+  ],
+  "clinicalSignificance": "LN:LA26332-9"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp251">VarInterp251</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll108">CanAll108</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond021">MendCond021</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp251"><pre><code>{
+  "cg:id": "VarInterp251",
+  "cg:type": "VariantInterpretation",
+  "variant": {
+    "cg:id": "CanAll108",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll114",
+    "identifier": "http://reg.genome.network/allele/CA137502"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond021",
+      "cg:type": "MendelianCondition",
+      "explanation": "Usher syndrome, Autosomal Recessive"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp254">VarInterp254</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll113">CanAll113</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond042">MendCond042</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp254"><pre><code>{
+  "cg:id": "VarInterp254",
+  "cg:type": "VariantInterpretation",
+  "variant": {
+    "cg:id": "CanAll113",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll119",
+    "identifier": "http://reg.genome.network/allele/CA254703"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond042",
+      "cg:type": "MendelianCondition",
+      "explanation": "pseudoachondroplasia"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp255">VarInterp255</a></p></td>
+          <td>classified by ENIGMA.</td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll114">CanAll114</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond036">MendCond036</a></p>
+         </td>
+          <td>
+              <p>LN:LA6675-8</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp255"><pre><code>{
+  "cg:id": "VarInterp255",
+  "cg:type": "VariantInterpretation",
+  "explanation": "classified by ENIGMA.",
+  "variant": {
+    "cg:id": "CanAll114",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll120"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond036",
+      "cg:type": "MendelianCondition",
+      "explanation": "hereditary breast ovarian cancer"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6675-8"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp256">VarInterp256</a></p></td>
+          <td>classified by Sharing Clinical Reports Project.</td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll115">CanAll115</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond043">MendCond043</a></p>
+         </td>
+          <td>
+              <p>LN:LA6675-8</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp256"><pre><code>{
+  "cg:id": "VarInterp256",
+  "cg:type": "VariantInterpretation",
+  "explanation": "classified by Sharing Clinical Reports Project.",
+  "variant": {
+    "cg:id": "CanAll115",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll121",
+    "identifier": "http://reg.genome.network/allele/CA016113"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond043",
+      "cg:type": "MendelianCondition",
+      "explanation": "Breast Cancer"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6675-8"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp257">VarInterp257</a></p></td>
+          <td>classified by OMIM</td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll116">CanAll116</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond044">MendCond044</a></p>
+         </td>
+          <td>
+              <p>LN:LA6675-8</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp257"><pre><code>{
+  "cg:id": "VarInterp257",
+  "cg:type": "VariantInterpretation",
+  "explanation": "classified by OMIM",
+  "variant": {
+    "cg:id": "CanAll116",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll122",
+    "identifier": "http://reg.genome.network/allele/CA113946"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond044",
+      "cg:type": "MendelianCondition",
+      "explanation": "gyrate atrophy"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6675-8"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp270">VarInterp270</a></p></td>
+          <td>Pseudoachondroplastic spondyloepiphyseal dysplasia syndrome is caused by a combination of a pathogenic variant in COL2A1 and another in COMP.   So CA113 may be involved, but is not the sole cause.</td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll113">CanAll113</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond041">MendCond041</a></p>
+         </td>
+          <td>
+              <p>LN:LA26333-7</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp270"><pre><code>{
+  "cg:id": "VarInterp270",
+  "cg:type": "VariantInterpretation",
+  "explanation": "Pseudoachondroplastic spondyloepiphyseal dysplasia syndrome is caused by a combination of a pathogenic variant in COL2A1 and another in COMP.   So CA113 may be involved, but is not the sole cause.",
+  "variant": {
+    "cg:id": "CanAll113",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll119",
+    "identifier": "http://reg.genome.network/allele/CA254703"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond041",
+      "cg:type": "MendelianCondition",
+      "explanation": "pseudoachondroplasia"
+    }
+  ],
+  "clinicalSignificance": "LN:LA26333-7"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp274">VarInterp274</a></p></td>
+          <td>The Trp2490_Leu2496del variant in DNAH5 leads to an in-frame deletion of 7 amino acids. This variant has been reported together with a second DNAH5 variant (Met2083Ile) in one individual with PCD and situs inversus (Berg 2011). In addition, this variant has been identified in trans configuration with a disease-causing variant in one affected proband (LMM unpublished data). Data from large population studies is insufficient to determine whether this variant is present in the general population. In summary, this variant is likely pathogenic, though additional studies are required to fully establish its clinical significance.</td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll035">CanAll035</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond004">MendCond004</a></p>
+         </td>
+          <td>
+              <p>LN:LA26332-9</p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#AssertMeth001">AssertMeth001</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#EvLn110">EvLn110</a></p><p><a href="../../examples/details.html#EvLn111">EvLn111</a></p><p><a href="../../examples/details.html#EvLn112">EvLn112</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp274"><pre><code>{
+  "cg:id": "VarInterp274",
+  "cg:type": "VariantInterpretation",
+  "explanation": "The Trp2490_Leu2496del variant in DNAH5 leads to an in-frame deletion of 7 amino acids. This variant has been reported together with a second DNAH5 variant (Met2083Ile) in one individual with PCD and situs inversus (Berg 2011). In addition, this variant has been identified in trans configuration with a disease-causing variant in one affected proband (LMM unpublished data). Data from large population studies is insufficient to determine whether this variant is present in the general population. In summary, this variant is likely pathogenic, though additional studies are required to fully establish its clinical significance.",
+  "wasGeneratedBy": {
+    "cg:id": "GenVarInterp032",
+    "cg:type": "GenerateVariantInterpretation",
+    "startedAtTime": "2015-06-26T12:02:59+00:00",
+    "endedAtTime": "2015-06-26T12:02:59+00:00",
+    "wasAssociatedWith": [
+      {
+        "cg:id": "Agent009",
+        "cg:type": "Agent",
+        "description": "CSER3",
+        "name": "CSER classifer #3"
+      }
+    ]
+  },
   "variant": {
     "cg:id": "CanAll035",
     "cg:type": "CanonicalAllele",
     "preferredCtxAllele": "CtxAll039",
     "identifier": "http://reg.genome.network/allele/CA090919"
   },
-  "condition": {
-    "cg:id": "Cond004",
-    "cg:type": "Condition",
-    "name": "Primary Ciliary Dyskenisia",
-    "code": "244"
-  },
-  "interpretationCode": "LN:LA6669-1",
-  "assertionMethod": {
-    "cg:id": "AssertMeth01"
-  },
-  "modeOfInheritance": "HP:0000007",
-  "explanation": "The Trp2490_Leu2496del variant in DNAH5 leads to an in-frame deletion of 7 amino acids. This variant has been reported together with a second DNAH5 variant (Met2083Ile) in one individual with PCD and situs inversus (Berg 2011). In addition, this variant has been identified in trans configuration with a disease-causing variant in one affected proband (LMM unpublished data). Data from large population studies is insufficient to determine whether this variant is present in the general population. In summary, this variant is likely pathogenic, though additional studies are required to fully establish its clinical significance.",
-  "startedAtTime": "2016-07-12T11:00:59+00:00",
-  "endedAtTime": "2016-07-12T11:00:59+00:00",
-  "criterionAssessments": [
+  "condition": [
     {
-      "cg:id": "CritAssess031",
-      "cg:type": "CriterionAssessment",
-      "criterion": {
-        "cg:id": "PM2",
-        "cg:type": "Criterion",
-        "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
-        "shortDescription": "Absent from controls",
-        "defaultOutcome": "CG:M",
-        "targetInterpretation": "LN:LA6668-3"
-      },
-      "variant": {
-        "cg:id": "CanAll035",
-        "cg:type": "CanonicalAllele",
-        "preferredCtxAllele": "CtxAll039",
-        "identifier": "http://reg.genome.network/allele/CA090919"
-      },
-      "outcome": "CG:I",
-      "explanation": "while the variant is absent from exac, however\n1) very low coverage across this region (~5X) and usually 20X is used as a cut-off to say “absent”\n2) variant is 21 nt deletion - databases may not be able to call a variant of that size (I rarely see an indel of this size in ExAC).",
-      "startedAtTime": "2016-07-01T10:53:00+00:00",
-      "endedAtTime": "2016-07-01T10:53:00+00:00",
-      "hasSupportingEvidence": [
-        {
-          "cg:id": "AllFreq082",
-          "cg:type": "AlleleFrequency",
-          "ascertainment": "ExAC",
-          "population": "CG:combined",
-          "allele": {
-            "cg:id": "CanAll035",
-            "cg:type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll039",
-            "identifier": "http://reg.genome.network/allele/CA090919"
-          },
-          "alleleCount": 0,
-          "alleleFrequency": 0.0,
-          "medianCoverage": 11.0,
-          "startedAtTime": "2016-06-01T14:15:00+00:00",
-          "endedAtTime": "2016-06-01T14:15:00+00:00",
-          "dataSource": {
-            "cg:id": "DataSrc009",
-            "cg:type": "DataSource",
-            "externalIdentifier": "EXAC v0.2",
-            "linkedIRI": "ftp://ftp.broadinstitute.org/pub/ExAC_release/release0.2/"
-          },
-          "wasAssociatedWith": [
-            {
-              "cg:id": "Agent001",
-              "cg:type": "Agent",
-              "description": "SH",
-              "name": "Steven Harrison"
-            }
-          ]
-        }
-      ],
-      "wasAssociatedWith": [
-        {
-          "cg:id": "Agent001",
-          "cg:type": "Agent",
-          "description": "SH",
-          "name": "Steven Harrison"
-        },
-        {
-          "cg:id": "Agent005",
-          "cg:type": "Agent",
-          "description": "CSER",
-          "name": "CSER Bake Off Project"
-        }
-      ]
-    },
-    {
-      "cg:id": "CritAssess022",
-      "cg:type": "CriterionAssessment",
-      "criterion": {
-        "cg:id": "PM3",
-        "cg:type": "Criterion",
-        "description": "For recessive disorders, detected in trans with a pathogenic variant",
-        "shortDescription": "Recessive in trans w/ Path",
-        "defaultOutcome": "CG:M",
-        "targetInterpretation": "LN:LA6668-3"
-      },
-      "variant": {
-        "cg:id": "CanAll035",
-        "cg:type": "CanonicalAllele",
-        "preferredCtxAllele": "CtxAll039",
-        "identifier": "http://reg.genome.network/allele/CA090919"
-      },
-      "outcome": "CG:M",
-      "startedAtTime": "2016-06-02T08:00:59+00:00",
-      "endedAtTime": "2016-06-02T08:00:59+00:00",
-      "hasSupportingEvidence": [
-        {
-          "cg:id": "CondInh055",
-          "cg:type": "ConditionInheritance",
-          "condition": {
-            "cg:id": "Cond004",
-            "cg:type": "Condition",
-            "name": "Primary Ciliary Dyskenisia",
-            "code": "244"
-          },
-          "modeOfInheritance": "HP:0000007",
-          "startedAtTime": "2016-05-31T08:45:59+00:00",
-          "endedAtTime": "2016-05-31T08:45:59+00:00",
-          "dataSource": {
-            "cg:id": "DataSrc004",
-            "cg:type": "DataSource",
-            "externalIdentifier": "OMIM:244400",
-            "linkedIRI": "http://omim.org/entry/244400",
-            "version": "alopez : 09/15/2016"
-          },
-          "wasAssociatedWith": [
-            {
-              "cg:id": "Agent008",
-              "cg:type": "Agent",
-              "description": "MDS",
-              "name": "Marina DiStefano"
-            }
-          ]
-        },
-        {
-          "cg:id": "IndCond056",
-          "cg:type": "IndividualCondition",
-          "individual": {
-            "cg:id": "Indiv004",
-            "cg:type": "Individual",
-            "description": "individual #004"
-          },
-          "condition": [
-            {
-              "cg:id": "Cond004",
-              "cg:type": "Condition",
-              "name": "Primary Ciliary Dyskenisia",
-              "code": "244"
-            },
-            {
-              "cg:id": "Cond014",
-              "cg:type": "Condition",
-              "name": "outer dynein arm (ODA) defects",
-              "code": "0200106"
-            }
-          ],
-          "hasCondition": true,
-          "startedAtTime": "2016-05-31T09:14:59+00:00",
-          "endedAtTime": "2016-05-31T09:14:59+00:00",
-          "dataSource": {
-            "cg:id": "DataSrc005",
-            "cg:type": "DataSource",
-            "externalIdentifier": "LMM-CASE:CSER-SUBJECT-123"
-          },
-          "wasAssociatedWith": [
-            {
-              "cg:id": "Agent001",
-              "cg:type": "Agent",
-              "description": "SH",
-              "name": "Steven Harrison"
-            }
-          ]
-        },
-        {
-          "cg:id": "MenDisVarInterp057",
-          "cg:type": "MendelianDiseaseVariantPathogenicityInterpretation",
-          "canonicalAllele": {
-            "cg:id": "CanAll036",
-            "cg:type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll040",
-            "identifier": "http://reg.genome.network/allele/CA273615"
-          },
-          "condition": [
-            {
-              "cg:id": "Cond004",
-              "cg:type": "Condition",
-              "name": "Primary Ciliary Dyskenisia",
-              "code": "244"
-            }
-          ],
-          "clinicalSignificance": "LN:LA6668-3",
-          "startedAtTime": "2016-05-31T11:00:59+00:00",
-          "endedAtTime": "2016-05-31T11:00:59+00:00",
-          "dataSource": {
-            "cg:id": "DataSrc006",
-            "cg:type": "DataSource",
-            "externalIdentifier": "CLINVAR:SCV000205842.3",
-            "linkedIRI": "https://www.ncbi.nlm.nih.gov/clinvar/SCV000205842.3"
-          },
-          "wasAssociatedWith": [
-            {
-              "cg:id": "Agent008",
-              "cg:type": "Agent",
-              "description": "MDS",
-              "name": "Marina DiStefano"
-            }
-          ]
-        },
-        {
-          "cg:id": "IndAll058",
-          "cg:type": "IndividualAllele",
-          "explanation": "Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband.",
-          "individual": {
-            "cg:id": "Indiv004",
-            "cg:type": "Individual",
-            "description": "individual #004"
-          },
-          "primaryAllele": {
-            "cg:id": "CanAll035",
-            "cg:type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll039",
-            "identifier": "http://reg.genome.network/allele/CA090919"
-          },
-          "secondaryAllele": {
-            "cg:id": "CanAll036",
-            "cg:type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll040",
-            "identifier": "http://reg.genome.network/allele/CA273615"
-          },
-          "primaryZygosity": "CG:het",
-          "secondaryZygosity": "CG:het",
-          "phase": "CG:trans",
-          "startedAtTime": "2016-05-31T09:14:59+00:00",
-          "endedAtTime": "2016-05-31T09:14:59+00:00",
-          "dataSource": {
-            "cg:id": "DataSrc005",
-            "cg:type": "DataSource",
-            "externalIdentifier": "LMM-CASE:CSER-SUBJECT-123"
-          },
-          "wasAssociatedWith": [
-            {
-              "cg:id": "Agent001",
-              "cg:type": "Agent",
-              "description": "SH",
-              "name": "Steven Harrison"
-            }
-          ]
-        }
-      ],
-      "condition": [
-        {
-          "cg:id": "Cond004",
-          "cg:type": "Condition",
-          "name": "Primary Ciliary Dyskenisia",
-          "code": "244"
-        },
-        {
-          "cg:id": "Cond014",
-          "cg:type": "Condition",
-          "name": "outer dynein arm (ODA) defects",
-          "code": "0200106"
-        }
-      ],
-      "wasAssociatedWith": [
-        {
-          "cg:id": "Agent001",
-          "cg:type": "Agent",
-          "description": "SH",
-          "name": "Steven Harrison"
-        }
-      ]
-    },
-    {
-      "cg:id": "CritAssess025",
-      "cg:type": "CriterionAssessment",
-      "criterion": {
-        "cg:id": "PM4",
-        "cg:type": "Criterion",
-        "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
-        "shortDescription": "Protein length changes or stop-loss",
-        "defaultOutcome": "CG:M",
-        "targetInterpretation": "LN:LA6668-3"
-      },
-      "variant": {
-        "cg:id": "CanAll035",
-        "cg:type": "CanonicalAllele",
-        "preferredCtxAllele": "CtxAll039",
-        "identifier": "http://reg.genome.network/allele/CA090919"
-      },
-      "outcome": "CG:M",
-      "explanation": "leads to an in-frame deletion of 7 amino acids (not repeat region).",
-      "startedAtTime": "2016-06-12T07:30:00+00:00",
-      "endedAtTime": "2016-06-12T07:30:00+00:00",
-      "hasSupportingEvidence": [
-        {
-          "cg:id": "MolCon066",
-          "cg:type": "MolecularConsequence",
-          "contextualAllele": {
-            "cg:id": "CtxAll044",
-            "cg:type": "ContextualAllele",
-            "relatedCanonicalAllele": {
-              "cg:id": "CanAll040",
-              "cg:type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll044",
-              "identifier": "http://reg.genome.network/allele/CA273136"
-            },
-            "alleleName": "NP_001360.1:p.Trp2490_Leu2496del"
-          },
-          "consequence": "SO:0001825",
-          "startedAtTime": "2016-06-01T14:03:00+00:00",
-          "endedAtTime": "2016-06-01T14:03:00+00:00",
-          "dataSource": {
-            "cg:id": "DataSrc007",
-            "cg:type": "DataSource",
-            "externalIdentifier": "LMM:GENEINSIGHT-LAB v5.3.2",
-            "linkedIRI": "https://geneinsight-lmm-test.partners.org"
-          },
-          "wasAssociatedWith": [
-            {
-              "cg:id": "Agent001",
-              "cg:type": "Agent",
-              "description": "SH",
-              "name": "Steven Harrison"
-            }
-          ]
-        },
-        {
-          "cg:id": "Reg069",
-          "cg:type": "RegionTypesAndAlleles",
-          "explanation": "This is not a repreating region.",
-          "referenceSequence": {
-            "cg:id": "RefSeq005",
-            "cg:type": "ReferenceSequence",
-            "identifier": "NP_001360.1"
-          },
-          "start": 2490,
-          "stop": 2496,
-          "isNotTypes": [
-            "CG:repeat"
-          ],
-          "startedAtTime": "2016-06-01T14:10:00+00:00",
-          "endedAtTime": "2016-06-01T14:10:00+00:00",
-          "dataSource": {
-            "cg:id": "DataSrc008",
-            "cg:type": "DataSource",
-            "externalIdentifier": "LMM:ALAMUT-PROD v123",
-            "linkedIRI": "https://pcpgm.partners.org/lmm"
-          },
-          "wasAssociatedWith": [
-            {
-              "cg:id": "Agent008",
-              "cg:type": "Agent",
-              "description": "MDS",
-              "name": "Marina DiStefano"
-            }
-          ]
-        }
-      ],
-      "wasAssociatedWith": [
-        {
-          "cg:id": "Agent003",
-          "cg:type": "Agent",
-          "description": "TS",
-          "name": "Tasha Strande"
-        }
-      ]
+      "cg:id": "MendCond004",
+      "cg:type": "MendelianCondition",
+      "explanation": "Primary ciliary dyskenisia, Autosomal Recessive"
     }
   ],
-  "wasAssociatedWith": [
+  "clinicalSignificance": "LN:LA26332-9",
+  "assertionMethod": {
+    "cg:id": "AssertMeth001",
+    "cg:type": "AssertionMethod",
+    "description": "ACMG ISV guidelines 2015",
+    "version": "1.0",
+    "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
+    "scoringAlgorithm": {
+      "cg:id": "ScorAlg01",
+      "cg:type": "ScoringAlgorithm",
+      "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance."
+    }
+  },
+  "hasEvidence": [
     {
-      "cg:id": "Agent007",
-      "cg:type": "Agent",
-      "description": "CPC",
-      "name": "ClinGen Pathogenicity Calculator v1"
+      "cg:id": "EvLn110",
+      "cg:type": "EvidenceLine",
+      "strength": "CG:INSUFFICIENT",
+      "supportingData": [
+        {
+          "cg:id": "CritAssess305",
+          "cg:type": "CriterionAssessment",
+          "explanation": "while the variant is absent from exac, however\n1) very low coverage across this region (~5X) and usually 20X is used as a cut-off to say “absent”\n2) variant is 21 nt deletion - databases may not be able to call a variant of that size (I rarely see an indel of this size in ExAC).",
+          "wasGeneratedBy": {
+            "cg:id": "AssessCrit031",
+            "cg:type": "AssessCriterion",
+            "startedAtTime": "2016-07-01T10:53:00+00:00",
+            "endedAtTime": "2016-07-01T10:53:00+00:00",
+            "wasAssociatedWith": [
+              {
+                "cg:id": "Agent001",
+                "cg:type": "Agent",
+                "description": "SH",
+                "name": "Steven Harrison"
+              },
+              {
+                "cg:id": "Agent005",
+                "cg:type": "Agent",
+                "description": "CSER",
+                "name": "CSER Bake Off Project"
+              }
+            ]
+          },
+          "criterion": {
+            "cg:id": "PM2",
+            "cg:type": "Criterion",
+            "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
+            "shortDescription": "Absent from controls",
+            "defaultOutcome": "CG:M",
+            "targetInterpretation": "LN:LA6668-3"
+          },
+          "variant": {
+            "cg:id": "CanAll035",
+            "cg:type": "CanonicalAllele",
+            "preferredCtxAllele": "CtxAll039",
+            "identifier": "http://reg.genome.network/allele/CA090919"
+          },
+          "condition": [
+            {
+              "cg:id": "-"
+            }
+          ],
+          "outcome": "CG:INSUFFICIENT",
+          "hasSupportingEvidence": [
+            {
+              "cg:id": "EvLn040",
+              "supportingData": [
+                {
+                  "cg:id": "AllFreq082",
+                  "cg:type": "AlleleFrequency",
+                  "wasGeneratedBy": {
+                    "cg:id": "CapData081",
+                    "cg:type": "CaptureData",
+                    "startedAtTime": "2016-06-01T14:15:00+00:00",
+                    "endedAtTime": "2016-06-01T14:15:00+00:00",
+                    "wasAssociatedWith": [
+                      {
+                        "cg:id": "Agent001",
+                        "cg:type": "Agent",
+                        "description": "SH",
+                        "name": "Steven Harrison"
+                      }
+                    ]
+                  },
+                  "ascertainment": "ExAC",
+                  "population": "CG:combined",
+                  "allele": {
+                    "cg:id": "CanAll035",
+                    "cg:type": "CanonicalAllele",
+                    "preferredCtxAllele": "CtxAll039",
+                    "identifier": "http://reg.genome.network/allele/CA090919"
+                  },
+                  "alleleCount": 0,
+                  "alleleFrequency": 0.0,
+                  "medianCoverage": 11.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
-      "cg:id": "Agent001",
-      "cg:type": "Agent",
-      "description": "SH",
-      "name": "Steven Harrison"
+      "cg:id": "EvLn111",
+      "cg:type": "EvidenceLine",
+      "strength": "CG:MODERATE",
+      "supportingData": [
+        {
+          "cg:id": "CritAssess296",
+          "cg:type": "CriterionAssessment",
+          "wasGeneratedBy": {
+            "cg:id": "AssessCrit022",
+            "cg:type": "AssessCriterion",
+            "startedAtTime": "2016-06-02T08:00:59+00:00",
+            "endedAtTime": "2016-06-02T08:00:59+00:00",
+            "wasAssociatedWith": [
+              {
+                "cg:id": "Agent001",
+                "cg:type": "Agent",
+                "description": "SH",
+                "name": "Steven Harrison"
+              }
+            ]
+          },
+          "criterion": {
+            "cg:id": "PM3",
+            "cg:type": "Criterion",
+            "description": "For recessive disorders, detected in trans with a pathogenic variant",
+            "shortDescription": "Recessive in trans w/ Path",
+            "defaultOutcome": "CG:M",
+            "targetInterpretation": "LN:LA6668-3"
+          },
+          "variant": {
+            "cg:id": "CanAll035",
+            "cg:type": "CanonicalAllele",
+            "preferredCtxAllele": "CtxAll039",
+            "identifier": "http://reg.genome.network/allele/CA090919"
+          },
+          "condition": [
+            {
+              "cg:id": "MendCond004",
+              "cg:type": "MendelianCondition",
+              "explanation": "Primary ciliary dyskenisia, Autosomal Recessive"
+            }
+          ],
+          "outcome": "CG:MET",
+          "hasSupportingEvidence": [
+            {
+              "cg:id": "EvLn029",
+              "supportingData": [
+                {
+                  "cg:id": "IndCond056",
+                  "cg:type": "IndividualCondition",
+                  "wasGeneratedBy": {
+                    "cg:id": "CapData077",
+                    "cg:type": "CaptureData",
+                    "startedAtTime": "2016-05-31T09:14:59+00:00",
+                    "endedAtTime": "2016-05-31T09:14:59+00:00",
+                    "wasAssociatedWith": [
+                      {
+                        "cg:id": "Agent001",
+                        "cg:type": "Agent",
+                        "description": "SH",
+                        "name": "Steven Harrison"
+                      }
+                    ]
+                  },
+                  "individual": {
+                    "cg:id": "Indiv004",
+                    "cg:type": "Individual",
+                    "description": "individual #004"
+                  },
+                  "condition": [
+                    {
+                      "cg:id": "MendCond014",
+                      "cg:type": "MendelianCondition",
+                      "explanation": "PCD autosomal recessive w/ outer dynein arm (ODA) defects"
+                    }
+                  ],
+                  "hasCondition": true
+                },
+                {
+                  "cg:id": "VarInterp057",
+                  "cg:type": "VariantInterpretation",
+                  "wasGeneratedBy": {
+                    "cg:id": "CapData078",
+                    "cg:type": "CaptureData",
+                    "startedAtTime": "2016-05-31T11:00:59+00:00",
+                    "endedAtTime": "2016-05-31T11:00:59+00:00",
+                    "wasAssociatedWith": [
+                      {
+                        "cg:id": "Agent008",
+                        "cg:type": "Agent",
+                        "description": "MDS",
+                        "name": "Marina DiStefano"
+                      }
+                    ]
+                  },
+                  "variant": {
+                    "cg:id": "CanAll036",
+                    "cg:type": "CanonicalAllele",
+                    "preferredCtxAllele": "CtxAll040",
+                    "identifier": "http://reg.genome.network/allele/CA273615"
+                  },
+                  "condition": [
+                    {
+                      "cg:id": "MendCond004",
+                      "cg:type": "MendelianCondition",
+                      "explanation": "Primary ciliary dyskenisia, Autosomal Recessive"
+                    }
+                  ],
+                  "clinicalSignificance": "LN:LA6668-3"
+                },
+                {
+                  "cg:id": "IndAll058",
+                  "cg:type": "IndividualAllele",
+                  "explanation": "Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband.",
+                  "wasGeneratedBy": {
+                    "cg:id": "CapData077",
+                    "cg:type": "CaptureData",
+                    "startedAtTime": "2016-05-31T09:14:59+00:00",
+                    "endedAtTime": "2016-05-31T09:14:59+00:00",
+                    "wasAssociatedWith": [
+                      {
+                        "cg:id": "Agent001",
+                        "cg:type": "Agent",
+                        "description": "SH",
+                        "name": "Steven Harrison"
+                      }
+                    ]
+                  },
+                  "individual": {
+                    "cg:id": "Indiv004",
+                    "cg:type": "Individual",
+                    "description": "individual #004"
+                  },
+                  "primaryAllele": {
+                    "cg:id": "CanAll035",
+                    "cg:type": "CanonicalAllele",
+                    "preferredCtxAllele": "CtxAll039",
+                    "identifier": "http://reg.genome.network/allele/CA090919"
+                  },
+                  "secondaryAllele": {
+                    "cg:id": "CanAll036",
+                    "cg:type": "CanonicalAllele",
+                    "preferredCtxAllele": "CtxAll040",
+                    "identifier": "http://reg.genome.network/allele/CA273615"
+                  },
+                  "primaryZygosity": "CG:het",
+                  "secondaryZygosity": "CG:het",
+                  "phase": "CG:trans"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cg:id": "EvLn112",
+      "cg:type": "EvidenceLine",
+      "strength": "CG:MODERATE",
+      "supportingData": [
+        {
+          "cg:id": "CritAssess299",
+          "cg:type": "CriterionAssessment",
+          "explanation": "leads to an in-frame deletion of 7 amino acids (not repeat region).",
+          "wasGeneratedBy": {
+            "cg:id": "AssessCrit025",
+            "cg:type": "AssessCriterion",
+            "startedAtTime": "2016-06-12T07:30:00+00:00",
+            "endedAtTime": "2016-06-12T07:30:00+00:00",
+            "wasAssociatedWith": [
+              {
+                "cg:id": "Agent003",
+                "cg:type": "Agent",
+                "description": "TS",
+                "name": "Tasha Strande"
+              }
+            ]
+          },
+          "criterion": {
+            "cg:id": "PM4",
+            "cg:type": "Criterion",
+            "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
+            "shortDescription": "Protein length changes or stop-loss",
+            "defaultOutcome": "CG:M",
+            "targetInterpretation": "LN:LA6668-3"
+          },
+          "variant": {
+            "cg:id": "CanAll035",
+            "cg:type": "CanonicalAllele",
+            "preferredCtxAllele": "CtxAll039",
+            "identifier": "http://reg.genome.network/allele/CA090919"
+          },
+          "condition": [
+            {
+              "cg:id": "-"
+            }
+          ],
+          "outcome": "CG:MET",
+          "hasSupportingEvidence": [
+            {
+              "cg:id": "EvLn032",
+              "supportingData": [
+                {
+                  "cg:id": "MolCon066",
+                  "cg:type": "MolecularConsequence",
+                  "wasGeneratedBy": {
+                    "cg:id": "CapData079",
+                    "cg:type": "CaptureData",
+                    "startedAtTime": "2016-06-01T14:03:00+00:00",
+                    "endedAtTime": "2016-06-01T14:03:00+00:00",
+                    "wasAssociatedWith": [
+                      {
+                        "cg:id": "Agent001",
+                        "cg:type": "Agent",
+                        "description": "SH",
+                        "name": "Steven Harrison"
+                      }
+                    ]
+                  },
+                  "contextualAllele": {
+                    "cg:id": "CtxAll044",
+                    "cg:type": "ContextualAllele",
+                    "relatedCanonicalAllele": {
+                      "cg:id": "CanAll040",
+                      "cg:type": "CanonicalAllele",
+                      "preferredCtxAllele": "CtxAll044",
+                      "identifier": "http://reg.genome.network/allele/CA273136"
+                    },
+                    "alleleName": "NP_001360.1:p.Trp2490_Leu2496del"
+                  },
+                  "consequence": "SO:0001825"
+                },
+                {
+                  "cg:id": "Reg069",
+                  "cg:type": "RegionTypesAndAlleles",
+                  "explanation": "This is not a repreating region.",
+                  "wasGeneratedBy": {
+                    "cg:id": "CapData080",
+                    "cg:type": "CaptureData",
+                    "startedAtTime": "2016-06-01T14:10:00+00:00",
+                    "endedAtTime": "2016-06-01T14:10:00+00:00",
+                    "wasAssociatedWith": [
+                      {
+                        "cg:id": "Agent008",
+                        "cg:type": "Agent",
+                        "description": "MDS",
+                        "name": "Marina DiStefano"
+                      }
+                    ]
+                  },
+                  "referenceSequence": {
+                    "cg:id": "RefSeq005",
+                    "cg:type": "ReferenceSequence",
+                    "identifier": "NP_001360.1"
+                  },
+                  "start": 2490,
+                  "stop": 2496,
+                  "isNotTypes": [
+                    "CG:repeat"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#VarInterp001">diagram</a></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp364">VarInterp364</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll122">CanAll122</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond010">MendCond010</a></p>
+         </td>
+          <td>
+              <p>LN:LA26332-9</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp364"><pre><code>{
+  "cg:id": "VarInterp364",
+  "cg:type": "VariantInterpretation",
+  "variant": {
+    "cg:id": "CanAll122",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll128"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond010",
+      "cg:type": "MendelianCondition",
+      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+    }
+  ],
+  "clinicalSignificance": "LN:LA26332-9"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../examples/details.html#VarInterp365">VarInterp365</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../examples/details.html#CanAll123">CanAll123</a></p>
+         </td>
+          <td>
+              <p><a href="../../examples/details.html#MendCond010">MendCond010</a></p>
+         </td>
+          <td>
+              <p>LN:LA6668-3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp365"><pre><code>{
+  "cg:id": "VarInterp365",
+  "cg:type": "VariantInterpretation",
+  "variant": {
+    "cg:id": "CanAll123",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll129"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond010",
+      "cg:type": "MendelianCondition",
+      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+    }
+  ],
+  "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
         </tr>
 
       </tbody>
     </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
     <script>
 var fix_ellipses = function ($view) {
     $view.find('ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
@@ -643,6 +2647,7 @@ window.addEventListener('load', function () {
 
 })
     </script>
+    -->
 
 
           </article>
@@ -654,6 +2659,7 @@ window.addEventListener('load', function () {
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../../../javascripts/jquery.js"></script><script src="../../../javascripts/bootstrap.js"></script><script src="../../../javascripts/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
 
   </body>
 </html>

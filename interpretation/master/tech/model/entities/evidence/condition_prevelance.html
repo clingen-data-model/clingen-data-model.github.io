@@ -12,6 +12,8 @@
       ClinGen Data Model
     </title>
 
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
     <link href="../../../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../../../stylesheets/brand2.css" rel="stylesheet" /><link href="../../../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
 
       <script>
@@ -93,7 +95,7 @@
 
             <li><a href="../../../../welcome/">Welcome</a></li>
             <li><a href="../../../../user/">User Guide</a></li>
-            <li class="active"><a href="../../../">Technical Reference</a></li><ul><li><a href="../../../api/">API</a></li><li><a href="../../../examples/">Examples</a></li><li class="active"><a href="../../">Model</a></li><ul><li><a href="../../agents/">Agent</a></li><li class="active"><a href="../">Entity</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_inheritance.html">ConditionInheritance</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li class="active"><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_disease_variant_interpretation.html">MendelianDiseaseVariantPathogenicityInterpretation</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionTypesAndAlleles</a></li></ul><li><a href="../evidence_data-source.html">DataSource</a></li><li><a href="../publication_status.html">PublicationStatus</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../../secondary/">Secondary Types</a></li></ul><li><a href="../../../value_sets/">Value Sets</a></li></ul>
+            <li class="active"><a href="../../../">Technical Reference</a></li><ul><li><a href="../../../api/">API</a></li><li><a href="../../../examples/">Examples</a></li><li class="active"><a href="../../">Model</a></li><ul><li><a href="../../agents/">Agent</a></li><li class="active"><a href="../">Entity</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li class="active"><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionTypesAndAlleles</a></li></ul><li><a href="../evidence_data-source.html">DataSource</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../../secondary/">Secondary Types</a></li></ul><li><a href="../../../value_sets/">Value Sets</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -134,7 +136,7 @@
             <tbody>
             <tr>
                 <td>condition</td>
-                <td>Condition</td>
+                <td>MendelianCondition</td>
                 <td>0..*</td>
                 <td>Condition for which the prevelance is described</td>
             </tr>
@@ -165,6 +167,7 @@
             </tbody>
         </table>
 
+
     <h2>Inherited Attributes</h2>
 
         <table class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -179,43 +182,105 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>wasGeneratedBy</td>
-                    <td>Activity</td>
-                    <td>0..1</td>
-                    <td>Entity</td>
-                    <td>The activity that produced this entity</td>
-                </tr>
-                <tr>
                     <td>explanation</td>
                     <td>String</td>
                     <td>0..1</td>
-                    <td>Entity</td>
+                    <td></td>
                     <td>A human-readable description of the entity</td>
+                </tr>
+                <tr>
+                    <td>wasGeneratedBy</td>
+                    <td>Activity</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>The activity that produced this entity</td>
+                </tr>
+                <tr>
+                    <td>wasDerivedFrom</td>
+                    <td>Data</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>Another entityy which was a former derivation of this entity.</td>
                 </tr>
             </tbody>
         </table>
 
     <h2>Examples</h2>
-    <table class="table table-striped table-bordered" cellspacing=0 width="100%">
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
         <th>description</th>
-        <th>json</th>
-        <th>diagram</th>
+        <th>condition</th>
+        <th>population</th>
+        <th>minimum</th>
+        <th>maximum</th>
+        <th>value</th>
       </tr></thead>
       <tbody>
         <tr>
-          <td>CondPrev159</td>
+          <td><p><a href="../../../examples/details.html#CondPrev039">CondPrev039</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#MendCond010">MendCond010</a></p>
+         </td>
+          <td>
+              <p>CG:overall</p>
+         </td>
+          <td>
+              <p>1.0</p>
+         </td>
+          <td>
+              <p>1.0</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CondPrev039"><pre><code>{
+  "cg:id": "CondPrev039",
+  "cg:type": "ConditionPrevelance",
+  "condition": [
+    {
+      "cg:id": "MendCond010",
+      "cg:type": "MendelianCondition",
+      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+    }
+  ],
+  "minimum": 1.0,
+  "maximum": 1.0,
+  "population": "CG:overall"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../examples/details.html#CondPrev159">CondPrev159</a></p></td>
+          <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#MendCond028">MendCond028</a></p>
+         </td>
+          <td>
+              <p>CG:overall</p>
+         </td>
+          <td>
+              <p>0.0017</p>
+         </td>
+          <td>
+              <p>0.0007</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="CondPrev159"><pre><code>{
   "cg:id": "CondPrev159",
   "cg:type": "ConditionPrevelance",
   "condition": [
     {
-      "cg:id": "Cond028",
-      "cg:type": "Condition",
-      "name": "Perrault Syndrome",
-      "code": "2855"
+      "cg:id": "MendCond028",
+      "cg:type": "MendelianCondition",
+      "explanation": "Perrault Syndrome, Autosomal Dominant"
     }
   ],
   "minimum": 0.0017,
@@ -223,53 +288,89 @@
   "population": "CG:overall"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#CondPrev159">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>CondPrev163</td>
+          <td><p><a href="../../../examples/details.html#CondPrev163">CondPrev163</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#MendCond027">MendCond027</a></p>
+         </td>
+          <td>
+              <p>CG:overall</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>0.00012</p>
+         </td>
+          <!--
           <td><div class="example_view" id="CondPrev163"><pre><code>{
   "cg:id": "CondPrev163",
   "cg:type": "ConditionPrevelance",
   "condition": [
     {
-      "cg:id": "Cond027",
-      "cg:type": "Condition",
-      "name": "Mitochondrial complex 1 deficiency",
-      "code": "2609"
+      "cg:id": "MendCond027",
+      "cg:type": "MendelianCondition",
+      "explanation": "Mitochondrial complex 1 deficiency, X-linked dominant inheritance"
     }
   ],
   "value": 0.00012,
   "population": "CG:overall"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#CondPrev163">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>CondPrev167</td>
+          <td><p><a href="../../../examples/details.html#CondPrev167">CondPrev167</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#MendCond028">MendCond028</a></p>
+         </td>
+          <td>
+              <p>CG:overall</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>1.0e-06</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
           <td><div class="example_view" id="CondPrev167"><pre><code>{
   "cg:id": "CondPrev167",
   "cg:type": "ConditionPrevelance",
   "condition": [
     {
-      "cg:id": "Cond028",
-      "cg:type": "Condition",
-      "name": "Perrault Syndrome",
-      "code": "2855"
+      "cg:id": "MendCond028",
+      "cg:type": "MendelianCondition",
+      "explanation": "Perrault Syndrome, Autosomal Dominant"
     }
   ],
   "maximum": 1.0e-06,
   "population": "CG:overall"
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#CondPrev167">diagram</a></td>
+          -->
         </tr>
 
       </tbody>
     </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
     <script>
 var fix_ellipses = function ($view) {
     $view.find('ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
@@ -291,6 +392,7 @@ window.addEventListener('load', function () {
 
 })
     </script>
+    -->
 
 
           </article>
@@ -302,6 +404,7 @@ window.addEventListener('load', function () {
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
 
   </body>
 </html>

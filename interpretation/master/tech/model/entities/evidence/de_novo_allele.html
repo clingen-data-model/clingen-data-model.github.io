@@ -12,6 +12,8 @@
       ClinGen Data Model
     </title>
 
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
     <link href="../../../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../../../stylesheets/brand2.css" rel="stylesheet" /><link href="../../../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
 
       <script>
@@ -93,7 +95,7 @@
 
             <li><a href="../../../../welcome/">Welcome</a></li>
             <li><a href="../../../../user/">User Guide</a></li>
-            <li class="active"><a href="../../../">Technical Reference</a></li><ul><li><a href="../../../api/">API</a></li><li><a href="../../../examples/">Examples</a></li><li class="active"><a href="../../">Model</a></li><ul><li><a href="../../agents/">Agent</a></li><li class="active"><a href="../">Entity</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_inheritance.html">ConditionInheritance</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li class="active"><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_disease_variant_interpretation.html">MendelianDiseaseVariantPathogenicityInterpretation</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionTypesAndAlleles</a></li></ul><li><a href="../evidence_data-source.html">DataSource</a></li><li><a href="../publication_status.html">PublicationStatus</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../../secondary/">Secondary Types</a></li></ul><li><a href="../../../value_sets/">Value Sets</a></li></ul>
+            <li class="active"><a href="../../../">Technical Reference</a></li><ul><li><a href="../../../api/">API</a></li><li><a href="../../../examples/">Examples</a></li><li class="active"><a href="../../">Model</a></li><ul><li><a href="../../agents/">Agent</a></li><li class="active"><a href="../">Entity</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li class="active"><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionTypesAndAlleles</a></li></ul><li><a href="../evidence_data-source.html">DataSource</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../../secondary/">Secondary Types</a></li></ul><li><a href="../../../value_sets/">Value Sets</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -159,6 +161,7 @@
             </tbody>
         </table>
 
+
     <h2>Inherited Attributes</h2>
 
         <table class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -173,34 +176,56 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>wasGeneratedBy</td>
-                    <td>Activity</td>
-                    <td>0..1</td>
-                    <td>Entity</td>
-                    <td>The activity that produced this entity</td>
-                </tr>
-                <tr>
                     <td>explanation</td>
                     <td>String</td>
                     <td>0..1</td>
-                    <td>Entity</td>
+                    <td></td>
                     <td>A human-readable description of the entity</td>
+                </tr>
+                <tr>
+                    <td>wasGeneratedBy</td>
+                    <td>Activity</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>The activity that produced this entity</td>
+                </tr>
+                <tr>
+                    <td>wasDerivedFrom</td>
+                    <td>Data</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>Another entityy which was a former derivation of this entity.</td>
                 </tr>
             </tbody>
         </table>
 
     <h2>Examples</h2>
-    <table class="table table-striped table-bordered" cellspacing=0 width="100%">
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
         <th>description</th>
-        <th>json</th>
-        <th>diagram</th>
+        <th>canonicalAllele</th>
+        <th>individual</th>
+        <th>maternityConfirmed</th>
+        <th>paternityConfirmed</th>
       </tr></thead>
       <tbody>
         <tr>
-          <td>DeNovo014</td>
+          <td><p><a href="../../../examples/details.html#DeNovo014">DeNovo014</a></p></td>
           <td>parentage confirmed via haplotyping.</td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll014">CanAll014</a></p>
+         </td>
+          <td>
+              <p><a href="../../../examples/details.html#Indiv001">Indiv001</a></p>
+         </td>
+          <td>
+              <p>true</p>
+         </td>
+          <td>
+              <p>true</p>
+         </td>
+          <!--
           <td><div class="example_view" id="DeNovo014"><pre><code>{
   "cg:id": "DeNovo014",
   "cg:type": "DeNovoAllele",
@@ -220,12 +245,25 @@
   "paternityConfirmed": true
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DeNovo014">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>DeNovo017</td>
+          <td><p><a href="../../../examples/details.html#DeNovo017">DeNovo017</a></p></td>
           <td>Non-paternity was excluded by assessment with microsatellites</td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll015">CanAll015</a></p>
+         </td>
+          <td>
+              <p><a href="../../../examples/details.html#Indiv002">Indiv002</a></p>
+         </td>
+          <td>
+              <p>true</p>
+         </td>
+          <td>
+              <p>true</p>
+         </td>
+          <!--
           <td><div class="example_view" id="DeNovo017"><pre><code>{
   "cg:id": "DeNovo017",
   "cg:type": "DeNovoAllele",
@@ -245,12 +283,25 @@
   "paternityConfirmed": true
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DeNovo017">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>DeNovo020</td>
+          <td><p><a href="../../../examples/details.html#DeNovo020">DeNovo020</a></p></td>
           <td>Variant from trio WES, which confirmed parentage</td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll016">CanAll016</a></p>
+         </td>
+          <td>
+              <p><a href="../../../examples/details.html#Indiv003">Indiv003</a></p>
+         </td>
+          <td>
+              <p>true</p>
+         </td>
+          <td>
+              <p>true</p>
+         </td>
+          <!--
           <td><div class="example_view" id="DeNovo020"><pre><code>{
   "cg:id": "DeNovo020",
   "cg:type": "DeNovoAllele",
@@ -269,12 +320,25 @@
   "paternityConfirmed": true
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DeNovo020">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>DeNovo087</td>
+          <td><p><a href="../../../examples/details.html#DeNovo087">DeNovo087</a></p></td>
           <td>parentage confirmation not mentioned in the source article</td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll059">CanAll059</a></p>
+         </td>
+          <td>
+              <p><a href="../../../examples/details.html#Ind007">Ind007</a></p>
+         </td>
+          <td>
+              <p>true</p>
+         </td>
+          <td>
+              <p>true</p>
+         </td>
+          <!--
           <td><div class="example_view" id="DeNovo087"><pre><code>{
   "cg:id": "DeNovo087",
   "cg:type": "DeNovoAllele",
@@ -292,12 +356,25 @@
   "paternityConfirmed": true
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DeNovo087">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>DeNovo088</td>
+          <td><p><a href="../../../examples/details.html#DeNovo088">DeNovo088</a></p></td>
           <td>parentage confirmation not mentioned in the source article</td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll059">CanAll059</a></p>
+         </td>
+          <td>
+              <p><a href="../../../examples/details.html#Ind008">Ind008</a></p>
+         </td>
+          <td>
+              <p>true</p>
+         </td>
+          <td>
+              <p>true</p>
+         </td>
+          <!--
           <td><div class="example_view" id="DeNovo088"><pre><code>{
   "cg:id": "DeNovo088",
   "cg:type": "DeNovoAllele",
@@ -315,12 +392,25 @@
   "paternityConfirmed": true
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DeNovo088">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>DeNovo091</td>
+          <td><p><a href="../../../examples/details.html#DeNovo091">DeNovo091</a></p></td>
           <td>parentage confirmation not mentioned in the source article</td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll060">CanAll060</a></p>
+         </td>
+          <td>
+              <p><a href="../../../examples/details.html#Ind009">Ind009</a></p>
+         </td>
+          <td>
+              <p>true</p>
+         </td>
+          <td>
+              <p>true</p>
+         </td>
+          <!--
           <td><div class="example_view" id="DeNovo091"><pre><code>{
   "cg:id": "DeNovo091",
   "cg:type": "DeNovoAllele",
@@ -338,12 +428,25 @@
   "paternityConfirmed": true
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DeNovo091">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>DeNovo094</td>
+          <td><p><a href="../../../examples/details.html#DeNovo094">DeNovo094</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll061">CanAll061</a></p>
+         </td>
+          <td>
+              <p><a href="../../../examples/details.html#Ind010">Ind010</a></p>
+         </td>
+          <td>
+              <p>true</p>
+         </td>
+          <td>
+              <p>true</p>
+         </td>
+          <!--
           <td><div class="example_view" id="DeNovo094"><pre><code>{
   "cg:id": "DeNovo094",
   "cg:type": "DeNovoAllele",
@@ -360,12 +463,25 @@
   "paternityConfirmed": true
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DeNovo094">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>DeNovo097</td>
+          <td><p><a href="../../../examples/details.html#DeNovo097">DeNovo097</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll061">CanAll061</a></p>
+         </td>
+          <td>
+              <p><a href="../../../examples/details.html#Ind011">Ind011</a></p>
+         </td>
+          <td>
+              <p>true</p>
+         </td>
+          <td>
+              <p>true</p>
+         </td>
+          <!--
           <td><div class="example_view" id="DeNovo097"><pre><code>{
   "cg:id": "DeNovo097",
   "cg:type": "DeNovoAllele",
@@ -382,12 +498,25 @@
   "paternityConfirmed": true
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DeNovo097">diagram</a></td>
+          -->
         </tr>
 
         <tr>
-          <td>DeNovo100</td>
+          <td><p><a href="../../../examples/details.html#DeNovo100">DeNovo100</a></p></td>
           <td></td>
+          <td>
+              <p><a href="../../../examples/details.html#CanAll061">CanAll061</a></p>
+         </td>
+          <td>
+              <p><a href="../../../examples/details.html#Ind012">Ind012</a></p>
+         </td>
+          <td>
+              <p>true</p>
+         </td>
+          <td>
+              <p>true</p>
+         </td>
+          <!--
           <td><div class="example_view" id="DeNovo100"><pre><code>{
   "cg:id": "DeNovo100",
   "cg:type": "DeNovoAllele",
@@ -404,11 +533,17 @@
   "paternityConfirmed": true
 }
           </code></pre></div></td>
-          <td><a href="../../examples/diagram.html#DeNovo100">diagram</a></td>
+          -->
         </tr>
 
       </tbody>
     </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
     <script>
 var fix_ellipses = function ($view) {
     $view.find('ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
@@ -430,6 +565,7 @@ window.addEventListener('load', function () {
 
 })
     </script>
+    -->
 
 
           </article>
@@ -441,6 +577,7 @@ window.addEventListener('load', function () {
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
 
   </body>
 </html>
