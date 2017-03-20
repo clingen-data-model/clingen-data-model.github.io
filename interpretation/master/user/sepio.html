@@ -9,12 +9,12 @@
     <link rel="icon" href="#######">
 
     <title>
-      Interpretation Model
+      SEPIO
     </title>
 
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
 
-    <link href="stylesheets/bootstrap.css" rel="stylesheet" /><link href="stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="stylesheets/brand2.css" rel="stylesheet" /><link href="stylesheets/jquery.jsonview.css" rel="stylesheet" />
+    <link href="../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../stylesheets/brand2.css" rel="stylesheet" /><link href="../stylesheets/jquery.jsonview.css" rel="stylesheet" />
 
       <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -66,8 +66,8 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >development release<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                  <li><a href="/0.1/">0.1</a></li>
-                  <li><a href="/development/">development</a></li>
+                  <li><a href="/0.1/user/sepio.html">0.1</a></li>
+                  <li><a href="/development/user/sepio.html">development</a></li>
               </ul>
             </li>
           </ul>
@@ -78,7 +78,9 @@
     <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
       <div class='col-sm-offset-4 col-md-offset-3'>
         <ol class="breadcrumb bg-none margin-none">
-          <li><a href="./">Interpretation Model</a></li>
+          <li><a href="../">Interpretation Model</a></li>
+<li><a href="./">User Guide</a></li>
+<li><a href="sepio.html">SEPIO</a></li>
 
         </ol>
       </div>
@@ -88,14 +90,14 @@
         <div class="col-sm-4 col-md-3 sidebar">
           <ul class="nav nav-sidebar">
             <li class='nav-sidebar-title'>
-              <img width="438" height="108" alt="ClinGen Documentation" class="img-responsive" src="images/clingen-doc-logo.png" />
+              <img width="438" height="108" alt="ClinGen Documentation" class="img-responsive" src="../images/clingen-doc-logo.png" />
             </li>
 
             <li class="active">
-              <a href="./">Welcome</a>
+              <a href="../">Welcome</a>
             </li>
-            <li><a href="user/">User Guide</a></li>
-            <li><a href="tech/">Technical Reference</a></li>
+            <li class="active"><a href="./">User Guide</a></li><ul><li class="active"><a href="sepio.html">SEPIO</a></li><li><a href="supported_queries.html">Supported queries</a></li><li><a href="w3c-prov.html">W3C-Prov</a></li></ul>
+            <li><a href="../tech/">Technical Reference</a></li>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -104,7 +106,7 @@
           <article>
 
 
-            <h1>Interpretation Model</h1>
+            <h1>SEPIO</h1>
             <p></p>
 
 
@@ -113,45 +115,21 @@
 
             <h2 id="introduction">Introduction</h2>
 
-<p>ClinGen members are generating an incredible amount of richly curated interpretations of the clinical effect of genetic variants.   The ClinGen Interpretation Model provides a structure and format for exchanging this information, retaining the full ecosystem of contextual and supporting information.</p>
+<p>The Monarch Initiative's <a href="https://github.com/monarch-initiative/SEPIO-ontology">Scientific Evidence and provenance Information Ontology</a> (SEPIO) is an RDF-style ontology for the description of evidence and provenance that support scientific claims.  This ontology supports a number of use cases, but is mainly driven by the need to integrate evidence, and computationally assess the level of evidence for a scientific claim.</p>
 
-<h2 id="benefits-of-the-clingen-interpretation-model">Benefits of the ClinGen Interpretation Model</h2>
+<h2 id="connections-between-sepio-and-clingen-interpretations">Connections Between SEPIO and ClinGen Interpretations</h2>
 
-<ul>
-  <li>Enables captures a rich set of data around an interpretation:
-    <ul>
-      <li>What evidence was used in this interpretation</li>
-      <li>How the evidence supported or conflicted with the interpretation</li>
-      <li>Who performed each atomic act in the creation of an interpretation</li>
-      <li>The sources of the data used in the interpretation</li>
-      <li>How the explicitly defined criteria were applied to the evidence.</li>
-      <li>To what degree the interpretation builds upon previous interpretations</li>
-    </ul>
-  </li>
-  <li>Aligns with related community models including:
-    <ul>
-      <li><a href="https://github.com/monarch-initiative/SEPIO-ontology/wiki">Monarch SEPIO</a></li>
-      <li><a href="http://datamodel.clinicalgenome.org/allele/master/index.html">ClinGen Allele Model</a></li>
-    </ul>
-  </li>
-  <li>Other features:
-    <ul>
-      <li>Flexible: Naturally able to represent a range of interpretation depth, from unsupported assertions to fully evidence-based interpretations, using whatever level of data has been captured.</li>
-      <li>Contains an extensive set of data objects for representing frequently used information.</li>
-      <li>Defines a message structure using industry-standard JSON.</li>
-      <li>Extensible: Easily transferable to other types of interpretations other interpretation methods.</li>
-      <li>Well-documented, including many examples of using the model to encode variant interpretations using all of the ACMG guidelines.</li>
-    </ul>
-  </li>
-</ul>
+<p>While the goals of ClinGen and SEPIO differ slightly, the models used to express a scientific claim and the evidence underlying that claim overlap to a large degree.  A ClinGen interpretation is equivalent to an assertion in SEPIO.  Furthermore, the structure of the models, with evidence combined into conclusions at multiple reasoning levels conveys a similar understanding of the domain.</p>
 
-<h2 id="status">Status</h2>
+<p>At the moment, however, ClinGen and SEPIO models are not fully interchangeable.  As might be expected from its broader scope, SEPIO is considerably more flexible that the ClinGen model in terms of the types of assertions or data that may be represented.</p>
 
-<p>Version 1 of the interpretation model is planned for the first quarter of 2017, and will allow the description of variant pathogenicity interpretations based on the <a href="http://www.nature.com/gim/journal/v17/n5/full/gim201530a.html">ACMG guidelines</a>.   Version 2, incorporating interpretation across a broader set of entities and styles is currently in the scoping phase.</p>
+<p>The ClinGen interpretation model, on the other hand, trades flexibility for specificity, incorporating directly domain concepts such as ACMG pathogenicity guideline criteria, and specific evidence elements modeling the types of data that molecular analysts use.  Further, the ClinGen model is more heavily focused on specifying how provenance for individual steps should be tracked, including the collection of data from various sources.</p>
 
-<h2 id="documentation">Documentation</h2>
+<p>Finally, the style of the two frameworks differs; SEPIO is an RDF-based ontology, while the initial ClinGen interpretation model has been developed as a group of UML classes.</p>
 
-<p>The following documentation is divided into two sections.  The <a href="user/">User Guide</a> is meant for those new to the model, or for those seeking a non-technical explanation describes the structure of the model and its relationships to Monarch SEPIO and W3C-Prov.  The <a href="tech/">Technical Reference</a> is for technical users and implementers of the model.  This section includes detailed information about the types and attributes of the data model, as well as numerous examples that show how these types are expressed in a JSON format.</p>
+<h2 id="ongoing-work-with-sepio">Ongoing work with SEPIO</h2>
+
+<p>While there are differences between these two methods of tracking scientific claims, the underlying structures show a remarkable degree of similarity.   Given the finite lifetime of the ClinGen grant, it makes sense for the ClinGen interpretation model  to figure out the best way to align itself with the SEPIO ontology.  Whether this means moving fully to SEPIO while bringing in necessary ClinGen data elements or creating explicit translations remains to be seen; a decision on the methods here is slated for the second version of the ClinGen interpreation model.   The ClinGen Data Model Working group is conducting an ongoing series of meetings with members of the Monarch Initiative to help define a path forward.</p>
 
           </article>
         </div>
@@ -161,7 +139,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="javascripts/jquery.js"></script><script src="javascripts/bootstrap.js"></script><script src="javascripts/jquery.jsonview.js"></script>
+    <script src="../javascripts/jquery.js"></script><script src="../javascripts/bootstrap.js"></script><script src="../javascripts/jquery.jsonview.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
 
   </body>
