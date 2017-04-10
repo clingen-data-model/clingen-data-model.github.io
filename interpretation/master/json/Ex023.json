@@ -4,28 +4,12 @@
   "dataId": {
     "cg:id": "CritAssess297",
     "cg:type": "CriterionAssessment",
-    "wasGeneratedBy": {
-      "cg:id": "Act023",
-      "cg:type": "Activity",
-      "activityTypeId": {
-        "cg:id": "E10"
-      },
-      "timeStamp": "2016-06-10T09:01:59+00:00",
-      "wasAssociatedWith": [
-        {
-          "cg:id": "Agent001",
-          "cg:type": "Agent",
-          "description": "SH",
-          "name": "Steven Harrison"
-        }
-      ]
-    },
     "criterion": {
       "cg:id": "PM3",
       "cg:type": "Criterion",
       "description": "For recessive disorders, detected in trans with a pathogenic variant",
       "shortDescription": "Recessive in trans with pathogenic variant",
-      "defaultOutcome": "CG:M",
+      "defaultStrength": "CG-evidence-strength:pm",
       "targetInterpretation": "LN:LA6668-3"
     },
     "variant": {
@@ -38,13 +22,23 @@
       {
         "cg:id": "MendCond010",
         "cg:type": "MendelianCondition",
-        "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+        "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3",
+        "disease": [
+          "Orphanet:87884"
+        ],
+        "modeOfInheritance": "HP:0000007",
+        "gene": {
+          "cg:id": "G024",
+          "cg:type": "Gene",
+          "symbol": "GIPC3"
+        }
       }
     ],
-    "outcome": "CG:MET",
+    "outcome": "CG-criterion-outcome:met",
     "hasSupportingEvidence": [
       {
         "cg:id": "EvLn030",
+        "cg:type": "EvidenceLine",
         "supportingData": [
           {
             "cg:id": "VarInterp059",
@@ -59,7 +53,16 @@
               {
                 "cg:id": "MendCond010",
                 "cg:type": "MendelianCondition",
-                "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+                "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3",
+                "disease": [
+                  "Orphanet:87884"
+                ],
+                "modeOfInheritance": "HP:0000007",
+                "gene": {
+                  "cg:id": "G024",
+                  "cg:type": "Gene",
+                  "symbol": "GIPC3"
+                }
               }
             ],
             "clinicalSignificance": "LN:LA6668-3"
@@ -76,7 +79,16 @@
               {
                 "cg:id": "MendCond010",
                 "cg:type": "MendelianCondition",
-                "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+                "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3",
+                "disease": [
+                  "Orphanet:87884"
+                ],
+                "modeOfInheritance": "HP:0000007",
+                "gene": {
+                  "cg:id": "G024",
+                  "cg:type": "Gene",
+                  "symbol": "GIPC3"
+                }
               }
             ],
             "hasCondition": true
@@ -102,20 +114,26 @@
               "preferredCtxAllele": "CtxAll042",
               "identifier": "http://reg.genome.network/allele/CA501223"
             },
-            "primaryZygosity": "CG:het",
-            "secondaryZygosity": "CG:het",
-            "phase": "CG:trans"
+            "primaryZygosity": "CG-allelic-state:het",
+            "secondaryZygosity": "CG-allelic-state:het",
+            "phase": "CG-phase:trans"
           }
         ]
+      }
+    ],
+    "contribution": [
+      {
+        "cg:id": "Contrib423",
+        "cg:type": "Contribution",
+        "agent": "Harry Stevenson",
+        "onDate": {
+          "cg:id": "2016-06-10T09:01:59+00:00"
+        },
+        "role": "CG-contributory-role:assessor"
       }
     ]
   },
   "index": 2,
-  "authorId": {
-    "cg:id": "Agent001",
-    "cg:type": "Agent",
-    "description": "SH",
-    "name": "Steven Harrison"
-  },
+  "author": "Steven Harrison",
   "description": "Variant assessed: NM_133261.2 (GIPC3):c.298G>A (p.Asp100Asn)\n\nThis variant was found in a case with nonsyndromic hearing loss and who also carried Pathogenic GIPC3 variant c.411+1G>A (called Pathogenic internally at LMM). Based on the NGS data, we are able to determine that c.298G>A and c.411+1G>A are in trans as no NGS reads carry both variants. Thus PM3 is applicable without having to confirm trans by doing parental testing. "
 }

@@ -4,34 +4,12 @@
   "dataId": {
     "cg:id": "CritAssess327",
     "cg:type": "CriterionAssessment",
-    "wasGeneratedBy": {
-      "cg:id": "Act055",
-      "cg:type": "Activity",
-      "activityTypeId": {
-        "cg:id": "E10"
-      },
-      "timeStamp": "2016-08-29T23:00:00+00:00",
-      "wasAssociatedWith": [
-        {
-          "cg:id": "Agent006",
-          "cg:type": "Agent",
-          "description": "RG",
-          "name": "Rajarshi Ghosh"
-        },
-        {
-          "cg:id": "Agent005",
-          "cg:type": "Agent",
-          "description": "CSER",
-          "name": "CSER Bake Off Project"
-        }
-      ]
-    },
     "criterion": {
       "cg:id": "BS1",
       "cg:type": "Criterion",
       "description": "Allele frequency is greater than expected for disorder",
       "shortDescription": "MAF too high for disorder",
-      "defaultOutcome": "CG:S",
+      "defaultStrength": "CG-evidence-strength:bs",
       "targetInterpretation": "LN:LA6675-8"
     },
     "variant": {
@@ -44,19 +22,24 @@
       {
         "cg:id": "MendCond027",
         "cg:type": "MendelianCondition",
-        "explanation": "Mitochondrial complex 1 deficiency, X-linked dominant inheritance"
+        "explanation": "Mitochondrial complex 1 deficiency, X-linked dominant inheritance",
+        "disease": [
+          "Orphanet:2609"
+        ],
+        "modeOfInheritance": "HP:0001423"
       }
     ],
-    "outcome": "CG:MET",
+    "outcome": "CG-criterion-outcome:met",
     "hasSupportingEvidence": [
       {
         "cg:id": "EvLn065",
+        "cg:type": "EvidenceLine",
         "supportingData": [
           {
             "cg:id": "AllFreq162",
             "cg:type": "AlleleFrequency",
             "ascertainment": "ExAC",
-            "population": "CG:combined",
+            "population": "CG-population-type:combined",
             "allele": {
               "cg:id": "CanAll079",
               "cg:type": "CanonicalAllele",
@@ -76,11 +59,15 @@
               {
                 "cg:id": "MendCond027",
                 "cg:type": "MendelianCondition",
-                "explanation": "Mitochondrial complex 1 deficiency, X-linked dominant inheritance"
+                "explanation": "Mitochondrial complex 1 deficiency, X-linked dominant inheritance",
+                "disease": [
+                  "Orphanet:2609"
+                ],
+                "modeOfInheritance": "HP:0001423"
               }
             ],
             "value": 0.00012,
-            "population": "CG:overall"
+            "population": "CG-population-type:overall"
           },
           {
             "cg:id": "CondPenet164",
@@ -89,22 +76,41 @@
               {
                 "cg:id": "MendCond027",
                 "cg:type": "MendelianCondition",
-                "explanation": "Mitochondrial complex 1 deficiency, X-linked dominant inheritance"
+                "explanation": "Mitochondrial complex 1 deficiency, X-linked dominant inheritance",
+                "disease": [
+                  "Orphanet:2609"
+                ],
+                "modeOfInheritance": "HP:0001423"
               }
             ],
-            "penetrance": "CG:high"
+            "penetrance": "CG-penetrance-type:high"
           }
         ]
+      }
+    ],
+    "contribution": [
+      {
+        "cg:id": "Contrib459",
+        "cg:type": "Contribution",
+        "agent": "G. Rajar",
+        "onDate": {
+          "cg:id": "2016-08-29T23:00:00+00:00"
+        },
+        "role": "CG-contributory-role:assessor"
+      },
+      {
+        "cg:id": "Contrib460",
+        "cg:type": "Contribution",
+        "agent": "CSER Bakeoff Project",
+        "onDate": {
+          "cg:id": "2016-08-29T23:00:00+00:00"
+        },
+        "role": "CG-contributory-role:assessor"
       }
     ]
   },
   "searchTags": "cser",
   "index": 2,
-  "authorId": {
-    "cg:id": "Agent006",
-    "cg:type": "Agent",
-    "description": "RG",
-    "name": "Rajarshi Ghosh"
-  },
+  "author": "Rajarshi Ghosh",
   "description": "CSER variant : NM_004541.3(NDUFA1):c.94G>C (p.Gly32Arg)\nMax Allele frequency: 0.9% (ExAC/NFE) 0.6%(ExAC/overall) (with 1 homozygote with the same amino acid change but different codon G>A).\nNDUFA1 is associated with Mitochondrial complex 1 deficiency as obtained from Medgen search. http://www.ncbi.nlm.nih.gov/medgen/?term=NDUFA1\nCondition prevalence:  prevalence of all mitochondrial disease per Gene Reviews, 2014 is estimated around 1 in 8500"
 }

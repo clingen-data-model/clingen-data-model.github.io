@@ -2,28 +2,12 @@
   "cg:id": "CritAssess301",
   "cg:type": "CriterionAssessment",
   "explanation": "This 15bp duplication variant results in an expansion of a 20 residue polyalanine tract to a 25 residue polyalanine tract.",
-  "wasGeneratedBy": {
-    "cg:id": "Act027",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2016-06-12T09:31:59+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent001",
-        "cg:type": "Agent",
-        "description": "SH",
-        "name": "Steven Harrison"
-      }
-    ]
-  },
   "criterion": {
     "cg:id": "PM4",
     "cg:type": "Criterion",
     "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
     "shortDescription": "Protein length changes or stop-loss",
-    "defaultOutcome": "CG:M",
+    "defaultStrength": "CG-evidence-strength:pm",
     "targetInterpretation": "LN:LA6668-3"
   },
   "variant": {
@@ -37,10 +21,11 @@
       "cg:id": "-"
     }
   ],
-  "outcome": "CG:REFUTE",
+  "outcome": "CG-criterion-outcome:not-met",
   "hasSupportingEvidence": [
     {
       "cg:id": "EvLn034",
+      "cg:type": "EvidenceLine",
       "supportingData": [
         {
           "cg:id": "MolCon074",
@@ -59,19 +44,36 @@
           "consequence": "SO:0001823"
         },
         {
-          "cg:id": "Reg077",
-          "cg:type": "RegionTypesAndAlleles",
+          "cg:id": "RegAnn077",
+          "cg:type": "RegionAnnotation",
           "explanation": "NP_003915.2[241..260] is repeating.",
-          "referenceSequence": {
-            "cg:id": "RefSeq007",
-            "cg:type": "ReferenceSequence",
-            "identifier": "NP_003915.2"
+          "region": {
+            "cg:id": "Loc387",
+            "cg:type": "Locus",
+            "referenceSequence": {
+              "cg:id": "RefSeq007",
+              "cg:type": "ReferenceSequence",
+              "accession": "NP_003915.2"
+            },
+            "start": 241,
+            "stop": 260
           },
-          "start": 241,
-          "stop": 260,
-          "isTypes": "CG:repeat"
+          "isTypes": [
+            "CG-reg-anno-type:repeat"
+          ]
         }
       ]
+    }
+  ],
+  "contribution": [
+    {
+      "cg:id": "Contrib427",
+      "cg:type": "Contribution",
+      "agent": "Harry Stevenson",
+      "onDate": {
+        "cg:id": "2016-06-12T09:31:59+00:00"
+      },
+      "role": "CG-contributory-role:assessor"
     }
   ]
 }

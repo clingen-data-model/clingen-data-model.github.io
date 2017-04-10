@@ -2,22 +2,6 @@
   "cg:id": "VarInterp055",
   "cg:type": "VariantInterpretation",
   "explanation": "The Tyr337Cys variant in SOS1 has been reported in 1 individual with clinical features of Noonan syndrome (Roberts 2007), but has also been reported to be present in 2 unaffected individuals from one family (Personal Communication). This variant was absent from large population studies. Studies have shown that the Tyr337Cys variant may impact protein function by increasing its activity though these results are inconclusive and these in vitro assays may not accurately represent biological function (Smith 2013). Due to the conflicting data about this variant, the clinical significance of the Tyr337Cys variant is uncertain.",
-  "wasGeneratedBy": {
-    "cg:id": "Act104",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2014-08-14T10:28:59+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent011",
-        "cg:type": "Agent",
-        "description": "GG1",
-        "name": "Gene Geneticist"
-      }
-    ]
-  },
   "variant": {
     "cg:id": "CanAll124",
     "cg:type": "CanonicalAllele",
@@ -25,9 +9,11 @@
   },
   "condition": [
     {
-      "cg:id": "MendCond003",
-      "cg:type": "MendelianCondition",
-      "explanation": "noonan syndrome, Autosomal Dominant"
+      "cg:id": "MendCond075",
+      "disease": [
+        "Orphanet:648"
+      ],
+      "modeOfInheritance": "HP:0000006"
     }
   ],
   "clinicalSignificance": "LN:LA26333-7",
@@ -46,33 +32,19 @@
   "hasEvidence": [
     {
       "cg:id": "EvLn124",
+      "cg:type": "EvidenceLine",
+      "strength": "CG-evidence-strength:PP",
       "supportingData": [
         {
           "cg:id": "CritAssess374",
           "cg:type": "CriterionAssessment",
           "explanation": "Flag-tagged construct with the variant was transfected into HEK cells. As per the RASopathy working group’s approved assays (see example 3 above), Smith et al. showed that the Y337C mutation increased levels of pERK in starved HEK cells via western blotting.",
-          "wasGeneratedBy": {
-            "cg:id": "Act106",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2017-03-14T10:28:59+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent008",
-                "cg:type": "Agent",
-                "description": "MDS",
-                "name": "Marina DiStefano"
-              }
-            ]
-          },
           "criterion": {
             "cg:id": "PS3",
             "cg:type": "Criterion",
             "description": "Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product",
             "shortDescription": "Well-established functional studies showing damaging effect",
-            "defaultOutcome": "CG:S",
+            "defaultStrength": "CG-evidence-strength:ps",
             "targetInterpretation": "LN:LA6668-3"
           },
           "variant": {
@@ -80,19 +52,18 @@
             "cg:type": "CanonicalAllele",
             "preferredCtxAllele": "CtxAll130"
           },
-          "outcome": "CG:MET",
+          "outcome": "CG-criterion-outcome:met",
           "hasSupportingEvidence": [
             {
               "cg:id": "EvLn116",
               "cg:type": "EvidenceLine",
-              "strength": "CG:STRONG",
               "supportingData": [
                 {
                   "cg:id": "Func067",
                   "cg:type": "FunctionalData",
                   "explanation": "PMID: 23487764",
                   "result": "increased ERK activtation",
-                  "dataType": "CG:activation",
+                  "dataType": "CG-func-data-type:activation",
                   "contextualAllele": {
                     "cg:id": "CtxAll130",
                     "cg:type": "ContextualAllele",
@@ -111,39 +82,36 @@
                 }
               ]
             }
+          ],
+          "contribution": [
+            {
+              "cg:id": "Contrib513",
+              "cg:type": "Contribution",
+              "agent": "Stefan DiMarino",
+              "onDate": {
+                "cg:id": "2017-03-14T10:28:59+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
+            }
           ]
         }
       ]
     },
     {
       "cg:id": "EvLn125",
+      "cg:type": "EvidenceLine",
+      "strength": "CG-evidence-strength:bs",
       "supportingData": [
         {
           "cg:id": "CritAssess375",
           "cg:type": "CriterionAssessment",
           "explanation": "A personal communication to our lab informed us of an individual and his son who both harbored the variant but with clinical workup did not appear to have Noonan Syndrome or symptoms indicative of Noonan Syndrome.",
-          "wasGeneratedBy": {
-            "cg:id": "Act107",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2017-03-14T10:44:59+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent008",
-                "cg:type": "Agent",
-                "description": "MDS",
-                "name": "Marina DiStefano"
-              }
-            ]
-          },
           "criterion": {
             "cg:id": "BS4",
             "cg:type": "Criterion",
             "description": "Lack of segregation in affected members of a family",
             "shortDescription": "Does not segregate with disease",
-            "defaultOutcome": "CG:S",
+            "defaultStrength": "CG-evidence-strength:bs",
             "targetInterpretation": "LN:LA6675-8"
           },
           "variant": {
@@ -151,18 +119,34 @@
             "cg:type": "CanonicalAllele",
             "preferredCtxAllele": "CtxAll130"
           },
-          "outcome": "CG:MET",
+          "condition": [
+            {
+              "cg:id": "MendCond056",
+              "cg:type": "MendelianCondition",
+              "explanation": "noonan syndrome, Autosomal Dominant",
+              "disease": [
+                "Orphanet:648"
+              ],
+              "modeOfInheritance": "HP:0000006"
+            }
+          ],
+          "outcome": "CG-criterion-outcome:met",
           "hasSupportingEvidence": [
             {
               "cg:id": "EvLn123",
+              "cg:type": "EvidenceLine",
               "supportingData": [
                 {
                   "cg:id": "FamSegData076",
                   "cg:type": "FamilySegregationData",
                   "condition": {
-                    "cg:id": "MendCond003",
+                    "cg:id": "MendCond056",
                     "cg:type": "MendelianCondition",
-                    "explanation": "noonan syndrome, Autosomal Dominant"
+                    "explanation": "noonan syndrome, Autosomal Dominant",
+                    "disease": [
+                      "Orphanet:648"
+                    ],
+                    "modeOfInheritance": "HP:0000006"
                   },
                   "canonicalAllele": {
                     "cg:id": "CanAll124",
@@ -175,13 +159,37 @@
                     "description": "Family #011"
                   },
                   "phenotypePositiveAllelePositive": 0,
-                  "phenotypeNegativeAllelePositive": 0
+                  "phenotypeNegativeAllelePositive": 2,
+                  "phenotypePositiveAlleleNegative": 0,
+                  "anyInconsistentSegregations": true
                 }
               ]
+            }
+          ],
+          "contribution": [
+            {
+              "cg:id": "Contrib514",
+              "cg:type": "Contribution",
+              "agent": "Stefan DiMarino",
+              "onDate": {
+                "cg:id": "2017-03-14T10:44:59+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
             }
           ]
         }
       ]
+    }
+  ],
+  "contribution": [
+    {
+      "cg:id": "Contrib511",
+      "cg:type": "Contribution",
+      "agent": "Gene Geneticist",
+      "onDate": {
+        "cg:id": "2014-08-14T10:28:59+00:00"
+      },
+      "role": "CG-contributory-role:interpreter"
     }
   ]
 }

@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li class="active"><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionTypesAndAlleles</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li class="active"><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -234,18 +234,11 @@
                     <td>A human-readable description of the entity</td>
                 </tr>
                 <tr>
-                    <td>wasGeneratedBy</td>
-                    <td>Activity</td>
-                    <td>0..1</td>
+                    <td>contribution</td>
+                    <td>Contribution</td>
+                    <td>0..*</td>
                     <td></td>
-                    <td>The activity that produced this entity</td>
-                </tr>
-                <tr>
-                    <td>wasDerivedFrom</td>
-                    <td>Data</td>
-                    <td>0..1</td>
-                    <td></td>
-                    <td>Another entityy which was a former derivation of this entity.</td>
+                    <td>The contributions (agent, time and role) made to this entity</td>
                 </tr>
             </tbody>
         </table>
@@ -276,7 +269,7 @@
               <p><a href="../details/details.html#CanAll124">CanAll124</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#MendCond003">MendCond003</a></p>
+              <p><a href="../details/details.html#MendCond056">MendCond056</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#Fam011">Fam011</a></p>
@@ -285,13 +278,10 @@
               <p>0</p>
          </td>
           <td>
-              
-         </td>
-          <td>
               <p>0</p>
          </td>
           <td>
-              
+              <p>2</p>
          </td>
           <td>
               
@@ -307,15 +297,22 @@
          </td>
           <td>
               
+         </td>
+          <td>
+              <p>true</p>
          </td>
           <!--
           <td><div class="example_view" id="FamSegData076"><pre><code>{
   "cg:id": "FamSegData076",
   "cg:type": "FamilySegregationData",
   "condition": {
-    "cg:id": "MendCond003",
+    "cg:id": "MendCond056",
     "cg:type": "MendelianCondition",
-    "explanation": "noonan syndrome, Autosomal Dominant"
+    "explanation": "noonan syndrome, Autosomal Dominant",
+    "disease": [
+      "Orphanet:648"
+    ],
+    "modeOfInheritance": "HP:0000006"
   },
   "canonicalAllele": {
     "cg:id": "CanAll124",
@@ -328,7 +325,9 @@
     "description": "Family #011"
   },
   "phenotypePositiveAllelePositive": 0,
-  "phenotypeNegativeAllelePositive": 0
+  "phenotypeNegativeAllelePositive": 2,
+  "phenotypePositiveAlleleNegative": 0,
+  "anyInconsistentSegregations": true
 }
           </code></pre></div></td>
           -->
@@ -378,26 +377,14 @@
   "cg:id": "FamSegData103",
   "cg:type": "FamilySegregationData",
   "explanation": "identified in 1 individual with HCM. Segregation analysis determined 5 other members of the family also carried this variant. However, only 3 of those family members had HCM (aged 48-75). The 2 other family members were young and asymptomatic. So from this paper, only count 3 segregations. The two apparently refuting segregations can be ignored due to the age-dependent penetrance of HCM.",
-  "wasGeneratedBy": {
-    "cg:id": "Act074",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2016-09-13T00:00:00+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent008",
-        "cg:type": "Agent",
-        "description": "MDS",
-        "name": "Marina DiStefano"
-      }
-    ]
-  },
   "condition": {
     "cg:id": "MendCond020",
     "cg:type": "MendelianCondition",
-    "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant"
+    "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
+    "disease": [
+      "Orphanet:217569"
+    ],
+    "modeOfInheritance": "HP:0000006"
   },
   "canonicalAllele": {
     "cg:id": "CanAll063",
@@ -412,7 +399,18 @@
     "description": "Family #001"
   },
   "phenotypePositiveAllelePositive": 3,
-  "phenotypeNegativeAllelePositive": 2
+  "phenotypeNegativeAllelePositive": 2,
+  "contribution": [
+    {
+      "cg:id": "Contrib481",
+      "cg:type": "Contribution",
+      "agent": "Stefan DiMarino",
+      "onDate": {
+        "cg:id": "2016-09-13T00:00:00+00:00"
+      },
+      "role": "CG-contributory-role:curator"
+    }
+  ]
 }
           </code></pre></div></td>
           -->
@@ -462,26 +460,14 @@
   "cg:id": "FamSegData104",
   "cg:type": "FamilySegregationData",
   "explanation": "In LMM internal family, c.1351+1G>A was identified in 1 individual with HCM. Variant also found in individual’s sister - who also had clinical dx of HCM.",
-  "wasGeneratedBy": {
-    "cg:id": "Act075",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2016-09-13T00:00:00+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent001",
-        "cg:type": "Agent",
-        "description": "SH",
-        "name": "Steven Harrison"
-      }
-    ]
-  },
   "condition": {
     "cg:id": "MendCond020",
     "cg:type": "MendelianCondition",
-    "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant"
+    "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
+    "disease": [
+      "Orphanet:217569"
+    ],
+    "modeOfInheritance": "HP:0000006"
   },
   "canonicalAllele": {
     "cg:id": "CanAll063",
@@ -494,7 +480,18 @@
     "cg:type": "Family",
     "description": "Family #002"
   },
-  "phenotypePositiveAllelePositive": 1
+  "phenotypePositiveAllelePositive": 1,
+  "contribution": [
+    {
+      "cg:id": "Contrib482",
+      "cg:type": "Contribution",
+      "agent": "Harry Stevenson",
+      "onDate": {
+        "cg:id": "2016-09-13T00:00:00+00:00"
+      },
+      "role": "CG-contributory-role:curator"
+    }
+  ]
 }
           </code></pre></div></td>
           -->
@@ -547,7 +544,11 @@
   "condition": {
     "cg:id": "MendCond021",
     "cg:type": "MendelianCondition",
-    "explanation": "Usher syndrome, Autosomal Recessive"
+    "explanation": "Usher syndrome, Autosomal Recessive",
+    "disease": [
+      "Orphanet:886"
+    ],
+    "modeOfInheritance": "HP:0000007"
   },
   "canonicalAllele": {
     "cg:id": "CanAll062",
@@ -613,7 +614,11 @@
   "condition": {
     "cg:id": "MendCond021",
     "cg:type": "MendelianCondition",
-    "explanation": "Usher syndrome, Autosomal Recessive"
+    "explanation": "Usher syndrome, Autosomal Recessive",
+    "disease": [
+      "Orphanet:886"
+    ],
+    "modeOfInheritance": "HP:0000007"
   },
   "canonicalAllele": {
     "cg:id": "CanAll062",
@@ -638,7 +643,7 @@
               <p><a href="../details/details.html#CanAll064">CanAll064</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#MendCond001">MendCond001</a></p>
+              <p><a href="../details/details.html#MendCond051">MendCond051</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#Fam005">Fam005</a></p>
@@ -675,9 +680,14 @@
   "cg:id": "FamSegData111",
   "cg:type": "FamilySegregationData",
   "condition": {
-    "cg:id": "MendCond001",
+    "cg:id": "MendCond051",
     "cg:type": "MendelianCondition",
-    "explanation": "Breast Ovarian Cancer"
+    "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
+    "name": "Breast Ovarian Cancer, Autosomal Dominant",
+    "disease": [
+      "MESH:D061325"
+    ],
+    "modeOfInheritance": "HP:0000006"
   },
   "canonicalAllele": {
     "cg:id": "CanAll064",
@@ -747,7 +757,11 @@
   "condition": {
     "cg:id": "MendCond002",
     "cg:type": "MendelianCondition",
-    "explanation": "dilated cardiomyopathy, Autosomal Dominant"
+    "explanation": "dilated cardiomyopathy, Autosomal Dominant",
+    "disease": [
+      "Orphanet:217604"
+    ],
+    "modeOfInheritance": "HP:0000006"
   },
   "canonicalAllele": {
     "cg:id": "CanAll065",
@@ -844,7 +858,11 @@
   "condition": {
     "cg:id": "MendCond002",
     "cg:type": "MendelianCondition",
-    "explanation": "dilated cardiomyopathy, Autosomal Dominant"
+    "explanation": "dilated cardiomyopathy, Autosomal Dominant",
+    "disease": [
+      "Orphanet:217604"
+    ],
+    "modeOfInheritance": "HP:0000006"
   },
   "canonicalAllele": {
     "cg:id": "CanAll065",
@@ -923,7 +941,11 @@
   "condition": {
     "cg:id": "MendCond035",
     "cg:type": "MendelianCondition",
-    "explanation": "Familial Hypercholesterolemia"
+    "explanation": "Hypercholesterolemia, Familial, Autosomal Dominant",
+    "disease": [
+      "OMIM:143890"
+    ],
+    "modeOfInheritance": "HP:0000006"
   },
   "canonicalAllele": {
     "cg:id": "CanAll088",
@@ -952,7 +974,7 @@ by environmental factors (obese, alcohol)</td>
               <p><a href="../details/details.html#CanAll089">CanAll089</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#MendCond023">MendCond023</a></p>
+              <p><a href="../details/details.html#MendCond065">MendCond065</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#Fam009">Fam009</a></p>
@@ -990,9 +1012,13 @@ by environmental factors (obese, alcohol)</td>
   "cg:type": "FamilySegregationData",
   "explanation": "The individual with HCM but without the allele is likely a phenocopy explained\nby environmental factors (obese, alcohol)",
   "condition": {
-    "cg:id": "MendCond023",
+    "cg:id": "MendCond065",
     "cg:type": "MendelianCondition",
-    "explanation": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
+    "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
+    "disease": [
+      "Orphanet:217569"
+    ],
+    "modeOfInheritance": "HP:0000006"
   },
   "canonicalAllele": {
     "cg:id": "CanAll089",
@@ -1020,7 +1046,7 @@ by environmental factors (obese, alcohol)</td>
               <p><a href="../details/details.html#CanAll090">CanAll090</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#MendCond020">MendCond020</a></p>
+              <p><a href="../details/details.html#MendCond066">MendCond066</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#Fam010">Fam010</a></p>
@@ -1057,9 +1083,13 @@ by environmental factors (obese, alcohol)</td>
   "cg:id": "FamSegData271",
   "cg:type": "FamilySegregationData",
   "condition": {
-    "cg:id": "MendCond020",
+    "cg:id": "MendCond066",
     "cg:type": "MendelianCondition",
-    "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant"
+    "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
+    "disease": [
+      "Orphanet:217569"
+    ],
+    "modeOfInheritance": "HP:0000006"
   },
   "canonicalAllele": {
     "cg:id": "CanAll090",

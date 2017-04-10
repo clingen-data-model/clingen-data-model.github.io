@@ -5,28 +5,12 @@
     "cg:id": "CritAssess293",
     "cg:type": "CriterionAssessment",
     "explanation": "PM2 is applicable as even though variant is not 100% absent, it is practically absent (a 95% CI for the population goes from 0.00% to 0.01%)",
-    "wasGeneratedBy": {
-      "cg:id": "Act019",
-      "cg:type": "Activity",
-      "activityTypeId": {
-        "cg:id": "E10"
-      },
-      "timeStamp": "2016-06-04T09:08:00+00:00",
-      "wasAssociatedWith": [
-        {
-          "cg:id": "Agent001",
-          "cg:type": "Agent",
-          "description": "SH",
-          "name": "Steven Harrison"
-        }
-      ]
-    },
     "criterion": {
       "cg:id": "PM2",
       "cg:type": "Criterion",
       "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
       "shortDescription": "Absent from controls",
-      "defaultOutcome": "CG:M",
+      "defaultStrength": "CG-evidence-strength:pm",
       "targetInterpretation": "LN:LA6668-3"
     },
     "variant": {
@@ -40,16 +24,17 @@
         "cg:id": "-"
       }
     ],
-    "outcome": "CG:MET",
+    "outcome": "CG-criterion-outcome:met",
     "hasSupportingEvidence": [
       {
         "cg:id": "EvLn025",
+        "cg:type": "EvidenceLine",
         "supportingData": [
           {
             "cg:id": "AllFreq051",
             "cg:type": "AlleleFrequency",
             "ascertainment": "ExAC",
-            "population": "EX:nfe",
+            "population": "EXAC:NFE",
             "allele": {
               "cg:id": "CanAll032",
               "cg:type": "CanonicalAllele",
@@ -65,12 +50,13 @@
       },
       {
         "cg:id": "EvLn026",
+        "cg:type": "EvidenceLine",
         "supportingData": [
           {
             "cg:id": "AllFreq052",
             "cg:type": "AlleleFrequency",
             "ascertainment": "ExAC",
-            "population": "CG:combined",
+            "population": "CG-population-type:combined",
             "allele": {
               "cg:id": "CanAll032",
               "cg:type": "CanonicalAllele",
@@ -84,14 +70,20 @@
           }
         ]
       }
+    ],
+    "contribution": [
+      {
+        "cg:id": "Contrib419",
+        "cg:type": "Contribution",
+        "agent": "Harry Stevenson",
+        "onDate": {
+          "cg:id": "2016-06-04T09:08:00+00:00"
+        },
+        "role": "CG-contributory-role:assessor"
+      }
     ]
   },
   "index": 1,
-  "authorId": {
-    "cg:id": "Agent001",
-    "cg:type": "Agent",
-    "description": "SH",
-    "name": "Steven Harrison"
-  },
+  "author": "Steven Harrison",
   "description": "Variant assessed: NM_000257.2 (MYH) c.5135G>A (p.Arg1712Gln)\nVariant is not completely absent from ExAC: http://exac.broadinstitute.org/variant/14-23884860-C-T\nVariant found in 1/121366 total chr and specifically 1/66706 European chr. \n\n1, # variant alleles\n66706, # total alleles tested\n95, desired CI (99.9 or 95)\n\n0.00%, population proportion\n0.00%, CI - lower\n0.01%, CI - upper\n\nPM2 is applicable as even though variant is not 100% absent, it is practically absent (using rules in Issues below)"
 }

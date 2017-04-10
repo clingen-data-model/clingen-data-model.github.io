@@ -2,28 +2,12 @@
   "cg:id": "CritAssess275",
   "cg:type": "CriterionAssessment",
   "explanation": "Variant is not LOF and LOF is not a known mechanism of disease associated with this gene for any condition.",
-  "wasGeneratedBy": {
-    "cg:id": "Act001",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2016-06-01T10:10:29+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent001",
-        "cg:type": "Agent",
-        "description": "SH",
-        "name": "Steven Harrison"
-      }
-    ]
-  },
   "criterion": {
     "cg:id": "PVS1",
     "cg:type": "Criterion",
     "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
     "shortDescription": "Null variant in gene with known LOF mechanism",
-    "defaultOutcome": "CG:VS",
+    "defaultStrength": "CG-evidence-strength:pvs",
     "targetInterpretation": "LN:LA6668-3"
   },
   "variant": {
@@ -32,15 +16,11 @@
     "preferredCtxAllele": "CtxAll001",
     "identifier": "http://reg.genome.network/allele/CA090943"
   },
-  "condition": [
-    {
-      "cg:id": "-"
-    }
-  ],
-  "outcome": "CG:REFUTE",
+  "outcome": "CG-criterion-outcome:not-met",
   "hasSupportingEvidence": [
     {
       "cg:id": "EvLn001",
+      "cg:type": "EvidenceLine",
       "supportingData": [
         {
           "cg:id": "MolCon001",
@@ -65,7 +45,7 @@
           "cg:type": "ConditionMechanism",
           "explanation": "HNRNPU is not associated with any conditions, and therefore LOF is not an established mechanism of any condition for this gene.",
           "mechanism": "SO:0002054",
-          "strength": "CG:established",
+          "strength": "CG-cond-mech-strength:established",
           "gene": {
             "cg:id": "G001",
             "cg:type": "Gene",
@@ -73,6 +53,17 @@
           }
         }
       ]
+    }
+  ],
+  "contribution": [
+    {
+      "cg:id": "Contrib396",
+      "cg:type": "Contribution",
+      "agent": "Harry Stevenson",
+      "onDate": {
+        "cg:id": "2016-06-01T10:09:59+00:00"
+      },
+      "role": "CG-contributory-role:assessor"
     }
   ]
 }

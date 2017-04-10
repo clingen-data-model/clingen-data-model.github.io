@@ -1,28 +1,12 @@
 {
   "cg:id": "CritAssess357",
   "cg:type": "CriterionAssessment",
-  "wasGeneratedBy": {
-    "cg:id": "Act094",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2016-10-10T08:03:00+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent008",
-        "cg:type": "Agent",
-        "description": "MDS",
-        "name": "Marina DiStefano"
-      }
-    ]
-  },
   "criterion": {
     "cg:id": "BP6",
     "cg:type": "Criterion",
     "description": "Reputable source recently reports variant as benign, but the evidence is not available to the laboratory to perform an independent evaluation",
     "shortDescription": "Reported benign by reputable source without shared data",
-    "defaultOutcome": "CG:P",
+    "defaultStrength": "CG-evidence-strength:bp",
     "targetInterpretation": "LN:LA6675-8"
   },
   "variant": {
@@ -35,13 +19,17 @@
     {
       "cg:id": "MendCond044",
       "cg:type": "MendelianCondition",
-      "explanation": "gyrate atrophy"
+      "explanation": "Gyrate atrophy of choroid and retina",
+      "disease": [
+        "Orphanet:414"
+      ]
     }
   ],
-  "outcome": "CG:INSUFFICIENT",
+  "outcome": "CG-criterion-outcome:not-met",
   "hasSupportingEvidence": [
     {
       "cg:id": "EvLn099",
+      "cg:type": "EvidenceLine",
       "supportingData": [
         {
           "cg:id": "VarInterp257",
@@ -57,12 +45,26 @@
             {
               "cg:id": "MendCond044",
               "cg:type": "MendelianCondition",
-              "explanation": "gyrate atrophy"
+              "explanation": "Gyrate atrophy of choroid and retina",
+              "disease": [
+                "Orphanet:414"
+              ]
             }
           ],
           "clinicalSignificance": "LN:LA6675-8"
         }
       ]
+    }
+  ],
+  "contribution": [
+    {
+      "cg:id": "Contrib501",
+      "cg:type": "Contribution",
+      "agent": "Stefan DiMarino",
+      "onDate": {
+        "cg:id": "2016-10-10T08:03:00+00:00"
+      },
+      "role": "CG-contributory-role:assessor"
     }
   ]
 }

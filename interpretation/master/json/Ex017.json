@@ -5,34 +5,12 @@
     "cg:id": "CritAssess291",
     "cg:type": "CriterionAssessment",
     "explanation": "Variant is located in exon 15, which the RASopathy group has decided is an established functional domain for BRAF",
-    "wasGeneratedBy": {
-      "cg:id": "Act017",
-      "cg:type": "Activity",
-      "activityTypeId": {
-        "cg:id": "E10"
-      },
-      "timeStamp": "2016-06-06T10:53:00+00:00",
-      "wasAssociatedWith": [
-        {
-          "cg:id": "Agent001",
-          "cg:type": "Agent",
-          "description": "SH",
-          "name": "Steven Harrison"
-        },
-        {
-          "cg:id": "Agent004",
-          "cg:type": "Agent",
-          "description": "NWG",
-          "name": "Noonan/Rasopathy WG (ClinGen)"
-        }
-      ]
-    },
     "criterion": {
       "cg:id": "PM1",
       "cg:type": "Criterion",
       "description": "Located in a mutational hot spot and/or critical and well-established functional domain (e.g., active site of an enzyme) without benign variation",
       "shortDescription": "Located in hot spot without benign variation",
-      "defaultOutcome": "CG:M",
+      "defaultStrength": "CG-evidence-strength:pm",
       "targetInterpretation": "LN:LA6668-3"
     },
     "variant": {
@@ -46,23 +24,46 @@
         "cg:id": "-"
       }
     ],
-    "outcome": "CG:MET",
+    "outcome": "CG-criterion-outcome:met",
     "hasSupportingEvidence": [
       {
         "cg:id": "EvLn023",
+        "cg:type": "EvidenceLine",
         "supportingData": [
           {
-            "cg:id": "Reg043",
-            "cg:type": "RegionTypesAndAlleles",
+            "cg:id": "RegAnn043",
+            "cg:type": "RegionAnnotation",
             "explanation": "This region is exon 15 in the transcript, and codes the serine-threonine-protein kinase catalytic domain.",
-            "referenceSequence": {
-              "cg:id": "RefSeq003",
-              "cg:type": "ReferenceSequence",
-              "identifier": "NM_004333.4"
+            "region": {
+              "cg:id": "Loc381",
+              "cg:type": "Locus",
+              "referenceSequence": {
+                "cg:id": "RefSeq003",
+                "cg:type": "ReferenceSequence",
+                "accession": "NM_004333.4"
+              },
+              "start": 1803,
+              "stop": 1921
             },
-            "start": 1803,
-            "stop": 1921,
-            "isTypes": "CG:functional",
+            "isTypes": [
+              "CG-reg-anno-type:functional"
+            ]
+          },
+          {
+            "cg:id": "RegAll382",
+            "cg:type": "RegionAlleles",
+            "explanation": "This region is exon 15 in the transcript, and codes the serine-threonine-protein kinase catalytic domain.",
+            "region": {
+              "cg:id": "Loc381",
+              "cg:type": "Locus",
+              "referenceSequence": {
+                "cg:id": "RefSeq003",
+                "cg:type": "ReferenceSequence",
+                "accession": "NM_004333.4"
+              },
+              "start": 1803,
+              "stop": 1921
+            },
             "includedAlleles": [
               {
                 "cg:id": "CtxAll029",
@@ -79,14 +80,29 @@
           }
         ]
       }
+    ],
+    "contribution": [
+      {
+        "cg:id": "Contrib416",
+        "cg:type": "Contribution",
+        "agent": "Harry Stevenson",
+        "onDate": {
+          "cg:id": "2016-06-06T10:53:00+00:00"
+        },
+        "role": "CG-contributory-role:assessor"
+      },
+      {
+        "cg:id": "Contrib417",
+        "cg:type": "Contribution",
+        "agent": "Noonan/Rasopathy WG (ClinGen)",
+        "onDate": {
+          "cg:id": "2016-06-06T10:53:00+00:00"
+        },
+        "role": "CG-contributory-role:assessor"
+      }
     ]
   },
   "index": 2,
-  "authorId": {
-    "cg:id": "Agent001",
-    "cg:type": "Agent",
-    "description": "SH",
-    "name": "Steven Harrison"
-  },
+  "author": "Steven Harrison",
   "description": "Assessed variant: NM_004333.4(BRAF):c.1789C>G (p.Leu597Val)\nRASopathy group decided that exon 15 of BRAF, which encodes the serine-threonine-protein kinase catalytic domain, is an established functional domain for BRAF. Thus, in assessing c.1789C>G, which falls in exon 15, applying PM1 is appropriate"
 }

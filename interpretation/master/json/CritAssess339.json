@@ -1,28 +1,12 @@
 {
   "cg:id": "CritAssess339",
   "cg:type": "CriterionAssessment",
-  "wasGeneratedBy": {
-    "cg:id": "Act067",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2016-09-06T09:00:00+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent006",
-        "cg:type": "Agent",
-        "description": "RG",
-        "name": "Rajarshi Ghosh"
-      }
-    ]
-  },
   "criterion": {
     "cg:id": "BP1",
     "cg:type": "Criterion",
     "description": "Missense variant in a gene for which primarily truncating variants are known to cause disease",
     "shortDescription": "Missense variant when truncating is expected mechanism",
-    "defaultOutcome": "CG:P",
+    "defaultStrength": "CG-evidence-strength:bp",
     "targetInterpretation": "LN:LA6675-8"
   },
   "variant": {
@@ -35,13 +19,17 @@
     {
       "cg:id": "MendCond037",
       "cg:type": "MendelianCondition",
-      "explanation": "Fanconi Anemia"
+      "explanation": "Fanconi Anemia",
+      "disease": [
+        "Orphanet:84"
+      ]
     }
   ],
-  "outcome": "CG:MET",
+  "outcome": "CG-criterion-outcome:met",
   "hasSupportingEvidence": [
     {
       "cg:id": "EvLn082",
+      "cg:type": "EvidenceLine",
       "supportingData": [
         {
           "cg:id": "MolCon198",
@@ -65,19 +53,33 @@
           "cg:type": "ConditionMechanism",
           "explanation": "ClinVar shows 61 variants in BRCA2 that are pathogenic for Fanconi Anemia. 55 of these (~90%) are frameshift, nonsense, or splice-site variants.",
           "mechanism": "SO:0002054",
-          "strength": "CG:primary",
+          "strength": "CG-cond-mech-strength:primary",
           "gene": {
             "cg:id": "G002",
             "cg:type": "Gene",
             "symbol": "BRCA2"
           },
           "condition": {
-            "cg:id": "MendCond035",
+            "cg:id": "MendCond037",
             "cg:type": "MendelianCondition",
-            "explanation": "Familial Hypercholesterolemia"
+            "explanation": "Fanconi Anemia",
+            "disease": [
+              "Orphanet:84"
+            ]
           }
         }
       ]
+    }
+  ],
+  "contribution": [
+    {
+      "cg:id": "Contrib474",
+      "cg:type": "Contribution",
+      "agent": "G. Rajar",
+      "onDate": {
+        "cg:id": "2016-09-06T09:00:00+00:00"
+      },
+      "role": "CG-contributory-role:assessor"
     }
   ]
 }

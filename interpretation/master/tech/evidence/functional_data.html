@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li class="active"><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionTypesAndAlleles</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li class="active"><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -184,18 +184,11 @@
                     <td>A human-readable description of the entity</td>
                 </tr>
                 <tr>
-                    <td>wasGeneratedBy</td>
-                    <td>Activity</td>
-                    <td>0..1</td>
+                    <td>contribution</td>
+                    <td>Contribution</td>
+                    <td>0..*</td>
                     <td></td>
-                    <td>The activity that produced this entity</td>
-                </tr>
-                <tr>
-                    <td>wasDerivedFrom</td>
-                    <td>Data</td>
-                    <td>0..1</td>
-                    <td></td>
-                    <td>Another entityy which was a former derivation of this entity.</td>
+                    <td>The contributions (agent, time and role) made to this entity</td>
                 </tr>
             </tbody>
         </table>
@@ -224,14 +217,14 @@
               <p>the mutation lowered the Ca2+  affinity of the reconstituted thin filaments;</p>
          </td>
           <td>
-              <p>CG:binding</p>
+              <p>CG-func-data-type:binding</p>
          </td>
           <!--
           <td><div class="example_view" id="Func021"><pre><code>{
   "cg:id": "Func021",
   "cg:type": "FunctionalData",
   "result": "the mutation lowered the Ca2+  affinity of the reconstituted thin filaments;",
-  "dataType": "CG:binding",
+  "dataType": "CG-func-data-type:binding",
   "contextualAllele": {
     "cg:id": "CtxAll021",
     "cg:type": "ContextualAllele",
@@ -266,14 +259,14 @@
               <p>reduced Ca2 sensitivity of activation</p>
          </td>
           <td>
-              <p>CG:atpase</p>
+              <p>CG-func-data-type:atpase</p>
          </td>
           <!--
           <td><div class="example_view" id="Func022"><pre><code>{
   "cg:id": "Func022",
   "cg:type": "FunctionalData",
   "result": "reduced Ca2 sensitivity of activation",
-  "dataType": "CG:atpase",
+  "dataType": "CG-func-data-type:atpase",
   "contextualAllele": {
     "cg:id": "CtxAll021",
     "cg:type": "ContextualAllele",
@@ -308,14 +301,14 @@
               <p>reduced Ca2 sensitivity of activation</p>
          </td>
           <td>
-              <p>CG:motility</p>
+              <p>CG-func-data-type:motility</p>
          </td>
           <!--
           <td><div class="example_view" id="Func023"><pre><code>{
   "cg:id": "Func023",
   "cg:type": "FunctionalData",
   "result": "reduced Ca2 sensitivity of activation",
-  "dataType": "CG:motility",
+  "dataType": "CG-func-data-type:motility",
   "contextualAllele": {
     "cg:id": "CtxAll021",
     "cg:type": "ContextualAllele",
@@ -350,14 +343,14 @@
               <p>desensitized Ca2+ binding to the thin filament.</p>
          </td>
           <td>
-              <p>CG:binding</p>
+              <p>CG-func-data-type:binding</p>
          </td>
           <!--
           <td><div class="example_view" id="Func024"><pre><code>{
   "cg:id": "Func024",
   "cg:type": "FunctionalData",
   "result": "desensitized Ca2+ binding to the thin filament.",
-  "dataType": "CG:binding",
+  "dataType": "CG-func-data-type:binding",
   "contextualAllele": {
     "cg:id": "CtxAll021",
     "cg:type": "ContextualAllele",
@@ -392,7 +385,7 @@
               <p>Functionally Damaging</p>
          </td>
           <td>
-              <p>CG:yeastcomp</p>
+              <p>CG-func-data-type:yeastcomp</p>
          </td>
           <!--
           <td><div class="example_view" id="Func025"><pre><code>{
@@ -400,7 +393,7 @@
   "cg:type": "FunctionalData",
   "explanation": "Expression of human SPG7 (with this mutation) in yeast with damaged m-AAA protease did not restore respiratory growth or MrpL32 processing, if the function of AFG3L2 was impaired.",
   "result": "Functionally Damaging",
-  "dataType": "CG:yeastcomp",
+  "dataType": "CG-func-data-type:yeastcomp",
   "contextualAllele": {
     "cg:id": "CtxAll022",
     "cg:type": "ContextualAllele",
@@ -435,14 +428,14 @@
               <p>abnormal/deceased MEK activtation.</p>
          </td>
           <td>
-              <p>CG:activation</p>
+              <p>CG-func-data-type:activation</p>
          </td>
           <!--
           <td><div class="example_view" id="Func026"><pre><code>{
   "cg:id": "Func026",
   "cg:type": "FunctionalData",
   "result": "abnormal/deceased MEK activtation.",
-  "dataType": "CG:activation",
+  "dataType": "CG-func-data-type:activation",
   "contextualAllele": {
     "cg:id": "CtxAll024",
     "cg:type": "ContextualAllele",
@@ -477,14 +470,14 @@
               <p>abnormal/deceased ERK activtation.</p>
          </td>
           <td>
-              <p>CG:activation</p>
+              <p>CG-func-data-type:activation</p>
          </td>
           <!--
           <td><div class="example_view" id="Func027"><pre><code>{
   "cg:id": "Func027",
   "cg:type": "FunctionalData",
   "result": "abnormal/deceased ERK activtation.",
-  "dataType": "CG:activation",
+  "dataType": "CG-func-data-type:activation",
   "contextualAllele": {
     "cg:id": "CtxAll024",
     "cg:type": "ContextualAllele",
@@ -519,7 +512,7 @@
               <p>increased ERK activtation</p>
          </td>
           <td>
-              <p>CG:activation</p>
+              <p>CG-func-data-type:activation</p>
          </td>
           <!--
           <td><div class="example_view" id="Func067"><pre><code>{
@@ -527,7 +520,7 @@
   "cg:type": "FunctionalData",
   "explanation": "PMID: 23487764",
   "result": "increased ERK activtation",
-  "dataType": "CG:activation",
+  "dataType": "CG-func-data-type:activation",
   "contextualAllele": {
     "cg:id": "CtxAll130",
     "cg:type": "ContextualAllele",
@@ -561,14 +554,14 @@
               <p>Unchanged from reference</p>
          </td>
           <td>
-              <p>CG:iodeff</p>
+              <p>CG-func-data-type:iodeff</p>
          </td>
           <!--
           <td><div class="example_view" id="Func192"><pre><code>{
   "cg:id": "Func192",
   "cg:type": "FunctionalData",
   "result": "Unchanged from reference",
-  "dataType": "CG:iodeff",
+  "dataType": "CG-func-data-type:iodeff",
   "contextualAllele": {
     "cg:id": "CtxAll092",
     "cg:type": "ContextualAllele",
@@ -603,7 +596,7 @@
               <p>localized to apical membrane</p>
          </td>
           <td>
-              <p>CG:celloc</p>
+              <p>CG-func-data-type:celloc</p>
          </td>
           <!--
           <td><div class="example_view" id="Func193"><pre><code>{
@@ -611,7 +604,7 @@
   "cg:type": "FunctionalData",
   "explanation": "Both wild type and NP_000432..1:p.Leu117Phe localize to the same location",
   "result": "localized to apical membrane",
-  "dataType": "CG:celloc",
+  "dataType": "CG-func-data-type:celloc",
   "contextualAllele": {
     "cg:id": "CtxAll092",
     "cg:type": "ContextualAllele",
@@ -646,14 +639,14 @@
               <p>Unchanged from reference</p>
          </td>
           <td>
-              <p>CG:neuritegrowth</p>
+              <p>CG-func-data-type:neuritegrowth</p>
          </td>
           <!--
           <td><div class="example_view" id="Func194"><pre><code>{
   "cg:id": "Func194",
   "cg:type": "FunctionalData",
   "result": "Unchanged from reference",
-  "dataType": "CG:neuritegrowth",
+  "dataType": "CG-func-data-type:neuritegrowth",
   "contextualAllele": {
     "cg:id": "CtxAll093",
     "cg:type": "ContextualAllele",
@@ -688,14 +681,14 @@
               <p>localized to apical membrane</p>
          </td>
           <td>
-              <p>CG:elk1phosvialucif</p>
+              <p>CG-func-data-type:elk1phosvialucif</p>
          </td>
           <!--
           <td><div class="example_view" id="Func195"><pre><code>{
   "cg:id": "Func195",
   "cg:type": "FunctionalData",
   "result": "localized to apical membrane",
-  "dataType": "CG:elk1phosvialucif",
+  "dataType": "CG-func-data-type:elk1phosvialucif",
   "contextualAllele": {
     "cg:id": "CtxAll093",
     "cg:type": "ContextualAllele",

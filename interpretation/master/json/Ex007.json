@@ -5,28 +5,12 @@
     "cg:id": "CritAssess281",
     "cg:type": "CriterionAssessment",
     "explanation": "IC1: Individual has condition, FH1: No family history, DNA1: variant is denovo (parentage confirmed)",
-    "wasGeneratedBy": {
-      "cg:id": "Act007",
-      "cg:type": "Activity",
-      "activityTypeId": {
-        "cg:id": "E10"
-      },
-      "timeStamp": "2016-06-03T08:00:00+00:00",
-      "wasAssociatedWith": [
-        {
-          "cg:id": "Agent001",
-          "cg:type": "Agent",
-          "description": "SH",
-          "name": "Steven Harrison"
-        }
-      ]
-    },
     "criterion": {
       "cg:id": "PS2",
       "cg:type": "Criterion",
       "description": "De novo (both maternity and paternity confirmed) in a patient with the disease and no family history",
       "shortDescription": "Confirmed de novo in individual without family history of condition",
-      "defaultOutcome": "CG:S",
+      "defaultStrength": "CG-evidence-strength:ps",
       "targetInterpretation": "LN:LA6668-3"
     },
     "variant": {
@@ -37,15 +21,19 @@
     },
     "condition": [
       {
-        "cg:id": "MendCond007",
+        "cg:id": "MendCond052",
         "cg:type": "MendelianCondition",
-        "explanation": "cardiomyopathy, Autosomal Dominant"
+        "explanation": "dilated cardiomyopathy",
+        "disease": [
+          "Orphanet:217604"
+        ]
       }
     ],
-    "outcome": "CG:MET",
+    "outcome": "CG-criterion-outcome:met",
     "hasSupportingEvidence": [
       {
         "cg:id": "EvLn009",
+        "cg:type": "EvidenceLine",
         "supportingData": [
           {
             "cg:id": "IndCond012",
@@ -57,9 +45,12 @@
             },
             "condition": [
               {
-                "cg:id": "MendCond007",
+                "cg:id": "MendCond052",
                 "cg:type": "MendelianCondition",
-                "explanation": "cardiomyopathy, Autosomal Dominant"
+                "explanation": "dilated cardiomyopathy",
+                "disease": [
+                  "Orphanet:217604"
+                ]
               }
             ],
             "hasCondition": true
@@ -74,9 +65,12 @@
             },
             "condition": [
               {
-                "cg:id": "MendCond007",
+                "cg:id": "MendCond052",
                 "cg:type": "MendelianCondition",
-                "explanation": "cardiomyopathy, Autosomal Dominant"
+                "explanation": "dilated cardiomyopathy",
+                "disease": [
+                  "Orphanet:217604"
+                ]
               }
             ],
             "familyHasCondition": true
@@ -101,14 +95,20 @@
           }
         ]
       }
+    ],
+    "contribution": [
+      {
+        "cg:id": "Contrib403",
+        "cg:type": "Contribution",
+        "agent": "Harry Stevenson",
+        "onDate": {
+          "cg:id": "2016-06-03T08:00:00+00:00"
+        },
+        "role": "CG-contributory-role:assessor"
+      }
     ]
   },
   "index": 1,
-  "authorId": {
-    "cg:id": "Agent001",
-    "cg:type": "Agent",
-    "description": "SH",
-    "name": "Steven Harrison"
-  },
+  "author": "Steven Harrison",
   "description": "Assessed variant: NM_000257.2:c.5740G>A (p.Glu1914Lys)\nAccording to PMID:24664454, this variant was identified de novo in an affected (cardiomyopathy) case and\na. There was no family history of the disease\nb. The variant was proven to be de novo by showing both parents did not carry the variant\nc. Haplotyping confirmed they were the parents"
 }

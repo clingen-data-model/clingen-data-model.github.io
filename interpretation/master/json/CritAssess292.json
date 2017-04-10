@@ -2,28 +2,12 @@
   "cg:id": "CritAssess292",
   "cg:type": "CriterionAssessment",
   "explanation": "The variant is near 4 other pathogenic variants",
-  "wasGeneratedBy": {
-    "cg:id": "Act018",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2016-06-03T07:24:00+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent001",
-        "cg:type": "Agent",
-        "description": "SH",
-        "name": "Steven Harrison"
-      }
-    ]
-  },
   "criterion": {
     "cg:id": "PM1",
     "cg:type": "Criterion",
     "description": "Located in a mutational hot spot and/or critical and well-established functional domain (e.g., active site of an enzyme) without benign variation",
     "shortDescription": "Located in hot spot without benign variation",
-    "defaultOutcome": "CG:M",
+    "defaultStrength": "CG-evidence-strength:pm",
     "targetInterpretation": "LN:LA6668-3"
   },
   "variant": {
@@ -37,23 +21,46 @@
       "cg:id": "-"
     }
   ],
-  "outcome": "CG:MET",
+  "outcome": "CG-criterion-outcome:met",
   "hasSupportingEvidence": [
     {
       "cg:id": "EvLn024",
+      "cg:type": "EvidenceLine",
       "supportingData": [
         {
-          "cg:id": "Reg046",
-          "cg:type": "RegionTypesAndAlleles",
-          "explanation": "Region(NM_0001692[996..1012]) is a mutational hotspot and contains the following pathogenic variants: c.886A>G, c.890C>T, c.899T>C, & c.902G>A.",
-          "referenceSequence": {
-            "cg:id": "RefSeq004",
-            "cg:type": "ReferenceSequence",
-            "identifier": "NM_000169.2"
+          "cg:id": "RegAnn046",
+          "cg:type": "RegionAnnotation",
+          "explanation": "Region(NM_0001692[996..1012]) is a mutational hotspot.",
+          "region": {
+            "cg:id": "Loc383",
+            "cg:type": "Locus",
+            "referenceSequence": {
+              "cg:id": "RefSeq004",
+              "cg:type": "ReferenceSequence",
+              "accession": "NM_000169.2"
+            },
+            "start": 996,
+            "stop": 1012
           },
-          "start": 996,
-          "stop": 1012,
-          "isTypes": "CG:hotspot",
+          "isTypes": [
+            "CG-reg-anno-type:hotspot"
+          ]
+        },
+        {
+          "cg:id": "RegAll384",
+          "cg:type": "RegionAlleles",
+          "explanation": "The region contains the following pathogenic variants: c.886A>G, c.890C>T, c.899T>C, & c.902G>A.",
+          "region": {
+            "cg:id": "Loc383",
+            "cg:type": "Locus",
+            "referenceSequence": {
+              "cg:id": "RefSeq004",
+              "cg:type": "ReferenceSequence",
+              "accession": "NM_000169.2"
+            },
+            "start": 996,
+            "stop": 1012
+          },
           "includedAlleles": [
             {
               "cg:id": "CtxAll031",
@@ -114,7 +121,11 @@
             {
               "cg:id": "MendCond013",
               "cg:type": "MendelianCondition",
-              "explanation": "Fabry disease"
+              "explanation": "Fabry disease, X-linked recessive inheritance",
+              "disease": [
+                "Orphanet:324"
+              ],
+              "modeOfInheritance": "HP:0001419"
             }
           ],
           "clinicalSignificance": "LN:LA6668-3"
@@ -132,7 +143,11 @@
             {
               "cg:id": "MendCond013",
               "cg:type": "MendelianCondition",
-              "explanation": "Fabry disease"
+              "explanation": "Fabry disease, X-linked recessive inheritance",
+              "disease": [
+                "Orphanet:324"
+              ],
+              "modeOfInheritance": "HP:0001419"
             }
           ],
           "clinicalSignificance": "LN:LA6668-3"
@@ -150,7 +165,11 @@
             {
               "cg:id": "MendCond013",
               "cg:type": "MendelianCondition",
-              "explanation": "Fabry disease"
+              "explanation": "Fabry disease, X-linked recessive inheritance",
+              "disease": [
+                "Orphanet:324"
+              ],
+              "modeOfInheritance": "HP:0001419"
             }
           ],
           "clinicalSignificance": "LN:LA6668-3"
@@ -168,7 +187,11 @@
             {
               "cg:id": "MendCond013",
               "cg:type": "MendelianCondition",
-              "explanation": "Fabry disease"
+              "explanation": "Fabry disease, X-linked recessive inheritance",
+              "disease": [
+                "Orphanet:324"
+              ],
+              "modeOfInheritance": "HP:0001419"
             }
           ],
           "clinicalSignificance": "LN:LA6668-3"
@@ -177,16 +200,31 @@
           "cg:id": "BMVR102",
           "cg:type": "BenignMissenseVariationRate",
           "explanation": "ClinVar shows no benign missense variants in (or near) this region.  The closest is NM_000169.2:c.8T>C",
-          "referenceSequence": {
-            "cg:id": "RefSeq004",
-            "cg:type": "ReferenceSequence",
-            "identifier": "NM_000169.2"
+          "region": {
+            "cg:id": "Loc383",
+            "cg:type": "Locus",
+            "referenceSequence": {
+              "cg:id": "RefSeq004",
+              "cg:type": "ReferenceSequence",
+              "accession": "NM_000169.2"
+            },
+            "start": 996,
+            "stop": 1012
           },
-          "start": 996,
-          "stop": 1012,
-          "value": "CG:low"
+          "value": "CG-ben-missense-var-rate:low"
         }
       ]
+    }
+  ],
+  "contribution": [
+    {
+      "cg:id": "Contrib418",
+      "cg:type": "Contribution",
+      "agent": "Harry Stevenson",
+      "onDate": {
+        "cg:id": "2016-06-03T07:24:00+00:00"
+      },
+      "role": "CG-contributory-role:assessor"
     }
   ]
 }

@@ -4,28 +4,12 @@
   "dataId": {
     "cg:id": "CritAssess343",
     "cg:type": "CriterionAssessment",
-    "wasGeneratedBy": {
-      "cg:id": "Act071",
-      "cg:type": "Activity",
-      "activityTypeId": {
-        "cg:id": "E10"
-      },
-      "timeStamp": "2016-09-06T12:59:59+00:00",
-      "wasAssociatedWith": [
-        {
-          "cg:id": "Agent008",
-          "cg:type": "Agent",
-          "description": "MDS",
-          "name": "Marina DiStefano"
-        }
-      ]
-    },
     "criterion": {
       "cg:id": "BP2",
       "cg:type": "Criterion",
       "description": "Observed in trans with a pathogenic variant for a fully penetrant dominant gene/disorder or observed in cis with a pathogenic variant in any inheritance pattern",
       "shortDescription": "In trans with dominant OR in cis with pathogenic variant",
-      "defaultOutcome": "CG:P",
+      "defaultStrength": "CG-evidence-strength:bp",
       "targetInterpretation": "LN:LA6675-8"
     },
     "variant": {
@@ -38,13 +22,17 @@
       {
         "cg:id": "MendCond039",
         "cg:type": "MendelianCondition",
-        "explanation": "Absent vas deferens"
+        "explanation": "Absent vas deferens",
+        "phenotype": [
+          "HP:0012873"
+        ]
       }
     ],
-    "outcome": "CG:MET",
+    "outcome": "CG-criterion-outcome:met",
     "hasSupportingEvidence": [
       {
         "cg:id": "EvLn087",
+        "cg:type": "EvidenceLine",
         "supportingData": [
           {
             "cg:id": "IndAll211",
@@ -66,7 +54,7 @@
               "preferredCtxAllele": "CtxAll103",
               "identifier": "http://reg.genome.network/allele/CA182839"
             },
-            "phase": "CG:cis"
+            "phase": "CG-phase:cis"
           },
           {
             "cg:id": "IndCond212",
@@ -80,7 +68,10 @@
               {
                 "cg:id": "MendCond039",
                 "cg:type": "MendelianCondition",
-                "explanation": "Absent vas deferens"
+                "explanation": "Absent vas deferens",
+                "phenotype": [
+                  "HP:0012873"
+                ]
               }
             ],
             "hasCondition": true
@@ -98,21 +89,30 @@
               {
                 "cg:id": "MendCond039",
                 "cg:type": "MendelianCondition",
-                "explanation": "Absent vas deferens"
+                "explanation": "Absent vas deferens",
+                "phenotype": [
+                  "HP:0012873"
+                ]
               }
             ],
             "clinicalSignificance": "LN:LA6668-3"
           }
         ]
       }
+    ],
+    "contribution": [
+      {
+        "cg:id": "Contrib478",
+        "cg:type": "Contribution",
+        "agent": "Stefan DiMarino",
+        "onDate": {
+          "cg:id": "2016-09-06T12:59:59+00:00"
+        },
+        "role": "CG-contributory-role:assessor"
+      }
     ]
   },
   "index": 2,
-  "authorId": {
-    "cg:id": "Agent008",
-    "cg:type": "Agent",
-    "description": "MDS",
-    "name": "Marina DiStefano"
-  },
+  "author": "Marina DiStefano",
   "description": "Variant: NM_000492.3(CFTR): c.2002C>T (p.Arg668Cys)\n\n Variants in CFTR are associated with a range of recessive conditions, including Cystic Fibrosis, CBAVD, and ideopathic pancreatisis. This variant has been identified in cis with pathogenic variants in patients with CBAVD (PMID: 9272157), supporting the interpretation that this variant is benign for CBAVD.  The using a different patient, the same argument could be made for cystic fibrosis (PMID:22678879) but this is not modeled here.. "
 }

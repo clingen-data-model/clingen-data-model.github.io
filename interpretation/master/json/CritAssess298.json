@@ -2,28 +2,12 @@
   "cg:id": "CritAssess298",
   "cg:type": "CriterionAssessment",
   "explanation": "Application of PM3 is incorrect as the variant in trans is know known to be pathogenic (it is the same variant).",
-  "wasGeneratedBy": {
-    "cg:id": "Act024",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2016-06-10T09:14:59+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent001",
-        "cg:type": "Agent",
-        "description": "SH",
-        "name": "Steven Harrison"
-      }
-    ]
-  },
   "criterion": {
     "cg:id": "PM3",
     "cg:type": "Criterion",
     "description": "For recessive disorders, detected in trans with a pathogenic variant",
     "shortDescription": "Recessive in trans with pathogenic variant",
-    "defaultOutcome": "CG:M",
+    "defaultStrength": "CG-evidence-strength:pm",
     "targetInterpretation": "LN:LA6668-3"
   },
   "variant": {
@@ -36,13 +20,23 @@
     {
       "cg:id": "MendCond015",
       "cg:type": "MendelianCondition",
-      "explanation": "neuronal ceroid lipofuscinosis, Autosomal Recessive, TTP1"
+      "explanation": "neuronal ceroid lipofuscinosis, Autosomal Recessive, TTP1",
+      "disease": [
+        "Orphanet:216"
+      ],
+      "modeOfInheritance": "HP:0000007",
+      "gene": {
+        "cg:id": "G025",
+        "cg:type": "Gene",
+        "symbol": "TTP1"
+      }
     }
   ],
-  "outcome": "CG:INSUFFICIENT",
+  "outcome": "CG-criterion-outcome:not-met",
   "hasSupportingEvidence": [
     {
       "cg:id": "EvLn031",
+      "cg:type": "EvidenceLine",
       "supportingData": [
         {
           "cg:id": "IndCond064",
@@ -56,7 +50,16 @@
             {
               "cg:id": "MendCond015",
               "cg:type": "MendelianCondition",
-              "explanation": "neuronal ceroid lipofuscinosis, Autosomal Recessive, TTP1"
+              "explanation": "neuronal ceroid lipofuscinosis, Autosomal Recessive, TTP1",
+              "disease": [
+                "Orphanet:216"
+              ],
+              "modeOfInheritance": "HP:0000007",
+              "gene": {
+                "cg:id": "G025",
+                "cg:type": "Gene",
+                "symbol": "TTP1"
+              }
             }
           ],
           "hasCondition": true
@@ -75,9 +78,20 @@
             "preferredCtxAllele": "CtxAll043",
             "identifier": "http://reg.genome.network/allele/CA090904"
           },
-          "primaryZygosity": "CG:hom"
+          "primaryZygosity": "CG-allelic-state:hom"
         }
       ]
+    }
+  ],
+  "contribution": [
+    {
+      "cg:id": "Contrib424",
+      "cg:type": "Contribution",
+      "agent": "Harry Stevenson",
+      "onDate": {
+        "cg:id": "2016-06-10T09:14:59+00:00"
+      },
+      "role": "CG-contributory-role:assessor"
     }
   ]
 }

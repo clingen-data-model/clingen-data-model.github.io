@@ -4,28 +4,12 @@
   "dataId": {
     "cg:id": "CritAssess320",
     "cg:type": "CriterionAssessment",
-    "wasGeneratedBy": {
-      "cg:id": "Act048",
-      "cg:type": "Activity",
-      "activityTypeId": {
-        "cg:id": "E10"
-      },
-      "timeStamp": "2016-08-29T15:59:59+00:00",
-      "wasAssociatedWith": [
-        {
-          "cg:id": "Agent001",
-          "cg:type": "Agent",
-          "description": "SH",
-          "name": "Steven Harrison"
-        }
-      ]
-    },
     "criterion": {
       "cg:id": "PP5",
       "cg:type": "Criterion",
       "description": "Reputable source recently reports variant as pathogenic, but the evidence is not available to the laboratory to perform an independent evaluation",
       "shortDescription": "Reported pathogenic by reputable source without shared data",
-      "defaultOutcome": "CG:P",
+      "defaultStrength": "CG-evidence-strength:pp",
       "targetInterpretation": "LN:LA6668-3"
     },
     "variant": {
@@ -38,13 +22,18 @@
       {
         "cg:id": "MendCond023",
         "cg:type": "MendelianCondition",
-        "explanation": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
+        "explanation": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2, Autosomal Dominant",
+        "disease": [
+          "OMIM:612555"
+        ],
+        "modeOfInheritance": "HP:0000006"
       }
     ],
-    "outcome": "CG:MET",
+    "outcome": "CG-criterion-outcome:met",
     "hasSupportingEvidence": [
       {
         "cg:id": "EvLn057",
+        "cg:type": "EvidenceLine",
         "supportingData": [
           {
             "cg:id": "VarInterp150",
@@ -60,21 +49,31 @@
               {
                 "cg:id": "MendCond023",
                 "cg:type": "MendelianCondition",
-                "explanation": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
+                "explanation": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2, Autosomal Dominant",
+                "disease": [
+                  "OMIM:612555"
+                ],
+                "modeOfInheritance": "HP:0000006"
               }
             ],
             "clinicalSignificance": "LN:LA6668-3"
           }
         ]
       }
+    ],
+    "contribution": [
+      {
+        "cg:id": "Contrib452",
+        "cg:type": "Contribution",
+        "agent": "Harry Stevenson",
+        "onDate": {
+          "cg:id": "2016-08-29T15:59:59+00:00"
+        },
+        "role": "CG-contributory-role:assessor"
+      }
     ]
   },
   "index": 1,
-  "authorId": {
-    "cg:id": "Agent001",
-    "cg:type": "Agent",
-    "description": "SH",
-    "name": "Steven Harrison"
-  },
+  "author": "Steven Harrison",
   "description": "Variant: NM_000059.3(BRCA2):c.3G>T (p.Met1Ile)\n\nVariant has been classified as “Pathogenic” by Sharing Clinical Reports Project (SCV000054057.3): http://www.ncbi.nlm.nih.gov/clinvar/variation/37871/\n\nSharing Clinical Reports Project are reports from Myriad - who are considered experts in this field but do not share their evidence - only their interpretation. \n\n(Note: this is the exact scenarios this rule was written for - but people are being very liberal in applying this rule) \n"
 }

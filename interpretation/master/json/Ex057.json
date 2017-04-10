@@ -4,28 +4,12 @@
   "dataId": {
     "cg:id": "CritAssess333",
     "cg:type": "CriterionAssessment",
-    "wasGeneratedBy": {
-      "cg:id": "Act061",
-      "cg:type": "Activity",
-      "activityTypeId": {
-        "cg:id": "E10"
-      },
-      "timeStamp": "2016-09-05T09:01:00+00:00",
-      "wasAssociatedWith": [
-        {
-          "cg:id": "Agent008",
-          "cg:type": "Agent",
-          "description": "MDS",
-          "name": "Marina DiStefano"
-        }
-      ]
-    },
     "criterion": {
       "cg:id": "BS3",
       "cg:type": "Criterion",
       "description": "Well-established in vitro or in vivo functional studies show no damaging effect on protein function or splicing",
       "shortDescription": "Well-established functional studies do not show damaging effect",
-      "defaultOutcome": "CG:S",
+      "defaultStrength": "CG-evidence-strength:bs",
       "targetInterpretation": "LN:LA6675-8"
     },
     "variant": {
@@ -39,16 +23,17 @@
         "cg:id": "-"
       }
     ],
-    "outcome": "CG:MET",
+    "outcome": "CG-criterion-outcome:met",
     "hasSupportingEvidence": [
       {
         "cg:id": "EvLn075",
+        "cg:type": "EvidenceLine",
         "supportingData": [
           {
             "cg:id": "Func192",
             "cg:type": "FunctionalData",
             "result": "Unchanged from reference",
-            "dataType": "CG:iodeff",
+            "dataType": "CG-func-data-type:iodeff",
             "contextualAllele": {
               "cg:id": "CtxAll092",
               "cg:type": "ContextualAllele",
@@ -70,13 +55,14 @@
       },
       {
         "cg:id": "EvLn076",
+        "cg:type": "EvidenceLine",
         "supportingData": [
           {
             "cg:id": "Func193",
             "cg:type": "FunctionalData",
             "explanation": "Both wild type and NP_000432..1:p.Leu117Phe localize to the same location",
             "result": "localized to apical membrane",
-            "dataType": "CG:celloc",
+            "dataType": "CG-func-data-type:celloc",
             "contextualAllele": {
               "cg:id": "CtxAll092",
               "cg:type": "ContextualAllele",
@@ -96,14 +82,20 @@
           }
         ]
       }
+    ],
+    "contribution": [
+      {
+        "cg:id": "Contrib468",
+        "cg:type": "Contribution",
+        "agent": "Stefan DiMarino",
+        "onDate": {
+          "cg:id": "2016-09-05T09:01:00+00:00"
+        },
+        "role": "CG-contributory-role:assessor"
+      }
     ]
   },
   "index": 1,
-  "authorId": {
-    "cg:id": "Agent008",
-    "cg:type": "Agent",
-    "description": "MDS",
-    "name": "Marina DiStefano"
-  },
+  "author": "Marina DiStefano",
   "description": "Variant: NM_000441.1(SLC26A4): c.349C>T (p.Leu117Phe)\n\nSLC26A4 encodes Pendrin, an anion transporter. Variants in SLC26A4 are associated with Pendred syndrome. A common functional assay for transporters is to measure channel function in vitro. It is also common to measure cellular localization of the transporter, as it will not function properly if it’s mislocalized. When this variant was expressed as a GFP-tagged construct in HEK 293 cells and imaged, it localized to the apical membrane as wild type protein does. Additionally, iodide efflux, a speculated function of the channel, was unchanged in cells expressing the channel variant. The PMID for this paper is  1193231."
 }

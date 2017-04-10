@@ -2,28 +2,12 @@
   "cg:id": "CritAssess372",
   "cg:type": "CriterionAssessment",
   "explanation": "This variant is present in 2% (27/1384) of African American Chromosomes in ESP.",
-  "wasGeneratedBy": {
-    "cg:id": "Act102",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2017-03-08T09:46:00+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent008",
-        "cg:type": "Agent",
-        "description": "MDS",
-        "name": "Marina DiStefano"
-      }
-    ]
-  },
   "criterion": {
     "cg:id": "BS1",
     "cg:type": "Criterion",
     "description": "Allele frequency is greater than expected for disorder",
     "shortDescription": "MAF too high for disorder",
-    "defaultOutcome": "CG:S",
+    "defaultStrength": "CG-evidence-strength:bs",
     "targetInterpretation": "LN:LA6675-8"
   },
   "variant": {
@@ -32,10 +16,22 @@
     "preferredCtxAllele": "CtxAll098",
     "identifier": "http://reg.genome.network/allele/CA090950"
   },
-  "outcome": "CG:MET",
+  "condition": [
+    {
+      "cg:id": "MendCond057",
+      "cg:type": "MendelianCondition",
+      "explanation": "Hearing Loss",
+      "disease": [
+        "Orphanet:87884"
+      ],
+      "name": "Hearing Loss"
+    }
+  ],
+  "outcome": "CG-criterion-outcome:met",
   "hasSupportingEvidence": [
     {
       "cg:id": "EvLn109",
+      "cg:type": "EvidenceLine",
       "supportingData": [
         {
           "cg:id": "AllFreq038",
@@ -50,23 +46,38 @@
           "alleleCount": 27,
           "alleleNumber": 1384,
           "alleleFrequency": 0.02,
-          "population": "EX:afr"
+          "population": "EXAC:AFR"
         },
         {
           "cg:id": "CondPrev039",
           "cg:type": "ConditionPrevelance",
           "condition": [
             {
-              "cg:id": "MendCond010",
+              "cg:id": "MendCond057",
               "cg:type": "MendelianCondition",
-              "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+              "explanation": "Hearing Loss",
+              "disease": [
+                "Orphanet:87884"
+              ],
+              "name": "Hearing Loss"
             }
           ],
           "minimum": 1.0,
           "maximum": 1.0,
-          "population": "CG:overall"
+          "population": "CG-population-type:overall"
         }
       ]
+    }
+  ],
+  "contribution": [
+    {
+      "cg:id": "Contrib509",
+      "cg:type": "Contribution",
+      "agent": "Stefan DiMarino",
+      "onDate": {
+        "cg:id": "2017-03-08T09:46:00+00:00"
+      },
+      "role": "CG-contributory-role:assessor"
     }
   ]
 }

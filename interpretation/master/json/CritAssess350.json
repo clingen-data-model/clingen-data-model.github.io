@@ -2,28 +2,12 @@
   "cg:id": "CritAssess350",
   "cg:type": "CriterionAssessment",
   "explanation": "While AI111 is considered probably damaging by at least one in silico predictor, the transcript for AI111 ( NM_133379.3 ) is not clinically relevant.  In clinically relevant transcripts, thisthis canonical allele is intronic.",
-  "wasGeneratedBy": {
-    "cg:id": "Act087",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2016-10-04T10:37:00+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent008",
-        "cg:type": "Agent",
-        "description": "MDS",
-        "name": "Marina DiStefano"
-      }
-    ]
-  },
   "criterion": {
     "cg:id": "BP4",
     "cg:type": "Criterion",
     "description": "Multiple lines of computational evidence suggest no impact on gene or gene product (conservation, evolutionary, splicing impact, etc.)",
     "shortDescription": "Computational evidence supports benign impact",
-    "defaultOutcome": "CG:P",
+    "defaultStrength": "CG-evidence-strength:bp",
     "targetInterpretation": "LN:LA6675-8"
   },
   "variant": {
@@ -37,10 +21,11 @@
       "cg:id": "-"
     }
   ],
-  "outcome": "CG:INSUFFICIENT",
+  "outcome": "CG-criterion-outcome:not-met",
   "hasSupportingEvidence": [
     {
       "cg:id": "EvLn105",
+      "cg:type": "EvidenceLine",
       "supportingData": [
         {
           "cg:id": "InSilicoPred362",
@@ -56,11 +41,22 @@
             },
             "alleleName": "NM_133379.3(TTN) : c.15283T>C"
           },
-          "type": "CG:me",
+          "type": "CG-prediction-type:me",
           "value": "ProbablyDamaging",
           "tool": "Polyphen-2 HumDiv"
         }
       ]
+    }
+  ],
+  "contribution": [
+    {
+      "cg:id": "Contrib494",
+      "cg:type": "Contribution",
+      "agent": "Stefan DiMarino",
+      "onDate": {
+        "cg:id": "2016-10-04T10:37:00+00:00"
+      },
+      "role": "CG-contributory-role:assessor"
     }
   ]
 }

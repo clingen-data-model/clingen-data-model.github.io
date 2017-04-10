@@ -5,28 +5,12 @@
     "cg:id": "CritAssess300",
     "cg:type": "CriterionAssessment",
     "explanation": "leads to an in-frame deletion of 5 amino acids (not repeat region).",
-    "wasGeneratedBy": {
-      "cg:id": "Act026",
-      "cg:type": "Activity",
-      "activityTypeId": {
-        "cg:id": "E10"
-      },
-      "timeStamp": "2016-06-12T08:30:59+00:00",
-      "wasAssociatedWith": [
-        {
-          "cg:id": "Agent003",
-          "cg:type": "Agent",
-          "description": "TS",
-          "name": "Tasha Strande"
-        }
-      ]
-    },
     "criterion": {
       "cg:id": "PM4",
       "cg:type": "Criterion",
       "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
       "shortDescription": "Protein length changes or stop-loss",
-      "defaultOutcome": "CG:M",
+      "defaultStrength": "CG-evidence-strength:pm",
       "targetInterpretation": "LN:LA6668-3"
     },
     "variant": {
@@ -40,10 +24,11 @@
         "cg:id": "-"
       }
     ],
-    "outcome": "CG:MET",
+    "outcome": "CG-criterion-outcome:met",
     "hasSupportingEvidence": [
       {
         "cg:id": "EvLn033",
+        "cg:type": "EvidenceLine",
         "supportingData": [
           {
             "cg:id": "MolCon070",
@@ -62,31 +47,41 @@
             "consequence": "SO:0001825"
           },
           {
-            "cg:id": "Reg073",
-            "cg:type": "RegionTypesAndAlleles",
+            "cg:id": "RegAnn073",
+            "cg:type": "RegionAnnotation",
             "explanation": "NP_056375.2[35..43] is not repeating.",
-            "referenceSequence": {
-              "cg:id": "RefSeq006",
-              "cg:type": "ReferenceSequence",
-              "identifier": "NP_056375.2"
+            "region": {
+              "cg:id": "Loc386",
+              "cg:type": "Locus",
+              "referenceSequence": {
+                "cg:id": "RefSeq006",
+                "cg:type": "ReferenceSequence",
+                "accession": "NP_056375.2"
+              },
+              "start": 35,
+              "stop": 43
             },
-            "start": 35,
-            "stop": 43,
             "isNotTypes": [
-              "CG:repeat"
+              "CG-reg-anno-type:repeat"
             ]
           }
         ]
+      }
+    ],
+    "contribution": [
+      {
+        "cg:id": "Contrib426",
+        "cg:type": "Contribution",
+        "agent": "Sasha Rande",
+        "onDate": {
+          "cg:id": "2016-06-12T08:30:59+00:00"
+        },
+        "role": "CG-contributory-role:assessor"
       }
     ]
   },
   "searchTags": "cser",
   "index": 2,
-  "authorId": {
-    "cg:id": "Agent003",
-    "cg:type": "Agent",
-    "description": "TS",
-    "name": "Tasha Strande"
-  },
+  "author": "Tasha Strande",
   "description": "Assessed variant: NM_015560(OPA1):c.113_130del18(p.R38_S43del)\nThis variant results in the deletion of 5 amino acids not in repeat region (this variant does however have lower site quality in ExAC)\n\n<<insert image here>>>"
 }

@@ -202,18 +202,11 @@ and may serve as a starting point for exploring the model.</p>
                     <td>A human-readable description of the entity</td>
                 </tr>
                 <tr>
-                    <td>wasGeneratedBy</td>
-                    <td>Activity</td>
-                    <td>0..1</td>
+                    <td>contribution</td>
+                    <td>Contribution</td>
+                    <td>0..*</td>
                     <td></td>
-                    <td>The activity that produced this entity</td>
-                </tr>
-                <tr>
-                    <td>wasDerivedFrom</td>
-                    <td>Data</td>
-                    <td>0..1</td>
-                    <td></td>
-                    <td>Another entityy which was a former derivation of this entity.</td>
+                    <td>The contributions (agent, time and role) made to this entity</td>
                 </tr>
             </tbody>
         </table>
@@ -263,7 +256,11 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond003",
       "cg:type": "MendelianCondition",
-      "explanation": "noonan syndrome, Autosomal Dominant"
+      "explanation": "noonan syndrome, Autosomal Dominant",
+      "disease": [
+        "Orphanet:648"
+      ],
+      "modeOfInheritance": "HP:0000006"
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"
@@ -305,7 +302,10 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond004",
       "cg:type": "MendelianCondition",
-      "explanation": "Primary ciliary dyskenisia, Autosomal Recessive"
+      "explanation": "Primary ciliary dyskenisia",
+      "disease": [
+        "Orphanet:244"
+      ]
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"
@@ -347,7 +347,10 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond006",
       "cg:type": "MendelianCondition",
-      "explanation": "noonan syndrome 3, Autosomal Recessive"
+      "explanation": "noonan syndrome 3",
+      "disease": [
+        "OMIM:609942"
+      ]
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"
@@ -363,7 +366,7 @@ and may serve as a starting point for exploring the model.</p>
               <p><a href="details/details.html#CanAll011">CanAll011</a></p>
          </td>
           <td>
-              <p><a href="details/details.html#MendCond045">MendCond045</a></p>
+              <p><a href="details/details.html#MendCond055">MendCond055</a></p>
          </td>
           <td>
               <p>LN:LA6668-3</p>
@@ -387,9 +390,13 @@ and may serve as a starting point for exploring the model.</p>
   },
   "condition": [
     {
-      "cg:id": "MendCond045",
+      "cg:id": "MendCond055",
       "cg:type": "MendelianCondition",
-      "explanation": "Noonan syndrome and noonan-related syndrom"
+      "explanation": "noonan syndrome, Autosomal Dominant",
+      "disease": [
+        "Orphanet:648"
+      ],
+      "modeOfInheritance": "HP:0000006"
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"
@@ -405,7 +412,7 @@ and may serve as a starting point for exploring the model.</p>
               <p><a href="details/details.html#CanAll092">CanAll092</a></p>
          </td>
           <td>
-              <p><a href="details/details.html#MendCond010">MendCond010</a></p>
+              <p><a href="details/details.html#MendCond061">MendCond061</a></p>
          </td>
           <td>
               <p>LN:LA6675-8</p>
@@ -421,22 +428,6 @@ and may serve as a starting point for exploring the model.</p>
   "cg:id": "VarInterp041",
   "cg:type": "VariantInterpretation",
   "explanation": "Arg343His in Exon 08 of LOXHD1: This variant is not expected to have clinical significance because it has been identified in 2.0% (27/1384) of African American chromosomes by the NHLBI Exome Sequencing Project (http://evs.gs.washington.edu/EVS).",
-  "wasGeneratedBy": {
-    "cg:id": "Act045",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2015-06-26T12:05:59+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent010",
-        "cg:type": "Agent",
-        "description": "CSER6",
-        "name": "CSER classifer #6"
-      }
-    ]
-  },
   "variant": {
     "cg:id": "CanAll092",
     "cg:type": "CanonicalAllele",
@@ -445,9 +436,14 @@ and may serve as a starting point for exploring the model.</p>
   },
   "condition": [
     {
-      "cg:id": "MendCond010",
+      "cg:id": "MendCond061",
       "cg:type": "MendelianCondition",
-      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+      "explanation": "Hearing Loss, Autosomal Recessive",
+      "disease": [
+        "Orphanet:87884"
+      ],
+      "name": "Hearing Loss, Autosomal Recessive",
+      "modeOfInheritance": "HP:0000007"
     }
   ],
   "clinicalSignificance": "LN:LA6675-8",
@@ -467,34 +463,18 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "EvLn113",
       "cg:type": "EvidenceLine",
-      "strength": "CG:STRONG",
+      "strength": "CG-evidence-strength:bs",
       "supportingData": [
         {
           "cg:id": "CritAssess372",
           "cg:type": "CriterionAssessment",
           "explanation": "This variant is present in 2% (27/1384) of African American Chromosomes in ESP.",
-          "wasGeneratedBy": {
-            "cg:id": "Act102",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2017-03-08T09:46:00+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent008",
-                "cg:type": "Agent",
-                "description": "MDS",
-                "name": "Marina DiStefano"
-              }
-            ]
-          },
           "criterion": {
             "cg:id": "BS1",
             "cg:type": "Criterion",
             "description": "Allele frequency is greater than expected for disorder",
             "shortDescription": "MAF too high for disorder",
-            "defaultOutcome": "CG:S",
+            "defaultStrength": "CG-evidence-strength:bs",
             "targetInterpretation": "LN:LA6675-8"
           },
           "variant": {
@@ -503,10 +483,22 @@ and may serve as a starting point for exploring the model.</p>
             "preferredCtxAllele": "CtxAll098",
             "identifier": "http://reg.genome.network/allele/CA090950"
           },
-          "outcome": "CG:MET",
+          "condition": [
+            {
+              "cg:id": "MendCond057",
+              "cg:type": "MendelianCondition",
+              "explanation": "Hearing Loss",
+              "disease": [
+                "Orphanet:87884"
+              ],
+              "name": "Hearing Loss"
+            }
+          ],
+          "outcome": "CG-criterion-outcome:met",
           "hasSupportingEvidence": [
             {
               "cg:id": "EvLn109",
+              "cg:type": "EvidenceLine",
               "supportingData": [
                 {
                   "cg:id": "AllFreq038",
@@ -521,23 +513,38 @@ and may serve as a starting point for exploring the model.</p>
                   "alleleCount": 27,
                   "alleleNumber": 1384,
                   "alleleFrequency": 0.02,
-                  "population": "EX:afr"
+                  "population": "EXAC:AFR"
                 },
                 {
                   "cg:id": "CondPrev039",
                   "cg:type": "ConditionPrevelance",
                   "condition": [
                     {
-                      "cg:id": "MendCond010",
+                      "cg:id": "MendCond057",
                       "cg:type": "MendelianCondition",
-                      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+                      "explanation": "Hearing Loss",
+                      "disease": [
+                        "Orphanet:87884"
+                      ],
+                      "name": "Hearing Loss"
                     }
                   ],
                   "minimum": 1.0,
                   "maximum": 1.0,
-                  "population": "CG:overall"
+                  "population": "CG-population-type:overall"
                 }
               ]
+            }
+          ],
+          "contribution": [
+            {
+              "cg:id": "Contrib509",
+              "cg:type": "Contribution",
+              "agent": "Stefan DiMarino",
+              "onDate": {
+                "cg:id": "2017-03-08T09:46:00+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
             }
           ]
         }
@@ -546,34 +553,18 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "EvLn114",
       "cg:type": "EvidenceLine",
-      "strength": "CG:SUPPORTING",
+      "strength": "CG-evidence-strength:bp",
       "supportingData": [
         {
           "cg:id": "CritAssess340",
           "cg:type": "CriterionAssessment",
           "explanation": "Homozygous truncating variants in LOXHD1 are associated with autosomal recessive hearing loss. This was demonstrated by both identification in human patients and a mouse model. (I used the OMIM entry as a source, but you could also directly use the papers.)",
-          "wasGeneratedBy": {
-            "cg:id": "Act068",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2016-09-06T09:59:59+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent008",
-                "cg:type": "Agent",
-                "description": "MDS",
-                "name": "Marina DiStefano"
-              }
-            ]
-          },
           "criterion": {
             "cg:id": "BP1",
             "cg:type": "Criterion",
             "description": "Missense variant in a gene for which primarily truncating variants are known to cause disease",
             "shortDescription": "Missense variant when truncating is expected mechanism",
-            "defaultOutcome": "CG:P",
+            "defaultStrength": "CG-evidence-strength:bp",
             "targetInterpretation": "LN:LA6675-8"
           },
           "variant": {
@@ -584,15 +575,21 @@ and may serve as a starting point for exploring the model.</p>
           },
           "condition": [
             {
-              "cg:id": "MendCond010",
+              "cg:id": "MendCond059",
               "cg:type": "MendelianCondition",
-              "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+              "explanation": "Hearing Loss, Autosomal Recessive",
+              "disease": [
+                "Orphanet:87884"
+              ],
+              "name": "Hearing Loss, Autosomal Recessive",
+              "modeOfInheritance": "HP:0000007"
             }
           ],
-          "outcome": "CG:MET",
+          "outcome": "CG-criterion-outcome:met",
           "hasSupportingEvidence": [
             {
               "cg:id": "EvLn083",
+              "cg:type": "EvidenceLine",
               "supportingData": [
                 {
                   "cg:id": "MolCon201",
@@ -616,19 +613,35 @@ and may serve as a starting point for exploring the model.</p>
                   "cg:type": "ConditionMechanism",
                   "explanation": "shown in both humans and mouse models",
                   "mechanism": "SO:0002054",
-                  "strength": "CG:primary",
+                  "strength": "CG-cond-mech-strength:primary",
                   "gene": {
                     "cg:id": "G048",
                     "cg:type": "Gene",
                     "symbol": "LOXHD1"
                   },
                   "condition": {
-                    "cg:id": "MendCond010",
+                    "cg:id": "MendCond059",
                     "cg:type": "MendelianCondition",
-                    "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+                    "explanation": "Hearing Loss, Autosomal Recessive",
+                    "disease": [
+                      "Orphanet:87884"
+                    ],
+                    "name": "Hearing Loss, Autosomal Recessive",
+                    "modeOfInheritance": "HP:0000007"
                   }
                 }
               ]
+            }
+          ],
+          "contribution": [
+            {
+              "cg:id": "Contrib475",
+              "cg:type": "Contribution",
+              "agent": "Stefan DiMarino",
+              "onDate": {
+                "cg:id": "2016-09-06T09:59:59+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
             }
           ]
         }
@@ -637,34 +650,18 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "EvLn115",
       "cg:type": "EvidenceLine",
-      "strength": "CG:SUPPORTING",
+      "strength": "CG-evidence-strength:bp",
       "supportingData": [
         {
           "cg:id": "CritAssess363",
           "cg:type": "CriterionAssessment",
           "explanation": "This variant was identified in one individual with pathogenic variants in another gene. Internal LMM data: The proband had one pathogenic and one likely pathogenic variant in (in trans) in SLC26A4. This proband had mild to profound hearing loss with EVA, which is characteristic of Pendred Syndrome. SLC26A4 is the only gene associated with Pendred Syndrome",
-          "wasGeneratedBy": {
-            "cg:id": "Act099",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2017-03-07T16:30:00+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent008",
-                "cg:type": "Agent",
-                "description": "MDS",
-                "name": "Marina DiStefano"
-              }
-            ]
-          },
           "criterion": {
             "cg:id": "BP5",
             "cg:type": "Criterion",
             "description": "Variant found in a case with an alternate molecular basis for disease",
             "shortDescription": "Variant found in case with alternate explanation",
-            "defaultOutcome": "CG:P",
+            "defaultStrength": "CG-evidence-strength:bp",
             "targetInterpretation": "LN:LA6675-8"
           },
           "variant": {
@@ -675,15 +672,20 @@ and may serve as a starting point for exploring the model.</p>
           },
           "condition": [
             {
-              "cg:id": "MendCond010",
+              "cg:id": "MendCond058",
               "cg:type": "MendelianCondition",
-              "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+              "explanation": "Hearing Loss",
+              "disease": [
+                "Orphanet:87884"
+              ],
+              "name": "Hearing Loss"
             }
           ],
-          "outcome": "CG:MET",
+          "outcome": "CG-criterion-outcome:met",
           "hasSupportingEvidence": [
             {
               "cg:id": "EvLn106",
+              "cg:type": "EvidenceLine",
               "supportingData": [
                 {
                   "cg:id": "VarInterp364",
@@ -695,9 +697,13 @@ and may serve as a starting point for exploring the model.</p>
                   },
                   "condition": [
                     {
-                      "cg:id": "MendCond010",
+                      "cg:id": "MendCond058",
                       "cg:type": "MendelianCondition",
-                      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+                      "explanation": "Hearing Loss",
+                      "disease": [
+                        "Orphanet:87884"
+                      ],
+                      "name": "Hearing Loss"
                     }
                   ],
                   "clinicalSignificance": "LN:LA26332-9"
@@ -712,9 +718,13 @@ and may serve as a starting point for exploring the model.</p>
                   },
                   "condition": [
                     {
-                      "cg:id": "MendCond010",
+                      "cg:id": "MendCond058",
                       "cg:type": "MendelianCondition",
-                      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+                      "explanation": "Hearing Loss",
+                      "disease": [
+                        "Orphanet:87884"
+                      ],
+                      "name": "Hearing Loss"
                     }
                   ],
                   "clinicalSignificance": "LN:LA6668-3"
@@ -738,7 +748,7 @@ and may serve as a starting point for exploring the model.</p>
                     "cg:type": "CanonicalAllele",
                     "preferredCtxAllele": "CtxAll128"
                   },
-                  "phase": "CG:trans"
+                  "phase": "CG-phase:trans"
                 },
                 {
                   "cg:id": "IndAll367",
@@ -759,7 +769,7 @@ and may serve as a starting point for exploring the model.</p>
                     "cg:type": "CanonicalAllele",
                     "preferredCtxAllele": "CtxAll129"
                   },
-                  "phase": "CG:trans"
+                  "phase": "CG-phase:trans"
                 },
                 {
                   "cg:id": "IndCond368",
@@ -772,18 +782,44 @@ and may serve as a starting point for exploring the model.</p>
                   },
                   "condition": [
                     {
-                      "cg:id": "MendCond010",
+                      "cg:id": "MendCond058",
                       "cg:type": "MendelianCondition",
-                      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+                      "explanation": "Hearing Loss",
+                      "disease": [
+                        "Orphanet:87884"
+                      ],
+                      "name": "Hearing Loss"
                     }
                   ],
                   "hasCondition": true
                 }
               ]
             }
+          ],
+          "contribution": [
+            {
+              "cg:id": "Contrib506",
+              "cg:type": "Contribution",
+              "agent": "Stefan DiMarino",
+              "onDate": {
+                "cg:id": "2017-03-07T16:30:00+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
+            }
           ]
         }
       ]
+    }
+  ],
+  "contribution": [
+    {
+      "cg:id": "Contrib448",
+      "cg:type": "Contribution",
+      "agent": "CSER classifier #6",
+      "onDate": {
+        "cg:id": "2015-06-26T12:05:59+00:00"
+      },
+      "role": "CG-contributory-role:interpreter"
     }
   ]
 }
@@ -814,16 +850,24 @@ and may serve as a starting point for exploring the model.</p>
   "cg:id": "VarInterp042",
   "cg:type": "VariantInterpretation",
   "explanation": "Uncertain Sig(not specified) NM_000363.4(TNNI3):c.484C>T (p.Arg162Trp)",
-  "wasGeneratedBy": {
-    "cg:id": "ActaXX"
-  },
   "variant": {
     "cg:id": "CanAll049",
     "cg:type": "CanonicalAllele",
     "preferredCtxAllele": "CtxAll053",
     "identifier": "http://reg.genome.network/allele/CA021738"
   },
-  "clinicalSignificance": "LN:LA26333-7"
+  "clinicalSignificance": "LN:LA26333-7",
+  "contribution": [
+    {
+      "cg:id": "Contrib434",
+      "cg:type": "Contribution",
+      "agent": "Harry Stevenson",
+      "onDate": {
+        "cg:id": "2016-07-13T08:45:59+00:00"
+      },
+      "role": "CG-contributory-role:interpreter"
+    }
+  ]
 }
           </code></pre></div></td>
           -->
@@ -852,22 +896,6 @@ and may serve as a starting point for exploring the model.</p>
   "cg:id": "VarInterp044",
   "cg:type": "VariantInterpretation",
   "explanation": "p.Tyr109Tyr in exon 4 of MYH7: This variant is not expected to have clinical significance because it does not alter an amino acid residue and is not located near a splice junction. It has been identified in 0.2% (31/16512) of South Asian chromosomes by the Exome Aggregation Consortium (ExAC, http://exac.broadinstitute.org; dbSNP rs36211408).",
-  "wasGeneratedBy": {
-    "cg:id": "Act060",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2015-06-26T12:05:59+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent010",
-        "cg:type": "Agent",
-        "description": "CSER6",
-        "name": "CSER classifer #6"
-      }
-    ]
-  },
   "variant": {
     "cg:id": "CanAll118",
     "cg:type": "CanonicalAllele",
@@ -890,33 +918,19 @@ and may serve as a starting point for exploring the model.</p>
   "hasEvidence": [
     {
       "cg:id": "EvLn120",
+      "cg:type": "EvidenceLine",
+      "strength": "CG-evidence-strength:bs",
       "supportingData": [
         {
           "cg:id": "CritAssess371",
           "cg:type": "CriterionAssessment",
           "explanation": "This variant is present in 0.2% (31/16512) of South Asian Chromosomes in ExAC.",
-          "wasGeneratedBy": {
-            "cg:id": "Act101",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2017-03-08T07:43:00+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent008",
-                "cg:type": "Agent",
-                "description": "MDS",
-                "name": "Marina DiStefano"
-              }
-            ]
-          },
           "criterion": {
             "cg:id": "BS1",
             "cg:type": "Criterion",
             "description": "Allele frequency is greater than expected for disorder",
             "shortDescription": "MAF too high for disorder",
-            "defaultOutcome": "CG:S",
+            "defaultStrength": "CG-evidence-strength:bs",
             "targetInterpretation": "LN:LA6675-8"
           },
           "variant": {
@@ -925,10 +939,11 @@ and may serve as a starting point for exploring the model.</p>
             "preferredCtxAllele": "CtxAll124",
             "identifier": "http://reg.genome.network/allele/CA013536"
           },
-          "outcome": "CG:MET",
+          "outcome": "CG-criterion-outcome:met",
           "hasSupportingEvidence": [
             {
               "cg:id": "EvLn108",
+              "cg:type": "EvidenceLine",
               "supportingData": [
                 {
                   "cg:id": "AllFreq037",
@@ -943,9 +958,20 @@ and may serve as a starting point for exploring the model.</p>
                   "alleleCount": 31,
                   "alleleNumber": 16512,
                   "alleleFrequency": 0.02,
-                  "population": "EX:sas"
+                  "population": "EXAC:SAS"
                 }
               ]
+            }
+          ],
+          "contribution": [
+            {
+              "cg:id": "Contrib508",
+              "cg:type": "Contribution",
+              "agent": "Stefan DiMarino",
+              "onDate": {
+                "cg:id": "2017-03-08T07:43:00+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
             }
           ]
         }
@@ -953,33 +979,19 @@ and may serve as a starting point for exploring the model.</p>
     },
     {
       "cg:id": "EvLn118",
+      "cg:type": "EvidenceLine",
+      "strength": "CG-evidence-strength:bp",
       "supportingData": [
         {
           "cg:id": "CritAssess373",
           "cg:type": "CriterionAssessment",
           "explanation": "This is a synonymous variant with little conservation and no predicted impact on splicing. Conservation and splicing algorithm values are listed below.",
-          "wasGeneratedBy": {
-            "cg:id": "Act103",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2017-03-08T10:02:00+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent008",
-                "cg:type": "Agent",
-                "description": "MDS",
-                "name": "Marina DiStefano"
-              }
-            ]
-          },
           "criterion": {
             "cg:id": "BP4",
             "cg:type": "Criterion",
             "description": "Multiple lines of computational evidence suggest no impact on gene or gene product (conservation, evolutionary, splicing impact, etc.)",
             "shortDescription": "Computational evidence supports benign impact",
-            "defaultOutcome": "CG:P",
+            "defaultStrength": "CG-evidence-strength:bp",
             "targetInterpretation": "LN:LA6675-8"
           },
           "variant": {
@@ -988,10 +1000,11 @@ and may serve as a starting point for exploring the model.</p>
             "preferredCtxAllele": "CtxAll124",
             "identifier": "http://reg.genome.network/allele/CA013536"
           },
-          "outcome": "CG:MET",
+          "outcome": "CG-criterion-outcome:met",
           "hasSupportingEvidence": [
             {
               "cg:id": "EvLn117",
+              "cg:type": "EvidenceLine",
               "supportingData": [
                 {
                   "cg:id": "InSilicoPred068",
@@ -1008,7 +1021,7 @@ and may serve as a starting point for exploring the model.</p>
                     },
                     "alleleName": "NM_000257.2(MYH7):c.327C>T"
                   },
-                  "type": "CG:sp",
+                  "type": "CG-prediction-type:sp",
                   "value": "no impact"
                 },
                 {
@@ -1055,38 +1068,35 @@ and may serve as a starting point for exploring the model.</p>
                 }
               ]
             }
+          ],
+          "contribution": [
+            {
+              "cg:id": "Contrib510",
+              "cg:type": "Contribution",
+              "agent": "Stefan DiMarino",
+              "onDate": {
+                "cg:id": "2017-03-08T10:02:00+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
+            }
           ]
         }
       ]
     },
     {
       "cg:id": "EvLn119",
+      "cg:type": "EvidenceLine",
+      "strength": "CG-evidence-strength:bp",
       "supportingData": [
         {
           "cg:id": "CritAssess359",
           "cg:type": "CriterionAssessment",
-          "wasGeneratedBy": {
-            "cg:id": "Act096",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2016-10-10T08:04:59+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent008",
-                "cg:type": "Agent",
-                "description": "MDS",
-                "name": "Marina DiStefano"
-              }
-            ]
-          },
           "criterion": {
             "cg:id": "BP7",
             "cg:type": "Criterion",
             "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
             "shortDescription": "Synonymous variant without predicted splice effect in region with low conservation",
-            "defaultOutcome": "CG:P",
+            "defaultStrength": "CG-evidence-strength:bp",
             "targetInterpretation": "LN:LA6675-8"
           },
           "variant": {
@@ -1100,10 +1110,11 @@ and may serve as a starting point for exploring the model.</p>
               "cg:id": "-"
             }
           ],
-          "outcome": "CG:MET",
+          "outcome": "CG-criterion-outcome:met",
           "hasSupportingEvidence": [
             {
               "cg:id": "EvLn101",
+              "cg:type": "EvidenceLine",
               "supportingData": [
                 {
                   "cg:id": "InSilicoPred262",
@@ -1120,7 +1131,7 @@ and may serve as a starting point for exploring the model.</p>
                     },
                     "alleleName": "NM_000257.2(MYH7):c.327C>T"
                   },
-                  "type": "CG:sp",
+                  "type": "CG-prediction-type:sp",
                   "value": "no impact"
                 },
                 {
@@ -1167,9 +1178,31 @@ and may serve as a starting point for exploring the model.</p>
                 }
               ]
             }
+          ],
+          "contribution": [
+            {
+              "cg:id": "Contrib503",
+              "cg:type": "Contribution",
+              "agent": "Stefan DiMarino",
+              "onDate": {
+                "cg:id": "2016-10-10T08:04:59+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
+            }
           ]
         }
       ]
+    }
+  ],
+  "contribution": [
+    {
+      "cg:id": "Contrib467",
+      "cg:type": "Contribution",
+      "agent": "CSER classifier #6",
+      "onDate": {
+        "cg:id": "2015-06-26T12:05:59+00:00"
+      },
+      "role": "CG-contributory-role:interpreter"
     }
   ]
 }
@@ -1184,7 +1217,7 @@ and may serve as a starting point for exploring the model.</p>
               <p><a href="details/details.html#CanAll121">CanAll121</a></p>
          </td>
           <td>
-              <p><a href="details/details.html#MendCond046">MendCond046</a></p>
+              <p><a href="details/details.html#MendCond074">MendCond074</a></p>
          </td>
           <td>
               <p>LN:LA26332-9</p>
@@ -1200,22 +1233,6 @@ and may serve as a starting point for exploring the model.</p>
   "cg:id": "VarInterp045",
   "cg:type": "VariantInterpretation",
   "explanation": "The c.631-2A>G variant in DSC2 has been reported in 1 Caucasian individual with ARVC (Heuser 2006). This variant has also been identified by our laboratory in 2 individuals (1 with ARVC and 1 with LVNC). This variant has been reported in 1/66564 European chromosomes by the Exome Aggregation Consortium (ExAC, http://exac.broadinstitute.org; dbSNP rs397514042). This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006). Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/). In summary, although additional studies are required to fully establish its clinical significance, the c.631-2A>G variant is likely pathogenic.",
-  "wasGeneratedBy": {
-    "cg:id": "Act086",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2015-06-26T12:05:59+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent010",
-        "cg:type": "Agent",
-        "description": "CSER6",
-        "name": "CSER classifer #6"
-      }
-    ]
-  },
   "variant": {
     "cg:id": "CanAll121",
     "cg:type": "CanonicalAllele",
@@ -1223,9 +1240,11 @@ and may serve as a starting point for exploring the model.</p>
   },
   "condition": [
     {
-      "cg:id": "MendCond046",
-      "cg:type": "MendelianCondition",
-      "explanation": "arrhythmogenic right ventricular cardiomyopathy, Autosomal Dominant"
+      "cg:id": "MendCond074",
+      "disease": [
+        "Orphanet:247"
+      ],
+      "modeOfInheritance": "HP:0000006"
     }
   ],
   "clinicalSignificance": "LN:LA26332-9",
@@ -1244,33 +1263,19 @@ and may serve as a starting point for exploring the model.</p>
   "hasEvidence": [
     {
       "cg:id": "EvLn121",
+      "cg:type": "EvidenceLine",
+      "strength": "CG-evidence-strength:pvs",
       "supportingData": [
         {
           "cg:id": "CritAssess361",
           "cg:type": "CriterionAssessment",
           "explanation": "This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466). Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/).",
-          "wasGeneratedBy": {
-            "cg:id": "Act098",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2017-01-17T09:11:59+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent008",
-                "cg:type": "Agent",
-                "description": "MDS",
-                "name": "Marina DiStefano"
-              }
-            ]
-          },
           "criterion": {
             "cg:id": "PVS1",
             "cg:type": "Criterion",
             "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
             "shortDescription": "Null variant in gene with known LOF mechanism",
-            "defaultOutcome": "CG:VS",
+            "defaultStrength": "CG-evidence-strength:pvs",
             "targetInterpretation": "LN:LA6668-3"
           },
           "variant": {
@@ -1282,13 +1287,17 @@ and may serve as a starting point for exploring the model.</p>
             {
               "cg:id": "MendCond046",
               "cg:type": "MendelianCondition",
-              "explanation": "arrhythmogenic right ventricular cardiomyopathy, Autosomal Dominant"
+              "explanation": "arrhythmogenic right ventricular cardiomyopathy",
+              "disease": [
+                "Orphanet:247"
+              ]
             }
           ],
-          "outcome": "CG:MET",
+          "outcome": "CG-criterion-outcome:met",
           "hasSupportingEvidence": [
             {
               "cg:id": "EvLn103",
+              "cg:type": "EvidenceLine",
               "supportingData": [
                 {
                   "cg:id": "MolCon272",
@@ -1312,7 +1321,15 @@ and may serve as a starting point for exploring the model.</p>
                   "cg:type": "ConditionMechanism",
                   "explanation": "Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/).",
                   "mechanism": "SO:0002054",
-                  "strength": "CG:established",
+                  "condition": {
+                    "cg:id": "MendCond046",
+                    "cg:type": "MendelianCondition",
+                    "explanation": "arrhythmogenic right ventricular cardiomyopathy",
+                    "disease": [
+                      "Orphanet:247"
+                    ]
+                  },
+                  "strength": "CG-cond-mech-strength:established",
                   "gene": {
                     "cg:id": "G060",
                     "cg:type": "Gene",
@@ -1321,39 +1338,36 @@ and may serve as a starting point for exploring the model.</p>
                 }
               ]
             }
+          ],
+          "contribution": [
+            {
+              "cg:id": "Contrib505",
+              "cg:type": "Contribution",
+              "agent": "Stefan DiMarino",
+              "onDate": {
+                "cg:id": "2017-01-17T09:11:59+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
+            }
           ]
         }
       ]
     },
     {
       "cg:id": "EvLn122",
+      "cg:type": "EvidenceLine",
+      "strength": "CG-evidence-strength:pm",
       "supportingData": [
         {
           "cg:id": "CritAssess369",
           "cg:type": "CriterionAssessment",
           "explanation": "This variant has been reported in 1/66564 European chromosomes by the Exome Aggregation Consortium (ExAC, http://exac.broadinstitute.org; dbSNP rs397514042).",
-          "wasGeneratedBy": {
-            "cg:id": "Act100",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2017-03-07T17:22:00+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent001",
-                "cg:type": "Agent",
-                "description": "SH",
-                "name": "Steven Harrison"
-              }
-            ]
-          },
           "criterion": {
             "cg:id": "PM2",
             "cg:type": "Criterion",
             "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
             "shortDescription": "Absent from controls",
-            "defaultOutcome": "CG:M",
+            "defaultStrength": "CG-evidence-strength:pm",
             "targetInterpretation": "LN:LA6668-3"
           },
           "variant": {
@@ -1361,16 +1375,17 @@ and may serve as a starting point for exploring the model.</p>
             "cg:type": "CanonicalAllele",
             "preferredCtxAllele": "CtxAll127"
           },
-          "outcome": "CG:MET",
+          "outcome": "CG-criterion-outcome:met",
           "hasSupportingEvidence": [
             {
               "cg:id": "EvLn107",
+              "cg:type": "EvidenceLine",
               "supportingData": [
                 {
                   "cg:id": "AllFreq370",
                   "cg:type": "AlleleFrequency",
                   "ascertainment": "ExAC",
-                  "population": "EX:nfe",
+                  "population": "EXAC:NFE",
                   "allele": {
                     "cg:id": "CanAll121",
                     "cg:type": "CanonicalAllele",
@@ -1383,9 +1398,31 @@ and may serve as a starting point for exploring the model.</p>
                 }
               ]
             }
+          ],
+          "contribution": [
+            {
+              "cg:id": "Contrib507",
+              "cg:type": "Contribution",
+              "agent": "Harry Stevenson",
+              "onDate": {
+                "cg:id": "2017-03-07T17:22:00+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
+            }
           ]
         }
       ]
+    }
+  ],
+  "contribution": [
+    {
+      "cg:id": "Contrib493",
+      "cg:type": "Contribution",
+      "agent": "CSER classifier #6",
+      "onDate": {
+        "cg:id": "2015-06-26T12:05:59+00:00"
+      },
+      "role": "CG-contributory-role:interpreter"
     }
   ]
 }
@@ -1425,7 +1462,11 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond013",
       "cg:type": "MendelianCondition",
-      "explanation": "Fabry disease"
+      "explanation": "Fabry disease, X-linked recessive inheritance",
+      "disease": [
+        "Orphanet:324"
+      ],
+      "modeOfInheritance": "HP:0001419"
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"
@@ -1466,7 +1507,11 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond013",
       "cg:type": "MendelianCondition",
-      "explanation": "Fabry disease"
+      "explanation": "Fabry disease, X-linked recessive inheritance",
+      "disease": [
+        "Orphanet:324"
+      ],
+      "modeOfInheritance": "HP:0001419"
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"
@@ -1507,7 +1552,11 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond013",
       "cg:type": "MendelianCondition",
-      "explanation": "Fabry disease"
+      "explanation": "Fabry disease, X-linked recessive inheritance",
+      "disease": [
+        "Orphanet:324"
+      ],
+      "modeOfInheritance": "HP:0001419"
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"
@@ -1548,7 +1597,11 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond013",
       "cg:type": "MendelianCondition",
-      "explanation": "Fabry disease"
+      "explanation": "Fabry disease, X-linked recessive inheritance",
+      "disease": [
+        "Orphanet:324"
+      ],
+      "modeOfInheritance": "HP:0001419"
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"
@@ -1564,7 +1617,7 @@ and may serve as a starting point for exploring the model.</p>
               <p><a href="details/details.html#CanAll124">CanAll124</a></p>
          </td>
           <td>
-              <p><a href="details/details.html#MendCond003">MendCond003</a></p>
+              <p><a href="details/details.html#MendCond075">MendCond075</a></p>
          </td>
           <td>
               <p>LN:LA26333-7</p>
@@ -1580,22 +1633,6 @@ and may serve as a starting point for exploring the model.</p>
   "cg:id": "VarInterp055",
   "cg:type": "VariantInterpretation",
   "explanation": "The Tyr337Cys variant in SOS1 has been reported in 1 individual with clinical features of Noonan syndrome (Roberts 2007), but has also been reported to be present in 2 unaffected individuals from one family (Personal Communication). This variant was absent from large population studies. Studies have shown that the Tyr337Cys variant may impact protein function by increasing its activity though these results are inconclusive and these in vitro assays may not accurately represent biological function (Smith 2013). Due to the conflicting data about this variant, the clinical significance of the Tyr337Cys variant is uncertain.",
-  "wasGeneratedBy": {
-    "cg:id": "Act104",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2014-08-14T10:28:59+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent011",
-        "cg:type": "Agent",
-        "description": "GG1",
-        "name": "Gene Geneticist"
-      }
-    ]
-  },
   "variant": {
     "cg:id": "CanAll124",
     "cg:type": "CanonicalAllele",
@@ -1603,9 +1640,11 @@ and may serve as a starting point for exploring the model.</p>
   },
   "condition": [
     {
-      "cg:id": "MendCond003",
-      "cg:type": "MendelianCondition",
-      "explanation": "noonan syndrome, Autosomal Dominant"
+      "cg:id": "MendCond075",
+      "disease": [
+        "Orphanet:648"
+      ],
+      "modeOfInheritance": "HP:0000006"
     }
   ],
   "clinicalSignificance": "LN:LA26333-7",
@@ -1624,33 +1663,19 @@ and may serve as a starting point for exploring the model.</p>
   "hasEvidence": [
     {
       "cg:id": "EvLn124",
+      "cg:type": "EvidenceLine",
+      "strength": "CG-evidence-strength:PP",
       "supportingData": [
         {
           "cg:id": "CritAssess374",
           "cg:type": "CriterionAssessment",
           "explanation": "Flag-tagged construct with the variant was transfected into HEK cells. As per the RASopathy working group’s approved assays (see example 3 above), Smith et al. showed that the Y337C mutation increased levels of pERK in starved HEK cells via western blotting.",
-          "wasGeneratedBy": {
-            "cg:id": "Act106",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2017-03-14T10:28:59+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent008",
-                "cg:type": "Agent",
-                "description": "MDS",
-                "name": "Marina DiStefano"
-              }
-            ]
-          },
           "criterion": {
             "cg:id": "PS3",
             "cg:type": "Criterion",
             "description": "Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product",
             "shortDescription": "Well-established functional studies showing damaging effect",
-            "defaultOutcome": "CG:S",
+            "defaultStrength": "CG-evidence-strength:ps",
             "targetInterpretation": "LN:LA6668-3"
           },
           "variant": {
@@ -1658,19 +1683,18 @@ and may serve as a starting point for exploring the model.</p>
             "cg:type": "CanonicalAllele",
             "preferredCtxAllele": "CtxAll130"
           },
-          "outcome": "CG:MET",
+          "outcome": "CG-criterion-outcome:met",
           "hasSupportingEvidence": [
             {
               "cg:id": "EvLn116",
               "cg:type": "EvidenceLine",
-              "strength": "CG:STRONG",
               "supportingData": [
                 {
                   "cg:id": "Func067",
                   "cg:type": "FunctionalData",
                   "explanation": "PMID: 23487764",
                   "result": "increased ERK activtation",
-                  "dataType": "CG:activation",
+                  "dataType": "CG-func-data-type:activation",
                   "contextualAllele": {
                     "cg:id": "CtxAll130",
                     "cg:type": "ContextualAllele",
@@ -1689,39 +1713,36 @@ and may serve as a starting point for exploring the model.</p>
                 }
               ]
             }
+          ],
+          "contribution": [
+            {
+              "cg:id": "Contrib513",
+              "cg:type": "Contribution",
+              "agent": "Stefan DiMarino",
+              "onDate": {
+                "cg:id": "2017-03-14T10:28:59+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
+            }
           ]
         }
       ]
     },
     {
       "cg:id": "EvLn125",
+      "cg:type": "EvidenceLine",
+      "strength": "CG-evidence-strength:bs",
       "supportingData": [
         {
           "cg:id": "CritAssess375",
           "cg:type": "CriterionAssessment",
           "explanation": "A personal communication to our lab informed us of an individual and his son who both harbored the variant but with clinical workup did not appear to have Noonan Syndrome or symptoms indicative of Noonan Syndrome.",
-          "wasGeneratedBy": {
-            "cg:id": "Act107",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2017-03-14T10:44:59+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent008",
-                "cg:type": "Agent",
-                "description": "MDS",
-                "name": "Marina DiStefano"
-              }
-            ]
-          },
           "criterion": {
             "cg:id": "BS4",
             "cg:type": "Criterion",
             "description": "Lack of segregation in affected members of a family",
             "shortDescription": "Does not segregate with disease",
-            "defaultOutcome": "CG:S",
+            "defaultStrength": "CG-evidence-strength:bs",
             "targetInterpretation": "LN:LA6675-8"
           },
           "variant": {
@@ -1729,18 +1750,34 @@ and may serve as a starting point for exploring the model.</p>
             "cg:type": "CanonicalAllele",
             "preferredCtxAllele": "CtxAll130"
           },
-          "outcome": "CG:MET",
+          "condition": [
+            {
+              "cg:id": "MendCond056",
+              "cg:type": "MendelianCondition",
+              "explanation": "noonan syndrome, Autosomal Dominant",
+              "disease": [
+                "Orphanet:648"
+              ],
+              "modeOfInheritance": "HP:0000006"
+            }
+          ],
+          "outcome": "CG-criterion-outcome:met",
           "hasSupportingEvidence": [
             {
               "cg:id": "EvLn123",
+              "cg:type": "EvidenceLine",
               "supportingData": [
                 {
                   "cg:id": "FamSegData076",
                   "cg:type": "FamilySegregationData",
                   "condition": {
-                    "cg:id": "MendCond003",
+                    "cg:id": "MendCond056",
                     "cg:type": "MendelianCondition",
-                    "explanation": "noonan syndrome, Autosomal Dominant"
+                    "explanation": "noonan syndrome, Autosomal Dominant",
+                    "disease": [
+                      "Orphanet:648"
+                    ],
+                    "modeOfInheritance": "HP:0000006"
                   },
                   "canonicalAllele": {
                     "cg:id": "CanAll124",
@@ -1753,13 +1790,37 @@ and may serve as a starting point for exploring the model.</p>
                     "description": "Family #011"
                   },
                   "phenotypePositiveAllelePositive": 0,
-                  "phenotypeNegativeAllelePositive": 0
+                  "phenotypeNegativeAllelePositive": 2,
+                  "phenotypePositiveAlleleNegative": 0,
+                  "anyInconsistentSegregations": true
                 }
               ]
+            }
+          ],
+          "contribution": [
+            {
+              "cg:id": "Contrib514",
+              "cg:type": "Contribution",
+              "agent": "Stefan DiMarino",
+              "onDate": {
+                "cg:id": "2017-03-14T10:44:59+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
             }
           ]
         }
       ]
+    }
+  ],
+  "contribution": [
+    {
+      "cg:id": "Contrib511",
+      "cg:type": "Contribution",
+      "agent": "Gene Geneticist",
+      "onDate": {
+        "cg:id": "2014-08-14T10:28:59+00:00"
+      },
+      "role": "CG-contributory-role:interpreter"
     }
   ]
 }
@@ -1774,7 +1835,7 @@ and may serve as a starting point for exploring the model.</p>
               <p><a href="details/details.html#CanAll036">CanAll036</a></p>
          </td>
           <td>
-              <p><a href="details/details.html#MendCond004">MendCond004</a></p>
+              <p><a href="details/details.html#MendCond062">MendCond062</a></p>
          </td>
           <td>
               <p>LN:LA6668-3</p>
@@ -1789,22 +1850,6 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp057"><pre><code>{
   "cg:id": "VarInterp057",
   "cg:type": "VariantInterpretation",
-  "wasGeneratedBy": {
-    "cg:id": "Act078",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2016-05-31T11:00:59+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent008",
-        "cg:type": "Agent",
-        "description": "MDS",
-        "name": "Marina DiStefano"
-      }
-    ]
-  },
   "variant": {
     "cg:id": "CanAll036",
     "cg:type": "CanonicalAllele",
@@ -1813,12 +1858,27 @@ and may serve as a starting point for exploring the model.</p>
   },
   "condition": [
     {
-      "cg:id": "MendCond004",
+      "cg:id": "MendCond062",
       "cg:type": "MendelianCondition",
-      "explanation": "Primary ciliary dyskenisia, Autosomal Recessive"
+      "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
+      "disease": [
+        "Orphanet:244"
+      ],
+      "modeOfInheritance": "HP:0000007"
     }
   ],
-  "clinicalSignificance": "LN:LA6668-3"
+  "clinicalSignificance": "LN:LA6668-3",
+  "contribution": [
+    {
+      "cg:id": "Contrib485",
+      "cg:type": "Contribution",
+      "agent": "Stefan DiMarino",
+      "onDate": {
+        "cg:id": "2016-05-31T11:00:59+00:00"
+      },
+      "role": "CG-contributory-role:interpreter"
+    }
+  ]
 }
           </code></pre></div></td>
           -->
@@ -1856,10 +1916,75 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond010",
       "cg:type": "MendelianCondition",
-      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3",
+      "disease": [
+        "Orphanet:87884"
+      ],
+      "modeOfInheritance": "HP:0000007",
+      "gene": {
+        "cg:id": "G024",
+        "cg:type": "Gene",
+        "symbol": "GIPC3"
+      }
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VarInterp060">VarInterp060</a></p></td>
+          <td>The Lys483Asn variant in BRAF has not been previously reported in the literature, but has been identified as a de novo variant in one proband in our laboratory. In addition, this residue is highly conserved across evolutionarily distinct species and computational analyses (PolyPhen2, SIFT, AlignGVGD) predict that this variant will impact the normal function of BRAF. It should be noted that the sensitivity and specificity of these computational programs has not been determined by our laboratory. Therefore, this variant is likely to be pathogenic.</td>
+          <td>
+              <p><a href="details/details.html#CanAll127">CanAll127</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#MendCond049">MendCond049</a></p>
+         </td>
+          <td>
+              <p>LN:LA26332-9</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VarInterp060"><pre><code>{
+  "cg:id": "VarInterp060",
+  "cg:type": "VariantInterpretation",
+  "explanation": "The Lys483Asn variant in BRAF has not been previously reported in the literature, but has been identified as a de novo variant in one proband in our laboratory. In addition, this residue is highly conserved across evolutionarily distinct species and computational analyses (PolyPhen2, SIFT, AlignGVGD) predict that this variant will impact the normal function of BRAF. It should be noted that the sensitivity and specificity of these computational programs has not been determined by our laboratory. Therefore, this variant is likely to be pathogenic.",
+  "variant": {
+    "cg:id": "CanAll127",
+    "cg:type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll133"
+  },
+  "condition": [
+    {
+      "cg:id": "MendCond049",
+      "cg:type": "MendelianCondition",
+      "explanation": "Rasopathy",
+      "disease": [
+        "Orphanet:98733"
+      ],
+      "name": "Rasopathy"
+    }
+  ],
+  "clinicalSignificance": "LN:LA26332-9",
+  "contribution": [
+    {
+      "cg:id": "Contrib518",
+      "cg:type": "Contribution",
+      "agent": "ACME Molecular Lab",
+      "onDate": {
+        "cg:id": "2011-06-12T09:00:00+00:00"
+      },
+      "role": "CG-contributory-role:interpreter"
+    }
+  ]
 }
           </code></pre></div></td>
           -->
@@ -1872,7 +1997,7 @@ and may serve as a starting point for exploring the model.</p>
               <p><a href="details/details.html#CanAll125">CanAll125</a></p>
          </td>
           <td>
-              <p><a href="details/details.html#Cond019">Cond019</a></p>
+              <p><a href="details/details.html#Cond070">Cond070</a></p>
          </td>
           <td>
               <p>LN:LA26332-9</p>
@@ -1888,22 +2013,6 @@ and may serve as a starting point for exploring the model.</p>
   "cg:id": "VarInterp063",
   "cg:type": "VariantInterpretation",
   "explanation": "The Lys483Gln variant in BRAF has been identified in one proband with clinical features of Cardio-facio-cutaneous syndrome, and was not identified in either of this individual's parents (LMM unpublished data). This variant has not been identified in large population studies. In addition, another variant at the same residue (Lys483Asn) was identified as a de novo variant in an individual with features of a Noonan spectrum disorder (LMM unpublished data). Computational analyses (biochemical amino acid properties, conservation, AlignGVGD, PolyPhen2, and SIFT) suggest that the Lys483Gln variant may impact the normal function of the protein. In summary, this variant is likely pathogenic, though additional studies are required to fully establish its clinical significance.",
-  "wasGeneratedBy": {
-    "cg:id": "Act105",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2014-08-14T10:28:59+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent012",
-        "cg:type": "Agent",
-        "description": "GG2",
-        "name": "George Geneticist"
-      }
-    ]
-  },
   "variant": {
     "cg:id": "CanAll125",
     "cg:type": "CanonicalAllele",
@@ -1911,7 +2020,7 @@ and may serve as a starting point for exploring the model.</p>
   },
   "condition": [
     {
-      "cg:id": "Cond019"
+      "cg:id": "Cond070"
     }
   ],
   "clinicalSignificance": "LN:LA26332-9",
@@ -1931,33 +2040,17 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "EvLn127",
       "cg:type": "EvidenceLine",
-      "strength": "CG:MODERATE",
+      "strength": "CG-evidence-strength:pm",
       "supportingData": [
         {
           "cg:id": "CritAssess376",
           "cg:type": "CriterionAssessment",
-          "wasGeneratedBy": {
-            "cg:id": "Act108",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2017-03-14T11:45:00+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent008",
-                "cg:type": "Agent",
-                "description": "MDS",
-                "name": "Marina DiStefano"
-              }
-            ]
-          },
           "criterion": {
             "cg:id": "PM2",
             "cg:type": "Criterion",
             "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
             "shortDescription": "Absent from controls",
-            "defaultOutcome": "CG:M",
+            "defaultStrength": "CG-evidence-strength:pm",
             "targetInterpretation": "LN:LA6668-3"
           },
           "variant": {
@@ -1965,16 +2058,17 @@ and may serve as a starting point for exploring the model.</p>
             "cg:type": "CanonicalAllele",
             "preferredCtxAllele": "CtxAll131"
           },
-          "outcome": "CG:MET",
+          "outcome": "CG-criterion-outcome:met",
           "hasSupportingEvidence": [
             {
               "cg:id": "EvLn126",
+              "cg:type": "EvidenceLine",
               "supportingData": [
                 {
                   "cg:id": "AllFreq101",
                   "cg:type": "AlleleFrequency",
                   "ascertainment": "ExAC",
-                  "population": "CG:combined",
+                  "population": "CG-population-type:combined",
                   "allele": {
                     "cg:id": "CanAll125",
                     "cg:type": "CanonicalAllele",
@@ -1986,6 +2080,17 @@ and may serve as a starting point for exploring the model.</p>
                 }
               ]
             }
+          ],
+          "contribution": [
+            {
+              "cg:id": "Contrib515",
+              "cg:type": "Contribution",
+              "agent": "ACME Molecular Lab",
+              "onDate": {
+                "cg:id": "2011-06-11T11:45:00+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
+            }
           ]
         }
       ]
@@ -1993,34 +2098,18 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "EvLn129",
       "cg:type": "EvidenceLine",
-      "strength": "CG:MODERATE",
+      "strength": "CG-evidence-strength:ps",
       "supportingData": [
         {
           "cg:id": "CritAssess377",
           "cg:type": "CriterionAssessment",
           "explanation": "Parental testing in our lab confirmed this variant was present de novo in 1 proband with clinical features of CFC. (LMM internal Data)",
-          "wasGeneratedBy": {
-            "cg:id": "Act109",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2017-03-14T12:45:00+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent008",
-                "cg:type": "Agent",
-                "description": "MDS",
-                "name": "Marina DiStefano"
-              }
-            ]
-          },
           "criterion": {
             "cg:id": "PM6",
             "cg:type": "Criterion",
             "description": "Assumed de novo, but without confirmation of paternity and maternity",
             "shortDescription": "Assumed de novo (parental status not confirmed)",
-            "defaultOutcome": "CG:M",
+            "defaultStrength": "CG-evidence-strength:pm",
             "targetInterpretation": "LN:LA6668-3"
           },
           "variant": {
@@ -2028,34 +2117,130 @@ and may serve as a starting point for exploring the model.</p>
             "cg:type": "CanonicalAllele",
             "preferredCtxAllele": "CtxAll131"
           },
-          "outcome": "CG:MET"
+          "condition": [
+            {
+              "cg:id": "MendCond069",
+              "cg:type": "MendelianCondition",
+              "explanation": "cardiofaciocutaneous syndrome",
+              "disease": [
+                "Orphanet:1340"
+              ]
+            }
+          ],
+          "outcome": "CG-criterion-outcome:met",
+          "contribution": [
+            {
+              "cg:id": "Contrib516",
+              "cg:type": "Contribution",
+              "agent": "ACME Molecular Lab",
+              "onDate": {
+                "cg:id": "2011-06-11T12:45:00+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
+            }
+          ]
         }
       ]
     },
     {
       "cg:id": "EvLn131",
+      "cg:type": "EvidenceLine",
+      "strength": "CG-evidence-strength:pm",
       "supportingData": [
         {
           "cg:id": "CritAssess378",
           "cg:type": "CriterionAssessment",
-          "wasGeneratedBy": {
-            "cg:id": "Act110",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2017-03-14T13:44:59+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent008",
-                "cg:type": "Agent",
-                "description": "MDS",
-                "name": "Marina DiStefano"
-              }
-            ]
-          }
+          "explanation": "Another variant at the same residue (Lys483Asn) was identified as a de novo variant in an individual with features of a Noonan spectrum disorder (LMM unpublished data). The other variant: NM_004333.4(BRAF):c.1449A>C (p.Lys483Asn) is classified as likely pathogenic by LMM for Rasopathy.",
+          "criterion": {
+            "cg:id": "PM5",
+            "cg:type": "Criterion",
+            "description": "Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before",
+            "shortDescription": "Novel missense at same amino acid as known pathogenic missense",
+            "defaultStrength": "CG-evidence-strength:pm",
+            "targetInterpretation": "LN:LA6668-3"
+          },
+          "variant": {
+            "cg:id": "CanAll125",
+            "cg:type": "CanonicalAllele",
+            "preferredCtxAllele": "CtxAll131"
+          },
+          "condition": [
+            {
+              "cg:id": "MendCond049",
+              "cg:type": "MendelianCondition",
+              "explanation": "Rasopathy",
+              "disease": [
+                "Orphanet:98733"
+              ],
+              "name": "Rasopathy"
+            }
+          ],
+          "outcome": "CG-criterion-outcome:met",
+          "hasSupportingEvidence": [
+            {
+              "cg:id": "EvLn130",
+              "cg:type": "EvidenceLine",
+              "supportingData": [
+                {
+                  "cg:id": "VarInterp060",
+                  "cg:type": "VariantInterpretation",
+                  "explanation": "The Lys483Asn variant in BRAF has not been previously reported in the literature, but has been identified as a de novo variant in one proband in our laboratory. In addition, this residue is highly conserved across evolutionarily distinct species and computational analyses (PolyPhen2, SIFT, AlignGVGD) predict that this variant will impact the normal function of BRAF. It should be noted that the sensitivity and specificity of these computational programs has not been determined by our laboratory. Therefore, this variant is likely to be pathogenic.",
+                  "variant": {
+                    "cg:id": "CanAll127",
+                    "cg:type": "CanonicalAllele",
+                    "preferredCtxAllele": "CtxAll133"
+                  },
+                  "condition": [
+                    {
+                      "cg:id": "MendCond049",
+                      "cg:type": "MendelianCondition",
+                      "explanation": "Rasopathy",
+                      "disease": [
+                        "Orphanet:98733"
+                      ],
+                      "name": "Rasopathy"
+                    }
+                  ],
+                  "clinicalSignificance": "LN:LA26332-9",
+                  "contribution": [
+                    {
+                      "cg:id": "Contrib518",
+                      "cg:type": "Contribution",
+                      "agent": "ACME Molecular Lab",
+                      "onDate": {
+                        "cg:id": "2011-06-12T09:00:00+00:00"
+                      },
+                      "role": "CG-contributory-role:interpreter"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "contribution": [
+            {
+              "cg:id": "Contrib517",
+              "cg:type": "Contribution",
+              "agent": "ACME Molecular Lab",
+              "onDate": {
+                "cg:id": "2011-06-10T13:44:59+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
+            }
+          ]
         }
       ]
+    }
+  ],
+  "contribution": [
+    {
+      "cg:id": "Contrib512",
+      "cg:type": "Contribution",
+      "agent": "George Geneticist",
+      "onDate": {
+        "cg:id": "2014-08-14T10:28:59+00:00"
+      },
+      "role": "CG-contributory-role:interpreter"
     }
   ]
 }
@@ -2085,9 +2270,6 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp078"><pre><code>{
   "cg:id": "VarInterp078",
   "cg:type": "VariantInterpretation",
-  "wasGeneratedBy": {
-    "cg:id": "ActXX"
-  },
   "variant": {
     "cg:id": "CanAll047",
     "cg:type": "CanonicalAllele",
@@ -2098,10 +2280,26 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond016",
       "cg:type": "MendelianCondition",
-      "explanation": "hypertrophic cardiomyopathy"
+      "explanation": "Primary familial hypertrophic cardiomyopathy, Autosomal Dominant",
+      "disease": [
+        "Orphanet:217569"
+      ],
+      "modeOfInheritance": "HP:0000006",
+      "name": "Primary familial hypertrophic cardiomyopathy, Autosomal Dominant"
     }
   ],
-  "clinicalSignificance": "LN:LA26332-9"
+  "clinicalSignificance": "LN:LA26332-9",
+  "contribution": [
+    {
+      "cg:id": "Contrib520",
+      "cg:type": "Contribution",
+      "agent": "Genetics Diagnostic Laboratory,Children's Hospital of Eastern Ontario",
+      "onDate": {
+        "cg:id": "2014-06-01T09:01:59+00:00"
+      },
+      "role": "CG-contributory-role:interpreter"
+    }
+  ]
 }
           </code></pre></div></td>
           -->
@@ -2129,9 +2327,6 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp079"><pre><code>{
   "cg:id": "VarInterp079",
   "cg:type": "VariantInterpretation",
-  "wasGeneratedBy": {
-    "cg:id": "ActXX"
-  },
   "variant": {
     "cg:id": "CanAll049",
     "cg:type": "CanonicalAllele",
@@ -2142,10 +2337,26 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond016",
       "cg:type": "MendelianCondition",
-      "explanation": "hypertrophic cardiomyopathy"
+      "explanation": "Primary familial hypertrophic cardiomyopathy, Autosomal Dominant",
+      "disease": [
+        "Orphanet:217569"
+      ],
+      "modeOfInheritance": "HP:0000006",
+      "name": "Primary familial hypertrophic cardiomyopathy, Autosomal Dominant"
     }
   ],
-  "clinicalSignificance": "LN:LA6668-3"
+  "clinicalSignificance": "LN:LA6668-3",
+  "contribution": [
+    {
+      "cg:id": "Contrib521",
+      "cg:type": "Contribution",
+      "agent": "GeneDx",
+      "onDate": {
+        "cg:id": "2016-06-20T11:12:00+00:00"
+      },
+      "role": "CG-contributory-role:interpreter"
+    }
+  ]
 }
           </code></pre></div></td>
           -->
@@ -2158,7 +2369,7 @@ and may serve as a starting point for exploring the model.</p>
               <p><a href="details/details.html#CanAll053">CanAll053</a></p>
          </td>
           <td>
-              <p><a href="details/details.html#MendCond018">MendCond018</a></p>
+              <p><a href="details/details.html#MendCond017">MendCond017</a></p>
          </td>
           <td>
               <p>LN:LA6668-3</p>
@@ -2181,9 +2392,12 @@ and may serve as a starting point for exploring the model.</p>
   },
   "condition": [
     {
-      "cg:id": "MendCond018",
+      "cg:id": "MendCond017",
       "cg:type": "MendelianCondition",
-      "explanation": "Birt-Hogg-Dube Syndrome"
+      "explanation": "Ornithine carbamoyltransferase deficiency",
+      "disease": [
+        "Orphanet:664"
+      ]
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"
@@ -2199,7 +2413,7 @@ and may serve as a starting point for exploring the model.</p>
               <p><a href="details/details.html#CanAll057">CanAll057</a></p>
          </td>
           <td>
-              <p><a href="details/details.html#MendCond001">MendCond001</a></p>
+              <p><a href="details/details.html#MendCond050">MendCond050</a></p>
          </td>
           <td>
               <p>LN:LA6668-3</p>
@@ -2222,9 +2436,14 @@ and may serve as a starting point for exploring the model.</p>
   },
   "condition": [
     {
-      "cg:id": "MendCond001",
+      "cg:id": "MendCond050",
       "cg:type": "MendelianCondition",
-      "explanation": "Breast Ovarian Cancer"
+      "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
+      "name": "Breast Ovarian Cancer, Autosomal Dominant",
+      "disease": [
+        "MESH:D061325"
+      ],
+      "modeOfInheritance": "HP:0000006"
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"
@@ -2266,7 +2485,11 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond023",
       "cg:type": "MendelianCondition",
-      "explanation": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
+      "explanation": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2, Autosomal Dominant",
+      "disease": [
+        "OMIM:612555"
+      ],
+      "modeOfInheritance": "HP:0000006"
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"
@@ -2308,7 +2531,11 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond024",
       "cg:type": "MendelianCondition",
-      "explanation": "Distal myopathy with posterior leg and anterior hand involvement"
+      "explanation": "Myopathy, Distal, type 4, Autosomal Dominant",
+      "disease": [
+        "OMIM:614065"
+      ],
+      "modeOfInheritance": "HP:0000006"
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"
@@ -2324,7 +2551,7 @@ and may serve as a starting point for exploring the model.</p>
               <p><a href="details/details.html#CanAll074">CanAll074</a></p>
          </td>
           <td>
-              <p><a href="details/details.html#MendCond026">MendCond026</a></p>
+              <p><a href="details/details.html#MendCond025">MendCond025</a></p>
          </td>
           <td>
               <p>LN:LA6668-3</p>
@@ -2348,9 +2575,13 @@ and may serve as a starting point for exploring the model.</p>
   },
   "condition": [
     {
-      "cg:id": "MendCond026",
+      "cg:id": "MendCond025",
       "cg:type": "MendelianCondition",
-      "explanation": "Marfan Syndrome, Autosomal Dominant"
+      "explanation": "Cystic Fibrosis, Autosomal Recessive",
+      "disease": [
+        "Orphanet:586"
+      ],
+      "modeOfInheritance": "HP:0000007"
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"
@@ -2391,7 +2622,10 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond038",
       "cg:type": "MendelianCondition",
-      "explanation": "Retinitis Pigmentosa, Autosomal Dominant"
+      "explanation": "Retinitis Pigmentosa",
+      "disease": [
+        "Orphanet:791"
+      ]
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"
@@ -2432,7 +2666,10 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond039",
       "cg:type": "MendelianCondition",
-      "explanation": "Absent vas deferens"
+      "explanation": "Absent vas deferens",
+      "phenotype": [
+        "HP:0012873"
+      ]
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"
@@ -2473,7 +2710,11 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond007",
       "cg:type": "MendelianCondition",
-      "explanation": "cardiomyopathy, Autosomal Dominant"
+      "explanation": "cardiomyopathy, Autosomal Dominant",
+      "disease": [
+        "Orphanet:167848"
+      ],
+      "modeOfInheritance": "HP:0000006"
     }
   ],
   "clinicalSignificance": "LN:LA26333-7"
@@ -2489,7 +2730,7 @@ and may serve as a starting point for exploring the model.</p>
               <p><a href="details/details.html#CanAll106">CanAll106</a></p>
          </td>
           <td>
-              <p><a href="details/details.html#MendCond020">MendCond020</a></p>
+              <p><a href="details/details.html#MendCond067">MendCond067</a></p>
          </td>
           <td>
               <p>LN:LA26332-9</p>
@@ -2512,9 +2753,12 @@ and may serve as a starting point for exploring the model.</p>
   },
   "condition": [
     {
-      "cg:id": "MendCond020",
+      "cg:id": "MendCond067",
       "cg:type": "MendelianCondition",
-      "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant"
+      "explanation": "hypertrophic cardiomyopathy",
+      "disease": [
+        "Orphanet:217569"
+      ]
     }
   ],
   "clinicalSignificance": "LN:LA26332-9"
@@ -2530,7 +2774,7 @@ and may serve as a starting point for exploring the model.</p>
               <p><a href="details/details.html#CanAll109">CanAll109</a></p>
          </td>
           <td>
-              <p><a href="details/details.html#MendCond010">MendCond010</a></p>
+              <p><a href="details/details.html#MendCond060">MendCond060</a></p>
          </td>
           <td>
               <p>LN:LA26332-9</p>
@@ -2553,9 +2797,12 @@ and may serve as a starting point for exploring the model.</p>
   },
   "condition": [
     {
-      "cg:id": "MendCond010",
+      "cg:id": "MendCond060",
       "cg:type": "MendelianCondition",
-      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+      "explanation": "nonsyndromic deafness",
+      "disease": [
+        "Orphanet:87884"
+      ]
     }
   ],
   "clinicalSignificance": "LN:LA26332-9"
@@ -2571,7 +2818,7 @@ and may serve as a starting point for exploring the model.</p>
               <p><a href="details/details.html#CanAll110">CanAll110</a></p>
          </td>
           <td>
-              <p><a href="details/details.html#MendCond010">MendCond010</a></p>
+              <p><a href="details/details.html#MendCond060">MendCond060</a></p>
          </td>
           <td>
               <p>LN:LA26332-9</p>
@@ -2594,9 +2841,12 @@ and may serve as a starting point for exploring the model.</p>
   },
   "condition": [
     {
-      "cg:id": "MendCond010",
+      "cg:id": "MendCond060",
       "cg:type": "MendelianCondition",
-      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+      "explanation": "nonsyndromic deafness",
+      "disease": [
+        "Orphanet:87884"
+      ]
     }
   ],
   "clinicalSignificance": "LN:LA26332-9"
@@ -2612,7 +2862,7 @@ and may serve as a starting point for exploring the model.</p>
               <p><a href="details/details.html#CanAll108">CanAll108</a></p>
          </td>
           <td>
-              <p><a href="details/details.html#MendCond021">MendCond021</a></p>
+              <p><a href="details/details.html#MendCond071">MendCond071</a></p>
          </td>
           <td>
               <p>LN:LA6668-3</p>
@@ -2635,9 +2885,13 @@ and may serve as a starting point for exploring the model.</p>
   },
   "condition": [
     {
-      "cg:id": "MendCond021",
+      "cg:id": "MendCond071",
       "cg:type": "MendelianCondition",
-      "explanation": "Usher syndrome, Autosomal Recessive"
+      "explanation": "Usher syndrome, Autosomal Recessive",
+      "disease": [
+        "Orphanet:886"
+      ],
+      "modeOfInheritance": "HP:0000007"
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"
@@ -2678,7 +2932,10 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond042",
       "cg:type": "MendelianCondition",
-      "explanation": "pseudoachondroplasia"
+      "explanation": "pseudoachondroplasia",
+      "disease": [
+        "Orphanet:750"
+      ]
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"
@@ -2694,7 +2951,7 @@ and may serve as a starting point for exploring the model.</p>
               <p><a href="details/details.html#CanAll114">CanAll114</a></p>
          </td>
           <td>
-              <p><a href="details/details.html#MendCond036">MendCond036</a></p>
+              <p><a href="details/details.html#MendCond073">MendCond073</a></p>
          </td>
           <td>
               <p>LN:LA6675-8</p>
@@ -2717,9 +2974,11 @@ and may serve as a starting point for exploring the model.</p>
   },
   "condition": [
     {
-      "cg:id": "MendCond036",
-      "cg:type": "MendelianCondition",
-      "explanation": "hereditary breast ovarian cancer"
+      "cg:id": "MendCond073",
+      "disease": [
+        "Orphanet:145"
+      ],
+      "name": "hereditary breast and ovarian cancer"
     }
   ],
   "clinicalSignificance": "LN:LA6675-8"
@@ -2761,7 +3020,10 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond043",
       "cg:type": "MendelianCondition",
-      "explanation": "Breast Cancer"
+      "explanation": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2",
+      "disease": [
+        "OMIM:612555"
+      ]
     }
   ],
   "clinicalSignificance": "LN:LA6675-8"
@@ -2803,7 +3065,10 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond044",
       "cg:type": "MendelianCondition",
-      "explanation": "gyrate atrophy"
+      "explanation": "Gyrate atrophy of choroid and retina",
+      "disease": [
+        "Orphanet:414"
+      ]
     }
   ],
   "clinicalSignificance": "LN:LA6675-8"
@@ -2845,7 +3110,11 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "MendCond041",
       "cg:type": "MendelianCondition",
-      "explanation": "pseudoachondroplasia"
+      "explanation": "Pseudoachondroplastic spondyloepiphyseal dysplasia",
+      "disease": [
+        "Orphanet:750"
+      ],
+      "name": "Pseudoachondroplastic spondyloepiphyseal dysplasia"
     }
   ],
   "clinicalSignificance": "LN:LA26333-7"
@@ -2861,7 +3130,7 @@ and may serve as a starting point for exploring the model.</p>
               <p><a href="details/details.html#CanAll035">CanAll035</a></p>
          </td>
           <td>
-              <p><a href="details/details.html#MendCond004">MendCond004</a></p>
+              <p><a href="details/details.html#MendCond063">MendCond063</a></p>
          </td>
           <td>
               <p>LN:LA26332-9</p>
@@ -2877,22 +3146,6 @@ and may serve as a starting point for exploring the model.</p>
   "cg:id": "VarInterp274",
   "cg:type": "VariantInterpretation",
   "explanation": "The Trp2490_Leu2496del variant in DNAH5 leads to an in-frame deletion of 7 amino acids. This variant has been reported together with a second DNAH5 variant (Met2083Ile) in one individual with PCD and situs inversus (Berg 2011). In addition, this variant has been identified in trans configuration with a disease-causing variant in one affected proband (LMM unpublished data). Data from large population studies is insufficient to determine whether this variant is present in the general population. In summary, this variant is likely pathogenic, though additional studies are required to fully establish its clinical significance.",
-  "wasGeneratedBy": {
-    "cg:id": "Act032",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2015-06-26T12:02:59+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent009",
-        "cg:type": "Agent",
-        "description": "CSER3",
-        "name": "CSER classifer #3"
-      }
-    ]
-  },
   "variant": {
     "cg:id": "CanAll035",
     "cg:type": "CanonicalAllele",
@@ -2901,9 +3154,13 @@ and may serve as a starting point for exploring the model.</p>
   },
   "condition": [
     {
-      "cg:id": "MendCond004",
+      "cg:id": "MendCond063",
       "cg:type": "MendelianCondition",
-      "explanation": "Primary ciliary dyskenisia, Autosomal Recessive"
+      "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
+      "disease": [
+        "Orphanet:244"
+      ],
+      "modeOfInheritance": "HP:0000007"
     }
   ],
   "clinicalSignificance": "LN:LA26332-9",
@@ -2923,40 +3180,18 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "EvLn110",
       "cg:type": "EvidenceLine",
-      "strength": "CG:INSUFFICIENT",
+      "strength": "CG-evidence-strength:na",
       "supportingData": [
         {
           "cg:id": "CritAssess305",
           "cg:type": "CriterionAssessment",
           "explanation": "while the variant is absent from exac, however\n1) very low coverage across this region (~5X) and usually 20X is used as a cut-off to say “absent”\n2) variant is 21 nt deletion - databases may not be able to call a variant of that size (I rarely see an indel of this size in ExAC).",
-          "wasGeneratedBy": {
-            "cg:id": "Act031",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2016-07-01T10:53:00+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent001",
-                "cg:type": "Agent",
-                "description": "SH",
-                "name": "Steven Harrison"
-              },
-              {
-                "cg:id": "Agent005",
-                "cg:type": "Agent",
-                "description": "CSER",
-                "name": "CSER Bake Off Project"
-              }
-            ]
-          },
           "criterion": {
             "cg:id": "PM2",
             "cg:type": "Criterion",
             "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
             "shortDescription": "Absent from controls",
-            "defaultOutcome": "CG:M",
+            "defaultStrength": "CG-evidence-strength:pm",
             "targetInterpretation": "LN:LA6668-3"
           },
           "variant": {
@@ -2970,32 +3205,17 @@ and may serve as a starting point for exploring the model.</p>
               "cg:id": "-"
             }
           ],
-          "outcome": "CG:INSUFFICIENT",
+          "outcome": "CG-criterion-outcome:not-met",
           "hasSupportingEvidence": [
             {
               "cg:id": "EvLn040",
+              "cg:type": "EvidenceLine",
               "supportingData": [
                 {
                   "cg:id": "AllFreq082",
                   "cg:type": "AlleleFrequency",
-                  "wasGeneratedBy": {
-                    "cg:id": "Act081",
-                    "cg:type": "Activity",
-                    "activityTypeId": {
-                      "cg:id": "E10"
-                    },
-                    "timeStamp": "2016-06-01T14:15:00+00:00",
-                    "wasAssociatedWith": [
-                      {
-                        "cg:id": "Agent001",
-                        "cg:type": "Agent",
-                        "description": "SH",
-                        "name": "Steven Harrison"
-                      }
-                    ]
-                  },
                   "ascertainment": "ExAC",
-                  "population": "CG:combined",
+                  "population": "CG-population-type:combined",
                   "allele": {
                     "cg:id": "CanAll035",
                     "cg:type": "CanonicalAllele",
@@ -3004,9 +3224,40 @@ and may serve as a starting point for exploring the model.</p>
                   },
                   "alleleCount": 0,
                   "alleleFrequency": 0.0,
-                  "medianCoverage": 11.0
+                  "medianCoverage": 11.0,
+                  "contribution": [
+                    {
+                      "cg:id": "Contrib488",
+                      "cg:type": "Contribution",
+                      "agent": "Harry Stevenson",
+                      "onDate": {
+                        "cg:id": "2016-06-01T14:15:00+00:00"
+                      },
+                      "role": "CG-contributory-role:curator"
+                    }
+                  ]
                 }
               ]
+            }
+          ],
+          "contribution": [
+            {
+              "cg:id": "Contrib431",
+              "cg:type": "Contribution",
+              "agent": "Harry Stevenson",
+              "onDate": {
+                "cg:id": "2016-07-01T10:53:00+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
+            },
+            {
+              "cg:id": "Contrib432",
+              "cg:type": "Contribution",
+              "agent": "CSER Bakeoff Project",
+              "onDate": {
+                "cg:id": "2016-07-01T10:53:00+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
             }
           ]
         }
@@ -3015,33 +3266,17 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "EvLn111",
       "cg:type": "EvidenceLine",
-      "strength": "CG:MODERATE",
+      "strength": "CG-evidence-strength:pm",
       "supportingData": [
         {
           "cg:id": "CritAssess296",
           "cg:type": "CriterionAssessment",
-          "wasGeneratedBy": {
-            "cg:id": "Act022",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2016-06-02T08:00:59+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent001",
-                "cg:type": "Agent",
-                "description": "SH",
-                "name": "Steven Harrison"
-              }
-            ]
-          },
           "criterion": {
             "cg:id": "PM3",
             "cg:type": "Criterion",
             "description": "For recessive disorders, detected in trans with a pathogenic variant",
             "shortDescription": "Recessive in trans with pathogenic variant",
-            "defaultOutcome": "CG:M",
+            "defaultStrength": "CG-evidence-strength:pm",
             "targetInterpretation": "LN:LA6668-3"
           },
           "variant": {
@@ -3052,35 +3287,24 @@ and may serve as a starting point for exploring the model.</p>
           },
           "condition": [
             {
-              "cg:id": "MendCond004",
+              "cg:id": "MendCond062",
               "cg:type": "MendelianCondition",
-              "explanation": "Primary ciliary dyskenisia, Autosomal Recessive"
+              "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
+              "disease": [
+                "Orphanet:244"
+              ],
+              "modeOfInheritance": "HP:0000007"
             }
           ],
-          "outcome": "CG:MET",
+          "outcome": "CG-criterion-outcome:met",
           "hasSupportingEvidence": [
             {
               "cg:id": "EvLn029",
+              "cg:type": "EvidenceLine",
               "supportingData": [
                 {
                   "cg:id": "IndCond056",
                   "cg:type": "IndividualCondition",
-                  "wasGeneratedBy": {
-                    "cg:id": "Act077",
-                    "cg:type": "Activity",
-                    "activityTypeId": {
-                      "cg:id": "E10"
-                    },
-                    "timeStamp": "2016-05-31T09:14:59+00:00",
-                    "wasAssociatedWith": [
-                      {
-                        "cg:id": "Agent001",
-                        "cg:type": "Agent",
-                        "description": "SH",
-                        "name": "Steven Harrison"
-                      }
-                    ]
-                  },
                   "individual": {
                     "cg:id": "Indiv004",
                     "cg:type": "Individual",
@@ -3090,30 +3314,33 @@ and may serve as a starting point for exploring the model.</p>
                     {
                       "cg:id": "MendCond014",
                       "cg:type": "MendelianCondition",
-                      "explanation": "PCD autosomal recessive w/ outer dynein arm (ODA) defects"
+                      "explanation": "PCD autosomal recessive w/ outer dynein arm (ODA) defects",
+                      "name": "PCD autosomal recessive w/ outer dynein arm (ODA) defects",
+                      "disease": [
+                        "Orphanet:244"
+                      ],
+                      "modeOfInheritance": "HP:0000007",
+                      "phenotype": [
+                        "HP:0200106"
+                      ]
                     }
                   ],
-                  "hasCondition": true
+                  "hasCondition": true,
+                  "contribution": [
+                    {
+                      "cg:id": "Contrib483",
+                      "cg:type": "Contribution",
+                      "agent": "Stefan DiMarino",
+                      "onDate": {
+                        "cg:id": "2016-05-31T08:45:59+00:00"
+                      },
+                      "role": "CG-contributory-role:curator"
+                    }
+                  ]
                 },
                 {
                   "cg:id": "VarInterp057",
                   "cg:type": "VariantInterpretation",
-                  "wasGeneratedBy": {
-                    "cg:id": "Act078",
-                    "cg:type": "Activity",
-                    "activityTypeId": {
-                      "cg:id": "E10"
-                    },
-                    "timeStamp": "2016-05-31T11:00:59+00:00",
-                    "wasAssociatedWith": [
-                      {
-                        "cg:id": "Agent008",
-                        "cg:type": "Agent",
-                        "description": "MDS",
-                        "name": "Marina DiStefano"
-                      }
-                    ]
-                  },
                   "variant": {
                     "cg:id": "CanAll036",
                     "cg:type": "CanonicalAllele",
@@ -3122,33 +3349,32 @@ and may serve as a starting point for exploring the model.</p>
                   },
                   "condition": [
                     {
-                      "cg:id": "MendCond004",
+                      "cg:id": "MendCond062",
                       "cg:type": "MendelianCondition",
-                      "explanation": "Primary ciliary dyskenisia, Autosomal Recessive"
+                      "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
+                      "disease": [
+                        "Orphanet:244"
+                      ],
+                      "modeOfInheritance": "HP:0000007"
                     }
                   ],
-                  "clinicalSignificance": "LN:LA6668-3"
+                  "clinicalSignificance": "LN:LA6668-3",
+                  "contribution": [
+                    {
+                      "cg:id": "Contrib485",
+                      "cg:type": "Contribution",
+                      "agent": "Stefan DiMarino",
+                      "onDate": {
+                        "cg:id": "2016-05-31T11:00:59+00:00"
+                      },
+                      "role": "CG-contributory-role:interpreter"
+                    }
+                  ]
                 },
                 {
                   "cg:id": "IndAll058",
                   "cg:type": "IndividualAllele",
                   "explanation": "Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband.",
-                  "wasGeneratedBy": {
-                    "cg:id": "Act077",
-                    "cg:type": "Activity",
-                    "activityTypeId": {
-                      "cg:id": "E10"
-                    },
-                    "timeStamp": "2016-05-31T09:14:59+00:00",
-                    "wasAssociatedWith": [
-                      {
-                        "cg:id": "Agent001",
-                        "cg:type": "Agent",
-                        "description": "SH",
-                        "name": "Steven Harrison"
-                      }
-                    ]
-                  },
                   "individual": {
                     "cg:id": "Indiv004",
                     "cg:type": "Individual",
@@ -3166,11 +3392,33 @@ and may serve as a starting point for exploring the model.</p>
                     "preferredCtxAllele": "CtxAll040",
                     "identifier": "http://reg.genome.network/allele/CA273615"
                   },
-                  "primaryZygosity": "CG:het",
-                  "secondaryZygosity": "CG:het",
-                  "phase": "CG:trans"
+                  "primaryZygosity": "CG-allelic-state:het",
+                  "secondaryZygosity": "CG-allelic-state:het",
+                  "phase": "CG-phase:trans",
+                  "contribution": [
+                    {
+                      "cg:id": "Contrib484",
+                      "cg:type": "Contribution",
+                      "agent": "Harry Stevenson",
+                      "onDate": {
+                        "cg:id": "2016-05-31T09:14:59+00:00"
+                      },
+                      "role": "CG-contributory-role:curator"
+                    }
+                  ]
                 }
               ]
+            }
+          ],
+          "contribution": [
+            {
+              "cg:id": "Contrib422",
+              "cg:type": "Contribution",
+              "agent": "Harry Stevenson",
+              "onDate": {
+                "cg:id": "2016-06-02T08:00:59+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
             }
           ]
         }
@@ -3179,34 +3427,18 @@ and may serve as a starting point for exploring the model.</p>
     {
       "cg:id": "EvLn112",
       "cg:type": "EvidenceLine",
-      "strength": "CG:MODERATE",
+      "strength": "CG-evidence-strength:pm",
       "supportingData": [
         {
           "cg:id": "CritAssess299",
           "cg:type": "CriterionAssessment",
           "explanation": "leads to an in-frame deletion of 7 amino acids (not repeat region).",
-          "wasGeneratedBy": {
-            "cg:id": "Act025",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2016-06-12T07:30:00+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent003",
-                "cg:type": "Agent",
-                "description": "TS",
-                "name": "Tasha Strande"
-              }
-            ]
-          },
           "criterion": {
             "cg:id": "PM4",
             "cg:type": "Criterion",
             "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
             "shortDescription": "Protein length changes or stop-loss",
-            "defaultOutcome": "CG:M",
+            "defaultStrength": "CG-evidence-strength:pm",
             "targetInterpretation": "LN:LA6668-3"
           },
           "variant": {
@@ -3220,30 +3452,15 @@ and may serve as a starting point for exploring the model.</p>
               "cg:id": "-"
             }
           ],
-          "outcome": "CG:MET",
+          "outcome": "CG-criterion-outcome:met",
           "hasSupportingEvidence": [
             {
               "cg:id": "EvLn032",
+              "cg:type": "EvidenceLine",
               "supportingData": [
                 {
                   "cg:id": "MolCon066",
                   "cg:type": "MolecularConsequence",
-                  "wasGeneratedBy": {
-                    "cg:id": "Act079",
-                    "cg:type": "Activity",
-                    "activityTypeId": {
-                      "cg:id": "E10"
-                    },
-                    "timeStamp": "2016-06-01T14:03:00+00:00",
-                    "wasAssociatedWith": [
-                      {
-                        "cg:id": "Agent001",
-                        "cg:type": "Agent",
-                        "description": "SH",
-                        "name": "Steven Harrison"
-                      }
-                    ]
-                  },
                   "contextualAllele": {
                     "cg:id": "CtxAll044",
                     "cg:type": "ContextualAllele",
@@ -3255,44 +3472,76 @@ and may serve as a starting point for exploring the model.</p>
                     },
                     "alleleName": "NP_001360.1:p.Trp2490_Leu2496del"
                   },
-                  "consequence": "SO:0001825"
+                  "consequence": "SO:0001825",
+                  "contribution": [
+                    {
+                      "cg:id": "Contrib486",
+                      "cg:type": "Contribution",
+                      "agent": "Harry Stevenson",
+                      "onDate": {
+                        "cg:id": "2016-06-01T14:03:00+00:00"
+                      },
+                      "role": "CG-contributory-role:curator"
+                    }
+                  ]
                 },
                 {
-                  "cg:id": "Reg069",
-                  "cg:type": "RegionTypesAndAlleles",
+                  "cg:id": "RegAnn069",
+                  "cg:type": "RegionAnnotation",
                   "explanation": "This is not a repreating region.",
-                  "wasGeneratedBy": {
-                    "cg:id": "Act080",
-                    "cg:type": "Activity",
-                    "activityTypeId": {
-                      "cg:id": "E10"
+                  "region": {
+                    "cg:id": "Loc385",
+                    "cg:type": "Locus",
+                    "referenceSequence": {
+                      "cg:id": "RefSeq005",
+                      "cg:type": "ReferenceSequence",
+                      "accession": "NP_001360.1"
                     },
-                    "timeStamp": "2016-06-01T14:10:00+00:00",
-                    "wasAssociatedWith": [
-                      {
-                        "cg:id": "Agent008",
-                        "cg:type": "Agent",
-                        "description": "MDS",
-                        "name": "Marina DiStefano"
-                      }
-                    ]
+                    "start": 2490,
+                    "stop": 2496
                   },
-                  "referenceSequence": {
-                    "cg:id": "RefSeq005",
-                    "cg:type": "ReferenceSequence",
-                    "identifier": "NP_001360.1"
-                  },
-                  "start": 2490,
-                  "stop": 2496,
-                  "isNotTypes": [
-                    "CG:repeat"
+                  "isTypes": [
+                    "CG-reg-anno-type:repeat"
+                  ],
+                  "contribution": [
+                    {
+                      "cg:id": "Contrib487",
+                      "cg:type": "Contribution",
+                      "agent": "Stefan DiMarino",
+                      "onDate": {
+                        "cg:id": "2016-06-01T14:10:00+00:00"
+                      },
+                      "role": "CG-contributory-role:curator"
+                    }
                   ]
                 }
               ]
             }
+          ],
+          "contribution": [
+            {
+              "cg:id": "Contrib425",
+              "cg:type": "Contribution",
+              "agent": "Sasha Rande",
+              "onDate": {
+                "cg:id": "2016-06-12T07:30:00+00:00"
+              },
+              "role": "CG-contributory-role:assessor"
+            }
           ]
         }
       ]
+    }
+  ],
+  "contribution": [
+    {
+      "cg:id": "Contrib433",
+      "cg:type": "Contribution",
+      "agent": "Agent009",
+      "onDate": {
+        "cg:id": "2015-06-26T12:02:59+00:00"
+      },
+      "role": "CG-contributory-role:interpreter"
     }
   ]
 }
@@ -3307,7 +3556,7 @@ and may serve as a starting point for exploring the model.</p>
               <p><a href="details/details.html#CanAll122">CanAll122</a></p>
          </td>
           <td>
-              <p><a href="details/details.html#MendCond010">MendCond010</a></p>
+              <p><a href="details/details.html#MendCond058">MendCond058</a></p>
          </td>
           <td>
               <p>LN:LA26332-9</p>
@@ -3329,9 +3578,13 @@ and may serve as a starting point for exploring the model.</p>
   },
   "condition": [
     {
-      "cg:id": "MendCond010",
+      "cg:id": "MendCond058",
       "cg:type": "MendelianCondition",
-      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+      "explanation": "Hearing Loss",
+      "disease": [
+        "Orphanet:87884"
+      ],
+      "name": "Hearing Loss"
     }
   ],
   "clinicalSignificance": "LN:LA26332-9"
@@ -3347,7 +3600,7 @@ and may serve as a starting point for exploring the model.</p>
               <p><a href="details/details.html#CanAll123">CanAll123</a></p>
          </td>
           <td>
-              <p><a href="details/details.html#MendCond010">MendCond010</a></p>
+              <p><a href="details/details.html#MendCond058">MendCond058</a></p>
          </td>
           <td>
               <p>LN:LA6668-3</p>
@@ -3369,9 +3622,13 @@ and may serve as a starting point for exploring the model.</p>
   },
   "condition": [
     {
-      "cg:id": "MendCond010",
+      "cg:id": "MendCond058",
       "cg:type": "MendelianCondition",
-      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+      "explanation": "Hearing Loss",
+      "disease": [
+        "Orphanet:87884"
+      ],
+      "name": "Hearing Loss"
     }
   ],
   "clinicalSignificance": "LN:LA6668-3"

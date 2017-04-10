@@ -2,28 +2,12 @@
   "cg:id": "CritAssess299",
   "cg:type": "CriterionAssessment",
   "explanation": "leads to an in-frame deletion of 7 amino acids (not repeat region).",
-  "wasGeneratedBy": {
-    "cg:id": "Act025",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2016-06-12T07:30:00+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent003",
-        "cg:type": "Agent",
-        "description": "TS",
-        "name": "Tasha Strande"
-      }
-    ]
-  },
   "criterion": {
     "cg:id": "PM4",
     "cg:type": "Criterion",
     "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
     "shortDescription": "Protein length changes or stop-loss",
-    "defaultOutcome": "CG:M",
+    "defaultStrength": "CG-evidence-strength:pm",
     "targetInterpretation": "LN:LA6668-3"
   },
   "variant": {
@@ -37,30 +21,15 @@
       "cg:id": "-"
     }
   ],
-  "outcome": "CG:MET",
+  "outcome": "CG-criterion-outcome:met",
   "hasSupportingEvidence": [
     {
       "cg:id": "EvLn032",
+      "cg:type": "EvidenceLine",
       "supportingData": [
         {
           "cg:id": "MolCon066",
           "cg:type": "MolecularConsequence",
-          "wasGeneratedBy": {
-            "cg:id": "Act079",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
-            },
-            "timeStamp": "2016-06-01T14:03:00+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent001",
-                "cg:type": "Agent",
-                "description": "SH",
-                "name": "Steven Harrison"
-              }
-            ]
-          },
           "contextualAllele": {
             "cg:id": "CtxAll044",
             "cg:type": "ContextualAllele",
@@ -72,40 +41,61 @@
             },
             "alleleName": "NP_001360.1:p.Trp2490_Leu2496del"
           },
-          "consequence": "SO:0001825"
+          "consequence": "SO:0001825",
+          "contribution": [
+            {
+              "cg:id": "Contrib486",
+              "cg:type": "Contribution",
+              "agent": "Harry Stevenson",
+              "onDate": {
+                "cg:id": "2016-06-01T14:03:00+00:00"
+              },
+              "role": "CG-contributory-role:curator"
+            }
+          ]
         },
         {
-          "cg:id": "Reg069",
-          "cg:type": "RegionTypesAndAlleles",
+          "cg:id": "RegAnn069",
+          "cg:type": "RegionAnnotation",
           "explanation": "This is not a repreating region.",
-          "wasGeneratedBy": {
-            "cg:id": "Act080",
-            "cg:type": "Activity",
-            "activityTypeId": {
-              "cg:id": "E10"
+          "region": {
+            "cg:id": "Loc385",
+            "cg:type": "Locus",
+            "referenceSequence": {
+              "cg:id": "RefSeq005",
+              "cg:type": "ReferenceSequence",
+              "accession": "NP_001360.1"
             },
-            "timeStamp": "2016-06-01T14:10:00+00:00",
-            "wasAssociatedWith": [
-              {
-                "cg:id": "Agent008",
-                "cg:type": "Agent",
-                "description": "MDS",
-                "name": "Marina DiStefano"
-              }
-            ]
+            "start": 2490,
+            "stop": 2496
           },
-          "referenceSequence": {
-            "cg:id": "RefSeq005",
-            "cg:type": "ReferenceSequence",
-            "identifier": "NP_001360.1"
-          },
-          "start": 2490,
-          "stop": 2496,
-          "isNotTypes": [
-            "CG:repeat"
+          "isTypes": [
+            "CG-reg-anno-type:repeat"
+          ],
+          "contribution": [
+            {
+              "cg:id": "Contrib487",
+              "cg:type": "Contribution",
+              "agent": "Stefan DiMarino",
+              "onDate": {
+                "cg:id": "2016-06-01T14:10:00+00:00"
+              },
+              "role": "CG-contributory-role:curator"
+            }
           ]
         }
       ]
+    }
+  ],
+  "contribution": [
+    {
+      "cg:id": "Contrib425",
+      "cg:type": "Contribution",
+      "agent": "Sasha Rande",
+      "onDate": {
+        "cg:id": "2016-06-12T07:30:00+00:00"
+      },
+      "role": "CG-contributory-role:assessor"
     }
   ]
 }

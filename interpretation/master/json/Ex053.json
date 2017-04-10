@@ -5,28 +5,12 @@
     "cg:id": "CritAssess328",
     "cg:type": "CriterionAssessment",
     "explanation": "Perrault syndrome may be underreported due to misdiagnosis.  If the prevalence estimates rise, this assessment may need to be revisited",
-    "wasGeneratedBy": {
-      "cg:id": "Act056",
-      "cg:type": "Activity",
-      "activityTypeId": {
-        "cg:id": "E10"
-      },
-      "timeStamp": "2016-08-30T06:00:00+00:00",
-      "wasAssociatedWith": [
-        {
-          "cg:id": "Agent008",
-          "cg:type": "Agent",
-          "description": "MDS",
-          "name": "Marina DiStefano"
-        }
-      ]
-    },
     "criterion": {
       "cg:id": "BS1",
       "cg:type": "Criterion",
       "description": "Allele frequency is greater than expected for disorder",
       "shortDescription": "MAF too high for disorder",
-      "defaultOutcome": "CG:S",
+      "defaultStrength": "CG-evidence-strength:bs",
       "targetInterpretation": "LN:LA6675-8"
     },
     "variant": {
@@ -39,19 +23,24 @@
       {
         "cg:id": "MendCond028",
         "cg:type": "MendelianCondition",
-        "explanation": "Perrault Syndrome, Autosomal Dominant"
+        "explanation": "Perrault Syndrome, Autosomal Recessive",
+        "disease": [
+          "Orphanet:2855"
+        ],
+        "modeOfInheritance": "HP:0000007"
       }
     ],
-    "outcome": "CG:INSUFFICIENT",
+    "outcome": "CG-criterion-outcome:not-met",
     "hasSupportingEvidence": [
       {
         "cg:id": "EvLn066",
+        "cg:type": "EvidenceLine",
         "supportingData": [
           {
             "cg:id": "AllFreq166",
             "cg:type": "AlleleFrequency",
             "ascertainment": "ExAC",
-            "population": "CG:combined",
+            "population": "CG-population-type:combined",
             "allele": {
               "cg:id": "CanAll080",
               "cg:type": "CanonicalAllele",
@@ -69,11 +58,15 @@
               {
                 "cg:id": "MendCond028",
                 "cg:type": "MendelianCondition",
-                "explanation": "Perrault Syndrome, Autosomal Dominant"
+                "explanation": "Perrault Syndrome, Autosomal Recessive",
+                "disease": [
+                  "Orphanet:2855"
+                ],
+                "modeOfInheritance": "HP:0000007"
               }
             ],
             "maximum": 1.0e-06,
-            "population": "CG:overall"
+            "population": "CG-population-type:overall"
           },
           {
             "cg:id": "CondPenet168",
@@ -82,21 +75,31 @@
               {
                 "cg:id": "MendCond028",
                 "cg:type": "MendelianCondition",
-                "explanation": "Perrault Syndrome, Autosomal Dominant"
+                "explanation": "Perrault Syndrome, Autosomal Recessive",
+                "disease": [
+                  "Orphanet:2855"
+                ],
+                "modeOfInheritance": "HP:0000007"
               }
             ],
-            "penetrance": "CG:high"
+            "penetrance": "CG-penetrance-type:high"
           }
         ]
+      }
+    ],
+    "contribution": [
+      {
+        "cg:id": "Contrib461",
+        "cg:type": "Contribution",
+        "agent": "Stefan DiMarino",
+        "onDate": {
+          "cg:id": "2016-08-30T06:00:00+00:00"
+        },
+        "role": "CG-contributory-role:assessor"
       }
     ]
   },
   "index": 3,
-  "authorId": {
-    "cg:id": "Agent008",
-    "cg:type": "Agent",
-    "description": "MDS",
-    "name": "Marina DiStefano"
-  },
+  "author": "Marina DiStefano",
   "description": "Variant: NM_000414.3(HSD17B4):c.56C>G (p.Ala19Gly) \n** BS1 does not apply\n\nVariants in HSD17B4 are associated with Perrault syndrome. However, BS1 does not apply because this disease is so rare that it does not have an accurate prevalence. Only 100 cases have ever been reported. See the “prevalence” section in GeneReviews: http://www.ncbi.nlm.nih.gov/books/NBK242617/ \n\nAllele frequency in ExAC: "
 }

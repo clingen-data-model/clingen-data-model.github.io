@@ -1,28 +1,12 @@
 {
   "cg:id": "CritAssess345",
   "cg:type": "CriterionAssessment",
-  "wasGeneratedBy": {
-    "cg:id": "Act082",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2016-09-15T08:12:00+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent008",
-        "cg:type": "Agent",
-        "description": "MDS",
-        "name": "Marina DiStefano"
-      }
-    ]
-  },
   "criterion": {
     "cg:id": "BP3",
     "cg:type": "Criterion",
     "description": "In-frame deletions/insertions in a repetitive region without a known function",
     "shortDescription": "In-frame indel without known function",
-    "defaultOutcome": "CG:P",
+    "defaultStrength": "CG-evidence-strength:bp",
     "targetInterpretation": "LN:LA6675-8"
   },
   "variant": {
@@ -36,26 +20,49 @@
       "cg:id": "-"
     }
   ],
-  "outcome": "CG:MET",
+  "outcome": "CG-criterion-outcome:met",
   "hasSupportingEvidence": [
     {
       "cg:id": "EvLn089",
+      "cg:type": "EvidenceLine",
       "supportingData": [
         {
-          "cg:id": "Reg220",
-          "cg:type": "RegionTypesAndAlleles",
+          "cg:id": "RegAnn220",
+          "cg:type": "RegionAnnotation",
           "explanation": "region is repeating but does not have a known function.",
-          "referenceSequence": {
-            "cg:id": "RefSeq008",
-            "cg:type": "ReferenceSequence",
-            "identifier": "NM_001271208.1"
+          "region": {
+            "cg:id": "Loc390",
+            "cg:type": "Locus",
+            "referenceSequence": {
+              "cg:id": "RefSeq008",
+              "cg:type": "ReferenceSequence",
+              "accession": "NM_001271208.1"
+            },
+            "start": 154,
+            "stop": 183
           },
-          "start": 154,
-          "stop": 183,
           "isNotTypes": [
-            "CG:functional"
+            "CG-reg-anno-type:functional"
           ],
-          "isTypes": "CG:repeat",
+          "isTypes": [
+            "CG-reg-anno-type:repeat"
+          ]
+        },
+        {
+          "cg:id": "RegAll391",
+          "cg:type": "RegionAlleles",
+          "explanation": "region is repeating but does not have a known function.",
+          "region": {
+            "cg:id": "Loc390",
+            "cg:type": "Locus",
+            "referenceSequence": {
+              "cg:id": "RefSeq008",
+              "cg:type": "ReferenceSequence",
+              "accession": "NM_001271208.1"
+            },
+            "start": 154,
+            "stop": 183
+          },
           "includedAlleles": [
             {
               "cg:id": "CtxAll106",
@@ -87,6 +94,17 @@
           }
         }
       ]
+    }
+  ],
+  "contribution": [
+    {
+      "cg:id": "Contrib489",
+      "cg:type": "Contribution",
+      "agent": "Stefan DiMarino",
+      "onDate": {
+        "cg:id": "2016-09-15T08:12:00+00:00"
+      },
+      "role": "CG-contributory-role:assessor"
     }
   ]
 }

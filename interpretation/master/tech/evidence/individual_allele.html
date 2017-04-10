@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li class="active"><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionTypesAndAlleles</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li class="active"><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -196,18 +196,11 @@
                     <td>A human-readable description of the entity</td>
                 </tr>
                 <tr>
-                    <td>wasGeneratedBy</td>
-                    <td>Activity</td>
-                    <td>0..1</td>
+                    <td>contribution</td>
+                    <td>Contribution</td>
+                    <td>0..*</td>
                     <td></td>
-                    <td>The activity that produced this entity</td>
-                </tr>
-                <tr>
-                    <td>wasDerivedFrom</td>
-                    <td>Data</td>
-                    <td>0..1</td>
-                    <td></td>
-                    <td>Another entityy which was a former derivation of this entity.</td>
+                    <td>The contributions (agent, time and role) made to this entity</td>
                 </tr>
             </tbody>
         </table>
@@ -235,38 +228,22 @@
               <p><a href="../details/details.html#CanAll035">CanAll035</a></p>
          </td>
           <td>
-              <p>CG:het</p>
+              <p>CG-allelic-state:het</p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll036">CanAll036</a></p>
          </td>
           <td>
-              <p>CG:het</p>
+              <p>CG-allelic-state:het</p>
          </td>
           <td>
-              <p>CG:trans</p>
+              <p>CG-phase:trans</p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll058"><pre><code>{
   "cg:id": "IndAll058",
   "cg:type": "IndividualAllele",
   "explanation": "Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband.",
-  "wasGeneratedBy": {
-    "cg:id": "Act077",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2016-05-31T09:14:59+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent001",
-        "cg:type": "Agent",
-        "description": "SH",
-        "name": "Steven Harrison"
-      }
-    ]
-  },
   "individual": {
     "cg:id": "Indiv004",
     "cg:type": "Individual",
@@ -284,9 +261,20 @@
     "preferredCtxAllele": "CtxAll040",
     "identifier": "http://reg.genome.network/allele/CA273615"
   },
-  "primaryZygosity": "CG:het",
-  "secondaryZygosity": "CG:het",
-  "phase": "CG:trans"
+  "primaryZygosity": "CG-allelic-state:het",
+  "secondaryZygosity": "CG-allelic-state:het",
+  "phase": "CG-phase:trans",
+  "contribution": [
+    {
+      "cg:id": "Contrib484",
+      "cg:type": "Contribution",
+      "agent": "Harry Stevenson",
+      "onDate": {
+        "cg:id": "2016-05-31T09:14:59+00:00"
+      },
+      "role": "CG-contributory-role:curator"
+    }
+  ]
 }
           </code></pre></div></td>
           -->
@@ -302,16 +290,16 @@
               <p><a href="../details/details.html#CanAll037">CanAll037</a></p>
          </td>
           <td>
-              <p>CG:het</p>
+              <p>CG-allelic-state:het</p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll038">CanAll038</a></p>
          </td>
           <td>
-              <p>CG:het</p>
+              <p>CG-allelic-state:het</p>
          </td>
           <td>
-              <p>CG:trans</p>
+              <p>CG-phase:trans</p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll062"><pre><code>{
@@ -335,9 +323,9 @@
     "preferredCtxAllele": "CtxAll042",
     "identifier": "http://reg.genome.network/allele/CA501223"
   },
-  "primaryZygosity": "CG:het",
-  "secondaryZygosity": "CG:het",
-  "phase": "CG:trans"
+  "primaryZygosity": "CG-allelic-state:het",
+  "secondaryZygosity": "CG-allelic-state:het",
+  "phase": "CG-phase:trans"
 }
           </code></pre></div></td>
           -->
@@ -353,7 +341,7 @@
               <p><a href="../details/details.html#CanAll039">CanAll039</a></p>
          </td>
           <td>
-              <p>CG:hom</p>
+              <p>CG-allelic-state:hom</p>
          </td>
           <td>
               
@@ -379,7 +367,7 @@
     "preferredCtxAllele": "CtxAll043",
     "identifier": "http://reg.genome.network/allele/CA090904"
   },
-  "primaryZygosity": "CG:hom"
+  "primaryZygosity": "CG-allelic-state:hom"
 }
           </code></pre></div></td>
           -->
@@ -395,7 +383,7 @@
               <p><a href="../details/details.html#CanAll081">CanAll081</a></p>
          </td>
           <td>
-              <p>CG:het</p>
+              <p>CG-allelic-state:het</p>
          </td>
           <td>
               
@@ -421,7 +409,7 @@
     "preferredCtxAllele": "CtxAll087",
     "identifier": "http://reg.genome.network/allele/CA090918"
   },
-  "primaryZygosity": "CG:het"
+  "primaryZygosity": "CG-allelic-state:het"
 }
           </code></pre></div></td>
           -->
@@ -437,7 +425,7 @@
               <p><a href="../details/details.html#CanAll081">CanAll081</a></p>
          </td>
           <td>
-              <p>CG:hom</p>
+              <p>CG-allelic-state:hom</p>
          </td>
           <td>
               
@@ -463,7 +451,7 @@
     "preferredCtxAllele": "CtxAll087",
     "identifier": "http://reg.genome.network/allele/CA090918"
   },
-  "primaryZygosity": "CG:hom"
+  "primaryZygosity": "CG-allelic-state:hom"
 }
           </code></pre></div></td>
           -->
@@ -479,7 +467,7 @@
               <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
          </td>
           <td>
-              <p>CG:het</p>
+              <p>CG-allelic-state:het</p>
          </td>
           <td>
               
@@ -505,7 +493,7 @@
     "preferredCtxAllele": "CtxAll088",
     "identifier": "http://reg.genome.network/allele/CA008351"
   },
-  "primaryZygosity": "CG:het"
+  "primaryZygosity": "CG-allelic-state:het"
 }
           </code></pre></div></td>
           -->
@@ -521,7 +509,7 @@
               <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
          </td>
           <td>
-              <p>CG:het</p>
+              <p>CG-allelic-state:het</p>
          </td>
           <td>
               
@@ -547,7 +535,7 @@
     "preferredCtxAllele": "CtxAll088",
     "identifier": "http://reg.genome.network/allele/CA008351"
   },
-  "primaryZygosity": "CG:het"
+  "primaryZygosity": "CG-allelic-state:het"
 }
           </code></pre></div></td>
           -->
@@ -563,7 +551,7 @@
               <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
          </td>
           <td>
-              <p>CG:het</p>
+              <p>CG-allelic-state:het</p>
          </td>
           <td>
               
@@ -589,7 +577,7 @@
     "preferredCtxAllele": "CtxAll088",
     "identifier": "http://reg.genome.network/allele/CA008351"
   },
-  "primaryZygosity": "CG:het"
+  "primaryZygosity": "CG-allelic-state:het"
 }
           </code></pre></div></td>
           -->
@@ -605,7 +593,7 @@
               <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
          </td>
           <td>
-              <p>CG:het</p>
+              <p>CG-allelic-state:het</p>
          </td>
           <td>
               
@@ -631,7 +619,7 @@
     "preferredCtxAllele": "CtxAll088",
     "identifier": "http://reg.genome.network/allele/CA008351"
   },
-  "primaryZygosity": "CG:het"
+  "primaryZygosity": "CG-allelic-state:het"
 }
           </code></pre></div></td>
           -->
@@ -647,7 +635,7 @@
               <p><a href="../details/details.html#CanAll083">CanAll083</a></p>
          </td>
           <td>
-              <p>CG:het</p>
+              <p>CG-allelic-state:het</p>
          </td>
           <td>
               
@@ -673,7 +661,7 @@
     "preferredCtxAllele": "CtxAll089",
     "identifier": "http://reg.genome.network/allele/CA013604"
   },
-  "primaryZygosity": "CG:het"
+  "primaryZygosity": "CG-allelic-state:het"
 }
           </code></pre></div></td>
           -->
@@ -689,7 +677,7 @@
               <p><a href="../details/details.html#CanAll083">CanAll083</a></p>
          </td>
           <td>
-              <p>CG:het</p>
+              <p>CG-allelic-state:het</p>
          </td>
           <td>
               
@@ -715,7 +703,7 @@
     "preferredCtxAllele": "CtxAll089",
     "identifier": "http://reg.genome.network/allele/CA013604"
   },
-  "primaryZygosity": "CG:het"
+  "primaryZygosity": "CG-allelic-state:het"
 }
           </code></pre></div></td>
           -->
@@ -740,7 +728,7 @@
               
          </td>
           <td>
-              <p>CG:cis</p>
+              <p>CG-phase:cis</p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll206"><pre><code>{
@@ -763,7 +751,7 @@
     "preferredCtxAllele": "CtxAll101",
     "identifier": "http://reg.genome.network/allele/CA252233"
   },
-  "phase": "CG:cis"
+  "phase": "CG-phase:cis"
 }
           </code></pre></div></td>
           -->
@@ -788,7 +776,7 @@
               
          </td>
           <td>
-              <p>CG:cis</p>
+              <p>CG-phase:cis</p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll207"><pre><code>{
@@ -811,7 +799,7 @@
     "preferredCtxAllele": "CtxAll101",
     "identifier": "http://reg.genome.network/allele/CA252233"
   },
-  "phase": "CG:cis"
+  "phase": "CG-phase:cis"
 }
           </code></pre></div></td>
           -->
@@ -836,7 +824,7 @@
               
          </td>
           <td>
-              <p>CG:cis</p>
+              <p>CG-phase:cis</p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll211"><pre><code>{
@@ -859,7 +847,7 @@
     "preferredCtxAllele": "CtxAll103",
     "identifier": "http://reg.genome.network/allele/CA182839"
   },
-  "phase": "CG:cis"
+  "phase": "CG-phase:cis"
 }
           </code></pre></div></td>
           -->
@@ -884,7 +872,7 @@
               
          </td>
           <td>
-              <p>CG:trans</p>
+              <p>CG-phase:trans</p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll214"><pre><code>{
@@ -907,7 +895,7 @@
     "preferredCtxAllele": "CtxAll105",
     "identifier": "http://reg.genome.network/allele/CA501236"
   },
-  "phase": "CG:trans"
+  "phase": "CG-phase:trans"
 }
           </code></pre></div></td>
           -->
@@ -1011,16 +999,16 @@
               <p><a href="../details/details.html#CanAll109">CanAll109</a></p>
          </td>
           <td>
-              <p>CG:het</p>
+              <p>CG-allelic-state:het</p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll110">CanAll110</a></p>
          </td>
           <td>
-              <p>CG:het</p>
+              <p>CG-allelic-state:het</p>
          </td>
           <td>
-              <p>CG:trans</p>
+              <p>CG-phase:trans</p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll245"><pre><code>{
@@ -1043,9 +1031,9 @@
     "preferredCtxAllele": "CtxAll116",
     "identifier": "http://reg.genome.network/allele/CA274460"
   },
-  "primaryZygosity": "CG:het",
-  "secondaryZygosity": "CG:het",
-  "phase": "CG:trans"
+  "primaryZygosity": "CG-allelic-state:het",
+  "secondaryZygosity": "CG-allelic-state:het",
+  "phase": "CG-phase:trans"
 }
           </code></pre></div></td>
           -->
@@ -1067,7 +1055,7 @@
               <p><a href="../details/details.html#CanAll111">CanAll111</a></p>
          </td>
           <td>
-              <p>CG:hom</p>
+              <p>CG-allelic-state:hom</p>
          </td>
           <td>
               
@@ -1093,7 +1081,7 @@
     "preferredCtxAllele": "CtxAll117",
     "identifier": "http://reg.genome.network/allele/CA277980"
   },
-  "secondaryZygosity": "CG:hom"
+  "secondaryZygosity": "CG-allelic-state:hom"
 }
           </code></pre></div></td>
           -->
@@ -1165,7 +1153,7 @@
               
          </td>
           <td>
-              <p>CG:trans</p>
+              <p>CG-phase:trans</p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll366"><pre><code>{
@@ -1187,7 +1175,7 @@
     "cg:type": "CanonicalAllele",
     "preferredCtxAllele": "CtxAll128"
   },
-  "phase": "CG:trans"
+  "phase": "CG-phase:trans"
 }
           </code></pre></div></td>
           -->
@@ -1212,7 +1200,7 @@
               
          </td>
           <td>
-              <p>CG:trans</p>
+              <p>CG-phase:trans</p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll367"><pre><code>{
@@ -1234,7 +1222,7 @@
     "cg:type": "CanonicalAllele",
     "preferredCtxAllele": "CtxAll129"
   },
-  "phase": "CG:trans"
+  "phase": "CG-phase:trans"
 }
           </code></pre></div></td>
           -->

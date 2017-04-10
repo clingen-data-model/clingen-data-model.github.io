@@ -2,28 +2,12 @@
   "cg:id": "CritAssess293",
   "cg:type": "CriterionAssessment",
   "explanation": "PM2 is applicable as even though variant is not 100% absent, it is practically absent (a 95% CI for the population goes from 0.00% to 0.01%)",
-  "wasGeneratedBy": {
-    "cg:id": "Act019",
-    "cg:type": "Activity",
-    "activityTypeId": {
-      "cg:id": "E10"
-    },
-    "timeStamp": "2016-06-04T09:08:00+00:00",
-    "wasAssociatedWith": [
-      {
-        "cg:id": "Agent001",
-        "cg:type": "Agent",
-        "description": "SH",
-        "name": "Steven Harrison"
-      }
-    ]
-  },
   "criterion": {
     "cg:id": "PM2",
     "cg:type": "Criterion",
     "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
     "shortDescription": "Absent from controls",
-    "defaultOutcome": "CG:M",
+    "defaultStrength": "CG-evidence-strength:pm",
     "targetInterpretation": "LN:LA6668-3"
   },
   "variant": {
@@ -37,16 +21,17 @@
       "cg:id": "-"
     }
   ],
-  "outcome": "CG:MET",
+  "outcome": "CG-criterion-outcome:met",
   "hasSupportingEvidence": [
     {
       "cg:id": "EvLn025",
+      "cg:type": "EvidenceLine",
       "supportingData": [
         {
           "cg:id": "AllFreq051",
           "cg:type": "AlleleFrequency",
           "ascertainment": "ExAC",
-          "population": "EX:nfe",
+          "population": "EXAC:NFE",
           "allele": {
             "cg:id": "CanAll032",
             "cg:type": "CanonicalAllele",
@@ -62,12 +47,13 @@
     },
     {
       "cg:id": "EvLn026",
+      "cg:type": "EvidenceLine",
       "supportingData": [
         {
           "cg:id": "AllFreq052",
           "cg:type": "AlleleFrequency",
           "ascertainment": "ExAC",
-          "population": "CG:combined",
+          "population": "CG-population-type:combined",
           "allele": {
             "cg:id": "CanAll032",
             "cg:type": "CanonicalAllele",
@@ -80,6 +66,17 @@
           "homozygousAlleleIndividualCount": 0
         }
       ]
+    }
+  ],
+  "contribution": [
+    {
+      "cg:id": "Contrib419",
+      "cg:type": "Contribution",
+      "agent": "Harry Stevenson",
+      "onDate": {
+        "cg:id": "2016-06-04T09:08:00+00:00"
+      },
+      "role": "CG-contributory-role:assessor"
     }
   ]
 }

@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li class="active"><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionTypesAndAlleles</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li class="active"><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -190,18 +190,11 @@
                     <td>A human-readable description of the entity</td>
                 </tr>
                 <tr>
-                    <td>wasGeneratedBy</td>
-                    <td>Activity</td>
-                    <td>0..1</td>
+                    <td>contribution</td>
+                    <td>Contribution</td>
+                    <td>0..*</td>
                     <td></td>
-                    <td>The activity that produced this entity</td>
-                </tr>
-                <tr>
-                    <td>wasDerivedFrom</td>
-                    <td>Data</td>
-                    <td>0..1</td>
-                    <td></td>
-                    <td>Another entityy which was a former derivation of this entity.</td>
+                    <td>The contributions (agent, time and role) made to this entity</td>
                 </tr>
             </tbody>
         </table>
@@ -222,10 +215,10 @@
           <td><p><a href="../details/details.html#CondPrev039">CondPrev039</a></p></td>
           <td></td>
           <td>
-              <p><a href="../details/details.html#MendCond010">MendCond010</a></p>
+              <p><a href="../details/details.html#MendCond057">MendCond057</a></p>
          </td>
           <td>
-              <p>CG:overall</p>
+              <p>CG-population-type:overall</p>
          </td>
           <td>
               <p>1.0</p>
@@ -242,14 +235,18 @@
   "cg:type": "ConditionPrevelance",
   "condition": [
     {
-      "cg:id": "MendCond010",
+      "cg:id": "MendCond057",
       "cg:type": "MendelianCondition",
-      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3"
+      "explanation": "Hearing Loss",
+      "disease": [
+        "Orphanet:87884"
+      ],
+      "name": "Hearing Loss"
     }
   ],
   "minimum": 1.0,
   "maximum": 1.0,
-  "population": "CG:overall"
+  "population": "CG-population-type:overall"
 }
           </code></pre></div></td>
           -->
@@ -259,10 +256,10 @@
           <td><p><a href="../details/details.html#CondPrev159">CondPrev159</a></p></td>
           <td></td>
           <td>
-              <p><a href="../details/details.html#MendCond028">MendCond028</a></p>
+              <p><a href="../details/details.html#MendCond026">MendCond026</a></p>
          </td>
           <td>
-              <p>CG:overall</p>
+              <p>CG-population-type:overall</p>
          </td>
           <td>
               <p>0.0017</p>
@@ -279,14 +276,18 @@
   "cg:type": "ConditionPrevelance",
   "condition": [
     {
-      "cg:id": "MendCond028",
+      "cg:id": "MendCond026",
       "cg:type": "MendelianCondition",
-      "explanation": "Perrault Syndrome, Autosomal Dominant"
+      "explanation": "Marfan Syndrome, Autosomal Dominant",
+      "disease": [
+        "Orphanet:558"
+      ],
+      "modeOfInheritance": "HP:0000006"
     }
   ],
   "minimum": 0.0017,
   "maximum": 0.0007,
-  "population": "CG:overall"
+  "population": "CG-population-type:overall"
 }
           </code></pre></div></td>
           -->
@@ -299,7 +300,7 @@
               <p><a href="../details/details.html#MendCond027">MendCond027</a></p>
          </td>
           <td>
-              <p>CG:overall</p>
+              <p>CG-population-type:overall</p>
          </td>
           <td>
               
@@ -318,11 +319,15 @@
     {
       "cg:id": "MendCond027",
       "cg:type": "MendelianCondition",
-      "explanation": "Mitochondrial complex 1 deficiency, X-linked dominant inheritance"
+      "explanation": "Mitochondrial complex 1 deficiency, X-linked dominant inheritance",
+      "disease": [
+        "Orphanet:2609"
+      ],
+      "modeOfInheritance": "HP:0001423"
     }
   ],
   "value": 0.00012,
-  "population": "CG:overall"
+  "population": "CG-population-type:overall"
 }
           </code></pre></div></td>
           -->
@@ -335,7 +340,7 @@
               <p><a href="../details/details.html#MendCond028">MendCond028</a></p>
          </td>
           <td>
-              <p>CG:overall</p>
+              <p>CG-population-type:overall</p>
          </td>
           <td>
               
@@ -354,11 +359,15 @@
     {
       "cg:id": "MendCond028",
       "cg:type": "MendelianCondition",
-      "explanation": "Perrault Syndrome, Autosomal Dominant"
+      "explanation": "Perrault Syndrome, Autosomal Recessive",
+      "disease": [
+        "Orphanet:2855"
+      ],
+      "modeOfInheritance": "HP:0000007"
     }
   ],
   "maximum": 1.0e-06,
-  "population": "CG:overall"
+  "population": "CG-population-type:overall"
 }
           </code></pre></div></td>
           -->

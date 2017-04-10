@@ -5,34 +5,12 @@
     "cg:id": "CritAssess305",
     "cg:type": "CriterionAssessment",
     "explanation": "while the variant is absent from exac, however\n1) very low coverage across this region (~5X) and usually 20X is used as a cut-off to say “absent”\n2) variant is 21 nt deletion - databases may not be able to call a variant of that size (I rarely see an indel of this size in ExAC).",
-    "wasGeneratedBy": {
-      "cg:id": "Act031",
-      "cg:type": "Activity",
-      "activityTypeId": {
-        "cg:id": "E10"
-      },
-      "timeStamp": "2016-07-01T10:53:00+00:00",
-      "wasAssociatedWith": [
-        {
-          "cg:id": "Agent001",
-          "cg:type": "Agent",
-          "description": "SH",
-          "name": "Steven Harrison"
-        },
-        {
-          "cg:id": "Agent005",
-          "cg:type": "Agent",
-          "description": "CSER",
-          "name": "CSER Bake Off Project"
-        }
-      ]
-    },
     "criterion": {
       "cg:id": "PM2",
       "cg:type": "Criterion",
       "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
       "shortDescription": "Absent from controls",
-      "defaultOutcome": "CG:M",
+      "defaultStrength": "CG-evidence-strength:pm",
       "targetInterpretation": "LN:LA6668-3"
     },
     "variant": {
@@ -46,32 +24,17 @@
         "cg:id": "-"
       }
     ],
-    "outcome": "CG:INSUFFICIENT",
+    "outcome": "CG-criterion-outcome:not-met",
     "hasSupportingEvidence": [
       {
         "cg:id": "EvLn040",
+        "cg:type": "EvidenceLine",
         "supportingData": [
           {
             "cg:id": "AllFreq082",
             "cg:type": "AlleleFrequency",
-            "wasGeneratedBy": {
-              "cg:id": "Act081",
-              "cg:type": "Activity",
-              "activityTypeId": {
-                "cg:id": "E10"
-              },
-              "timeStamp": "2016-06-01T14:15:00+00:00",
-              "wasAssociatedWith": [
-                {
-                  "cg:id": "Agent001",
-                  "cg:type": "Agent",
-                  "description": "SH",
-                  "name": "Steven Harrison"
-                }
-              ]
-            },
             "ascertainment": "ExAC",
-            "population": "CG:combined",
+            "population": "CG-population-type:combined",
             "allele": {
               "cg:id": "CanAll035",
               "cg:type": "CanonicalAllele",
@@ -80,19 +43,45 @@
             },
             "alleleCount": 0,
             "alleleFrequency": 0.0,
-            "medianCoverage": 11.0
+            "medianCoverage": 11.0,
+            "contribution": [
+              {
+                "cg:id": "Contrib488",
+                "cg:type": "Contribution",
+                "agent": "Harry Stevenson",
+                "onDate": {
+                  "cg:id": "2016-06-01T14:15:00+00:00"
+                },
+                "role": "CG-contributory-role:curator"
+              }
+            ]
           }
         ]
+      }
+    ],
+    "contribution": [
+      {
+        "cg:id": "Contrib431",
+        "cg:type": "Contribution",
+        "agent": "Harry Stevenson",
+        "onDate": {
+          "cg:id": "2016-07-01T10:53:00+00:00"
+        },
+        "role": "CG-contributory-role:assessor"
+      },
+      {
+        "cg:id": "Contrib432",
+        "cg:type": "Contribution",
+        "agent": "CSER Bakeoff Project",
+        "onDate": {
+          "cg:id": "2016-07-01T10:53:00+00:00"
+        },
+        "role": "CG-contributory-role:assessor"
       }
     ]
   },
   "searchTags": "cser",
   "index": 4,
-  "authorId": {
-    "cg:id": "Agent001",
-    "cg:type": "Agent",
-    "description": "SH",
-    "name": "Steven Harrison"
-  },
+  "author": "Steven Harrison",
   "description": "(CSER var#72,classifier#3) \nNM_001369.2(DNAH5):c.7468_7488del (p.Trp2490_Leu2496del)\n\nVariant is absent from ExAC (http://exac.broadinstitute.org/region/5-13810280-13810320) however:\nVery low coverage across this region (~5X) and usually 20X is used as a cut-off to say “absent”\nVariant is 21 nt deletion - databases may not be able to call a variant of that size (I rarely see an indel of this size in ExAC)\n\nSo you can’t really say this variant is “absent” (PM2) - so I would argue PM2 is not applicable for this variant"
 }
