@@ -6,8 +6,9 @@
     "cg:type": "Criterion",
     "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
     "shortDescription": "Absent from controls",
-    "defaultStrength": "CG-evidence-strength:pm",
-    "targetInterpretation": "LN:LA6668-3"
+    "defaultStrength": {
+      "cg:id": "CG-evidence-strength:pm"
+    }
   },
   "variant": {
     "cg:id": "CanAll033",
@@ -15,22 +16,38 @@
     "preferredCtxAllele": "CtxAll037",
     "identifier": "http://reg.genome.network/allele/CA011797"
   },
-  "condition": [
-    {
-      "cg:id": "-"
-    }
-  ],
-  "outcome": "CG-criterion-outcome:not-met",
-  "hasSupportingEvidence": [
+  "outcome": {
+    "cg:id": "CC217",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-criterion-outcome:not-met",
+        "cg:type": "Coding",
+        "code": "not-met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Not Met"
+      }
+    ]
+  },
+  "hasEvidence": [
     {
       "cg:id": "EvLn027",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn027",
+      "hasInformation": [
         {
           "cg:id": "AllFreq053",
           "cg:type": "AlleleFrequency",
           "ascertainment": "ExAC",
-          "population": "EXAC:FIN",
+          "population": {
+            "cg:id": "CC040",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "EXAC:FIN"
+              }
+            ]
+          },
           "allele": {
             "cg:id": "CanAll033",
             "cg:type": "CanonicalAllele",
@@ -51,10 +68,20 @@
       "cg:id": "Contrib420",
       "cg:type": "Contribution",
       "agent": "Harry Stevenson",
-      "onDate": {
-        "cg:id": "2016-06-05T15:13:00+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "6/5/16 3:13 PM",
+      "role": {
+        "cg:id": "CC322",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

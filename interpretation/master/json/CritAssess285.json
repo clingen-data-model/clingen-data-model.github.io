@@ -6,8 +6,9 @@
     "cg:type": "Criterion",
     "description": "Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product",
     "shortDescription": "Well-established functional studies showing damaging effect",
-    "defaultStrength": "CG-evidence-strength:ps",
-    "targetInterpretation": "LN:LA6668-3"
+    "defaultStrength": {
+      "cg:id": "CG-evidence-strength:ps"
+    }
   },
   "variant": {
     "cg:id": "CanAll019",
@@ -15,23 +16,43 @@
     "preferredCtxAllele": "CtxAll022",
     "identifier": "http://reg.genome.network/allele/CA090884"
   },
-  "condition": [
-    {
-      "cg:id": "-"
-    }
-  ],
-  "outcome": "CG-criterion-outcome:met",
-  "hasSupportingEvidence": [
+  "outcome": {
+    "cg:id": "CC208",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-criterion-outcome:met",
+        "cg:type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
+      }
+    ]
+  },
+  "hasEvidence": [
     {
       "cg:id": "EvLn016",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn016",
+      "hasInformation": [
         {
           "cg:id": "Func025",
           "cg:type": "FunctionalData",
           "explanation": "Expression of human SPG7 (with this mutation) in yeast with damaged m-AAA protease did not restore respiratory growth or MrpL32 processing, if the function of AFG3L2 was impaired.",
           "result": "Functionally Damaging",
-          "dataType": "CG-func-data-type:yeastcomp",
+          "dataType": {
+            "cg:id": "CC019",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-func-data-type:yeastcomp",
+                "cg:type": "Coding",
+                "code": "yeastcomp",
+                "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+                "display": "Yeast complementation assay"
+              }
+            ]
+          },
           "contextualAllele": {
             "cg:id": "CtxAll022",
             "cg:type": "ContextualAllele",
@@ -57,19 +78,39 @@
       "cg:id": "Contrib408",
       "cg:type": "Contribution",
       "agent": "Sasha Rande",
-      "onDate": {
-        "cg:id": "2016-06-03T18:08:59+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "6/3/16 6:09 PM",
+      "role": {
+        "cg:id": "CC310",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     },
     {
       "cg:id": "Contrib409",
       "cg:type": "Contribution",
       "agent": "CSER Bakeoff Project",
-      "onDate": {
-        "cg:id": "2016-06-03T18:08:59+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "6/3/16 6:09 PM",
+      "role": {
+        "cg:id": "CC311",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

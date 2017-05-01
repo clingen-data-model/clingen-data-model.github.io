@@ -8,7 +8,19 @@
     "preferredCtxAllele": "CtxAll124",
     "identifier": "http://reg.genome.network/allele/CA013536"
   },
-  "clinicalSignificance": "LN:LA26334-5",
+  "clinicalSignificance": {
+    "cg:id": "CC031",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "LN:LA26334-5",
+        "cg:type": "Coding",
+        "code": "LA26334-5",
+        "system": "http://loinc.org/",
+        "display": "Likely Benign"
+      }
+    ]
+  },
   "assertionMethod": {
     "cg:id": "AssertMeth001",
     "cg:type": "AssertionMethod",
@@ -25,8 +37,8 @@
     {
       "cg:id": "EvLn120",
       "cg:type": "EvidenceLine",
-      "strength": "CG-evidence-strength:bs",
-      "supportingData": [
+      "explanation": "EvLn120",
+      "hasInformation": [
         {
           "cg:id": "CritAssess371",
           "cg:type": "CriterionAssessment",
@@ -36,8 +48,9 @@
             "cg:type": "Criterion",
             "description": "Allele frequency is greater than expected for disorder",
             "shortDescription": "MAF too high for disorder",
-            "defaultStrength": "CG-evidence-strength:bs",
-            "targetInterpretation": "LN:LA6675-8"
+            "defaultStrength": {
+              "cg:id": "CG-evidence-strength:bs"
+            }
           },
           "variant": {
             "cg:id": "CanAll118",
@@ -45,12 +58,25 @@
             "preferredCtxAllele": "CtxAll124",
             "identifier": "http://reg.genome.network/allele/CA013536"
           },
-          "outcome": "CG-criterion-outcome:met",
-          "hasSupportingEvidence": [
+          "outcome": {
+            "cg:id": "CC290",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-criterion-outcome:met",
+                "cg:type": "Coding",
+                "code": "met",
+                "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+                "display": "Met"
+              }
+            ]
+          },
+          "hasEvidence": [
             {
               "cg:id": "EvLn108",
               "cg:type": "EvidenceLine",
-              "supportingData": [
+              "explanation": "EvLn108",
+              "hasInformation": [
                 {
                   "cg:id": "AllFreq037",
                   "cg:type": "AlleleFrequency",
@@ -64,7 +90,15 @@
                   "alleleCount": 31,
                   "alleleNumber": 16512,
                   "alleleFrequency": 0.02,
-                  "population": "EXAC:SAS"
+                  "population": {
+                    "cg:id": "CC024",
+                    "cg:type": "CodeableConcept",
+                    "coding": [
+                      {
+                        "cg:id": "EXAC:SAS"
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -74,20 +108,64 @@
               "cg:id": "Contrib508",
               "cg:type": "Contribution",
               "agent": "Stefan DiMarino",
-              "onDate": {
-                "cg:id": "2017-03-08T07:43:00+00:00"
-              },
-              "role": "CG-contributory-role:assessor"
+              "onDate": "03/08/2017 7:43 AM",
+              "role": {
+                "cg:id": "CC410",
+                "cg:type": "CodeableConcept",
+                "coding": [
+                  {
+                    "cg:id": "CG-contributory-role:assessor",
+                    "cg:type": "Coding",
+                    "code": "assessor",
+                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                    "display": "assessor"
+                  }
+                ]
+              }
             }
           ]
+        }
+      ],
+      "strength": {
+        "cg:id": "CC449",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-evidence-strength:bs",
+            "cg:type": "Coding",
+            "code": "bs",
+            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "display": "Benign Strong"
+          }
+        ]
+      },
+      "contribution": [
+        {
+          "cg:id": "Contrib531",
+          "cg:type": "Contribution",
+          "agent": "Stefan DiMarino",
+          "onDate": "03/08/2017 7:43 AM",
+          "role": {
+            "cg:id": "CC433",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-contributory-role:assessor",
+                "cg:type": "Coding",
+                "code": "assessor",
+                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                "display": "assessor"
+              }
+            ]
+          }
         }
       ]
     },
     {
       "cg:id": "EvLn118",
       "cg:type": "EvidenceLine",
-      "strength": "CG-evidence-strength:bp",
-      "supportingData": [
+      "explanation": "EvLn118",
+      "hasInformation": [
         {
           "cg:id": "CritAssess373",
           "cg:type": "CriterionAssessment",
@@ -97,8 +175,9 @@
             "cg:type": "Criterion",
             "description": "Multiple lines of computational evidence suggest no impact on gene or gene product (conservation, evolutionary, splicing impact, etc.)",
             "shortDescription": "Computational evidence supports benign impact",
-            "defaultStrength": "CG-evidence-strength:bp",
-            "targetInterpretation": "LN:LA6675-8"
+            "defaultStrength": {
+              "cg:id": "CG-evidence-strength:bp"
+            }
           },
           "variant": {
             "cg:id": "CanAll118",
@@ -106,12 +185,25 @@
             "preferredCtxAllele": "CtxAll124",
             "identifier": "http://reg.genome.network/allele/CA013536"
           },
-          "outcome": "CG-criterion-outcome:met",
-          "hasSupportingEvidence": [
+          "outcome": {
+            "cg:id": "CC292",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-criterion-outcome:met",
+                "cg:type": "Coding",
+                "code": "met",
+                "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+                "display": "Met"
+              }
+            ]
+          },
+          "hasEvidence": [
             {
               "cg:id": "EvLn117",
               "cg:type": "EvidenceLine",
-              "supportingData": [
+              "explanation": "EvLn117",
+              "hasInformation": [
                 {
                   "cg:id": "InSilicoPred068",
                   "cg:type": "InSilicoPrediction",
@@ -127,7 +219,19 @@
                     },
                     "alleleName": "NM_000257.2(MYH7):c.327C>T"
                   },
-                  "type": "CG-prediction-type:sp",
+                  "type": {
+                    "cg:id": "CC056",
+                    "cg:type": "CodeableConcept",
+                    "coding": [
+                      {
+                        "cg:id": "CG-prediction-type:sp",
+                        "cg:type": "Coding",
+                        "code": "sp",
+                        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+                        "display": "splicing prediction"
+                      }
+                    ]
+                  },
                   "value": "no impact"
                 },
                 {
@@ -159,7 +263,19 @@
                 {
                   "cg:id": "MolCon075",
                   "cg:type": "MolecularConsequence",
-                  "consequence": "SO:0001819",
+                  "consequence": {
+                    "cg:id": "CC061",
+                    "cg:type": "CodeableConcept",
+                    "coding": [
+                      {
+                        "cg:id": "SO:0001819",
+                        "cg:type": "Coding",
+                        "code": "0001819",
+                        "system": "http://sequenceontology.org/",
+                        "display": "synonymous variant"
+                      }
+                    ]
+                  },
                   "contextualAllele": {
                     "cg:id": "CtxAll124",
                     "cg:type": "ContextualAllele",
@@ -180,20 +296,64 @@
               "cg:id": "Contrib510",
               "cg:type": "Contribution",
               "agent": "Stefan DiMarino",
-              "onDate": {
-                "cg:id": "2017-03-08T10:02:00+00:00"
-              },
-              "role": "CG-contributory-role:assessor"
+              "onDate": "03/08/2017 10:02 AM",
+              "role": {
+                "cg:id": "CC412",
+                "cg:type": "CodeableConcept",
+                "coding": [
+                  {
+                    "cg:id": "CG-contributory-role:assessor",
+                    "cg:type": "Coding",
+                    "code": "assessor",
+                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                    "display": "assessor"
+                  }
+                ]
+              }
             }
           ]
+        }
+      ],
+      "strength": {
+        "cg:id": "CC447",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-evidence-strength:bp",
+            "cg:type": "Coding",
+            "code": "bp",
+            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "display": "Benign Supporting"
+          }
+        ]
+      },
+      "contribution": [
+        {
+          "cg:id": "Contrib529",
+          "cg:type": "Contribution",
+          "agent": "Stefan DiMarino",
+          "onDate": "03/08/2017 10:02 AM",
+          "role": {
+            "cg:id": "CC431",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-contributory-role:assessor",
+                "cg:type": "Coding",
+                "code": "assessor",
+                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                "display": "assessor"
+              }
+            ]
+          }
         }
       ]
     },
     {
       "cg:id": "EvLn119",
       "cg:type": "EvidenceLine",
-      "strength": "CG-evidence-strength:bp",
-      "supportingData": [
+      "explanation": "EvLn119",
+      "hasInformation": [
         {
           "cg:id": "CritAssess359",
           "cg:type": "CriterionAssessment",
@@ -202,8 +362,9 @@
             "cg:type": "Criterion",
             "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
             "shortDescription": "Synonymous variant without predicted splice effect in region with low conservation",
-            "defaultStrength": "CG-evidence-strength:bp",
-            "targetInterpretation": "LN:LA6675-8"
+            "defaultStrength": {
+              "cg:id": "CG-evidence-strength:bp"
+            }
           },
           "variant": {
             "cg:id": "CanAll118",
@@ -211,17 +372,25 @@
             "preferredCtxAllele": "CtxAll124",
             "identifier": "http://reg.genome.network/allele/CA013536"
           },
-          "condition": [
-            {
-              "cg:id": "-"
-            }
-          ],
-          "outcome": "CG-criterion-outcome:met",
-          "hasSupportingEvidence": [
+          "outcome": {
+            "cg:id": "CC279",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-criterion-outcome:met",
+                "cg:type": "Coding",
+                "code": "met",
+                "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+                "display": "Met"
+              }
+            ]
+          },
+          "hasEvidence": [
             {
               "cg:id": "EvLn101",
               "cg:type": "EvidenceLine",
-              "supportingData": [
+              "explanation": "EvLn101",
+              "hasInformation": [
                 {
                   "cg:id": "InSilicoPred262",
                   "cg:type": "InSilicoPrediction",
@@ -237,7 +406,19 @@
                     },
                     "alleleName": "NM_000257.2(MYH7):c.327C>T"
                   },
-                  "type": "CG-prediction-type:sp",
+                  "type": {
+                    "cg:id": "CC189",
+                    "cg:type": "CodeableConcept",
+                    "coding": [
+                      {
+                        "cg:id": "CG-prediction-type:sp",
+                        "cg:type": "Coding",
+                        "code": "sp",
+                        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+                        "display": "splicing prediction"
+                      }
+                    ]
+                  },
                   "value": "no impact"
                 },
                 {
@@ -269,7 +450,19 @@
                 {
                   "cg:id": "MolCon265",
                   "cg:type": "MolecularConsequence",
-                  "consequence": "SO:0001819",
+                  "consequence": {
+                    "cg:id": "CC190",
+                    "cg:type": "CodeableConcept",
+                    "coding": [
+                      {
+                        "cg:id": "SO:0001819",
+                        "cg:type": "Coding",
+                        "code": "0001819",
+                        "system": "http://sequenceontology.org/",
+                        "display": "synonymous variant"
+                      }
+                    ]
+                  },
                   "contextualAllele": {
                     "cg:id": "CtxAll124",
                     "cg:type": "ContextualAllele",
@@ -290,12 +483,56 @@
               "cg:id": "Contrib503",
               "cg:type": "Contribution",
               "agent": "Stefan DiMarino",
-              "onDate": {
-                "cg:id": "2016-10-10T08:04:59+00:00"
-              },
-              "role": "CG-contributory-role:assessor"
+              "onDate": "10/10/16 8:05 AM",
+              "role": {
+                "cg:id": "CC405",
+                "cg:type": "CodeableConcept",
+                "coding": [
+                  {
+                    "cg:id": "CG-contributory-role:assessor",
+                    "cg:type": "Coding",
+                    "code": "assessor",
+                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                    "display": "assessor"
+                  }
+                ]
+              }
             }
           ]
+        }
+      ],
+      "strength": {
+        "cg:id": "CC448",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-evidence-strength:bp",
+            "cg:type": "Coding",
+            "code": "bp",
+            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "display": "Benign Supporting"
+          }
+        ]
+      },
+      "contribution": [
+        {
+          "cg:id": "Contrib530",
+          "cg:type": "Contribution",
+          "agent": "Stefan DiMarino",
+          "onDate": "10/10/16 8:05 AM",
+          "role": {
+            "cg:id": "CC432",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-contributory-role:assessor",
+                "cg:type": "Coding",
+                "code": "assessor",
+                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                "display": "assessor"
+              }
+            ]
+          }
         }
       ]
     }
@@ -305,10 +542,20 @@
       "cg:id": "Contrib467",
       "cg:type": "Contribution",
       "agent": "CSER classifier #6",
-      "onDate": {
-        "cg:id": "2015-06-26T12:05:59+00:00"
-      },
-      "role": "CG-contributory-role:interpreter"
+      "onDate": "6/26/2015 12:06 PM",
+      "role": {
+        "cg:id": "CC369",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:interpreter",
+            "cg:type": "Coding",
+            "code": "interpreter",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "interpreter"
+          }
+        ]
+      }
     }
   ]
 }

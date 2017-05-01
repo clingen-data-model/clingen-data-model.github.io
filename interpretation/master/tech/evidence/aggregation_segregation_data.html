@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="agent.html">Agent</a></li><li class="active"><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Information</a></li><ul><li><a href="agent.html">Agent</a></li><li class="active"><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -108,7 +108,7 @@
             <h1>AggregateSegregationData</h1>
             <p>Cosegregation of an allele and a condition aggregated across families</p>
 
-                <p>Descended from Data</p>
+                <p>Descended from Information</p>
 
             <hr class='col-sm-12' />
 
@@ -231,6 +231,13 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>source</td>
+                    <td>InformationSource</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>explanation</td>
                     <td>String</td>
                     <td>0..1</td>
@@ -312,11 +319,19 @@
   "condition": {
     "cg:id": "MendCond020",
     "cg:type": "MendelianCondition",
-    "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
+    "explanation": "Orphanet:217569, HP:0000006",
     "disease": [
-      "Orphanet:217569"
+      {
+        "cg:id": "Orphanet:217569"
+      }
     ],
-    "modeOfInheritance": "HP:0000006"
+    "modeOfInheritance": {
+      "cg:id": "HP:0000006",
+      "cg:type": "Coding",
+      "code": "0000006",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Autosomal Dominant"
+    }
   },
   "canonicalAllele": {
     "cg:id": "CanAll063",
@@ -332,11 +347,19 @@
       "condition": {
         "cg:id": "MendCond020",
         "cg:type": "MendelianCondition",
-        "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
+        "explanation": "Orphanet:217569, HP:0000006",
         "disease": [
-          "Orphanet:217569"
+          {
+            "cg:id": "Orphanet:217569"
+          }
         ],
-        "modeOfInheritance": "HP:0000006"
+        "modeOfInheritance": {
+          "cg:id": "HP:0000006",
+          "cg:type": "Coding",
+          "code": "0000006",
+          "system": "http://human-phenotype-ontology.github.io/",
+          "display": "Autosomal Dominant"
+        }
       },
       "canonicalAllele": {
         "cg:id": "CanAll063",
@@ -357,10 +380,20 @@
           "cg:id": "Contrib481",
           "cg:type": "Contribution",
           "agent": "Stefan DiMarino",
-          "onDate": {
-            "cg:id": "2016-09-13T00:00:00+00:00"
-          },
-          "role": "CG-contributory-role:curator"
+          "onDate": "9/13/16",
+          "role": {
+            "cg:id": "CC383",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-contributory-role:curator",
+                "cg:type": "Coding",
+                "code": "curator",
+                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                "display": "curator"
+              }
+            ]
+          }
         }
       ]
     },
@@ -371,11 +404,19 @@
       "condition": {
         "cg:id": "MendCond020",
         "cg:type": "MendelianCondition",
-        "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
+        "explanation": "Orphanet:217569, HP:0000006",
         "disease": [
-          "Orphanet:217569"
+          {
+            "cg:id": "Orphanet:217569"
+          }
         ],
-        "modeOfInheritance": "HP:0000006"
+        "modeOfInheritance": {
+          "cg:id": "HP:0000006",
+          "cg:type": "Coding",
+          "code": "0000006",
+          "system": "http://human-phenotype-ontology.github.io/",
+          "display": "Autosomal Dominant"
+        }
       },
       "canonicalAllele": {
         "cg:id": "CanAll063",
@@ -394,10 +435,20 @@
           "cg:id": "Contrib482",
           "cg:type": "Contribution",
           "agent": "Harry Stevenson",
-          "onDate": {
-            "cg:id": "2016-09-13T00:00:00+00:00"
-          },
-          "role": "CG-contributory-role:curator"
+          "onDate": "9/13/16",
+          "role": {
+            "cg:id": "CC384",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-contributory-role:curator",
+                "cg:type": "Coding",
+                "code": "curator",
+                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                "display": "curator"
+              }
+            ]
+          }
         }
       ]
     }
@@ -454,11 +505,19 @@
   "condition": {
     "cg:id": "MendCond021",
     "cg:type": "MendelianCondition",
-    "explanation": "Usher syndrome, Autosomal Recessive",
+    "explanation": "Orphanet:886, HP:0000007",
     "disease": [
-      "Orphanet:886"
+      {
+        "cg:id": "Orphanet:886"
+      }
     ],
-    "modeOfInheritance": "HP:0000007"
+    "modeOfInheritance": {
+      "cg:id": "HP:0000007",
+      "cg:type": "Coding",
+      "code": "0000007",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Autosomal Recessive"
+    }
   },
   "canonicalAllele": {
     "cg:id": "CanAll062",
@@ -474,11 +533,19 @@
       "condition": {
         "cg:id": "MendCond021",
         "cg:type": "MendelianCondition",
-        "explanation": "Usher syndrome, Autosomal Recessive",
+        "explanation": "Orphanet:886, HP:0000007",
         "disease": [
-          "Orphanet:886"
+          {
+            "cg:id": "Orphanet:886"
+          }
         ],
-        "modeOfInheritance": "HP:0000007"
+        "modeOfInheritance": {
+          "cg:id": "HP:0000007",
+          "cg:type": "Coding",
+          "code": "0000007",
+          "system": "http://human-phenotype-ontology.github.io/",
+          "display": "Autosomal Recessive"
+        }
       },
       "canonicalAllele": {
         "cg:id": "CanAll062",
@@ -500,11 +567,19 @@
       "condition": {
         "cg:id": "MendCond021",
         "cg:type": "MendelianCondition",
-        "explanation": "Usher syndrome, Autosomal Recessive",
+        "explanation": "Orphanet:886, HP:0000007",
         "disease": [
-          "Orphanet:886"
+          {
+            "cg:id": "Orphanet:886"
+          }
         ],
-        "modeOfInheritance": "HP:0000007"
+        "modeOfInheritance": {
+          "cg:id": "HP:0000007",
+          "cg:type": "Coding",
+          "code": "0000007",
+          "system": "http://human-phenotype-ontology.github.io/",
+          "display": "Autosomal Recessive"
+        }
       },
       "canonicalAllele": {
         "cg:id": "CanAll062",
@@ -577,11 +652,19 @@
   "condition": {
     "cg:id": "MendCond002",
     "cg:type": "MendelianCondition",
-    "explanation": "dilated cardiomyopathy, Autosomal Dominant",
+    "explanation": "Orphanet:217604, HP:0000006",
     "disease": [
-      "Orphanet:217604"
+      {
+        "cg:id": "Orphanet:217604"
+      }
     ],
-    "modeOfInheritance": "HP:0000006"
+    "modeOfInheritance": {
+      "cg:id": "HP:0000006",
+      "cg:type": "Coding",
+      "code": "0000006",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Autosomal Dominant"
+    }
   },
   "familySegregationData": [
     {
@@ -590,11 +673,19 @@
       "condition": {
         "cg:id": "MendCond002",
         "cg:type": "MendelianCondition",
-        "explanation": "dilated cardiomyopathy, Autosomal Dominant",
+        "explanation": "Orphanet:217604, HP:0000006",
         "disease": [
-          "Orphanet:217604"
+          {
+            "cg:id": "Orphanet:217604"
+          }
         ],
-        "modeOfInheritance": "HP:0000006"
+        "modeOfInheritance": {
+          "cg:id": "HP:0000006",
+          "cg:type": "Coding",
+          "code": "0000006",
+          "system": "http://human-phenotype-ontology.github.io/",
+          "display": "Autosomal Dominant"
+        }
       },
       "canonicalAllele": {
         "cg:id": "CanAll065",
@@ -628,11 +719,19 @@
       "condition": {
         "cg:id": "MendCond002",
         "cg:type": "MendelianCondition",
-        "explanation": "dilated cardiomyopathy, Autosomal Dominant",
+        "explanation": "Orphanet:217604, HP:0000006",
         "disease": [
-          "Orphanet:217604"
+          {
+            "cg:id": "Orphanet:217604"
+          }
         ],
-        "modeOfInheritance": "HP:0000006"
+        "modeOfInheritance": {
+          "cg:id": "HP:0000006",
+          "cg:type": "Coding",
+          "code": "0000006",
+          "system": "http://human-phenotype-ontology.github.io/",
+          "display": "Autosomal Dominant"
+        }
       },
       "canonicalAllele": {
         "cg:id": "CanAll065",

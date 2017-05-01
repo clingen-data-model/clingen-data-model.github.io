@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex101",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess156",
     "cg:type": "CriterionAssessment",
     "explanation": "Most pathogenic variants in TTN are truncating. However, a small number of missense variants in TTN are associated with ARVC (Taylor 2011 PMID:21810661 ) Because TTN is such a large gene, the statistical expectation of benign missense variants is very high.",
@@ -10,8 +10,9 @@
       "cg:type": "Criterion",
       "description": "Missense variant in a gene that has a low rate of benign missense variation and in which missense variants are a common mechanism of disease",
       "shortDescription": "Missense in condition where pathogenic missense common",
-      "defaultStrength": "CG-evidence-strength:pp",
-      "targetInterpretation": "LN:LA6668-3"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:pp"
+      }
     },
     "variant": {
       "cg:id": "CanAll093",
@@ -19,12 +20,25 @@
       "preferredCtxAllele": "CtxAll099",
       "identifier": "http://reg.genome.network/allele/CA256496"
     },
-    "outcome": "CG-criterion-outcome:not-met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC108",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:not-met",
+          "cg:type": "Coding",
+          "code": "not-met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Not Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn132",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn132",
+        "hasInformation": [
           {
             "cg:id": "BMVR161",
             "cg:type": "BenignMissenseVariationRate",
@@ -34,7 +48,19 @@
               "cg:type": "Gene",
               "symbol": "TTN"
             },
-            "value": "CG-ben-missense-var-rate:high"
+            "value": {
+              "cg:id": "CC113",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-ben-missense-var-rate:high",
+                  "cg:type": "Coding",
+                  "code": "high",
+                  "system": "http://clinicalgenome.org/datamodel/benign-missense-variation-rate/",
+                  "display": "High"
+                }
+              ]
+            }
           },
           {
             "cg:id": "MolCon169",
@@ -50,15 +76,51 @@
               },
               "alleleName": "NM_133378.4(TTN): c.2926T>C"
             },
-            "consequence": "SO:0001583",
+            "consequence": {
+              "cg:id": "CC122",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "SO:0001583",
+                  "cg:type": "Coding",
+                  "code": "0001583",
+                  "system": "http://sequenceontology.org/",
+                  "display": "missense variant"
+                }
+              ]
+            },
             "lof": true
           },
           {
             "cg:id": "CondMech165",
             "cg:type": "ConditionMechanism",
             "explanation": "Taylor 2011 PMID:21810661",
-            "mechanism": "SO:0001583",
-            "strength": "CG-cond-mech-strength:common",
+            "mechanism": {
+              "cg:id": "CC117",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "SO:0001583",
+                  "cg:type": "Coding",
+                  "code": "0001583",
+                  "system": "http://sequenceontology.org/",
+                  "display": "missense variant"
+                }
+              ]
+            },
+            "strength": {
+              "cg:id": "CC118",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-cond-mech-strength:common",
+                  "cg:type": "Coding",
+                  "code": "common",
+                  "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+                  "display": "Common"
+                }
+              ]
+            },
             "gene": {
               "cg:id": "G003",
               "cg:type": "Gene",
@@ -67,9 +129,11 @@
             "condition": {
               "cg:id": "MendCond054",
               "cg:type": "MendelianCondition",
-              "explanation": "arrhythmogenic right ventricular cardiomyopathy",
+              "explanation": "Orphanet:247",
               "disease": [
-                "Orphanet:247"
+                {
+                  "cg:id": "Orphanet:247"
+                }
               ]
             }
           }
@@ -81,10 +145,20 @@
         "cg:id": "Contrib519",
         "cg:type": "Contribution",
         "agent": "ACME Molecular Lab",
-        "onDate": {
-          "cg:id": "2012-07-02T08:45:00+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "7/2/2012 8:45 AM",
+        "role": {
+          "cg:id": "CC421",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

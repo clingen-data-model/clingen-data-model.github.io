@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li class="active"><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Information</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li class="active"><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -108,7 +108,7 @@
             <h1>ConditionMechanism</h1>
             <p>Qualitative information about the types of alleles that cause a condition</p>
 
-                <p>Descended from Data</p>
+                <p>Descended from Information</p>
 
             <hr class='col-sm-12' />
 
@@ -182,6 +182,13 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>source</td>
+                    <td>InformationSource</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>explanation</td>
                     <td>String</td>
                     <td>0..1</td>
@@ -219,18 +226,42 @@
               <p><a href="../details/details.html#G001">G001</a></p>
          </td>
           <td>
-              <p>SO:0002054</p>
+              <p><a href="../details/details.html#CC002">CC002</a></p>
          </td>
           <td>
-              <p>CG-cond-mech-strength:established</p>
+              <p><a href="../details/details.html#CC003">CC003</a></p>
          </td>
           <!--
           <td><div class="example_view" id="CondMech002"><pre><code>{
   "cg:id": "CondMech002",
   "cg:type": "ConditionMechanism",
   "explanation": "HNRNPU is not associated with any conditions, and therefore LOF is not an established mechanism of any condition for this gene.",
-  "mechanism": "SO:0002054",
-  "strength": "CG-cond-mech-strength:established",
+  "mechanism": {
+    "cg:id": "CC002",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0002054",
+        "cg:type": "Coding",
+        "code": "0002054",
+        "system": "http://sequenceontology.org/",
+        "display": "loss of function variant"
+      }
+    ]
+  },
+  "strength": {
+    "cg:id": "CC003",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-cond-mech-strength:established",
+        "cg:type": "Coding",
+        "code": "established",
+        "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+        "display": "Established"
+      }
+    ]
+  },
   "gene": {
     "cg:id": "G001",
     "cg:type": "Gene",
@@ -251,18 +282,42 @@
               <p><a href="../details/details.html#G002">G002</a></p>
          </td>
           <td>
-              <p>SO:0002054</p>
+              <p><a href="../details/details.html#CC005">CC005</a></p>
          </td>
           <td>
-              <p>CG-cond-mech-strength:established</p>
+              <p><a href="../details/details.html#CC006">CC006</a></p>
          </td>
           <!--
           <td><div class="example_view" id="CondMech004"><pre><code>{
   "cg:id": "CondMech004",
   "cg:type": "ConditionMechanism",
   "explanation": "This is so well-known that it does not require a citation.",
-  "mechanism": "SO:0002054",
-  "strength": "CG-cond-mech-strength:established",
+  "mechanism": {
+    "cg:id": "CC005",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0002054",
+        "cg:type": "Coding",
+        "code": "0002054",
+        "system": "http://sequenceontology.org/",
+        "display": "loss of function variant"
+      }
+    ]
+  },
+  "strength": {
+    "cg:id": "CC006",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-cond-mech-strength:established",
+        "cg:type": "Coding",
+        "code": "established",
+        "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+        "display": "Established"
+      }
+    ]
+  },
   "gene": {
     "cg:id": "G002",
     "cg:type": "Gene",
@@ -274,9 +329,21 @@
     "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
     "name": "Breast Ovarian Cancer, Autosomal Dominant",
     "disease": [
-      "MESH:D061325"
+      {
+        "cg:id": "MESH:D061325",
+        "cg:type": "Coding",
+        "code": "D061325",
+        "system": "https://meshb.nlm.nih.gov/",
+        "display": "hereditary breast ovarian cancer"
+      }
     ],
-    "modeOfInheritance": "HP:0000006"
+    "modeOfInheritance": {
+      "cg:id": "HP:0000006",
+      "cg:type": "Coding",
+      "code": "0000006",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Autosomal Dominant"
+    }
   }
 }
           </code></pre></div></td>
@@ -293,17 +360,41 @@
               <p><a href="../details/details.html#G003">G003</a></p>
          </td>
           <td>
-              <p>SO:0002054</p>
+              <p><a href="../details/details.html#CC009">CC009</a></p>
          </td>
           <td>
-              <p>CG-cond-mech-strength:established</p>
+              <p><a href="../details/details.html#CC010">CC010</a></p>
          </td>
           <!--
           <td><div class="example_view" id="CondMech007"><pre><code>{
   "cg:id": "CondMech007",
   "cg:type": "ConditionMechanism",
-  "mechanism": "SO:0002054",
-  "strength": "CG-cond-mech-strength:established",
+  "mechanism": {
+    "cg:id": "CC009",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0002054",
+        "cg:type": "Coding",
+        "code": "0002054",
+        "system": "http://sequenceontology.org/",
+        "display": "loss of function variant"
+      }
+    ]
+  },
+  "strength": {
+    "cg:id": "CC010",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-cond-mech-strength:established",
+        "cg:type": "Coding",
+        "code": "established",
+        "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+        "display": "Established"
+      }
+    ]
+  },
   "gene": {
     "cg:id": "G003",
     "cg:type": "Gene",
@@ -312,9 +403,11 @@
   "condition": {
     "cg:id": "MendCond047",
     "cg:type": "MendelianCondition",
-    "explanation": "dilated cardiomyopathy",
+    "explanation": "Orphanet:217604",
     "disease": [
-      "Orphanet:217604"
+      {
+        "cg:id": "Orphanet:217604"
+      }
     ]
   }
 }
@@ -332,18 +425,42 @@
               <p><a href="../details/details.html#G008">G008</a></p>
          </td>
           <td>
-              <p>SO:0001583</p>
+              <p><a href="../details/details.html#CC071">CC071</a></p>
          </td>
           <td>
-              <p>CG-cond-mech-strength:common</p>
+              <p><a href="../details/details.html#CC072">CC072</a></p>
          </td>
           <!--
           <td><div class="example_view" id="CondMech118"><pre><code>{
   "cg:id": "CondMech118",
   "cg:type": "ConditionMechanism",
   "explanation": "Of 178 pathogenic  alleles in ClinVar, 149 are missense.",
-  "mechanism": "SO:0001583",
-  "strength": "CG-cond-mech-strength:common",
+  "mechanism": {
+    "cg:id": "CC071",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001583",
+        "cg:type": "Coding",
+        "code": "0001583",
+        "system": "http://sequenceontology.org/",
+        "display": "missense variant"
+      }
+    ]
+  },
+  "strength": {
+    "cg:id": "CC072",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-cond-mech-strength:common",
+        "cg:type": "Coding",
+        "code": "common",
+        "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+        "display": "Common"
+      }
+    ]
+  },
   "gene": {
     "cg:id": "G008",
     "cg:type": "Gene",
@@ -364,18 +481,42 @@
               <p><a href="../details/details.html#G003">G003</a></p>
          </td>
           <td>
-              <p>SO:0001583</p>
+              <p><a href="../details/details.html#CC117">CC117</a></p>
          </td>
           <td>
-              <p>CG-cond-mech-strength:common</p>
+              <p><a href="../details/details.html#CC118">CC118</a></p>
          </td>
           <!--
           <td><div class="example_view" id="CondMech165"><pre><code>{
   "cg:id": "CondMech165",
   "cg:type": "ConditionMechanism",
   "explanation": "Taylor 2011 PMID:21810661",
-  "mechanism": "SO:0001583",
-  "strength": "CG-cond-mech-strength:common",
+  "mechanism": {
+    "cg:id": "CC117",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001583",
+        "cg:type": "Coding",
+        "code": "0001583",
+        "system": "http://sequenceontology.org/",
+        "display": "missense variant"
+      }
+    ]
+  },
+  "strength": {
+    "cg:id": "CC118",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-cond-mech-strength:common",
+        "cg:type": "Coding",
+        "code": "common",
+        "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+        "display": "Common"
+      }
+    ]
+  },
   "gene": {
     "cg:id": "G003",
     "cg:type": "Gene",
@@ -384,9 +525,11 @@
   "condition": {
     "cg:id": "MendCond054",
     "cg:type": "MendelianCondition",
-    "explanation": "arrhythmogenic right ventricular cardiomyopathy",
+    "explanation": "Orphanet:247",
     "disease": [
-      "Orphanet:247"
+      {
+        "cg:id": "Orphanet:247"
+      }
     ]
   }
 }
@@ -404,18 +547,42 @@
               <p><a href="../details/details.html#G002">G002</a></p>
          </td>
           <td>
-              <p>SO:0002054</p>
+              <p><a href="../details/details.html#CC139">CC139</a></p>
          </td>
           <td>
-              <p>CG-cond-mech-strength:primary</p>
+              <p><a href="../details/details.html#CC140">CC140</a></p>
          </td>
           <!--
           <td><div class="example_view" id="CondMech199"><pre><code>{
   "cg:id": "CondMech199",
   "cg:type": "ConditionMechanism",
   "explanation": "ClinVar shows 421 variants in BRCA2 that are pathogenic for HBOC. 402 of these (~95%) are frameshift, nonsense, or splice-site variants.",
-  "mechanism": "SO:0002054",
-  "strength": "CG-cond-mech-strength:primary",
+  "mechanism": {
+    "cg:id": "CC139",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0002054",
+        "cg:type": "Coding",
+        "code": "0002054",
+        "system": "http://sequenceontology.org/",
+        "display": "loss of function variant"
+      }
+    ]
+  },
+  "strength": {
+    "cg:id": "CC140",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-cond-mech-strength:primary",
+        "cg:type": "Coding",
+        "code": "primary",
+        "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+        "display": "Primary"
+      }
+    ]
+  },
   "gene": {
     "cg:id": "G002",
     "cg:type": "Gene",
@@ -426,7 +593,9 @@
     "cg:type": "MendelianCondition",
     "explanation": "hereditary breast and ovarian cancer",
     "disease": [
-      "Orphanet:145"
+      {
+        "cg:id": "Orphanet:145"
+      }
     ],
     "name": "hereditary breast and ovarian cancer"
   }
@@ -445,18 +614,42 @@
               <p><a href="../details/details.html#G002">G002</a></p>
          </td>
           <td>
-              <p>SO:0002054</p>
+              <p><a href="../details/details.html#CC141">CC141</a></p>
          </td>
           <td>
-              <p>CG-cond-mech-strength:primary</p>
+              <p><a href="../details/details.html#CC142">CC142</a></p>
          </td>
           <!--
           <td><div class="example_view" id="CondMech200"><pre><code>{
   "cg:id": "CondMech200",
   "cg:type": "ConditionMechanism",
   "explanation": "ClinVar shows 61 variants in BRCA2 that are pathogenic for Fanconi Anemia. 55 of these (~90%) are frameshift, nonsense, or splice-site variants.",
-  "mechanism": "SO:0002054",
-  "strength": "CG-cond-mech-strength:primary",
+  "mechanism": {
+    "cg:id": "CC141",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0002054",
+        "cg:type": "Coding",
+        "code": "0002054",
+        "system": "http://sequenceontology.org/",
+        "display": "loss of function variant"
+      }
+    ]
+  },
+  "strength": {
+    "cg:id": "CC142",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-cond-mech-strength:primary",
+        "cg:type": "Coding",
+        "code": "primary",
+        "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+        "display": "Primary"
+      }
+    ]
+  },
   "gene": {
     "cg:id": "G002",
     "cg:type": "Gene",
@@ -465,9 +658,11 @@
   "condition": {
     "cg:id": "MendCond037",
     "cg:type": "MendelianCondition",
-    "explanation": "Fanconi Anemia",
+    "explanation": "Orphanet:84",
     "disease": [
-      "Orphanet:84"
+      {
+        "cg:id": "Orphanet:84"
+      }
     ]
   }
 }
@@ -485,18 +680,42 @@
               <p><a href="../details/details.html#G048">G048</a></p>
          </td>
           <td>
-              <p>SO:0002054</p>
+              <p><a href="../details/details.html#CC144">CC144</a></p>
          </td>
           <td>
-              <p>CG-cond-mech-strength:primary</p>
+              <p><a href="../details/details.html#CC145">CC145</a></p>
          </td>
           <!--
           <td><div class="example_view" id="CondMech202"><pre><code>{
   "cg:id": "CondMech202",
   "cg:type": "ConditionMechanism",
   "explanation": "shown in both humans and mouse models",
-  "mechanism": "SO:0002054",
-  "strength": "CG-cond-mech-strength:primary",
+  "mechanism": {
+    "cg:id": "CC144",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0002054",
+        "cg:type": "Coding",
+        "code": "0002054",
+        "system": "http://sequenceontology.org/",
+        "display": "loss of function variant"
+      }
+    ]
+  },
+  "strength": {
+    "cg:id": "CC145",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-cond-mech-strength:primary",
+        "cg:type": "Coding",
+        "code": "primary",
+        "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+        "display": "Primary"
+      }
+    ]
+  },
   "gene": {
     "cg:id": "G048",
     "cg:type": "Gene",
@@ -507,10 +726,18 @@
     "cg:type": "MendelianCondition",
     "explanation": "Hearing Loss, Autosomal Recessive",
     "disease": [
-      "Orphanet:87884"
+      {
+        "cg:id": "Orphanet:87884"
+      }
     ],
     "name": "Hearing Loss, Autosomal Recessive",
-    "modeOfInheritance": "HP:0000007"
+    "modeOfInheritance": {
+      "cg:id": "HP:0000007",
+      "cg:type": "Coding",
+      "code": "0000007",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Autosomal Recessive"
+    }
   }
 }
           </code></pre></div></td>
@@ -527,17 +754,41 @@
               <p><a href="../details/details.html#G003">G003</a></p>
          </td>
           <td>
-              <p>SO:0002054</p>
+              <p><a href="../details/details.html#CC147">CC147</a></p>
          </td>
           <td>
-              <p>CG-cond-mech-strength:primary</p>
+              <p><a href="../details/details.html#CC148">CC148</a></p>
          </td>
           <!--
           <td><div class="example_view" id="CondMech204"><pre><code>{
   "cg:id": "CondMech204",
   "cg:type": "ConditionMechanism",
-  "mechanism": "SO:0002054",
-  "strength": "CG-cond-mech-strength:primary",
+  "mechanism": {
+    "cg:id": "CC147",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0002054",
+        "cg:type": "Coding",
+        "code": "0002054",
+        "system": "http://sequenceontology.org/",
+        "display": "loss of function variant"
+      }
+    ]
+  },
+  "strength": {
+    "cg:id": "CC148",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-cond-mech-strength:primary",
+        "cg:type": "Coding",
+        "code": "primary",
+        "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+        "display": "Primary"
+      }
+    ]
+  },
   "gene": {
     "cg:id": "G003",
     "cg:type": "Gene",
@@ -546,9 +797,11 @@
   "condition": {
     "cg:id": "MendCond053",
     "cg:type": "MendelianCondition",
-    "explanation": "dilated cardiomyopathy",
+    "explanation": "Orphanet:217604",
     "disease": [
-      "Orphanet:217604"
+      {
+        "cg:id": "Orphanet:217604"
+      }
     ]
   }
 }
@@ -566,18 +819,42 @@
               <p><a href="../details/details.html#G003">G003</a></p>
          </td>
           <td>
-              <p>SO:0001583</p>
+              <p><a href="../details/details.html#CC149">CC149</a></p>
          </td>
           <td>
-              <p>CG-cond-mech-strength:established</p>
+              <p><a href="../details/details.html#CC150">CC150</a></p>
          </td>
           <!--
           <td><div class="example_view" id="CondMech205"><pre><code>{
   "cg:id": "CondMech205",
   "cg:type": "ConditionMechanism",
   "explanation": "Truncating variants in TTN are associated with DCM. However, if missense variants are located in the A-band, impact the A-band, or are in a highly expressed region, they can also be associated with DCM.",
-  "mechanism": "SO:0001583",
-  "strength": "CG-cond-mech-strength:established",
+  "mechanism": {
+    "cg:id": "CC149",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001583",
+        "cg:type": "Coding",
+        "code": "0001583",
+        "system": "http://sequenceontology.org/",
+        "display": "missense variant"
+      }
+    ]
+  },
+  "strength": {
+    "cg:id": "CC150",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-cond-mech-strength:established",
+        "cg:type": "Coding",
+        "code": "established",
+        "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+        "display": "Established"
+      }
+    ]
+  },
   "gene": {
     "cg:id": "G003",
     "cg:type": "Gene",
@@ -586,9 +863,11 @@
   "condition": {
     "cg:id": "MendCond053",
     "cg:type": "MendelianCondition",
-    "explanation": "dilated cardiomyopathy",
+    "explanation": "Orphanet:217604",
     "disease": [
-      "Orphanet:217604"
+      {
+        "cg:id": "Orphanet:217604"
+      }
     ]
   }
 }
@@ -606,26 +885,52 @@
               <p><a href="../details/details.html#G060">G060</a></p>
          </td>
           <td>
-              <p>SO:0002054</p>
+              <p><a href="../details/details.html#CC195">CC195</a></p>
          </td>
           <td>
-              <p>CG-cond-mech-strength:established</p>
+              <p><a href="../details/details.html#CC196">CC196</a></p>
          </td>
           <!--
           <td><div class="example_view" id="CondMech273"><pre><code>{
   "cg:id": "CondMech273",
   "cg:type": "ConditionMechanism",
   "explanation": "Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/).",
-  "mechanism": "SO:0002054",
+  "mechanism": {
+    "cg:id": "CC195",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0002054",
+        "cg:type": "Coding",
+        "code": "0002054",
+        "system": "http://sequenceontology.org/",
+        "display": "loss of function variant"
+      }
+    ]
+  },
   "condition": {
     "cg:id": "MendCond046",
     "cg:type": "MendelianCondition",
-    "explanation": "arrhythmogenic right ventricular cardiomyopathy",
+    "explanation": "Orphanet:247",
     "disease": [
-      "Orphanet:247"
+      {
+        "cg:id": "Orphanet:247"
+      }
     ]
   },
-  "strength": "CG-cond-mech-strength:established",
+  "strength": {
+    "cg:id": "CC196",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-cond-mech-strength:established",
+        "cg:type": "Coding",
+        "code": "established",
+        "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+        "display": "Established"
+      }
+    ]
+  },
   "gene": {
     "cg:id": "G060",
     "cg:type": "Gene",

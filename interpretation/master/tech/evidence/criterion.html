@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li class="active"><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Information</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li class="active"><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -156,12 +156,6 @@
                 <td>0..1</td>
                 <td></td>
             </tr>
-            <tr>
-                <td>targetInterpretation</td>
-                <td>CodeableConcept</td>
-                <td>0..1</td>
-                <td></td>
-            </tr>
             </tbody>
         </table>
 
@@ -176,7 +170,6 @@
         <th>shortDescription</th>
         <th>method</th>
         <th>defaultStrength</th>
-        <th>targetInterpretation</th>
       </tr></thead>
       <tbody>
         <tr>
@@ -192,10 +185,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:pvs</p>
-         </td>
-          <td>
-              <p>LN:LA6668-3</p>
+              <p><a href="../details/details.html#CG-evidence-strength:pvs">CG-evidence-strength:pvs</a></p>
          </td>
           <!--
           <td><div class="example_view" id="PVS1"><pre><code>{
@@ -203,8 +193,9 @@
   "cg:type": "Criterion",
   "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
   "shortDescription": "Null variant in gene with known LOF mechanism",
-  "defaultStrength": "CG-evidence-strength:pvs",
-  "targetInterpretation": "LN:LA6668-3"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:pvs"
+  }
 }
           </code></pre></div></td>
           -->
@@ -223,10 +214,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:ps</p>
-         </td>
-          <td>
-              <p>LN:LA6668-3</p>
+              <p><a href="../details/details.html#CG-evidence-strength:ps">CG-evidence-strength:ps</a></p>
          </td>
           <!--
           <td><div class="example_view" id="PS1"><pre><code>{
@@ -234,8 +222,9 @@
   "cg:type": "Criterion",
   "description": "Same amino acid change as a previously established pathogenic variant regardless of nucleotide change",
   "shortDescription": "Nucleotide change results in previously reported pathogenic amino acid change",
-  "defaultStrength": "CG-evidence-strength:ps",
-  "targetInterpretation": "LN:LA6668-3"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:ps"
+  }
 }
           </code></pre></div></td>
           -->
@@ -254,10 +243,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:ps</p>
-         </td>
-          <td>
-              <p>LN:LA6668-3</p>
+              <p><a href="../details/details.html#CG-evidence-strength:ps">CG-evidence-strength:ps</a></p>
          </td>
           <!--
           <td><div class="example_view" id="PS2"><pre><code>{
@@ -265,8 +251,9 @@
   "cg:type": "Criterion",
   "description": "De novo (both maternity and paternity confirmed) in a patient with the disease and no family history",
   "shortDescription": "Confirmed de novo in individual without family history of condition",
-  "defaultStrength": "CG-evidence-strength:ps",
-  "targetInterpretation": "LN:LA6668-3"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:ps"
+  }
 }
           </code></pre></div></td>
           -->
@@ -285,10 +272,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:ps</p>
-         </td>
-          <td>
-              <p>LN:LA6668-3</p>
+              <p><a href="../details/details.html#CG-evidence-strength:ps">CG-evidence-strength:ps</a></p>
          </td>
           <!--
           <td><div class="example_view" id="PS3"><pre><code>{
@@ -296,8 +280,9 @@
   "cg:type": "Criterion",
   "description": "Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product",
   "shortDescription": "Well-established functional studies showing damaging effect",
-  "defaultStrength": "CG-evidence-strength:ps",
-  "targetInterpretation": "LN:LA6668-3"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:ps"
+  }
 }
           </code></pre></div></td>
           -->
@@ -316,10 +301,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:ps</p>
-         </td>
-          <td>
-              <p>LN:LA6668-3</p>
+              <p><a href="../details/details.html#CG-evidence-strength:ps">CG-evidence-strength:ps</a></p>
          </td>
           <!--
           <td><div class="example_view" id="PS4"><pre><code>{
@@ -327,8 +309,9 @@
   "cg:type": "Criterion",
   "description": "The prevalence of the variant in affected individuals is significantly increased compared with the prevalence in controls",
   "shortDescription": "Prevelance increase in affected vs. control",
-  "defaultStrength": "CG-evidence-strength:ps",
-  "targetInterpretation": "LN:LA6668-3"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:ps"
+  }
 }
           </code></pre></div></td>
           -->
@@ -347,10 +330,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:pm</p>
-         </td>
-          <td>
-              <p>LN:LA6668-3</p>
+              <p><a href="../details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p>
          </td>
           <!--
           <td><div class="example_view" id="PM1"><pre><code>{
@@ -358,8 +338,9 @@
   "cg:type": "Criterion",
   "description": "Located in a mutational hot spot and/or critical and well-established functional domain (e.g., active site of an enzyme) without benign variation",
   "shortDescription": "Located in hot spot without benign variation",
-  "defaultStrength": "CG-evidence-strength:pm",
-  "targetInterpretation": "LN:LA6668-3"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:pm"
+  }
 }
           </code></pre></div></td>
           -->
@@ -378,10 +359,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:pm</p>
-         </td>
-          <td>
-              <p>LN:LA6668-3</p>
+              <p><a href="../details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p>
          </td>
           <!--
           <td><div class="example_view" id="PM2"><pre><code>{
@@ -389,8 +367,9 @@
   "cg:type": "Criterion",
   "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
   "shortDescription": "Absent from controls",
-  "defaultStrength": "CG-evidence-strength:pm",
-  "targetInterpretation": "LN:LA6668-3"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:pm"
+  }
 }
           </code></pre></div></td>
           -->
@@ -409,10 +388,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:pm</p>
-         </td>
-          <td>
-              <p>LN:LA6668-3</p>
+              <p><a href="../details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p>
          </td>
           <!--
           <td><div class="example_view" id="PM3"><pre><code>{
@@ -420,8 +396,9 @@
   "cg:type": "Criterion",
   "description": "For recessive disorders, detected in trans with a pathogenic variant",
   "shortDescription": "Recessive in trans with pathogenic variant",
-  "defaultStrength": "CG-evidence-strength:pm",
-  "targetInterpretation": "LN:LA6668-3"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:pm"
+  }
 }
           </code></pre></div></td>
           -->
@@ -440,10 +417,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:pm</p>
-         </td>
-          <td>
-              <p>LN:LA6668-3</p>
+              <p><a href="../details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p>
          </td>
           <!--
           <td><div class="example_view" id="PM4"><pre><code>{
@@ -451,8 +425,9 @@
   "cg:type": "Criterion",
   "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
   "shortDescription": "Protein length changes or stop-loss",
-  "defaultStrength": "CG-evidence-strength:pm",
-  "targetInterpretation": "LN:LA6668-3"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:pm"
+  }
 }
           </code></pre></div></td>
           -->
@@ -471,10 +446,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:pm</p>
-         </td>
-          <td>
-              <p>LN:LA6668-3</p>
+              <p><a href="../details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p>
          </td>
           <!--
           <td><div class="example_view" id="PM5"><pre><code>{
@@ -482,8 +454,9 @@
   "cg:type": "Criterion",
   "description": "Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before",
   "shortDescription": "Novel missense at same amino acid as known pathogenic missense",
-  "defaultStrength": "CG-evidence-strength:pm",
-  "targetInterpretation": "LN:LA6668-3"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:pm"
+  }
 }
           </code></pre></div></td>
           -->
@@ -502,10 +475,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:pm</p>
-         </td>
-          <td>
-              <p>LN:LA6668-3</p>
+              <p><a href="../details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p>
          </td>
           <!--
           <td><div class="example_view" id="PM6"><pre><code>{
@@ -513,8 +483,9 @@
   "cg:type": "Criterion",
   "description": "Assumed de novo, but without confirmation of paternity and maternity",
   "shortDescription": "Assumed de novo (parental status not confirmed)",
-  "defaultStrength": "CG-evidence-strength:pm",
-  "targetInterpretation": "LN:LA6668-3"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:pm"
+  }
 }
           </code></pre></div></td>
           -->
@@ -533,10 +504,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:pp</p>
-         </td>
-          <td>
-              <p>LN:LA6668-3</p>
+              <p><a href="../details/details.html#CG-evidence-strength:pp">CG-evidence-strength:pp</a></p>
          </td>
           <!--
           <td><div class="example_view" id="PP1"><pre><code>{
@@ -544,8 +512,9 @@
   "cg:type": "Criterion",
   "description": "Cosegregation with disease in multiple affected family members in a gene definitively known to cause the disease",
   "shortDescription": "Segregates with disease in affected family members",
-  "defaultStrength": "CG-evidence-strength:pp",
-  "targetInterpretation": "LN:LA6668-3"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:pp"
+  }
 }
           </code></pre></div></td>
           -->
@@ -564,10 +533,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:pp</p>
-         </td>
-          <td>
-              <p>LN:LA6668-3</p>
+              <p><a href="../details/details.html#CG-evidence-strength:pp">CG-evidence-strength:pp</a></p>
          </td>
           <!--
           <td><div class="example_view" id="PP2"><pre><code>{
@@ -575,8 +541,9 @@
   "cg:type": "Criterion",
   "description": "Missense variant in a gene that has a low rate of benign missense variation and in which missense variants are a common mechanism of disease",
   "shortDescription": "Missense in condition where pathogenic missense common",
-  "defaultStrength": "CG-evidence-strength:pp",
-  "targetInterpretation": "LN:LA6668-3"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:pp"
+  }
 }
           </code></pre></div></td>
           -->
@@ -595,10 +562,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:pp</p>
-         </td>
-          <td>
-              <p>LN:LA6668-3</p>
+              <p><a href="../details/details.html#CG-evidence-strength:pp">CG-evidence-strength:pp</a></p>
          </td>
           <!--
           <td><div class="example_view" id="PP3"><pre><code>{
@@ -606,8 +570,9 @@
   "cg:type": "Criterion",
   "description": "Multiple lines of computational evidence support a deleterious effect on the gene or gene product (conservation, evolutionary, splicing impact, etc.)",
   "shortDescription": "Computational evidence supports deleterious impact",
-  "defaultStrength": "CG-evidence-strength:pp",
-  "targetInterpretation": "LN:LA6668-3"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:pp"
+  }
 }
           </code></pre></div></td>
           -->
@@ -626,10 +591,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:pp</p>
-         </td>
-          <td>
-              <p>LN:LA6668-3</p>
+              <p><a href="../details/details.html#CG-evidence-strength:pp">CG-evidence-strength:pp</a></p>
          </td>
           <!--
           <td><div class="example_view" id="PP4"><pre><code>{
@@ -637,8 +599,9 @@
   "cg:type": "Criterion",
   "description": "Patient’s phenotype or family history is highly specific for a disease with a single genetic etiology",
   "shortDescription": "Disease specific phenotype and family history",
-  "defaultStrength": "CG-evidence-strength:pp",
-  "targetInterpretation": "LN:LA6668-3"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:pp"
+  }
 }
           </code></pre></div></td>
           -->
@@ -657,10 +620,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:pp</p>
-         </td>
-          <td>
-              <p>LN:LA6668-3</p>
+              <p><a href="../details/details.html#CG-evidence-strength:pp">CG-evidence-strength:pp</a></p>
          </td>
           <!--
           <td><div class="example_view" id="PP5"><pre><code>{
@@ -668,8 +628,9 @@
   "cg:type": "Criterion",
   "description": "Reputable source recently reports variant as pathogenic, but the evidence is not available to the laboratory to perform an independent evaluation",
   "shortDescription": "Reported pathogenic by reputable source without shared data",
-  "defaultStrength": "CG-evidence-strength:pp",
-  "targetInterpretation": "LN:LA6668-3"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:pp"
+  }
 }
           </code></pre></div></td>
           -->
@@ -688,10 +649,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:ba</p>
-         </td>
-          <td>
-              <p>LN:LA6675-8</p>
+              <p><a href="../details/details.html#CG-evidence-strength:ba">CG-evidence-strength:ba</a></p>
          </td>
           <!--
           <td><div class="example_view" id="BA1"><pre><code>{
@@ -699,8 +657,9 @@
   "cg:type": "Criterion",
   "description": "Allele frequency is >5% in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
   "shortDescription": "Present in population databases at greater than 5%",
-  "defaultStrength": "CG-evidence-strength:ba",
-  "targetInterpretation": "LN:LA6675-8"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:ba"
+  }
 }
           </code></pre></div></td>
           -->
@@ -719,10 +678,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:bs</p>
-         </td>
-          <td>
-              <p>LN:LA6675-8</p>
+              <p><a href="../details/details.html#CG-evidence-strength:bs">CG-evidence-strength:bs</a></p>
          </td>
           <!--
           <td><div class="example_view" id="BS1"><pre><code>{
@@ -730,8 +686,9 @@
   "cg:type": "Criterion",
   "description": "Allele frequency is greater than expected for disorder",
   "shortDescription": "MAF too high for disorder",
-  "defaultStrength": "CG-evidence-strength:bs",
-  "targetInterpretation": "LN:LA6675-8"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:bs"
+  }
 }
           </code></pre></div></td>
           -->
@@ -750,10 +707,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:bs</p>
-         </td>
-          <td>
-              <p>LN:LA6675-8</p>
+              <p><a href="../details/details.html#CG-evidence-strength:bs">CG-evidence-strength:bs</a></p>
          </td>
           <!--
           <td><div class="example_view" id="BS2"><pre><code>{
@@ -761,8 +715,9 @@
   "cg:type": "Criterion",
   "description": "Observed in a healthy adult individual for a recessive (homozygous), dominant (heterozygous), or X-linked (hemizygous) disorder, with full penetrance expected at an early age",
   "shortDescription": "Control frequency higher than expected for penetrance",
-  "defaultStrength": "CG-evidence-strength:bs",
-  "targetInterpretation": "LN:LA6675-8"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:bs"
+  }
 }
           </code></pre></div></td>
           -->
@@ -781,10 +736,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:bs</p>
-         </td>
-          <td>
-              <p>LN:LA6675-8</p>
+              <p><a href="../details/details.html#CG-evidence-strength:bs">CG-evidence-strength:bs</a></p>
          </td>
           <!--
           <td><div class="example_view" id="BS3"><pre><code>{
@@ -792,8 +744,9 @@
   "cg:type": "Criterion",
   "description": "Well-established in vitro or in vivo functional studies show no damaging effect on protein function or splicing",
   "shortDescription": "Well-established functional studies do not show damaging effect",
-  "defaultStrength": "CG-evidence-strength:bs",
-  "targetInterpretation": "LN:LA6675-8"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:bs"
+  }
 }
           </code></pre></div></td>
           -->
@@ -812,10 +765,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:bs</p>
-         </td>
-          <td>
-              <p>LN:LA6675-8</p>
+              <p><a href="../details/details.html#CG-evidence-strength:bs">CG-evidence-strength:bs</a></p>
          </td>
           <!--
           <td><div class="example_view" id="BS4"><pre><code>{
@@ -823,8 +773,9 @@
   "cg:type": "Criterion",
   "description": "Lack of segregation in affected members of a family",
   "shortDescription": "Does not segregate with disease",
-  "defaultStrength": "CG-evidence-strength:bs",
-  "targetInterpretation": "LN:LA6675-8"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:bs"
+  }
 }
           </code></pre></div></td>
           -->
@@ -843,10 +794,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:bp</p>
-         </td>
-          <td>
-              <p>LN:LA6675-8</p>
+              <p><a href="../details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
          </td>
           <!--
           <td><div class="example_view" id="BP1"><pre><code>{
@@ -854,8 +802,9 @@
   "cg:type": "Criterion",
   "description": "Missense variant in a gene for which primarily truncating variants are known to cause disease",
   "shortDescription": "Missense variant when truncating is expected mechanism",
-  "defaultStrength": "CG-evidence-strength:bp",
-  "targetInterpretation": "LN:LA6675-8"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:bp"
+  }
 }
           </code></pre></div></td>
           -->
@@ -874,10 +823,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:bp</p>
-         </td>
-          <td>
-              <p>LN:LA6675-8</p>
+              <p><a href="../details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
          </td>
           <!--
           <td><div class="example_view" id="BP2"><pre><code>{
@@ -885,8 +831,9 @@
   "cg:type": "Criterion",
   "description": "Observed in trans with a pathogenic variant for a fully penetrant dominant gene/disorder or observed in cis with a pathogenic variant in any inheritance pattern",
   "shortDescription": "In trans with dominant OR in cis with pathogenic variant",
-  "defaultStrength": "CG-evidence-strength:bp",
-  "targetInterpretation": "LN:LA6675-8"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:bp"
+  }
 }
           </code></pre></div></td>
           -->
@@ -905,10 +852,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:bp</p>
-         </td>
-          <td>
-              <p>LN:LA6675-8</p>
+              <p><a href="../details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
          </td>
           <!--
           <td><div class="example_view" id="BP3"><pre><code>{
@@ -916,8 +860,9 @@
   "cg:type": "Criterion",
   "description": "In-frame deletions/insertions in a repetitive region without a known function",
   "shortDescription": "In-frame indel without known function",
-  "defaultStrength": "CG-evidence-strength:bp",
-  "targetInterpretation": "LN:LA6675-8"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:bp"
+  }
 }
           </code></pre></div></td>
           -->
@@ -936,10 +881,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:bp</p>
-         </td>
-          <td>
-              <p>LN:LA6675-8</p>
+              <p><a href="../details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
          </td>
           <!--
           <td><div class="example_view" id="BP4"><pre><code>{
@@ -947,8 +889,9 @@
   "cg:type": "Criterion",
   "description": "Multiple lines of computational evidence suggest no impact on gene or gene product (conservation, evolutionary, splicing impact, etc.)",
   "shortDescription": "Computational evidence supports benign impact",
-  "defaultStrength": "CG-evidence-strength:bp",
-  "targetInterpretation": "LN:LA6675-8"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:bp"
+  }
 }
           </code></pre></div></td>
           -->
@@ -967,10 +910,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:bp</p>
-         </td>
-          <td>
-              <p>LN:LA6675-8</p>
+              <p><a href="../details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
          </td>
           <!--
           <td><div class="example_view" id="BP5"><pre><code>{
@@ -978,8 +918,9 @@
   "cg:type": "Criterion",
   "description": "Variant found in a case with an alternate molecular basis for disease",
   "shortDescription": "Variant found in case with alternate explanation",
-  "defaultStrength": "CG-evidence-strength:bp",
-  "targetInterpretation": "LN:LA6675-8"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:bp"
+  }
 }
           </code></pre></div></td>
           -->
@@ -998,10 +939,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:bp</p>
-         </td>
-          <td>
-              <p>LN:LA6675-8</p>
+              <p><a href="../details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
          </td>
           <!--
           <td><div class="example_view" id="BP6"><pre><code>{
@@ -1009,8 +947,9 @@
   "cg:type": "Criterion",
   "description": "Reputable source recently reports variant as benign, but the evidence is not available to the laboratory to perform an independent evaluation",
   "shortDescription": "Reported benign by reputable source without shared data",
-  "defaultStrength": "CG-evidence-strength:bp",
-  "targetInterpretation": "LN:LA6675-8"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:bp"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1029,10 +968,7 @@
               
          </td>
           <td>
-              <p>CG-evidence-strength:bp</p>
-         </td>
-          <td>
-              <p>LN:LA6675-8</p>
+              <p><a href="../details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
          </td>
           <!--
           <td><div class="example_view" id="BP7"><pre><code>{
@@ -1040,8 +976,9 @@
   "cg:type": "Criterion",
   "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
   "shortDescription": "Synonymous variant without predicted splice effect in region with low conservation",
-  "defaultStrength": "CG-evidence-strength:bp",
-  "targetInterpretation": "LN:LA6675-8"
+  "defaultStrength": {
+    "cg:id": "CG-evidence-strength:bp"
+  }
 }
           </code></pre></div></td>
           -->

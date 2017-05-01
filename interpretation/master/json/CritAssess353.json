@@ -6,8 +6,9 @@
     "cg:type": "Criterion",
     "description": "Variant found in a case with an alternate molecular basis for disease",
     "shortDescription": "Variant found in case with alternate explanation",
-    "defaultStrength": "CG-evidence-strength:bp",
-    "targetInterpretation": "LN:LA6675-8"
+    "defaultStrength": {
+      "cg:id": "CG-evidence-strength:bp"
+    }
   },
   "variant": {
     "cg:id": "CanAll108",
@@ -19,19 +20,40 @@
     {
       "cg:id": "MendCond071",
       "cg:type": "MendelianCondition",
-      "explanation": "Usher syndrome, Autosomal Recessive",
+      "explanation": "Orphanet:886, HP:0000007",
       "disease": [
-        "Orphanet:886"
+        {
+          "cg:id": "Orphanet:886"
+        }
       ],
-      "modeOfInheritance": "HP:0000007"
+      "modeOfInheritance": {
+        "cg:id": "HP:0000007",
+        "cg:type": "Coding",
+        "code": "0000007",
+        "system": "http://human-phenotype-ontology.github.io/",
+        "display": "Autosomal Recessive"
+      }
     }
   ],
-  "outcome": "CG-criterion-outcome:met",
-  "hasSupportingEvidence": [
+  "outcome": {
+    "cg:id": "CC273",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-criterion-outcome:met",
+        "cg:type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
+      }
+    ]
+  },
+  "hasEvidence": [
     {
       "cg:id": "EvLn095",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn095",
+      "hasInformation": [
         {
           "cg:id": "IndAll249",
           "cg:type": "IndividualAllele",
@@ -52,7 +74,19 @@
             "preferredCtxAllele": "CtxAll117",
             "identifier": "http://reg.genome.network/allele/CA277980"
           },
-          "secondaryZygosity": "CG-allelic-state:hom"
+          "secondaryZygosity": {
+            "cg:id": "CC181",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-allelic-state:hom",
+                "cg:type": "Coding",
+                "code": "hom",
+                "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+                "display": "homozygous"
+              }
+            ]
+          }
         },
         {
           "cg:id": "IndCond250",
@@ -66,11 +100,19 @@
             {
               "cg:id": "MendCond071",
               "cg:type": "MendelianCondition",
-              "explanation": "Usher syndrome, Autosomal Recessive",
+              "explanation": "Orphanet:886, HP:0000007",
               "disease": [
-                "Orphanet:886"
+                {
+                  "cg:id": "Orphanet:886"
+                }
               ],
-              "modeOfInheritance": "HP:0000007"
+              "modeOfInheritance": {
+                "cg:id": "HP:0000007",
+                "cg:type": "Coding",
+                "code": "0000007",
+                "system": "http://human-phenotype-ontology.github.io/",
+                "display": "Autosomal Recessive"
+              }
             }
           ],
           "hasCondition": true
@@ -88,14 +130,34 @@
             {
               "cg:id": "MendCond071",
               "cg:type": "MendelianCondition",
-              "explanation": "Usher syndrome, Autosomal Recessive",
+              "explanation": "Orphanet:886, HP:0000007",
               "disease": [
-                "Orphanet:886"
+                {
+                  "cg:id": "Orphanet:886"
+                }
               ],
-              "modeOfInheritance": "HP:0000007"
+              "modeOfInheritance": {
+                "cg:id": "HP:0000007",
+                "cg:type": "Coding",
+                "code": "0000007",
+                "system": "http://human-phenotype-ontology.github.io/",
+                "display": "Autosomal Recessive"
+              }
             }
           ],
-          "clinicalSignificance": "LN:LA6668-3"
+          "clinicalSignificance": {
+            "cg:id": "CC182",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "LN:LA6668-3",
+                "cg:type": "Coding",
+                "code": "LA6668-3",
+                "system": "http://loinc.org/",
+                "display": "Pathogenic"
+              }
+            ]
+          }
         }
       ]
     }
@@ -105,10 +167,20 @@
       "cg:id": "Contrib497",
       "cg:type": "Contribution",
       "agent": "Stefan DiMarino",
-      "onDate": {
-        "cg:id": "2016-10-06T08:54:00+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "10/6/16 8:54 AM",
+      "role": {
+        "cg:id": "CC399",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

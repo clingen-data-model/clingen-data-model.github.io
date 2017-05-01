@@ -6,8 +6,9 @@
     "cg:type": "Criterion",
     "description": "Patient’s phenotype or family history is highly specific for a disease with a single genetic etiology",
     "shortDescription": "Disease specific phenotype and family history",
-    "defaultStrength": "CG-evidence-strength:pp",
-    "targetInterpretation": "LN:LA6668-3"
+    "defaultStrength": {
+      "cg:id": "CG-evidence-strength:pp"
+    }
   },
   "variant": {
     "cg:id": "CanAll071",
@@ -19,18 +20,33 @@
     {
       "cg:id": "MendCond064",
       "cg:type": "MendelianCondition",
-      "explanation": "hypertrophic cardiomyopathy",
+      "explanation": "Orphanet:217569",
       "disease": [
-        "Orphanet:217569"
+        {
+          "cg:id": "Orphanet:217569"
+        }
       ]
     }
   ],
-  "outcome": "CG-criterion-outcome:not-met",
-  "hasSupportingEvidence": [
+  "outcome": {
+    "cg:id": "CC241",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-criterion-outcome:not-met",
+        "cg:type": "Coding",
+        "code": "not-met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Not Met"
+      }
+    ]
+  },
+  "hasEvidence": [
     {
       "cg:id": "EvLn056",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn056",
+      "hasInformation": [
         {
           "cg:id": "CondEtiol149",
           "cg:type": "ConditionEtiology",
@@ -38,9 +54,11 @@
           "condition": {
             "cg:id": "MendCond064",
             "cg:type": "MendelianCondition",
-            "explanation": "hypertrophic cardiomyopathy",
+            "explanation": "Orphanet:217569",
             "disease": [
-              "Orphanet:217569"
+              {
+                "cg:id": "Orphanet:217569"
+              }
             ]
           },
           "gene": {
@@ -58,10 +76,20 @@
       "cg:id": "Contrib451",
       "cg:type": "Contribution",
       "agent": "Harry Stevenson",
-      "onDate": {
-        "cg:id": "2016-08-29T15:00:00+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "8/29/16 3:00 PM",
+      "role": {
+        "cg:id": "CC353",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

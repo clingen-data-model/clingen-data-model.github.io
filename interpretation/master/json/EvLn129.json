@@ -1,8 +1,8 @@
 {
   "cg:id": "EvLn129",
   "cg:type": "EvidenceLine",
-  "strength": "CG-evidence-strength:ps",
-  "supportingData": [
+  "explanation": "EvLn129",
+  "hasInformation": [
     {
       "cg:id": "CritAssess377",
       "cg:type": "CriterionAssessment",
@@ -12,36 +12,96 @@
         "cg:type": "Criterion",
         "description": "Assumed de novo, but without confirmation of paternity and maternity",
         "shortDescription": "Assumed de novo (parental status not confirmed)",
-        "defaultStrength": "CG-evidence-strength:pm",
-        "targetInterpretation": "LN:LA6668-3"
+        "defaultStrength": {
+          "cg:id": "CG-evidence-strength:pm"
+        }
       },
       "variant": {
         "cg:id": "CanAll125",
         "cg:type": "CanonicalAllele",
-        "preferredCtxAllele": "CtxAll131"
+        "preferredCtxAllele": "CtxAll131",
+        "identifier": "http://reg.genome.network/allele/CA280055"
       },
       "condition": [
         {
           "cg:id": "MendCond069",
           "cg:type": "MendelianCondition",
-          "explanation": "cardiofaciocutaneous syndrome",
+          "explanation": "Orphanet:1340",
           "disease": [
-            "Orphanet:1340"
+            {
+              "cg:id": "Orphanet:1340"
+            }
           ]
         }
       ],
-      "outcome": "CG-criterion-outcome:met",
+      "outcome": {
+        "cg:id": "CC296",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-criterion-outcome:met",
+            "cg:type": "Coding",
+            "code": "met",
+            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "display": "Met"
+          }
+        ]
+      },
       "contribution": [
         {
           "cg:id": "Contrib516",
           "cg:type": "Contribution",
           "agent": "ACME Molecular Lab",
-          "onDate": {
-            "cg:id": "2011-06-11T12:45:00+00:00"
-          },
-          "role": "CG-contributory-role:assessor"
+          "onDate": "6/11/2011 12:45:00",
+          "role": {
+            "cg:id": "CC418",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-contributory-role:assessor",
+                "cg:type": "Coding",
+                "code": "assessor",
+                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                "display": "assessor"
+              }
+            ]
+          }
         }
       ]
+    }
+  ],
+  "strength": {
+    "cg:id": "CC455",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-evidence-strength:pm",
+        "cg:type": "Coding",
+        "code": "pm",
+        "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+        "display": "Pathogenic Moderate"
+      }
+    ]
+  },
+  "contribution": [
+    {
+      "cg:id": "Contrib537",
+      "cg:type": "Contribution",
+      "agent": "ACME Molecular Lab",
+      "onDate": "6/11/2011 12:45:00",
+      "role": {
+        "cg:id": "CC439",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

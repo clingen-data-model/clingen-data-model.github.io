@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li class="active"><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Information</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li class="active"><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -108,7 +108,7 @@
             <h1>IndividualAllele</h1>
             <p>Whether or not an Individual has an allele</p>
 
-                <p>Descended from Data</p>
+                <p>Descended from Information</p>
 
             <hr class='col-sm-12' />
 
@@ -189,6 +189,13 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>source</td>
+                    <td>InformationSource</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>explanation</td>
                     <td>String</td>
                     <td>0..1</td>
@@ -228,16 +235,16 @@
               <p><a href="../details/details.html#CanAll035">CanAll035</a></p>
          </td>
           <td>
-              <p>CG-allelic-state:het</p>
+              <p><a href="../details/details.html#CC044">CC044</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll036">CanAll036</a></p>
          </td>
           <td>
-              <p>CG-allelic-state:het</p>
+              <p><a href="../details/details.html#CC045">CC045</a></p>
          </td>
           <td>
-              <p>CG-phase:trans</p>
+              <p><a href="../details/details.html#CC046">CC046</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll058"><pre><code>{
@@ -261,18 +268,64 @@
     "preferredCtxAllele": "CtxAll040",
     "identifier": "http://reg.genome.network/allele/CA273615"
   },
-  "primaryZygosity": "CG-allelic-state:het",
-  "secondaryZygosity": "CG-allelic-state:het",
-  "phase": "CG-phase:trans",
+  "primaryZygosity": {
+    "cg:id": "CC044",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-allelic-state:het",
+        "cg:type": "Coding",
+        "code": "het",
+        "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+        "display": "heterozygous"
+      }
+    ]
+  },
+  "secondaryZygosity": {
+    "cg:id": "CC045",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-allelic-state:het",
+        "cg:type": "Coding",
+        "code": "het",
+        "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+        "display": "heterozygous"
+      }
+    ]
+  },
+  "phase": {
+    "cg:id": "CC046",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-phase:trans",
+        "cg:type": "Coding",
+        "code": "trans",
+        "system": "http://clinicalgenome.org/datamodel/phase/",
+        "display": "in trans"
+      }
+    ]
+  },
   "contribution": [
     {
       "cg:id": "Contrib484",
       "cg:type": "Contribution",
       "agent": "Harry Stevenson",
-      "onDate": {
-        "cg:id": "2016-05-31T09:14:59+00:00"
-      },
-      "role": "CG-contributory-role:curator"
+      "onDate": "5/31/16 9:15 AM",
+      "role": {
+        "cg:id": "CC386",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:curator",
+            "cg:type": "Coding",
+            "code": "curator",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "curator"
+          }
+        ]
+      }
     }
   ]
 }
@@ -290,16 +343,16 @@
               <p><a href="../details/details.html#CanAll037">CanAll037</a></p>
          </td>
           <td>
-              <p>CG-allelic-state:het</p>
+              <p><a href="../details/details.html#CC049">CC049</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll038">CanAll038</a></p>
          </td>
           <td>
-              <p>CG-allelic-state:het</p>
+              <p><a href="../details/details.html#CC050">CC050</a></p>
          </td>
           <td>
-              <p>CG-phase:trans</p>
+              <p><a href="../details/details.html#CC051">CC051</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll062"><pre><code>{
@@ -323,9 +376,45 @@
     "preferredCtxAllele": "CtxAll042",
     "identifier": "http://reg.genome.network/allele/CA501223"
   },
-  "primaryZygosity": "CG-allelic-state:het",
-  "secondaryZygosity": "CG-allelic-state:het",
-  "phase": "CG-phase:trans"
+  "primaryZygosity": {
+    "cg:id": "CC049",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-allelic-state:het",
+        "cg:type": "Coding",
+        "code": "het",
+        "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+        "display": "heterozygous"
+      }
+    ]
+  },
+  "secondaryZygosity": {
+    "cg:id": "CC050",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-allelic-state:het",
+        "cg:type": "Coding",
+        "code": "het",
+        "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+        "display": "heterozygous"
+      }
+    ]
+  },
+  "phase": {
+    "cg:id": "CC051",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-phase:trans",
+        "cg:type": "Coding",
+        "code": "trans",
+        "system": "http://clinicalgenome.org/datamodel/phase/",
+        "display": "in trans"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -341,7 +430,7 @@
               <p><a href="../details/details.html#CanAll039">CanAll039</a></p>
          </td>
           <td>
-              <p>CG-allelic-state:hom</p>
+              <p><a href="../details/details.html#CC053">CC053</a></p>
          </td>
           <td>
               
@@ -367,7 +456,19 @@
     "preferredCtxAllele": "CtxAll043",
     "identifier": "http://reg.genome.network/allele/CA090904"
   },
-  "primaryZygosity": "CG-allelic-state:hom"
+  "primaryZygosity": {
+    "cg:id": "CC053",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-allelic-state:hom",
+        "cg:type": "Coding",
+        "code": "hom",
+        "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+        "display": "homozygous"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -383,7 +484,7 @@
               <p><a href="../details/details.html#CanAll081">CanAll081</a></p>
          </td>
           <td>
-              <p>CG-allelic-state:het</p>
+              <p><a href="../details/details.html#CC124">CC124</a></p>
          </td>
           <td>
               
@@ -409,7 +510,19 @@
     "preferredCtxAllele": "CtxAll087",
     "identifier": "http://reg.genome.network/allele/CA090918"
   },
-  "primaryZygosity": "CG-allelic-state:het"
+  "primaryZygosity": {
+    "cg:id": "CC124",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-allelic-state:het",
+        "cg:type": "Coding",
+        "code": "het",
+        "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+        "display": "heterozygous"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -425,7 +538,7 @@
               <p><a href="../details/details.html#CanAll081">CanAll081</a></p>
          </td>
           <td>
-              <p>CG-allelic-state:hom</p>
+              <p><a href="../details/details.html#CC125">CC125</a></p>
          </td>
           <td>
               
@@ -451,7 +564,19 @@
     "preferredCtxAllele": "CtxAll087",
     "identifier": "http://reg.genome.network/allele/CA090918"
   },
-  "primaryZygosity": "CG-allelic-state:hom"
+  "primaryZygosity": {
+    "cg:id": "CC125",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-allelic-state:hom",
+        "cg:type": "Coding",
+        "code": "hom",
+        "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+        "display": "homozygous"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -467,7 +592,7 @@
               <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
          </td>
           <td>
-              <p>CG-allelic-state:het</p>
+              <p><a href="../details/details.html#CC127">CC127</a></p>
          </td>
           <td>
               
@@ -493,7 +618,19 @@
     "preferredCtxAllele": "CtxAll088",
     "identifier": "http://reg.genome.network/allele/CA008351"
   },
-  "primaryZygosity": "CG-allelic-state:het"
+  "primaryZygosity": {
+    "cg:id": "CC127",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-allelic-state:het",
+        "cg:type": "Coding",
+        "code": "het",
+        "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+        "display": "heterozygous"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -509,7 +646,7 @@
               <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
          </td>
           <td>
-              <p>CG-allelic-state:het</p>
+              <p><a href="../details/details.html#CC128">CC128</a></p>
          </td>
           <td>
               
@@ -535,7 +672,19 @@
     "preferredCtxAllele": "CtxAll088",
     "identifier": "http://reg.genome.network/allele/CA008351"
   },
-  "primaryZygosity": "CG-allelic-state:het"
+  "primaryZygosity": {
+    "cg:id": "CC128",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-allelic-state:het",
+        "cg:type": "Coding",
+        "code": "het",
+        "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+        "display": "heterozygous"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -551,7 +700,7 @@
               <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
          </td>
           <td>
-              <p>CG-allelic-state:het</p>
+              <p><a href="../details/details.html#CC129">CC129</a></p>
          </td>
           <td>
               
@@ -577,7 +726,19 @@
     "preferredCtxAllele": "CtxAll088",
     "identifier": "http://reg.genome.network/allele/CA008351"
   },
-  "primaryZygosity": "CG-allelic-state:het"
+  "primaryZygosity": {
+    "cg:id": "CC129",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-allelic-state:het",
+        "cg:type": "Coding",
+        "code": "het",
+        "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+        "display": "heterozygous"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -593,7 +754,7 @@
               <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
          </td>
           <td>
-              <p>CG-allelic-state:het</p>
+              <p><a href="../details/details.html#CC130">CC130</a></p>
          </td>
           <td>
               
@@ -619,7 +780,19 @@
     "preferredCtxAllele": "CtxAll088",
     "identifier": "http://reg.genome.network/allele/CA008351"
   },
-  "primaryZygosity": "CG-allelic-state:het"
+  "primaryZygosity": {
+    "cg:id": "CC130",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-allelic-state:het",
+        "cg:type": "Coding",
+        "code": "het",
+        "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+        "display": "heterozygous"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -635,7 +808,7 @@
               <p><a href="../details/details.html#CanAll083">CanAll083</a></p>
          </td>
           <td>
-              <p>CG-allelic-state:het</p>
+              <p><a href="../details/details.html#CC132">CC132</a></p>
          </td>
           <td>
               
@@ -661,7 +834,19 @@
     "preferredCtxAllele": "CtxAll089",
     "identifier": "http://reg.genome.network/allele/CA013604"
   },
-  "primaryZygosity": "CG-allelic-state:het"
+  "primaryZygosity": {
+    "cg:id": "CC132",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-allelic-state:het",
+        "cg:type": "Coding",
+        "code": "het",
+        "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+        "display": "heterozygous"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -677,7 +862,7 @@
               <p><a href="../details/details.html#CanAll083">CanAll083</a></p>
          </td>
           <td>
-              <p>CG-allelic-state:het</p>
+              <p><a href="../details/details.html#CC133">CC133</a></p>
          </td>
           <td>
               
@@ -703,7 +888,19 @@
     "preferredCtxAllele": "CtxAll089",
     "identifier": "http://reg.genome.network/allele/CA013604"
   },
-  "primaryZygosity": "CG-allelic-state:het"
+  "primaryZygosity": {
+    "cg:id": "CC133",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-allelic-state:het",
+        "cg:type": "Coding",
+        "code": "het",
+        "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+        "display": "heterozygous"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -728,7 +925,7 @@
               
          </td>
           <td>
-              <p>CG-phase:cis</p>
+              <p><a href="../details/details.html#CC151">CC151</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll206"><pre><code>{
@@ -751,7 +948,19 @@
     "preferredCtxAllele": "CtxAll101",
     "identifier": "http://reg.genome.network/allele/CA252233"
   },
-  "phase": "CG-phase:cis"
+  "phase": {
+    "cg:id": "CC151",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-phase:cis",
+        "cg:type": "Coding",
+        "code": "cis",
+        "system": "http://clinicalgenome.org/datamodel/phase/",
+        "display": "in cis"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -776,7 +985,7 @@
               
          </td>
           <td>
-              <p>CG-phase:cis</p>
+              <p><a href="../details/details.html#CC152">CC152</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll207"><pre><code>{
@@ -799,7 +1008,19 @@
     "preferredCtxAllele": "CtxAll101",
     "identifier": "http://reg.genome.network/allele/CA252233"
   },
-  "phase": "CG-phase:cis"
+  "phase": {
+    "cg:id": "CC152",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-phase:cis",
+        "cg:type": "Coding",
+        "code": "cis",
+        "system": "http://clinicalgenome.org/datamodel/phase/",
+        "display": "in cis"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -824,7 +1045,7 @@
               
          </td>
           <td>
-              <p>CG-phase:cis</p>
+              <p><a href="../details/details.html#CC154">CC154</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll211"><pre><code>{
@@ -847,7 +1068,19 @@
     "preferredCtxAllele": "CtxAll103",
     "identifier": "http://reg.genome.network/allele/CA182839"
   },
-  "phase": "CG-phase:cis"
+  "phase": {
+    "cg:id": "CC154",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-phase:cis",
+        "cg:type": "Coding",
+        "code": "cis",
+        "system": "http://clinicalgenome.org/datamodel/phase/",
+        "display": "in cis"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -872,7 +1105,7 @@
               
          </td>
           <td>
-              <p>CG-phase:trans</p>
+              <p><a href="../details/details.html#CC156">CC156</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll214"><pre><code>{
@@ -895,7 +1128,19 @@
     "preferredCtxAllele": "CtxAll105",
     "identifier": "http://reg.genome.network/allele/CA501236"
   },
-  "phase": "CG-phase:trans"
+  "phase": {
+    "cg:id": "CC156",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-phase:trans",
+        "cg:type": "Coding",
+        "code": "trans",
+        "system": "http://clinicalgenome.org/datamodel/phase/",
+        "display": "in trans"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -999,16 +1244,16 @@
               <p><a href="../details/details.html#CanAll109">CanAll109</a></p>
          </td>
           <td>
-              <p>CG-allelic-state:het</p>
+              <p><a href="../details/details.html#CC176">CC176</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll110">CanAll110</a></p>
          </td>
           <td>
-              <p>CG-allelic-state:het</p>
+              <p><a href="../details/details.html#CC177">CC177</a></p>
          </td>
           <td>
-              <p>CG-phase:trans</p>
+              <p><a href="../details/details.html#CC178">CC178</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll245"><pre><code>{
@@ -1031,9 +1276,45 @@
     "preferredCtxAllele": "CtxAll116",
     "identifier": "http://reg.genome.network/allele/CA274460"
   },
-  "primaryZygosity": "CG-allelic-state:het",
-  "secondaryZygosity": "CG-allelic-state:het",
-  "phase": "CG-phase:trans"
+  "primaryZygosity": {
+    "cg:id": "CC176",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-allelic-state:het",
+        "cg:type": "Coding",
+        "code": "het",
+        "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+        "display": "heterozygous"
+      }
+    ]
+  },
+  "secondaryZygosity": {
+    "cg:id": "CC177",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-allelic-state:het",
+        "cg:type": "Coding",
+        "code": "het",
+        "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+        "display": "heterozygous"
+      }
+    ]
+  },
+  "phase": {
+    "cg:id": "CC178",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-phase:trans",
+        "cg:type": "Coding",
+        "code": "trans",
+        "system": "http://clinicalgenome.org/datamodel/phase/",
+        "display": "in trans"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -1055,7 +1336,7 @@
               <p><a href="../details/details.html#CanAll111">CanAll111</a></p>
          </td>
           <td>
-              <p>CG-allelic-state:hom</p>
+              <p><a href="../details/details.html#CC181">CC181</a></p>
          </td>
           <td>
               
@@ -1081,7 +1362,19 @@
     "preferredCtxAllele": "CtxAll117",
     "identifier": "http://reg.genome.network/allele/CA277980"
   },
-  "secondaryZygosity": "CG-allelic-state:hom"
+  "secondaryZygosity": {
+    "cg:id": "CC181",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-allelic-state:hom",
+        "cg:type": "Coding",
+        "code": "hom",
+        "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+        "display": "homozygous"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -1153,7 +1446,7 @@
               
          </td>
           <td>
-              <p>CG-phase:trans</p>
+              <p><a href="../details/details.html#CC286">CC286</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll366"><pre><code>{
@@ -1173,9 +1466,22 @@
   "secondaryAllele": {
     "cg:id": "CanAll122",
     "cg:type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll128"
+    "preferredCtxAllele": "CtxAll128",
+    "identifier": "http://reg.genome.network/allele/CA253304"
   },
-  "phase": "CG-phase:trans"
+  "phase": {
+    "cg:id": "CC286",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-phase:trans",
+        "cg:type": "Coding",
+        "code": "trans",
+        "system": "http://clinicalgenome.org/datamodel/phase/",
+        "display": "in trans"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -1200,7 +1506,7 @@
               
          </td>
           <td>
-              <p>CG-phase:trans</p>
+              <p><a href="../details/details.html#CC287">CC287</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll367"><pre><code>{
@@ -1220,9 +1526,22 @@
   "secondaryAllele": {
     "cg:id": "CanAll123",
     "cg:type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll129"
+    "preferredCtxAllele": "CtxAll129",
+    "identifier": "http://reg.genome.network/allele/CA273665"
   },
-  "phase": "CG-phase:trans"
+  "phase": {
+    "cg:id": "CC287",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-phase:trans",
+        "cg:type": "Coding",
+        "code": "trans",
+        "system": "http://clinicalgenome.org/datamodel/phase/",
+        "display": "in trans"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->

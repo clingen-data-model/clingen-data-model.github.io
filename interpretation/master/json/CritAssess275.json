@@ -7,8 +7,9 @@
     "cg:type": "Criterion",
     "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
     "shortDescription": "Null variant in gene with known LOF mechanism",
-    "defaultStrength": "CG-evidence-strength:pvs",
-    "targetInterpretation": "LN:LA6668-3"
+    "defaultStrength": {
+      "cg:id": "CG-evidence-strength:pvs"
+    }
   },
   "variant": {
     "cg:id": "CanAll001",
@@ -16,12 +17,25 @@
     "preferredCtxAllele": "CtxAll001",
     "identifier": "http://reg.genome.network/allele/CA090943"
   },
-  "outcome": "CG-criterion-outcome:not-met",
-  "hasSupportingEvidence": [
+  "outcome": {
+    "cg:id": "CC198",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-criterion-outcome:not-met",
+        "cg:type": "Coding",
+        "code": "not-met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Not Met"
+      }
+    ]
+  },
+  "hasEvidence": [
     {
       "cg:id": "EvLn001",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn001",
+      "hasInformation": [
         {
           "cg:id": "MolCon001",
           "cg:type": "MolecularConsequence",
@@ -37,15 +51,51 @@
             },
             "alleleName": "NM_031844.2(HNRNPU):c.2304_2305del (p.Gly769Glufs*83)"
           },
-          "consequence": "SO:0001589",
+          "consequence": {
+            "cg:id": "CC001",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "SO:0001589",
+                "cg:type": "Coding",
+                "code": "0001589",
+                "system": "http://sequenceontology.org/",
+                "display": "frameshift variant"
+              }
+            ]
+          },
           "lof": true
         },
         {
           "cg:id": "CondMech002",
           "cg:type": "ConditionMechanism",
           "explanation": "HNRNPU is not associated with any conditions, and therefore LOF is not an established mechanism of any condition for this gene.",
-          "mechanism": "SO:0002054",
-          "strength": "CG-cond-mech-strength:established",
+          "mechanism": {
+            "cg:id": "CC002",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "SO:0002054",
+                "cg:type": "Coding",
+                "code": "0002054",
+                "system": "http://sequenceontology.org/",
+                "display": "loss of function variant"
+              }
+            ]
+          },
+          "strength": {
+            "cg:id": "CC003",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-cond-mech-strength:established",
+                "cg:type": "Coding",
+                "code": "established",
+                "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+                "display": "Established"
+              }
+            ]
+          },
           "gene": {
             "cg:id": "G001",
             "cg:type": "Gene",
@@ -60,10 +110,20 @@
       "cg:id": "Contrib396",
       "cg:type": "Contribution",
       "agent": "Harry Stevenson",
-      "onDate": {
-        "cg:id": "2016-06-01T10:09:59+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "6/1/16 10:10 AM",
+      "role": {
+        "cg:id": "CC298",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

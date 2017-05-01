@@ -7,8 +7,9 @@
     "cg:type": "Criterion",
     "description": "Same amino acid change as a previously established pathogenic variant regardless of nucleotide change",
     "shortDescription": "Nucleotide change results in previously reported pathogenic amino acid change",
-    "defaultStrength": "CG-evidence-strength:ps",
-    "targetInterpretation": "LN:LA6668-3"
+    "defaultStrength": {
+      "cg:id": "CG-evidence-strength:ps"
+    }
   },
   "variant": {
     "cg:id": "CanAll004",
@@ -20,19 +21,40 @@
     {
       "cg:id": "MendCond003",
       "cg:type": "MendelianCondition",
-      "explanation": "noonan syndrome, Autosomal Dominant",
+      "explanation": "Orphanet:648, HP:0000006",
       "disease": [
-        "Orphanet:648"
+        {
+          "cg:id": "Orphanet:648"
+        }
       ],
-      "modeOfInheritance": "HP:0000006"
+      "modeOfInheritance": {
+        "cg:id": "HP:0000006",
+        "cg:type": "Coding",
+        "code": "0000006",
+        "system": "http://human-phenotype-ontology.github.io/",
+        "display": "Autosomal Dominant"
+      }
     }
   ],
-  "outcome": "CG-criterion-outcome:met",
-  "hasSupportingEvidence": [
+  "outcome": {
+    "cg:id": "CC201",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-criterion-outcome:met",
+        "cg:type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
+      }
+    ]
+  },
+  "hasEvidence": [
     {
       "cg:id": "EvLn005",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn005",
+      "hasInformation": [
         {
           "cg:id": "VarInterp008",
           "cg:type": "VariantInterpretation",
@@ -47,14 +69,34 @@
             {
               "cg:id": "MendCond003",
               "cg:type": "MendelianCondition",
-              "explanation": "noonan syndrome, Autosomal Dominant",
+              "explanation": "Orphanet:648, HP:0000006",
               "disease": [
-                "Orphanet:648"
+                {
+                  "cg:id": "Orphanet:648"
+                }
               ],
-              "modeOfInheritance": "HP:0000006"
+              "modeOfInheritance": {
+                "cg:id": "HP:0000006",
+                "cg:type": "Coding",
+                "code": "0000006",
+                "system": "http://human-phenotype-ontology.github.io/",
+                "display": "Autosomal Dominant"
+              }
             }
           ],
-          "clinicalSignificance": "LN:LA6668-3"
+          "clinicalSignificance": {
+            "cg:id": "CC011",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "LN:LA6668-3",
+                "cg:type": "Coding",
+                "code": "LA6668-3",
+                "system": "http://loinc.org/",
+                "display": "Pathogenic"
+              }
+            ]
+          }
         }
       ]
     }
@@ -64,10 +106,20 @@
       "cg:id": "Contrib399",
       "cg:type": "Contribution",
       "agent": "Harry Stevenson",
-      "onDate": {
-        "cg:id": "2016-06-02T15:21:59+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "6/2/16 3:22 PM",
+      "role": {
+        "cg:id": "CC301",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

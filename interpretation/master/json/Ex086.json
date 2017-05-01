@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex086",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess369",
     "cg:type": "CriterionAssessment",
     "explanation": "This variant has been reported in 1/66564 European chromosomes by the Exome Aggregation Consortium (ExAC, http://exac.broadinstitute.org; dbSNP rs397514042).",
@@ -10,29 +10,53 @@
       "cg:type": "Criterion",
       "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
       "shortDescription": "Absent from controls",
-      "defaultStrength": "CG-evidence-strength:pm",
-      "targetInterpretation": "LN:LA6668-3"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:pm"
+      }
     },
     "variant": {
       "cg:id": "CanAll121",
       "cg:type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll127"
+      "preferredCtxAllele": "CtxAll127",
+      "identifier": "http://reg.genome.network/allele/CA022880"
     },
-    "outcome": "CG-criterion-outcome:met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC288",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:met",
+          "cg:type": "Coding",
+          "code": "met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn107",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn107",
+        "hasInformation": [
           {
             "cg:id": "AllFreq370",
             "cg:type": "AlleleFrequency",
             "ascertainment": "ExAC",
-            "population": "EXAC:NFE",
+            "population": {
+              "cg:id": "CC289",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "EXAC:NFE"
+                }
+              ]
+            },
             "allele": {
               "cg:id": "CanAll121",
               "cg:type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll127"
+              "preferredCtxAllele": "CtxAll127",
+              "identifier": "http://reg.genome.network/allele/CA022880"
             },
             "alleleCount": 1,
             "alleleNumber": 66564,
@@ -47,10 +71,20 @@
         "cg:id": "Contrib507",
         "cg:type": "Contribution",
         "agent": "Harry Stevenson",
-        "onDate": {
-          "cg:id": "2017-03-07T17:22:00+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "03/07/2017 5:22 PM",
+        "role": {
+          "cg:id": "CC409",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

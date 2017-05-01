@@ -2,8 +2,32 @@
   "cg:id": "CondMech199",
   "cg:type": "ConditionMechanism",
   "explanation": "ClinVar shows 421 variants in BRCA2 that are pathogenic for HBOC. 402 of these (~95%) are frameshift, nonsense, or splice-site variants.",
-  "mechanism": "SO:0002054",
-  "strength": "CG-cond-mech-strength:primary",
+  "mechanism": {
+    "cg:id": "CC139",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0002054",
+        "cg:type": "Coding",
+        "code": "0002054",
+        "system": "http://sequenceontology.org/",
+        "display": "loss of function variant"
+      }
+    ]
+  },
+  "strength": {
+    "cg:id": "CC140",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-cond-mech-strength:primary",
+        "cg:type": "Coding",
+        "code": "primary",
+        "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+        "display": "Primary"
+      }
+    ]
+  },
   "gene": {
     "cg:id": "G002",
     "cg:type": "Gene",
@@ -14,7 +38,9 @@
     "cg:type": "MendelianCondition",
     "explanation": "hereditary breast and ovarian cancer",
     "disease": [
-      "Orphanet:145"
+      {
+        "cg:id": "Orphanet:145"
+      }
     ],
     "name": "hereditary breast and ovarian cancer"
   }

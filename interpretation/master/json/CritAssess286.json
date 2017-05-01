@@ -7,8 +7,9 @@
     "cg:type": "Criterion",
     "description": "Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product",
     "shortDescription": "Well-established functional studies showing damaging effect",
-    "defaultStrength": "CG-evidence-strength:ps",
-    "targetInterpretation": "LN:LA6668-3"
+    "defaultStrength": {
+      "cg:id": "CG-evidence-strength:ps"
+    }
   },
   "variant": {
     "cg:id": "CanAll020",
@@ -16,22 +17,42 @@
     "preferredCtxAllele": "CtxAll023",
     "identifier": "http://reg.genome.network/allele/CA220161"
   },
-  "condition": [
-    {
-      "cg:id": "-"
-    }
-  ],
-  "outcome": "CG-criterion-outcome:met",
-  "hasSupportingEvidence": [
+  "outcome": {
+    "cg:id": "CC209",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-criterion-outcome:met",
+        "cg:type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
+      }
+    ]
+  },
+  "hasEvidence": [
     {
       "cg:id": "EvLn017",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn017",
+      "hasInformation": [
         {
           "cg:id": "Func026",
           "cg:type": "FunctionalData",
           "result": "abnormal/deceased MEK activtation.",
-          "dataType": "CG-func-data-type:activation",
+          "dataType": {
+            "cg:id": "CC020",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-func-data-type:activation",
+                "cg:type": "Coding",
+                "code": "activation",
+                "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+                "display": "Activation Assay"
+              }
+            ]
+          },
           "contextualAllele": {
             "cg:id": "CtxAll024",
             "cg:type": "ContextualAllele",
@@ -54,12 +75,25 @@
     {
       "cg:id": "EvLn018",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn018",
+      "hasInformation": [
         {
           "cg:id": "Func027",
           "cg:type": "FunctionalData",
           "result": "abnormal/deceased ERK activtation.",
-          "dataType": "CG-func-data-type:activation",
+          "dataType": {
+            "cg:id": "CC021",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-func-data-type:activation",
+                "cg:type": "Coding",
+                "code": "activation",
+                "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+                "display": "Activation Assay"
+              }
+            ]
+          },
           "contextualAllele": {
             "cg:id": "CtxAll024",
             "cg:type": "ContextualAllele",
@@ -85,19 +119,39 @@
       "cg:id": "Contrib410",
       "cg:type": "Contribution",
       "agent": "Harry Stevenson",
-      "onDate": {
-        "cg:id": "2016-06-04T07:12:00+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "6/4/16 7:12 AM",
+      "role": {
+        "cg:id": "CC312",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     },
     {
       "cg:id": "Contrib411",
       "cg:type": "Contribution",
       "agent": "Noonan/Rasopathy WG (ClinGen)",
-      "onDate": {
-        "cg:id": "2016-06-04T07:12:00+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "6/4/16 7:12 AM",
+      "role": {
+        "cg:id": "CC313",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex017",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess291",
     "cg:type": "CriterionAssessment",
     "explanation": "Variant is located in exon 15, which the RASopathy group has decided is an established functional domain for BRAF",
@@ -10,8 +10,9 @@
       "cg:type": "Criterion",
       "description": "Located in a mutational hot spot and/or critical and well-established functional domain (e.g., active site of an enzyme) without benign variation",
       "shortDescription": "Located in hot spot without benign variation",
-      "defaultStrength": "CG-evidence-strength:pm",
-      "targetInterpretation": "LN:LA6668-3"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:pm"
+      }
     },
     "variant": {
       "cg:id": "CanAll026",
@@ -19,17 +20,25 @@
       "preferredCtxAllele": "CtxAll029",
       "identifier": "http://reg.genome.network/allele/CA123651"
     },
-    "condition": [
-      {
-        "cg:id": "-"
-      }
-    ],
-    "outcome": "CG-criterion-outcome:met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC214",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:met",
+          "cg:type": "Coding",
+          "code": "met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn023",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn023",
+        "hasInformation": [
           {
             "cg:id": "RegAnn043",
             "cg:type": "RegionAnnotation",
@@ -40,13 +49,27 @@
               "referenceSequence": {
                 "cg:id": "RefSeq003",
                 "cg:type": "ReferenceSequence",
-                "accession": "NM_004333.4"
+                "accession": {
+                  "cg:id": "NM_004333.4"
+                }
               },
               "start": 1803,
               "stop": 1921
             },
             "isTypes": [
-              "CG-reg-anno-type:functional"
+              {
+                "cg:id": "CC030",
+                "cg:type": "CodeableConcept",
+                "coding": [
+                  {
+                    "cg:id": "CG-reg-anno-type:functional",
+                    "cg:type": "Coding",
+                    "code": "functional",
+                    "system": "http://clinicalgenome.org/datamodel/region-annotation-type/",
+                    "display": "Functional"
+                  }
+                ]
+              }
             ]
           },
           {
@@ -59,7 +82,9 @@
               "referenceSequence": {
                 "cg:id": "RefSeq003",
                 "cg:type": "ReferenceSequence",
-                "accession": "NM_004333.4"
+                "accession": {
+                  "cg:id": "NM_004333.4"
+                }
               },
               "start": 1803,
               "stop": 1921
@@ -86,19 +111,39 @@
         "cg:id": "Contrib416",
         "cg:type": "Contribution",
         "agent": "Harry Stevenson",
-        "onDate": {
-          "cg:id": "2016-06-06T10:53:00+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "6/6/16 10:53 AM",
+        "role": {
+          "cg:id": "CC318",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       },
       {
         "cg:id": "Contrib417",
         "cg:type": "Contribution",
         "agent": "Noonan/Rasopathy WG (ClinGen)",
-        "onDate": {
-          "cg:id": "2016-06-06T10:53:00+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "6/6/16 10:53 AM",
+        "role": {
+          "cg:id": "CC319",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li class="active"><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Information</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li class="active"><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -108,7 +108,7 @@
             <h1>AlleleFrequency</h1>
             <p>The frequency of an allele in a population or a defined group of individuals</p>
 
-                <p>Descended from Data</p>
+                <p>Descended from Information</p>
 
             <hr class='col-sm-12' />
 
@@ -220,6 +220,13 @@
             </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>source</td>
+                    <td>InformationSource</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td></td>
+                </tr>
                 <tr>
                     <td>explanation</td>
                     <td>String</td>
@@ -476,7 +483,7 @@
               <p><a href="../details/details.html#CanAll024">CanAll024</a></p>
          </td>
           <td>
-              <p>EXAC:NFE</p>
+              <p><a href="../details/details.html#CC022">CC022</a></p>
          </td>
           <td>
               <p>Case group is composed of cases from six cohorts from the GENIUS T2D consortium.  Case status is defined per-cohort.</p>
@@ -521,7 +528,15 @@
   "individualCount": 3672,
   "homozygousAlleleIndividualCount": 113,
   "heterozygousAlleleIndividualCount": 972,
-  "population": "EXAC:NFE"
+  "population": {
+    "cg:id": "CC022",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "EXAC:NFE"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -534,7 +549,7 @@
               <p><a href="../details/details.html#CanAll024">CanAll024</a></p>
          </td>
           <td>
-              <p>EXAC:NFE</p>
+              <p><a href="../details/details.html#CC023">CC023</a></p>
          </td>
           <td>
               <p>Controls group is composed of controls from six cohorts from the GENIUS T2D consortium.  Controls status is defined per-cohort.</p>
@@ -579,7 +594,15 @@
   "individualCount": 2935,
   "homozygousAlleleIndividualCount": 77,
   "heterozygousAlleleIndividualCount": 782,
-  "population": "EXAC:NFE"
+  "population": {
+    "cg:id": "CC023",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "EXAC:NFE"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -592,7 +615,7 @@
               <p><a href="../details/details.html#CanAll118">CanAll118</a></p>
          </td>
           <td>
-              <p>EXAC:SAS</p>
+              <p><a href="../details/details.html#CC024">CC024</a></p>
          </td>
           <td>
               <p>ExAC</p>
@@ -635,7 +658,15 @@
   "alleleCount": 31,
   "alleleNumber": 16512,
   "alleleFrequency": 0.02,
-  "population": "EXAC:SAS"
+  "population": {
+    "cg:id": "CC024",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "EXAC:SAS"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -648,7 +679,7 @@
               <p><a href="../details/details.html#CanAll092">CanAll092</a></p>
          </td>
           <td>
-              <p>EXAC:AFR</p>
+              <p><a href="../details/details.html#CC025">CC025</a></p>
          </td>
           <td>
               <p>ExAC</p>
@@ -691,7 +722,15 @@
   "alleleCount": 27,
   "alleleNumber": 1384,
   "alleleFrequency": 0.02,
-  "population": "EXAC:AFR"
+  "population": {
+    "cg:id": "CC025",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "EXAC:AFR"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -704,7 +743,7 @@
               <p><a href="../details/details.html#CanAll032">CanAll032</a></p>
          </td>
           <td>
-              <p>EXAC:NFE</p>
+              <p><a href="../details/details.html#CC038">CC038</a></p>
          </td>
           <td>
               <p>ExAC</p>
@@ -738,7 +777,15 @@
   "cg:id": "AllFreq051",
   "cg:type": "AlleleFrequency",
   "ascertainment": "ExAC",
-  "population": "EXAC:NFE",
+  "population": {
+    "cg:id": "CC038",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "EXAC:NFE"
+      }
+    ]
+  },
   "allele": {
     "cg:id": "CanAll032",
     "cg:type": "CanonicalAllele",
@@ -761,7 +808,7 @@
               <p><a href="../details/details.html#CanAll032">CanAll032</a></p>
          </td>
           <td>
-              <p>CG-population-type:combined</p>
+              <p><a href="../details/details.html#CC039">CC039</a></p>
          </td>
           <td>
               <p>ExAC</p>
@@ -795,7 +842,19 @@
   "cg:id": "AllFreq052",
   "cg:type": "AlleleFrequency",
   "ascertainment": "ExAC",
-  "population": "CG-population-type:combined",
+  "population": {
+    "cg:id": "CC039",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-population-type:combined",
+        "cg:type": "Coding",
+        "code": "combined",
+        "system": "http://clinicalgenome.org/datamodel/population-type/",
+        "display": "Combined"
+      }
+    ]
+  },
   "allele": {
     "cg:id": "CanAll032",
     "cg:type": "CanonicalAllele",
@@ -818,7 +877,7 @@
               <p><a href="../details/details.html#CanAll033">CanAll033</a></p>
          </td>
           <td>
-              <p>EXAC:FIN</p>
+              <p><a href="../details/details.html#CC040">CC040</a></p>
          </td>
           <td>
               <p>ExAC</p>
@@ -852,7 +911,15 @@
   "cg:id": "AllFreq053",
   "cg:type": "AlleleFrequency",
   "ascertainment": "ExAC",
-  "population": "EXAC:FIN",
+  "population": {
+    "cg:id": "CC040",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "EXAC:FIN"
+      }
+    ]
+  },
   "allele": {
     "cg:id": "CanAll033",
     "cg:type": "CanonicalAllele",
@@ -876,7 +943,7 @@
               <p><a href="../details/details.html#CanAll034">CanAll034</a></p>
          </td>
           <td>
-              <p>CG-population-type:combined</p>
+              <p><a href="../details/details.html#CC041">CC041</a></p>
          </td>
           <td>
               <p>ExAC</p>
@@ -910,7 +977,19 @@
   "cg:id": "AllFreq054",
   "cg:type": "AlleleFrequency",
   "ascertainment": "ExAC",
-  "population": "CG-population-type:combined",
+  "population": {
+    "cg:id": "CC041",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-population-type:combined",
+        "cg:type": "Coding",
+        "code": "combined",
+        "system": "http://clinicalgenome.org/datamodel/population-type/",
+        "display": "Combined"
+      }
+    ]
+  },
   "allele": {
     "cg:id": "CanAll034",
     "cg:type": "CanonicalAllele",
@@ -933,7 +1012,7 @@
               <p><a href="../details/details.html#CanAll035">CanAll035</a></p>
          </td>
           <td>
-              <p>CG-population-type:combined</p>
+              <p><a href="../details/details.html#CC067">CC067</a></p>
          </td>
           <td>
               <p>ExAC</p>
@@ -967,7 +1046,19 @@
   "cg:id": "AllFreq082",
   "cg:type": "AlleleFrequency",
   "ascertainment": "ExAC",
-  "population": "CG-population-type:combined",
+  "population": {
+    "cg:id": "CC067",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-population-type:combined",
+        "cg:type": "Coding",
+        "code": "combined",
+        "system": "http://clinicalgenome.org/datamodel/population-type/",
+        "display": "Combined"
+      }
+    ]
+  },
   "allele": {
     "cg:id": "CanAll035",
     "cg:type": "CanonicalAllele",
@@ -982,10 +1073,20 @@
       "cg:id": "Contrib488",
       "cg:type": "Contribution",
       "agent": "Harry Stevenson",
-      "onDate": {
-        "cg:id": "2016-06-01T14:15:00+00:00"
-      },
-      "role": "CG-contributory-role:curator"
+      "onDate": "6/1/16 2:15 PM",
+      "role": {
+        "cg:id": "CC390",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:curator",
+            "cg:type": "Coding",
+            "code": "curator",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "curator"
+          }
+        ]
+      }
     }
   ]
 }
@@ -1000,7 +1101,7 @@
               <p><a href="../details/details.html#CanAll125">CanAll125</a></p>
          </td>
           <td>
-              <p>CG-population-type:combined</p>
+              <p><a href="../details/details.html#CC068">CC068</a></p>
          </td>
           <td>
               <p>ExAC</p>
@@ -1034,11 +1135,24 @@
   "cg:id": "AllFreq101",
   "cg:type": "AlleleFrequency",
   "ascertainment": "ExAC",
-  "population": "CG-population-type:combined",
+  "population": {
+    "cg:id": "CC068",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-population-type:combined",
+        "cg:type": "Coding",
+        "code": "combined",
+        "system": "http://clinicalgenome.org/datamodel/population-type/",
+        "display": "Combined"
+      }
+    ]
+  },
   "allele": {
     "cg:id": "CanAll125",
     "cg:type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll131"
+    "preferredCtxAllele": "CtxAll131",
+    "identifier": "http://reg.genome.network/allele/CA280055"
   },
   "alleleCount": 0,
   "alleleFrequency": 0.0,
@@ -1055,7 +1169,7 @@
               <p><a href="../details/details.html#CanAll075">CanAll075</a></p>
          </td>
           <td>
-              <p>CG-population-type:combined</p>
+              <p><a href="../details/details.html#CC105">CC105</a></p>
          </td>
           <td>
               <p>ExAC</p>
@@ -1089,7 +1203,19 @@
   "cg:id": "AllFreq153",
   "cg:type": "AlleleFrequency",
   "ascertainment": "ExAC",
-  "population": "CG-population-type:combined",
+  "population": {
+    "cg:id": "CC105",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-population-type:combined",
+        "cg:type": "Coding",
+        "code": "combined",
+        "system": "http://clinicalgenome.org/datamodel/population-type/",
+        "display": "Combined"
+      }
+    ]
+  },
   "allele": {
     "cg:id": "CanAll075",
     "cg:type": "CanonicalAllele",
@@ -1112,7 +1238,7 @@
               <p><a href="../details/details.html#CanAll076">CanAll076</a></p>
          </td>
           <td>
-              <p>CG-population-type:combined</p>
+              <p><a href="../details/details.html#CC106">CC106</a></p>
          </td>
           <td>
               <p>ExAC</p>
@@ -1146,7 +1272,19 @@
   "cg:id": "AllFreq154",
   "cg:type": "AlleleFrequency",
   "ascertainment": "ExAC",
-  "population": "CG-population-type:combined",
+  "population": {
+    "cg:id": "CC106",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-population-type:combined",
+        "cg:type": "Coding",
+        "code": "combined",
+        "system": "http://clinicalgenome.org/datamodel/population-type/",
+        "display": "Combined"
+      }
+    ]
+  },
   "allele": {
     "cg:id": "CanAll076",
     "cg:type": "CanonicalAllele",
@@ -1169,7 +1307,7 @@
               <p><a href="../details/details.html#CanAll076">CanAll076</a></p>
          </td>
           <td>
-              <p>EXAC:EAS</p>
+              <p><a href="../details/details.html#CC107">CC107</a></p>
          </td>
           <td>
               <p>ExAC</p>
@@ -1203,7 +1341,15 @@
   "cg:id": "AllFreq155",
   "cg:type": "AlleleFrequency",
   "ascertainment": "ExAC",
-  "population": "EXAC:EAS",
+  "population": {
+    "cg:id": "CC107",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "EXAC:EAS"
+      }
+    ]
+  },
   "allele": {
     "cg:id": "CanAll076",
     "cg:type": "CanonicalAllele",
@@ -1226,7 +1372,7 @@
               <p><a href="../details/details.html#CanAll077">CanAll077</a></p>
          </td>
           <td>
-              <p>CG-population-type:combined</p>
+              <p><a href="../details/details.html#CC109">CC109</a></p>
          </td>
           <td>
               <p>ExAC</p>
@@ -1260,7 +1406,19 @@
   "cg:id": "AllFreq157",
   "cg:type": "AlleleFrequency",
   "ascertainment": "ExAC",
-  "population": "CG-population-type:combined",
+  "population": {
+    "cg:id": "CC109",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-population-type:combined",
+        "cg:type": "Coding",
+        "code": "combined",
+        "system": "http://clinicalgenome.org/datamodel/population-type/",
+        "display": "Combined"
+      }
+    ]
+  },
   "allele": {
     "cg:id": "CanAll077",
     "cg:type": "CanonicalAllele",
@@ -1283,7 +1441,7 @@
               <p><a href="../details/details.html#CanAll078">CanAll078</a></p>
          </td>
           <td>
-              <p>CG-population-type:combined</p>
+              <p><a href="../details/details.html#CC110">CC110</a></p>
          </td>
           <td>
               <p>ExAC</p>
@@ -1317,7 +1475,19 @@
   "cg:id": "AllFreq158",
   "cg:type": "AlleleFrequency",
   "ascertainment": "ExAC",
-  "population": "CG-population-type:combined",
+  "population": {
+    "cg:id": "CC110",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-population-type:combined",
+        "cg:type": "Coding",
+        "code": "combined",
+        "system": "http://clinicalgenome.org/datamodel/population-type/",
+        "display": "Combined"
+      }
+    ]
+  },
   "allele": {
     "cg:id": "CanAll078",
     "cg:type": "CanonicalAllele",
@@ -1340,7 +1510,7 @@
               <p><a href="../details/details.html#CanAll079">CanAll079</a></p>
          </td>
           <td>
-              <p>CG-population-type:combined</p>
+              <p><a href="../details/details.html#CC114">CC114</a></p>
          </td>
           <td>
               <p>ExAC</p>
@@ -1374,7 +1544,19 @@
   "cg:id": "AllFreq162",
   "cg:type": "AlleleFrequency",
   "ascertainment": "ExAC",
-  "population": "CG-population-type:combined",
+  "population": {
+    "cg:id": "CC114",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-population-type:combined",
+        "cg:type": "Coding",
+        "code": "combined",
+        "system": "http://clinicalgenome.org/datamodel/population-type/",
+        "display": "Combined"
+      }
+    ]
+  },
   "allele": {
     "cg:id": "CanAll079",
     "cg:type": "CanonicalAllele",
@@ -1398,7 +1580,7 @@
               <p><a href="../details/details.html#CanAll080">CanAll080</a></p>
          </td>
           <td>
-              <p>CG-population-type:combined</p>
+              <p><a href="../details/details.html#CC119">CC119</a></p>
          </td>
           <td>
               <p>ExAC</p>
@@ -1432,7 +1614,19 @@
   "cg:id": "AllFreq166",
   "cg:type": "AlleleFrequency",
   "ascertainment": "ExAC",
-  "population": "CG-population-type:combined",
+  "population": {
+    "cg:id": "CC119",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-population-type:combined",
+        "cg:type": "Coding",
+        "code": "combined",
+        "system": "http://clinicalgenome.org/datamodel/population-type/",
+        "display": "Combined"
+      }
+    ]
+  },
   "allele": {
     "cg:id": "CanAll080",
     "cg:type": "CanonicalAllele",
@@ -1454,7 +1648,7 @@
               <p><a href="../details/details.html#CanAll121">CanAll121</a></p>
          </td>
           <td>
-              <p>EXAC:NFE</p>
+              <p><a href="../details/details.html#CC289">CC289</a></p>
          </td>
           <td>
               <p>ExAC</p>
@@ -1488,11 +1682,20 @@
   "cg:id": "AllFreq370",
   "cg:type": "AlleleFrequency",
   "ascertainment": "ExAC",
-  "population": "EXAC:NFE",
+  "population": {
+    "cg:id": "CC289",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "EXAC:NFE"
+      }
+    ]
+  },
   "allele": {
     "cg:id": "CanAll121",
     "cg:type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll127"
+    "preferredCtxAllele": "CtxAll127",
+    "identifier": "http://reg.genome.network/allele/CA022880"
   },
   "alleleCount": 1,
   "alleleNumber": 66564,

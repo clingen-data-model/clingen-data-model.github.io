@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex016",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess290",
     "cg:type": "CriterionAssessment",
     "explanation": "Variant is located within the kinase domain (where multiple other pathogenic variants are located)",
@@ -10,8 +10,9 @@
       "cg:type": "Criterion",
       "description": "Located in a mutational hot spot and/or critical and well-established functional domain (e.g., active site of an enzyme) without benign variation",
       "shortDescription": "Located in hot spot without benign variation",
-      "defaultStrength": "CG-evidence-strength:pm",
-      "targetInterpretation": "LN:LA6668-3"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:pm"
+      }
     },
     "variant": {
       "cg:id": "CanAll025",
@@ -19,17 +20,25 @@
       "preferredCtxAllele": "CtxAll028",
       "identifier": "http://reg.genome.network/allele/CA090928"
     },
-    "condition": [
-      {
-        "cg:id": "-"
-      }
-    ],
-    "outcome": "CG-criterion-outcome:met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC213",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:met",
+          "cg:type": "Coding",
+          "code": "met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn022",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn022",
+        "hasInformation": [
           {
             "cg:id": "RegAnn040",
             "cg:type": "RegionAnnotation",
@@ -40,13 +49,27 @@
               "referenceSequence": {
                 "cg:id": "RefSeq002",
                 "cg:type": "ReferenceSequence",
-                "accession": "NP_005219.2"
+                "accession": {
+                  "cg:id": "NP_005219.2"
+                }
               },
               "start": 704,
               "stop": 1016
             },
             "isTypes": [
-              "CG-reg-anno-type:functional"
+              {
+                "cg:id": "CC027",
+                "cg:type": "CodeableConcept",
+                "coding": [
+                  {
+                    "cg:id": "CG-reg-anno-type:functional",
+                    "cg:type": "Coding",
+                    "code": "functional",
+                    "system": "http://clinicalgenome.org/datamodel/region-annotation-type/",
+                    "display": "Functional"
+                  }
+                ]
+              }
             ]
           },
           {
@@ -59,7 +82,9 @@
               "referenceSequence": {
                 "cg:id": "RefSeq002",
                 "cg:type": "ReferenceSequence",
-                "accession": "NP_005219.2"
+                "accession": {
+                  "cg:id": "NP_005219.2"
+                }
               },
               "start": 704,
               "stop": 1016
@@ -86,10 +111,20 @@
         "cg:id": "Contrib415",
         "cg:type": "Contribution",
         "agent": "Sasha Rande",
-        "onDate": {
-          "cg:id": "2016-06-06T08:12:00+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "6/6/16 8:12 AM",
+        "role": {
+          "cg:id": "CC317",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

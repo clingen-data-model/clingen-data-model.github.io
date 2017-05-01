@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex038",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess312",
     "cg:type": "CriterionAssessment",
     "criterion": {
@@ -9,8 +9,9 @@
       "cg:type": "Criterion",
       "description": "Cosegregation with disease in multiple affected family members in a gene definitively known to cause the disease",
       "shortDescription": "Segregates with disease in affected family members",
-      "defaultStrength": "CG-evidence-strength:pp",
-      "targetInterpretation": "LN:LA6668-3"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:pp"
+      }
     },
     "variant": {
       "cg:id": "CanAll065",
@@ -22,19 +23,40 @@
       {
         "cg:id": "MendCond002",
         "cg:type": "MendelianCondition",
-        "explanation": "dilated cardiomyopathy, Autosomal Dominant",
+        "explanation": "Orphanet:217604, HP:0000006",
         "disease": [
-          "Orphanet:217604"
+          {
+            "cg:id": "Orphanet:217604"
+          }
         ],
-        "modeOfInheritance": "HP:0000006"
+        "modeOfInheritance": {
+          "cg:id": "HP:0000006",
+          "cg:type": "Coding",
+          "code": "0000006",
+          "system": "http://human-phenotype-ontology.github.io/",
+          "display": "Autosomal Dominant"
+        }
       }
     ],
-    "outcome": "CG-criterion-outcome:met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC235",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:met",
+          "cg:type": "Coding",
+          "code": "met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn050",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn050",
+        "hasInformation": [
           {
             "cg:id": "AggSegData115",
             "cg:type": "AggregateSegregationData",
@@ -47,11 +69,19 @@
             "condition": {
               "cg:id": "MendCond002",
               "cg:type": "MendelianCondition",
-              "explanation": "dilated cardiomyopathy, Autosomal Dominant",
+              "explanation": "Orphanet:217604, HP:0000006",
               "disease": [
-                "Orphanet:217604"
+                {
+                  "cg:id": "Orphanet:217604"
+                }
               ],
-              "modeOfInheritance": "HP:0000006"
+              "modeOfInheritance": {
+                "cg:id": "HP:0000006",
+                "cg:type": "Coding",
+                "code": "0000006",
+                "system": "http://human-phenotype-ontology.github.io/",
+                "display": "Autosomal Dominant"
+              }
             },
             "familySegregationData": [
               {
@@ -60,11 +90,19 @@
                 "condition": {
                   "cg:id": "MendCond002",
                   "cg:type": "MendelianCondition",
-                  "explanation": "dilated cardiomyopathy, Autosomal Dominant",
+                  "explanation": "Orphanet:217604, HP:0000006",
                   "disease": [
-                    "Orphanet:217604"
+                    {
+                      "cg:id": "Orphanet:217604"
+                    }
                   ],
-                  "modeOfInheritance": "HP:0000006"
+                  "modeOfInheritance": {
+                    "cg:id": "HP:0000006",
+                    "cg:type": "Coding",
+                    "code": "0000006",
+                    "system": "http://human-phenotype-ontology.github.io/",
+                    "display": "Autosomal Dominant"
+                  }
                 },
                 "canonicalAllele": {
                   "cg:id": "CanAll065",
@@ -98,11 +136,19 @@
                 "condition": {
                   "cg:id": "MendCond002",
                   "cg:type": "MendelianCondition",
-                  "explanation": "dilated cardiomyopathy, Autosomal Dominant",
+                  "explanation": "Orphanet:217604, HP:0000006",
                   "disease": [
-                    "Orphanet:217604"
+                    {
+                      "cg:id": "Orphanet:217604"
+                    }
                   ],
-                  "modeOfInheritance": "HP:0000006"
+                  "modeOfInheritance": {
+                    "cg:id": "HP:0000006",
+                    "cg:type": "Coding",
+                    "code": "0000006",
+                    "system": "http://human-phenotype-ontology.github.io/",
+                    "display": "Autosomal Dominant"
+                  }
                 },
                 "canonicalAllele": {
                   "cg:id": "CanAll065",
@@ -141,10 +187,20 @@
         "cg:id": "Contrib442",
         "cg:type": "Contribution",
         "agent": "Agent002",
-        "onDate": {
-          "cg:id": "2016-07-21T08:10:59+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "7/21/16 8:11 AM",
+        "role": {
+          "cg:id": "CC344",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

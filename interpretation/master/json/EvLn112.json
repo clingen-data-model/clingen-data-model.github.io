@@ -1,8 +1,8 @@
 {
   "cg:id": "EvLn112",
   "cg:type": "EvidenceLine",
-  "strength": "CG-evidence-strength:pm",
-  "supportingData": [
+  "explanation": "EvLn112",
+  "hasInformation": [
     {
       "cg:id": "CritAssess299",
       "cg:type": "CriterionAssessment",
@@ -12,8 +12,9 @@
         "cg:type": "Criterion",
         "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
         "shortDescription": "Protein length changes or stop-loss",
-        "defaultStrength": "CG-evidence-strength:pm",
-        "targetInterpretation": "LN:LA6668-3"
+        "defaultStrength": {
+          "cg:id": "CG-evidence-strength:pm"
+        }
       },
       "variant": {
         "cg:id": "CanAll035",
@@ -21,17 +22,25 @@
         "preferredCtxAllele": "CtxAll039",
         "identifier": "http://reg.genome.network/allele/CA090919"
       },
-      "condition": [
-        {
-          "cg:id": "-"
-        }
-      ],
-      "outcome": "CG-criterion-outcome:met",
-      "hasSupportingEvidence": [
+      "outcome": {
+        "cg:id": "CC222",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-criterion-outcome:met",
+            "cg:type": "Coding",
+            "code": "met",
+            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "display": "Met"
+          }
+        ]
+      },
+      "hasEvidence": [
         {
           "cg:id": "EvLn032",
           "cg:type": "EvidenceLine",
-          "supportingData": [
+          "explanation": "EvLn032",
+          "hasInformation": [
             {
               "cg:id": "MolCon066",
               "cg:type": "MolecularConsequence",
@@ -46,16 +55,38 @@
                 },
                 "alleleName": "NP_001360.1:p.Trp2490_Leu2496del"
               },
-              "consequence": "SO:0001825",
+              "consequence": {
+                "cg:id": "CC054",
+                "cg:type": "CodeableConcept",
+                "coding": [
+                  {
+                    "cg:id": "SO:0001825",
+                    "cg:type": "Coding",
+                    "code": "0001825",
+                    "system": "http://sequenceontology.org/",
+                    "display": "Conservative Inframe Deletion"
+                  }
+                ]
+              },
               "contribution": [
                 {
                   "cg:id": "Contrib486",
                   "cg:type": "Contribution",
                   "agent": "Harry Stevenson",
-                  "onDate": {
-                    "cg:id": "2016-06-01T14:03:00+00:00"
-                  },
-                  "role": "CG-contributory-role:curator"
+                  "onDate": "6/1/16 2:03 PM",
+                  "role": {
+                    "cg:id": "CC388",
+                    "cg:type": "CodeableConcept",
+                    "coding": [
+                      {
+                        "cg:id": "CG-contributory-role:curator",
+                        "cg:type": "Coding",
+                        "code": "curator",
+                        "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                        "display": "curator"
+                      }
+                    ]
+                  }
                 }
               ]
             },
@@ -69,23 +100,47 @@
                 "referenceSequence": {
                   "cg:id": "RefSeq005",
                   "cg:type": "ReferenceSequence",
-                  "accession": "NP_001360.1"
+                  "accession": {
+                    "cg:id": "NP_001360.1"
+                  }
                 },
                 "start": 2490,
                 "stop": 2496
               },
               "isTypes": [
-                "CG-reg-anno-type:repeat"
+                {
+                  "cg:id": "CC057",
+                  "cg:type": "CodeableConcept",
+                  "coding": [
+                    {
+                      "cg:id": "CG-reg-anno-type:repeat",
+                      "cg:type": "Coding",
+                      "code": "repeat",
+                      "system": "http://clinicalgenome.org/datamodel/region-annotation-type/",
+                      "display": "Repeat"
+                    }
+                  ]
+                }
               ],
               "contribution": [
                 {
                   "cg:id": "Contrib487",
                   "cg:type": "Contribution",
                   "agent": "Stefan DiMarino",
-                  "onDate": {
-                    "cg:id": "2016-06-01T14:10:00+00:00"
-                  },
-                  "role": "CG-contributory-role:curator"
+                  "onDate": "6/1/16 2:10 PM",
+                  "role": {
+                    "cg:id": "CC389",
+                    "cg:type": "CodeableConcept",
+                    "coding": [
+                      {
+                        "cg:id": "CG-contributory-role:curator",
+                        "cg:type": "Coding",
+                        "code": "curator",
+                        "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                        "display": "curator"
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -97,12 +152,56 @@
           "cg:id": "Contrib425",
           "cg:type": "Contribution",
           "agent": "Sasha Rande",
-          "onDate": {
-            "cg:id": "2016-06-12T07:30:00+00:00"
-          },
-          "role": "CG-contributory-role:assessor"
+          "onDate": "6/12/16 7:30 AM",
+          "role": {
+            "cg:id": "CC327",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-contributory-role:assessor",
+                "cg:type": "Coding",
+                "code": "assessor",
+                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                "display": "assessor"
+              }
+            ]
+          }
         }
       ]
+    }
+  ],
+  "strength": {
+    "cg:id": "CC443",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-evidence-strength:pm",
+        "cg:type": "Coding",
+        "code": "pm",
+        "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+        "display": "Pathogenic Moderate"
+      }
+    ]
+  },
+  "contribution": [
+    {
+      "cg:id": "Contrib525",
+      "cg:type": "Contribution",
+      "agent": "Sasha Rande",
+      "onDate": "6/12/16 7:30 AM",
+      "role": {
+        "cg:id": "CC427",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

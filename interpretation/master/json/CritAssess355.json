@@ -6,29 +6,46 @@
     "cg:type": "Criterion",
     "description": "Reputable source recently reports variant as benign, but the evidence is not available to the laboratory to perform an independent evaluation",
     "shortDescription": "Reported benign by reputable source without shared data",
-    "defaultStrength": "CG-evidence-strength:bp",
-    "targetInterpretation": "LN:LA6675-8"
+    "defaultStrength": {
+      "cg:id": "CG-evidence-strength:bp"
+    }
   },
   "variant": {
     "cg:id": "CanAll114",
     "cg:type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll120"
+    "preferredCtxAllele": "CtxAll120",
+    "identifier": "http://reg.genome.network/allele/CA276195"
   },
   "condition": [
     {
       "cg:id": "MendCond073",
       "disease": [
-        "Orphanet:145"
+        {
+          "cg:id": "Orphanet:145"
+        }
       ],
       "name": "hereditary breast and ovarian cancer"
     }
   ],
-  "outcome": "CG-criterion-outcome:met",
-  "hasSupportingEvidence": [
+  "outcome": {
+    "cg:id": "CC275",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-criterion-outcome:met",
+        "cg:type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
+      }
+    ]
+  },
+  "hasEvidence": [
     {
       "cg:id": "EvLn097",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn097",
+      "hasInformation": [
         {
           "cg:id": "VarInterp255",
           "cg:type": "VariantInterpretation",
@@ -36,18 +53,33 @@
           "variant": {
             "cg:id": "CanAll114",
             "cg:type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll120"
+            "preferredCtxAllele": "CtxAll120",
+            "identifier": "http://reg.genome.network/allele/CA276195"
           },
           "condition": [
             {
               "cg:id": "MendCond073",
               "disease": [
-                "Orphanet:145"
+                {
+                  "cg:id": "Orphanet:145"
+                }
               ],
               "name": "hereditary breast and ovarian cancer"
             }
           ],
-          "clinicalSignificance": "LN:LA6675-8"
+          "clinicalSignificance": {
+            "cg:id": "CC184",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "LN:LA6675-8",
+                "cg:type": "Coding",
+                "code": "LA6675-8",
+                "system": "http://loinc.org/",
+                "display": "Benign"
+              }
+            ]
+          }
         }
       ]
     }
@@ -57,10 +89,20 @@
       "cg:id": "Contrib499",
       "cg:type": "Contribution",
       "agent": "Stefan DiMarino",
-      "onDate": {
-        "cg:id": "2016-10-06T09:45:00+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "10/6/16 9:45 AM",
+      "role": {
+        "cg:id": "CC401",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex010",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess284",
     "cg:type": "CriterionAssessment",
     "criterion": {
@@ -9,8 +9,9 @@
       "cg:type": "Criterion",
       "description": "Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product",
       "shortDescription": "Well-established functional studies showing damaging effect",
-      "defaultStrength": "CG-evidence-strength:ps",
-      "targetInterpretation": "LN:LA6668-3"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:ps"
+      }
     },
     "variant": {
       "cg:id": "CanAll017",
@@ -18,22 +19,42 @@
       "preferredCtxAllele": "CtxAll020",
       "identifier": "http://reg.genome.network/allele/CA090410"
     },
-    "condition": [
-      {
-        "cg:id": "-"
-      }
-    ],
-    "outcome": "CG-criterion-outcome:met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC207",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:met",
+          "cg:type": "Coding",
+          "code": "met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn012",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn012",
+        "hasInformation": [
           {
             "cg:id": "Func021",
             "cg:type": "FunctionalData",
             "result": "the mutation lowered the Ca2+  affinity of the reconstituted thin filaments;",
-            "dataType": "CG-func-data-type:binding",
+            "dataType": {
+              "cg:id": "CC015",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-func-data-type:binding",
+                  "cg:type": "Coding",
+                  "code": "binding",
+                  "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+                  "display": "Binding assay?"
+                }
+              ]
+            },
             "contextualAllele": {
               "cg:id": "CtxAll021",
               "cg:type": "ContextualAllele",
@@ -56,12 +77,25 @@
       {
         "cg:id": "EvLn013",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn013",
+        "hasInformation": [
           {
             "cg:id": "Func022",
             "cg:type": "FunctionalData",
             "result": "reduced Ca2 sensitivity of activation",
-            "dataType": "CG-func-data-type:atpase",
+            "dataType": {
+              "cg:id": "CC016",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-func-data-type:atpase",
+                  "cg:type": "Coding",
+                  "code": "atpase",
+                  "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+                  "display": "ATPase assay?"
+                }
+              ]
+            },
             "contextualAllele": {
               "cg:id": "CtxAll021",
               "cg:type": "ContextualAllele",
@@ -84,12 +118,25 @@
       {
         "cg:id": "EvLn014",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn014",
+        "hasInformation": [
           {
             "cg:id": "Func023",
             "cg:type": "FunctionalData",
             "result": "reduced Ca2 sensitivity of activation",
-            "dataType": "CG-func-data-type:motility",
+            "dataType": {
+              "cg:id": "CC017",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-func-data-type:motility",
+                  "cg:type": "Coding",
+                  "code": "motility",
+                  "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+                  "display": "motility assay?"
+                }
+              ]
+            },
             "contextualAllele": {
               "cg:id": "CtxAll021",
               "cg:type": "ContextualAllele",
@@ -112,12 +159,25 @@
       {
         "cg:id": "EvLn015",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn015",
+        "hasInformation": [
           {
             "cg:id": "Func024",
             "cg:type": "FunctionalData",
             "result": "desensitized Ca2+ binding to the thin filament.",
-            "dataType": "CG-func-data-type:binding",
+            "dataType": {
+              "cg:id": "CC018",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-func-data-type:binding",
+                  "cg:type": "Coding",
+                  "code": "binding",
+                  "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+                  "display": "Binding assay?"
+                }
+              ]
+            },
             "contextualAllele": {
               "cg:id": "CtxAll021",
               "cg:type": "ContextualAllele",
@@ -143,19 +203,39 @@
         "cg:id": "Contrib406",
         "cg:type": "Contribution",
         "agent": "Sasha Rande",
-        "onDate": {
-          "cg:id": "2016-06-03T14:49:59+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "6/3/16 2:50 PM",
+        "role": {
+          "cg:id": "CC308",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       },
       {
         "cg:id": "Contrib407",
         "cg:type": "Contribution",
         "agent": "CSER Bakeoff Project",
-        "onDate": {
-          "cg:id": "2016-06-03T14:49:59+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "6/3/16 2:50 PM",
+        "role": {
+          "cg:id": "CC309",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

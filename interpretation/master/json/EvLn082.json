@@ -1,7 +1,8 @@
 {
   "cg:id": "EvLn082",
   "cg:type": "EvidenceLine",
-  "supportingData": [
+  "explanation": "EvLn082",
+  "hasInformation": [
     {
       "cg:id": "MolCon198",
       "cg:type": "MolecularConsequence",
@@ -16,15 +17,51 @@
         },
         "alleleName": "NM_000059.3(BRCA2) :c.4779A>C"
       },
-      "consequence": "SO:0001583",
+      "consequence": {
+        "cg:id": "CC138",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "SO:0001583",
+            "cg:type": "Coding",
+            "code": "0001583",
+            "system": "http://sequenceontology.org/",
+            "display": "missense variant"
+          }
+        ]
+      },
       "lof": true
     },
     {
       "cg:id": "CondMech200",
       "cg:type": "ConditionMechanism",
       "explanation": "ClinVar shows 61 variants in BRCA2 that are pathogenic for Fanconi Anemia. 55 of these (~90%) are frameshift, nonsense, or splice-site variants.",
-      "mechanism": "SO:0002054",
-      "strength": "CG-cond-mech-strength:primary",
+      "mechanism": {
+        "cg:id": "CC141",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "SO:0002054",
+            "cg:type": "Coding",
+            "code": "0002054",
+            "system": "http://sequenceontology.org/",
+            "display": "loss of function variant"
+          }
+        ]
+      },
+      "strength": {
+        "cg:id": "CC142",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-cond-mech-strength:primary",
+            "cg:type": "Coding",
+            "code": "primary",
+            "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+            "display": "Primary"
+          }
+        ]
+      },
       "gene": {
         "cg:id": "G002",
         "cg:type": "Gene",
@@ -33,9 +70,11 @@
       "condition": {
         "cg:id": "MendCond037",
         "cg:type": "MendelianCondition",
-        "explanation": "Fanconi Anemia",
+        "explanation": "Orphanet:84",
         "disease": [
-          "Orphanet:84"
+          {
+            "cg:id": "Orphanet:84"
+          }
         ]
       }
     }

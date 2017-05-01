@@ -1,7 +1,8 @@
 {
   "cg:id": "EvLn002",
   "cg:type": "EvidenceLine",
-  "supportingData": [
+  "explanation": "EvLn002",
+  "hasInformation": [
     {
       "cg:id": "MolCon003",
       "cg:type": "MolecularConsequence",
@@ -12,19 +13,56 @@
         "relatedCanonicalAllele": {
           "cg:id": "CanAll002",
           "cg:type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll002"
+          "preferredCtxAllele": "CtxAll002",
+          "identifier": "http://reg.genome.network/allele/CA090898"
         },
         "alleleName": "NM_000059.3(BRCA2):c.7762_7764delinsTT"
       },
-      "consequence": "SO:0001589",
+      "consequence": {
+        "cg:id": "CC004",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "SO:0001589",
+            "cg:type": "Coding",
+            "code": "0001589",
+            "system": "http://sequenceontology.org/",
+            "display": "frameshift variant"
+          }
+        ]
+      },
       "lof": true
     },
     {
       "cg:id": "CondMech004",
       "cg:type": "ConditionMechanism",
       "explanation": "This is so well-known that it does not require a citation.",
-      "mechanism": "SO:0002054",
-      "strength": "CG-cond-mech-strength:established",
+      "mechanism": {
+        "cg:id": "CC005",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "SO:0002054",
+            "cg:type": "Coding",
+            "code": "0002054",
+            "system": "http://sequenceontology.org/",
+            "display": "loss of function variant"
+          }
+        ]
+      },
+      "strength": {
+        "cg:id": "CC006",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-cond-mech-strength:established",
+            "cg:type": "Coding",
+            "code": "established",
+            "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+            "display": "Established"
+          }
+        ]
+      },
       "gene": {
         "cg:id": "G002",
         "cg:type": "Gene",
@@ -36,9 +74,21 @@
         "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
         "name": "Breast Ovarian Cancer, Autosomal Dominant",
         "disease": [
-          "MESH:D061325"
+          {
+            "cg:id": "MESH:D061325",
+            "cg:type": "Coding",
+            "code": "D061325",
+            "system": "https://meshb.nlm.nih.gov/",
+            "display": "hereditary breast ovarian cancer"
+          }
         ],
-        "modeOfInheritance": "HP:0000006"
+        "modeOfInheritance": {
+          "cg:id": "HP:0000006",
+          "cg:type": "Coding",
+          "code": "0000006",
+          "system": "http://human-phenotype-ontology.github.io/",
+          "display": "Autosomal Dominant"
+        }
       }
     }
   ]

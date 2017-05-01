@@ -14,13 +14,33 @@
       "cg:type": "MendelianCondition",
       "explanation": "Hearing Loss, Autosomal Recessive",
       "disease": [
-        "Orphanet:87884"
+        {
+          "cg:id": "Orphanet:87884"
+        }
       ],
       "name": "Hearing Loss, Autosomal Recessive",
-      "modeOfInheritance": "HP:0000007"
+      "modeOfInheritance": {
+        "cg:id": "HP:0000007",
+        "cg:type": "Coding",
+        "code": "0000007",
+        "system": "http://human-phenotype-ontology.github.io/",
+        "display": "Autosomal Recessive"
+      }
     }
   ],
-  "clinicalSignificance": "LN:LA6675-8",
+  "clinicalSignificance": {
+    "cg:id": "CC028",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "LN:LA6675-8",
+        "cg:type": "Coding",
+        "code": "LA6675-8",
+        "system": "http://loinc.org/",
+        "display": "Benign"
+      }
+    ]
+  },
   "assertionMethod": {
     "cg:id": "AssertMeth001",
     "cg:type": "AssertionMethod",
@@ -37,8 +57,8 @@
     {
       "cg:id": "EvLn113",
       "cg:type": "EvidenceLine",
-      "strength": "CG-evidence-strength:bs",
-      "supportingData": [
+      "explanation": "EvLn113",
+      "hasInformation": [
         {
           "cg:id": "CritAssess372",
           "cg:type": "CriterionAssessment",
@@ -48,8 +68,9 @@
             "cg:type": "Criterion",
             "description": "Allele frequency is greater than expected for disorder",
             "shortDescription": "MAF too high for disorder",
-            "defaultStrength": "CG-evidence-strength:bs",
-            "targetInterpretation": "LN:LA6675-8"
+            "defaultStrength": {
+              "cg:id": "CG-evidence-strength:bs"
+            }
           },
           "variant": {
             "cg:id": "CanAll092",
@@ -63,17 +84,32 @@
               "cg:type": "MendelianCondition",
               "explanation": "Hearing Loss",
               "disease": [
-                "Orphanet:87884"
+                {
+                  "cg:id": "Orphanet:87884"
+                }
               ],
               "name": "Hearing Loss"
             }
           ],
-          "outcome": "CG-criterion-outcome:met",
-          "hasSupportingEvidence": [
+          "outcome": {
+            "cg:id": "CC291",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-criterion-outcome:met",
+                "cg:type": "Coding",
+                "code": "met",
+                "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+                "display": "Met"
+              }
+            ]
+          },
+          "hasEvidence": [
             {
               "cg:id": "EvLn109",
               "cg:type": "EvidenceLine",
-              "supportingData": [
+              "explanation": "EvLn109",
+              "hasInformation": [
                 {
                   "cg:id": "AllFreq038",
                   "cg:type": "AlleleFrequency",
@@ -87,7 +123,15 @@
                   "alleleCount": 27,
                   "alleleNumber": 1384,
                   "alleleFrequency": 0.02,
-                  "population": "EXAC:AFR"
+                  "population": {
+                    "cg:id": "CC025",
+                    "cg:type": "CodeableConcept",
+                    "coding": [
+                      {
+                        "cg:id": "EXAC:AFR"
+                      }
+                    ]
+                  }
                 },
                 {
                   "cg:id": "CondPrev039",
@@ -98,14 +142,28 @@
                       "cg:type": "MendelianCondition",
                       "explanation": "Hearing Loss",
                       "disease": [
-                        "Orphanet:87884"
+                        {
+                          "cg:id": "Orphanet:87884"
+                        }
                       ],
                       "name": "Hearing Loss"
                     }
                   ],
                   "minimum": 1.0,
                   "maximum": 1.0,
-                  "population": "CG-population-type:overall"
+                  "population": {
+                    "cg:id": "CC026",
+                    "cg:type": "CodeableConcept",
+                    "coding": [
+                      {
+                        "cg:id": "CG-population-type:overall",
+                        "cg:type": "Coding",
+                        "code": "overall",
+                        "system": "http://clinicalgenome.org/datamodel/population-type/",
+                        "display": "Overall"
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -115,20 +173,64 @@
               "cg:id": "Contrib509",
               "cg:type": "Contribution",
               "agent": "Stefan DiMarino",
-              "onDate": {
-                "cg:id": "2017-03-08T09:46:00+00:00"
-              },
-              "role": "CG-contributory-role:assessor"
+              "onDate": "03/08/2017 9:46 AM",
+              "role": {
+                "cg:id": "CC411",
+                "cg:type": "CodeableConcept",
+                "coding": [
+                  {
+                    "cg:id": "CG-contributory-role:assessor",
+                    "cg:type": "Coding",
+                    "code": "assessor",
+                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                    "display": "assessor"
+                  }
+                ]
+              }
             }
           ]
+        }
+      ],
+      "strength": {
+        "cg:id": "CC444",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-evidence-strength:bs",
+            "cg:type": "Coding",
+            "code": "bs",
+            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "display": "Benign Strong"
+          }
+        ]
+      },
+      "contribution": [
+        {
+          "cg:id": "Contrib526",
+          "cg:type": "Contribution",
+          "agent": "Stefan DiMarino",
+          "onDate": "03/08/2017 9:46 AM",
+          "role": {
+            "cg:id": "CC428",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-contributory-role:assessor",
+                "cg:type": "Coding",
+                "code": "assessor",
+                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                "display": "assessor"
+              }
+            ]
+          }
         }
       ]
     },
     {
       "cg:id": "EvLn114",
       "cg:type": "EvidenceLine",
-      "strength": "CG-evidence-strength:bp",
-      "supportingData": [
+      "explanation": "EvLn114",
+      "hasInformation": [
         {
           "cg:id": "CritAssess340",
           "cg:type": "CriterionAssessment",
@@ -138,8 +240,9 @@
             "cg:type": "Criterion",
             "description": "Missense variant in a gene for which primarily truncating variants are known to cause disease",
             "shortDescription": "Missense variant when truncating is expected mechanism",
-            "defaultStrength": "CG-evidence-strength:bp",
-            "targetInterpretation": "LN:LA6675-8"
+            "defaultStrength": {
+              "cg:id": "CG-evidence-strength:bp"
+            }
           },
           "variant": {
             "cg:id": "CanAll092",
@@ -153,18 +256,39 @@
               "cg:type": "MendelianCondition",
               "explanation": "Hearing Loss, Autosomal Recessive",
               "disease": [
-                "Orphanet:87884"
+                {
+                  "cg:id": "Orphanet:87884"
+                }
               ],
               "name": "Hearing Loss, Autosomal Recessive",
-              "modeOfInheritance": "HP:0000007"
+              "modeOfInheritance": {
+                "cg:id": "HP:0000007",
+                "cg:type": "Coding",
+                "code": "0000007",
+                "system": "http://human-phenotype-ontology.github.io/",
+                "display": "Autosomal Recessive"
+              }
             }
           ],
-          "outcome": "CG-criterion-outcome:met",
-          "hasSupportingEvidence": [
+          "outcome": {
+            "cg:id": "CC261",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-criterion-outcome:met",
+                "cg:type": "Coding",
+                "code": "met",
+                "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+                "display": "Met"
+              }
+            ]
+          },
+          "hasEvidence": [
             {
               "cg:id": "EvLn083",
               "cg:type": "EvidenceLine",
-              "supportingData": [
+              "explanation": "EvLn083",
+              "hasInformation": [
                 {
                   "cg:id": "MolCon201",
                   "cg:type": "MolecularConsequence",
@@ -179,15 +303,51 @@
                     },
                     "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
                   },
-                  "consequence": "SO:0001583",
+                  "consequence": {
+                    "cg:id": "CC143",
+                    "cg:type": "CodeableConcept",
+                    "coding": [
+                      {
+                        "cg:id": "SO:0001583",
+                        "cg:type": "Coding",
+                        "code": "0001583",
+                        "system": "http://sequenceontology.org/",
+                        "display": "missense variant"
+                      }
+                    ]
+                  },
                   "lof": true
                 },
                 {
                   "cg:id": "CondMech202",
                   "cg:type": "ConditionMechanism",
                   "explanation": "shown in both humans and mouse models",
-                  "mechanism": "SO:0002054",
-                  "strength": "CG-cond-mech-strength:primary",
+                  "mechanism": {
+                    "cg:id": "CC144",
+                    "cg:type": "CodeableConcept",
+                    "coding": [
+                      {
+                        "cg:id": "SO:0002054",
+                        "cg:type": "Coding",
+                        "code": "0002054",
+                        "system": "http://sequenceontology.org/",
+                        "display": "loss of function variant"
+                      }
+                    ]
+                  },
+                  "strength": {
+                    "cg:id": "CC145",
+                    "cg:type": "CodeableConcept",
+                    "coding": [
+                      {
+                        "cg:id": "CG-cond-mech-strength:primary",
+                        "cg:type": "Coding",
+                        "code": "primary",
+                        "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+                        "display": "Primary"
+                      }
+                    ]
+                  },
                   "gene": {
                     "cg:id": "G048",
                     "cg:type": "Gene",
@@ -198,10 +358,18 @@
                     "cg:type": "MendelianCondition",
                     "explanation": "Hearing Loss, Autosomal Recessive",
                     "disease": [
-                      "Orphanet:87884"
+                      {
+                        "cg:id": "Orphanet:87884"
+                      }
                     ],
                     "name": "Hearing Loss, Autosomal Recessive",
-                    "modeOfInheritance": "HP:0000007"
+                    "modeOfInheritance": {
+                      "cg:id": "HP:0000007",
+                      "cg:type": "Coding",
+                      "code": "0000007",
+                      "system": "http://human-phenotype-ontology.github.io/",
+                      "display": "Autosomal Recessive"
+                    }
                   }
                 }
               ]
@@ -212,20 +380,64 @@
               "cg:id": "Contrib475",
               "cg:type": "Contribution",
               "agent": "Stefan DiMarino",
-              "onDate": {
-                "cg:id": "2016-09-06T09:59:59+00:00"
-              },
-              "role": "CG-contributory-role:assessor"
+              "onDate": "9/6/16 10:00 AM",
+              "role": {
+                "cg:id": "CC377",
+                "cg:type": "CodeableConcept",
+                "coding": [
+                  {
+                    "cg:id": "CG-contributory-role:assessor",
+                    "cg:type": "Coding",
+                    "code": "assessor",
+                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                    "display": "assessor"
+                  }
+                ]
+              }
             }
           ]
+        }
+      ],
+      "strength": {
+        "cg:id": "CC445",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-evidence-strength:bp",
+            "cg:type": "Coding",
+            "code": "bp",
+            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "display": "Benign Supporting"
+          }
+        ]
+      },
+      "contribution": [
+        {
+          "cg:id": "Contrib527",
+          "cg:type": "Contribution",
+          "agent": "Harry Stevenson",
+          "onDate": "7/1/16 9:23 AM",
+          "role": {
+            "cg:id": "CC429",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-contributory-role:assessor",
+                "cg:type": "Coding",
+                "code": "assessor",
+                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                "display": "assessor"
+              }
+            ]
+          }
         }
       ]
     },
     {
       "cg:id": "EvLn115",
       "cg:type": "EvidenceLine",
-      "strength": "CG-evidence-strength:bp",
-      "supportingData": [
+      "explanation": "EvLn115",
+      "hasInformation": [
         {
           "cg:id": "CritAssess363",
           "cg:type": "CriterionAssessment",
@@ -235,8 +447,9 @@
             "cg:type": "Criterion",
             "description": "Variant found in a case with an alternate molecular basis for disease",
             "shortDescription": "Variant found in case with alternate explanation",
-            "defaultStrength": "CG-evidence-strength:bp",
-            "targetInterpretation": "LN:LA6675-8"
+            "defaultStrength": {
+              "cg:id": "CG-evidence-strength:bp"
+            }
           },
           "variant": {
             "cg:id": "CanAll092",
@@ -250,24 +463,40 @@
               "cg:type": "MendelianCondition",
               "explanation": "Hearing Loss",
               "disease": [
-                "Orphanet:87884"
+                {
+                  "cg:id": "Orphanet:87884"
+                }
               ],
               "name": "Hearing Loss"
             }
           ],
-          "outcome": "CG-criterion-outcome:met",
-          "hasSupportingEvidence": [
+          "outcome": {
+            "cg:id": "CC283",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-criterion-outcome:met",
+                "cg:type": "Coding",
+                "code": "met",
+                "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+                "display": "Met"
+              }
+            ]
+          },
+          "hasEvidence": [
             {
               "cg:id": "EvLn106",
               "cg:type": "EvidenceLine",
-              "supportingData": [
+              "explanation": "EvLn106",
+              "hasInformation": [
                 {
                   "cg:id": "VarInterp364",
                   "cg:type": "VariantInterpretation",
                   "variant": {
                     "cg:id": "CanAll122",
                     "cg:type": "CanonicalAllele",
-                    "preferredCtxAllele": "CtxAll128"
+                    "preferredCtxAllele": "CtxAll128",
+                    "identifier": "http://reg.genome.network/allele/CA253304"
                   },
                   "condition": [
                     {
@@ -275,12 +504,26 @@
                       "cg:type": "MendelianCondition",
                       "explanation": "Hearing Loss",
                       "disease": [
-                        "Orphanet:87884"
+                        {
+                          "cg:id": "Orphanet:87884"
+                        }
                       ],
                       "name": "Hearing Loss"
                     }
                   ],
-                  "clinicalSignificance": "LN:LA26332-9"
+                  "clinicalSignificance": {
+                    "cg:id": "CC284",
+                    "cg:type": "CodeableConcept",
+                    "coding": [
+                      {
+                        "cg:id": "LN:LA26332-9",
+                        "cg:type": "Coding",
+                        "code": "LA26332-9",
+                        "system": "http://loinc.org/",
+                        "display": "Likely Pathogenic"
+                      }
+                    ]
+                  }
                 },
                 {
                   "cg:id": "VarInterp365",
@@ -288,7 +531,8 @@
                   "variant": {
                     "cg:id": "CanAll123",
                     "cg:type": "CanonicalAllele",
-                    "preferredCtxAllele": "CtxAll129"
+                    "preferredCtxAllele": "CtxAll129",
+                    "identifier": "http://reg.genome.network/allele/CA273665"
                   },
                   "condition": [
                     {
@@ -296,12 +540,26 @@
                       "cg:type": "MendelianCondition",
                       "explanation": "Hearing Loss",
                       "disease": [
-                        "Orphanet:87884"
+                        {
+                          "cg:id": "Orphanet:87884"
+                        }
                       ],
                       "name": "Hearing Loss"
                     }
                   ],
-                  "clinicalSignificance": "LN:LA6668-3"
+                  "clinicalSignificance": {
+                    "cg:id": "CC285",
+                    "cg:type": "CodeableConcept",
+                    "coding": [
+                      {
+                        "cg:id": "LN:LA6668-3",
+                        "cg:type": "Coding",
+                        "code": "LA6668-3",
+                        "system": "http://loinc.org/",
+                        "display": "Pathogenic"
+                      }
+                    ]
+                  }
                 },
                 {
                   "cg:id": "IndAll366",
@@ -320,9 +578,22 @@
                   "secondaryAllele": {
                     "cg:id": "CanAll122",
                     "cg:type": "CanonicalAllele",
-                    "preferredCtxAllele": "CtxAll128"
+                    "preferredCtxAllele": "CtxAll128",
+                    "identifier": "http://reg.genome.network/allele/CA253304"
                   },
-                  "phase": "CG-phase:trans"
+                  "phase": {
+                    "cg:id": "CC286",
+                    "cg:type": "CodeableConcept",
+                    "coding": [
+                      {
+                        "cg:id": "CG-phase:trans",
+                        "cg:type": "Coding",
+                        "code": "trans",
+                        "system": "http://clinicalgenome.org/datamodel/phase/",
+                        "display": "in trans"
+                      }
+                    ]
+                  }
                 },
                 {
                   "cg:id": "IndAll367",
@@ -341,9 +612,22 @@
                   "secondaryAllele": {
                     "cg:id": "CanAll123",
                     "cg:type": "CanonicalAllele",
-                    "preferredCtxAllele": "CtxAll129"
+                    "preferredCtxAllele": "CtxAll129",
+                    "identifier": "http://reg.genome.network/allele/CA273665"
                   },
-                  "phase": "CG-phase:trans"
+                  "phase": {
+                    "cg:id": "CC287",
+                    "cg:type": "CodeableConcept",
+                    "coding": [
+                      {
+                        "cg:id": "CG-phase:trans",
+                        "cg:type": "Coding",
+                        "code": "trans",
+                        "system": "http://clinicalgenome.org/datamodel/phase/",
+                        "display": "in trans"
+                      }
+                    ]
+                  }
                 },
                 {
                   "cg:id": "IndCond368",
@@ -360,7 +644,9 @@
                       "cg:type": "MendelianCondition",
                       "explanation": "Hearing Loss",
                       "disease": [
-                        "Orphanet:87884"
+                        {
+                          "cg:id": "Orphanet:87884"
+                        }
                       ],
                       "name": "Hearing Loss"
                     }
@@ -375,12 +661,56 @@
               "cg:id": "Contrib506",
               "cg:type": "Contribution",
               "agent": "Stefan DiMarino",
-              "onDate": {
-                "cg:id": "2017-03-07T16:30:00+00:00"
-              },
-              "role": "CG-contributory-role:assessor"
+              "onDate": "03/07/2017 4:30 PM",
+              "role": {
+                "cg:id": "CC408",
+                "cg:type": "CodeableConcept",
+                "coding": [
+                  {
+                    "cg:id": "CG-contributory-role:assessor",
+                    "cg:type": "Coding",
+                    "code": "assessor",
+                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                    "display": "assessor"
+                  }
+                ]
+              }
             }
           ]
+        }
+      ],
+      "strength": {
+        "cg:id": "CC446",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-evidence-strength:bp",
+            "cg:type": "Coding",
+            "code": "bp",
+            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "display": "Benign Supporting"
+          }
+        ]
+      },
+      "contribution": [
+        {
+          "cg:id": "Contrib528",
+          "cg:type": "Contribution",
+          "agent": "Stefan DiMarino",
+          "onDate": "03/07/2017 4:30 PM",
+          "role": {
+            "cg:id": "CC430",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-contributory-role:assessor",
+                "cg:type": "Coding",
+                "code": "assessor",
+                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                "display": "assessor"
+              }
+            ]
+          }
         }
       ]
     }
@@ -390,10 +720,20 @@
       "cg:id": "Contrib448",
       "cg:type": "Contribution",
       "agent": "CSER classifier #6",
-      "onDate": {
-        "cg:id": "2015-06-26T12:05:59+00:00"
-      },
-      "role": "CG-contributory-role:interpreter"
+      "onDate": "6/26/2015 12:06 PM",
+      "role": {
+        "cg:id": "CC350",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

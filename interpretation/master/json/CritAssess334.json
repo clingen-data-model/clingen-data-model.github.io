@@ -6,8 +6,9 @@
     "cg:type": "Criterion",
     "description": "Well-established in vitro or in vivo functional studies show no damaging effect on protein function or splicing",
     "shortDescription": "Well-established functional studies do not show damaging effect",
-    "defaultStrength": "CG-evidence-strength:bs",
-    "targetInterpretation": "LN:LA6675-8"
+    "defaultStrength": {
+      "cg:id": "CG-evidence-strength:bs"
+    }
   },
   "variant": {
     "cg:id": "CanAll087",
@@ -15,22 +16,42 @@
     "preferredCtxAllele": "CtxAll093",
     "identifier": "http://reg.genome.network/allele/CA501231"
   },
-  "condition": [
-    {
-      "cg:id": "-"
-    }
-  ],
-  "outcome": "CG-criterion-outcome:met",
-  "hasSupportingEvidence": [
+  "outcome": {
+    "cg:id": "CC255",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-criterion-outcome:met",
+        "cg:type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
+      }
+    ]
+  },
+  "hasEvidence": [
     {
       "cg:id": "EvLn077",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn077",
+      "hasInformation": [
         {
           "cg:id": "Func194",
           "cg:type": "FunctionalData",
           "result": "Unchanged from reference",
-          "dataType": "CG-func-data-type:neuritegrowth",
+          "dataType": {
+            "cg:id": "CC136",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-func-data-type:neuritegrowth",
+                "cg:type": "Coding",
+                "code": "neuritegrowth",
+                "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+                "display": "neurite outgrowth"
+              }
+            ]
+          },
           "contextualAllele": {
             "cg:id": "CtxAll093",
             "cg:type": "ContextualAllele",
@@ -53,12 +74,25 @@
     {
       "cg:id": "EvLn078",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn078",
+      "hasInformation": [
         {
           "cg:id": "Func195",
           "cg:type": "FunctionalData",
           "result": "localized to apical membrane",
-          "dataType": "CG-func-data-type:elk1phosvialucif",
+          "dataType": {
+            "cg:id": "CC137",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-func-data-type:elk1phosvialucif",
+                "cg:type": "Coding",
+                "code": "elk1phosvialucif",
+                "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+                "display": "Elk1 pohsphorylation via luciferase assay"
+              }
+            ]
+          },
           "contextualAllele": {
             "cg:id": "CtxAll093",
             "cg:type": "ContextualAllele",
@@ -84,10 +118,20 @@
       "cg:id": "Contrib469",
       "cg:type": "Contribution",
       "agent": "Stefan DiMarino",
-      "onDate": {
-        "cg:id": "2016-09-05T09:30:59+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "9/5/16 9:31 AM",
+      "role": {
+        "cg:id": "CC371",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

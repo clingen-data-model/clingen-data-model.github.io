@@ -5,7 +5,8 @@
   "variant": {
     "cg:id": "CanAll127",
     "cg:type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll133"
+    "preferredCtxAllele": "CtxAll133",
+    "identifier": "http://reg.genome.network/allele/CA273507"
   },
   "condition": [
     {
@@ -13,21 +14,45 @@
       "cg:type": "MendelianCondition",
       "explanation": "Rasopathy",
       "disease": [
-        "Orphanet:98733"
+        {
+          "cg:id": "Orphanet:98733"
+        }
       ],
       "name": "Rasopathy"
     }
   ],
-  "clinicalSignificance": "LN:LA26332-9",
+  "clinicalSignificance": {
+    "cg:id": "CC048",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "LN:LA26332-9",
+        "cg:type": "Coding",
+        "code": "LA26332-9",
+        "system": "http://loinc.org/",
+        "display": "Likely Pathogenic"
+      }
+    ]
+  },
   "contribution": [
     {
       "cg:id": "Contrib518",
       "cg:type": "Contribution",
       "agent": "ACME Molecular Lab",
-      "onDate": {
-        "cg:id": "2011-06-12T09:00:00+00:00"
-      },
-      "role": "CG-contributory-role:interpreter"
+      "onDate": "6/12/2011 9:00 AM",
+      "role": {
+        "cg:id": "CC420",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:interpreter",
+            "cg:type": "Coding",
+            "code": "interpreter",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "interpreter"
+          }
+        ]
+      }
     }
   ]
 }

@@ -6,8 +6,9 @@
     "cg:type": "Criterion",
     "description": "Observed in trans with a pathogenic variant for a fully penetrant dominant gene/disorder or observed in cis with a pathogenic variant in any inheritance pattern",
     "shortDescription": "In trans with dominant OR in cis with pathogenic variant",
-    "defaultStrength": "CG-evidence-strength:bp",
-    "targetInterpretation": "LN:LA6675-8"
+    "defaultStrength": {
+      "cg:id": "CG-evidence-strength:bp"
+    }
   },
   "variant": {
     "cg:id": "CanAll094",
@@ -19,18 +20,33 @@
     {
       "cg:id": "MendCond038",
       "cg:type": "MendelianCondition",
-      "explanation": "Retinitis Pigmentosa",
+      "explanation": "Orphanet:791",
       "disease": [
-        "Orphanet:791"
+        {
+          "cg:id": "Orphanet:791"
+        }
       ]
     }
   ],
-  "outcome": "CG-criterion-outcome:met",
-  "hasSupportingEvidence": [
+  "outcome": {
+    "cg:id": "CC263",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-criterion-outcome:met",
+        "cg:type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
+      }
+    ]
+  },
+  "hasEvidence": [
     {
       "cg:id": "EvLn085",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn085",
+      "hasInformation": [
         {
           "cg:id": "IndAll206",
           "cg:type": "IndividualAllele",
@@ -51,7 +67,19 @@
             "preferredCtxAllele": "CtxAll101",
             "identifier": "http://reg.genome.network/allele/CA252233"
           },
-          "phase": "CG-phase:cis"
+          "phase": {
+            "cg:id": "CC151",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-phase:cis",
+                "cg:type": "Coding",
+                "code": "cis",
+                "system": "http://clinicalgenome.org/datamodel/phase/",
+                "display": "in cis"
+              }
+            ]
+          }
         },
         {
           "cg:id": "IndCond208",
@@ -65,9 +93,11 @@
             {
               "cg:id": "MendCond038",
               "cg:type": "MendelianCondition",
-              "explanation": "Retinitis Pigmentosa",
+              "explanation": "Orphanet:791",
               "disease": [
-                "Orphanet:791"
+                {
+                  "cg:id": "Orphanet:791"
+                }
               ]
             }
           ],
@@ -86,20 +116,35 @@
             {
               "cg:id": "MendCond038",
               "cg:type": "MendelianCondition",
-              "explanation": "Retinitis Pigmentosa",
+              "explanation": "Orphanet:791",
               "disease": [
-                "Orphanet:791"
+                {
+                  "cg:id": "Orphanet:791"
+                }
               ]
             }
           ],
-          "clinicalSignificance": "LN:LA6668-3"
+          "clinicalSignificance": {
+            "cg:id": "CC153",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "LN:LA6668-3",
+                "cg:type": "Coding",
+                "code": "LA6668-3",
+                "system": "http://loinc.org/",
+                "display": "Pathogenic"
+              }
+            ]
+          }
         }
       ]
     },
     {
       "cg:id": "EvLn086",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn086",
+      "hasInformation": [
         {
           "cg:id": "IndAll207",
           "cg:type": "IndividualAllele",
@@ -120,7 +165,19 @@
             "preferredCtxAllele": "CtxAll101",
             "identifier": "http://reg.genome.network/allele/CA252233"
           },
-          "phase": "CG-phase:cis"
+          "phase": {
+            "cg:id": "CC152",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-phase:cis",
+                "cg:type": "Coding",
+                "code": "cis",
+                "system": "http://clinicalgenome.org/datamodel/phase/",
+                "display": "in cis"
+              }
+            ]
+          }
         },
         {
           "cg:id": "IndCond209",
@@ -134,9 +191,11 @@
             {
               "cg:id": "MendCond038",
               "cg:type": "MendelianCondition",
-              "explanation": "Retinitis Pigmentosa",
+              "explanation": "Orphanet:791",
               "disease": [
-                "Orphanet:791"
+                {
+                  "cg:id": "Orphanet:791"
+                }
               ]
             }
           ],
@@ -155,13 +214,27 @@
             {
               "cg:id": "MendCond038",
               "cg:type": "MendelianCondition",
-              "explanation": "Retinitis Pigmentosa",
+              "explanation": "Orphanet:791",
               "disease": [
-                "Orphanet:791"
+                {
+                  "cg:id": "Orphanet:791"
+                }
               ]
             }
           ],
-          "clinicalSignificance": "LN:LA6668-3"
+          "clinicalSignificance": {
+            "cg:id": "CC153",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "LN:LA6668-3",
+                "cg:type": "Coding",
+                "code": "LA6668-3",
+                "system": "http://loinc.org/",
+                "display": "Pathogenic"
+              }
+            ]
+          }
         }
       ]
     }
@@ -171,10 +244,20 @@
       "cg:id": "Contrib477",
       "cg:type": "Contribution",
       "agent": "Stefan DiMarino",
-      "onDate": {
-        "cg:id": "2016-09-06T12:00:00+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "9/6/16 12:00 PM",
+      "role": {
+        "cg:id": "CC379",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

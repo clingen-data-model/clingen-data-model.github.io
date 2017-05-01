@@ -6,8 +6,9 @@
     "cg:type": "Criterion",
     "description": "The prevalence of the variant in affected individuals is significantly increased compared with the prevalence in controls",
     "shortDescription": "Prevelance increase in affected vs. control",
-    "defaultStrength": "CG-evidence-strength:ps",
-    "targetInterpretation": "LN:LA6668-3"
+    "defaultStrength": {
+      "cg:id": "CG-evidence-strength:ps"
+    }
   },
   "variant": {
     "cg:id": "CanAll024",
@@ -19,18 +20,37 @@
     {
       "cg:id": "MendCond012",
       "cg:type": "MendelianCondition",
-      "explanation": "Abnormal Glucose Homeostasis",
+      "explanation": "HP:0011014",
       "phenotype": [
-        "HP:0011014"
+        {
+          "cg:id": "HP:0011014",
+          "cg:type": "Coding",
+          "code": "0011014",
+          "system": "http://human-phenotype-ontology.github.io/",
+          "display": "Abnormal Glucose Homeostasis"
+        }
       ]
     }
   ],
-  "outcome": "CG-criterion-outcome:not-met",
-  "hasSupportingEvidence": [
+  "outcome": {
+    "cg:id": "CC212",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-criterion-outcome:not-met",
+        "cg:type": "Coding",
+        "code": "not-met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Not Met"
+      }
+    ]
+  },
+  "hasEvidence": [
     {
       "cg:id": "EvLn021",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn021",
+      "hasInformation": [
         {
           "cg:id": "CaseCtrl036",
           "cg:type": "CaseControl",
@@ -44,9 +64,15 @@
           "condition": {
             "cg:id": "MendCond012",
             "cg:type": "MendelianCondition",
-            "explanation": "Abnormal Glucose Homeostasis",
+            "explanation": "HP:0011014",
             "phenotype": [
-              "HP:0011014"
+              {
+                "cg:id": "HP:0011014",
+                "cg:type": "Coding",
+                "code": "0011014",
+                "system": "http://human-phenotype-ontology.github.io/",
+                "display": "Abnormal Glucose Homeostasis"
+              }
             ]
           },
           "oddsRatio": 1.06,
@@ -66,7 +92,15 @@
             "individualCount": 3672,
             "homozygousAlleleIndividualCount": 113,
             "heterozygousAlleleIndividualCount": 972,
-            "population": "EXAC:NFE"
+            "population": {
+              "cg:id": "CC022",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "EXAC:NFE"
+                }
+              ]
+            }
           },
           "controlGroupFrequency": {
             "cg:id": "AllFreq035",
@@ -83,7 +117,15 @@
             "individualCount": 2935,
             "homozygousAlleleIndividualCount": 77,
             "heterozygousAlleleIndividualCount": 782,
-            "population": "EXAC:NFE"
+            "population": {
+              "cg:id": "CC023",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "EXAC:NFE"
+                }
+              ]
+            }
           },
           "confidenceIntervalLower": 0.96,
           "confidenceIntervalUpper": 1.18,
@@ -92,10 +134,20 @@
               "cg:id": "Contrib480",
               "cg:type": "Contribution",
               "agent": "Harry Stevenson",
-              "onDate": {
-                "cg:id": "2016-09-13T00:00:00+00:00"
-              },
-              "role": "CG-contributory-role:curator"
+              "onDate": "9/13/16",
+              "role": {
+                "cg:id": "CC382",
+                "cg:type": "CodeableConcept",
+                "coding": [
+                  {
+                    "cg:id": "CG-contributory-role:curator",
+                    "cg:type": "Coding",
+                    "code": "curator",
+                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                    "display": "curator"
+                  }
+                ]
+              }
             }
           ]
         }
@@ -107,10 +159,20 @@
       "cg:id": "Contrib414",
       "cg:type": "Contribution",
       "agent": "Harry Stevenson",
-      "onDate": {
-        "cg:id": "2016-06-05T16:12:00+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "6/5/16 4:12 PM",
+      "role": {
+        "cg:id": "CC316",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

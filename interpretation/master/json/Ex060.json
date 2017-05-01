@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex060",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess336",
     "cg:type": "CriterionAssessment",
     "explanation": "The inconsistent segregation data is reasonably explainable as a phenocopy, and therefore does not provide evidence for the benignity of this allele.",
@@ -10,8 +10,9 @@
       "cg:type": "Criterion",
       "description": "Lack of segregation in affected members of a family",
       "shortDescription": "Does not segregate with disease",
-      "defaultStrength": "CG-evidence-strength:bs",
-      "targetInterpretation": "LN:LA6675-8"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:bs"
+      }
     },
     "variant": {
       "cg:id": "CanAll089",
@@ -23,19 +24,40 @@
       {
         "cg:id": "MendCond065",
         "cg:type": "MendelianCondition",
-        "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
+        "explanation": "Orphanet:217569, HP:0000006",
         "disease": [
-          "Orphanet:217569"
+          {
+            "cg:id": "Orphanet:217569"
+          }
         ],
-        "modeOfInheritance": "HP:0000006"
+        "modeOfInheritance": {
+          "cg:id": "HP:0000006",
+          "cg:type": "Coding",
+          "code": "0000006",
+          "system": "http://human-phenotype-ontology.github.io/",
+          "display": "Autosomal Dominant"
+        }
       }
     ],
-    "outcome": "CG-criterion-outcome:not-met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC257",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:not-met",
+          "cg:type": "Coding",
+          "code": "not-met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Not Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn080",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn080",
+        "hasInformation": [
           {
             "cg:id": "FamSegData197",
             "cg:type": "FamilySegregationData",
@@ -43,11 +65,19 @@
             "condition": {
               "cg:id": "MendCond065",
               "cg:type": "MendelianCondition",
-              "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
+              "explanation": "Orphanet:217569, HP:0000006",
               "disease": [
-                "Orphanet:217569"
+                {
+                  "cg:id": "Orphanet:217569"
+                }
               ],
-              "modeOfInheritance": "HP:0000006"
+              "modeOfInheritance": {
+                "cg:id": "HP:0000006",
+                "cg:type": "Coding",
+                "code": "0000006",
+                "system": "http://human-phenotype-ontology.github.io/",
+                "display": "Autosomal Dominant"
+              }
             },
             "canonicalAllele": {
               "cg:id": "CanAll089",
@@ -72,10 +102,20 @@
         "cg:id": "Contrib471",
         "cg:type": "Contribution",
         "agent": "Harry Stevenson",
-        "onDate": {
-          "cg:id": "2016-09-05T10:50:59+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "9/5/16 10:51 AM",
+        "role": {
+          "cg:id": "CC373",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

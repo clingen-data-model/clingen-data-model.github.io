@@ -6,8 +6,9 @@
     "cg:type": "Criterion",
     "description": "Reputable source recently reports variant as benign, but the evidence is not available to the laboratory to perform an independent evaluation",
     "shortDescription": "Reported benign by reputable source without shared data",
-    "defaultStrength": "CG-evidence-strength:bp",
-    "targetInterpretation": "LN:LA6675-8"
+    "defaultStrength": {
+      "cg:id": "CG-evidence-strength:bp"
+    }
   },
   "variant": {
     "cg:id": "CanAll116",
@@ -19,18 +20,33 @@
     {
       "cg:id": "MendCond044",
       "cg:type": "MendelianCondition",
-      "explanation": "Gyrate atrophy of choroid and retina",
+      "explanation": "Orphanet:414",
       "disease": [
-        "Orphanet:414"
+        {
+          "cg:id": "Orphanet:414"
+        }
       ]
     }
   ],
-  "outcome": "CG-criterion-outcome:not-met",
-  "hasSupportingEvidence": [
+  "outcome": {
+    "cg:id": "CC277",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-criterion-outcome:not-met",
+        "cg:type": "Coding",
+        "code": "not-met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Not Met"
+      }
+    ]
+  },
+  "hasEvidence": [
     {
       "cg:id": "EvLn099",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn099",
+      "hasInformation": [
         {
           "cg:id": "VarInterp257",
           "cg:type": "VariantInterpretation",
@@ -45,13 +61,27 @@
             {
               "cg:id": "MendCond044",
               "cg:type": "MendelianCondition",
-              "explanation": "Gyrate atrophy of choroid and retina",
+              "explanation": "Orphanet:414",
               "disease": [
-                "Orphanet:414"
+                {
+                  "cg:id": "Orphanet:414"
+                }
               ]
             }
           ],
-          "clinicalSignificance": "LN:LA6675-8"
+          "clinicalSignificance": {
+            "cg:id": "CC186",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "LN:LA6675-8",
+                "cg:type": "Coding",
+                "code": "LA6675-8",
+                "system": "http://loinc.org/",
+                "display": "Benign"
+              }
+            ]
+          }
         }
       ]
     }
@@ -61,10 +91,20 @@
       "cg:id": "Contrib501",
       "cg:type": "Contribution",
       "agent": "Stefan DiMarino",
-      "onDate": {
-        "cg:id": "2016-10-10T08:03:00+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "10/10/16 8:03 AM",
+      "role": {
+        "cg:id": "CC403",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

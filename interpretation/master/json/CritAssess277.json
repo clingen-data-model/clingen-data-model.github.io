@@ -7,8 +7,9 @@
     "cg:type": "Criterion",
     "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
     "shortDescription": "Null variant in gene with known LOF mechanism",
-    "defaultStrength": "CG-evidence-strength:pvs",
-    "targetInterpretation": "LN:LA6668-3"
+    "defaultStrength": {
+      "cg:id": "CG-evidence-strength:pvs"
+    }
   },
   "variant": {
     "cg:id": "CanAll003",
@@ -20,18 +21,33 @@
     {
       "cg:id": "MendCond047",
       "cg:type": "MendelianCondition",
-      "explanation": "dilated cardiomyopathy",
+      "explanation": "Orphanet:217604",
       "disease": [
-        "Orphanet:217604"
+        {
+          "cg:id": "Orphanet:217604"
+        }
       ]
     }
   ],
-  "outcome": "CG-criterion-outcome:not-met",
-  "hasSupportingEvidence": [
+  "outcome": {
+    "cg:id": "CC200",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-criterion-outcome:not-met",
+        "cg:type": "Coding",
+        "code": "not-met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Not Met"
+      }
+    ]
+  },
+  "hasEvidence": [
     {
       "cg:id": "EvLn003",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn003",
+      "hasInformation": [
         {
           "cg:id": "MolCon005",
           "cg:type": "MolecularConsequence",
@@ -47,14 +63,50 @@
             },
             "alleleName": "NM_133437.4(TTN):c.10670dupG "
           },
-          "consequence": "SO:0001589",
+          "consequence": {
+            "cg:id": "CC007",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "SO:0001589",
+                "cg:type": "Coding",
+                "code": "0001589",
+                "system": "http://sequenceontology.org/",
+                "display": "frameshift variant"
+              }
+            ]
+          },
           "lof": true
         },
         {
           "cg:id": "CondMech007",
           "cg:type": "ConditionMechanism",
-          "mechanism": "SO:0002054",
-          "strength": "CG-cond-mech-strength:established",
+          "mechanism": {
+            "cg:id": "CC009",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "SO:0002054",
+                "cg:type": "Coding",
+                "code": "0002054",
+                "system": "http://sequenceontology.org/",
+                "display": "loss of function variant"
+              }
+            ]
+          },
+          "strength": {
+            "cg:id": "CC010",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-cond-mech-strength:established",
+                "cg:type": "Coding",
+                "code": "established",
+                "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+                "display": "Established"
+              }
+            ]
+          },
           "gene": {
             "cg:id": "G003",
             "cg:type": "Gene",
@@ -63,9 +115,11 @@
           "condition": {
             "cg:id": "MendCond047",
             "cg:type": "MendelianCondition",
-            "explanation": "dilated cardiomyopathy",
+            "explanation": "Orphanet:217604",
             "disease": [
-              "Orphanet:217604"
+              {
+                "cg:id": "Orphanet:217604"
+              }
             ]
           }
         }
@@ -74,7 +128,8 @@
     {
       "cg:id": "EvLn004",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn004",
+      "hasInformation": [
         {
           "cg:id": "MolCon006",
           "cg:type": "MolecularConsequence",
@@ -89,14 +144,50 @@
             },
             "alleleName": "LRG_391t2:c.10303+2691dupG"
           },
-          "consequence": "SO:0000191",
+          "consequence": {
+            "cg:id": "CC008",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "SO:0000191",
+                "cg:type": "Coding",
+                "code": "0000191",
+                "system": "http://sequenceontology.org/",
+                "display": "interior intron"
+              }
+            ]
+          },
           "lof": true
         },
         {
           "cg:id": "CondMech007",
           "cg:type": "ConditionMechanism",
-          "mechanism": "SO:0002054",
-          "strength": "CG-cond-mech-strength:established",
+          "mechanism": {
+            "cg:id": "CC009",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "SO:0002054",
+                "cg:type": "Coding",
+                "code": "0002054",
+                "system": "http://sequenceontology.org/",
+                "display": "loss of function variant"
+              }
+            ]
+          },
+          "strength": {
+            "cg:id": "CC010",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-cond-mech-strength:established",
+                "cg:type": "Coding",
+                "code": "established",
+                "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+                "display": "Established"
+              }
+            ]
+          },
           "gene": {
             "cg:id": "G003",
             "cg:type": "Gene",
@@ -105,9 +196,11 @@
           "condition": {
             "cg:id": "MendCond047",
             "cg:type": "MendelianCondition",
-            "explanation": "dilated cardiomyopathy",
+            "explanation": "Orphanet:217604",
             "disease": [
-              "Orphanet:217604"
+              {
+                "cg:id": "Orphanet:217604"
+              }
             ]
           }
         }
@@ -119,10 +212,20 @@
       "cg:id": "Contrib398",
       "cg:type": "Contribution",
       "agent": "Harry Stevenson",
-      "onDate": {
-        "cg:id": "2016-06-02T14:22:00+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "6/2/16 2:22 PM",
+      "role": {
+        "cg:id": "CC300",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

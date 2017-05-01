@@ -7,8 +7,9 @@
     "cg:type": "Criterion",
     "description": "Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before",
     "shortDescription": "Novel missense at same amino acid as known pathogenic missense",
-    "defaultStrength": "CG-evidence-strength:pm",
-    "targetInterpretation": "LN:LA6668-3"
+    "defaultStrength": {
+      "cg:id": "CG-evidence-strength:pm"
+    }
   },
   "variant": {
     "cg:id": "CanAll055",
@@ -23,17 +24,42 @@
       "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
       "name": "Breast Ovarian Cancer, Autosomal Dominant",
       "disease": [
-        "MESH:D061325"
+        {
+          "cg:id": "MESH:D061325",
+          "cg:type": "Coding",
+          "code": "D061325",
+          "system": "https://meshb.nlm.nih.gov/",
+          "display": "hereditary breast ovarian cancer"
+        }
       ],
-      "modeOfInheritance": "HP:0000006"
+      "modeOfInheritance": {
+        "cg:id": "HP:0000006",
+        "cg:type": "Coding",
+        "code": "0000006",
+        "system": "http://human-phenotype-ontology.github.io/",
+        "display": "Autosomal Dominant"
+      }
     }
   ],
-  "outcome": "CG-criterion-outcome:met",
-  "hasSupportingEvidence": [
+  "outcome": {
+    "cg:id": "CC227",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-criterion-outcome:met",
+        "cg:type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
+      }
+    ]
+  },
+  "hasEvidence": [
     {
       "cg:id": "EvLn039",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn039",
+      "hasInformation": [
         {
           "cg:id": "VarInterp081",
           "cg:type": "VariantInterpretation",
@@ -50,12 +76,36 @@
               "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
               "name": "Breast Ovarian Cancer, Autosomal Dominant",
               "disease": [
-                "MESH:D061325"
+                {
+                  "cg:id": "MESH:D061325",
+                  "cg:type": "Coding",
+                  "code": "D061325",
+                  "system": "https://meshb.nlm.nih.gov/",
+                  "display": "hereditary breast ovarian cancer"
+                }
               ],
-              "modeOfInheritance": "HP:0000006"
+              "modeOfInheritance": {
+                "cg:id": "HP:0000006",
+                "cg:type": "Coding",
+                "code": "0000006",
+                "system": "http://human-phenotype-ontology.github.io/",
+                "display": "Autosomal Dominant"
+              }
             }
           ],
-          "clinicalSignificance": "LN:LA6668-3"
+          "clinicalSignificance": {
+            "cg:id": "CC066",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "LN:LA6668-3",
+                "cg:type": "Coding",
+                "code": "LA6668-3",
+                "system": "http://loinc.org/",
+                "display": "Pathogenic"
+              }
+            ]
+          }
         }
       ]
     }
@@ -65,10 +115,20 @@
       "cg:id": "Contrib430",
       "cg:type": "Contribution",
       "agent": "Harry Stevenson",
-      "onDate": {
-        "cg:id": "2016-07-01T09:23:00+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "7/1/16 9:23 AM",
+      "role": {
+        "cg:id": "CC332",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

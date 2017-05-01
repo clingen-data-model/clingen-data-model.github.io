@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex013",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess287",
     "cg:type": "CriterionAssessment",
     "explanation": "statistically significant difference between affects and unaffecteds",
@@ -10,8 +10,9 @@
       "cg:type": "Criterion",
       "description": "The prevalence of the variant in affected individuals is significantly increased compared with the prevalence in controls",
       "shortDescription": "Prevelance increase in affected vs. control",
-      "defaultStrength": "CG-evidence-strength:ps",
-      "targetInterpretation": "LN:LA6668-3"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:ps"
+      }
     },
     "variant": {
       "cg:id": "CanAll022",
@@ -25,17 +26,32 @@
         "cg:type": "MendelianCondition",
         "explanation": "Hearing Loss",
         "disease": [
-          "Orphanet:87884"
+          {
+            "cg:id": "Orphanet:87884"
+          }
         ],
         "name": "Hearing Loss"
       }
     ],
-    "outcome": "CG-criterion-outcome:met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC210",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:met",
+          "cg:type": "Coding",
+          "code": "met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn019",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn019",
+        "hasInformation": [
           {
             "cg:id": "CaseCtrl030",
             "cg:type": "CaseControl",
@@ -51,7 +67,9 @@
               "cg:type": "MendelianCondition",
               "explanation": "Hearing Loss",
               "disease": [
-                "Orphanet:87884"
+                {
+                  "cg:id": "Orphanet:87884"
+                }
               ],
               "name": "Hearing Loss"
             },
@@ -94,10 +112,20 @@
         "cg:id": "Contrib412",
         "cg:type": "Contribution",
         "agent": "Harry Stevenson",
-        "onDate": {
-          "cg:id": "2016-06-05T10:24:00+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "6/5/16 10:24 AM",
+        "role": {
+          "cg:id": "CC314",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

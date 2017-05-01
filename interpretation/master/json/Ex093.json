@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex093",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess374",
     "cg:type": "CriterionAssessment",
     "explanation": "Flag-tagged construct with the variant was transfected into HEK cells. As per the RASopathy working group’s approved assays (see example 3 above), Smith et al. showed that the Y337C mutation increased levels of pERK in starved HEK cells via western blotting.",
@@ -10,33 +10,61 @@
       "cg:type": "Criterion",
       "description": "Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product",
       "shortDescription": "Well-established functional studies showing damaging effect",
-      "defaultStrength": "CG-evidence-strength:ps",
-      "targetInterpretation": "LN:LA6668-3"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:ps"
+      }
     },
     "variant": {
       "cg:id": "CanAll124",
       "cg:type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll130"
+      "preferredCtxAllele": "CtxAll130",
+      "identifier": "http://reg.genome.network/allele/CA090930"
     },
-    "outcome": "CG-criterion-outcome:met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC293",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:met",
+          "cg:type": "Coding",
+          "code": "met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn116",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn116",
+        "hasInformation": [
           {
             "cg:id": "Func067",
             "cg:type": "FunctionalData",
             "explanation": "PMID: 23487764",
             "result": "increased ERK activtation",
-            "dataType": "CG-func-data-type:activation",
+            "dataType": {
+              "cg:id": "CC055",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-func-data-type:activation",
+                  "cg:type": "Coding",
+                  "code": "activation",
+                  "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+                  "display": "Activation Assay"
+                }
+              ]
+            },
             "contextualAllele": {
               "cg:id": "CtxAll130",
               "cg:type": "ContextualAllele",
               "relatedCanonicalAllele": {
                 "cg:id": "CanAll124",
                 "cg:type": "CanonicalAllele",
-                "preferredCtxAllele": "CtxAll130"
+                "preferredCtxAllele": "CtxAll130",
+                "identifier": "http://reg.genome.network/allele/CA090930"
               },
               "alleleName": "NM_005633.3(SOS1):c.1010A>G (p.Tyr337Cys)"
             },
@@ -54,10 +82,20 @@
         "cg:id": "Contrib513",
         "cg:type": "Contribution",
         "agent": "Stefan DiMarino",
-        "onDate": {
-          "cg:id": "2017-03-14T10:28:59+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "3/14/2017 10:29 AM",
+        "role": {
+          "cg:id": "CC415",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

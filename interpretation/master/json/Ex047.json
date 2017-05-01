@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex047",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess322",
     "cg:type": "CriterionAssessment",
     "criterion": {
@@ -9,8 +9,9 @@
       "cg:type": "Criterion",
       "description": "Reputable source recently reports variant as pathogenic, but the evidence is not available to the laboratory to perform an independent evaluation",
       "shortDescription": "Reported pathogenic by reputable source without shared data",
-      "defaultStrength": "CG-evidence-strength:pp",
-      "targetInterpretation": "LN:LA6668-3"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:pp"
+      }
     },
     "variant": {
       "cg:id": "CanAll074",
@@ -22,19 +23,40 @@
       {
         "cg:id": "MendCond025",
         "cg:type": "MendelianCondition",
-        "explanation": "Cystic Fibrosis, Autosomal Recessive",
+        "explanation": "Orphanet:586, HP:0000007",
         "disease": [
-          "Orphanet:586"
+          {
+            "cg:id": "Orphanet:586"
+          }
         ],
-        "modeOfInheritance": "HP:0000007"
+        "modeOfInheritance": {
+          "cg:id": "HP:0000007",
+          "cg:type": "Coding",
+          "code": "0000007",
+          "system": "http://human-phenotype-ontology.github.io/",
+          "display": "Autosomal Recessive"
+        }
       }
     ],
-    "outcome": "CG-criterion-outcome:met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC244",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:met",
+          "cg:type": "Coding",
+          "code": "met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn059",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn059",
+        "hasInformation": [
           {
             "cg:id": "VarInterp152",
             "cg:type": "VariantInterpretation",
@@ -49,14 +71,34 @@
               {
                 "cg:id": "MendCond025",
                 "cg:type": "MendelianCondition",
-                "explanation": "Cystic Fibrosis, Autosomal Recessive",
+                "explanation": "Orphanet:586, HP:0000007",
                 "disease": [
-                  "Orphanet:586"
+                  {
+                    "cg:id": "Orphanet:586"
+                  }
                 ],
-                "modeOfInheritance": "HP:0000007"
+                "modeOfInheritance": {
+                  "cg:id": "HP:0000007",
+                  "cg:type": "Coding",
+                  "code": "0000007",
+                  "system": "http://human-phenotype-ontology.github.io/",
+                  "display": "Autosomal Recessive"
+                }
               }
             ],
-            "clinicalSignificance": "LN:LA6668-3"
+            "clinicalSignificance": {
+              "cg:id": "CC104",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "LN:LA6668-3",
+                  "cg:type": "Coding",
+                  "code": "LA6668-3",
+                  "system": "http://loinc.org/",
+                  "display": "Pathogenic"
+                }
+              ]
+            }
           }
         ]
       }
@@ -66,10 +108,20 @@
         "cg:id": "Contrib454",
         "cg:type": "Contribution",
         "agent": "Harry Stevenson",
-        "onDate": {
-          "cg:id": "2016-08-29T18:00:00+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "8/29/16 6:00 PM",
+        "role": {
+          "cg:id": "CC356",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

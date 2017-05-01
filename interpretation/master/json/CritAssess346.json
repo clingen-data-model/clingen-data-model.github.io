@@ -7,8 +7,9 @@
     "cg:type": "Criterion",
     "description": "In-frame deletions/insertions in a repetitive region without a known function",
     "shortDescription": "In-frame indel without known function",
-    "defaultStrength": "CG-evidence-strength:bp",
-    "targetInterpretation": "LN:LA6675-8"
+    "defaultStrength": {
+      "cg:id": "CG-evidence-strength:bp"
+    }
   },
   "variant": {
     "cg:id": "CanAll101",
@@ -16,17 +17,25 @@
     "preferredCtxAllele": "CtxAll107",
     "identifier": "http://reg.genome.network/allele/CA273551"
   },
-  "condition": [
-    {
-      "cg:id": "-"
-    }
-  ],
-  "outcome": "CG-criterion-outcome:not-met",
-  "hasSupportingEvidence": [
+  "outcome": {
+    "cg:id": "CC267",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-criterion-outcome:not-met",
+        "cg:type": "Coding",
+        "code": "not-met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Not Met"
+      }
+    ]
+  },
+  "hasEvidence": [
     {
       "cg:id": "EvLn090",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn090",
+      "hasInformation": [
         {
           "cg:id": "RegAnn225",
           "cg:type": "RegionAnnotation",
@@ -41,7 +50,19 @@
             "stop": 39262
           },
           "isTypes": [
-            "CG-reg-anno-type:repeat"
+            {
+              "cg:id": "CC162",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-reg-anno-type:repeat",
+                  "cg:type": "Coding",
+                  "code": "repeat",
+                  "system": "http://clinicalgenome.org/datamodel/region-annotation-type/",
+                  "display": "Repeat"
+                }
+              ]
+            }
           ]
         },
         {
@@ -74,7 +95,19 @@
         {
           "cg:id": "MolCon227",
           "cg:type": "MolecularConsequence",
-          "consequence": "SO:0001589",
+          "consequence": {
+            "cg:id": "CC163",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "SO:0001589",
+                "cg:type": "Coding",
+                "code": "0001589",
+                "system": "http://sequenceontology.org/",
+                "display": "frameshift variant"
+              }
+            ]
+          },
           "contextualAllele": {
             "cg:id": "CtxAll107",
             "cg:type": "ContextualAllele",
@@ -95,10 +128,20 @@
       "cg:id": "Contrib490",
       "cg:type": "Contribution",
       "agent": "Stefan DiMarino",
-      "onDate": {
-        "cg:id": "2016-09-15T09:23:00+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "9/15/16 9:23 AM",
+      "role": {
+        "cg:id": "CC392",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

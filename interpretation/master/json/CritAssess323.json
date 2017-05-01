@@ -6,8 +6,9 @@
     "cg:type": "Criterion",
     "description": "Allele frequency is >5% in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
     "shortDescription": "Present in population databases at greater than 5%",
-    "defaultStrength": "CG-evidence-strength:ba",
-    "targetInterpretation": "LN:LA6675-8"
+    "defaultStrength": {
+      "cg:id": "CG-evidence-strength:ba"
+    }
   },
   "variant": {
     "cg:id": "CanAll075",
@@ -15,22 +16,42 @@
     "preferredCtxAllele": "CtxAll081",
     "identifier": "http://reg.genome.network/allele/CA090891"
   },
-  "condition": [
-    {
-      "cg:id": "-"
-    }
-  ],
-  "outcome": "CG-criterion-outcome:met",
-  "hasSupportingEvidence": [
+  "outcome": {
+    "cg:id": "CC245",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-criterion-outcome:met",
+        "cg:type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
+      }
+    ]
+  },
+  "hasEvidence": [
     {
       "cg:id": "EvLn060",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn060",
+      "hasInformation": [
         {
           "cg:id": "AllFreq153",
           "cg:type": "AlleleFrequency",
           "ascertainment": "ExAC",
-          "population": "CG-population-type:combined",
+          "population": {
+            "cg:id": "CC105",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-population-type:combined",
+                "cg:type": "Coding",
+                "code": "combined",
+                "system": "http://clinicalgenome.org/datamodel/population-type/",
+                "display": "Combined"
+              }
+            ]
+          },
           "allele": {
             "cg:id": "CanAll075",
             "cg:type": "CanonicalAllele",
@@ -50,10 +71,20 @@
       "cg:id": "Contrib455",
       "cg:type": "Contribution",
       "agent": "Harry Stevenson",
-      "onDate": {
-        "cg:id": "2016-08-29T18:59:59+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "8/29/16 7:00 PM",
+      "role": {
+        "cg:id": "CC357",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

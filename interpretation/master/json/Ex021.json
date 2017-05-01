@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex021",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess295",
     "cg:type": "CriterionAssessment",
     "explanation": "while the variant is absent from exac, mean coverage (11X) is insufficient to be sure that variant was fully assayed.",
@@ -10,8 +10,9 @@
       "cg:type": "Criterion",
       "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
       "shortDescription": "Absent from controls",
-      "defaultStrength": "CG-evidence-strength:pm",
-      "targetInterpretation": "LN:LA6668-3"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:pm"
+      }
     },
     "variant": {
       "cg:id": "CanAll034",
@@ -19,22 +20,42 @@
       "preferredCtxAllele": "CtxAll038",
       "identifier": "http://reg.genome.network/allele/CA273141"
     },
-    "condition": [
-      {
-        "cg:id": "-"
-      }
-    ],
-    "outcome": "CG-criterion-outcome:not-met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC218",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:not-met",
+          "cg:type": "Coding",
+          "code": "not-met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Not Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn028",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn028",
+        "hasInformation": [
           {
             "cg:id": "AllFreq054",
             "cg:type": "AlleleFrequency",
             "ascertainment": "ExAC",
-            "population": "CG-population-type:combined",
+            "population": {
+              "cg:id": "CC041",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-population-type:combined",
+                  "cg:type": "Coding",
+                  "code": "combined",
+                  "system": "http://clinicalgenome.org/datamodel/population-type/",
+                  "display": "Combined"
+                }
+              ]
+            },
             "allele": {
               "cg:id": "CanAll034",
               "cg:type": "CanonicalAllele",
@@ -54,10 +75,20 @@
         "cg:id": "Contrib421",
         "cg:type": "Contribution",
         "agent": "Harry Stevenson",
-        "onDate": {
-          "cg:id": "2016-06-06T11:28:00+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "6/6/16 11:28 AM",
+        "role": {
+          "cg:id": "CC323",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

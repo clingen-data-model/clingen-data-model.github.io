@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex024",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess298",
     "cg:type": "CriterionAssessment",
     "explanation": "Application of PM3 is incorrect as the variant in trans is know known to be pathogenic (it is the same variant).",
@@ -10,8 +10,9 @@
       "cg:type": "Criterion",
       "description": "For recessive disorders, detected in trans with a pathogenic variant",
       "shortDescription": "Recessive in trans with pathogenic variant",
-      "defaultStrength": "CG-evidence-strength:pm",
-      "targetInterpretation": "LN:LA6668-3"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:pm"
+      }
     },
     "variant": {
       "cg:id": "CanAll039",
@@ -23,11 +24,19 @@
       {
         "cg:id": "MendCond015",
         "cg:type": "MendelianCondition",
-        "explanation": "neuronal ceroid lipofuscinosis, Autosomal Recessive, TTP1",
+        "explanation": "Orphanet:216, HP:0000007, TTP1",
         "disease": [
-          "Orphanet:216"
+          {
+            "cg:id": "Orphanet:216"
+          }
         ],
-        "modeOfInheritance": "HP:0000007",
+        "modeOfInheritance": {
+          "cg:id": "HP:0000007",
+          "cg:type": "Coding",
+          "code": "0000007",
+          "system": "http://human-phenotype-ontology.github.io/",
+          "display": "Autosomal Recessive"
+        },
         "gene": {
           "cg:id": "G025",
           "cg:type": "Gene",
@@ -35,12 +44,25 @@
         }
       }
     ],
-    "outcome": "CG-criterion-outcome:not-met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC221",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:not-met",
+          "cg:type": "Coding",
+          "code": "not-met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Not Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn031",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn031",
+        "hasInformation": [
           {
             "cg:id": "IndCond064",
             "cg:type": "IndividualCondition",
@@ -53,11 +75,19 @@
               {
                 "cg:id": "MendCond015",
                 "cg:type": "MendelianCondition",
-                "explanation": "neuronal ceroid lipofuscinosis, Autosomal Recessive, TTP1",
+                "explanation": "Orphanet:216, HP:0000007, TTP1",
                 "disease": [
-                  "Orphanet:216"
+                  {
+                    "cg:id": "Orphanet:216"
+                  }
                 ],
-                "modeOfInheritance": "HP:0000007",
+                "modeOfInheritance": {
+                  "cg:id": "HP:0000007",
+                  "cg:type": "Coding",
+                  "code": "0000007",
+                  "system": "http://human-phenotype-ontology.github.io/",
+                  "display": "Autosomal Recessive"
+                },
                 "gene": {
                   "cg:id": "G025",
                   "cg:type": "Gene",
@@ -81,7 +111,19 @@
               "preferredCtxAllele": "CtxAll043",
               "identifier": "http://reg.genome.network/allele/CA090904"
             },
-            "primaryZygosity": "CG-allelic-state:hom"
+            "primaryZygosity": {
+              "cg:id": "CC053",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-allelic-state:hom",
+                  "cg:type": "Coding",
+                  "code": "hom",
+                  "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+                  "display": "homozygous"
+                }
+              ]
+            }
           }
         ]
       }
@@ -91,10 +133,20 @@
         "cg:id": "Contrib424",
         "cg:type": "Contribution",
         "agent": "Harry Stevenson",
-        "onDate": {
-          "cg:id": "2016-06-10T09:14:59+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "6/10/16 9:15 AM",
+        "role": {
+          "cg:id": "CC326",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

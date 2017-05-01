@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex083",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess360",
     "cg:type": "CriterionAssessment",
     "explanation": "This variant is a silent variant that does not result in an amino acid change. It is not very conserved and splicing tools suggest no change. However, BP7 does not apply because the variant is located in the first base of exon 4 of RAF1, which is part of the 3’ splice region of the exon. For that reason, we can’t fully trust computational tools. Functional assays would have to confirm that this variant truly does not alter splicing.",
@@ -10,8 +10,9 @@
       "cg:type": "Criterion",
       "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
       "shortDescription": "Synonymous variant without predicted splice effect in region with low conservation",
-      "defaultStrength": "CG-evidence-strength:bp",
-      "targetInterpretation": "LN:LA6675-8"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:bp"
+      }
     },
     "variant": {
       "cg:id": "CanAll119",
@@ -19,17 +20,25 @@
       "preferredCtxAllele": "CtxAll125",
       "identifier": "http://reg.genome.network/allele/CA177682"
     },
-    "condition": [
-      {
-        "cg:id": "-"
-      }
-    ],
-    "outcome": "CG-criterion-outcome:not-met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC280",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:not-met",
+          "cg:type": "Coding",
+          "code": "not-met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Not Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn102",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn102",
+        "hasInformation": [
           {
             "cg:id": "InSilicoPred266",
             "cg:type": "InSilicoPrediction",
@@ -44,7 +53,19 @@
               },
               "alleleName": "NM_002880.3(RAF1):c.321T>C"
             },
-            "type": "CG-prediction-type:sp",
+            "type": {
+              "cg:id": "CC191",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-prediction-type:sp",
+                  "cg:type": "Coding",
+                  "code": "sp",
+                  "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+                  "display": "splicing prediction"
+                }
+              ]
+            },
             "value": "no impact"
           },
           {
@@ -76,7 +97,19 @@
           {
             "cg:id": "MolCon269",
             "cg:type": "MolecularConsequence",
-            "consequence": "SO:0001819",
+            "consequence": {
+              "cg:id": "CC192",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "SO:0001819",
+                  "cg:type": "Coding",
+                  "code": "0001819",
+                  "system": "http://sequenceontology.org/",
+                  "display": "synonymous variant"
+                }
+              ]
+            },
             "contextualAllele": {
               "cg:id": "CtxAll125",
               "cg:type": "ContextualAllele",
@@ -97,10 +130,20 @@
         "cg:id": "Contrib504",
         "cg:type": "Contribution",
         "agent": "Stefan DiMarino",
-        "onDate": {
-          "cg:id": "2016-10-10T08:06:00+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "10/10/16 8:06 AM",
+        "role": {
+          "cg:id": "CC406",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

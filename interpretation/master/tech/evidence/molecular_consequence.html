@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li class="active"><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Information</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li class="active"><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -108,7 +108,7 @@
             <h1>MolecularConsequence</h1>
             <p>Classification of an Allele based on its effect on a product</p>
 
-                <p>Descended from Data</p>
+                <p>Descended from Information</p>
 
             <hr class='col-sm-12' />
 
@@ -171,6 +171,13 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>source</td>
+                    <td>InformationSource</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>explanation</td>
                     <td>String</td>
                     <td>0..1</td>
@@ -207,7 +214,7 @@
               <p>true</p>
          </td>
           <td>
-              <p>SO:0001589</p>
+              <p><a href="../details/details.html#CC001">CC001</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon001"><pre><code>{
@@ -225,7 +232,19 @@
     },
     "alleleName": "NM_031844.2(HNRNPU):c.2304_2305del (p.Gly769Glufs*83)"
   },
-  "consequence": "SO:0001589",
+  "consequence": {
+    "cg:id": "CC001",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001589",
+        "cg:type": "Coding",
+        "code": "0001589",
+        "system": "http://sequenceontology.org/",
+        "display": "frameshift variant"
+      }
+    ]
+  },
   "lof": true
 }
           </code></pre></div></td>
@@ -242,7 +261,7 @@
               <p>true</p>
          </td>
           <td>
-              <p>SO:0001589</p>
+              <p><a href="../details/details.html#CC004">CC004</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon003"><pre><code>{
@@ -255,11 +274,24 @@
     "relatedCanonicalAllele": {
       "cg:id": "CanAll002",
       "cg:type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll002"
+      "preferredCtxAllele": "CtxAll002",
+      "identifier": "http://reg.genome.network/allele/CA090898"
     },
     "alleleName": "NM_000059.3(BRCA2):c.7762_7764delinsTT"
   },
-  "consequence": "SO:0001589",
+  "consequence": {
+    "cg:id": "CC004",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001589",
+        "cg:type": "Coding",
+        "code": "0001589",
+        "system": "http://sequenceontology.org/",
+        "display": "frameshift variant"
+      }
+    ]
+  },
   "lof": true
 }
           </code></pre></div></td>
@@ -276,7 +308,7 @@
               <p>true</p>
          </td>
           <td>
-              <p>SO:0001589</p>
+              <p><a href="../details/details.html#CC007">CC007</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon005"><pre><code>{
@@ -294,7 +326,19 @@
     },
     "alleleName": "NM_133437.4(TTN):c.10670dupG "
   },
-  "consequence": "SO:0001589",
+  "consequence": {
+    "cg:id": "CC007",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001589",
+        "cg:type": "Coding",
+        "code": "0001589",
+        "system": "http://sequenceontology.org/",
+        "display": "frameshift variant"
+      }
+    ]
+  },
   "lof": true
 }
           </code></pre></div></td>
@@ -311,7 +355,7 @@
               <p>true</p>
          </td>
           <td>
-              <p>SO:0000191</p>
+              <p><a href="../details/details.html#CC008">CC008</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon006"><pre><code>{
@@ -328,7 +372,19 @@
     },
     "alleleName": "LRG_391t2:c.10303+2691dupG"
   },
-  "consequence": "SO:0000191",
+  "consequence": {
+    "cg:id": "CC008",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0000191",
+        "cg:type": "Coding",
+        "code": "0000191",
+        "system": "http://sequenceontology.org/",
+        "display": "interior intron"
+      }
+    ]
+  },
   "lof": true
 }
           </code></pre></div></td>
@@ -345,7 +401,7 @@
               
          </td>
           <td>
-              <p>SO:0001825</p>
+              <p><a href="../details/details.html#CC054">CC054</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon066"><pre><code>{
@@ -362,16 +418,38 @@
     },
     "alleleName": "NP_001360.1:p.Trp2490_Leu2496del"
   },
-  "consequence": "SO:0001825",
+  "consequence": {
+    "cg:id": "CC054",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001825",
+        "cg:type": "Coding",
+        "code": "0001825",
+        "system": "http://sequenceontology.org/",
+        "display": "Conservative Inframe Deletion"
+      }
+    ]
+  },
   "contribution": [
     {
       "cg:id": "Contrib486",
       "cg:type": "Contribution",
       "agent": "Harry Stevenson",
-      "onDate": {
-        "cg:id": "2016-06-01T14:03:00+00:00"
-      },
-      "role": "CG-contributory-role:curator"
+      "onDate": "6/1/16 2:03 PM",
+      "role": {
+        "cg:id": "CC388",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:curator",
+            "cg:type": "Coding",
+            "code": "curator",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "curator"
+          }
+        ]
+      }
     }
   ]
 }
@@ -389,7 +467,7 @@
               
          </td>
           <td>
-              <p>SO:0001825</p>
+              <p><a href="../details/details.html#CC058">CC058</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon070"><pre><code>{
@@ -406,7 +484,19 @@
     },
     "alleleName": "NP_056375.2:p.Arg38_Ser43del"
   },
-  "consequence": "SO:0001825"
+  "consequence": {
+    "cg:id": "CC058",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001825",
+        "cg:type": "Coding",
+        "code": "0001825",
+        "system": "http://sequenceontology.org/",
+        "display": "Conservative Inframe Deletion"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -422,7 +512,7 @@
               
          </td>
           <td>
-              <p>SO:0001823</p>
+              <p><a href="../details/details.html#CC060">CC060</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon074"><pre><code>{
@@ -439,7 +529,19 @@
     },
     "alleleName": "NP_003915.2:p.Ala260_Gly261insAlaAlaAlaAlaAla"
   },
-  "consequence": "SO:0001823"
+  "consequence": {
+    "cg:id": "CC060",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001823",
+        "cg:type": "Coding",
+        "code": "0001823",
+        "system": "http://sequenceontology.org/",
+        "display": "Conservative Inframe Insertion"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -455,13 +557,25 @@
               
          </td>
           <td>
-              <p>SO:0001819</p>
+              <p><a href="../details/details.html#CC061">CC061</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon075"><pre><code>{
   "cg:id": "MolCon075",
   "cg:type": "MolecularConsequence",
-  "consequence": "SO:0001819",
+  "consequence": {
+    "cg:id": "CC061",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001819",
+        "cg:type": "Coding",
+        "code": "0001819",
+        "system": "http://sequenceontology.org/",
+        "display": "synonymous variant"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll124",
     "cg:type": "ContextualAllele",
@@ -488,7 +602,7 @@
               <p>true</p>
          </td>
           <td>
-              <p>SO:0001583</p>
+              <p><a href="../details/details.html#CC070">CC070</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon117"><pre><code>{
@@ -505,7 +619,19 @@
     },
     "alleleName": "NM_000257.3(MYH7):c.5401G>A"
   },
-  "consequence": "SO:0001583",
+  "consequence": {
+    "cg:id": "CC070",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001583",
+        "cg:type": "Coding",
+        "code": "0001583",
+        "system": "http://sequenceontology.org/",
+        "display": "missense variant"
+      }
+    ]
+  },
   "lof": true
 }
           </code></pre></div></td>
@@ -522,7 +648,7 @@
               <p>true</p>
          </td>
           <td>
-              <p>SO:0001583</p>
+              <p><a href="../details/details.html#CC122">CC122</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon169"><pre><code>{
@@ -539,7 +665,19 @@
     },
     "alleleName": "NM_133378.4(TTN): c.2926T>C"
   },
-  "consequence": "SO:0001583",
+  "consequence": {
+    "cg:id": "CC122",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001583",
+        "cg:type": "Coding",
+        "code": "0001583",
+        "system": "http://sequenceontology.org/",
+        "display": "missense variant"
+      }
+    ]
+  },
   "lof": true
 }
           </code></pre></div></td>
@@ -556,7 +694,7 @@
               <p>true</p>
          </td>
           <td>
-              <p>SO:0001583</p>
+              <p><a href="../details/details.html#CC138">CC138</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon198"><pre><code>{
@@ -573,7 +711,19 @@
     },
     "alleleName": "NM_000059.3(BRCA2) :c.4779A>C"
   },
-  "consequence": "SO:0001583",
+  "consequence": {
+    "cg:id": "CC138",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001583",
+        "cg:type": "Coding",
+        "code": "0001583",
+        "system": "http://sequenceontology.org/",
+        "display": "missense variant"
+      }
+    ]
+  },
   "lof": true
 }
           </code></pre></div></td>
@@ -590,7 +740,7 @@
               <p>true</p>
          </td>
           <td>
-              <p>SO:0001583</p>
+              <p><a href="../details/details.html#CC143">CC143</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon201"><pre><code>{
@@ -607,7 +757,19 @@
     },
     "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
   },
-  "consequence": "SO:0001583",
+  "consequence": {
+    "cg:id": "CC143",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001583",
+        "cg:type": "Coding",
+        "code": "0001583",
+        "system": "http://sequenceontology.org/",
+        "display": "missense variant"
+      }
+    ]
+  },
   "lof": true
 }
           </code></pre></div></td>
@@ -624,7 +786,7 @@
               <p>true</p>
          </td>
           <td>
-              <p>SO:0001583</p>
+              <p><a href="../details/details.html#CC146">CC146</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon203"><pre><code>{
@@ -641,7 +803,19 @@
     },
     "alleleName": "NM_133378.4(TTN): c.2926T>C"
   },
-  "consequence": "SO:0001583",
+  "consequence": {
+    "cg:id": "CC146",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001583",
+        "cg:type": "Coding",
+        "code": "0001583",
+        "system": "http://sequenceontology.org/",
+        "display": "missense variant"
+      }
+    ]
+  },
   "lof": true
 }
           </code></pre></div></td>
@@ -658,13 +832,25 @@
               
          </td>
           <td>
-              <p>SO:0001825</p>
+              <p><a href="../details/details.html#CC161">CC161</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon223"><pre><code>{
   "cg:id": "MolCon223",
   "cg:type": "MolecularConsequence",
-  "consequence": "SO:0001825",
+  "consequence": {
+    "cg:id": "CC161",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001825",
+        "cg:type": "Coding",
+        "code": "0001825",
+        "system": "http://sequenceontology.org/",
+        "display": "Conservative Inframe Deletion"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll106",
     "cg:type": "ContextualAllele",
@@ -691,13 +877,25 @@
               
          </td>
           <td>
-              <p>SO:0001589</p>
+              <p><a href="../details/details.html#CC163">CC163</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon227"><pre><code>{
   "cg:id": "MolCon227",
   "cg:type": "MolecularConsequence",
-  "consequence": "SO:0001589",
+  "consequence": {
+    "cg:id": "CC163",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001589",
+        "cg:type": "Coding",
+        "code": "0001589",
+        "system": "http://sequenceontology.org/",
+        "display": "frameshift variant"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll107",
     "cg:type": "ContextualAllele",
@@ -724,13 +922,25 @@
               
          </td>
           <td>
-              <p>SO:0001823</p>
+              <p><a href="../details/details.html#CC165">CC165</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon231"><pre><code>{
   "cg:id": "MolCon231",
   "cg:type": "MolecularConsequence",
-  "consequence": "SO:0001823",
+  "consequence": {
+    "cg:id": "CC165",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001823",
+        "cg:type": "Coding",
+        "code": "0001823",
+        "system": "http://sequenceontology.org/",
+        "display": "Conservative Inframe Insertion"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll108",
     "cg:type": "ContextualAllele",
@@ -757,13 +967,25 @@
               
          </td>
           <td>
-              <p>SO:0001819</p>
+              <p><a href="../details/details.html#CC188">CC188</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon261"><pre><code>{
   "cg:id": "MolCon261",
   "cg:type": "MolecularConsequence",
-  "consequence": "SO:0001819",
+  "consequence": {
+    "cg:id": "CC188",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001819",
+        "cg:type": "Coding",
+        "code": "0001819",
+        "system": "http://sequenceontology.org/",
+        "display": "synonymous variant"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll123",
     "cg:type": "ContextualAllele",
@@ -790,13 +1012,25 @@
               
          </td>
           <td>
-              <p>SO:0001819</p>
+              <p><a href="../details/details.html#CC190">CC190</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon265"><pre><code>{
   "cg:id": "MolCon265",
   "cg:type": "MolecularConsequence",
-  "consequence": "SO:0001819",
+  "consequence": {
+    "cg:id": "CC190",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001819",
+        "cg:type": "Coding",
+        "code": "0001819",
+        "system": "http://sequenceontology.org/",
+        "display": "synonymous variant"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll124",
     "cg:type": "ContextualAllele",
@@ -823,13 +1057,25 @@
               
          </td>
           <td>
-              <p>SO:0001819</p>
+              <p><a href="../details/details.html#CC192">CC192</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon269"><pre><code>{
   "cg:id": "MolCon269",
   "cg:type": "MolecularConsequence",
-  "consequence": "SO:0001819",
+  "consequence": {
+    "cg:id": "CC192",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001819",
+        "cg:type": "Coding",
+        "code": "0001819",
+        "system": "http://sequenceontology.org/",
+        "display": "synonymous variant"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll125",
     "cg:type": "ContextualAllele",
@@ -856,7 +1102,7 @@
               <p>true</p>
          </td>
           <td>
-              <p>SO:0001629</p>
+              <p><a href="../details/details.html#CC194">CC194</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon272"><pre><code>{
@@ -869,11 +1115,24 @@
     "relatedCanonicalAllele": {
       "cg:id": "CanAll121",
       "cg:type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll127"
+      "preferredCtxAllele": "CtxAll127",
+      "identifier": "http://reg.genome.network/allele/CA022880"
     },
     "alleleName": "NM_024422.3(DSC2): c.631-2A>G (p.?)"
   },
-  "consequence": "SO:0001629",
+  "consequence": {
+    "cg:id": "CC194",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "SO:0001629",
+        "cg:type": "Coding",
+        "code": "0001629",
+        "system": "http://sequenceontology.org/",
+        "display": "splice-site variant"
+      }
+    ]
+  },
   "lof": true
 }
           </code></pre></div></td>

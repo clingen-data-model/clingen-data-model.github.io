@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex099",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess378",
     "cg:type": "CriterionAssessment",
     "explanation": "Another variant at the same residue (Lys483Asn) was identified as a de novo variant in an individual with features of a Noonan spectrum disorder (LMM unpublished data). The other variant: NM_004333.4(BRAF):c.1449A>C (p.Lys483Asn) is classified as likely pathogenic by LMM for Rasopathy.",
@@ -10,13 +10,15 @@
       "cg:type": "Criterion",
       "description": "Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before",
       "shortDescription": "Novel missense at same amino acid as known pathogenic missense",
-      "defaultStrength": "CG-evidence-strength:pm",
-      "targetInterpretation": "LN:LA6668-3"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:pm"
+      }
     },
     "variant": {
       "cg:id": "CanAll125",
       "cg:type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll131"
+      "preferredCtxAllele": "CtxAll131",
+      "identifier": "http://reg.genome.network/allele/CA280055"
     },
     "condition": [
       {
@@ -24,17 +26,32 @@
         "cg:type": "MendelianCondition",
         "explanation": "Rasopathy",
         "disease": [
-          "Orphanet:98733"
+          {
+            "cg:id": "Orphanet:98733"
+          }
         ],
         "name": "Rasopathy"
       }
     ],
-    "outcome": "CG-criterion-outcome:met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC297",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:met",
+          "cg:type": "Coding",
+          "code": "met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn130",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn130",
+        "hasInformation": [
           {
             "cg:id": "VarInterp060",
             "cg:type": "VariantInterpretation",
@@ -42,7 +59,8 @@
             "variant": {
               "cg:id": "CanAll127",
               "cg:type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll133"
+              "preferredCtxAllele": "CtxAll133",
+              "identifier": "http://reg.genome.network/allele/CA273507"
             },
             "condition": [
               {
@@ -50,21 +68,45 @@
                 "cg:type": "MendelianCondition",
                 "explanation": "Rasopathy",
                 "disease": [
-                  "Orphanet:98733"
+                  {
+                    "cg:id": "Orphanet:98733"
+                  }
                 ],
                 "name": "Rasopathy"
               }
             ],
-            "clinicalSignificance": "LN:LA26332-9",
+            "clinicalSignificance": {
+              "cg:id": "CC048",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "LN:LA26332-9",
+                  "cg:type": "Coding",
+                  "code": "LA26332-9",
+                  "system": "http://loinc.org/",
+                  "display": "Likely Pathogenic"
+                }
+              ]
+            },
             "contribution": [
               {
                 "cg:id": "Contrib518",
                 "cg:type": "Contribution",
                 "agent": "ACME Molecular Lab",
-                "onDate": {
-                  "cg:id": "2011-06-12T09:00:00+00:00"
-                },
-                "role": "CG-contributory-role:interpreter"
+                "onDate": "6/12/2011 9:00 AM",
+                "role": {
+                  "cg:id": "CC420",
+                  "cg:type": "CodeableConcept",
+                  "coding": [
+                    {
+                      "cg:id": "CG-contributory-role:interpreter",
+                      "cg:type": "Coding",
+                      "code": "interpreter",
+                      "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                      "display": "interpreter"
+                    }
+                  ]
+                }
               }
             ]
           }
@@ -76,10 +118,20 @@
         "cg:id": "Contrib517",
         "cg:type": "Contribution",
         "agent": "ACME Molecular Lab",
-        "onDate": {
-          "cg:id": "2011-06-10T13:44:59+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "6/10/2011 1:45 PM",
+        "role": {
+          "cg:id": "CC419",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

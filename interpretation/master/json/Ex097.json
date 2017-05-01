@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex097",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess376",
     "cg:type": "CriterionAssessment",
     "criterion": {
@@ -9,29 +9,57 @@
       "cg:type": "Criterion",
       "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
       "shortDescription": "Absent from controls",
-      "defaultStrength": "CG-evidence-strength:pm",
-      "targetInterpretation": "LN:LA6668-3"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:pm"
+      }
     },
     "variant": {
       "cg:id": "CanAll125",
       "cg:type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll131"
+      "preferredCtxAllele": "CtxAll131",
+      "identifier": "http://reg.genome.network/allele/CA280055"
     },
-    "outcome": "CG-criterion-outcome:met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC295",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:met",
+          "cg:type": "Coding",
+          "code": "met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn126",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn126",
+        "hasInformation": [
           {
             "cg:id": "AllFreq101",
             "cg:type": "AlleleFrequency",
             "ascertainment": "ExAC",
-            "population": "CG-population-type:combined",
+            "population": {
+              "cg:id": "CC068",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-population-type:combined",
+                  "cg:type": "Coding",
+                  "code": "combined",
+                  "system": "http://clinicalgenome.org/datamodel/population-type/",
+                  "display": "Combined"
+                }
+              ]
+            },
             "allele": {
               "cg:id": "CanAll125",
               "cg:type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll131"
+              "preferredCtxAllele": "CtxAll131",
+              "identifier": "http://reg.genome.network/allele/CA280055"
             },
             "alleleCount": 0,
             "alleleFrequency": 0.0,
@@ -45,10 +73,20 @@
         "cg:id": "Contrib515",
         "cg:type": "Contribution",
         "agent": "ACME Molecular Lab",
-        "onDate": {
-          "cg:id": "2011-06-11T11:45:00+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "6/11/2011 11:45 AM",
+        "role": {
+          "cg:id": "CC417",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li class="active"><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Information</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li class="active"><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -108,7 +108,7 @@
             <h1>BenignMissenseVariationRate</h1>
             <p>The amount of benign missense variation in a particular region</p>
 
-                <p>Descended from Data</p>
+                <p>Descended from Information</p>
 
             <hr class='col-sm-12' />
 
@@ -173,6 +173,13 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>source</td>
+                    <td>InformationSource</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>explanation</td>
                     <td>String</td>
                     <td>0..1</td>
@@ -209,7 +216,7 @@
               
          </td>
           <td>
-              <p>CG-ben-missense-var-rate:low</p>
+              <p><a href="../details/details.html#CC069">CC069</a></p>
          </td>
           <!--
           <td><div class="example_view" id="BMVR102"><pre><code>{
@@ -222,12 +229,26 @@
     "referenceSequence": {
       "cg:id": "RefSeq004",
       "cg:type": "ReferenceSequence",
-      "accession": "NM_000169.2"
+      "accession": {
+        "cg:id": "NM_000169.2"
+      }
     },
     "start": 996,
     "stop": 1012
   },
-  "value": "CG-ben-missense-var-rate:low"
+  "value": {
+    "cg:id": "CC069",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-ben-missense-var-rate:low",
+        "cg:type": "Coding",
+        "code": "low",
+        "system": "http://clinicalgenome.org/datamodel/benign-missense-variation-rate/",
+        "display": "Low"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -243,7 +264,7 @@
               <p><a href="../details/details.html#G008">G008</a></p>
          </td>
           <td>
-              <p>CG-ben-missense-var-rate:low</p>
+              <p><a href="../details/details.html#CC073">CC073</a></p>
          </td>
           <!--
           <td><div class="example_view" id="BMVR119"><pre><code>{
@@ -255,7 +276,19 @@
     "cg:type": "Gene",
     "symbol": "MYH7"
   },
-  "value": "CG-ben-missense-var-rate:low"
+  "value": {
+    "cg:id": "CC073",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-ben-missense-var-rate:low",
+        "cg:type": "Coding",
+        "code": "low",
+        "system": "http://clinicalgenome.org/datamodel/benign-missense-variation-rate/",
+        "display": "Low"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->
@@ -271,7 +304,7 @@
               <p><a href="../details/details.html#G003">G003</a></p>
          </td>
           <td>
-              <p>CG-ben-missense-var-rate:high</p>
+              <p><a href="../details/details.html#CC113">CC113</a></p>
          </td>
           <!--
           <td><div class="example_view" id="BMVR161"><pre><code>{
@@ -283,7 +316,19 @@
     "cg:type": "Gene",
     "symbol": "TTN"
   },
-  "value": "CG-ben-missense-var-rate:high"
+  "value": {
+    "cg:id": "CC113",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-ben-missense-var-rate:high",
+        "cg:type": "Coding",
+        "code": "high",
+        "system": "http://clinicalgenome.org/datamodel/benign-missense-variation-rate/",
+        "display": "High"
+      }
+    ]
+  }
 }
           </code></pre></div></td>
           -->

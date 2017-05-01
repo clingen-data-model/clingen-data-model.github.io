@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex022",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess296",
     "cg:type": "CriterionAssessment",
     "criterion": {
@@ -9,8 +9,9 @@
       "cg:type": "Criterion",
       "description": "For recessive disorders, detected in trans with a pathogenic variant",
       "shortDescription": "Recessive in trans with pathogenic variant",
-      "defaultStrength": "CG-evidence-strength:pm",
-      "targetInterpretation": "LN:LA6668-3"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:pm"
+      }
     },
     "variant": {
       "cg:id": "CanAll035",
@@ -22,19 +23,40 @@
       {
         "cg:id": "MendCond062",
         "cg:type": "MendelianCondition",
-        "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
+        "explanation": "Orphanet:244, HP:0000007",
         "disease": [
-          "Orphanet:244"
+          {
+            "cg:id": "Orphanet:244"
+          }
         ],
-        "modeOfInheritance": "HP:0000007"
+        "modeOfInheritance": {
+          "cg:id": "HP:0000007",
+          "cg:type": "Coding",
+          "code": "0000007",
+          "system": "http://human-phenotype-ontology.github.io/",
+          "display": "Autosomal Recessive"
+        }
       }
     ],
-    "outcome": "CG-criterion-outcome:met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC219",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:met",
+          "cg:type": "Coding",
+          "code": "met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn029",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn029",
+        "hasInformation": [
           {
             "cg:id": "IndCond056",
             "cg:type": "IndividualCondition",
@@ -50,11 +72,25 @@
                 "explanation": "PCD autosomal recessive w/ outer dynein arm (ODA) defects",
                 "name": "PCD autosomal recessive w/ outer dynein arm (ODA) defects",
                 "disease": [
-                  "Orphanet:244"
+                  {
+                    "cg:id": "Orphanet:244"
+                  }
                 ],
-                "modeOfInheritance": "HP:0000007",
+                "modeOfInheritance": {
+                  "cg:id": "HP:0000007",
+                  "cg:type": "Coding",
+                  "code": "0000007",
+                  "system": "http://human-phenotype-ontology.github.io/",
+                  "display": "Autosomal Recessive"
+                },
                 "phenotype": [
-                  "HP:0200106"
+                  {
+                    "cg:id": "HP:0200106",
+                    "cg:type": "Coding",
+                    "code": "0200106",
+                    "system": "http://human-phenotype-ontology.github.io/",
+                    "display": "Absent/shortened dynein arms"
+                  }
                 ]
               }
             ],
@@ -64,10 +100,20 @@
                 "cg:id": "Contrib483",
                 "cg:type": "Contribution",
                 "agent": "Stefan DiMarino",
-                "onDate": {
-                  "cg:id": "2016-05-31T08:45:59+00:00"
-                },
-                "role": "CG-contributory-role:curator"
+                "onDate": "5/31/16 8:46 AM",
+                "role": {
+                  "cg:id": "CC385",
+                  "cg:type": "CodeableConcept",
+                  "coding": [
+                    {
+                      "cg:id": "CG-contributory-role:curator",
+                      "cg:type": "Coding",
+                      "code": "curator",
+                      "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                      "display": "curator"
+                    }
+                  ]
+                }
               }
             ]
           },
@@ -84,23 +130,53 @@
               {
                 "cg:id": "MendCond062",
                 "cg:type": "MendelianCondition",
-                "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
+                "explanation": "Orphanet:244, HP:0000007",
                 "disease": [
-                  "Orphanet:244"
+                  {
+                    "cg:id": "Orphanet:244"
+                  }
                 ],
-                "modeOfInheritance": "HP:0000007"
+                "modeOfInheritance": {
+                  "cg:id": "HP:0000007",
+                  "cg:type": "Coding",
+                  "code": "0000007",
+                  "system": "http://human-phenotype-ontology.github.io/",
+                  "display": "Autosomal Recessive"
+                }
               }
             ],
-            "clinicalSignificance": "LN:LA6668-3",
+            "clinicalSignificance": {
+              "cg:id": "CC043",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "LN:LA6668-3",
+                  "cg:type": "Coding",
+                  "code": "LA6668-3",
+                  "system": "http://loinc.org/",
+                  "display": "Pathogenic"
+                }
+              ]
+            },
             "contribution": [
               {
                 "cg:id": "Contrib485",
                 "cg:type": "Contribution",
                 "agent": "Stefan DiMarino",
-                "onDate": {
-                  "cg:id": "2016-05-31T11:00:59+00:00"
-                },
-                "role": "CG-contributory-role:interpreter"
+                "onDate": "5/31/16 11:01 AM",
+                "role": {
+                  "cg:id": "CC387",
+                  "cg:type": "CodeableConcept",
+                  "coding": [
+                    {
+                      "cg:id": "CG-contributory-role:interpreter",
+                      "cg:type": "Coding",
+                      "code": "interpreter",
+                      "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                      "display": "interpreter"
+                    }
+                  ]
+                }
               }
             ]
           },
@@ -125,18 +201,64 @@
               "preferredCtxAllele": "CtxAll040",
               "identifier": "http://reg.genome.network/allele/CA273615"
             },
-            "primaryZygosity": "CG-allelic-state:het",
-            "secondaryZygosity": "CG-allelic-state:het",
-            "phase": "CG-phase:trans",
+            "primaryZygosity": {
+              "cg:id": "CC044",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-allelic-state:het",
+                  "cg:type": "Coding",
+                  "code": "het",
+                  "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+                  "display": "heterozygous"
+                }
+              ]
+            },
+            "secondaryZygosity": {
+              "cg:id": "CC045",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-allelic-state:het",
+                  "cg:type": "Coding",
+                  "code": "het",
+                  "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+                  "display": "heterozygous"
+                }
+              ]
+            },
+            "phase": {
+              "cg:id": "CC046",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-phase:trans",
+                  "cg:type": "Coding",
+                  "code": "trans",
+                  "system": "http://clinicalgenome.org/datamodel/phase/",
+                  "display": "in trans"
+                }
+              ]
+            },
             "contribution": [
               {
                 "cg:id": "Contrib484",
                 "cg:type": "Contribution",
                 "agent": "Harry Stevenson",
-                "onDate": {
-                  "cg:id": "2016-05-31T09:14:59+00:00"
-                },
-                "role": "CG-contributory-role:curator"
+                "onDate": "5/31/16 9:15 AM",
+                "role": {
+                  "cg:id": "CC386",
+                  "cg:type": "CodeableConcept",
+                  "coding": [
+                    {
+                      "cg:id": "CG-contributory-role:curator",
+                      "cg:type": "Coding",
+                      "code": "curator",
+                      "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                      "display": "curator"
+                    }
+                  ]
+                }
               }
             ]
           }
@@ -148,10 +270,20 @@
         "cg:id": "Contrib422",
         "cg:type": "Contribution",
         "agent": "Harry Stevenson",
-        "onDate": {
-          "cg:id": "2016-06-02T08:00:59+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "6/2/16 8:01 AM",
+        "role": {
+          "cg:id": "CC324",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

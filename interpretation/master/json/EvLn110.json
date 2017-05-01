@@ -1,8 +1,8 @@
 {
   "cg:id": "EvLn110",
   "cg:type": "EvidenceLine",
-  "strength": "CG-evidence-strength:na",
-  "supportingData": [
+  "explanation": "EvLn110",
+  "hasInformation": [
     {
       "cg:id": "CritAssess305",
       "cg:type": "CriterionAssessment",
@@ -12,8 +12,9 @@
         "cg:type": "Criterion",
         "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
         "shortDescription": "Absent from controls",
-        "defaultStrength": "CG-evidence-strength:pm",
-        "targetInterpretation": "LN:LA6668-3"
+        "defaultStrength": {
+          "cg:id": "CG-evidence-strength:pm"
+        }
       },
       "variant": {
         "cg:id": "CanAll035",
@@ -21,22 +22,42 @@
         "preferredCtxAllele": "CtxAll039",
         "identifier": "http://reg.genome.network/allele/CA090919"
       },
-      "condition": [
-        {
-          "cg:id": "-"
-        }
-      ],
-      "outcome": "CG-criterion-outcome:not-met",
-      "hasSupportingEvidence": [
+      "outcome": {
+        "cg:id": "CC228",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-criterion-outcome:not-met",
+            "cg:type": "Coding",
+            "code": "not-met",
+            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "display": "Not Met"
+          }
+        ]
+      },
+      "hasEvidence": [
         {
           "cg:id": "EvLn040",
           "cg:type": "EvidenceLine",
-          "supportingData": [
+          "explanation": "EvLn040",
+          "hasInformation": [
             {
               "cg:id": "AllFreq082",
               "cg:type": "AlleleFrequency",
               "ascertainment": "ExAC",
-              "population": "CG-population-type:combined",
+              "population": {
+                "cg:id": "CC067",
+                "cg:type": "CodeableConcept",
+                "coding": [
+                  {
+                    "cg:id": "CG-population-type:combined",
+                    "cg:type": "Coding",
+                    "code": "combined",
+                    "system": "http://clinicalgenome.org/datamodel/population-type/",
+                    "display": "Combined"
+                  }
+                ]
+              },
               "allele": {
                 "cg:id": "CanAll035",
                 "cg:type": "CanonicalAllele",
@@ -51,10 +72,20 @@
                   "cg:id": "Contrib488",
                   "cg:type": "Contribution",
                   "agent": "Harry Stevenson",
-                  "onDate": {
-                    "cg:id": "2016-06-01T14:15:00+00:00"
-                  },
-                  "role": "CG-contributory-role:curator"
+                  "onDate": "6/1/16 2:15 PM",
+                  "role": {
+                    "cg:id": "CC390",
+                    "cg:type": "CodeableConcept",
+                    "coding": [
+                      {
+                        "cg:id": "CG-contributory-role:curator",
+                        "cg:type": "Coding",
+                        "code": "curator",
+                        "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                        "display": "curator"
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -66,21 +97,94 @@
           "cg:id": "Contrib431",
           "cg:type": "Contribution",
           "agent": "Harry Stevenson",
-          "onDate": {
-            "cg:id": "2016-07-01T10:53:00+00:00"
-          },
-          "role": "CG-contributory-role:assessor"
+          "onDate": "7/1/16 10:53 AM",
+          "role": {
+            "cg:id": "CC333",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-contributory-role:assessor",
+                "cg:type": "Coding",
+                "code": "assessor",
+                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                "display": "assessor"
+              }
+            ]
+          }
         },
         {
           "cg:id": "Contrib432",
           "cg:type": "Contribution",
           "agent": "CSER Bakeoff Project",
-          "onDate": {
-            "cg:id": "2016-07-01T10:53:00+00:00"
-          },
-          "role": "CG-contributory-role:assessor"
+          "onDate": "7/1/16 10:53 AM",
+          "role": {
+            "cg:id": "CC334",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "CG-contributory-role:assessor",
+                "cg:type": "Coding",
+                "code": "assessor",
+                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+                "display": "assessor"
+              }
+            ]
+          }
         }
       ]
+    }
+  ],
+  "strength": {
+    "cg:id": "CC441",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-evidence-strength:na",
+        "cg:type": "Coding",
+        "code": "na",
+        "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+        "display": "None"
+      }
+    ]
+  },
+  "contribution": [
+    {
+      "cg:id": "Contrib522",
+      "cg:type": "Contribution",
+      "agent": "Harry Stevenson",
+      "onDate": "7/1/16 10:53 AM",
+      "role": {
+        "cg:id": "CC424",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
+    },
+    {
+      "cg:id": "Contrib523",
+      "cg:type": "Contribution",
+      "agent": "CSER Bakeoff Project",
+      "onDate": "7/1/16 10:53 AM",
+      "role": {
+        "cg:id": "CC425",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

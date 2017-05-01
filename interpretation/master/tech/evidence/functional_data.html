@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li class="active"><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Information</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li class="active"><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -108,7 +108,7 @@
             <h1>FunctionalData</h1>
             <p>Data about the function of a gene product</p>
 
-                <p>Descended from Data</p>
+                <p>Descended from Information</p>
 
             <hr class='col-sm-12' />
 
@@ -177,6 +177,13 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>source</td>
+                    <td>InformationSource</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>explanation</td>
                     <td>String</td>
                     <td>0..1</td>
@@ -217,14 +224,26 @@
               <p>the mutation lowered the Ca2+  affinity of the reconstituted thin filaments;</p>
          </td>
           <td>
-              <p>CG-func-data-type:binding</p>
+              <p><a href="../details/details.html#CC015">CC015</a></p>
          </td>
           <!--
           <td><div class="example_view" id="Func021"><pre><code>{
   "cg:id": "Func021",
   "cg:type": "FunctionalData",
   "result": "the mutation lowered the Ca2+  affinity of the reconstituted thin filaments;",
-  "dataType": "CG-func-data-type:binding",
+  "dataType": {
+    "cg:id": "CC015",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-func-data-type:binding",
+        "cg:type": "Coding",
+        "code": "binding",
+        "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+        "display": "Binding assay?"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll021",
     "cg:type": "ContextualAllele",
@@ -259,14 +278,26 @@
               <p>reduced Ca2 sensitivity of activation</p>
          </td>
           <td>
-              <p>CG-func-data-type:atpase</p>
+              <p><a href="../details/details.html#CC016">CC016</a></p>
          </td>
           <!--
           <td><div class="example_view" id="Func022"><pre><code>{
   "cg:id": "Func022",
   "cg:type": "FunctionalData",
   "result": "reduced Ca2 sensitivity of activation",
-  "dataType": "CG-func-data-type:atpase",
+  "dataType": {
+    "cg:id": "CC016",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-func-data-type:atpase",
+        "cg:type": "Coding",
+        "code": "atpase",
+        "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+        "display": "ATPase assay?"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll021",
     "cg:type": "ContextualAllele",
@@ -301,14 +332,26 @@
               <p>reduced Ca2 sensitivity of activation</p>
          </td>
           <td>
-              <p>CG-func-data-type:motility</p>
+              <p><a href="../details/details.html#CC017">CC017</a></p>
          </td>
           <!--
           <td><div class="example_view" id="Func023"><pre><code>{
   "cg:id": "Func023",
   "cg:type": "FunctionalData",
   "result": "reduced Ca2 sensitivity of activation",
-  "dataType": "CG-func-data-type:motility",
+  "dataType": {
+    "cg:id": "CC017",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-func-data-type:motility",
+        "cg:type": "Coding",
+        "code": "motility",
+        "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+        "display": "motility assay?"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll021",
     "cg:type": "ContextualAllele",
@@ -343,14 +386,26 @@
               <p>desensitized Ca2+ binding to the thin filament.</p>
          </td>
           <td>
-              <p>CG-func-data-type:binding</p>
+              <p><a href="../details/details.html#CC018">CC018</a></p>
          </td>
           <!--
           <td><div class="example_view" id="Func024"><pre><code>{
   "cg:id": "Func024",
   "cg:type": "FunctionalData",
   "result": "desensitized Ca2+ binding to the thin filament.",
-  "dataType": "CG-func-data-type:binding",
+  "dataType": {
+    "cg:id": "CC018",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-func-data-type:binding",
+        "cg:type": "Coding",
+        "code": "binding",
+        "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+        "display": "Binding assay?"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll021",
     "cg:type": "ContextualAllele",
@@ -385,7 +440,7 @@
               <p>Functionally Damaging</p>
          </td>
           <td>
-              <p>CG-func-data-type:yeastcomp</p>
+              <p><a href="../details/details.html#CC019">CC019</a></p>
          </td>
           <!--
           <td><div class="example_view" id="Func025"><pre><code>{
@@ -393,7 +448,19 @@
   "cg:type": "FunctionalData",
   "explanation": "Expression of human SPG7 (with this mutation) in yeast with damaged m-AAA protease did not restore respiratory growth or MrpL32 processing, if the function of AFG3L2 was impaired.",
   "result": "Functionally Damaging",
-  "dataType": "CG-func-data-type:yeastcomp",
+  "dataType": {
+    "cg:id": "CC019",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-func-data-type:yeastcomp",
+        "cg:type": "Coding",
+        "code": "yeastcomp",
+        "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+        "display": "Yeast complementation assay"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll022",
     "cg:type": "ContextualAllele",
@@ -428,14 +495,26 @@
               <p>abnormal/deceased MEK activtation.</p>
          </td>
           <td>
-              <p>CG-func-data-type:activation</p>
+              <p><a href="../details/details.html#CC020">CC020</a></p>
          </td>
           <!--
           <td><div class="example_view" id="Func026"><pre><code>{
   "cg:id": "Func026",
   "cg:type": "FunctionalData",
   "result": "abnormal/deceased MEK activtation.",
-  "dataType": "CG-func-data-type:activation",
+  "dataType": {
+    "cg:id": "CC020",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-func-data-type:activation",
+        "cg:type": "Coding",
+        "code": "activation",
+        "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+        "display": "Activation Assay"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll024",
     "cg:type": "ContextualAllele",
@@ -470,14 +549,26 @@
               <p>abnormal/deceased ERK activtation.</p>
          </td>
           <td>
-              <p>CG-func-data-type:activation</p>
+              <p><a href="../details/details.html#CC021">CC021</a></p>
          </td>
           <!--
           <td><div class="example_view" id="Func027"><pre><code>{
   "cg:id": "Func027",
   "cg:type": "FunctionalData",
   "result": "abnormal/deceased ERK activtation.",
-  "dataType": "CG-func-data-type:activation",
+  "dataType": {
+    "cg:id": "CC021",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-func-data-type:activation",
+        "cg:type": "Coding",
+        "code": "activation",
+        "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+        "display": "Activation Assay"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll024",
     "cg:type": "ContextualAllele",
@@ -512,7 +603,7 @@
               <p>increased ERK activtation</p>
          </td>
           <td>
-              <p>CG-func-data-type:activation</p>
+              <p><a href="../details/details.html#CC055">CC055</a></p>
          </td>
           <!--
           <td><div class="example_view" id="Func067"><pre><code>{
@@ -520,14 +611,27 @@
   "cg:type": "FunctionalData",
   "explanation": "PMID: 23487764",
   "result": "increased ERK activtation",
-  "dataType": "CG-func-data-type:activation",
+  "dataType": {
+    "cg:id": "CC055",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-func-data-type:activation",
+        "cg:type": "Coding",
+        "code": "activation",
+        "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+        "display": "Activation Assay"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll130",
     "cg:type": "ContextualAllele",
     "relatedCanonicalAllele": {
       "cg:id": "CanAll124",
       "cg:type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll130"
+      "preferredCtxAllele": "CtxAll130",
+      "identifier": "http://reg.genome.network/allele/CA090930"
     },
     "alleleName": "NM_005633.3(SOS1):c.1010A>G (p.Tyr337Cys)"
   },
@@ -554,14 +658,26 @@
               <p>Unchanged from reference</p>
          </td>
           <td>
-              <p>CG-func-data-type:iodeff</p>
+              <p><a href="../details/details.html#CC134">CC134</a></p>
          </td>
           <!--
           <td><div class="example_view" id="Func192"><pre><code>{
   "cg:id": "Func192",
   "cg:type": "FunctionalData",
   "result": "Unchanged from reference",
-  "dataType": "CG-func-data-type:iodeff",
+  "dataType": {
+    "cg:id": "CC134",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-func-data-type:iodeff",
+        "cg:type": "Coding",
+        "code": "iodeff",
+        "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+        "display": "iodide efflux"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll092",
     "cg:type": "ContextualAllele",
@@ -596,7 +712,7 @@
               <p>localized to apical membrane</p>
          </td>
           <td>
-              <p>CG-func-data-type:celloc</p>
+              <p><a href="../details/details.html#CC135">CC135</a></p>
          </td>
           <!--
           <td><div class="example_view" id="Func193"><pre><code>{
@@ -604,7 +720,19 @@
   "cg:type": "FunctionalData",
   "explanation": "Both wild type and NP_000432..1:p.Leu117Phe localize to the same location",
   "result": "localized to apical membrane",
-  "dataType": "CG-func-data-type:celloc",
+  "dataType": {
+    "cg:id": "CC135",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-func-data-type:celloc",
+        "cg:type": "Coding",
+        "code": "celloc",
+        "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+        "display": "cellular localization"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll092",
     "cg:type": "ContextualAllele",
@@ -639,14 +767,26 @@
               <p>Unchanged from reference</p>
          </td>
           <td>
-              <p>CG-func-data-type:neuritegrowth</p>
+              <p><a href="../details/details.html#CC136">CC136</a></p>
          </td>
           <!--
           <td><div class="example_view" id="Func194"><pre><code>{
   "cg:id": "Func194",
   "cg:type": "FunctionalData",
   "result": "Unchanged from reference",
-  "dataType": "CG-func-data-type:neuritegrowth",
+  "dataType": {
+    "cg:id": "CC136",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-func-data-type:neuritegrowth",
+        "cg:type": "Coding",
+        "code": "neuritegrowth",
+        "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+        "display": "neurite outgrowth"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll093",
     "cg:type": "ContextualAllele",
@@ -681,14 +821,26 @@
               <p>localized to apical membrane</p>
          </td>
           <td>
-              <p>CG-func-data-type:elk1phosvialucif</p>
+              <p><a href="../details/details.html#CC137">CC137</a></p>
          </td>
           <!--
           <td><div class="example_view" id="Func195"><pre><code>{
   "cg:id": "Func195",
   "cg:type": "FunctionalData",
   "result": "localized to apical membrane",
-  "dataType": "CG-func-data-type:elk1phosvialucif",
+  "dataType": {
+    "cg:id": "CC137",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-func-data-type:elk1phosvialucif",
+        "cg:type": "Coding",
+        "code": "elk1phosvialucif",
+        "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+        "display": "Elk1 pohsphorylation via luciferase assay"
+      }
+    ]
+  },
   "contextualAllele": {
     "cg:id": "CtxAll093",
     "cg:type": "ContextualAllele",

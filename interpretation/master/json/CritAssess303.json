@@ -7,8 +7,9 @@
     "cg:type": "Criterion",
     "description": "Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before",
     "shortDescription": "Novel missense at same amino acid as known pathogenic missense",
-    "defaultStrength": "CG-evidence-strength:pm",
-    "targetInterpretation": "LN:LA6668-3"
+    "defaultStrength": {
+      "cg:id": "CG-evidence-strength:pm"
+    }
   },
   "variant": {
     "cg:id": "CanAll051",
@@ -20,18 +21,33 @@
     {
       "cg:id": "MendCond017",
       "cg:type": "MendelianCondition",
-      "explanation": "Ornithine carbamoyltransferase deficiency",
+      "explanation": "Orphanet:664",
       "disease": [
-        "Orphanet:664"
+        {
+          "cg:id": "Orphanet:664"
+        }
       ]
     }
   ],
-  "outcome": "CG-criterion-outcome:not-met",
-  "hasSupportingEvidence": [
+  "outcome": {
+    "cg:id": "CC226",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-criterion-outcome:not-met",
+        "cg:type": "Coding",
+        "code": "not-met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Not Met"
+      }
+    ]
+  },
+  "hasEvidence": [
     {
       "cg:id": "EvLn038",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn038",
+      "hasInformation": [
         {
           "cg:id": "VarInterp080",
           "cg:type": "VariantInterpretation",
@@ -45,13 +61,27 @@
             {
               "cg:id": "MendCond017",
               "cg:type": "MendelianCondition",
-              "explanation": "Ornithine carbamoyltransferase deficiency",
+              "explanation": "Orphanet:664",
               "disease": [
-                "Orphanet:664"
+                {
+                  "cg:id": "Orphanet:664"
+                }
               ]
             }
           ],
-          "clinicalSignificance": "LN:LA6668-3"
+          "clinicalSignificance": {
+            "cg:id": "CC065",
+            "cg:type": "CodeableConcept",
+            "coding": [
+              {
+                "cg:id": "LN:LA6668-3",
+                "cg:type": "Coding",
+                "code": "LA6668-3",
+                "system": "http://loinc.org/",
+                "display": "Pathogenic"
+              }
+            ]
+          }
         }
       ]
     }
@@ -61,10 +91,20 @@
       "cg:id": "Contrib429",
       "cg:type": "Contribution",
       "agent": "G. Rajar",
-      "onDate": {
-        "cg:id": "2016-06-12T11:03:00+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "6/12/16 11:03 AM",
+      "role": {
+        "cg:id": "CC331",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

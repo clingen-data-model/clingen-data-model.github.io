@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex041",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess315",
     "cg:type": "CriterionAssessment",
     "criterion": {
@@ -9,8 +9,9 @@
       "cg:type": "Criterion",
       "description": "Multiple lines of computational evidence support a deleterious effect on the gene or gene product (conservation, evolutionary, splicing impact, etc.)",
       "shortDescription": "Computational evidence supports deleterious impact",
-      "defaultStrength": "CG-evidence-strength:pp",
-      "targetInterpretation": "LN:LA6668-3"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:pp"
+      }
     },
     "variant": {
       "cg:id": "CanAll068",
@@ -18,17 +19,25 @@
       "preferredCtxAllele": "CtxAll072",
       "identifier": "http://reg.genome.network/allele/CA090884"
     },
-    "condition": [
-      {
-        "cg:id": "-"
-      }
-    ],
-    "outcome": "CG-criterion-outcome:met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC238",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:met",
+          "cg:type": "Coding",
+          "code": "met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn053",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn053",
+        "hasInformation": [
           {
             "cg:id": "InSilicoPred129",
             "cg:type": "InSilicoPrediction",
@@ -43,7 +52,19 @@
               },
               "alleleName": "ENST00000566221.5:c.127C>T"
             },
-            "type": "CG-prediction-type:me",
+            "type": {
+              "cg:id": "CC083",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-prediction-type:me",
+                  "cg:type": "Coding",
+                  "code": "me",
+                  "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+                  "display": "missense effect"
+                }
+              ]
+            },
             "tool": "SIFT",
             "value": "deleterious"
           },
@@ -61,7 +82,19 @@
               },
               "alleleName": "ENST00000566221.5:c.127C>T"
             },
-            "type": "CG-prediction-type:me",
+            "type": {
+              "cg:id": "CC084",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-prediction-type:me",
+                  "cg:type": "Coding",
+                  "code": "me",
+                  "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+                  "display": "missense effect"
+                }
+              ]
+            },
             "tool": "Polyphen",
             "value": "Probably damaging"
           },
@@ -79,7 +112,19 @@
               },
               "alleleName": "ENST00000566221.5:c.127C>T"
             },
-            "type": "CG-prediction-type:me",
+            "type": {
+              "cg:id": "CC085",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-prediction-type:me",
+                  "cg:type": "Coding",
+                  "code": "me",
+                  "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+                  "display": "missense effect"
+                }
+              ]
+            },
             "tool": "FATHMM",
             "value": "Damaging"
           },
@@ -97,7 +142,19 @@
               },
               "alleleName": "ENST00000566221.5:c.127C>T"
             },
-            "type": "CG-prediction-type:me",
+            "type": {
+              "cg:id": "CC086",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-prediction-type:me",
+                  "cg:type": "Coding",
+                  "code": "me",
+                  "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+                  "display": "missense effect"
+                }
+              ]
+            },
             "tool": "LRT",
             "value": "Damaging"
           },
@@ -115,7 +172,19 @@
               },
               "alleleName": "ENST00000566221.5:c.127C>T"
             },
-            "type": "CG-prediction-type:me",
+            "type": {
+              "cg:id": "CC087",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-prediction-type:me",
+                  "cg:type": "Coding",
+                  "code": "me",
+                  "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+                  "display": "missense effect"
+                }
+              ]
+            },
             "tool": "MetaSVM",
             "value": "Tolerated"
           },
@@ -133,7 +202,19 @@
               },
               "alleleName": "ENST00000566221.5:c.127C>T"
             },
-            "type": "CG-prediction-type:me",
+            "type": {
+              "cg:id": "CC088",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-prediction-type:me",
+                  "cg:type": "Coding",
+                  "code": "me",
+                  "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+                  "display": "missense effect"
+                }
+              ]
+            },
             "tool": "Mutation assessor",
             "value": "Medium functional impact"
           },
@@ -151,7 +232,19 @@
               },
               "alleleName": "ENST00000566221.5:c.127C>T"
             },
-            "type": "CG-prediction-type:me",
+            "type": {
+              "cg:id": "CC089",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-prediction-type:me",
+                  "cg:type": "Coding",
+                  "code": "me",
+                  "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+                  "display": "missense effect"
+                }
+              ]
+            },
             "tool": "Mutation taster",
             "value": "Disease-causing"
           },
@@ -169,7 +262,19 @@
               },
               "alleleName": "ENST00000566221.5:c.127C>T"
             },
-            "type": "CG-prediction-type:me",
+            "type": {
+              "cg:id": "CC090",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-prediction-type:me",
+                  "cg:type": "Coding",
+                  "code": "me",
+                  "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+                  "display": "missense effect"
+                }
+              ]
+            },
             "tool": "Provean",
             "value": "Damaging"
           },
@@ -187,7 +292,19 @@
               },
               "alleleName": "ENST00000566221.5:c.127C>T"
             },
-            "type": "CG-prediction-type:me",
+            "type": {
+              "cg:id": "CC091",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-prediction-type:me",
+                  "cg:type": "Coding",
+                  "code": "me",
+                  "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+                  "display": "missense effect"
+                }
+              ]
+            },
             "tool": "Condel",
             "value": "deleterious"
           }
@@ -199,10 +316,20 @@
         "cg:id": "Contrib446",
         "cg:type": "Contribution",
         "agent": "G. Rajar",
-        "onDate": {
-          "cg:id": "2016-07-21T12:14:59+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "7/21/16 12:15 PM",
+        "role": {
+          "cg:id": "CC348",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

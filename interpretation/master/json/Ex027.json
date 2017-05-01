@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex027",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess301",
     "cg:type": "CriterionAssessment",
     "explanation": "This 15bp duplication variant results in an expansion of a 20 residue polyalanine tract to a 25 residue polyalanine tract.",
@@ -10,8 +10,9 @@
       "cg:type": "Criterion",
       "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
       "shortDescription": "Protein length changes or stop-loss",
-      "defaultStrength": "CG-evidence-strength:pm",
-      "targetInterpretation": "LN:LA6668-3"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:pm"
+      }
     },
     "variant": {
       "cg:id": "CanAll043",
@@ -19,17 +20,25 @@
       "preferredCtxAllele": "CtxAll047",
       "identifier": "http://reg.genome.network/allele/CA501224"
     },
-    "condition": [
-      {
-        "cg:id": "-"
-      }
-    ],
-    "outcome": "CG-criterion-outcome:not-met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC224",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:not-met",
+          "cg:type": "Coding",
+          "code": "not-met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Not Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn034",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn034",
+        "hasInformation": [
           {
             "cg:id": "MolCon074",
             "cg:type": "MolecularConsequence",
@@ -44,7 +53,19 @@
               },
               "alleleName": "NP_003915.2:p.Ala260_Gly261insAlaAlaAlaAlaAla"
             },
-            "consequence": "SO:0001823"
+            "consequence": {
+              "cg:id": "CC060",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "SO:0001823",
+                  "cg:type": "Coding",
+                  "code": "0001823",
+                  "system": "http://sequenceontology.org/",
+                  "display": "Conservative Inframe Insertion"
+                }
+              ]
+            }
           },
           {
             "cg:id": "RegAnn077",
@@ -56,13 +77,27 @@
               "referenceSequence": {
                 "cg:id": "RefSeq007",
                 "cg:type": "ReferenceSequence",
-                "accession": "NP_003915.2"
+                "accession": {
+                  "cg:id": "NP_003915.2"
+                }
               },
               "start": 241,
               "stop": 260
             },
             "isTypes": [
-              "CG-reg-anno-type:repeat"
+              {
+                "cg:id": "CC062",
+                "cg:type": "CodeableConcept",
+                "coding": [
+                  {
+                    "cg:id": "CG-reg-anno-type:repeat",
+                    "cg:type": "Coding",
+                    "code": "repeat",
+                    "system": "http://clinicalgenome.org/datamodel/region-annotation-type/",
+                    "display": "Repeat"
+                  }
+                ]
+              }
             ]
           }
         ]
@@ -73,10 +108,20 @@
         "cg:id": "Contrib427",
         "cg:type": "Contribution",
         "agent": "Harry Stevenson",
-        "onDate": {
-          "cg:id": "2016-06-12T09:31:59+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "6/12/16 9:32 AM",
+        "role": {
+          "cg:id": "CC329",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

@@ -6,8 +6,9 @@
     "cg:type": "Criterion",
     "description": "Patient’s phenotype or family history is highly specific for a disease with a single genetic etiology",
     "shortDescription": "Disease specific phenotype and family history",
-    "defaultStrength": "CG-evidence-strength:pp",
-    "targetInterpretation": "LN:LA6668-3"
+    "defaultStrength": {
+      "cg:id": "CG-evidence-strength:pp"
+    }
   },
   "variant": {
     "cg:id": "CanAll070",
@@ -19,19 +20,40 @@
     {
       "cg:id": "MendCond022",
       "cg:type": "MendelianCondition",
-      "explanation": "hereditary hemorrhagic telangiectasia, Autosomal Dominant",
+      "explanation": "Orphanet:774, HP:0000006",
       "disease": [
-        "Orphanet:774"
+        {
+          "cg:id": "Orphanet:774"
+        }
       ],
-      "modeOfInheritance": "HP:0000006"
+      "modeOfInheritance": {
+        "cg:id": "HP:0000006",
+        "cg:type": "Coding",
+        "code": "0000006",
+        "system": "http://human-phenotype-ontology.github.io/",
+        "display": "Autosomal Dominant"
+      }
     }
   ],
-  "outcome": "CG-criterion-outcome:met",
-  "hasSupportingEvidence": [
+  "outcome": {
+    "cg:id": "CC240",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-criterion-outcome:met",
+        "cg:type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
+      }
+    ]
+  },
+  "hasEvidence": [
     {
       "cg:id": "EvLn055",
       "cg:type": "EvidenceLine",
-      "supportingData": [
+      "explanation": "EvLn055",
+      "hasInformation": [
         {
           "cg:id": "CondEtiol148",
           "cg:type": "ConditionEtiology",
@@ -39,11 +61,19 @@
           "condition": {
             "cg:id": "MendCond022",
             "cg:type": "MendelianCondition",
-            "explanation": "hereditary hemorrhagic telangiectasia, Autosomal Dominant",
+            "explanation": "Orphanet:774, HP:0000006",
             "disease": [
-              "Orphanet:774"
+              {
+                "cg:id": "Orphanet:774"
+              }
             ],
-            "modeOfInheritance": "HP:0000006"
+            "modeOfInheritance": {
+              "cg:id": "HP:0000006",
+              "cg:type": "Coding",
+              "code": "0000006",
+              "system": "http://human-phenotype-ontology.github.io/",
+              "display": "Autosomal Dominant"
+            }
           },
           "gene": {
             "cg:id": "G035",
@@ -60,19 +90,39 @@
       "cg:id": "Contrib449",
       "cg:type": "Contribution",
       "agent": "Harry Stevenson",
-      "onDate": {
-        "cg:id": "2016-08-28T14:00:00+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "8/28/16 2:00 PM",
+      "role": {
+        "cg:id": "CC351",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     },
     {
       "cg:id": "Contrib450",
       "cg:type": "Contribution",
       "agent": "CSER Bakeoff Project",
-      "onDate": {
-        "cg:id": "2016-08-28T14:00:00+00:00"
-      },
-      "role": "CG-contributory-role:assessor"
+      "onDate": "8/28/16 2:00 PM",
+      "role": {
+        "cg:id": "CC352",
+        "cg:type": "CodeableConcept",
+        "coding": [
+          {
+            "cg:id": "CG-contributory-role:assessor",
+            "cg:type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
     }
   ]
 }

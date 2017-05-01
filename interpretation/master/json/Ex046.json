@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex046",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess321",
     "cg:type": "CriterionAssessment",
     "explanation": "OMIM is not considered an expert or reputable source for variant interpretations.\nFurther, OMIM’s evidence for this pathogenic call is available (the publication link - PMID:21620354 - and free text summary) so people should use the evidence from OMIM in their assessment NOT OMIM’s interpretation.  This is marked as Insufficient Evidence rather than refuted because the OMIM entry does not rule out a later application of PP5 based on eg. an expert panel.",
@@ -10,8 +10,9 @@
       "cg:type": "Criterion",
       "description": "Reputable source recently reports variant as pathogenic, but the evidence is not available to the laboratory to perform an independent evaluation",
       "shortDescription": "Reported pathogenic by reputable source without shared data",
-      "defaultStrength": "CG-evidence-strength:pp",
-      "targetInterpretation": "LN:LA6668-3"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:pp"
+      }
     },
     "variant": {
       "cg:id": "CanAll073",
@@ -23,19 +24,44 @@
       {
         "cg:id": "MendCond024",
         "cg:type": "MendelianCondition",
-        "explanation": "Myopathy, Distal, type 4, Autosomal Dominant",
+        "explanation": "OMIM:614065, HP:0000006",
         "disease": [
-          "OMIM:614065"
+          {
+            "cg:id": "OMIM:614065",
+            "cg:type": "Coding",
+            "code": "614065",
+            "system": "http://www.omim.org/",
+            "display": "Myopathy, Distal, type 4"
+          }
         ],
-        "modeOfInheritance": "HP:0000006"
+        "modeOfInheritance": {
+          "cg:id": "HP:0000006",
+          "cg:type": "Coding",
+          "code": "0000006",
+          "system": "http://human-phenotype-ontology.github.io/",
+          "display": "Autosomal Dominant"
+        }
       }
     ],
-    "outcome": "CG-criterion-outcome:not-met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC243",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:not-met",
+          "cg:type": "Coding",
+          "code": "not-met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Not Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn058",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn058",
+        "hasInformation": [
           {
             "cg:id": "VarInterp151",
             "cg:type": "VariantInterpretation",
@@ -50,14 +76,38 @@
               {
                 "cg:id": "MendCond024",
                 "cg:type": "MendelianCondition",
-                "explanation": "Myopathy, Distal, type 4, Autosomal Dominant",
+                "explanation": "OMIM:614065, HP:0000006",
                 "disease": [
-                  "OMIM:614065"
+                  {
+                    "cg:id": "OMIM:614065",
+                    "cg:type": "Coding",
+                    "code": "614065",
+                    "system": "http://www.omim.org/",
+                    "display": "Myopathy, Distal, type 4"
+                  }
                 ],
-                "modeOfInheritance": "HP:0000006"
+                "modeOfInheritance": {
+                  "cg:id": "HP:0000006",
+                  "cg:type": "Coding",
+                  "code": "0000006",
+                  "system": "http://human-phenotype-ontology.github.io/",
+                  "display": "Autosomal Dominant"
+                }
               }
             ],
-            "clinicalSignificance": "LN:LA6668-3"
+            "clinicalSignificance": {
+              "cg:id": "CC103",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "LN:LA6668-3",
+                  "cg:type": "Coding",
+                  "code": "LA6668-3",
+                  "system": "http://loinc.org/",
+                  "display": "Pathogenic"
+                }
+              ]
+            }
           }
         ]
       }
@@ -67,10 +117,20 @@
         "cg:id": "Contrib453",
         "cg:type": "Contribution",
         "agent": "Harry Stevenson",
-        "onDate": {
-          "cg:id": "2016-08-29T17:00:00+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "8/29/16 5:00 PM",
+        "role": {
+          "cg:id": "CC355",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

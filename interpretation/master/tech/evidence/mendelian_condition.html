@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li class="active"><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Information</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li class="active"><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -108,7 +108,7 @@
             <h1>MendelianCondition</h1>
             <p>A condition with a specific mode of inheritance</p>
 
-                <p>Descended from Data</p>
+                <p>Descended from Information</p>
 
             <hr class='col-sm-12' />
 
@@ -181,6 +181,13 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>source</td>
+                    <td>InformationSource</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>explanation</td>
                     <td>String</td>
                     <td>0..1</td>
@@ -216,13 +223,13 @@
               <p>Breast Ovarian Cancer, Autosomal Dominant</p>
          </td>
           <td>
-              <p>MESH:D061325</p>
+              <p><a href="../details/details.html#MESH:D061325">MESH:D061325</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -234,9 +241,21 @@
   "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
   "name": "Breast Ovarian Cancer, Autosomal Dominant",
   "disease": [
-    "MESH:D061325"
+    {
+      "cg:id": "MESH:D061325",
+      "cg:type": "Coding",
+      "code": "D061325",
+      "system": "https://meshb.nlm.nih.gov/",
+      "display": "hereditary breast ovarian cancer"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -244,18 +263,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond002">MendCond002</a></p></td>
-          <td>dilated cardiomyopathy, Autosomal Dominant</td>
+          <td>Orphanet:217604, HP:0000006</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:217604</p>
+              <p><a href="../details/details.html#Orphanet:217604">Orphanet:217604</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -264,11 +283,19 @@
           <td><div class="example_view" id="MendCond002"><pre><code>{
   "cg:id": "MendCond002",
   "cg:type": "MendelianCondition",
-  "explanation": "dilated cardiomyopathy, Autosomal Dominant",
+  "explanation": "Orphanet:217604, HP:0000006",
   "disease": [
-    "Orphanet:217604"
+    {
+      "cg:id": "Orphanet:217604"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -276,18 +303,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond003">MendCond003</a></p></td>
-          <td>noonan syndrome, Autosomal Dominant</td>
+          <td>Orphanet:648, HP:0000006</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:648</p>
+              <p><a href="../details/details.html#Orphanet:648">Orphanet:648</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -296,11 +323,19 @@
           <td><div class="example_view" id="MendCond003"><pre><code>{
   "cg:id": "MendCond003",
   "cg:type": "MendelianCondition",
-  "explanation": "noonan syndrome, Autosomal Dominant",
+  "explanation": "Orphanet:648, HP:0000006",
   "disease": [
-    "Orphanet:648"
+    {
+      "cg:id": "Orphanet:648"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -308,12 +343,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond004">MendCond004</a></p></td>
-          <td>Primary ciliary dyskenisia</td>
+          <td>Orphanet:244</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:244</p>
+              <p><a href="../details/details.html#Orphanet:244">Orphanet:244</a></p>
          </td>
           <td>
               
@@ -328,9 +363,11 @@
           <td><div class="example_view" id="MendCond004"><pre><code>{
   "cg:id": "MendCond004",
   "cg:type": "MendelianCondition",
-  "explanation": "Primary ciliary dyskenisia",
+  "explanation": "Orphanet:244",
   "disease": [
-    "Orphanet:244"
+    {
+      "cg:id": "Orphanet:244"
+    }
   ]
 }
           </code></pre></div></td>
@@ -339,18 +376,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond005">MendCond005</a></p></td>
-          <td>costello syndrome, Autosomal Dominant</td>
+          <td>Orphanet:3071, HP:0000006</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:3071</p>
+              <p><a href="../details/details.html#Orphanet:3071">Orphanet:3071</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -359,11 +396,19 @@
           <td><div class="example_view" id="MendCond005"><pre><code>{
   "cg:id": "MendCond005",
   "cg:type": "MendelianCondition",
-  "explanation": "costello syndrome, Autosomal Dominant",
+  "explanation": "Orphanet:3071, HP:0000006",
   "disease": [
-    "Orphanet:3071"
+    {
+      "cg:id": "Orphanet:3071"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -371,12 +416,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond006">MendCond006</a></p></td>
-          <td>noonan syndrome 3</td>
+          <td>OMIM:609942</td>
           <td>
               
          </td>
           <td>
-              <p>OMIM:609942</p>
+              <p><a href="../details/details.html#OMIM:609942">OMIM:609942</a></p>
          </td>
           <td>
               
@@ -391,9 +436,15 @@
           <td><div class="example_view" id="MendCond006"><pre><code>{
   "cg:id": "MendCond006",
   "cg:type": "MendelianCondition",
-  "explanation": "noonan syndrome 3",
+  "explanation": "OMIM:609942",
   "disease": [
-    "OMIM:609942"
+    {
+      "cg:id": "OMIM:609942",
+      "cg:type": "Coding",
+      "code": "609942",
+      "system": "http://www.omim.org/",
+      "display": "noonan syndrome 3"
+    }
   ]
 }
           </code></pre></div></td>
@@ -402,18 +453,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond007">MendCond007</a></p></td>
-          <td>cardiomyopathy, Autosomal Dominant</td>
+          <td>Orphanet:167848, HP:0000006</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:167848</p>
+              <p><a href="../details/details.html#Orphanet:167848">Orphanet:167848</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -422,11 +473,19 @@
           <td><div class="example_view" id="MendCond007"><pre><code>{
   "cg:id": "MendCond007",
   "cg:type": "MendelianCondition",
-  "explanation": "cardiomyopathy, Autosomal Dominant",
+  "explanation": "Orphanet:167848, HP:0000006",
   "disease": [
-    "Orphanet:167848"
+    {
+      "cg:id": "Orphanet:167848"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -439,7 +498,7 @@
               <p>desmin related myopathy</p>
          </td>
           <td>
-              <p>OMIM:601419</p>
+              <p><a href="../details/details.html#OMIM:601419">OMIM:601419</a></p>
          </td>
           <td>
               
@@ -456,7 +515,13 @@
   "cg:type": "MendelianCondition",
   "explanation": "desmin related myopathy",
   "disease": [
-    "OMIM:601419"
+    {
+      "cg:id": "OMIM:601419",
+      "cg:type": "Coding",
+      "code": "601419",
+      "system": "http://www.omim.org/",
+      "display": "myofibrillar myopathy 1"
+    }
   ],
   "name": "desmin related myopathy"
 }
@@ -495,18 +560,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond010">MendCond010</a></p></td>
-          <td>nonsyndromic deafness, Autosomal Recessive, GIPC3</td>
+          <td>Orphanet:87884, HP:0000007, GIPC3</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:87884</p>
+              <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000007</p>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#G024">G024</a></p>
@@ -515,11 +580,19 @@
           <td><div class="example_view" id="MendCond010"><pre><code>{
   "cg:id": "MendCond010",
   "cg:type": "MendelianCondition",
-  "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3",
+  "explanation": "Orphanet:87884, HP:0000007, GIPC3",
   "disease": [
-    "Orphanet:87884"
+    {
+      "cg:id": "Orphanet:87884"
+    }
   ],
-  "modeOfInheritance": "HP:0000007",
+  "modeOfInheritance": {
+    "cg:id": "HP:0000007",
+    "cg:type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  },
   "gene": {
     "cg:id": "G024",
     "cg:type": "Gene",
@@ -532,18 +605,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond011">MendCond011</a></p></td>
-          <td>Malignant hyperthermia, Autosomal Dominant</td>
+          <td>Orphanet:423, HP:0000006</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:423</p>
+              <p><a href="../details/details.html#Orphanet:423">Orphanet:423</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -552,11 +625,19 @@
           <td><div class="example_view" id="MendCond011"><pre><code>{
   "cg:id": "MendCond011",
   "cg:type": "MendelianCondition",
-  "explanation": "Malignant hyperthermia, Autosomal Dominant",
+  "explanation": "Orphanet:423, HP:0000006",
   "disease": [
-    "Orphanet:423"
+    {
+      "cg:id": "Orphanet:423"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -564,7 +645,7 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond012">MendCond012</a></p></td>
-          <td>Abnormal Glucose Homeostasis</td>
+          <td>HP:0011014</td>
           <td>
               
          </td>
@@ -572,7 +653,7 @@
               
          </td>
           <td>
-              <p>HP:0011014</p>
+              <p><a href="../details/details.html#HP:0011014">HP:0011014</a></p>
          </td>
           <td>
               
@@ -584,9 +665,15 @@
           <td><div class="example_view" id="MendCond012"><pre><code>{
   "cg:id": "MendCond012",
   "cg:type": "MendelianCondition",
-  "explanation": "Abnormal Glucose Homeostasis",
+  "explanation": "HP:0011014",
   "phenotype": [
-    "HP:0011014"
+    {
+      "cg:id": "HP:0011014",
+      "cg:type": "Coding",
+      "code": "0011014",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Abnormal Glucose Homeostasis"
+    }
   ]
 }
           </code></pre></div></td>
@@ -595,18 +682,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond013">MendCond013</a></p></td>
-          <td>Fabry disease, X-linked recessive inheritance</td>
+          <td>Orphanet:324, HP:0001419</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:324</p>
+              <p><a href="../details/details.html#Orphanet:324">Orphanet:324</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0001419</p>
+              <p><a href="../details/details.html#HP:0001419">HP:0001419</a></p>
          </td>
           <td>
               
@@ -615,11 +702,19 @@
           <td><div class="example_view" id="MendCond013"><pre><code>{
   "cg:id": "MendCond013",
   "cg:type": "MendelianCondition",
-  "explanation": "Fabry disease, X-linked recessive inheritance",
+  "explanation": "Orphanet:324, HP:0001419",
   "disease": [
-    "Orphanet:324"
+    {
+      "cg:id": "Orphanet:324"
+    }
   ],
-  "modeOfInheritance": "HP:0001419"
+  "modeOfInheritance": {
+    "cg:id": "HP:0001419",
+    "cg:type": "Coding",
+    "code": "0001419",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "X-linked recessive inheritance"
+  }
 }
           </code></pre></div></td>
           -->
@@ -632,13 +727,13 @@
               <p>PCD autosomal recessive w/ outer dynein arm (ODA) defects</p>
          </td>
           <td>
-              <p>Orphanet:244</p>
+              <p><a href="../details/details.html#Orphanet:244">Orphanet:244</a></p>
          </td>
           <td>
-              <p>HP:0200106</p>
+              <p><a href="../details/details.html#HP:0200106">HP:0200106</a></p>
          </td>
           <td>
-              <p>HP:0000007</p>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
          </td>
           <td>
               
@@ -650,11 +745,25 @@
   "explanation": "PCD autosomal recessive w/ outer dynein arm (ODA) defects",
   "name": "PCD autosomal recessive w/ outer dynein arm (ODA) defects",
   "disease": [
-    "Orphanet:244"
+    {
+      "cg:id": "Orphanet:244"
+    }
   ],
-  "modeOfInheritance": "HP:0000007",
+  "modeOfInheritance": {
+    "cg:id": "HP:0000007",
+    "cg:type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  },
   "phenotype": [
-    "HP:0200106"
+    {
+      "cg:id": "HP:0200106",
+      "cg:type": "Coding",
+      "code": "0200106",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Absent/shortened dynein arms"
+    }
   ]
 }
           </code></pre></div></td>
@@ -663,18 +772,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond015">MendCond015</a></p></td>
-          <td>neuronal ceroid lipofuscinosis, Autosomal Recessive, TTP1</td>
+          <td>Orphanet:216, HP:0000007, TTP1</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:216</p>
+              <p><a href="../details/details.html#Orphanet:216">Orphanet:216</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000007</p>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#G025">G025</a></p>
@@ -683,11 +792,19 @@
           <td><div class="example_view" id="MendCond015"><pre><code>{
   "cg:id": "MendCond015",
   "cg:type": "MendelianCondition",
-  "explanation": "neuronal ceroid lipofuscinosis, Autosomal Recessive, TTP1",
+  "explanation": "Orphanet:216, HP:0000007, TTP1",
   "disease": [
-    "Orphanet:216"
+    {
+      "cg:id": "Orphanet:216"
+    }
   ],
-  "modeOfInheritance": "HP:0000007",
+  "modeOfInheritance": {
+    "cg:id": "HP:0000007",
+    "cg:type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  },
   "gene": {
     "cg:id": "G025",
     "cg:type": "Gene",
@@ -705,13 +822,13 @@
               <p>Primary familial hypertrophic cardiomyopathy, Autosomal Dominant</p>
          </td>
           <td>
-              <p>Orphanet:217569</p>
+              <p><a href="../details/details.html#Orphanet:217569">Orphanet:217569</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -722,9 +839,17 @@
   "cg:type": "MendelianCondition",
   "explanation": "Primary familial hypertrophic cardiomyopathy, Autosomal Dominant",
   "disease": [
-    "Orphanet:217569"
+    {
+      "cg:id": "Orphanet:217569"
+    }
   ],
-  "modeOfInheritance": "HP:0000006",
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  },
   "name": "Primary familial hypertrophic cardiomyopathy, Autosomal Dominant"
 }
           </code></pre></div></td>
@@ -733,12 +858,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond017">MendCond017</a></p></td>
-          <td>Ornithine carbamoyltransferase deficiency</td>
+          <td>Orphanet:664</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:664</p>
+              <p><a href="../details/details.html#Orphanet:664">Orphanet:664</a></p>
          </td>
           <td>
               
@@ -753,9 +878,11 @@
           <td><div class="example_view" id="MendCond017"><pre><code>{
   "cg:id": "MendCond017",
   "cg:type": "MendelianCondition",
-  "explanation": "Ornithine carbamoyltransferase deficiency",
+  "explanation": "Orphanet:664",
   "disease": [
-    "Orphanet:664"
+    {
+      "cg:id": "Orphanet:664"
+    }
   ]
 }
           </code></pre></div></td>
@@ -764,12 +891,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond018">MendCond018</a></p></td>
-          <td>Birt-Hogg-Dube Syndrome</td>
+          <td>Orphanet:122</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:122</p>
+              <p><a href="../details/details.html#Orphanet:122">Orphanet:122</a></p>
          </td>
           <td>
               
@@ -784,9 +911,11 @@
           <td><div class="example_view" id="MendCond018"><pre><code>{
   "cg:id": "MendCond018",
   "cg:type": "MendelianCondition",
-  "explanation": "Birt-Hogg-Dube Syndrome",
+  "explanation": "Orphanet:122",
   "disease": [
-    "Orphanet:122"
+    {
+      "cg:id": "Orphanet:122"
+    }
   ]
 }
           </code></pre></div></td>
@@ -795,12 +924,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond019">MendCond019</a></p></td>
-          <td>cardiofaciocutaneous syndrome</td>
+          <td>Orphanet:1340</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:1340</p>
+              <p><a href="../details/details.html#Orphanet:1340">Orphanet:1340</a></p>
          </td>
           <td>
               
@@ -815,9 +944,11 @@
           <td><div class="example_view" id="MendCond019"><pre><code>{
   "cg:id": "MendCond019",
   "cg:type": "MendelianCondition",
-  "explanation": "cardiofaciocutaneous syndrome",
+  "explanation": "Orphanet:1340",
   "disease": [
-    "Orphanet:1340"
+    {
+      "cg:id": "Orphanet:1340"
+    }
   ]
 }
           </code></pre></div></td>
@@ -826,18 +957,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond020">MendCond020</a></p></td>
-          <td>hypertrophic cardiomyopathy, Autosomal Dominant</td>
+          <td>Orphanet:217569, HP:0000006</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:217569</p>
+              <p><a href="../details/details.html#Orphanet:217569">Orphanet:217569</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -846,11 +977,19 @@
           <td><div class="example_view" id="MendCond020"><pre><code>{
   "cg:id": "MendCond020",
   "cg:type": "MendelianCondition",
-  "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
+  "explanation": "Orphanet:217569, HP:0000006",
   "disease": [
-    "Orphanet:217569"
+    {
+      "cg:id": "Orphanet:217569"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -858,18 +997,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond021">MendCond021</a></p></td>
-          <td>Usher syndrome, Autosomal Recessive</td>
+          <td>Orphanet:886, HP:0000007</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:886</p>
+              <p><a href="../details/details.html#Orphanet:886">Orphanet:886</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000007</p>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
          </td>
           <td>
               
@@ -878,11 +1017,19 @@
           <td><div class="example_view" id="MendCond021"><pre><code>{
   "cg:id": "MendCond021",
   "cg:type": "MendelianCondition",
-  "explanation": "Usher syndrome, Autosomal Recessive",
+  "explanation": "Orphanet:886, HP:0000007",
   "disease": [
-    "Orphanet:886"
+    {
+      "cg:id": "Orphanet:886"
+    }
   ],
-  "modeOfInheritance": "HP:0000007"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000007",
+    "cg:type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  }
 }
           </code></pre></div></td>
           -->
@@ -890,18 +1037,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond022">MendCond022</a></p></td>
-          <td>hereditary hemorrhagic telangiectasia, Autosomal Dominant</td>
+          <td>Orphanet:774, HP:0000006</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:774</p>
+              <p><a href="../details/details.html#Orphanet:774">Orphanet:774</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -910,11 +1057,19 @@
           <td><div class="example_view" id="MendCond022"><pre><code>{
   "cg:id": "MendCond022",
   "cg:type": "MendelianCondition",
-  "explanation": "hereditary hemorrhagic telangiectasia, Autosomal Dominant",
+  "explanation": "Orphanet:774, HP:0000006",
   "disease": [
-    "Orphanet:774"
+    {
+      "cg:id": "Orphanet:774"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -922,18 +1077,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond023">MendCond023</a></p></td>
-          <td>Breast-Ovarian Cancer, Familial, Susceptibility To, 2, Autosomal Dominant</td>
+          <td>OMIM:612555, HP:0000006</td>
           <td>
               
          </td>
           <td>
-              <p>OMIM:612555</p>
+              <p><a href="../details/details.html#OMIM:612555">OMIM:612555</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -942,11 +1097,23 @@
           <td><div class="example_view" id="MendCond023"><pre><code>{
   "cg:id": "MendCond023",
   "cg:type": "MendelianCondition",
-  "explanation": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2, Autosomal Dominant",
+  "explanation": "OMIM:612555, HP:0000006",
   "disease": [
-    "OMIM:612555"
+    {
+      "cg:id": "OMIM:612555",
+      "cg:type": "Coding",
+      "code": "612555",
+      "system": "http://www.omim.org/",
+      "display": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -954,18 +1121,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond024">MendCond024</a></p></td>
-          <td>Myopathy, Distal, type 4, Autosomal Dominant</td>
+          <td>OMIM:614065, HP:0000006</td>
           <td>
               
          </td>
           <td>
-              <p>OMIM:614065</p>
+              <p><a href="../details/details.html#OMIM:614065">OMIM:614065</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -974,11 +1141,23 @@
           <td><div class="example_view" id="MendCond024"><pre><code>{
   "cg:id": "MendCond024",
   "cg:type": "MendelianCondition",
-  "explanation": "Myopathy, Distal, type 4, Autosomal Dominant",
+  "explanation": "OMIM:614065, HP:0000006",
   "disease": [
-    "OMIM:614065"
+    {
+      "cg:id": "OMIM:614065",
+      "cg:type": "Coding",
+      "code": "614065",
+      "system": "http://www.omim.org/",
+      "display": "Myopathy, Distal, type 4"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -986,18 +1165,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond025">MendCond025</a></p></td>
-          <td>Cystic Fibrosis, Autosomal Recessive</td>
+          <td>Orphanet:586, HP:0000007</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:586</p>
+              <p><a href="../details/details.html#Orphanet:586">Orphanet:586</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000007</p>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
          </td>
           <td>
               
@@ -1006,11 +1185,19 @@
           <td><div class="example_view" id="MendCond025"><pre><code>{
   "cg:id": "MendCond025",
   "cg:type": "MendelianCondition",
-  "explanation": "Cystic Fibrosis, Autosomal Recessive",
+  "explanation": "Orphanet:586, HP:0000007",
   "disease": [
-    "Orphanet:586"
+    {
+      "cg:id": "Orphanet:586"
+    }
   ],
-  "modeOfInheritance": "HP:0000007"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000007",
+    "cg:type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1018,18 +1205,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond026">MendCond026</a></p></td>
-          <td>Marfan Syndrome, Autosomal Dominant</td>
+          <td>Orphanet:558, HP:0000006</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:558</p>
+              <p><a href="../details/details.html#Orphanet:558">Orphanet:558</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -1038,11 +1225,19 @@
           <td><div class="example_view" id="MendCond026"><pre><code>{
   "cg:id": "MendCond026",
   "cg:type": "MendelianCondition",
-  "explanation": "Marfan Syndrome, Autosomal Dominant",
+  "explanation": "Orphanet:558, HP:0000006",
   "disease": [
-    "Orphanet:558"
+    {
+      "cg:id": "Orphanet:558"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1050,18 +1245,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond027">MendCond027</a></p></td>
-          <td>Mitochondrial complex 1 deficiency, X-linked dominant inheritance</td>
+          <td>Orphanet:2609, HP:0001423</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:2609</p>
+              <p><a href="../details/details.html#Orphanet:2609">Orphanet:2609</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0001423</p>
+              <p><a href="../details/details.html#HP:0001423">HP:0001423</a></p>
          </td>
           <td>
               
@@ -1070,11 +1265,19 @@
           <td><div class="example_view" id="MendCond027"><pre><code>{
   "cg:id": "MendCond027",
   "cg:type": "MendelianCondition",
-  "explanation": "Mitochondrial complex 1 deficiency, X-linked dominant inheritance",
+  "explanation": "Orphanet:2609, HP:0001423",
   "disease": [
-    "Orphanet:2609"
+    {
+      "cg:id": "Orphanet:2609"
+    }
   ],
-  "modeOfInheritance": "HP:0001423"
+  "modeOfInheritance": {
+    "cg:id": "HP:0001423",
+    "cg:type": "Coding",
+    "code": "0001423",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "X-linked dominant inheritance"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1082,18 +1285,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond028">MendCond028</a></p></td>
-          <td>Perrault Syndrome, Autosomal Recessive</td>
+          <td>Orphanet:2855, HP:0000007</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:2855</p>
+              <p><a href="../details/details.html#Orphanet:2855">Orphanet:2855</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000007</p>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
          </td>
           <td>
               
@@ -1102,11 +1305,19 @@
           <td><div class="example_view" id="MendCond028"><pre><code>{
   "cg:id": "MendCond028",
   "cg:type": "MendelianCondition",
-  "explanation": "Perrault Syndrome, Autosomal Recessive",
+  "explanation": "Orphanet:2855, HP:0000007",
   "disease": [
-    "Orphanet:2855"
+    {
+      "cg:id": "Orphanet:2855"
+    }
   ],
-  "modeOfInheritance": "HP:0000007"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000007",
+    "cg:type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1114,18 +1325,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond029">MendCond029</a></p></td>
-          <td>Wiedemann-Steiner syndrome, Autosomal Dominant</td>
+          <td>Orphanet:319182, HP:0000006</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:319182</p>
+              <p><a href="../details/details.html#Orphanet:319182">Orphanet:319182</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -1134,11 +1345,19 @@
           <td><div class="example_view" id="MendCond029"><pre><code>{
   "cg:id": "MendCond029",
   "cg:type": "MendelianCondition",
-  "explanation": "Wiedemann-Steiner syndrome, Autosomal Dominant",
+  "explanation": "Orphanet:319182, HP:0000006",
   "disease": [
-    "Orphanet:319182"
+    {
+      "cg:id": "Orphanet:319182"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1146,18 +1365,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond030">MendCond030</a></p></td>
-          <td>Familial Adenomatous Polyposis, Autosomal Dominant</td>
+          <td>Orphanet:733, HP:0000006</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:733</p>
+              <p><a href="../details/details.html#Orphanet:733">Orphanet:733</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -1166,11 +1385,19 @@
           <td><div class="example_view" id="MendCond030"><pre><code>{
   "cg:id": "MendCond030",
   "cg:type": "MendelianCondition",
-  "explanation": "Familial Adenomatous Polyposis, Autosomal Dominant",
+  "explanation": "Orphanet:733, HP:0000006",
   "disease": [
-    "Orphanet:733"
+    {
+      "cg:id": "Orphanet:733"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1178,18 +1405,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond035">MendCond035</a></p></td>
-          <td>Hypercholesterolemia, Familial, Autosomal Dominant</td>
+          <td>OMIM:143890, HP:0000006</td>
           <td>
               
          </td>
           <td>
-              <p>OMIM:143890</p>
+              <p><a href="../details/details.html#OMIM:143890">OMIM:143890</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -1198,11 +1425,23 @@
           <td><div class="example_view" id="MendCond035"><pre><code>{
   "cg:id": "MendCond035",
   "cg:type": "MendelianCondition",
-  "explanation": "Hypercholesterolemia, Familial, Autosomal Dominant",
+  "explanation": "OMIM:143890, HP:0000006",
   "disease": [
-    "OMIM:143890"
+    {
+      "cg:id": "OMIM:143890",
+      "cg:type": "Coding",
+      "code": "143890",
+      "system": "http://www.omim.org/",
+      "display": "Hypercholesterolemia, Familial"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1215,7 +1454,7 @@
               <p>hereditary breast and ovarian cancer</p>
          </td>
           <td>
-              <p>Orphanet:145</p>
+              <p><a href="../details/details.html#Orphanet:145">Orphanet:145</a></p>
          </td>
           <td>
               
@@ -1232,7 +1471,9 @@
   "cg:type": "MendelianCondition",
   "explanation": "hereditary breast and ovarian cancer",
   "disease": [
-    "Orphanet:145"
+    {
+      "cg:id": "Orphanet:145"
+    }
   ],
   "name": "hereditary breast and ovarian cancer"
 }
@@ -1242,12 +1483,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond037">MendCond037</a></p></td>
-          <td>Fanconi Anemia</td>
+          <td>Orphanet:84</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:84</p>
+              <p><a href="../details/details.html#Orphanet:84">Orphanet:84</a></p>
          </td>
           <td>
               
@@ -1262,9 +1503,11 @@
           <td><div class="example_view" id="MendCond037"><pre><code>{
   "cg:id": "MendCond037",
   "cg:type": "MendelianCondition",
-  "explanation": "Fanconi Anemia",
+  "explanation": "Orphanet:84",
   "disease": [
-    "Orphanet:84"
+    {
+      "cg:id": "Orphanet:84"
+    }
   ]
 }
           </code></pre></div></td>
@@ -1273,12 +1516,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond038">MendCond038</a></p></td>
-          <td>Retinitis Pigmentosa</td>
+          <td>Orphanet:791</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:791</p>
+              <p><a href="../details/details.html#Orphanet:791">Orphanet:791</a></p>
          </td>
           <td>
               
@@ -1293,9 +1536,11 @@
           <td><div class="example_view" id="MendCond038"><pre><code>{
   "cg:id": "MendCond038",
   "cg:type": "MendelianCondition",
-  "explanation": "Retinitis Pigmentosa",
+  "explanation": "Orphanet:791",
   "disease": [
-    "Orphanet:791"
+    {
+      "cg:id": "Orphanet:791"
+    }
   ]
 }
           </code></pre></div></td>
@@ -1304,7 +1549,7 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond039">MendCond039</a></p></td>
-          <td>Absent vas deferens</td>
+          <td>HP:0012873</td>
           <td>
               
          </td>
@@ -1312,7 +1557,7 @@
               
          </td>
           <td>
-              <p>HP:0012873</p>
+              <p><a href="../details/details.html#HP:0012873">HP:0012873</a></p>
          </td>
           <td>
               
@@ -1324,9 +1569,15 @@
           <td><div class="example_view" id="MendCond039"><pre><code>{
   "cg:id": "MendCond039",
   "cg:type": "MendelianCondition",
-  "explanation": "Absent vas deferens",
+  "explanation": "HP:0012873",
   "phenotype": [
-    "HP:0012873"
+    {
+      "cg:id": "HP:0012873",
+      "cg:type": "Coding",
+      "code": "0012873",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Absent vas deferens"
+    }
   ]
 }
           </code></pre></div></td>
@@ -1335,12 +1586,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond040">MendCond040</a></p></td>
-          <td>Primary bone dysplasia</td>
+          <td>Orphanet:364526</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:364526</p>
+              <p><a href="../details/details.html#Orphanet:364526">Orphanet:364526</a></p>
          </td>
           <td>
               
@@ -1355,9 +1606,11 @@
           <td><div class="example_view" id="MendCond040"><pre><code>{
   "cg:id": "MendCond040",
   "cg:type": "MendelianCondition",
-  "explanation": "Primary bone dysplasia",
+  "explanation": "Orphanet:364526",
   "disease": [
-    "Orphanet:364526"
+    {
+      "cg:id": "Orphanet:364526"
+    }
   ]
 }
           </code></pre></div></td>
@@ -1371,7 +1624,7 @@
               <p>Pseudoachondroplastic spondyloepiphyseal dysplasia</p>
          </td>
           <td>
-              <p>Orphanet:750</p>
+              <p><a href="../details/details.html#Orphanet:750">Orphanet:750</a></p>
          </td>
           <td>
               
@@ -1388,7 +1641,9 @@
   "cg:type": "MendelianCondition",
   "explanation": "Pseudoachondroplastic spondyloepiphyseal dysplasia",
   "disease": [
-    "Orphanet:750"
+    {
+      "cg:id": "Orphanet:750"
+    }
   ],
   "name": "Pseudoachondroplastic spondyloepiphyseal dysplasia"
 }
@@ -1398,12 +1653,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond042">MendCond042</a></p></td>
-          <td>pseudoachondroplasia</td>
+          <td>Orphanet:750</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:750</p>
+              <p><a href="../details/details.html#Orphanet:750">Orphanet:750</a></p>
          </td>
           <td>
               
@@ -1418,9 +1673,11 @@
           <td><div class="example_view" id="MendCond042"><pre><code>{
   "cg:id": "MendCond042",
   "cg:type": "MendelianCondition",
-  "explanation": "pseudoachondroplasia",
+  "explanation": "Orphanet:750",
   "disease": [
-    "Orphanet:750"
+    {
+      "cg:id": "Orphanet:750"
+    }
   ]
 }
           </code></pre></div></td>
@@ -1429,12 +1686,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond043">MendCond043</a></p></td>
-          <td>Breast-Ovarian Cancer, Familial, Susceptibility To, 2</td>
+          <td>OMIM:612555</td>
           <td>
               
          </td>
           <td>
-              <p>OMIM:612555</p>
+              <p><a href="../details/details.html#OMIM:612555">OMIM:612555</a></p>
          </td>
           <td>
               
@@ -1449,9 +1706,15 @@
           <td><div class="example_view" id="MendCond043"><pre><code>{
   "cg:id": "MendCond043",
   "cg:type": "MendelianCondition",
-  "explanation": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2",
+  "explanation": "OMIM:612555",
   "disease": [
-    "OMIM:612555"
+    {
+      "cg:id": "OMIM:612555",
+      "cg:type": "Coding",
+      "code": "612555",
+      "system": "http://www.omim.org/",
+      "display": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
+    }
   ]
 }
           </code></pre></div></td>
@@ -1460,12 +1723,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond044">MendCond044</a></p></td>
-          <td>Gyrate atrophy of choroid and retina</td>
+          <td>Orphanet:414</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:414</p>
+              <p><a href="../details/details.html#Orphanet:414">Orphanet:414</a></p>
          </td>
           <td>
               
@@ -1480,9 +1743,11 @@
           <td><div class="example_view" id="MendCond044"><pre><code>{
   "cg:id": "MendCond044",
   "cg:type": "MendelianCondition",
-  "explanation": "Gyrate atrophy of choroid and retina",
+  "explanation": "Orphanet:414",
   "disease": [
-    "Orphanet:414"
+    {
+      "cg:id": "Orphanet:414"
+    }
   ]
 }
           </code></pre></div></td>
@@ -1491,18 +1756,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond045">MendCond045</a></p></td>
-          <td>Primary ciliary dyskenisia, Autosomal Recessive</td>
+          <td>Orphanet:244, HP:0000007</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:244</p>
+              <p><a href="../details/details.html#Orphanet:244">Orphanet:244</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000007</p>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
          </td>
           <td>
               
@@ -1511,11 +1776,19 @@
           <td><div class="example_view" id="MendCond045"><pre><code>{
   "cg:id": "MendCond045",
   "cg:type": "MendelianCondition",
-  "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
+  "explanation": "Orphanet:244, HP:0000007",
   "disease": [
-    "Orphanet:244"
+    {
+      "cg:id": "Orphanet:244"
+    }
   ],
-  "modeOfInheritance": "HP:0000007"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000007",
+    "cg:type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1523,12 +1796,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond046">MendCond046</a></p></td>
-          <td>arrhythmogenic right ventricular cardiomyopathy</td>
+          <td>Orphanet:247</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:247</p>
+              <p><a href="../details/details.html#Orphanet:247">Orphanet:247</a></p>
          </td>
           <td>
               
@@ -1543,9 +1816,11 @@
           <td><div class="example_view" id="MendCond046"><pre><code>{
   "cg:id": "MendCond046",
   "cg:type": "MendelianCondition",
-  "explanation": "arrhythmogenic right ventricular cardiomyopathy",
+  "explanation": "Orphanet:247",
   "disease": [
-    "Orphanet:247"
+    {
+      "cg:id": "Orphanet:247"
+    }
   ]
 }
           </code></pre></div></td>
@@ -1554,12 +1829,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond047">MendCond047</a></p></td>
-          <td>dilated cardiomyopathy</td>
+          <td>Orphanet:217604</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:217604</p>
+              <p><a href="../details/details.html#Orphanet:217604">Orphanet:217604</a></p>
          </td>
           <td>
               
@@ -1574,9 +1849,11 @@
           <td><div class="example_view" id="MendCond047"><pre><code>{
   "cg:id": "MendCond047",
   "cg:type": "MendelianCondition",
-  "explanation": "dilated cardiomyopathy",
+  "explanation": "Orphanet:217604",
   "disease": [
-    "Orphanet:217604"
+    {
+      "cg:id": "Orphanet:217604"
+    }
   ]
 }
           </code></pre></div></td>
@@ -1590,7 +1867,7 @@
               <p>Hearing Loss</p>
          </td>
           <td>
-              <p>Orphanet:87884</p>
+              <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
          </td>
           <td>
               
@@ -1607,7 +1884,9 @@
   "cg:type": "MendelianCondition",
   "explanation": "Hearing Loss",
   "disease": [
-    "Orphanet:87884"
+    {
+      "cg:id": "Orphanet:87884"
+    }
   ],
   "name": "Hearing Loss"
 }
@@ -1622,7 +1901,7 @@
               <p>Rasopathy</p>
          </td>
           <td>
-              <p>Orphanet:98733</p>
+              <p><a href="../details/details.html#Orphanet:98733">Orphanet:98733</a></p>
          </td>
           <td>
               
@@ -1639,7 +1918,9 @@
   "cg:type": "MendelianCondition",
   "explanation": "Rasopathy",
   "disease": [
-    "Orphanet:98733"
+    {
+      "cg:id": "Orphanet:98733"
+    }
   ],
   "name": "Rasopathy"
 }
@@ -1654,13 +1935,13 @@
               <p>Breast Ovarian Cancer, Autosomal Dominant</p>
          </td>
           <td>
-              <p>MESH:D061325</p>
+              <p><a href="../details/details.html#MESH:D061325">MESH:D061325</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -1672,9 +1953,21 @@
   "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
   "name": "Breast Ovarian Cancer, Autosomal Dominant",
   "disease": [
-    "MESH:D061325"
+    {
+      "cg:id": "MESH:D061325",
+      "cg:type": "Coding",
+      "code": "D061325",
+      "system": "https://meshb.nlm.nih.gov/",
+      "display": "hereditary breast ovarian cancer"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1687,13 +1980,13 @@
               <p>Breast Ovarian Cancer, Autosomal Dominant</p>
          </td>
           <td>
-              <p>MESH:D061325</p>
+              <p><a href="../details/details.html#MESH:D061325">MESH:D061325</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -1705,9 +1998,21 @@
   "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
   "name": "Breast Ovarian Cancer, Autosomal Dominant",
   "disease": [
-    "MESH:D061325"
+    {
+      "cg:id": "MESH:D061325",
+      "cg:type": "Coding",
+      "code": "D061325",
+      "system": "https://meshb.nlm.nih.gov/",
+      "display": "hereditary breast ovarian cancer"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1715,12 +2020,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond052">MendCond052</a></p></td>
-          <td>dilated cardiomyopathy</td>
+          <td>Orphanet:217604</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:217604</p>
+              <p><a href="../details/details.html#Orphanet:217604">Orphanet:217604</a></p>
          </td>
           <td>
               
@@ -1735,9 +2040,11 @@
           <td><div class="example_view" id="MendCond052"><pre><code>{
   "cg:id": "MendCond052",
   "cg:type": "MendelianCondition",
-  "explanation": "dilated cardiomyopathy",
+  "explanation": "Orphanet:217604",
   "disease": [
-    "Orphanet:217604"
+    {
+      "cg:id": "Orphanet:217604"
+    }
   ]
 }
           </code></pre></div></td>
@@ -1746,12 +2053,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond053">MendCond053</a></p></td>
-          <td>dilated cardiomyopathy</td>
+          <td>Orphanet:217604</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:217604</p>
+              <p><a href="../details/details.html#Orphanet:217604">Orphanet:217604</a></p>
          </td>
           <td>
               
@@ -1766,9 +2073,11 @@
           <td><div class="example_view" id="MendCond053"><pre><code>{
   "cg:id": "MendCond053",
   "cg:type": "MendelianCondition",
-  "explanation": "dilated cardiomyopathy",
+  "explanation": "Orphanet:217604",
   "disease": [
-    "Orphanet:217604"
+    {
+      "cg:id": "Orphanet:217604"
+    }
   ]
 }
           </code></pre></div></td>
@@ -1777,12 +2086,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond054">MendCond054</a></p></td>
-          <td>arrhythmogenic right ventricular cardiomyopathy</td>
+          <td>Orphanet:247</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:247</p>
+              <p><a href="../details/details.html#Orphanet:247">Orphanet:247</a></p>
          </td>
           <td>
               
@@ -1797,9 +2106,11 @@
           <td><div class="example_view" id="MendCond054"><pre><code>{
   "cg:id": "MendCond054",
   "cg:type": "MendelianCondition",
-  "explanation": "arrhythmogenic right ventricular cardiomyopathy",
+  "explanation": "Orphanet:247",
   "disease": [
-    "Orphanet:247"
+    {
+      "cg:id": "Orphanet:247"
+    }
   ]
 }
           </code></pre></div></td>
@@ -1808,18 +2119,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond055">MendCond055</a></p></td>
-          <td>noonan syndrome, Autosomal Dominant</td>
+          <td>Orphanet:648, HP:0000006</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:648</p>
+              <p><a href="../details/details.html#Orphanet:648">Orphanet:648</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -1828,11 +2139,19 @@
           <td><div class="example_view" id="MendCond055"><pre><code>{
   "cg:id": "MendCond055",
   "cg:type": "MendelianCondition",
-  "explanation": "noonan syndrome, Autosomal Dominant",
+  "explanation": "Orphanet:648, HP:0000006",
   "disease": [
-    "Orphanet:648"
+    {
+      "cg:id": "Orphanet:648"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1840,18 +2159,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond056">MendCond056</a></p></td>
-          <td>noonan syndrome, Autosomal Dominant</td>
+          <td>Orphanet:648, HP:0000006</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:648</p>
+              <p><a href="../details/details.html#Orphanet:648">Orphanet:648</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -1860,11 +2179,19 @@
           <td><div class="example_view" id="MendCond056"><pre><code>{
   "cg:id": "MendCond056",
   "cg:type": "MendelianCondition",
-  "explanation": "noonan syndrome, Autosomal Dominant",
+  "explanation": "Orphanet:648, HP:0000006",
   "disease": [
-    "Orphanet:648"
+    {
+      "cg:id": "Orphanet:648"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1877,7 +2204,7 @@
               <p>Hearing Loss</p>
          </td>
           <td>
-              <p>Orphanet:87884</p>
+              <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
          </td>
           <td>
               
@@ -1894,7 +2221,9 @@
   "cg:type": "MendelianCondition",
   "explanation": "Hearing Loss",
   "disease": [
-    "Orphanet:87884"
+    {
+      "cg:id": "Orphanet:87884"
+    }
   ],
   "name": "Hearing Loss"
 }
@@ -1909,7 +2238,7 @@
               <p>Hearing Loss</p>
          </td>
           <td>
-              <p>Orphanet:87884</p>
+              <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
          </td>
           <td>
               
@@ -1926,7 +2255,9 @@
   "cg:type": "MendelianCondition",
   "explanation": "Hearing Loss",
   "disease": [
-    "Orphanet:87884"
+    {
+      "cg:id": "Orphanet:87884"
+    }
   ],
   "name": "Hearing Loss"
 }
@@ -1941,13 +2272,13 @@
               <p>Hearing Loss, Autosomal Recessive</p>
          </td>
           <td>
-              <p>Orphanet:87884</p>
+              <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000007</p>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
          </td>
           <td>
               
@@ -1958,10 +2289,18 @@
   "cg:type": "MendelianCondition",
   "explanation": "Hearing Loss, Autosomal Recessive",
   "disease": [
-    "Orphanet:87884"
+    {
+      "cg:id": "Orphanet:87884"
+    }
   ],
   "name": "Hearing Loss, Autosomal Recessive",
-  "modeOfInheritance": "HP:0000007"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000007",
+    "cg:type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1969,12 +2308,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond060">MendCond060</a></p></td>
-          <td>nonsyndromic deafness</td>
+          <td>Orphanet:87884</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:87884</p>
+              <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
          </td>
           <td>
               
@@ -1989,9 +2328,11 @@
           <td><div class="example_view" id="MendCond060"><pre><code>{
   "cg:id": "MendCond060",
   "cg:type": "MendelianCondition",
-  "explanation": "nonsyndromic deafness",
+  "explanation": "Orphanet:87884",
   "disease": [
-    "Orphanet:87884"
+    {
+      "cg:id": "Orphanet:87884"
+    }
   ]
 }
           </code></pre></div></td>
@@ -2005,13 +2346,13 @@
               <p>Hearing Loss, Autosomal Recessive</p>
          </td>
           <td>
-              <p>Orphanet:87884</p>
+              <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000007</p>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
          </td>
           <td>
               
@@ -2022,10 +2363,18 @@
   "cg:type": "MendelianCondition",
   "explanation": "Hearing Loss, Autosomal Recessive",
   "disease": [
-    "Orphanet:87884"
+    {
+      "cg:id": "Orphanet:87884"
+    }
   ],
   "name": "Hearing Loss, Autosomal Recessive",
-  "modeOfInheritance": "HP:0000007"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000007",
+    "cg:type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  }
 }
           </code></pre></div></td>
           -->
@@ -2033,18 +2382,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond062">MendCond062</a></p></td>
-          <td>Primary ciliary dyskenisia, Autosomal Recessive</td>
+          <td>Orphanet:244, HP:0000007</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:244</p>
+              <p><a href="../details/details.html#Orphanet:244">Orphanet:244</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000007</p>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
          </td>
           <td>
               
@@ -2053,11 +2402,19 @@
           <td><div class="example_view" id="MendCond062"><pre><code>{
   "cg:id": "MendCond062",
   "cg:type": "MendelianCondition",
-  "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
+  "explanation": "Orphanet:244, HP:0000007",
   "disease": [
-    "Orphanet:244"
+    {
+      "cg:id": "Orphanet:244"
+    }
   ],
-  "modeOfInheritance": "HP:0000007"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000007",
+    "cg:type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  }
 }
           </code></pre></div></td>
           -->
@@ -2065,18 +2422,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond063">MendCond063</a></p></td>
-          <td>Primary ciliary dyskenisia, Autosomal Recessive</td>
+          <td>Orphanet:244, HP:0000007</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:244</p>
+              <p><a href="../details/details.html#Orphanet:244">Orphanet:244</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000007</p>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
          </td>
           <td>
               
@@ -2085,11 +2442,19 @@
           <td><div class="example_view" id="MendCond063"><pre><code>{
   "cg:id": "MendCond063",
   "cg:type": "MendelianCondition",
-  "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
+  "explanation": "Orphanet:244, HP:0000007",
   "disease": [
-    "Orphanet:244"
+    {
+      "cg:id": "Orphanet:244"
+    }
   ],
-  "modeOfInheritance": "HP:0000007"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000007",
+    "cg:type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  }
 }
           </code></pre></div></td>
           -->
@@ -2097,12 +2462,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond064">MendCond064</a></p></td>
-          <td>hypertrophic cardiomyopathy</td>
+          <td>Orphanet:217569</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:217569</p>
+              <p><a href="../details/details.html#Orphanet:217569">Orphanet:217569</a></p>
          </td>
           <td>
               
@@ -2117,9 +2482,11 @@
           <td><div class="example_view" id="MendCond064"><pre><code>{
   "cg:id": "MendCond064",
   "cg:type": "MendelianCondition",
-  "explanation": "hypertrophic cardiomyopathy",
+  "explanation": "Orphanet:217569",
   "disease": [
-    "Orphanet:217569"
+    {
+      "cg:id": "Orphanet:217569"
+    }
   ]
 }
           </code></pre></div></td>
@@ -2128,18 +2495,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond065">MendCond065</a></p></td>
-          <td>hypertrophic cardiomyopathy, Autosomal Dominant</td>
+          <td>Orphanet:217569, HP:0000006</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:217569</p>
+              <p><a href="../details/details.html#Orphanet:217569">Orphanet:217569</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -2148,11 +2515,19 @@
           <td><div class="example_view" id="MendCond065"><pre><code>{
   "cg:id": "MendCond065",
   "cg:type": "MendelianCondition",
-  "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
+  "explanation": "Orphanet:217569, HP:0000006",
   "disease": [
-    "Orphanet:217569"
+    {
+      "cg:id": "Orphanet:217569"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -2160,18 +2535,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond066">MendCond066</a></p></td>
-          <td>hypertrophic cardiomyopathy, Autosomal Dominant</td>
+          <td>Orphanet:217569, HP:0000006</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:217569</p>
+              <p><a href="../details/details.html#Orphanet:217569">Orphanet:217569</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -2180,11 +2555,19 @@
           <td><div class="example_view" id="MendCond066"><pre><code>{
   "cg:id": "MendCond066",
   "cg:type": "MendelianCondition",
-  "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
+  "explanation": "Orphanet:217569, HP:0000006",
   "disease": [
-    "Orphanet:217569"
+    {
+      "cg:id": "Orphanet:217569"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -2192,12 +2575,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond067">MendCond067</a></p></td>
-          <td>hypertrophic cardiomyopathy</td>
+          <td>Orphanet:217569</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:217569</p>
+              <p><a href="../details/details.html#Orphanet:217569">Orphanet:217569</a></p>
          </td>
           <td>
               
@@ -2212,9 +2595,11 @@
           <td><div class="example_view" id="MendCond067"><pre><code>{
   "cg:id": "MendCond067",
   "cg:type": "MendelianCondition",
-  "explanation": "hypertrophic cardiomyopathy",
+  "explanation": "Orphanet:217569",
   "disease": [
-    "Orphanet:217569"
+    {
+      "cg:id": "Orphanet:217569"
+    }
   ]
 }
           </code></pre></div></td>
@@ -2223,12 +2608,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond068">MendCond068</a></p></td>
-          <td>cardiofaciocutaneous syndrome</td>
+          <td>Orphanet:1340</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:1340</p>
+              <p><a href="../details/details.html#Orphanet:1340">Orphanet:1340</a></p>
          </td>
           <td>
               
@@ -2243,9 +2628,11 @@
           <td><div class="example_view" id="MendCond068"><pre><code>{
   "cg:id": "MendCond068",
   "cg:type": "MendelianCondition",
-  "explanation": "cardiofaciocutaneous syndrome",
+  "explanation": "Orphanet:1340",
   "disease": [
-    "Orphanet:1340"
+    {
+      "cg:id": "Orphanet:1340"
+    }
   ]
 }
           </code></pre></div></td>
@@ -2254,12 +2641,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond069">MendCond069</a></p></td>
-          <td>cardiofaciocutaneous syndrome</td>
+          <td>Orphanet:1340</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:1340</p>
+              <p><a href="../details/details.html#Orphanet:1340">Orphanet:1340</a></p>
          </td>
           <td>
               
@@ -2274,9 +2661,11 @@
           <td><div class="example_view" id="MendCond069"><pre><code>{
   "cg:id": "MendCond069",
   "cg:type": "MendelianCondition",
-  "explanation": "cardiofaciocutaneous syndrome",
+  "explanation": "Orphanet:1340",
   "disease": [
-    "Orphanet:1340"
+    {
+      "cg:id": "Orphanet:1340"
+    }
   ]
 }
           </code></pre></div></td>
@@ -2285,18 +2674,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond070">MendCond070</a></p></td>
-          <td>cardiofaciocutaneous syndrome, Autosomal Dominant</td>
+          <td>Orphanet:1340, HP:0000006</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:1340</p>
+              <p><a href="../details/details.html#Orphanet:1340">Orphanet:1340</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000006</p>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
          </td>
           <td>
               
@@ -2305,11 +2694,19 @@
           <td><div class="example_view" id="MendCond070"><pre><code>{
   "cg:id": "MendCond070",
   "cg:type": "MendelianCondition",
-  "explanation": "cardiofaciocutaneous syndrome, Autosomal Dominant",
+  "explanation": "Orphanet:1340, HP:0000006",
   "disease": [
-    "Orphanet:1340"
+    {
+      "cg:id": "Orphanet:1340"
+    }
   ],
-  "modeOfInheritance": "HP:0000006"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000006",
+    "cg:type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
 }
           </code></pre></div></td>
           -->
@@ -2317,18 +2714,18 @@
 
         <tr>
           <td><p><a href="../details/details.html#MendCond071">MendCond071</a></p></td>
-          <td>Usher syndrome, Autosomal Recessive</td>
+          <td>Orphanet:886, HP:0000007</td>
           <td>
               
          </td>
           <td>
-              <p>Orphanet:886</p>
+              <p><a href="../details/details.html#Orphanet:886">Orphanet:886</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p>HP:0000007</p>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
          </td>
           <td>
               
@@ -2337,11 +2734,19 @@
           <td><div class="example_view" id="MendCond071"><pre><code>{
   "cg:id": "MendCond071",
   "cg:type": "MendelianCondition",
-  "explanation": "Usher syndrome, Autosomal Recessive",
+  "explanation": "Orphanet:886, HP:0000007",
   "disease": [
-    "Orphanet:886"
+    {
+      "cg:id": "Orphanet:886"
+    }
   ],
-  "modeOfInheritance": "HP:0000007"
+  "modeOfInheritance": {
+    "cg:id": "HP:0000007",
+    "cg:type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  }
 }
           </code></pre></div></td>
           -->

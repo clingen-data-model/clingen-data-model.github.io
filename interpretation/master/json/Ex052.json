@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex052",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess327",
     "cg:type": "CriterionAssessment",
     "criterion": {
@@ -9,8 +9,9 @@
       "cg:type": "Criterion",
       "description": "Allele frequency is greater than expected for disorder",
       "shortDescription": "MAF too high for disorder",
-      "defaultStrength": "CG-evidence-strength:bs",
-      "targetInterpretation": "LN:LA6675-8"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:bs"
+      }
     },
     "variant": {
       "cg:id": "CanAll079",
@@ -22,24 +23,57 @@
       {
         "cg:id": "MendCond027",
         "cg:type": "MendelianCondition",
-        "explanation": "Mitochondrial complex 1 deficiency, X-linked dominant inheritance",
+        "explanation": "Orphanet:2609, HP:0001423",
         "disease": [
-          "Orphanet:2609"
+          {
+            "cg:id": "Orphanet:2609"
+          }
         ],
-        "modeOfInheritance": "HP:0001423"
+        "modeOfInheritance": {
+          "cg:id": "HP:0001423",
+          "cg:type": "Coding",
+          "code": "0001423",
+          "system": "http://human-phenotype-ontology.github.io/",
+          "display": "X-linked dominant inheritance"
+        }
       }
     ],
-    "outcome": "CG-criterion-outcome:met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC249",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:met",
+          "cg:type": "Coding",
+          "code": "met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn065",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn065",
+        "hasInformation": [
           {
             "cg:id": "AllFreq162",
             "cg:type": "AlleleFrequency",
             "ascertainment": "ExAC",
-            "population": "CG-population-type:combined",
+            "population": {
+              "cg:id": "CC114",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-population-type:combined",
+                  "cg:type": "Coding",
+                  "code": "combined",
+                  "system": "http://clinicalgenome.org/datamodel/population-type/",
+                  "display": "Combined"
+                }
+              ]
+            },
             "allele": {
               "cg:id": "CanAll079",
               "cg:type": "CanonicalAllele",
@@ -59,15 +93,35 @@
               {
                 "cg:id": "MendCond027",
                 "cg:type": "MendelianCondition",
-                "explanation": "Mitochondrial complex 1 deficiency, X-linked dominant inheritance",
+                "explanation": "Orphanet:2609, HP:0001423",
                 "disease": [
-                  "Orphanet:2609"
+                  {
+                    "cg:id": "Orphanet:2609"
+                  }
                 ],
-                "modeOfInheritance": "HP:0001423"
+                "modeOfInheritance": {
+                  "cg:id": "HP:0001423",
+                  "cg:type": "Coding",
+                  "code": "0001423",
+                  "system": "http://human-phenotype-ontology.github.io/",
+                  "display": "X-linked dominant inheritance"
+                }
               }
             ],
             "value": 0.00012,
-            "population": "CG-population-type:overall"
+            "population": {
+              "cg:id": "CC115",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-population-type:overall",
+                  "cg:type": "Coding",
+                  "code": "overall",
+                  "system": "http://clinicalgenome.org/datamodel/population-type/",
+                  "display": "Overall"
+                }
+              ]
+            }
           },
           {
             "cg:id": "CondPenet164",
@@ -76,14 +130,34 @@
               {
                 "cg:id": "MendCond027",
                 "cg:type": "MendelianCondition",
-                "explanation": "Mitochondrial complex 1 deficiency, X-linked dominant inheritance",
+                "explanation": "Orphanet:2609, HP:0001423",
                 "disease": [
-                  "Orphanet:2609"
+                  {
+                    "cg:id": "Orphanet:2609"
+                  }
                 ],
-                "modeOfInheritance": "HP:0001423"
+                "modeOfInheritance": {
+                  "cg:id": "HP:0001423",
+                  "cg:type": "Coding",
+                  "code": "0001423",
+                  "system": "http://human-phenotype-ontology.github.io/",
+                  "display": "X-linked dominant inheritance"
+                }
               }
             ],
-            "penetrance": "CG-penetrance-type:high"
+            "penetrance": {
+              "cg:id": "CC116",
+              "cg:type": "CodeableConcept",
+              "coding": [
+                {
+                  "cg:id": "CG-penetrance-type:high",
+                  "cg:type": "Coding",
+                  "code": "high",
+                  "system": "http://clinicalgenome.org/datamodel/penetrance-type/",
+                  "display": "High"
+                }
+              ]
+            }
           }
         ]
       }
@@ -93,19 +167,39 @@
         "cg:id": "Contrib459",
         "cg:type": "Contribution",
         "agent": "G. Rajar",
-        "onDate": {
-          "cg:id": "2016-08-29T23:00:00+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "8/29/16 11:00 PM",
+        "role": {
+          "cg:id": "CC361",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       },
       {
         "cg:id": "Contrib460",
         "cg:type": "Contribution",
         "agent": "CSER Bakeoff Project",
-        "onDate": {
-          "cg:id": "2016-08-29T23:00:00+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "8/29/16 11:00 PM",
+        "role": {
+          "cg:id": "CC362",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },

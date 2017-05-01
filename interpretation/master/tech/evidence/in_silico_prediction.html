@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Data</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Information</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregationData</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregationData</a></li><li><a href="functional_data.html">FunctionalData</a></li><li><a href="guideline.html">AssertionMethod</a></li><li><a href="guideline_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionAnnotation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -108,7 +108,7 @@
             <h1>InSilicoPrediction</h1>
             <p>Computationally predicted functional impact of an allele</p>
 
-                <p>Descended from Data</p>
+                <p>Descended from Information</p>
 
             <hr class='col-sm-12' />
 
@@ -177,6 +177,13 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>source</td>
+                    <td>InformationSource</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>explanation</td>
                     <td>String</td>
                     <td>0..1</td>
@@ -214,7 +221,7 @@
               
          </td>
           <td>
-              <p>CG-prediction-type:sp</p>
+              <p><a href="../details/details.html#CC056">CC056</a></p>
          </td>
           <td>
               <p>no impact</p>
@@ -235,7 +242,19 @@
     },
     "alleleName": "NM_000257.2(MYH7):c.327C>T"
   },
-  "type": "CG-prediction-type:sp",
+  "type": {
+    "cg:id": "CC056",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:sp",
+        "cg:type": "Coding",
+        "code": "sp",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "splicing prediction"
+      }
+    ]
+  },
   "value": "no impact"
 }
           </code></pre></div></td>
@@ -252,7 +271,7 @@
               <p>SIFT</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC074">CC074</a></p>
          </td>
           <td>
               <p>Damaging</p>
@@ -272,7 +291,19 @@
     },
     "alleleName": "NM_005228.3(EGFR):c.2369C>T"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC074",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "SIFT",
   "value": "Damaging"
 }
@@ -290,7 +321,7 @@
               <p>Polyphen</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC075">CC075</a></p>
          </td>
           <td>
               <p>Probably damaging</p>
@@ -310,7 +341,19 @@
     },
     "alleleName": "NM_005228.3(EGFR):c.2369C>T"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC075",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "Polyphen",
   "value": "Probably damaging"
 }
@@ -328,7 +371,7 @@
               <p>FATHMM</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC076">CC076</a></p>
          </td>
           <td>
               <p>Tolerated</p>
@@ -348,7 +391,19 @@
     },
     "alleleName": "NM_005228.3(EGFR):c.2369C>T"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC076",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "FATHMM",
   "value": "Tolerated"
 }
@@ -366,7 +421,7 @@
               <p>LRT</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC077">CC077</a></p>
          </td>
           <td>
               <p>Damaging</p>
@@ -386,7 +441,19 @@
     },
     "alleleName": "NM_005228.3(EGFR):c.2369C>T"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC077",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "LRT",
   "value": "Damaging"
 }
@@ -404,7 +471,7 @@
               <p>MetaSVM</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC078">CC078</a></p>
          </td>
           <td>
               <p>Tolerated</p>
@@ -424,7 +491,19 @@
     },
     "alleleName": "NM_005228.3(EGFR):c.2369C>T"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC078",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "MetaSVM",
   "value": "Tolerated"
 }
@@ -442,7 +521,7 @@
               <p>Mutation assessor</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC079">CC079</a></p>
          </td>
           <td>
               <p>Tolerated</p>
@@ -462,7 +541,19 @@
     },
     "alleleName": "NM_005228.3(EGFR):c.2369C>T"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC079",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "Mutation assessor",
   "value": "Tolerated"
 }
@@ -480,7 +571,7 @@
               <p>Mutation taster</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC080">CC080</a></p>
          </td>
           <td>
               <p>Disease-causing</p>
@@ -500,7 +591,19 @@
     },
     "alleleName": "NM_005228.3(EGFR):c.2369C>T"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC080",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "Mutation taster",
   "value": "Disease-causing"
 }
@@ -518,7 +621,7 @@
               <p>Provean</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC081">CC081</a></p>
          </td>
           <td>
               <p>Damaging</p>
@@ -538,7 +641,19 @@
     },
     "alleleName": "NM_005228.3(EGFR):c.2369C>T"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC081",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "Provean",
   "value": "Damaging"
 }
@@ -556,7 +671,7 @@
               <p>Condel</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC082">CC082</a></p>
          </td>
           <td>
               <p>deleterious</p>
@@ -576,7 +691,19 @@
     },
     "alleleName": "NM_005228.3(EGFR):c.2369C>T"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC082",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "Condel",
   "value": "deleterious"
 }
@@ -594,7 +721,7 @@
               <p>SIFT</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC083">CC083</a></p>
          </td>
           <td>
               <p>deleterious</p>
@@ -614,7 +741,19 @@
     },
     "alleleName": "ENST00000566221.5:c.127C>T"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC083",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "SIFT",
   "value": "deleterious"
 }
@@ -632,7 +771,7 @@
               <p>Polyphen</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC084">CC084</a></p>
          </td>
           <td>
               <p>Probably damaging</p>
@@ -652,7 +791,19 @@
     },
     "alleleName": "ENST00000566221.5:c.127C>T"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC084",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "Polyphen",
   "value": "Probably damaging"
 }
@@ -670,7 +821,7 @@
               <p>FATHMM</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC085">CC085</a></p>
          </td>
           <td>
               <p>Damaging</p>
@@ -690,7 +841,19 @@
     },
     "alleleName": "ENST00000566221.5:c.127C>T"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC085",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "FATHMM",
   "value": "Damaging"
 }
@@ -708,7 +871,7 @@
               <p>LRT</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC086">CC086</a></p>
          </td>
           <td>
               <p>Damaging</p>
@@ -728,7 +891,19 @@
     },
     "alleleName": "ENST00000566221.5:c.127C>T"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC086",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "LRT",
   "value": "Damaging"
 }
@@ -746,7 +921,7 @@
               <p>MetaSVM</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC087">CC087</a></p>
          </td>
           <td>
               <p>Tolerated</p>
@@ -766,7 +941,19 @@
     },
     "alleleName": "ENST00000566221.5:c.127C>T"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC087",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "MetaSVM",
   "value": "Tolerated"
 }
@@ -784,7 +971,7 @@
               <p>Mutation assessor</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC088">CC088</a></p>
          </td>
           <td>
               <p>Medium functional impact</p>
@@ -804,7 +991,19 @@
     },
     "alleleName": "ENST00000566221.5:c.127C>T"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC088",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "Mutation assessor",
   "value": "Medium functional impact"
 }
@@ -822,7 +1021,7 @@
               <p>Mutation taster</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC089">CC089</a></p>
          </td>
           <td>
               <p>Disease-causing</p>
@@ -842,7 +1041,19 @@
     },
     "alleleName": "ENST00000566221.5:c.127C>T"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC089",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "Mutation taster",
   "value": "Disease-causing"
 }
@@ -860,7 +1071,7 @@
               <p>Provean</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC090">CC090</a></p>
          </td>
           <td>
               <p>Damaging</p>
@@ -880,7 +1091,19 @@
     },
     "alleleName": "ENST00000566221.5:c.127C>T"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC090",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "Provean",
   "value": "Damaging"
 }
@@ -898,7 +1121,7 @@
               <p>Condel</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC091">CC091</a></p>
          </td>
           <td>
               <p>deleterious</p>
@@ -918,7 +1141,19 @@
     },
     "alleleName": "ENST00000566221.5:c.127C>T"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC091",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "Condel",
   "value": "deleterious"
 }
@@ -936,7 +1171,7 @@
               <p>SIFT</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC092">CC092</a></p>
          </td>
           <td>
               <p>Tolerated</p>
@@ -956,7 +1191,19 @@
     },
     "alleleName": "NM_000363.4(TNNI3):c.592C>G"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC092",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "SIFT",
   "value": "Tolerated"
 }
@@ -974,7 +1221,7 @@
               <p>Polyphen2</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC093">CC093</a></p>
          </td>
           <td>
               <p>benign</p>
@@ -994,7 +1241,19 @@
     },
     "alleleName": "NM_000363.4(TNNI3):c.592C>G"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC093",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "Polyphen2",
   "value": "benign"
 }
@@ -1012,7 +1271,7 @@
               <p>AlignGVGD</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC094">CC094</a></p>
          </td>
           <td>
               <p>C0 (benign)</p>
@@ -1032,7 +1291,19 @@
     },
     "alleleName": "NM_000363.4(TNNI3):c.592C>G"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC094",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "AlignGVGD",
   "value": "C0 (benign)"
 }
@@ -1050,7 +1321,7 @@
               <p>MAPP</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC095">CC095</a></p>
          </td>
           <td>
               <p>good (benign)</p>
@@ -1070,7 +1341,19 @@
     },
     "alleleName": "NM_000363.4(TNNI3):c.592C>G"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC095",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "MAPP",
   "value": "good (benign)"
 }
@@ -1088,7 +1371,7 @@
               <p>MutationTaster</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC096">CC096</a></p>
          </td>
           <td>
               <p>disease-causing</p>
@@ -1108,7 +1391,19 @@
     },
     "alleleName": "NM_000363.4(TNNI3):c.592C>G"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC096",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "MutationTaster",
   "value": "disease-causing"
 }
@@ -1126,7 +1421,7 @@
               <p>SSF</p>
          </td>
           <td>
-              <p>CG-prediction-type:sp</p>
+              <p><a href="../details/details.html#CC097">CC097</a></p>
          </td>
           <td>
               <p>71.53</p>
@@ -1146,7 +1441,19 @@
     },
     "alleleName": "NM_000363.4(TNNI3):c.592C>G"
   },
-  "type": "CG-prediction-type:sp",
+  "type": {
+    "cg:id": "CC097",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:sp",
+        "cg:type": "Coding",
+        "code": "sp",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "splicing prediction"
+      }
+    ]
+  },
   "tool": "SSF",
   "value": 71.53
 }
@@ -1164,7 +1471,7 @@
               <p>MaxEnt</p>
          </td>
           <td>
-              <p>CG-prediction-type:sp</p>
+              <p><a href="../details/details.html#CC098">CC098</a></p>
          </td>
           <td>
               <p>7.39</p>
@@ -1184,7 +1491,19 @@
     },
     "alleleName": "NM_000363.4(TNNI3):c.592C>G"
   },
-  "type": "CG-prediction-type:sp",
+  "type": {
+    "cg:id": "CC098",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:sp",
+        "cg:type": "Coding",
+        "code": "sp",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "splicing prediction"
+      }
+    ]
+  },
   "tool": "MaxEnt",
   "value": 7.39
 }
@@ -1202,7 +1521,7 @@
               <p>NNSPLICE</p>
          </td>
           <td>
-              <p>CG-prediction-type:sp</p>
+              <p><a href="../details/details.html#CC099">CC099</a></p>
          </td>
           <td>
               <p>0.87</p>
@@ -1222,7 +1541,19 @@
     },
     "alleleName": "NM_000363.4(TNNI3):c.592C>G"
   },
-  "type": "CG-prediction-type:sp",
+  "type": {
+    "cg:id": "CC099",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:sp",
+        "cg:type": "Coding",
+        "code": "sp",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "splicing prediction"
+      }
+    ]
+  },
   "tool": "NNSPLICE",
   "value": 0.87
 }
@@ -1240,7 +1571,7 @@
               <p>GeneSplicer</p>
          </td>
           <td>
-              <p>CG-prediction-type:sp</p>
+              <p><a href="../details/details.html#CC100">CC100</a></p>
          </td>
           <td>
               <p>7.75</p>
@@ -1260,7 +1591,19 @@
     },
     "alleleName": "NM_000363.4(TNNI3):c.592C>G"
   },
-  "type": "CG-prediction-type:sp",
+  "type": {
+    "cg:id": "CC100",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:sp",
+        "cg:type": "Coding",
+        "code": "sp",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "splicing prediction"
+      }
+    ]
+  },
   "tool": "GeneSplicer",
   "value": 7.75
 }
@@ -1278,7 +1621,7 @@
               <p>HSF</p>
          </td>
           <td>
-              <p>CG-prediction-type:sp</p>
+              <p><a href="../details/details.html#CC101">CC101</a></p>
          </td>
           <td>
               <p>81.75</p>
@@ -1298,7 +1641,19 @@
     },
     "alleleName": "NM_000363.4(TNNI3):c.592C>G"
   },
-  "type": "CG-prediction-type:sp",
+  "type": {
+    "cg:id": "CC101",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:sp",
+        "cg:type": "Coding",
+        "code": "sp",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "splicing prediction"
+      }
+    ]
+  },
   "tool": "HSF",
   "value": 81.75
 }
@@ -1316,7 +1671,7 @@
               <p>SIFT</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC166">CC166</a></p>
          </td>
           <td>
               <p>Benign</p>
@@ -1336,7 +1691,19 @@
     },
     "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC166",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "SIFT",
   "value": "Benign"
 }
@@ -1354,7 +1721,7 @@
               <p>Polyphen</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC167">CC167</a></p>
          </td>
           <td>
               <p>Possibly damaging</p>
@@ -1374,7 +1741,19 @@
     },
     "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC167",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "Polyphen",
   "value": "Possibly damaging"
 }
@@ -1392,7 +1771,7 @@
               <p>FATHMM</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC168">CC168</a></p>
          </td>
           <td>
               <p>Benign</p>
@@ -1412,7 +1791,19 @@
     },
     "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC168",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "FATHMM",
   "value": "Benign"
 }
@@ -1430,7 +1821,7 @@
               <p>LRT</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC169">CC169</a></p>
          </td>
           <td>
               <p>Benign</p>
@@ -1450,7 +1841,19 @@
     },
     "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC169",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "LRT",
   "value": "Benign"
 }
@@ -1468,7 +1871,7 @@
               <p>MetaSVM</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC170">CC170</a></p>
          </td>
           <td>
               <p>Benign</p>
@@ -1488,7 +1891,19 @@
     },
     "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC170",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "MetaSVM",
   "value": "Benign"
 }
@@ -1506,7 +1921,7 @@
               <p>Mutation assessor</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC171">CC171</a></p>
          </td>
           <td>
               <p>Benign</p>
@@ -1526,7 +1941,19 @@
     },
     "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC171",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "Mutation assessor",
   "value": "Benign"
 }
@@ -1544,7 +1971,7 @@
               <p>Mutation taster</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC172">CC172</a></p>
          </td>
           <td>
               <p>Benign</p>
@@ -1564,7 +1991,19 @@
     },
     "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC172",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "Mutation taster",
   "value": "Benign"
 }
@@ -1582,7 +2021,7 @@
               <p>Provean</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC173">CC173</a></p>
          </td>
           <td>
               <p>Benign</p>
@@ -1602,7 +2041,19 @@
     },
     "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC173",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "Provean",
   "value": "Benign"
 }
@@ -1620,7 +2071,7 @@
               <p>Condel</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC174">CC174</a></p>
          </td>
           <td>
               <p>deleterious</p>
@@ -1640,7 +2091,19 @@
     },
     "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC174",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "tool": "Condel",
   "value": "deleterious"
 }
@@ -1658,7 +2121,7 @@
               
          </td>
           <td>
-              <p>CG-prediction-type:sp</p>
+              <p><a href="../details/details.html#CC187">CC187</a></p>
          </td>
           <td>
               <p>no impact</p>
@@ -1678,7 +2141,19 @@
     },
     "alleleName": "NM_138691.2 (TMC1): c.684C>T"
   },
-  "type": "CG-prediction-type:sp",
+  "type": {
+    "cg:id": "CC187",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:sp",
+        "cg:type": "Coding",
+        "code": "sp",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "splicing prediction"
+      }
+    ]
+  },
   "value": "no impact"
 }
           </code></pre></div></td>
@@ -1695,7 +2170,7 @@
               
          </td>
           <td>
-              <p>CG-prediction-type:sp</p>
+              <p><a href="../details/details.html#CC189">CC189</a></p>
          </td>
           <td>
               <p>no impact</p>
@@ -1716,7 +2191,19 @@
     },
     "alleleName": "NM_000257.2(MYH7):c.327C>T"
   },
-  "type": "CG-prediction-type:sp",
+  "type": {
+    "cg:id": "CC189",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:sp",
+        "cg:type": "Coding",
+        "code": "sp",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "splicing prediction"
+      }
+    ]
+  },
   "value": "no impact"
 }
           </code></pre></div></td>
@@ -1733,7 +2220,7 @@
               
          </td>
           <td>
-              <p>CG-prediction-type:sp</p>
+              <p><a href="../details/details.html#CC191">CC191</a></p>
          </td>
           <td>
               <p>no impact</p>
@@ -1753,7 +2240,19 @@
     },
     "alleleName": "NM_002880.3(RAF1):c.321T>C"
   },
-  "type": "CG-prediction-type:sp",
+  "type": {
+    "cg:id": "CC191",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:sp",
+        "cg:type": "Coding",
+        "code": "sp",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "splicing prediction"
+      }
+    ]
+  },
   "value": "no impact"
 }
           </code></pre></div></td>
@@ -1770,7 +2269,7 @@
               <p>Polyphen-2 HumDiv</p>
          </td>
           <td>
-              <p>CG-prediction-type:me</p>
+              <p><a href="../details/details.html#CC282">CC282</a></p>
          </td>
           <td>
               <p>ProbablyDamaging</p>
@@ -1790,7 +2289,19 @@
     },
     "alleleName": "NM_133379.3(TTN) : c.15283T>C"
   },
-  "type": "CG-prediction-type:me",
+  "type": {
+    "cg:id": "CC282",
+    "cg:type": "CodeableConcept",
+    "coding": [
+      {
+        "cg:id": "CG-prediction-type:me",
+        "cg:type": "Coding",
+        "code": "me",
+        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "display": "missense effect"
+      }
+    ]
+  },
   "value": "ProbablyDamaging",
   "tool": "Polyphen-2 HumDiv"
 }

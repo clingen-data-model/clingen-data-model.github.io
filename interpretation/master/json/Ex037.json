@@ -1,7 +1,7 @@
 {
   "cg:id": "Ex037",
   "cg:type": "Example",
-  "dataId": {
+  "informationId": {
     "cg:id": "CritAssess311",
     "cg:type": "CriterionAssessment",
     "explanation": "PP1 is for “Co-segregation with disease in multiple affected family members” PP1 is not applicable for this variant because it’s only a single segregation.",
@@ -10,8 +10,9 @@
       "cg:type": "Criterion",
       "description": "Cosegregation with disease in multiple affected family members in a gene definitively known to cause the disease",
       "shortDescription": "Segregates with disease in affected family members",
-      "defaultStrength": "CG-evidence-strength:pp",
-      "targetInterpretation": "LN:LA6668-3"
+      "defaultStrength": {
+        "cg:id": "CG-evidence-strength:pp"
+      }
     },
     "variant": {
       "cg:id": "CanAll064",
@@ -26,17 +27,42 @@
         "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
         "name": "Breast Ovarian Cancer, Autosomal Dominant",
         "disease": [
-          "MESH:D061325"
+          {
+            "cg:id": "MESH:D061325",
+            "cg:type": "Coding",
+            "code": "D061325",
+            "system": "https://meshb.nlm.nih.gov/",
+            "display": "hereditary breast ovarian cancer"
+          }
         ],
-        "modeOfInheritance": "HP:0000006"
+        "modeOfInheritance": {
+          "cg:id": "HP:0000006",
+          "cg:type": "Coding",
+          "code": "0000006",
+          "system": "http://human-phenotype-ontology.github.io/",
+          "display": "Autosomal Dominant"
+        }
       }
     ],
-    "outcome": "CG-criterion-outcome:not-met",
-    "hasSupportingEvidence": [
+    "outcome": {
+      "cg:id": "CC234",
+      "cg:type": "CodeableConcept",
+      "coding": [
+        {
+          "cg:id": "CG-criterion-outcome:not-met",
+          "cg:type": "Coding",
+          "code": "not-met",
+          "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+          "display": "Not Met"
+        }
+      ]
+    },
+    "hasEvidence": [
       {
         "cg:id": "EvLn049",
         "cg:type": "EvidenceLine",
-        "supportingData": [
+        "explanation": "EvLn049",
+        "hasInformation": [
           {
             "cg:id": "FamSegData111",
             "cg:type": "FamilySegregationData",
@@ -46,9 +72,21 @@
               "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
               "name": "Breast Ovarian Cancer, Autosomal Dominant",
               "disease": [
-                "MESH:D061325"
+                {
+                  "cg:id": "MESH:D061325",
+                  "cg:type": "Coding",
+                  "code": "D061325",
+                  "system": "https://meshb.nlm.nih.gov/",
+                  "display": "hereditary breast ovarian cancer"
+                }
               ],
-              "modeOfInheritance": "HP:0000006"
+              "modeOfInheritance": {
+                "cg:id": "HP:0000006",
+                "cg:type": "Coding",
+                "code": "0000006",
+                "system": "http://human-phenotype-ontology.github.io/",
+                "display": "Autosomal Dominant"
+              }
             },
             "canonicalAllele": {
               "cg:id": "CanAll064",
@@ -71,10 +109,20 @@
         "cg:id": "Contrib441",
         "cg:type": "Contribution",
         "agent": "Harry Stevenson",
-        "onDate": {
-          "cg:id": "2016-07-21T07:38:59+00:00"
-        },
-        "role": "CG-contributory-role:assessor"
+        "onDate": "7/21/16 7:39 AM",
+        "role": {
+          "cg:id": "CC343",
+          "cg:type": "CodeableConcept",
+          "coding": [
+            {
+              "cg:id": "CG-contributory-role:assessor",
+              "cg:type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
       }
     ]
   },
