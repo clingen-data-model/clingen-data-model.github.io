@@ -1,27 +1,29 @@
 {
-  "cg:id": "CritAssess360",
-  "cg:type": "CriterionAssessment",
+  "id": "CritAssess360",
+  "type": "CriterionAssessment",
   "explanation": "This variant is a silent variant that does not result in an amino acid change. It is not very conserved and splicing tools suggest no change. However, BP7 does not apply because the variant is located in the first base of exon 4 of RAF1, which is part of the 3’ splice region of the exon. For that reason, we can’t fully trust computational tools. Functional assays would have to confirm that this variant truly does not alter splicing.",
   "criterion": {
-    "cg:id": "BP7",
-    "cg:type": "Criterion",
+    "id": "BP7",
+    "type": "Criterion",
     "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
     "shortDescription": "Synonymous variant without predicted splice effect in region with low conservation",
     "defaultStrength": {
-      "cg:id": "CG-evidence-strength:bp"
+      "id": "CG-evidence-strength:bp"
     }
   },
   "variant": {
-    "cg:id": "CanAll119",
-    "cg:type": "CanonicalAllele",
+    "id": "CanAll119",
+    "type": "CanonicalAllele",
     "preferredCtxAllele": "CtxAll125",
     "identifier": "http://reg.genome.network/allele/CA177682"
   },
   "outcome": {
-    "cg:type": "CodeableConcept",
+    "id": "CC280",
+    "type": "CodeableConcept",
     "coding": [
       {
-        "cg:type": "Coding",
+        "id": "CG-criterion-outcome:not-met",
+        "type": "Coding",
         "code": "not-met",
         "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
         "display": "Not Met"
@@ -30,43 +32,44 @@
   },
   "hasEvidence": [
     {
-      "cg:id": "EvLn102",
-      "cg:type": "EvidenceLine",
+      "id": "EvLn102",
+      "type": "EvidenceLine",
       "explanation": "EvLn102",
       "hasInformation": [
         {
-          "cg:id": "InSilicoPred266",
-          "cg:type": "InSilicoPrediction",
-          "contextualAllele": {
-            "cg:id": "CtxAll125",
-            "cg:type": "ContextualAllele",
-            "relatedCanonicalAllele": {
-              "cg:id": "CanAll119",
-              "cg:type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll125",
-              "identifier": "http://reg.genome.network/allele/CA177682"
-            },
-            "alleleName": "NM_002880.3(RAF1):c.321T>C"
-          },
+          "id": "InSilicoPred266",
           "type": {
-            "cg:type": "CodeableConcept",
+            "id": "CC191",
+            "type": "CodeableConcept",
             "coding": [
               {
-                "cg:type": "Coding",
+                "id": "CG-prediction-type:sp",
+                "type": "Coding",
                 "code": "sp",
                 "system": "http://clinicalgenome.org/datamodel/prediction-type/",
                 "display": "splicing prediction"
               }
             ]
           },
+          "contextualAllele": {
+            "id": "CtxAll125",
+            "type": "ContextualAllele",
+            "relatedCanonicalAllele": {
+              "id": "CanAll119",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": "CtxAll125",
+              "identifier": "http://reg.genome.network/allele/CA177682"
+            },
+            "alleleName": "NM_002880.3(RAF1):c.321T>C"
+          },
           "value": "no impact"
         },
         {
-          "cg:id": "Conserv267",
-          "cg:type": "Conservation",
+          "id": "Conserv267",
+          "type": "Conservation",
           "allele": {
-            "cg:id": "CanAll119",
-            "cg:type": "CanonicalAllele",
+            "id": "CanAll119",
+            "type": "CanonicalAllele",
             "preferredCtxAllele": "CtxAll125",
             "identifier": "http://reg.genome.network/allele/CA177682"
           },
@@ -75,11 +78,11 @@
           "score": 0.45
         },
         {
-          "cg:id": "Conserv268",
-          "cg:type": "Conservation",
+          "id": "Conserv268",
+          "type": "Conservation",
           "allele": {
-            "cg:id": "CanAll119",
-            "cg:type": "CanonicalAllele",
+            "id": "CanAll119",
+            "type": "CanonicalAllele",
             "preferredCtxAllele": "CtxAll125",
             "identifier": "http://reg.genome.network/allele/CA177682"
           },
@@ -88,13 +91,15 @@
           "score": 1.0
         },
         {
-          "cg:id": "MolCon269",
-          "cg:type": "MolecularConsequence",
+          "id": "MolCon269",
+          "type": "MolecularConsequence",
           "consequence": {
-            "cg:type": "CodeableConcept",
+            "id": "CC192",
+            "type": "CodeableConcept",
             "coding": [
               {
-                "cg:type": "Coding",
+                "id": "SO:0001819",
+                "type": "Coding",
                 "code": "0001819",
                 "system": "http://sequenceontology.org/",
                 "display": "synonymous variant"
@@ -102,11 +107,11 @@
             ]
           },
           "contextualAllele": {
-            "cg:id": "CtxAll125",
-            "cg:type": "ContextualAllele",
+            "id": "CtxAll125",
+            "type": "ContextualAllele",
             "relatedCanonicalAllele": {
-              "cg:id": "CanAll119",
-              "cg:type": "CanonicalAllele",
+              "id": "CanAll119",
+              "type": "CanonicalAllele",
               "preferredCtxAllele": "CtxAll125",
               "identifier": "http://reg.genome.network/allele/CA177682"
             },
@@ -118,14 +123,16 @@
   ],
   "contribution": [
     {
-      "cg:type": "Contribution",
+      "type": "Contribution",
       "agent": "Stefan DiMarino",
       "onDate": "10/10/16 8:06 AM",
       "role": {
-        "cg:type": "CodeableConcept",
+        "id": "CC406",
+        "type": "CodeableConcept",
         "coding": [
           {
-            "cg:type": "Coding",
+            "id": "CG-contributory-role:assessor",
+            "type": "Coding",
             "code": "assessor",
             "system": "http://clinicalgenome.org/datamodel/contributory-role/",
             "display": "assessor"

@@ -211,37 +211,40 @@
               <p><a href="../details/details.html#MendCond022">MendCond022</a></p>
          </td>
           <td>
-              <p>{"cg:type"=>"Gene", "symbol"=>"ENG"}</p>
+              <p><a href="../details/details.html#hgnc:ENG">hgnc:ENG</a></p>
          </td>
           <td>
               <p>complete</p>
          </td>
           <!--
           <td><div class="example_view" id="CondEtiol148"><pre><code>{
-  "cg:id": "CondEtiol148",
-  "cg:type": "ConditionEtiology",
+  "id": "CondEtiol148",
+  "type": "ConditionEtiology",
   "explanation": "HHT type 1 is only known to be caused by variants in ENG -",
   "condition": {
-    "cg:id": "MendCond022",
-    "cg:type": "MendelianCondition",
+    "id": "MendCond022",
+    "type": "MendelianCondition",
     "explanation": "hereditary hemorrhagic telangiectasia, Autosomal Dominant",
     "disease": [
       {
-        "cg:type": "Coding",
+        "id": "Orphanet:774",
+        "type": "Coding",
         "code": "774",
         "system": "http://www.orpha.net/",
         "display": "hereditary hemorrhagic telangiectasia"
       }
     ],
     "modeOfInheritance": {
-      "cg:type": "Coding",
+      "id": "HP:0000006",
+      "type": "Coding",
       "code": "0000006",
       "system": "http://human-phenotype-ontology.github.io/",
       "display": "Autosomal Dominant"
     }
   },
   "gene": {
-    "cg:type": "Gene",
+    "id": "hgnc:ENG",
+    "type": "Gene",
     "symbol": "ENG"
   },
   "specificity": "complete"
@@ -258,23 +261,24 @@
               <p><a href="../details/details.html#MendCond064">MendCond064</a></p>
          </td>
           <td>
-              <p>{"cg:type"=>"Gene", "symbol"=>"MYH7"}</p>
+              <p><a href="../details/details.html#hgnc:MYH7">hgnc:MYH7</a></p>
          </td>
           <td>
               <p>low</p>
          </td>
           <!--
           <td><div class="example_view" id="CondEtiol149"><pre><code>{
-  "cg:id": "CondEtiol149",
-  "cg:type": "ConditionEtiology",
+  "id": "CondEtiol149",
+  "type": "ConditionEtiology",
   "explanation": "1.Only ~50% of HCM is genetic (can be caused by environment) \n2. More than 10 genes can cause HCM (specifically 9 sarcomere genes)",
   "condition": {
-    "cg:id": "MendCond064",
-    "cg:type": "MendelianCondition",
+    "id": "MendCond064",
+    "type": "MendelianCondition",
     "explanation": "hypertrophic cardiomyopathy",
     "disease": [
       {
-        "cg:type": "Coding",
+        "id": "Orphanet:217569",
+        "type": "Coding",
         "code": "217569",
         "system": "http://www.orpha.net/",
         "display": "hypertrophic cardiomyopathy"
@@ -282,7 +286,8 @@
     ]
   },
   "gene": {
-    "cg:type": "Gene",
+    "id": "hgnc:MYH7",
+    "type": "Gene",
     "symbol": "MYH7"
   },
   "specificity": "low"
@@ -301,8 +306,8 @@ window.addEventListener('load', function() {
     <!--
     <script>
 var fix_ellipses = function ($view) {
-    $view.find('ul.obj li a:contains("cg:id")').parent().parent().parent().children('.ellipsis').each(function () {
-        $(this).html('<em>' + $(this).next('ul').find('a:contains("cg:id")').next('.string')[0].innerText + ', …</em>')
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
     })
     $view.find('ul.array').each(function () {
         $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
