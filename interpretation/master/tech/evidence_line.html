@@ -96,7 +96,7 @@
               <a href="../">Welcome</a>
             </li>
             <li><a href="../user/">User Guide</a></li>
-            <li class="active"><a href="./">Technical Reference</a></li><ul><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="evidence/">Information</a></li><li class="active"><a href="evidence_line.html">EvidenceLine</a></li><li><a href="variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="./">Technical Reference</a></li><ul><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="evidence_line.html">EvidenceLine</a></li><li><a href="information/">Information</a></li><li><a href="value_set.html">ValueSet</a></li><li><a href="variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -139,7 +139,7 @@
                 <td>A human-readable description of the entity</td>
             </tr>
             <tr>
-                <td>strength</td>
+                <td>evidenceStrength</td>
                 <td>CodeableConcept</td>
                 <td>0..1</td>
                 <td></td>
@@ -167,7 +167,7 @@
         <th>ID</th>
         <th>description</th>
         <th>explanation</th>
-        <th>strength</th>
+        <th>evidenceStrength</th>
         <th>hasInformation</th>
         <th>contribution</th>
       </tr></thead>
@@ -234,7 +234,7 @@
         "system": "http://sequenceontology.org/",
         "display": "loss of function variant"
       },
-      "strength": {
+      "mechanismConfidence": {
         "id": "CG-cond-mech-strength:established",
         "type": "Coding",
         "code": "established",
@@ -315,7 +315,7 @@
         "system": "http://sequenceontology.org/",
         "display": "loss of function variant"
       },
-      "strength": {
+      "mechanismConfidence": {
         "id": "CG-cond-mech-strength:established",
         "type": "Coding",
         "code": "established",
@@ -417,7 +417,7 @@
         "system": "http://sequenceontology.org/",
         "display": "loss of function variant"
       },
-      "strength": {
+      "mechanismConfidence": {
         "id": "CG-cond-mech-strength:established",
         "type": "Coding",
         "code": "established",
@@ -510,7 +510,7 @@
         "system": "http://sequenceontology.org/",
         "display": "loss of function variant"
       },
-      "strength": {
+      "mechanismConfidence": {
         "id": "CG-cond-mech-strength:established",
         "type": "Coding",
         "code": "established",
@@ -578,7 +578,7 @@
         {
           "id": "MendCond003",
           "type": "MendelianCondition",
-          "explanation": "noonan syndrome, Autosomal Dominant",
+          "explanation": "noonan syndrome, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:648",
@@ -598,17 +598,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC011",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     }
   ]
@@ -665,17 +659,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC012",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     }
   ]
@@ -732,17 +720,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC013",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     }
   ]
@@ -786,7 +768,7 @@
         {
           "id": "MendCond055",
           "type": "MendelianCondition",
-          "explanation": "noonan syndrome, Autosomal Dominant",
+          "explanation": "noonan syndrome, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:648",
@@ -806,17 +788,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC014",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     }
   ]
@@ -1136,7 +1112,7 @@
             "type": "Coding",
             "code": "binding",
             "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
-            "display": "Binding assay?"
+            "display": "Binding assay"
           }
         ]
       },
@@ -1197,7 +1173,7 @@
             "type": "Coding",
             "code": "atpase",
             "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
-            "display": "ATPase assay?"
+            "display": "ATPase assay"
           }
         ]
       },
@@ -1258,7 +1234,7 @@
             "type": "Coding",
             "code": "motility",
             "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
-            "display": "motility assay?"
+            "display": "motility assay"
           }
         ]
       },
@@ -1319,7 +1295,7 @@
             "type": "Coding",
             "code": "binding",
             "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
-            "display": "Binding assay?"
+            "display": "Binding assay"
           }
         ]
       },
@@ -1647,7 +1623,7 @@
       "condition": {
         "id": "MendCond011",
         "type": "MendelianCondition",
-        "explanation": "Malignant hyperthermia, Autosomal Dominant",
+        "explanation": "Malignant hyperthermia, HP:0000006",
         "disease": [
           {
             "id": "Orphanet:423",
@@ -1860,7 +1836,7 @@
         "start": 704,
         "stop": 1016
       },
-      "isTypes": [
+      "includedTypes": [
         {
           "id": "CG-reg-anno-type:functional",
           "type": "Coding",
@@ -1945,7 +1921,7 @@
         "start": 1803,
         "stop": 1921
       },
-      "isTypes": [
+      "includedTypes": [
         {
           "id": "CG-reg-anno-type:functional",
           "type": "Coding",
@@ -2030,7 +2006,7 @@
         "start": 996,
         "stop": 1012
       },
-      "isTypes": [
+      "includedTypes": [
         {
           "id": "CG-reg-anno-type:hotspot",
           "type": "Coding",
@@ -2117,7 +2093,7 @@
         {
           "id": "MendCond013",
           "type": "MendelianCondition",
-          "explanation": "Fabry disease, X-linked recessive inheritance",
+          "explanation": "Fabry disease, HP:0001419",
           "disease": [
             {
               "id": "Orphanet:324",
@@ -2137,17 +2113,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC034",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     },
     {
@@ -2163,7 +2133,7 @@
         {
           "id": "MendCond013",
           "type": "MendelianCondition",
-          "explanation": "Fabry disease, X-linked recessive inheritance",
+          "explanation": "Fabry disease, HP:0001419",
           "disease": [
             {
               "id": "Orphanet:324",
@@ -2183,17 +2153,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC035",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     },
     {
@@ -2209,7 +2173,7 @@
         {
           "id": "MendCond013",
           "type": "MendelianCondition",
-          "explanation": "Fabry disease, X-linked recessive inheritance",
+          "explanation": "Fabry disease, HP:0001419",
           "disease": [
             {
               "id": "Orphanet:324",
@@ -2229,17 +2193,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC036",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     },
     {
@@ -2255,7 +2213,7 @@
         {
           "id": "MendCond013",
           "type": "MendelianCondition",
-          "explanation": "Fabry disease, X-linked recessive inheritance",
+          "explanation": "Fabry disease, HP:0001419",
           "disease": [
             {
               "id": "Orphanet:324",
@@ -2275,17 +2233,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC037",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     },
     {
@@ -2629,7 +2581,7 @@
         {
           "id": "MendCond062",
           "type": "MendelianCondition",
-          "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
+          "explanation": "Primary ciliary dyskenisia, HP:0000007",
           "disease": [
             {
               "id": "Orphanet:244",
@@ -2649,17 +2601,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC043",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       },
       "contribution": [
         {
@@ -2704,16 +2650,16 @@
         "identifier": "http://reg.genome.network/allele/CA273615"
       },
       "primaryZygosity": {
-        "id": "CG-allelic-state:het",
+        "id": "CG-allelic-state:heterozygous",
         "type": "Coding",
-        "code": "het",
+        "code": "heterozygous",
         "system": "http://clinicalgenome.org/datamodel/allelic-state/",
         "display": "heterozygous"
       },
       "secondaryZygosity": {
-        "id": "CG-allelic-state:het",
+        "id": "CG-allelic-state:heterozygous",
         "type": "Coding",
-        "code": "het",
+        "code": "heterozygous",
         "system": "http://clinicalgenome.org/datamodel/allelic-state/",
         "display": "heterozygous"
       },
@@ -2785,7 +2731,7 @@
         {
           "id": "MendCond010",
           "type": "MendelianCondition",
-          "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3",
+          "explanation": "nonsyndromic deafness, HP:0000007, GIPC3",
           "disease": [
             {
               "id": "Orphanet:87884",
@@ -2810,17 +2756,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC047",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     },
     {
@@ -2835,7 +2775,7 @@
         {
           "id": "MendCond010",
           "type": "MendelianCondition",
-          "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3",
+          "explanation": "nonsyndromic deafness, HP:0000007, GIPC3",
           "disease": [
             {
               "id": "Orphanet:87884",
@@ -2883,16 +2823,16 @@
         "identifier": "http://reg.genome.network/allele/CA501223"
       },
       "primaryZygosity": {
-        "id": "CG-allelic-state:het",
+        "id": "CG-allelic-state:heterozygous",
         "type": "Coding",
-        "code": "het",
+        "code": "heterozygous",
         "system": "http://clinicalgenome.org/datamodel/allelic-state/",
         "display": "heterozygous"
       },
       "secondaryZygosity": {
-        "id": "CG-allelic-state:het",
+        "id": "CG-allelic-state:heterozygous",
         "type": "Coding",
-        "code": "het",
+        "code": "heterozygous",
         "system": "http://clinicalgenome.org/datamodel/allelic-state/",
         "display": "heterozygous"
       },
@@ -2943,7 +2883,7 @@
         {
           "id": "MendCond015",
           "type": "MendelianCondition",
-          "explanation": "neuronal ceroid lipofuscinosis, Autosomal Recessive, TTP1",
+          "explanation": "neuronal ceroid lipofuscinosis, HP:0000007, TTP1",
           "disease": [
             {
               "id": "Orphanet:216",
@@ -2984,9 +2924,9 @@
         "identifier": "http://reg.genome.network/allele/CA090904"
       },
       "primaryZygosity": {
-        "id": "CG-allelic-state:hom",
+        "id": "CG-allelic-state:homozygous",
         "type": "Coding",
-        "code": "hom",
+        "code": "homozygous",
         "system": "http://clinicalgenome.org/datamodel/allelic-state/",
         "display": "homozygous"
       }
@@ -3083,7 +3023,7 @@
         "start": 2490,
         "stop": 2496
       },
-      "isTypes": [
+      "includedTypes": [
         {
           "id": "CG-reg-anno-type:repeat",
           "type": "Coding",
@@ -3185,7 +3125,7 @@
         "start": 35,
         "stop": 43
       },
-      "isNotTypes": [
+      "excludedTypes": [
         {
           "id": "CG-reg-anno-type:repeat",
           "type": "Coding",
@@ -3267,7 +3207,7 @@
         "start": 241,
         "stop": 260
       },
-      "isTypes": [
+      "includedTypes": [
         {
           "id": "CG-reg-anno-type:repeat",
           "type": "Coding",
@@ -3338,17 +3278,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC063",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA26332-9",
-            "type": "Coding",
-            "code": "LA26332-9",
-            "system": "http://loinc.org/",
-            "display": "Likely Pathogenic"
-          }
-        ]
+        "id": "LN:LA26332-9",
+        "type": "Coding",
+        "code": "LA26332-9",
+        "system": "http://loinc.org/",
+        "display": "Likely Pathogenic"
       },
       "contribution": [
         {
@@ -3432,17 +3366,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC064",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       },
       "contribution": [
         {
@@ -3503,17 +3431,11 @@
         "identifier": "http://reg.genome.network/allele/CA021738"
       },
       "clinicalSignificance": {
-        "id": "CC029",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA26333-7",
-            "type": "Coding",
-            "code": "LA26333-7",
-            "system": "http://loinc.org/",
-            "display": "Uncertain Signficance"
-          }
-        ]
+        "id": "LN:LA26333-7",
+        "type": "Coding",
+        "code": "LA26333-7",
+        "system": "http://loinc.org/",
+        "display": "Uncertain Signficance"
       },
       "contribution": [
         {
@@ -3589,17 +3511,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC065",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     }
   ]
@@ -3663,17 +3579,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC066",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     }
   ]
@@ -4326,7 +4236,7 @@
       "condition": {
         "id": "MendCond020",
         "type": "MendelianCondition",
-        "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
+        "explanation": "hypertrophic cardiomyopathy, HP:0000006",
         "disease": [
           {
             "id": "Orphanet:217569",
@@ -4358,7 +4268,7 @@
           "condition": {
             "id": "MendCond020",
             "type": "MendelianCondition",
-            "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
+            "explanation": "hypertrophic cardiomyopathy, HP:0000006",
             "disease": [
               {
                 "id": "Orphanet:217569",
@@ -4418,7 +4328,7 @@
           "condition": {
             "id": "MendCond020",
             "type": "MendelianCondition",
-            "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
+            "explanation": "hypertrophic cardiomyopathy, HP:0000006",
             "disease": [
               {
                 "id": "Orphanet:217569",
@@ -4505,7 +4415,7 @@
       "condition": {
         "id": "MendCond021",
         "type": "MendelianCondition",
-        "explanation": "Usher syndrome, Autosomal Recessive",
+        "explanation": "Usher syndrome, HP:0000007",
         "disease": [
           {
             "id": "Orphanet:886",
@@ -4537,7 +4447,7 @@
           "condition": {
             "id": "MendCond021",
             "type": "MendelianCondition",
-            "explanation": "Usher syndrome, Autosomal Recessive",
+            "explanation": "Usher syndrome, HP:0000007",
             "disease": [
               {
                 "id": "Orphanet:886",
@@ -4575,7 +4485,7 @@
           "condition": {
             "id": "MendCond021",
             "type": "MendelianCondition",
-            "explanation": "Usher syndrome, Autosomal Recessive",
+            "explanation": "Usher syndrome, HP:0000007",
             "disease": [
               {
                 "id": "Orphanet:886",
@@ -4712,7 +4622,7 @@
       "condition": {
         "id": "MendCond002",
         "type": "MendelianCondition",
-        "explanation": "dilated cardiomyopathy, Autosomal Dominant",
+        "explanation": "dilated cardiomyopathy, HP:0000006",
         "disease": [
           {
             "id": "Orphanet:217604",
@@ -4737,7 +4647,7 @@
           "condition": {
             "id": "MendCond002",
             "type": "MendelianCondition",
-            "explanation": "dilated cardiomyopathy, Autosomal Dominant",
+            "explanation": "dilated cardiomyopathy, HP:0000006",
             "disease": [
               {
                 "id": "Orphanet:217604",
@@ -4787,7 +4697,7 @@
           "condition": {
             "id": "MendCond002",
             "type": "MendelianCondition",
-            "explanation": "dilated cardiomyopathy, Autosomal Dominant",
+            "explanation": "dilated cardiomyopathy, HP:0000006",
             "disease": [
               {
                 "id": "Orphanet:217604",
@@ -4901,7 +4811,7 @@
         "system": "http://sequenceontology.org/",
         "display": "missense variant"
       },
-      "strength": {
+      "mechanismConfidence": {
         "id": "CG-cond-mech-strength:common",
         "type": "Coding",
         "code": "common",
@@ -4960,7 +4870,21 @@
   "hasInformation": [
     {
       "id": "InSilicoPred120",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq001",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_005228.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll067",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll071",
+        "identifier": "http://reg.genome.network/allele/CA090928"
+      },
+      "predictionType": {
         "id": "CC074",
         "type": "CodeableConcept",
         "coding": [
@@ -4973,23 +4897,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll071",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll067",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll071",
-          "identifier": "http://reg.genome.network/allele/CA090928"
-        },
-        "alleleName": "NM_005228.3(EGFR):c.2369C>T"
-      },
-      "tool": "SIFT",
-      "value": "Damaging"
+      "algorithm": "SIFT",
+      "categoricalPrediction": "Damaging"
     },
     {
       "id": "InSilicoPred121",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq001",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_005228.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll067",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll071",
+        "identifier": "http://reg.genome.network/allele/CA090928"
+      },
+      "predictionType": {
         "id": "CC075",
         "type": "CodeableConcept",
         "coding": [
@@ -5002,23 +4929,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll071",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll067",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll071",
-          "identifier": "http://reg.genome.network/allele/CA090928"
-        },
-        "alleleName": "NM_005228.3(EGFR):c.2369C>T"
-      },
-      "tool": "Polyphen",
-      "value": "Probably damaging"
+      "algorithm": "Polyphen",
+      "categoricalPrediction": "Probably damaging"
     },
     {
       "id": "InSilicoPred122",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq001",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_005228.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll067",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll071",
+        "identifier": "http://reg.genome.network/allele/CA090928"
+      },
+      "predictionType": {
         "id": "CC076",
         "type": "CodeableConcept",
         "coding": [
@@ -5031,23 +4961,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll071",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll067",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll071",
-          "identifier": "http://reg.genome.network/allele/CA090928"
-        },
-        "alleleName": "NM_005228.3(EGFR):c.2369C>T"
-      },
-      "tool": "FATHMM",
-      "value": "Tolerated"
+      "algorithm": "FATHMM",
+      "categoricalPrediction": "Tolerated"
     },
     {
       "id": "InSilicoPred123",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq001",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_005228.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll067",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll071",
+        "identifier": "http://reg.genome.network/allele/CA090928"
+      },
+      "predictionType": {
         "id": "CC077",
         "type": "CodeableConcept",
         "coding": [
@@ -5060,23 +4993,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll071",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll067",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll071",
-          "identifier": "http://reg.genome.network/allele/CA090928"
-        },
-        "alleleName": "NM_005228.3(EGFR):c.2369C>T"
-      },
-      "tool": "LRT",
-      "value": "Damaging"
+      "algorithm": "LRT",
+      "categoricalPrediction": "Damaging"
     },
     {
       "id": "InSilicoPred124",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq001",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_005228.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll067",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll071",
+        "identifier": "http://reg.genome.network/allele/CA090928"
+      },
+      "predictionType": {
         "id": "CC078",
         "type": "CodeableConcept",
         "coding": [
@@ -5089,23 +5025,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll071",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll067",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll071",
-          "identifier": "http://reg.genome.network/allele/CA090928"
-        },
-        "alleleName": "NM_005228.3(EGFR):c.2369C>T"
-      },
-      "tool": "MetaSVM",
-      "value": "Tolerated"
+      "algorithm": "MetaSVM",
+      "categoricalPrediction": "Tolerated"
     },
     {
       "id": "InSilicoPred125",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq001",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_005228.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll067",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll071",
+        "identifier": "http://reg.genome.network/allele/CA090928"
+      },
+      "predictionType": {
         "id": "CC079",
         "type": "CodeableConcept",
         "coding": [
@@ -5118,23 +5057,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll071",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll067",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll071",
-          "identifier": "http://reg.genome.network/allele/CA090928"
-        },
-        "alleleName": "NM_005228.3(EGFR):c.2369C>T"
-      },
-      "tool": "Mutation assessor",
-      "value": "Tolerated"
+      "algorithm": "Mutation assessor",
+      "categoricalPrediction": "Tolerated"
     },
     {
       "id": "InSilicoPred126",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq001",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_005228.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll067",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll071",
+        "identifier": "http://reg.genome.network/allele/CA090928"
+      },
+      "predictionType": {
         "id": "CC080",
         "type": "CodeableConcept",
         "coding": [
@@ -5147,23 +5089,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll071",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll067",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll071",
-          "identifier": "http://reg.genome.network/allele/CA090928"
-        },
-        "alleleName": "NM_005228.3(EGFR):c.2369C>T"
-      },
-      "tool": "Mutation taster",
-      "value": "Disease-causing"
+      "algorithm": "Mutation taster",
+      "categoricalPrediction": "Disease-causing"
     },
     {
       "id": "InSilicoPred127",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq001",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_005228.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll067",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll071",
+        "identifier": "http://reg.genome.network/allele/CA090928"
+      },
+      "predictionType": {
         "id": "CC081",
         "type": "CodeableConcept",
         "coding": [
@@ -5176,23 +5121,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll071",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll067",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll071",
-          "identifier": "http://reg.genome.network/allele/CA090928"
-        },
-        "alleleName": "NM_005228.3(EGFR):c.2369C>T"
-      },
-      "tool": "Provean",
-      "value": "Damaging"
+      "algorithm": "Provean",
+      "categoricalPrediction": "Damaging"
     },
     {
       "id": "InSilicoPred128",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq001",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_005228.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll067",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll071",
+        "identifier": "http://reg.genome.network/allele/CA090928"
+      },
+      "predictionType": {
         "id": "CC082",
         "type": "CodeableConcept",
         "coding": [
@@ -5205,19 +5153,8 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll071",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll067",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll071",
-          "identifier": "http://reg.genome.network/allele/CA090928"
-        },
-        "alleleName": "NM_005228.3(EGFR):c.2369C>T"
-      },
-      "tool": "Condel",
-      "value": "deleterious"
+      "algorithm": "Condel",
+      "categoricalPrediction": "deleterious"
     }
   ]
 }
@@ -5248,7 +5185,21 @@
   "hasInformation": [
     {
       "id": "InSilicoPred129",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq012",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "ENST00000566221.5"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll068",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll072",
+        "identifier": "http://reg.genome.network/allele/CA090884"
+      },
+      "predictionType": {
         "id": "CC083",
         "type": "CodeableConcept",
         "coding": [
@@ -5261,23 +5212,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll074",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll068",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll072",
-          "identifier": "http://reg.genome.network/allele/CA090884"
-        },
-        "alleleName": "ENST00000566221.5:c.127C>T"
-      },
-      "tool": "SIFT",
-      "value": "deleterious"
+      "algorithm": "SIFT",
+      "categoricalPrediction": "deleterious"
     },
     {
       "id": "InSilicoPred130",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq012",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "ENST00000566221.5"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll068",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll072",
+        "identifier": "http://reg.genome.network/allele/CA090884"
+      },
+      "predictionType": {
         "id": "CC084",
         "type": "CodeableConcept",
         "coding": [
@@ -5290,23 +5244,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll074",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll068",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll072",
-          "identifier": "http://reg.genome.network/allele/CA090884"
-        },
-        "alleleName": "ENST00000566221.5:c.127C>T"
-      },
-      "tool": "Polyphen",
-      "value": "Probably damaging"
+      "algorithm": "Polyphen",
+      "categoricalPrediction": "Probably damaging"
     },
     {
       "id": "InSilicoPred131",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq012",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "ENST00000566221.5"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll068",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll072",
+        "identifier": "http://reg.genome.network/allele/CA090884"
+      },
+      "predictionType": {
         "id": "CC085",
         "type": "CodeableConcept",
         "coding": [
@@ -5319,23 +5276,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll074",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll068",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll072",
-          "identifier": "http://reg.genome.network/allele/CA090884"
-        },
-        "alleleName": "ENST00000566221.5:c.127C>T"
-      },
-      "tool": "FATHMM",
-      "value": "Damaging"
+      "algorithm": "FATHMM",
+      "categoricalPrediction": "Damaging"
     },
     {
       "id": "InSilicoPred132",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq012",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "ENST00000566221.5"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll068",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll072",
+        "identifier": "http://reg.genome.network/allele/CA090884"
+      },
+      "predictionType": {
         "id": "CC086",
         "type": "CodeableConcept",
         "coding": [
@@ -5348,23 +5308,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll074",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll068",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll072",
-          "identifier": "http://reg.genome.network/allele/CA090884"
-        },
-        "alleleName": "ENST00000566221.5:c.127C>T"
-      },
-      "tool": "LRT",
-      "value": "Damaging"
+      "algorithm": "LRT",
+      "categoricalPrediction": "Damaging"
     },
     {
       "id": "InSilicoPred133",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq012",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "ENST00000566221.5"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll068",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll072",
+        "identifier": "http://reg.genome.network/allele/CA090884"
+      },
+      "predictionType": {
         "id": "CC087",
         "type": "CodeableConcept",
         "coding": [
@@ -5377,23 +5340,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll074",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll068",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll072",
-          "identifier": "http://reg.genome.network/allele/CA090884"
-        },
-        "alleleName": "ENST00000566221.5:c.127C>T"
-      },
-      "tool": "MetaSVM",
-      "value": "Tolerated"
+      "algorithm": "MetaSVM",
+      "categoricalPrediction": "Tolerated"
     },
     {
       "id": "InSilicoPred134",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq012",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "ENST00000566221.5"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll068",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll072",
+        "identifier": "http://reg.genome.network/allele/CA090884"
+      },
+      "predictionType": {
         "id": "CC088",
         "type": "CodeableConcept",
         "coding": [
@@ -5406,23 +5372,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll074",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll068",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll072",
-          "identifier": "http://reg.genome.network/allele/CA090884"
-        },
-        "alleleName": "ENST00000566221.5:c.127C>T"
-      },
-      "tool": "Mutation assessor",
-      "value": "Medium functional impact"
+      "algorithm": "Mutation assessor",
+      "categoricalPrediction": "Medium functional impact"
     },
     {
       "id": "InSilicoPred135",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq012",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "ENST00000566221.5"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll068",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll072",
+        "identifier": "http://reg.genome.network/allele/CA090884"
+      },
+      "predictionType": {
         "id": "CC089",
         "type": "CodeableConcept",
         "coding": [
@@ -5435,23 +5404,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll074",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll068",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll072",
-          "identifier": "http://reg.genome.network/allele/CA090884"
-        },
-        "alleleName": "ENST00000566221.5:c.127C>T"
-      },
-      "tool": "Mutation taster",
-      "value": "Disease-causing"
+      "algorithm": "Mutation taster",
+      "categoricalPrediction": "Disease-causing"
     },
     {
       "id": "InSilicoPred136",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq012",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "ENST00000566221.5"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll068",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll072",
+        "identifier": "http://reg.genome.network/allele/CA090884"
+      },
+      "predictionType": {
         "id": "CC090",
         "type": "CodeableConcept",
         "coding": [
@@ -5464,23 +5436,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll074",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll068",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll072",
-          "identifier": "http://reg.genome.network/allele/CA090884"
-        },
-        "alleleName": "ENST00000566221.5:c.127C>T"
-      },
-      "tool": "Provean",
-      "value": "Damaging"
+      "algorithm": "Provean",
+      "categoricalPrediction": "Damaging"
     },
     {
       "id": "InSilicoPred137",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq012",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "ENST00000566221.5"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll068",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll072",
+        "identifier": "http://reg.genome.network/allele/CA090884"
+      },
+      "predictionType": {
         "id": "CC091",
         "type": "CodeableConcept",
         "coding": [
@@ -5493,19 +5468,8 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll074",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll068",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll072",
-          "identifier": "http://reg.genome.network/allele/CA090884"
-        },
-        "alleleName": "ENST00000566221.5:c.127C>T"
-      },
-      "tool": "Condel",
-      "value": "deleterious"
+      "algorithm": "Condel",
+      "categoricalPrediction": "deleterious"
     }
   ]
 }
@@ -5536,7 +5500,21 @@
   "hasInformation": [
     {
       "id": "InSilicoPred138",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq013",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000363.4"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll069",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll075",
+        "identifier": "http://reg.genome.network/allele/CA022019"
+      },
+      "predictionType": {
         "id": "CC092",
         "type": "CodeableConcept",
         "coding": [
@@ -5549,23 +5527,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll075",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll069",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll075",
-          "identifier": "http://reg.genome.network/allele/CA022019"
-        },
-        "alleleName": "NM_000363.4(TNNI3):c.592C>G"
-      },
-      "tool": "SIFT",
-      "value": "Tolerated"
+      "algorithm": "SIFT",
+      "categoricalPrediction": "Tolerated"
     },
     {
       "id": "InSilicoPred139",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq013",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000363.4"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll069",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll075",
+        "identifier": "http://reg.genome.network/allele/CA022019"
+      },
+      "predictionType": {
         "id": "CC093",
         "type": "CodeableConcept",
         "coding": [
@@ -5578,23 +5559,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll075",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll069",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll075",
-          "identifier": "http://reg.genome.network/allele/CA022019"
-        },
-        "alleleName": "NM_000363.4(TNNI3):c.592C>G"
-      },
-      "tool": "Polyphen2",
-      "value": "benign"
+      "algorithm": "Polyphen2",
+      "categoricalPrediction": "benign"
     },
     {
       "id": "InSilicoPred140",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq013",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000363.4"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll069",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll075",
+        "identifier": "http://reg.genome.network/allele/CA022019"
+      },
+      "predictionType": {
         "id": "CC094",
         "type": "CodeableConcept",
         "coding": [
@@ -5607,23 +5591,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll075",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll069",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll075",
-          "identifier": "http://reg.genome.network/allele/CA022019"
-        },
-        "alleleName": "NM_000363.4(TNNI3):c.592C>G"
-      },
-      "tool": "AlignGVGD",
-      "value": "C0 (benign)"
+      "algorithm": "AlignGVGD",
+      "categoricalPrediction": "C0 (benign)"
     },
     {
       "id": "InSilicoPred141",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq013",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000363.4"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll069",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll075",
+        "identifier": "http://reg.genome.network/allele/CA022019"
+      },
+      "predictionType": {
         "id": "CC095",
         "type": "CodeableConcept",
         "coding": [
@@ -5636,23 +5623,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll075",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll069",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll075",
-          "identifier": "http://reg.genome.network/allele/CA022019"
-        },
-        "alleleName": "NM_000363.4(TNNI3):c.592C>G"
-      },
-      "tool": "MAPP",
-      "value": "good (benign)"
+      "algorithm": "MAPP",
+      "categoricalPrediction": "good (benign)"
     },
     {
       "id": "InSilicoPred142",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq013",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000363.4"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll069",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll075",
+        "identifier": "http://reg.genome.network/allele/CA022019"
+      },
+      "predictionType": {
         "id": "CC096",
         "type": "CodeableConcept",
         "coding": [
@@ -5665,23 +5655,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll075",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll069",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll075",
-          "identifier": "http://reg.genome.network/allele/CA022019"
-        },
-        "alleleName": "NM_000363.4(TNNI3):c.592C>G"
-      },
-      "tool": "MutationTaster",
-      "value": "disease-causing"
+      "algorithm": "MutationTaster",
+      "categoricalPrediction": "disease-causing"
     },
     {
       "id": "InSilicoPred143",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq013",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000363.4"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll069",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll075",
+        "identifier": "http://reg.genome.network/allele/CA022019"
+      },
+      "predictionType": {
         "id": "CC097",
         "type": "CodeableConcept",
         "coding": [
@@ -5694,23 +5687,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll075",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll069",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll075",
-          "identifier": "http://reg.genome.network/allele/CA022019"
-        },
-        "alleleName": "NM_000363.4(TNNI3):c.592C>G"
-      },
-      "tool": "SSF",
-      "value": 71.53
+      "algorithm": "SSF",
+      "categoricalPrediction": 71.53
     },
     {
       "id": "InSilicoPred144",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq013",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000363.4"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll069",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll075",
+        "identifier": "http://reg.genome.network/allele/CA022019"
+      },
+      "predictionType": {
         "id": "CC098",
         "type": "CodeableConcept",
         "coding": [
@@ -5723,23 +5719,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll075",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll069",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll075",
-          "identifier": "http://reg.genome.network/allele/CA022019"
-        },
-        "alleleName": "NM_000363.4(TNNI3):c.592C>G"
-      },
-      "tool": "MaxEnt",
-      "value": 7.39
+      "algorithm": "MaxEnt",
+      "categoricalPrediction": 7.39
     },
     {
       "id": "InSilicoPred145",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq013",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000363.4"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll069",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll075",
+        "identifier": "http://reg.genome.network/allele/CA022019"
+      },
+      "predictionType": {
         "id": "CC099",
         "type": "CodeableConcept",
         "coding": [
@@ -5752,23 +5751,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll075",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll069",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll075",
-          "identifier": "http://reg.genome.network/allele/CA022019"
-        },
-        "alleleName": "NM_000363.4(TNNI3):c.592C>G"
-      },
-      "tool": "NNSPLICE",
-      "value": 0.87
+      "algorithm": "NNSPLICE",
+      "categoricalPrediction": 0.87
     },
     {
       "id": "InSilicoPred146",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq013",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000363.4"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll069",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll075",
+        "identifier": "http://reg.genome.network/allele/CA022019"
+      },
+      "predictionType": {
         "id": "CC100",
         "type": "CodeableConcept",
         "coding": [
@@ -5781,23 +5783,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll075",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll069",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll075",
-          "identifier": "http://reg.genome.network/allele/CA022019"
-        },
-        "alleleName": "NM_000363.4(TNNI3):c.592C>G"
-      },
-      "tool": "GeneSplicer",
-      "value": 7.75
+      "algorithm": "GeneSplicer",
+      "categoricalPrediction": 7.75
     },
     {
       "id": "InSilicoPred147",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq013",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000363.4"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll069",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll075",
+        "identifier": "http://reg.genome.network/allele/CA022019"
+      },
+      "predictionType": {
         "id": "CC101",
         "type": "CodeableConcept",
         "coding": [
@@ -5810,19 +5815,8 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll075",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll069",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll075",
-          "identifier": "http://reg.genome.network/allele/CA022019"
-        },
-        "alleleName": "NM_000363.4(TNNI3):c.592C>G"
-      },
-      "tool": "HSF",
-      "value": 81.75
+      "algorithm": "HSF",
+      "categoricalPrediction": 81.75
     }
   ]
 }
@@ -5858,7 +5852,7 @@
       "condition": {
         "id": "MendCond022",
         "type": "MendelianCondition",
-        "explanation": "hereditary hemorrhagic telangiectasia, Autosomal Dominant",
+        "explanation": "hereditary hemorrhagic telangiectasia, HP:0000006",
         "disease": [
           {
             "id": "Orphanet:774",
@@ -5976,7 +5970,7 @@
         {
           "id": "MendCond023",
           "type": "MendelianCondition",
-          "explanation": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2, Autosomal Dominant",
+          "explanation": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2, HP:0000006",
           "disease": [
             {
               "id": "OMIM:612555",
@@ -5996,17 +5990,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC102",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     }
   ]
@@ -6050,7 +6038,7 @@
         {
           "id": "MendCond024",
           "type": "MendelianCondition",
-          "explanation": "Myopathy, Distal, type 4, Autosomal Dominant",
+          "explanation": "Myopathy, Distal, type 4, HP:0000006",
           "disease": [
             {
               "id": "OMIM:614065",
@@ -6070,17 +6058,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC103",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     }
   ]
@@ -6124,7 +6106,7 @@
         {
           "id": "MendCond025",
           "type": "MendelianCondition",
-          "explanation": "Cystic Fibrosis, Autosomal Recessive",
+          "explanation": "Cystic Fibrosis, HP:0000007",
           "disease": [
             {
               "id": "Orphanet:586",
@@ -6144,17 +6126,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC104",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     }
   ]
@@ -6435,7 +6411,7 @@
         {
           "id": "MendCond026",
           "type": "MendelianCondition",
-          "explanation": "Marfan Syndrome, Autosomal Dominant",
+          "explanation": "Marfan Syndrome, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:558",
@@ -6477,7 +6453,7 @@
         {
           "id": "MendCond026",
           "type": "MendelianCondition",
-          "explanation": "Marfan Syndrome, Autosomal Dominant",
+          "explanation": "Marfan Syndrome, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:558",
@@ -6573,7 +6549,7 @@
         {
           "id": "MendCond027",
           "type": "MendelianCondition",
-          "explanation": "Mitochondrial complex 1 deficiency, X-linked dominant inheritance",
+          "explanation": "Mitochondrial complex 1 deficiency, HP:0001423",
           "disease": [
             {
               "id": "Orphanet:2609",
@@ -6592,7 +6568,7 @@
           }
         }
       ],
-      "value": 0.00012,
+      "prevelance": 0.00012,
       "population": {
         "id": "CC115",
         "type": "CodeableConcept",
@@ -6614,7 +6590,7 @@
         {
           "id": "MendCond027",
           "type": "MendelianCondition",
-          "explanation": "Mitochondrial complex 1 deficiency, X-linked dominant inheritance",
+          "explanation": "Mitochondrial complex 1 deficiency, HP:0001423",
           "disease": [
             {
               "id": "Orphanet:2609",
@@ -6708,7 +6684,7 @@
         {
           "id": "MendCond028",
           "type": "MendelianCondition",
-          "explanation": "Perrault Syndrome, Autosomal Recessive",
+          "explanation": "Perrault Syndrome, HP:0000007",
           "disease": [
             {
               "id": "Orphanet:2855",
@@ -6749,7 +6725,7 @@
         {
           "id": "MendCond028",
           "type": "MendelianCondition",
-          "explanation": "Perrault Syndrome, Autosomal Recessive",
+          "explanation": "Perrault Syndrome, HP:0000007",
           "disease": [
             {
               "id": "Orphanet:2855",
@@ -6817,7 +6793,7 @@
         {
           "id": "MendCond029",
           "type": "MendelianCondition",
-          "explanation": "Wiedemann-Steiner syndrome, Autosomal Dominant",
+          "explanation": "Wiedemann-Steiner syndrome, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:319182",
@@ -6865,9 +6841,9 @@
         "identifier": "http://reg.genome.network/allele/CA090918"
       },
       "primaryZygosity": {
-        "id": "CG-allelic-state:het",
+        "id": "CG-allelic-state:heterozygous",
         "type": "Coding",
-        "code": "het",
+        "code": "heterozygous",
         "system": "http://clinicalgenome.org/datamodel/allelic-state/",
         "display": "heterozygous"
       }
@@ -6884,7 +6860,7 @@
         {
           "id": "MendCond029",
           "type": "MendelianCondition",
-          "explanation": "Wiedemann-Steiner syndrome, Autosomal Dominant",
+          "explanation": "Wiedemann-Steiner syndrome, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:319182",
@@ -6940,7 +6916,7 @@
         {
           "id": "MendCond029",
           "type": "MendelianCondition",
-          "explanation": "Wiedemann-Steiner syndrome, Autosomal Dominant",
+          "explanation": "Wiedemann-Steiner syndrome, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:319182",
@@ -6988,9 +6964,9 @@
         "identifier": "http://reg.genome.network/allele/CA090918"
       },
       "primaryZygosity": {
-        "id": "CG-allelic-state:hom",
+        "id": "CG-allelic-state:homozygous",
         "type": "Coding",
-        "code": "hom",
+        "code": "homozygous",
         "system": "http://clinicalgenome.org/datamodel/allelic-state/",
         "display": "homozygous"
       }
@@ -7007,7 +6983,7 @@
         {
           "id": "MendCond029",
           "type": "MendelianCondition",
-          "explanation": "Wiedemann-Steiner syndrome, Autosomal Dominant",
+          "explanation": "Wiedemann-Steiner syndrome, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:319182",
@@ -7063,7 +7039,7 @@
         {
           "id": "MendCond030",
           "type": "MendelianCondition",
-          "explanation": "Familial Adenomatous Polyposis, Autosomal Dominant",
+          "explanation": "Familial Adenomatous Polyposis, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:733",
@@ -7111,9 +7087,9 @@
         "identifier": "http://reg.genome.network/allele/CA008351"
       },
       "primaryZygosity": {
-        "id": "CG-allelic-state:het",
+        "id": "CG-allelic-state:heterozygous",
         "type": "Coding",
-        "code": "het",
+        "code": "heterozygous",
         "system": "http://clinicalgenome.org/datamodel/allelic-state/",
         "display": "heterozygous"
       }
@@ -7130,7 +7106,7 @@
         {
           "id": "MendCond030",
           "type": "MendelianCondition",
-          "explanation": "Familial Adenomatous Polyposis, Autosomal Dominant",
+          "explanation": "Familial Adenomatous Polyposis, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:733",
@@ -7186,7 +7162,7 @@
         {
           "id": "MendCond030",
           "type": "MendelianCondition",
-          "explanation": "Familial Adenomatous Polyposis, Autosomal Dominant",
+          "explanation": "Familial Adenomatous Polyposis, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:733",
@@ -7234,9 +7210,9 @@
         "identifier": "http://reg.genome.network/allele/CA008351"
       },
       "primaryZygosity": {
-        "id": "CG-allelic-state:het",
+        "id": "CG-allelic-state:heterozygous",
         "type": "Coding",
-        "code": "het",
+        "code": "heterozygous",
         "system": "http://clinicalgenome.org/datamodel/allelic-state/",
         "display": "heterozygous"
       }
@@ -7253,7 +7229,7 @@
         {
           "id": "MendCond030",
           "type": "MendelianCondition",
-          "explanation": "Familial Adenomatous Polyposis, Autosomal Dominant",
+          "explanation": "Familial Adenomatous Polyposis, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:733",
@@ -7309,7 +7285,7 @@
         {
           "id": "MendCond030",
           "type": "MendelianCondition",
-          "explanation": "Familial Adenomatous Polyposis, Autosomal Dominant",
+          "explanation": "Familial Adenomatous Polyposis, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:733",
@@ -7357,9 +7333,9 @@
         "identifier": "http://reg.genome.network/allele/CA008351"
       },
       "primaryZygosity": {
-        "id": "CG-allelic-state:het",
+        "id": "CG-allelic-state:heterozygous",
         "type": "Coding",
-        "code": "het",
+        "code": "heterozygous",
         "system": "http://clinicalgenome.org/datamodel/allelic-state/",
         "display": "heterozygous"
       }
@@ -7376,7 +7352,7 @@
         {
           "id": "MendCond030",
           "type": "MendelianCondition",
-          "explanation": "Familial Adenomatous Polyposis, Autosomal Dominant",
+          "explanation": "Familial Adenomatous Polyposis, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:733",
@@ -7432,7 +7408,7 @@
         {
           "id": "MendCond030",
           "type": "MendelianCondition",
-          "explanation": "Familial Adenomatous Polyposis, Autosomal Dominant",
+          "explanation": "Familial Adenomatous Polyposis, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:733",
@@ -7480,9 +7456,9 @@
         "identifier": "http://reg.genome.network/allele/CA008351"
       },
       "primaryZygosity": {
-        "id": "CG-allelic-state:het",
+        "id": "CG-allelic-state:heterozygous",
         "type": "Coding",
-        "code": "het",
+        "code": "heterozygous",
         "system": "http://clinicalgenome.org/datamodel/allelic-state/",
         "display": "heterozygous"
       }
@@ -7499,7 +7475,7 @@
         {
           "id": "MendCond030",
           "type": "MendelianCondition",
-          "explanation": "Familial Adenomatous Polyposis, Autosomal Dominant",
+          "explanation": "Familial Adenomatous Polyposis, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:733",
@@ -7601,9 +7577,9 @@
         "identifier": "http://reg.genome.network/allele/CA013604"
       },
       "primaryZygosity": {
-        "id": "CG-allelic-state:het",
+        "id": "CG-allelic-state:heterozygous",
         "type": "Coding",
-        "code": "het",
+        "code": "heterozygous",
         "system": "http://clinicalgenome.org/datamodel/allelic-state/",
         "display": "heterozygous"
       }
@@ -7720,9 +7696,9 @@
         "identifier": "http://reg.genome.network/allele/CA013604"
       },
       "primaryZygosity": {
-        "id": "CG-allelic-state:het",
+        "id": "CG-allelic-state:heterozygous",
         "type": "Coding",
-        "code": "het",
+        "code": "heterozygous",
         "system": "http://clinicalgenome.org/datamodel/allelic-state/",
         "display": "heterozygous"
       }
@@ -8037,7 +8013,7 @@
       "condition": {
         "id": "MendCond035",
         "type": "MendelianCondition",
-        "explanation": "Hypercholesterolemia, Familial, Autosomal Dominant",
+        "explanation": "Hypercholesterolemia, Familial, HP:0000006",
         "disease": [
           {
             "id": "OMIM:143890",
@@ -8104,7 +8080,7 @@
       "condition": {
         "id": "MendCond065",
         "type": "MendelianCondition",
-        "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
+        "explanation": "hypertrophic cardiomyopathy, HP:0000006",
         "disease": [
           {
             "id": "Orphanet:217569",
@@ -8204,7 +8180,7 @@
         "system": "http://sequenceontology.org/",
         "display": "loss of function variant"
       },
-      "strength": {
+      "mechanismConfidence": {
         "id": "CG-cond-mech-strength:primary",
         "type": "Coding",
         "code": "primary",
@@ -8299,7 +8275,7 @@
         "system": "http://sequenceontology.org/",
         "display": "loss of function variant"
       },
-      "strength": {
+      "mechanismConfidence": {
         "id": "CG-cond-mech-strength:primary",
         "type": "Coding",
         "code": "primary",
@@ -8393,7 +8369,7 @@
         "system": "http://sequenceontology.org/",
         "display": "loss of function variant"
       },
-      "strength": {
+      "mechanismConfidence": {
         "id": "CG-cond-mech-strength:primary",
         "type": "Coding",
         "code": "primary",
@@ -8494,7 +8470,7 @@
         "system": "http://sequenceontology.org/",
         "display": "loss of function variant"
       },
-      "strength": {
+      "mechanismConfidence": {
         "id": "CG-cond-mech-strength:primary",
         "type": "Coding",
         "code": "primary",
@@ -8532,7 +8508,7 @@
         "system": "http://sequenceontology.org/",
         "display": "missense variant"
       },
-      "strength": {
+      "mechanismConfidence": {
         "id": "CG-cond-mech-strength:established",
         "type": "Coding",
         "code": "established",
@@ -8666,17 +8642,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC153",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     }
   ]
@@ -8786,17 +8756,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC153",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     }
   ]
@@ -8906,17 +8870,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC155",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     }
   ]
@@ -8986,7 +8944,7 @@
         {
           "id": "MendCond007",
           "type": "MendelianCondition",
-          "explanation": "cardiomyopathy, Autosomal Dominant",
+          "explanation": "cardiomyopathy, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:167848",
@@ -9020,7 +8978,7 @@
         {
           "id": "MendCond007",
           "type": "MendelianCondition",
-          "explanation": "cardiomyopathy, Autosomal Dominant",
+          "explanation": "cardiomyopathy, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:167848",
@@ -9040,17 +8998,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC157",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA26333-7",
-            "type": "Coding",
-            "code": "LA26333-7",
-            "system": "http://loinc.org/",
-            "display": "Uncertain Signficance"
-          }
-        ]
+        "id": "LN:LA26333-7",
+        "type": "Coding",
+        "code": "LA26333-7",
+        "system": "http://loinc.org/",
+        "display": "Uncertain Signficance"
       }
     },
     {
@@ -9060,7 +9012,7 @@
         {
           "id": "MendCond007",
           "type": "MendelianCondition",
-          "explanation": "cardiomyopathy, Autosomal Dominant",
+          "explanation": "cardiomyopathy, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:167848",
@@ -9137,7 +9089,7 @@
         "start": 154,
         "stop": 183
       },
-      "isNotTypes": [
+      "excludedTypes": [
         {
           "id": "CG-reg-anno-type:functional",
           "type": "Coding",
@@ -9146,7 +9098,7 @@
           "display": "Functional"
         }
       ],
-      "isTypes": [
+      "includedTypes": [
         {
           "id": "CG-reg-anno-type:repeat",
           "type": "Coding",
@@ -9255,7 +9207,7 @@
         "start": 6509,
         "stop": 39262
       },
-      "isTypes": [
+      "includedTypes": [
         {
           "id": "CG-reg-anno-type:repeat",
           "type": "Coding",
@@ -9363,7 +9315,7 @@
         "start": 522,
         "stop": 548
       },
-      "isTypes": [
+      "includedTypes": [
         {
           "id": "CG-reg-anno-type:repeat",
           "type": "Coding",
@@ -9460,7 +9412,21 @@
   "hasInformation": [
     {
       "id": "InSilicoPred232",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq014",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000059.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll103",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll109",
+        "identifier": "http://reg.genome.network/allele/CA020822"
+      },
+      "predictionType": {
         "id": "CC166",
         "type": "CodeableConcept",
         "coding": [
@@ -9473,23 +9439,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll109",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll103",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll109",
-          "identifier": "http://reg.genome.network/allele/CA020822"
-        },
-        "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
-      },
-      "tool": "SIFT",
-      "value": "Benign"
+      "algorithm": "SIFT",
+      "categoricalPrediction": "Benign"
     },
     {
       "id": "InSilicoPred233",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq014",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000059.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll103",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll109",
+        "identifier": "http://reg.genome.network/allele/CA020822"
+      },
+      "predictionType": {
         "id": "CC167",
         "type": "CodeableConcept",
         "coding": [
@@ -9502,23 +9471,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll109",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll103",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll109",
-          "identifier": "http://reg.genome.network/allele/CA020822"
-        },
-        "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
-      },
-      "tool": "Polyphen",
-      "value": "Possibly damaging"
+      "algorithm": "Polyphen",
+      "categoricalPrediction": "Possibly damaging"
     },
     {
       "id": "InSilicoPred234",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq014",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000059.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll103",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll109",
+        "identifier": "http://reg.genome.network/allele/CA020822"
+      },
+      "predictionType": {
         "id": "CC168",
         "type": "CodeableConcept",
         "coding": [
@@ -9531,23 +9503,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll109",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll103",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll109",
-          "identifier": "http://reg.genome.network/allele/CA020822"
-        },
-        "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
-      },
-      "tool": "FATHMM",
-      "value": "Benign"
+      "algorithm": "FATHMM",
+      "categoricalPrediction": "Benign"
     },
     {
       "id": "InSilicoPred235",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq014",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000059.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll103",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll109",
+        "identifier": "http://reg.genome.network/allele/CA020822"
+      },
+      "predictionType": {
         "id": "CC169",
         "type": "CodeableConcept",
         "coding": [
@@ -9560,23 +9535,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll109",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll103",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll109",
-          "identifier": "http://reg.genome.network/allele/CA020822"
-        },
-        "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
-      },
-      "tool": "LRT",
-      "value": "Benign"
+      "algorithm": "LRT",
+      "categoricalPrediction": "Benign"
     },
     {
       "id": "InSilicoPred236",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq014",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000059.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll103",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll109",
+        "identifier": "http://reg.genome.network/allele/CA020822"
+      },
+      "predictionType": {
         "id": "CC170",
         "type": "CodeableConcept",
         "coding": [
@@ -9589,23 +9567,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll109",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll103",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll109",
-          "identifier": "http://reg.genome.network/allele/CA020822"
-        },
-        "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
-      },
-      "tool": "MetaSVM",
-      "value": "Benign"
+      "algorithm": "MetaSVM",
+      "categoricalPrediction": "Benign"
     },
     {
       "id": "InSilicoPred237",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq014",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000059.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll103",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll109",
+        "identifier": "http://reg.genome.network/allele/CA020822"
+      },
+      "predictionType": {
         "id": "CC171",
         "type": "CodeableConcept",
         "coding": [
@@ -9618,23 +9599,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll109",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll103",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll109",
-          "identifier": "http://reg.genome.network/allele/CA020822"
-        },
-        "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
-      },
-      "tool": "Mutation assessor",
-      "value": "Benign"
+      "algorithm": "Mutation assessor",
+      "categoricalPrediction": "Benign"
     },
     {
       "id": "InSilicoPred238",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq014",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000059.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll103",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll109",
+        "identifier": "http://reg.genome.network/allele/CA020822"
+      },
+      "predictionType": {
         "id": "CC172",
         "type": "CodeableConcept",
         "coding": [
@@ -9647,23 +9631,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll109",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll103",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll109",
-          "identifier": "http://reg.genome.network/allele/CA020822"
-        },
-        "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
-      },
-      "tool": "Mutation taster",
-      "value": "Benign"
+      "algorithm": "Mutation taster",
+      "categoricalPrediction": "Benign"
     },
     {
       "id": "InSilicoPred239",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq014",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000059.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll103",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll109",
+        "identifier": "http://reg.genome.network/allele/CA020822"
+      },
+      "predictionType": {
         "id": "CC173",
         "type": "CodeableConcept",
         "coding": [
@@ -9676,23 +9663,26 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll109",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll103",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll109",
-          "identifier": "http://reg.genome.network/allele/CA020822"
-        },
-        "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
-      },
-      "tool": "Provean",
-      "value": "Benign"
+      "algorithm": "Provean",
+      "categoricalPrediction": "Benign"
     },
     {
       "id": "InSilicoPred240",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq014",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000059.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll103",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll109",
+        "identifier": "http://reg.genome.network/allele/CA020822"
+      },
+      "predictionType": {
         "id": "CC174",
         "type": "CodeableConcept",
         "coding": [
@@ -9705,19 +9695,8 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll109",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll103",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll109",
-          "identifier": "http://reg.genome.network/allele/CA020822"
-        },
-        "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
-      },
-      "tool": "Condel",
-      "value": "deleterious"
+      "algorithm": "Condel",
+      "categoricalPrediction": "deleterious"
     }
   ]
 }
@@ -9819,17 +9798,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC175",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA26332-9",
-            "type": "Coding",
-            "code": "LA26332-9",
-            "system": "http://loinc.org/",
-            "display": "Likely Pathogenic"
-          }
-        ]
+        "id": "LN:LA26332-9",
+        "type": "Coding",
+        "code": "LA26332-9",
+        "system": "http://loinc.org/",
+        "display": "Likely Pathogenic"
       }
     }
   ]
@@ -9895,16 +9868,16 @@
         "identifier": "http://reg.genome.network/allele/CA274460"
       },
       "primaryZygosity": {
-        "id": "CG-allelic-state:het",
+        "id": "CG-allelic-state:heterozygous",
         "type": "Coding",
-        "code": "het",
+        "code": "heterozygous",
         "system": "http://clinicalgenome.org/datamodel/allelic-state/",
         "display": "heterozygous"
       },
       "secondaryZygosity": {
-        "id": "CG-allelic-state:het",
+        "id": "CG-allelic-state:heterozygous",
         "type": "Coding",
-        "code": "het",
+        "code": "heterozygous",
         "system": "http://clinicalgenome.org/datamodel/allelic-state/",
         "display": "heterozygous"
       },
@@ -9968,17 +9941,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC179",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA26332-9",
-            "type": "Coding",
-            "code": "LA26332-9",
-            "system": "http://loinc.org/",
-            "display": "Likely Pathogenic"
-          }
-        ]
+        "id": "LN:LA26332-9",
+        "type": "Coding",
+        "code": "LA26332-9",
+        "system": "http://loinc.org/",
+        "display": "Likely Pathogenic"
       }
     },
     {
@@ -10007,17 +9974,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC180",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA26332-9",
-            "type": "Coding",
-            "code": "LA26332-9",
-            "system": "http://loinc.org/",
-            "display": "Likely Pathogenic"
-          }
-        ]
+        "id": "LN:LA26332-9",
+        "type": "Coding",
+        "code": "LA26332-9",
+        "system": "http://loinc.org/",
+        "display": "Likely Pathogenic"
       }
     }
   ]
@@ -10068,9 +10029,9 @@
         "identifier": "http://reg.genome.network/allele/CA277980"
       },
       "secondaryZygosity": {
-        "id": "CG-allelic-state:hom",
+        "id": "CG-allelic-state:homozygous",
         "type": "Coding",
-        "code": "hom",
+        "code": "homozygous",
         "system": "http://clinicalgenome.org/datamodel/allelic-state/",
         "display": "homozygous"
       }
@@ -10087,7 +10048,7 @@
         {
           "id": "MendCond071",
           "type": "MendelianCondition",
-          "explanation": "Usher syndrome, Autosomal Recessive",
+          "explanation": "Usher syndrome, HP:0000007",
           "disease": [
             {
               "id": "Orphanet:886",
@@ -10121,7 +10082,7 @@
         {
           "id": "MendCond071",
           "type": "MendelianCondition",
-          "explanation": "Usher syndrome, Autosomal Recessive",
+          "explanation": "Usher syndrome, HP:0000007",
           "disease": [
             {
               "id": "Orphanet:886",
@@ -10141,17 +10102,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC182",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     }
   ]
@@ -10255,17 +10210,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC183",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     },
     {
@@ -10296,17 +10245,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC193",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA26333-7",
-            "type": "Coding",
-            "code": "LA26333-7",
-            "system": "http://loinc.org/",
-            "display": "Uncertain Signficance"
-          }
-        ]
+        "id": "LN:LA26333-7",
+        "type": "Coding",
+        "code": "LA26333-7",
+        "system": "http://loinc.org/",
+        "display": "Uncertain Signficance"
       }
     }
   ]
@@ -10362,17 +10305,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC184",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6675-8",
-            "type": "Coding",
-            "code": "LA6675-8",
-            "system": "http://loinc.org/",
-            "display": "Benign"
-          }
-        ]
+        "id": "LN:LA6675-8",
+        "type": "Coding",
+        "code": "LA6675-8",
+        "system": "http://loinc.org/",
+        "display": "Benign"
       }
     }
   ]
@@ -10429,17 +10366,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC185",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6675-8",
-            "type": "Coding",
-            "code": "LA6675-8",
-            "system": "http://loinc.org/",
-            "display": "Benign"
-          }
-        ]
+        "id": "LN:LA6675-8",
+        "type": "Coding",
+        "code": "LA6675-8",
+        "system": "http://loinc.org/",
+        "display": "Benign"
       }
     }
   ]
@@ -10496,17 +10427,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC186",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6675-8",
-            "type": "Coding",
-            "code": "LA6675-8",
-            "system": "http://loinc.org/",
-            "display": "Benign"
-          }
-        ]
+        "id": "LN:LA6675-8",
+        "type": "Coding",
+        "code": "LA6675-8",
+        "system": "http://loinc.org/",
+        "display": "Benign"
       }
     }
   ]
@@ -10538,7 +10463,21 @@
   "hasInformation": [
     {
       "id": "InSilicoPred258",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq015",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_138691.2"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll117",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll123",
+        "identifier": "http://reg.genome.network/allele/CA501232"
+      },
+      "predictionType": {
         "id": "CC187",
         "type": "CodeableConcept",
         "coding": [
@@ -10551,18 +10490,7 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll123",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll117",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll123",
-          "identifier": "http://reg.genome.network/allele/CA501232"
-        },
-        "alleleName": "NM_138691.2 (TMC1): c.684C>T"
-      },
-      "value": "no impact"
+      "categoricalPrediction": "no impact"
     },
     {
       "id": "Conserv259",
@@ -10574,7 +10502,7 @@
         "identifier": "http://reg.genome.network/allele/CA501232"
       },
       "conserved": true,
-      "method": "phyloP",
+      "algorithm": "phyloP",
       "score": -2.297
     },
     {
@@ -10587,7 +10515,7 @@
         "identifier": "http://reg.genome.network/allele/CA501232"
       },
       "conserved": true,
-      "method": "PhastCons",
+      "algorithm": "PhastCons",
       "score": 0.039
     },
     {
@@ -10647,7 +10575,22 @@
   "hasInformation": [
     {
       "id": "InSilicoPred262",
-      "type": {
+      "type": "InSilicoPrediction",
+      "explanation": "Provenance would show that this comes from Alamut",
+      "transcript": {
+        "id": "RefSeq011",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000257.2"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll118",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll124",
+        "identifier": "http://reg.genome.network/allele/CA013536"
+      },
+      "predictionType": {
         "id": "CC189",
         "type": "CodeableConcept",
         "coding": [
@@ -10660,19 +10603,7 @@
           }
         ]
       },
-      "explanation": "Provenance would show that this comes from Alamut",
-      "contextualAllele": {
-        "id": "CtxAll124",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll118",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll124",
-          "identifier": "http://reg.genome.network/allele/CA013536"
-        },
-        "alleleName": "NM_000257.2(MYH7):c.327C>T"
-      },
-      "value": "no impact"
+      "categoricalPrediction": "no impact"
     },
     {
       "id": "Conserv263",
@@ -10684,7 +10615,7 @@
         "identifier": "http://reg.genome.network/allele/CA013536"
       },
       "conserved": true,
-      "method": "phyloP",
+      "algorithm": "phyloP",
       "score": -0.76
     },
     {
@@ -10697,7 +10628,7 @@
         "identifier": "http://reg.genome.network/allele/CA013536"
       },
       "conserved": true,
-      "method": "PhastCons",
+      "algorithm": "PhastCons",
       "score": 0.63
     },
     {
@@ -10757,7 +10688,21 @@
   "hasInformation": [
     {
       "id": "InSilicoPred266",
-      "type": {
+      "type": "InSilicoPrediction",
+      "transcript": {
+        "id": "RefSeq016",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_002880.3"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll119",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll125",
+        "identifier": "http://reg.genome.network/allele/CA177682"
+      },
+      "predictionType": {
         "id": "CC191",
         "type": "CodeableConcept",
         "coding": [
@@ -10770,18 +10715,7 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll125",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll119",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll125",
-          "identifier": "http://reg.genome.network/allele/CA177682"
-        },
-        "alleleName": "NM_002880.3(RAF1):c.321T>C"
-      },
-      "value": "no impact"
+      "categoricalPrediction": "no impact"
     },
     {
       "id": "Conserv267",
@@ -10793,7 +10727,7 @@
         "identifier": "http://reg.genome.network/allele/CA177682"
       },
       "conserved": true,
-      "method": "phyloP",
+      "algorithm": "phyloP",
       "score": 0.45
     },
     {
@@ -10806,7 +10740,7 @@
         "identifier": "http://reg.genome.network/allele/CA177682"
       },
       "conserved": true,
-      "method": "PhastCons",
+      "algorithm": "PhastCons",
       "score": 1.0
     },
     {
@@ -10919,7 +10853,7 @@
           }
         ]
       },
-      "strength": {
+      "mechanismConfidence": {
         "id": "CG-cond-mech-strength:established",
         "type": "Coding",
         "code": "established",
@@ -10965,7 +10899,7 @@
       "condition": {
         "id": "MendCond066",
         "type": "MendelianCondition",
-        "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
+        "explanation": "hypertrophic cardiomyopathy, HP:0000006",
         "disease": [
           {
             "id": "Orphanet:217569",
@@ -11027,7 +10961,19 @@
   "hasInformation": [
     {
       "id": "InSilicoPred362",
-      "type": {
+      "type": "InSilicoPrediction",
+      "canonicalAllele": {
+        "id": "CtxAll111",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": {
+          "id": "CanAll105",
+          "type": "CanonicalAllele",
+          "preferredCtxAllele": "CtxAll111",
+          "identifier": "http://reg.genome.network/allele/CA501237"
+        },
+        "alleleName": "NM_133379.3(TTN) : c.15283T>C"
+      },
+      "predictionType": {
         "id": "CC282",
         "type": "CodeableConcept",
         "coding": [
@@ -11040,19 +10986,8 @@
           }
         ]
       },
-      "contextualAllele": {
-        "id": "CtxAll111",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll105",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll111",
-          "identifier": "http://reg.genome.network/allele/CA501237"
-        },
-        "alleleName": "NM_133379.3(TTN) : c.15283T>C"
-      },
-      "value": "ProbablyDamaging",
-      "tool": "Polyphen-2 HumDiv"
+      "categoricalPrediction": "ProbablyDamaging",
+      "algorithm": "Polyphen-2 HumDiv"
     }
   ]
 }
@@ -11108,17 +11043,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC284",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA26332-9",
-            "type": "Coding",
-            "code": "LA26332-9",
-            "system": "http://loinc.org/",
-            "display": "Likely Pathogenic"
-          }
-        ]
+        "id": "LN:LA26332-9",
+        "type": "Coding",
+        "code": "LA26332-9",
+        "system": "http://loinc.org/",
+        "display": "Likely Pathogenic"
       }
     },
     {
@@ -11148,17 +11077,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC285",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
-        ]
+        "id": "LN:LA6668-3",
+        "type": "Coding",
+        "code": "LA6668-3",
+        "system": "http://loinc.org/",
+        "display": "Pathogenic"
       }
     },
     {
@@ -11479,17 +11402,11 @@
         "identifier": "http://reg.genome.network/allele/CA090919"
       },
       "outcome": {
-        "id": "CC228",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "CG-criterion-outcome:not-met",
-            "type": "Coding",
-            "code": "not-met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
-            "display": "Not Met"
-          }
-        ]
+        "id": "CG-criterion-outcome:not-met",
+        "type": "Coding",
+        "code": "not-met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Not Met"
       },
       "hasEvidence": [
         {
@@ -11587,7 +11504,7 @@
       ]
     }
   ],
-  "strength": {
+  "evidenceStrength": {
     "id": "CC441",
     "type": "CodeableConcept",
     "coding": [
@@ -11686,7 +11603,7 @@
         {
           "id": "MendCond062",
           "type": "MendelianCondition",
-          "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
+          "explanation": "Primary ciliary dyskenisia, HP:0000007",
           "disease": [
             {
               "id": "Orphanet:244",
@@ -11706,17 +11623,11 @@
         }
       ],
       "outcome": {
-        "id": "CC219",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "CG-criterion-outcome:met",
-            "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
-            "display": "Met"
-          }
-        ]
+        "id": "CG-criterion-outcome:met",
+        "type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
       },
       "hasEvidence": [
         {
@@ -11800,7 +11711,7 @@
                 {
                   "id": "MendCond062",
                   "type": "MendelianCondition",
-                  "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
+                  "explanation": "Primary ciliary dyskenisia, HP:0000007",
                   "disease": [
                     {
                       "id": "Orphanet:244",
@@ -11820,17 +11731,11 @@
                 }
               ],
               "clinicalSignificance": {
-                "id": "CC043",
-                "type": "CodeableConcept",
-                "coding": [
-                  {
-                    "id": "LN:LA6668-3",
-                    "type": "Coding",
-                    "code": "LA6668-3",
-                    "system": "http://loinc.org/",
-                    "display": "Pathogenic"
-                  }
-                ]
+                "id": "LN:LA6668-3",
+                "type": "Coding",
+                "code": "LA6668-3",
+                "system": "http://loinc.org/",
+                "display": "Pathogenic"
               },
               "contribution": [
                 {
@@ -11875,16 +11780,16 @@
                 "identifier": "http://reg.genome.network/allele/CA273615"
               },
               "primaryZygosity": {
-                "id": "CG-allelic-state:het",
+                "id": "CG-allelic-state:heterozygous",
                 "type": "Coding",
-                "code": "het",
+                "code": "heterozygous",
                 "system": "http://clinicalgenome.org/datamodel/allelic-state/",
                 "display": "heterozygous"
               },
               "secondaryZygosity": {
-                "id": "CG-allelic-state:het",
+                "id": "CG-allelic-state:heterozygous",
                 "type": "Coding",
-                "code": "het",
+                "code": "heterozygous",
                 "system": "http://clinicalgenome.org/datamodel/allelic-state/",
                 "display": "heterozygous"
               },
@@ -11941,7 +11846,7 @@
       ]
     }
   ],
-  "strength": {
+  "evidenceStrength": {
     "id": "CC442",
     "type": "CodeableConcept",
     "coding": [
@@ -12020,17 +11925,11 @@
         "identifier": "http://reg.genome.network/allele/CA090919"
       },
       "outcome": {
-        "id": "CC222",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "CG-criterion-outcome:met",
-            "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
-            "display": "Met"
-          }
-        ]
+        "id": "CG-criterion-outcome:met",
+        "type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
       },
       "hasEvidence": [
         {
@@ -12103,7 +12002,7 @@
                 "start": 2490,
                 "stop": 2496
               },
-              "isTypes": [
+              "includedTypes": [
                 {
                   "id": "CG-reg-anno-type:repeat",
                   "type": "Coding",
@@ -12158,7 +12057,7 @@
       ]
     }
   ],
-  "strength": {
+  "evidenceStrength": {
     "id": "CC443",
     "type": "CodeableConcept",
     "coding": [
@@ -12254,17 +12153,11 @@
         }
       ],
       "outcome": {
-        "id": "CC291",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "CG-criterion-outcome:met",
-            "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
-            "display": "Met"
-          }
-        ]
+        "id": "CG-criterion-outcome:met",
+        "type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
       },
       "hasEvidence": [
         {
@@ -12356,7 +12249,7 @@
       ]
     }
   ],
-  "strength": {
+  "evidenceStrength": {
     "id": "CC444",
     "type": "CodeableConcept",
     "coding": [
@@ -12459,17 +12352,11 @@
         }
       ],
       "outcome": {
-        "id": "CC261",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "CG-criterion-outcome:met",
-            "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
-            "display": "Met"
-          }
-        ]
+        "id": "CG-criterion-outcome:met",
+        "type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
       },
       "hasEvidence": [
         {
@@ -12517,7 +12404,7 @@
                 "system": "http://sequenceontology.org/",
                 "display": "loss of function variant"
               },
-              "strength": {
+              "mechanismConfidence": {
                 "id": "CG-cond-mech-strength:primary",
                 "type": "Coding",
                 "code": "primary",
@@ -12577,7 +12464,7 @@
       ]
     }
   ],
-  "strength": {
+  "evidenceStrength": {
     "id": "CC445",
     "type": "CodeableConcept",
     "coding": [
@@ -12673,17 +12560,11 @@
         }
       ],
       "outcome": {
-        "id": "CC283",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "CG-criterion-outcome:met",
-            "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
-            "display": "Met"
-          }
-        ]
+        "id": "CG-criterion-outcome:met",
+        "type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
       },
       "hasEvidence": [
         {
@@ -12718,17 +12599,11 @@
                 }
               ],
               "clinicalSignificance": {
-                "id": "CC284",
-                "type": "CodeableConcept",
-                "coding": [
-                  {
-                    "id": "LN:LA26332-9",
-                    "type": "Coding",
-                    "code": "LA26332-9",
-                    "system": "http://loinc.org/",
-                    "display": "Likely Pathogenic"
-                  }
-                ]
+                "id": "LN:LA26332-9",
+                "type": "Coding",
+                "code": "LA26332-9",
+                "system": "http://loinc.org/",
+                "display": "Likely Pathogenic"
               }
             },
             {
@@ -12758,17 +12633,11 @@
                 }
               ],
               "clinicalSignificance": {
-                "id": "CC285",
-                "type": "CodeableConcept",
-                "coding": [
-                  {
-                    "id": "LN:LA6668-3",
-                    "type": "Coding",
-                    "code": "LA6668-3",
-                    "system": "http://loinc.org/",
-                    "display": "Pathogenic"
-                  }
-                ]
+                "id": "LN:LA6668-3",
+                "type": "Coding",
+                "code": "LA6668-3",
+                "system": "http://loinc.org/",
+                "display": "Pathogenic"
               }
             },
             {
@@ -12880,7 +12749,7 @@
       ]
     }
   ],
-  "strength": {
+  "evidenceStrength": {
     "id": "CC446",
     "type": "CodeableConcept",
     "coding": [
@@ -13003,7 +12872,22 @@
   "hasInformation": [
     {
       "id": "InSilicoPred068",
-      "type": {
+      "type": "InSilicoPrediction",
+      "explanation": "Provenance would show that this comes from Alamut",
+      "transcript": {
+        "id": "RefSeq011",
+        "type": "ReferenceSequence",
+        "accession": {
+          "id": "NM_000257.2"
+        }
+      },
+      "canonicalAllele": {
+        "id": "CanAll118",
+        "type": "CanonicalAllele",
+        "preferredCtxAllele": "CtxAll124",
+        "identifier": "http://reg.genome.network/allele/CA013536"
+      },
+      "predictionType": {
         "id": "CC056",
         "type": "CodeableConcept",
         "coding": [
@@ -13016,19 +12900,7 @@
           }
         ]
       },
-      "explanation": "Provenance would show that this comes from Alamut",
-      "contextualAllele": {
-        "id": "CtxAll124",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": {
-          "id": "CanAll118",
-          "type": "CanonicalAllele",
-          "preferredCtxAllele": "CtxAll124",
-          "identifier": "http://reg.genome.network/allele/CA013536"
-        },
-        "alleleName": "NM_000257.2(MYH7):c.327C>T"
-      },
-      "value": "no impact"
+      "categoricalPrediction": "no impact"
     },
     {
       "id": "Conserv071",
@@ -13040,7 +12912,7 @@
         "identifier": "http://reg.genome.network/allele/CA013536"
       },
       "conserved": true,
-      "method": "phyloP",
+      "algorithm": "phyloP",
       "score": -0.76
     },
     {
@@ -13053,7 +12925,7 @@
         "identifier": "http://reg.genome.network/allele/CA013536"
       },
       "conserved": true,
-      "method": "PhastCons",
+      "algorithm": "PhastCons",
       "score": 0.63
     },
     {
@@ -13131,17 +13003,11 @@
         "identifier": "http://reg.genome.network/allele/CA013536"
       },
       "outcome": {
-        "id": "CC292",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "CG-criterion-outcome:met",
-            "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
-            "display": "Met"
-          }
-        ]
+        "id": "CG-criterion-outcome:met",
+        "type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
       },
       "hasEvidence": [
         {
@@ -13151,7 +13017,22 @@
           "hasInformation": [
             {
               "id": "InSilicoPred068",
-              "type": {
+              "type": "InSilicoPrediction",
+              "explanation": "Provenance would show that this comes from Alamut",
+              "transcript": {
+                "id": "RefSeq011",
+                "type": "ReferenceSequence",
+                "accession": {
+                  "id": "NM_000257.2"
+                }
+              },
+              "canonicalAllele": {
+                "id": "CanAll118",
+                "type": "CanonicalAllele",
+                "preferredCtxAllele": "CtxAll124",
+                "identifier": "http://reg.genome.network/allele/CA013536"
+              },
+              "predictionType": {
                 "id": "CC056",
                 "type": "CodeableConcept",
                 "coding": [
@@ -13164,19 +13045,7 @@
                   }
                 ]
               },
-              "explanation": "Provenance would show that this comes from Alamut",
-              "contextualAllele": {
-                "id": "CtxAll124",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": {
-                  "id": "CanAll118",
-                  "type": "CanonicalAllele",
-                  "preferredCtxAllele": "CtxAll124",
-                  "identifier": "http://reg.genome.network/allele/CA013536"
-                },
-                "alleleName": "NM_000257.2(MYH7):c.327C>T"
-              },
-              "value": "no impact"
+              "categoricalPrediction": "no impact"
             },
             {
               "id": "Conserv071",
@@ -13188,7 +13057,7 @@
                 "identifier": "http://reg.genome.network/allele/CA013536"
               },
               "conserved": true,
-              "method": "phyloP",
+              "algorithm": "phyloP",
               "score": -0.76
             },
             {
@@ -13201,7 +13070,7 @@
                 "identifier": "http://reg.genome.network/allele/CA013536"
               },
               "conserved": true,
-              "method": "PhastCons",
+              "algorithm": "PhastCons",
               "score": 0.63
             },
             {
@@ -13257,7 +13126,7 @@
       ]
     }
   ],
-  "strength": {
+  "evidenceStrength": {
     "id": "CC447",
     "type": "CodeableConcept",
     "coding": [
@@ -13335,17 +13204,11 @@
         "identifier": "http://reg.genome.network/allele/CA013536"
       },
       "outcome": {
-        "id": "CC279",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "CG-criterion-outcome:met",
-            "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
-            "display": "Met"
-          }
-        ]
+        "id": "CG-criterion-outcome:met",
+        "type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
       },
       "hasEvidence": [
         {
@@ -13355,7 +13218,22 @@
           "hasInformation": [
             {
               "id": "InSilicoPred262",
-              "type": {
+              "type": "InSilicoPrediction",
+              "explanation": "Provenance would show that this comes from Alamut",
+              "transcript": {
+                "id": "RefSeq011",
+                "type": "ReferenceSequence",
+                "accession": {
+                  "id": "NM_000257.2"
+                }
+              },
+              "canonicalAllele": {
+                "id": "CanAll118",
+                "type": "CanonicalAllele",
+                "preferredCtxAllele": "CtxAll124",
+                "identifier": "http://reg.genome.network/allele/CA013536"
+              },
+              "predictionType": {
                 "id": "CC189",
                 "type": "CodeableConcept",
                 "coding": [
@@ -13368,19 +13246,7 @@
                   }
                 ]
               },
-              "explanation": "Provenance would show that this comes from Alamut",
-              "contextualAllele": {
-                "id": "CtxAll124",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": {
-                  "id": "CanAll118",
-                  "type": "CanonicalAllele",
-                  "preferredCtxAllele": "CtxAll124",
-                  "identifier": "http://reg.genome.network/allele/CA013536"
-                },
-                "alleleName": "NM_000257.2(MYH7):c.327C>T"
-              },
-              "value": "no impact"
+              "categoricalPrediction": "no impact"
             },
             {
               "id": "Conserv263",
@@ -13392,7 +13258,7 @@
                 "identifier": "http://reg.genome.network/allele/CA013536"
               },
               "conserved": true,
-              "method": "phyloP",
+              "algorithm": "phyloP",
               "score": -0.76
             },
             {
@@ -13405,7 +13271,7 @@
                 "identifier": "http://reg.genome.network/allele/CA013536"
               },
               "conserved": true,
-              "method": "PhastCons",
+              "algorithm": "PhastCons",
               "score": 0.63
             },
             {
@@ -13461,7 +13327,7 @@
       ]
     }
   ],
-  "strength": {
+  "evidenceStrength": {
     "id": "CC448",
     "type": "CodeableConcept",
     "coding": [
@@ -13540,17 +13406,11 @@
         "identifier": "http://reg.genome.network/allele/CA013536"
       },
       "outcome": {
-        "id": "CC290",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "CG-criterion-outcome:met",
-            "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
-            "display": "Met"
-          }
-        ]
+        "id": "CG-criterion-outcome:met",
+        "type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
       },
       "hasEvidence": [
         {
@@ -13606,7 +13466,7 @@
       ]
     }
   ],
-  "strength": {
+  "evidenceStrength": {
     "id": "CC449",
     "type": "CodeableConcept",
     "coding": [
@@ -13701,17 +13561,11 @@
         }
       ],
       "outcome": {
-        "id": "CC281",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "CG-criterion-outcome:met",
-            "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
-            "display": "Met"
-          }
-        ]
+        "id": "CG-criterion-outcome:met",
+        "type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
       },
       "hasEvidence": [
         {
@@ -13774,7 +13628,7 @@
                   }
                 ]
               },
-              "strength": {
+              "mechanismConfidence": {
                 "id": "CG-cond-mech-strength:established",
                 "type": "Coding",
                 "code": "established",
@@ -13812,7 +13666,7 @@
       ]
     }
   ],
-  "strength": {
+  "evidenceStrength": {
     "id": "CC450",
     "type": "CodeableConcept",
     "coding": [
@@ -13891,17 +13745,11 @@
         "identifier": "http://reg.genome.network/allele/CA022880"
       },
       "outcome": {
-        "id": "CC288",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "CG-criterion-outcome:met",
-            "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
-            "display": "Met"
-          }
-        ]
+        "id": "CG-criterion-outcome:met",
+        "type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
       },
       "hasEvidence": [
         {
@@ -13958,7 +13806,7 @@
       ]
     }
   ],
-  "strength": {
+  "evidenceStrength": {
     "id": "CC451",
     "type": "CodeableConcept",
     "coding": [
@@ -14023,7 +13871,7 @@
       "condition": {
         "id": "MendCond056",
         "type": "MendelianCondition",
-        "explanation": "noonan syndrome, Autosomal Dominant",
+        "explanation": "noonan syndrome, HP:0000006",
         "disease": [
           {
             "id": "Orphanet:648",
@@ -14104,17 +13952,11 @@
         "identifier": "http://reg.genome.network/allele/CA090930"
       },
       "outcome": {
-        "id": "CC293",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "CG-criterion-outcome:met",
-            "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
-            "display": "Met"
-          }
-        ]
+        "id": "CG-criterion-outcome:met",
+        "type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
       },
       "hasEvidence": [
         {
@@ -14182,7 +14024,7 @@
       ]
     }
   ],
-  "strength": {
+  "evidenceStrength": {
     "id": "CC452",
     "type": "CodeableConcept",
     "coding": [
@@ -14264,7 +14106,7 @@
         {
           "id": "MendCond056",
           "type": "MendelianCondition",
-          "explanation": "noonan syndrome, Autosomal Dominant",
+          "explanation": "noonan syndrome, HP:0000006",
           "disease": [
             {
               "id": "Orphanet:648",
@@ -14284,17 +14126,11 @@
         }
       ],
       "outcome": {
-        "id": "CC294",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "CG-criterion-outcome:met",
-            "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
-            "display": "Met"
-          }
-        ]
+        "id": "CG-criterion-outcome:met",
+        "type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
       },
       "hasEvidence": [
         {
@@ -14308,7 +14144,7 @@
               "condition": {
                 "id": "MendCond056",
                 "type": "MendelianCondition",
-                "explanation": "noonan syndrome, Autosomal Dominant",
+                "explanation": "noonan syndrome, HP:0000006",
                 "disease": [
                   {
                     "id": "Orphanet:648",
@@ -14367,7 +14203,7 @@
       ]
     }
   ],
-  "strength": {
+  "evidenceStrength": {
     "id": "CC453",
     "type": "CodeableConcept",
     "coding": [
@@ -14499,17 +14335,11 @@
         "identifier": "http://reg.genome.network/allele/CA280055"
       },
       "outcome": {
-        "id": "CC295",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "CG-criterion-outcome:met",
-            "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
-            "display": "Met"
-          }
-        ]
+        "id": "CG-criterion-outcome:met",
+        "type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
       },
       "hasEvidence": [
         {
@@ -14569,7 +14399,7 @@
       ]
     }
   ],
-  "strength": {
+  "evidenceStrength": {
     "id": "CC454",
     "type": "CodeableConcept",
     "coding": [
@@ -14754,17 +14584,11 @@
         }
       ],
       "outcome": {
-        "id": "CC296",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "CG-criterion-outcome:met",
-            "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
-            "display": "Met"
-          }
-        ]
+        "id": "CG-criterion-outcome:met",
+        "type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
       },
       "contribution": [
         {
@@ -14788,7 +14612,7 @@
       ]
     }
   ],
-  "strength": {
+  "evidenceStrength": {
     "id": "CC455",
     "type": "CodeableConcept",
     "coding": [
@@ -14875,17 +14699,11 @@
         }
       ],
       "clinicalSignificance": {
-        "id": "CC048",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "LN:LA26332-9",
-            "type": "Coding",
-            "code": "LA26332-9",
-            "system": "http://loinc.org/",
-            "display": "Likely Pathogenic"
-          }
-        ]
+        "id": "LN:LA26332-9",
+        "type": "Coding",
+        "code": "LA26332-9",
+        "system": "http://loinc.org/",
+        "display": "Likely Pathogenic"
       },
       "contribution": [
         {
@@ -14972,17 +14790,11 @@
         }
       ],
       "outcome": {
-        "id": "CC297",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "CG-criterion-outcome:met",
-            "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
-            "display": "Met"
-          }
-        ]
+        "id": "CG-criterion-outcome:met",
+        "type": "Coding",
+        "code": "met",
+        "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+        "display": "Met"
       },
       "hasEvidence": [
         {
@@ -15018,17 +14830,11 @@
                 }
               ],
               "clinicalSignificance": {
-                "id": "CC048",
-                "type": "CodeableConcept",
-                "coding": [
-                  {
-                    "id": "LN:LA26332-9",
-                    "type": "Coding",
-                    "code": "LA26332-9",
-                    "system": "http://loinc.org/",
-                    "display": "Likely Pathogenic"
-                  }
-                ]
+                "id": "LN:LA26332-9",
+                "type": "Coding",
+                "code": "LA26332-9",
+                "system": "http://loinc.org/",
+                "display": "Likely Pathogenic"
               },
               "contribution": [
                 {
@@ -15076,7 +14882,7 @@
       ]
     }
   ],
-  "strength": {
+  "evidenceStrength": {
     "id": "CC456",
     "type": "CodeableConcept",
     "coding": [
@@ -15192,7 +14998,7 @@
         "system": "http://sequenceontology.org/",
         "display": "missense variant"
       },
-      "strength": {
+      "mechanismConfidence": {
         "id": "CG-cond-mech-strength:common",
         "type": "Coding",
         "code": "common",

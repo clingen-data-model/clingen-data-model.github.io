@@ -1,0 +1,142 @@
+{
+  "id": "CritAssess281",
+  "type": "CriterionAssessment",
+  "explanation": "IC1: Individual has condition, FH1: No family history, DNA1: variant is denovo (parentage confirmed)",
+  "criterion": {
+    "id": "PS2",
+    "type": "Criterion",
+    "description": "De novo (both maternity and paternity confirmed) in a patient with the disease and no family history",
+    "shortDescription": "Confirmed de novo in individual without family history of condition",
+    "defaultStrength": {
+      "id": "CG-evidence-strength:ps"
+    }
+  },
+  "variant": {
+    "id": "CanAll014",
+    "type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll017",
+    "identifier": "http://reg.genome.network/allele/CA016441"
+  },
+  "condition": [
+    {
+      "id": "MendCond052",
+      "type": "MendelianCondition",
+      "explanation": "dilated cardiomyopathy",
+      "disease": [
+        {
+          "id": "Orphanet:217604",
+          "type": "Coding",
+          "code": "217604",
+          "system": "http://www.orpha.net/",
+          "display": "dilated cardiomyopathy"
+        }
+      ]
+    }
+  ],
+  "outcome": {
+    "id": "CG-criterion-outcome:met",
+    "type": "Coding",
+    "code": "met",
+    "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+    "display": "Met"
+  },
+  "hasEvidence": [
+    {
+      "id": "EvLn009",
+      "type": "EvidenceLine",
+      "explanation": "EvLn009",
+      "hasInformation": [
+        {
+          "id": "IndCond012",
+          "type": "IndividualCondition",
+          "individual": {
+            "id": "Indiv001",
+            "type": "Individual",
+            "description": "individual #001"
+          },
+          "condition": [
+            {
+              "id": "MendCond052",
+              "type": "MendelianCondition",
+              "explanation": "dilated cardiomyopathy",
+              "disease": [
+                {
+                  "id": "Orphanet:217604",
+                  "type": "Coding",
+                  "code": "217604",
+                  "system": "http://www.orpha.net/",
+                  "display": "dilated cardiomyopathy"
+                }
+              ]
+            }
+          ],
+          "hasCondition": true
+        },
+        {
+          "id": "FamHist013",
+          "type": "FamilyHistory",
+          "proband": {
+            "id": "Indiv001",
+            "type": "Individual",
+            "description": "individual #001"
+          },
+          "condition": [
+            {
+              "id": "MendCond052",
+              "type": "MendelianCondition",
+              "explanation": "dilated cardiomyopathy",
+              "disease": [
+                {
+                  "id": "Orphanet:217604",
+                  "type": "Coding",
+                  "code": "217604",
+                  "system": "http://www.orpha.net/",
+                  "display": "dilated cardiomyopathy"
+                }
+              ]
+            }
+          ],
+          "familyHasCondition": true
+        },
+        {
+          "id": "DeNovo014",
+          "type": "DeNovoAllele",
+          "explanation": "parentage confirmed via haplotyping.",
+          "canonicalAllele": {
+            "id": "CanAll014",
+            "type": "CanonicalAllele",
+            "preferredCtxAllele": "CtxAll017",
+            "identifier": "http://reg.genome.network/allele/CA016441"
+          },
+          "individual": {
+            "id": "Indiv001",
+            "type": "Individual",
+            "description": "individual #001"
+          },
+          "maternityConfirmed": true,
+          "paternityConfirmed": true
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": "Harry Stevenson",
+      "onDate": "6/3/16 8:00 AM",
+      "role": {
+        "id": "CC305",
+        "type": "CodeableConcept",
+        "coding": [
+          {
+            "id": "CG-contributory-role:assessor",
+            "type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
+    }
+  ]
+}

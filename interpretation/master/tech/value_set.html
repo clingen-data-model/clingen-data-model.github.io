@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Data Model
+    </title>
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../stylesheets/brand2.css" rel="stylesheet" /><link href="../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header col-sm-4 col-md-3">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand " href="#">ClinGen Documentation</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                Models
+                  ::
+                  <span class="glyphicon leaf"></span>Interpretation
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                  <li class="allele" >
+                    <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
+                  </li>
+                  <li class="interpretation" >
+                    <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span>Interpretation</a></li>
+                  </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >development release<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                  <li><a href="/0.1/tech/value_set.html">0.1</a></li>
+                  <li><a href="/development/tech/value_set.html">development</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
+      <div class='col-sm-offset-4 col-md-offset-3'>
+        <ol class="breadcrumb bg-none margin-none">
+          <li><a href="../">Interpretation Model</a></li>
+<li><a href="./">Technical Reference and Examples</a></li>
+
+        </ol>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-4 col-md-3 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class='nav-sidebar-title'>
+              <img width="438" height="108" alt="ClinGen Documentation" class="img-responsive" src="../images/clingen-doc-logo.png" />
+            </li>
+
+            <li class="active">
+              <a href="../">Welcome</a>
+            </li>
+            <li><a href="../user/">User Guide</a></li>
+            <li class="active"><a href="./">Technical Reference</a></li><ul><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="evidence_line.html">EvidenceLine</a></li><li><a href="information/">Information</a></li><li class="active"><a href="value_set.html">ValueSet</a></li><li><a href="variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <!-- Old style.  We might still need the model here? -->
+            <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+          </ul>
+        </div>
+        <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+          <article>
+
+
+            <h1>ValueSet</h1>
+            <p>(FHIR) A value set specifies a set of codes drawn from one or more code systems.</p>
+
+
+            <hr class='col-sm-12' />
+
+
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>includesCoding</td>
+                <td>Coding</td>
+                <td>0..*</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>name</td>
+                <td>String</td>
+                <td>0..1</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>description</td>
+                <td>String</td>
+                <td>0..1</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>description</th>
+        <th>includesCoding</th>
+        <th>name</th>
+        <th>description</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="details/details.html#VS001">VS001</a></p></td>
+          <td>When capturing supporting data or evidence data this list of concepts provides a category for the source of the supporting data.</td>
+          <td>
+              <p><a href="details/details.html#CG-data-source:lit">CG-data-source:lit</a></p><p><a href="details/details.html#CG-data-source:db">CG-data-source:db</a></p><p><a href="details/details.html#CG-data-source:app">CG-data-source:app</a></p>
+         </td>
+          <td>
+              <p>DataSourceType</p>
+         </td>
+          <td>
+              <p>When capturing supporting data or evidence data this list of concepts provides a category for the source of the supporting data.</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="VS001"><pre><code>{
+  "id": "VS001",
+  "type": "ValueSet",
+  "name": "DataSourceType",
+  "description": "When capturing supporting data or evidence data this list of concepts provides a category for the source of the supporting data.",
+  "includesCoding": [
+    {
+      "id": "CG-data-source:lit",
+      "type": "Coding",
+      "code": "lit",
+      "system": "http://clinicalgenome.org/datamodel/data-source/",
+      "display": "literature"
+    },
+    {
+      "id": "CG-data-source:db",
+      "type": "Coding",
+      "code": "db",
+      "system": "http://clinicalgenome.org/datamodel/data-source/",
+      "display": "database"
+    },
+    {
+      "id": "CG-data-source:app",
+      "type": "Coding",
+      "code": "app",
+      "system": "http://clinicalgenome.org/datamodel/data-source/",
+      "display": "application"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS002">VS002</a></p></td>
+          <td>MolecularConsequence</td>
+          <td>
+              <p><a href="details/details.html#SO:0001589">SO:0001589</a></p><p><a href="details/details.html#SO:0000191">SO:0000191</a></p><p><a href="details/details.html#SO:0001825">SO:0001825</a></p><p><a href="details/details.html#SO:0001823">SO:0001823</a></p><p><a href="details/details.html#SO:0001583">SO:0001583</a></p><p><a href="details/details.html#SO:0001819">SO:0001819</a></p><p><a href="details/details.html#SO:0001629">SO:0001629</a></p>
+         </td>
+          <td>
+              <p>MolecularConsequence</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VS002"><pre><code>{
+  "id": "VS002",
+  "type": "ValueSet",
+  "name": "MolecularConsequence",
+  "includesCoding": [
+    {
+      "id": "SO:0001589",
+      "type": "Coding",
+      "code": "0001589",
+      "system": "http://sequenceontology.org/",
+      "display": "frameshift variant"
+    },
+    {
+      "id": "SO:0000191",
+      "type": "Coding",
+      "code": "0000191",
+      "system": "http://sequenceontology.org/",
+      "display": "interior intron"
+    },
+    {
+      "id": "SO:0001825",
+      "type": "Coding",
+      "code": "0001825",
+      "system": "http://sequenceontology.org/",
+      "display": "Conservative Inframe Deletion"
+    },
+    {
+      "id": "SO:0001823",
+      "type": "Coding",
+      "code": "0001823",
+      "system": "http://sequenceontology.org/",
+      "display": "Conservative Inframe Insertion"
+    },
+    {
+      "id": "SO:0001583",
+      "type": "Coding",
+      "code": "0001583",
+      "system": "http://sequenceontology.org/",
+      "display": "missense variant"
+    },
+    {
+      "id": "SO:0001819",
+      "type": "Coding",
+      "code": "0001819",
+      "system": "http://sequenceontology.org/",
+      "display": "synonymous variant"
+    },
+    {
+      "id": "SO:0001629",
+      "type": "Coding",
+      "code": "0001629",
+      "system": "http://sequenceontology.org/",
+      "display": "splice-site variant"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS003">VS003</a></p></td>
+          <td>Significance</td>
+          <td>
+              <p><a href="details/details.html#LN:LA6668-3">LN:LA6668-3</a></p><p><a href="details/details.html#LN:LA26332-9">LN:LA26332-9</a></p><p><a href="details/details.html#LN:LA26333-7">LN:LA26333-7</a></p><p><a href="details/details.html#LN:LA26334-5">LN:LA26334-5</a></p><p><a href="details/details.html#LN:LA6675-8">LN:LA6675-8</a></p>
+         </td>
+          <td>
+              <p>Significance</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VS003"><pre><code>{
+  "id": "VS003",
+  "type": "ValueSet",
+  "name": "Significance",
+  "includesCoding": [
+    {
+      "id": "LN:LA6668-3",
+      "type": "Coding",
+      "code": "LA6668-3",
+      "system": "http://loinc.org/",
+      "display": "Pathogenic"
+    },
+    {
+      "id": "LN:LA26332-9",
+      "type": "Coding",
+      "code": "LA26332-9",
+      "system": "http://loinc.org/",
+      "display": "Likely Pathogenic"
+    },
+    {
+      "id": "LN:LA26333-7",
+      "type": "Coding",
+      "code": "LA26333-7",
+      "system": "http://loinc.org/",
+      "display": "Uncertain Signficance"
+    },
+    {
+      "id": "LN:LA26334-5",
+      "type": "Coding",
+      "code": "LA26334-5",
+      "system": "http://loinc.org/",
+      "display": "Likely Benign"
+    },
+    {
+      "id": "LN:LA6675-8",
+      "type": "Coding",
+      "code": "LA6675-8",
+      "system": "http://loinc.org/",
+      "display": "Benign"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS004">VS004</a></p></td>
+          <td>RegionAnnotationType</td>
+          <td>
+              <p><a href="details/details.html#CG-reg-anno-type:repeat">CG-reg-anno-type:repeat</a></p><p><a href="details/details.html#CG-reg-anno-type:functional">CG-reg-anno-type:functional</a></p><p><a href="details/details.html#CG-reg-anno-type:hotspot">CG-reg-anno-type:hotspot</a></p>
+         </td>
+          <td>
+              <p>RegionAnnotationType</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VS004"><pre><code>{
+  "id": "VS004",
+  "type": "ValueSet",
+  "name": "RegionAnnotationType",
+  "includesCoding": [
+    {
+      "id": "CG-reg-anno-type:repeat",
+      "type": "Coding",
+      "code": "repeat",
+      "system": "http://clinicalgenome.org/datamodel/region-annotation-type/",
+      "display": "Repeat"
+    },
+    {
+      "id": "CG-reg-anno-type:functional",
+      "type": "Coding",
+      "code": "functional",
+      "system": "http://clinicalgenome.org/datamodel/region-annotation-type/",
+      "display": "Functional"
+    },
+    {
+      "id": "CG-reg-anno-type:hotspot",
+      "type": "Coding",
+      "code": "hotspot",
+      "system": "http://clinicalgenome.org/datamodel/region-annotation-type/",
+      "display": "Mutational Hotspot"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS005">VS005</a></p></td>
+          <td>Phase</td>
+          <td>
+              <p><a href="details/details.html#CG-phase:cis">CG-phase:cis</a></p><p><a href="details/details.html#CG-phase:trans">CG-phase:trans</a></p>
+         </td>
+          <td>
+              <p>Phase</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VS005"><pre><code>{
+  "id": "VS005",
+  "type": "ValueSet",
+  "name": "Phase",
+  "includesCoding": [
+    {
+      "id": "CG-phase:cis",
+      "type": "Coding",
+      "code": "cis",
+      "system": "http://clinicalgenome.org/datamodel/phase/",
+      "display": "in cis"
+    },
+    {
+      "id": "CG-phase:trans",
+      "type": "Coding",
+      "code": "trans",
+      "system": "http://clinicalgenome.org/datamodel/phase/",
+      "display": "in trans"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS006">VS006</a></p></td>
+          <td>The level of occurance of a single DNA marker within a set of chromosomes. Informed by LOINC 53034-5 but with additional codes for somatic mosaicism and asserted absence.</td>
+          <td>
+              <p><a href="details/details.html#CG-allelic-state:heteroplasmic">CG-allelic-state:heteroplasmic</a></p><p><a href="details/details.html#CG-allelic-state:homoplasmic">CG-allelic-state:homoplasmic</a></p><p><a href="details/details.html#CG-allelic-state:homozygous">CG-allelic-state:homozygous</a></p><p><a href="details/details.html#CG-allelic-state:heterozygous">CG-allelic-state:heterozygous</a></p><p><a href="details/details.html#CG-allelic-state:hemizygous">CG-allelic-state:hemizygous</a></p><p><a href="details/details.html#CG-allelic-state:absent">CG-allelic-state:absent</a></p><p><a href="details/details.html#CG-allelic-state:somatic">CG-allelic-state:somatic</a></p><p><a href="details/details.html#CG-allelic-state:other">CG-allelic-state:other</a></p><p><a href="details/details.html#HP:0001423">HP:0001423</a></p>
+         </td>
+          <td>
+              <p>AllelicState</p>
+         </td>
+          <td>
+              <p>The level of occurance of a single DNA marker within a set of chromosomes. Informed by LOINC 53034-5 but with additional codes for somatic mosaicism and asserted absence.</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="VS006"><pre><code>{
+  "id": "VS006",
+  "type": "ValueSet",
+  "name": "AllelicState",
+  "description": "The level of occurance of a single DNA marker within a set of chromosomes. Informed by LOINC 53034-5 but with additional codes for somatic mosaicism and asserted absence.",
+  "includesCoding": [
+    {
+      "id": "CG-allelic-state:heteroplasmic",
+      "type": "Coding",
+      "code": "heteroplasmic",
+      "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+      "display": "heteroplasmic"
+    },
+    {
+      "id": "CG-allelic-state:homoplasmic",
+      "type": "Coding",
+      "code": "homoplasmic",
+      "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+      "display": "homoplasmic"
+    },
+    {
+      "id": "CG-allelic-state:homozygous",
+      "type": "Coding",
+      "code": "homozygous",
+      "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+      "display": "homozygous"
+    },
+    {
+      "id": "CG-allelic-state:heterozygous",
+      "type": "Coding",
+      "code": "heterozygous",
+      "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+      "display": "heterozygous"
+    },
+    {
+      "id": "CG-allelic-state:hemizygous",
+      "type": "Coding",
+      "code": "hemizygous",
+      "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+      "display": "hemizygous"
+    },
+    {
+      "id": "CG-allelic-state:absent",
+      "type": "Coding",
+      "code": "absent",
+      "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+      "display": "absent"
+    },
+    {
+      "id": "CG-allelic-state:somatic",
+      "type": "Coding",
+      "code": "somatic",
+      "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+      "display": "somatic"
+    },
+    {
+      "id": "CG-allelic-state:other",
+      "type": "Coding",
+      "code": "other",
+      "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+      "display": "other"
+    },
+    {
+      "id": "HP:0001423",
+      "type": "Coding",
+      "code": "0001423",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "X-linked dominant inheritance"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS007">VS007</a></p></td>
+          <td>ModeOfInheritance</td>
+          <td>
+              <p><a href="details/details.html#HP:0000007">HP:0000007</a></p><p><a href="details/details.html#HP:0000006">HP:0000006</a></p><p><a href="details/details.html#HP:0001423">HP:0001423</a></p><p><a href="details/details.html#HP:0001419">HP:0001419</a></p>
+         </td>
+          <td>
+              <p>ModeOfInheritance</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VS007"><pre><code>{
+  "id": "VS007",
+  "type": "ValueSet",
+  "name": "ModeOfInheritance",
+  "includesCoding": [
+    {
+      "id": "HP:0000007",
+      "type": "Coding",
+      "code": "0000007",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Autosomal Recessive"
+    },
+    {
+      "id": "HP:0000006",
+      "type": "Coding",
+      "code": "0000006",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Autosomal Dominant"
+    },
+    {
+      "id": "HP:0001423",
+      "type": "Coding",
+      "code": "0001423",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "X-linked dominant inheritance"
+    },
+    {
+      "id": "HP:0001419",
+      "type": "Coding",
+      "code": "0001419",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "X-linked recessive inheritance"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS008">VS008</a></p></td>
+          <td>ReferenceSequenceRelatedType</td>
+          <td>
+              <p><a href="details/details.html#RO:0003000">RO:0003000</a></p><p><a href="details/details.html#RO:0003001">RO:0003001</a></p>
+         </td>
+          <td>
+              <p>ReferenceSequenceRelatedType</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VS008"><pre><code>{
+  "id": "VS008",
+  "type": "ValueSet",
+  "name": "ReferenceSequenceRelatedType",
+  "includesCoding": [
+    {
+      "id": "RO:0003000",
+      "type": "Coding",
+      "code": "0003000",
+      "system": "http://obofoundry.org/ro/",
+      "display": "produces"
+    },
+    {
+      "id": "RO:0003001",
+      "type": "Coding",
+      "code": "0003001",
+      "system": "http://obofoundry.org/ro/",
+      "display": "produced-by"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS009">VS009</a></p></td>
+          <td>Mechanism</td>
+          <td>
+              <p><a href="details/details.html#SO:0002054">SO:0002054</a></p><p><a href="details/details.html#SO:0001583">SO:0001583</a></p>
+         </td>
+          <td>
+              <p>Mechanism</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VS009"><pre><code>{
+  "id": "VS009",
+  "type": "ValueSet",
+  "name": "Mechanism",
+  "includesCoding": [
+    {
+      "id": "SO:0002054",
+      "type": "Coding",
+      "code": "0002054",
+      "system": "http://sequenceontology.org/",
+      "display": "loss of function variant"
+    },
+    {
+      "id": "SO:0001583",
+      "type": "Coding",
+      "code": "0001583",
+      "system": "http://sequenceontology.org/",
+      "display": "missense variant"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS010">VS010</a></p></td>
+          <td>PredictionType</td>
+          <td>
+              <p><a href="details/details.html#CG-prediction-type:me">CG-prediction-type:me</a></p><p><a href="details/details.html#CG-prediction-type:sp">CG-prediction-type:sp</a></p>
+         </td>
+          <td>
+              <p>PredictionType</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VS010"><pre><code>{
+  "id": "VS010",
+  "type": "ValueSet",
+  "name": "PredictionType",
+  "includesCoding": [
+    {
+      "id": "CG-prediction-type:me",
+      "type": "Coding",
+      "code": "me",
+      "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+      "display": "missense effect"
+    },
+    {
+      "id": "CG-prediction-type:sp",
+      "type": "Coding",
+      "code": "sp",
+      "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+      "display": "splicing prediction"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS011">VS011</a></p></td>
+          <td>CriterionEvaluation</td>
+          <td>
+              <p><a href="details/details.html#CG-criterion-outcome:not-met">CG-criterion-outcome:not-met</a></p><p><a href="details/details.html#CG-criterion-outcome:met">CG-criterion-outcome:met</a></p>
+         </td>
+          <td>
+              <p>CriterionEvaluation</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VS011"><pre><code>{
+  "id": "VS011",
+  "type": "ValueSet",
+  "name": "CriterionEvaluation",
+  "includesCoding": [
+    {
+      "id": "CG-criterion-outcome:not-met",
+      "type": "Coding",
+      "code": "not-met",
+      "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+      "display": "Not Met"
+    },
+    {
+      "id": "CG-criterion-outcome:met",
+      "type": "Coding",
+      "code": "met",
+      "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+      "display": "Met"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS012">VS012</a></p></td>
+          <td>FunctionalDataType</td>
+          <td>
+              <p><a href="details/details.html#CG-func-data-type:binding">CG-func-data-type:binding</a></p><p><a href="details/details.html#CG-func-data-type:atpase">CG-func-data-type:atpase</a></p><p><a href="details/details.html#CG-func-data-type:motility">CG-func-data-type:motility</a></p><p><a href="details/details.html#CG-func-data-type:yeastcomp">CG-func-data-type:yeastcomp</a></p><p><a href="details/details.html#CG-func-data-type:activation">CG-func-data-type:activation</a></p><p><a href="details/details.html#CG-func-data-type:iodeff">CG-func-data-type:iodeff</a></p><p><a href="details/details.html#CG-func-data-type:celloc">CG-func-data-type:celloc</a></p><p><a href="details/details.html#CG-func-data-type:neuritegrowth">CG-func-data-type:neuritegrowth</a></p><p><a href="details/details.html#CG-func-data-type:elk1phosvialucif">CG-func-data-type:elk1phosvialucif</a></p>
+         </td>
+          <td>
+              <p>FunctionalDataType</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VS012"><pre><code>{
+  "id": "VS012",
+  "type": "ValueSet",
+  "name": "FunctionalDataType",
+  "includesCoding": [
+    {
+      "id": "CG-func-data-type:binding",
+      "type": "Coding",
+      "code": "binding",
+      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+      "display": "Binding assay"
+    },
+    {
+      "id": "CG-func-data-type:atpase",
+      "type": "Coding",
+      "code": "atpase",
+      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+      "display": "ATPase assay"
+    },
+    {
+      "id": "CG-func-data-type:motility",
+      "type": "Coding",
+      "code": "motility",
+      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+      "display": "motility assay"
+    },
+    {
+      "id": "CG-func-data-type:yeastcomp",
+      "type": "Coding",
+      "code": "yeastcomp",
+      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+      "display": "Yeast complementation assay"
+    },
+    {
+      "id": "CG-func-data-type:activation",
+      "type": "Coding",
+      "code": "activation",
+      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+      "display": "Activation Assay"
+    },
+    {
+      "id": "CG-func-data-type:iodeff",
+      "type": "Coding",
+      "code": "iodeff",
+      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+      "display": "iodide efflux"
+    },
+    {
+      "id": "CG-func-data-type:celloc",
+      "type": "Coding",
+      "code": "celloc",
+      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+      "display": "cellular localization"
+    },
+    {
+      "id": "CG-func-data-type:neuritegrowth",
+      "type": "Coding",
+      "code": "neuritegrowth",
+      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+      "display": "neurite outgrowth"
+    },
+    {
+      "id": "CG-func-data-type:elk1phosvialucif",
+      "type": "Coding",
+      "code": "elk1phosvialucif",
+      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
+      "display": "Elk1 pohsphorylation via luciferase assay"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS013">VS013</a></p></td>
+          <td>From Exac http://exac.broadinstitute.org/faq</td>
+          <td>
+              <p><a href="details/details.html#EXAC:afr">EXAC:afr</a></p><p><a href="details/details.html#EXAC:amr">EXAC:amr</a></p><p><a href="details/details.html#EXAC:eas">EXAC:eas</a></p><p><a href="details/details.html#EXAC:fin">EXAC:fin</a></p><p><a href="details/details.html#EXAC:nfe">EXAC:nfe</a></p><p><a href="details/details.html#EXAC:sas">EXAC:sas</a></p><p><a href="details/details.html#EXAC:oth">EXAC:oth</a></p><p><a href="details/details.html#CG-population-type:combined">CG-population-type:combined</a></p><p><a href="details/details.html#CG-population-type:overall">CG-population-type:overall</a></p><p><a href="details/details.html#IGSR:afr">IGSR:afr</a></p><p><a href="details/details.html#IGSR:amr">IGSR:amr</a></p><p><a href="details/details.html#IGSR:eas">IGSR:eas</a></p><p><a href="details/details.html#IGSR:eur">IGSR:eur</a></p><p><a href="details/details.html#IGSR:sas">IGSR:sas</a></p>
+         </td>
+          <td>
+              <p>PopulationType</p>
+         </td>
+          <td>
+              <p>From Exac http://exac.broadinstitute.org/faq</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="VS013"><pre><code>{
+  "id": "VS013",
+  "type": "ValueSet",
+  "name": "PopulationType",
+  "description": "From Exac http://exac.broadinstitute.org/faq",
+  "includesCoding": [
+    {
+      "id": "EXAC:afr",
+      "type": "Coding",
+      "code": "afr",
+      "system": "http://exac.broadinstitute.org/populations/",
+      "display": "African/African American"
+    },
+    {
+      "id": "EXAC:amr",
+      "type": "Coding",
+      "code": "amr",
+      "system": "http://exac.broadinstitute.org/populations/",
+      "display": "Latino"
+    },
+    {
+      "id": "EXAC:eas",
+      "type": "Coding",
+      "code": "eas",
+      "system": "http://exac.broadinstitute.org/populations/",
+      "display": "East Asian"
+    },
+    {
+      "id": "EXAC:fin",
+      "type": "Coding",
+      "code": "fin",
+      "system": "http://exac.broadinstitute.org/populations/",
+      "display": "Finnish"
+    },
+    {
+      "id": "EXAC:nfe",
+      "type": "Coding",
+      "code": "nfe",
+      "system": "http://exac.broadinstitute.org/populations/",
+      "display": "Non-Finnish European"
+    },
+    {
+      "id": "EXAC:sas",
+      "type": "Coding",
+      "code": "sas",
+      "system": "http://exac.broadinstitute.org/populations/",
+      "display": "South Asian"
+    },
+    {
+      "id": "EXAC:oth",
+      "type": "Coding",
+      "code": "oth",
+      "system": "http://exac.broadinstitute.org/populations/",
+      "display": "Other"
+    },
+    {
+      "id": "CG-population-type:combined",
+      "type": "Coding",
+      "code": "combined",
+      "system": "http://clinicalgenome.org/datamodel/population-type/",
+      "display": "Combined"
+    },
+    {
+      "id": "CG-population-type:overall",
+      "type": "Coding",
+      "code": "overall",
+      "system": "http://clinicalgenome.org/datamodel/population-type/",
+      "display": "Overall"
+    },
+    {
+      "id": "IGSR:afr",
+      "type": "Coding",
+      "code": "afr",
+      "system": "http://www.internationalgenome.org/",
+      "display": "African"
+    },
+    {
+      "id": "IGSR:amr",
+      "type": "Coding",
+      "code": "amr",
+      "system": "http://www.internationalgenome.org/",
+      "display": "Ad Mixed American"
+    },
+    {
+      "id": "IGSR:eas",
+      "type": "Coding",
+      "code": "eas",
+      "system": "http://www.internationalgenome.org/",
+      "display": "East Asian"
+    },
+    {
+      "id": "IGSR:eur",
+      "type": "Coding",
+      "code": "eur",
+      "system": "http://www.internationalgenome.org/",
+      "display": "European"
+    },
+    {
+      "id": "IGSR:sas",
+      "type": "Coding",
+      "code": "sas",
+      "system": "http://www.internationalgenome.org/",
+      "display": "South Asian"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS014">VS014</a></p></td>
+          <td>BenignMissenseVariationRate</td>
+          <td>
+              <p><a href="details/details.html#CG-ben-missense-var-rate:low">CG-ben-missense-var-rate:low</a></p><p><a href="details/details.html#CG-ben-missense-var-rate:high">CG-ben-missense-var-rate:high</a></p>
+         </td>
+          <td>
+              <p>BenignMissenseVariationRate</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VS014"><pre><code>{
+  "id": "VS014",
+  "type": "ValueSet",
+  "name": "BenignMissenseVariationRate",
+  "includesCoding": [
+    {
+      "id": "CG-ben-missense-var-rate:low",
+      "type": "Coding",
+      "code": "low",
+      "system": "http://clinicalgenome.org/datamodel/benign-missense-variation-rate/",
+      "display": "Low"
+    },
+    {
+      "id": "CG-ben-missense-var-rate:high",
+      "type": "Coding",
+      "code": "high",
+      "system": "http://clinicalgenome.org/datamodel/benign-missense-variation-rate/",
+      "display": "High"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS015">VS015</a></p></td>
+          <td>PenetranceType</td>
+          <td>
+              <p><a href="details/details.html#CG-penetrance-type::high">CG-penetrance-type::high</a></p><p><a href="details/details.html#CG-penetrance-type::complete">CG-penetrance-type::complete</a></p><p><a href="details/details.html#CG-penetrance-type::incomplete">CG-penetrance-type::incomplete</a></p>
+         </td>
+          <td>
+              <p>PenetranceType</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VS015"><pre><code>{
+  "id": "VS015",
+  "type": "ValueSet",
+  "name": "PenetranceType",
+  "includesCoding": [
+    {
+      "id": "CG-penetrance-type::high"
+    },
+    {
+      "id": "CG-penetrance-type::complete"
+    },
+    {
+      "id": "CG-penetrance-type::incomplete"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS016">VS016</a></p></td>
+          <td>The level of strength for which a class of variants is a known mechanism for a condition</td>
+          <td>
+              <p><a href="details/details.html#CG-cond-mech-strength:established">CG-cond-mech-strength:established</a></p><p><a href="details/details.html#CG-cond-mech-strength:primary">CG-cond-mech-strength:primary</a></p><p><a href="details/details.html#CG-cond-mech-strength:common">CG-cond-mech-strength:common</a></p><p><a href="details/details.html#CG-cond-mech-strength:suggested">CG-cond-mech-strength:suggested</a></p><p><a href="details/details.html#CG-cond-mech-strength:unknown">CG-cond-mech-strength:unknown</a></p>
+         </td>
+          <td>
+              <p>ConditionMechanismStrength</p>
+         </td>
+          <td>
+              <p>The level of strength for which a class of variants is a known mechanism for a condition</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="VS016"><pre><code>{
+  "id": "VS016",
+  "type": "ValueSet",
+  "name": "ConditionMechanismStrength",
+  "description": "The level of strength for which a class of variants is a known mechanism for a condition",
+  "includesCoding": [
+    {
+      "id": "CG-cond-mech-strength:established",
+      "type": "Coding",
+      "code": "established",
+      "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+      "display": "Established"
+    },
+    {
+      "id": "CG-cond-mech-strength:primary",
+      "type": "Coding",
+      "code": "primary",
+      "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+      "display": "Primary"
+    },
+    {
+      "id": "CG-cond-mech-strength:common",
+      "type": "Coding",
+      "code": "common",
+      "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+      "display": "Common"
+    },
+    {
+      "id": "CG-cond-mech-strength:suggested",
+      "type": "Coding",
+      "code": "suggested",
+      "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+      "display": "Suggested"
+    },
+    {
+      "id": "CG-cond-mech-strength:unknown",
+      "type": "Coding",
+      "code": "unknown",
+      "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+      "display": "Unknown"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS017">VS017</a></p></td>
+          <td>The set of strengths needed for an evidence line.</td>
+          <td>
+              <p><a href="details/details.html#CG-evidence-strength:na">CG-evidence-strength:na</a></p><p><a href="details/details.html#CG-evidence-strength:pvs">CG-evidence-strength:pvs</a></p><p><a href="details/details.html#CG-evidence-strength:ps">CG-evidence-strength:ps</a></p><p><a href="details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p><p><a href="details/details.html#CG-evidence-strength:pp">CG-evidence-strength:pp</a></p><p><a href="details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p><p><a href="details/details.html#CG-evidence-strength:bm">CG-evidence-strength:bm</a></p><p><a href="details/details.html#CG-evidence-strength:bs">CG-evidence-strength:bs</a></p><p><a href="details/details.html#CG-evidence-strength:ba">CG-evidence-strength:ba</a></p>
+         </td>
+          <td>
+              <p>EvidenceLineStrength</p>
+         </td>
+          <td>
+              <p>The set of strengths needed for an evidence line.</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="VS017"><pre><code>{
+  "id": "VS017",
+  "type": "ValueSet",
+  "name": "EvidenceLineStrength",
+  "description": "The set of strengths needed for an evidence line.",
+  "includesCoding": [
+    {
+      "id": "CG-evidence-strength:na",
+      "type": "Coding",
+      "code": "na",
+      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "display": "None"
+    },
+    {
+      "id": "CG-evidence-strength:pvs",
+      "type": "Coding",
+      "code": "pvs",
+      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "display": "Pathogenic Very Strong"
+    },
+    {
+      "id": "CG-evidence-strength:ps",
+      "type": "Coding",
+      "code": "ps",
+      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "display": "Pathogenic Strong"
+    },
+    {
+      "id": "CG-evidence-strength:pm",
+      "type": "Coding",
+      "code": "pm",
+      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "display": "Pathogenic Moderate"
+    },
+    {
+      "id": "CG-evidence-strength:pp",
+      "type": "Coding",
+      "code": "pp",
+      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "display": "Pathogenic Supporting"
+    },
+    {
+      "id": "CG-evidence-strength:bp",
+      "type": "Coding",
+      "code": "bp",
+      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "display": "Benign Supporting"
+    },
+    {
+      "id": "CG-evidence-strength:bm"
+    },
+    {
+      "id": "CG-evidence-strength:bs",
+      "type": "Coding",
+      "code": "bs",
+      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "display": "Benign Strong"
+    },
+    {
+      "id": "CG-evidence-strength:ba",
+      "type": "Coding",
+      "code": "ba",
+      "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+      "display": "Benign Stand Alone"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS018">VS018</a></p></td>
+          <td>Disease</td>
+          <td>
+              <p><a href="details/details.html#MESH:D061325">MESH:D061325</a></p><p><a href="details/details.html#Orphanet:217604">Orphanet:217604</a></p><p><a href="details/details.html#Orphanet:648">Orphanet:648</a></p><p><a href="details/details.html#Orphanet:244">Orphanet:244</a></p><p><a href="details/details.html#Orphanet:3071">Orphanet:3071</a></p><p><a href="details/details.html#OMIM:609942">OMIM:609942</a></p><p><a href="details/details.html#Orphanet:167848">Orphanet:167848</a></p><p><a href="details/details.html#OMIM:601419">OMIM:601419</a></p><p><a href="details/details.html#Orphanet:87884">Orphanet:87884</a></p><p><a href="details/details.html#Orphanet:423">Orphanet:423</a></p><p><a href="details/details.html#Orphanet:324">Orphanet:324</a></p><p><a href="details/details.html#Orphanet:216">Orphanet:216</a></p><p><a href="details/details.html#Orphanet:217569">Orphanet:217569</a></p><p><a href="details/details.html#Orphanet:664">Orphanet:664</a></p><p><a href="details/details.html#Orphanet:122">Orphanet:122</a></p><p><a href="details/details.html#Orphanet:1340">Orphanet:1340</a></p><p><a href="details/details.html#Orphanet:217569">Orphanet:217569</a></p><p><a href="details/details.html#Orphanet:886">Orphanet:886</a></p><p><a href="details/details.html#Orphanet:774">Orphanet:774</a></p><p><a href="details/details.html#OMIM:612555">OMIM:612555</a></p><p><a href="details/details.html#OMIM:614065">OMIM:614065</a></p><p><a href="details/details.html#Orphanet:586">Orphanet:586</a></p><p><a href="details/details.html#Orphanet:558">Orphanet:558</a></p><p><a href="details/details.html#Orphanet:2609">Orphanet:2609</a></p><p><a href="details/details.html#Orphanet:2855">Orphanet:2855</a></p><p><a href="details/details.html#Orphanet:319182">Orphanet:319182</a></p><p><a href="details/details.html#Orphanet:733">Orphanet:733</a></p><p><a href="details/details.html#Orphanet:705">Orphanet:705</a></p><p><a href="details/details.html#OMIM:143890">OMIM:143890</a></p><p><a href="details/details.html#Orphanet:145">Orphanet:145</a></p><p><a href="details/details.html#Orphanet:84">Orphanet:84</a></p><p><a href="details/details.html#Orphanet:791">Orphanet:791</a></p><p><a href="details/details.html#Orphanet:364526">Orphanet:364526</a></p><p><a href="details/details.html#Orphanet:750">Orphanet:750</a></p><p><a href="details/details.html#Orphanet:750">Orphanet:750</a></p><p><a href="details/details.html#OMIM:114480">OMIM:114480</a></p><p><a href="details/details.html#Orphanet:414">Orphanet:414</a></p><p><a href="details/details.html#Orphanet:98733">Orphanet:98733</a></p><p><a href="details/details.html#Orphanet:247">Orphanet:247</a></p><p><a href="details/details.html#Orphanet:98733">Orphanet:98733</a></p><p><a href="details/details.html#DOID:630">DOID:630</a></p>
+         </td>
+          <td>
+              <p>Disease</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VS018"><pre><code>{
+  "id": "VS018",
+  "type": "ValueSet",
+  "name": "Disease",
+  "includesCoding": [
+    {
+      "id": "MESH:D061325",
+      "type": "Coding",
+      "code": "D061325",
+      "system": "https://meshb.nlm.nih.gov/",
+      "display": "hereditary breast ovarian cancer"
+    },
+    {
+      "id": "Orphanet:217604",
+      "type": "Coding",
+      "code": "217604",
+      "system": "http://www.orpha.net/",
+      "display": "dilated cardiomyopathy"
+    },
+    {
+      "id": "Orphanet:648",
+      "type": "Coding",
+      "code": "648",
+      "system": "http://www.orpha.net/",
+      "display": "noonan syndrome"
+    },
+    {
+      "id": "Orphanet:244",
+      "type": "Coding",
+      "code": "244",
+      "system": "http://www.orpha.net/",
+      "display": "Primary ciliary dyskenisia"
+    },
+    {
+      "id": "Orphanet:3071",
+      "type": "Coding",
+      "code": "3071",
+      "system": "http://www.orpha.net/",
+      "display": "costello syndrome"
+    },
+    {
+      "id": "OMIM:609942",
+      "type": "Coding",
+      "code": "609942",
+      "system": "http://www.omim.org/",
+      "display": "noonan syndrome 3"
+    },
+    {
+      "id": "Orphanet:167848",
+      "type": "Coding",
+      "code": "167848",
+      "system": "http://www.orpha.net/",
+      "display": "cardiomyopathy"
+    },
+    {
+      "id": "OMIM:601419",
+      "type": "Coding",
+      "code": "601419",
+      "system": "http://www.omim.org/",
+      "display": "myofibrillar myopathy 1"
+    },
+    {
+      "id": "Orphanet:87884",
+      "type": "Coding",
+      "code": "87884",
+      "system": "http://www.orpha.net/",
+      "display": "nonsyndromic deafness"
+    },
+    {
+      "id": "Orphanet:423",
+      "type": "Coding",
+      "code": "423",
+      "system": "http://www.orpha.net/",
+      "display": "Malignant hyperthermia"
+    },
+    {
+      "id": "Orphanet:324",
+      "type": "Coding",
+      "code": "324",
+      "system": "http://www.orpha.net/",
+      "display": "Fabry disease"
+    },
+    {
+      "id": "Orphanet:216",
+      "type": "Coding",
+      "code": "216",
+      "system": "http://www.orpha.net/",
+      "display": "neuronal ceroid lipofuscinosis"
+    },
+    {
+      "id": "Orphanet:217569",
+      "type": "Coding",
+      "code": "217569",
+      "system": "http://www.orpha.net/",
+      "display": "hypertrophic cardiomyopathy"
+    },
+    {
+      "id": "Orphanet:664",
+      "type": "Coding",
+      "code": "664",
+      "system": "http://www.orpha.net/",
+      "display": "Ornithine carbamoyltransferase deficiency"
+    },
+    {
+      "id": "Orphanet:122",
+      "type": "Coding",
+      "code": "122",
+      "system": "http://www.orpha.net/",
+      "display": "Birt-Hogg-Dube Syndrome"
+    },
+    {
+      "id": "Orphanet:1340",
+      "type": "Coding",
+      "code": "1340",
+      "system": "http://www.orpha.net/",
+      "display": "cardiofaciocutaneous syndrome"
+    },
+    {
+      "id": "Orphanet:217569",
+      "type": "Coding",
+      "code": "217569",
+      "system": "http://www.orpha.net/",
+      "display": "hypertrophic cardiomyopathy"
+    },
+    {
+      "id": "Orphanet:886",
+      "type": "Coding",
+      "code": "886",
+      "system": "http://www.orpha.net/",
+      "display": "Usher syndrome"
+    },
+    {
+      "id": "Orphanet:774",
+      "type": "Coding",
+      "code": "774",
+      "system": "http://www.orpha.net/",
+      "display": "hereditary hemorrhagic telangiectasia"
+    },
+    {
+      "id": "OMIM:612555",
+      "type": "Coding",
+      "code": "612555",
+      "system": "http://www.omim.org/",
+      "display": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
+    },
+    {
+      "id": "OMIM:614065",
+      "type": "Coding",
+      "code": "614065",
+      "system": "http://www.omim.org/",
+      "display": "Myopathy, Distal, type 4"
+    },
+    {
+      "id": "Orphanet:586",
+      "type": "Coding",
+      "code": "586",
+      "system": "http://www.orpha.net/",
+      "display": "Cystic Fibrosis"
+    },
+    {
+      "id": "Orphanet:558",
+      "type": "Coding",
+      "code": "558",
+      "system": "http://www.orpha.net/",
+      "display": "Marfan Syndrome"
+    },
+    {
+      "id": "Orphanet:2609",
+      "type": "Coding",
+      "code": "2609",
+      "system": "http://www.orpha.net/",
+      "display": "Mitochondrial complex 1 deficiency"
+    },
+    {
+      "id": "Orphanet:2855",
+      "type": "Coding",
+      "code": "2855",
+      "system": "http://www.orpha.net/",
+      "display": "Perrault Syndrome"
+    },
+    {
+      "id": "Orphanet:319182",
+      "type": "Coding",
+      "code": "319182",
+      "system": "http://www.orpha.net/",
+      "display": "Wiedemann-Steiner syndrome"
+    },
+    {
+      "id": "Orphanet:733",
+      "type": "Coding",
+      "code": "733",
+      "system": "http://www.orpha.net/",
+      "display": "Familial Adenomatous Polyposis"
+    },
+    {
+      "id": "Orphanet:705",
+      "type": "Coding",
+      "code": "705",
+      "system": "http://www.orpha.net/",
+      "display": "Pendred syndrome"
+    },
+    {
+      "id": "OMIM:143890",
+      "type": "Coding",
+      "code": "143890",
+      "system": "http://www.omim.org/",
+      "display": "Hypercholesterolemia, Familial"
+    },
+    {
+      "id": "Orphanet:145",
+      "type": "Coding",
+      "code": "145",
+      "system": "http://www.orpha.net/",
+      "display": "hereditary breast and ovarian cancer syndrome"
+    },
+    {
+      "id": "Orphanet:84",
+      "type": "Coding",
+      "code": "84",
+      "system": "http://www.orpha.net/",
+      "display": "Fanconi Anemia"
+    },
+    {
+      "id": "Orphanet:791",
+      "type": "Coding",
+      "code": "791",
+      "system": "http://www.orpha.net/",
+      "display": "Retinitis Pigmentosa"
+    },
+    {
+      "id": "Orphanet:364526",
+      "type": "Coding",
+      "code": "364526",
+      "system": "http://www.orpha.net/",
+      "display": "Primary bone dysplasia"
+    },
+    {
+      "id": "Orphanet:750",
+      "type": "Coding",
+      "code": "750",
+      "system": "http://www.orpha.net/",
+      "display": "pseudoachondroplasia"
+    },
+    {
+      "id": "Orphanet:750",
+      "type": "Coding",
+      "code": "750",
+      "system": "http://www.orpha.net/",
+      "display": "pseudoachondroplasia"
+    },
+    {
+      "id": "OMIM:114480",
+      "type": "Coding",
+      "code": "114480",
+      "system": "http://www.omim.org/",
+      "display": "Breast Cancer"
+    },
+    {
+      "id": "Orphanet:414",
+      "type": "Coding",
+      "code": "414",
+      "system": "http://www.orpha.net/",
+      "display": "Gyrate atrophy of choroid and retina"
+    },
+    {
+      "id": "Orphanet:98733",
+      "type": "Coding",
+      "code": "98733",
+      "system": "http://www.orpha.net/",
+      "display": "Noonan syndrome and Noonan-related syndrome"
+    },
+    {
+      "id": "Orphanet:247",
+      "type": "Coding",
+      "code": "247",
+      "system": "http://www.orpha.net/",
+      "display": "arrhythmogenic right ventricular cardiomyopathy"
+    },
+    {
+      "id": "Orphanet:98733",
+      "type": "Coding",
+      "code": "98733",
+      "system": "http://www.orpha.net/",
+      "display": "Noonan syndrome and Noonan-related syndrome"
+    },
+    {
+      "id": "DOID:630",
+      "type": "Coding",
+      "code": "630",
+      "system": "http://disease-ontology.org/",
+      "display": "genetic disease"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS019">VS019</a></p></td>
+          <td>Phenotype</td>
+          <td>
+              <p><a href="details/details.html#HP:0011014">HP:0011014</a></p><p><a href="details/details.html#HP:0200106">HP:0200106</a></p><p><a href="details/details.html#HP:0000957">HP:0000957</a></p><p><a href="details/details.html#HP:0000997">HP:0000997</a></p><p><a href="details/details.html#HP:0000256">HP:0000256</a></p><p><a href="details/details.html#HP:0012873">HP:0012873</a></p>
+         </td>
+          <td>
+              <p>Phenotype</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VS019"><pre><code>{
+  "id": "VS019",
+  "type": "ValueSet",
+  "name": "Phenotype",
+  "includesCoding": [
+    {
+      "id": "HP:0011014",
+      "type": "Coding",
+      "code": "0011014",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Abnormal Glucose Homeostasis"
+    },
+    {
+      "id": "HP:0200106",
+      "type": "Coding",
+      "code": "0200106",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Absent/shortened dynein arms"
+    },
+    {
+      "id": "HP:0000957",
+      "type": "Coding",
+      "code": "0000957",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "café au lait macules (CALMs)"
+    },
+    {
+      "id": "HP:0000997",
+      "type": "Coding",
+      "code": "0000997",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "axillary freckling"
+    },
+    {
+      "id": "HP:0000256",
+      "type": "Coding",
+      "code": "0000256",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "macrocephaly"
+    },
+    {
+      "id": "HP:0012873",
+      "type": "Coding",
+      "code": "0012873",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Absent vas deferens"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS020">VS020</a></p></td>
+          <td>Accessions of sequences used as reference to define Locus for Regions and ContextualAlleles (extensible)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>ReferenceSequence</p>
+         </td>
+          <td>
+              <p>Accessions of sequences used as reference to define Locus for Regions and ContextualAlleles (extensible)</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="VS020"><pre><code>{
+  "id": "VS020",
+  "type": "ValueSet",
+  "name": "ReferenceSequence",
+  "description": "Accessions of sequences used as reference to define Locus for Regions and ContextualAlleles (extensible)"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#VS021">VS021</a></p></td>
+          <td>ContributoryRole</td>
+          <td>
+              <p><a href="details/details.html#CG-contributory-role:curator">CG-contributory-role:curator</a></p><p><a href="details/details.html#CG-contributory-role:assessor">CG-contributory-role:assessor</a></p><p><a href="details/details.html#CG-contributory-role:interpreter">CG-contributory-role:interpreter</a></p>
+         </td>
+          <td>
+              <p>ContributoryRole</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="VS021"><pre><code>{
+  "id": "VS021",
+  "type": "ValueSet",
+  "name": "ContributoryRole",
+  "includesCoding": [
+    {
+      "id": "CG-contributory-role:curator",
+      "type": "Coding",
+      "code": "curator",
+      "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+      "display": "curator"
+    },
+    {
+      "id": "CG-contributory-role:assessor",
+      "type": "Coding",
+      "code": "assessor",
+      "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+      "display": "assessor"
+    },
+    {
+      "id": "CG-contributory-role:interpreter",
+      "type": "Coding",
+      "code": "interpreter",
+      "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+      "display": "interpreter"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../javascripts/jquery.js"></script><script src="../javascripts/bootstrap.js"></script><script src="../javascripts/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>

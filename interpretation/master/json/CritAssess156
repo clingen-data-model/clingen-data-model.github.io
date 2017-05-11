@@ -1,0 +1,140 @@
+{
+  "id": "CritAssess156",
+  "type": "CriterionAssessment",
+  "explanation": "Most pathogenic variants in TTN are truncating. However, a small number of missense variants in TTN are associated with ARVC (Taylor 2011 PMID:21810661 ) Because TTN is such a large gene, the statistical expectation of benign missense variants is very high.",
+  "criterion": {
+    "id": "PP2",
+    "type": "Criterion",
+    "description": "Missense variant in a gene that has a low rate of benign missense variation and in which missense variants are a common mechanism of disease",
+    "shortDescription": "Missense in condition where pathogenic missense common",
+    "defaultStrength": {
+      "id": "CG-evidence-strength:pp"
+    }
+  },
+  "variant": {
+    "id": "CanAll093",
+    "type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll099",
+    "identifier": "http://reg.genome.network/allele/CA256496"
+  },
+  "outcome": {
+    "id": "CG-criterion-outcome:not-met",
+    "type": "Coding",
+    "code": "not-met",
+    "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+    "display": "Not Met"
+  },
+  "hasEvidence": [
+    {
+      "id": "EvLn132",
+      "type": "EvidenceLine",
+      "explanation": "EvLn132",
+      "hasInformation": [
+        {
+          "id": "BMVR161",
+          "type": "BenignMissenseVariationRate",
+          "explanation": "In LMM data alone, we have over 150 benign missense variants in TTN.",
+          "gene": {
+            "id": "hgnc:TTN",
+            "type": "Gene",
+            "symbol": "TTN"
+          },
+          "value": {
+            "id": "CG-ben-missense-var-rate:high",
+            "type": "Coding",
+            "code": "high",
+            "system": "http://clinicalgenome.org/datamodel/benign-missense-variation-rate/",
+            "display": "High"
+          }
+        },
+        {
+          "id": "MolCon169",
+          "type": "MolecularConsequence",
+          "contextualAllele": {
+            "id": "CtxAll099",
+            "type": "ContextualAllele",
+            "relatedCanonicalAllele": {
+              "id": "CanAll093",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": "CtxAll099",
+              "identifier": "http://reg.genome.network/allele/CA256496"
+            },
+            "alleleName": "NM_133378.4(TTN): c.2926T>C"
+          },
+          "consequence": {
+            "id": "CC122",
+            "type": "CodeableConcept",
+            "coding": [
+              {
+                "id": "SO:0001583",
+                "type": "Coding",
+                "code": "0001583",
+                "system": "http://sequenceontology.org/",
+                "display": "missense variant"
+              }
+            ]
+          },
+          "lof": true
+        },
+        {
+          "id": "CondMech165",
+          "type": "ConditionMechanism",
+          "explanation": "Taylor 2011 PMID:21810661",
+          "mechanism": {
+            "id": "SO:0001583",
+            "type": "Coding",
+            "code": "0001583",
+            "system": "http://sequenceontology.org/",
+            "display": "missense variant"
+          },
+          "mechanismConfidence": {
+            "id": "CG-cond-mech-strength:common",
+            "type": "Coding",
+            "code": "common",
+            "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+            "display": "Common"
+          },
+          "gene": {
+            "id": "hgnc:TTN",
+            "type": "Gene",
+            "symbol": "TTN"
+          },
+          "condition": {
+            "id": "MendCond054",
+            "type": "MendelianCondition",
+            "explanation": "arrhythmogenic right ventricular cardiomyopathy",
+            "disease": [
+              {
+                "id": "Orphanet:247",
+                "type": "Coding",
+                "code": "247",
+                "system": "http://www.orpha.net/",
+                "display": "arrhythmogenic right ventricular cardiomyopathy"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": "ACME Molecular Lab",
+      "onDate": "7/2/2012 8:45 AM",
+      "role": {
+        "id": "CC421",
+        "type": "CodeableConcept",
+        "coding": [
+          {
+            "id": "CG-contributory-role:assessor",
+            "type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
+    }
+  ]
+}

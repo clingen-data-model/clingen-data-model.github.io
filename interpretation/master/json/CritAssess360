@@ -1,0 +1,141 @@
+{
+  "id": "CritAssess360",
+  "type": "CriterionAssessment",
+  "explanation": "This variant is a silent variant that does not result in an amino acid change. It is not very conserved and splicing tools suggest no change. However, BP7 does not apply because the variant is located in the first base of exon 4 of RAF1, which is part of the 3’ splice region of the exon. For that reason, we can’t fully trust computational tools. Functional assays would have to confirm that this variant truly does not alter splicing.",
+  "criterion": {
+    "id": "BP7",
+    "type": "Criterion",
+    "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
+    "shortDescription": "Synonymous variant without predicted splice effect in region with low conservation",
+    "defaultStrength": {
+      "id": "CG-evidence-strength:bp"
+    }
+  },
+  "variant": {
+    "id": "CanAll119",
+    "type": "CanonicalAllele",
+    "preferredCtxAllele": "CtxAll125",
+    "identifier": "http://reg.genome.network/allele/CA177682"
+  },
+  "outcome": {
+    "id": "CG-criterion-outcome:not-met",
+    "type": "Coding",
+    "code": "not-met",
+    "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+    "display": "Not Met"
+  },
+  "hasEvidence": [
+    {
+      "id": "EvLn102",
+      "type": "EvidenceLine",
+      "explanation": "EvLn102",
+      "hasInformation": [
+        {
+          "id": "InSilicoPred266",
+          "type": "InSilicoPrediction",
+          "transcript": {
+            "id": "RefSeq016",
+            "type": "ReferenceSequence",
+            "accession": {
+              "id": "NM_002880.3"
+            }
+          },
+          "canonicalAllele": {
+            "id": "CanAll119",
+            "type": "CanonicalAllele",
+            "preferredCtxAllele": "CtxAll125",
+            "identifier": "http://reg.genome.network/allele/CA177682"
+          },
+          "predictionType": {
+            "id": "CC191",
+            "type": "CodeableConcept",
+            "coding": [
+              {
+                "id": "CG-prediction-type:sp",
+                "type": "Coding",
+                "code": "sp",
+                "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+                "display": "splicing prediction"
+              }
+            ]
+          },
+          "categoricalPrediction": "no impact"
+        },
+        {
+          "id": "Conserv267",
+          "type": "Conservation",
+          "allele": {
+            "id": "CanAll119",
+            "type": "CanonicalAllele",
+            "preferredCtxAllele": "CtxAll125",
+            "identifier": "http://reg.genome.network/allele/CA177682"
+          },
+          "conserved": true,
+          "algorithm": "phyloP",
+          "score": 0.45
+        },
+        {
+          "id": "Conserv268",
+          "type": "Conservation",
+          "allele": {
+            "id": "CanAll119",
+            "type": "CanonicalAllele",
+            "preferredCtxAllele": "CtxAll125",
+            "identifier": "http://reg.genome.network/allele/CA177682"
+          },
+          "conserved": true,
+          "algorithm": "PhastCons",
+          "score": 1.0
+        },
+        {
+          "id": "MolCon269",
+          "type": "MolecularConsequence",
+          "consequence": {
+            "id": "CC192",
+            "type": "CodeableConcept",
+            "coding": [
+              {
+                "id": "SO:0001819",
+                "type": "Coding",
+                "code": "0001819",
+                "system": "http://sequenceontology.org/",
+                "display": "synonymous variant"
+              }
+            ]
+          },
+          "contextualAllele": {
+            "id": "CtxAll125",
+            "type": "ContextualAllele",
+            "relatedCanonicalAllele": {
+              "id": "CanAll119",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": "CtxAll125",
+              "identifier": "http://reg.genome.network/allele/CA177682"
+            },
+            "alleleName": "NM_002880.3(RAF1):c.321T>C"
+          }
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": "Stefan DiMarino",
+      "onDate": "10/10/16 8:06 AM",
+      "role": {
+        "id": "CC406",
+        "type": "CodeableConcept",
+        "coding": [
+          {
+            "id": "CG-contributory-role:assessor",
+            "type": "Coding",
+            "code": "assessor",
+            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+            "display": "assessor"
+          }
+        ]
+      }
+    }
+  ]
+}

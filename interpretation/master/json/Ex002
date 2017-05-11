@@ -1,0 +1,162 @@
+{
+  "id": "Ex002",
+  "type": "Example",
+  "informationId": {
+    "id": "CritAssess276",
+    "type": "CriterionAssessment",
+    "criterion": {
+      "id": "PVS1",
+      "type": "Criterion",
+      "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
+      "shortDescription": "Null variant in gene with known LOF mechanism",
+      "defaultStrength": {
+        "id": "CG-evidence-strength:pvs"
+      }
+    },
+    "variant": {
+      "id": "CanAll002",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll002",
+      "identifier": "http://reg.genome.network/allele/CA090898"
+    },
+    "condition": [
+      {
+        "id": "MendCond001",
+        "type": "MendelianCondition",
+        "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
+        "name": "Breast Ovarian Cancer, Autosomal Dominant",
+        "disease": [
+          {
+            "id": "MESH:D061325",
+            "type": "Coding",
+            "code": "D061325",
+            "system": "https://meshb.nlm.nih.gov/",
+            "display": "hereditary breast ovarian cancer"
+          }
+        ],
+        "modeOfInheritance": {
+          "id": "HP:0000006",
+          "type": "Coding",
+          "code": "0000006",
+          "system": "http://human-phenotype-ontology.github.io/",
+          "display": "Autosomal Dominant"
+        }
+      }
+    ],
+    "outcome": {
+      "id": "CG-criterion-outcome:met",
+      "type": "Coding",
+      "code": "met",
+      "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+      "display": "Met"
+    },
+    "hasEvidence": [
+      {
+        "id": "EvLn002",
+        "type": "EvidenceLine",
+        "explanation": "EvLn002",
+        "hasInformation": [
+          {
+            "id": "MolCon003",
+            "type": "MolecularConsequence",
+            "explanation": "LOF is predicted to occur as variant is >55bp from penultimate exon",
+            "contextualAllele": {
+              "id": "CtxAll002",
+              "type": "ContextualAllele",
+              "relatedCanonicalAllele": {
+                "id": "CanAll002",
+                "type": "CanonicalAllele",
+                "preferredCtxAllele": "CtxAll002",
+                "identifier": "http://reg.genome.network/allele/CA090898"
+              },
+              "alleleName": "NM_000059.3(BRCA2):c.7762_7764delinsTT"
+            },
+            "consequence": {
+              "id": "CC004",
+              "type": "CodeableConcept",
+              "coding": [
+                {
+                  "id": "SO:0001589",
+                  "type": "Coding",
+                  "code": "0001589",
+                  "system": "http://sequenceontology.org/",
+                  "display": "frameshift variant"
+                }
+              ]
+            },
+            "lof": true
+          },
+          {
+            "id": "CondMech004",
+            "type": "ConditionMechanism",
+            "explanation": "This is so well-known that it does not require a citation.",
+            "mechanism": {
+              "id": "SO:0002054",
+              "type": "Coding",
+              "code": "0002054",
+              "system": "http://sequenceontology.org/",
+              "display": "loss of function variant"
+            },
+            "mechanismConfidence": {
+              "id": "CG-cond-mech-strength:established",
+              "type": "Coding",
+              "code": "established",
+              "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+              "display": "Established"
+            },
+            "gene": {
+              "id": "hgnc:BRCA2",
+              "type": "Gene",
+              "symbol": "BRCA2"
+            },
+            "condition": {
+              "id": "MendCond001",
+              "type": "MendelianCondition",
+              "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
+              "name": "Breast Ovarian Cancer, Autosomal Dominant",
+              "disease": [
+                {
+                  "id": "MESH:D061325",
+                  "type": "Coding",
+                  "code": "D061325",
+                  "system": "https://meshb.nlm.nih.gov/",
+                  "display": "hereditary breast ovarian cancer"
+                }
+              ],
+              "modeOfInheritance": {
+                "id": "HP:0000006",
+                "type": "Coding",
+                "code": "0000006",
+                "system": "http://human-phenotype-ontology.github.io/",
+                "display": "Autosomal Dominant"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "contribution": [
+      {
+        "type": "Contribution",
+        "agent": "Harry Stevenson",
+        "onDate": "6/2/16 12:15 PM",
+        "role": {
+          "id": "CC299",
+          "type": "CodeableConcept",
+          "coding": [
+            {
+              "id": "CG-contributory-role:assessor",
+              "type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "index": 2,
+  "author": "Steven Harrison",
+  "description": "Variant: NM_000059.3(BRCA2):c.7762_7764delinsTT (p.I2588Ffs*60)\nPVS1 is applicable for this variant because\na. BRCA2 - LOF is an established disease mechanism for breast ovarian cancer\nb. LOF is predicted to occur as variant is >55bp from penultimate exon"
+}

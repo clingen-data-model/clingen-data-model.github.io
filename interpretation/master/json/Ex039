@@ -1,0 +1,132 @@
+{
+  "id": "Ex039",
+  "type": "Example",
+  "informationId": {
+    "id": "CritAssess313",
+    "type": "CriterionAssessment",
+    "criterion": {
+      "id": "PP2",
+      "type": "Criterion",
+      "description": "Missense variant in a gene that has a low rate of benign missense variation and in which missense variants are a common mechanism of disease",
+      "shortDescription": "Missense in condition where pathogenic missense common",
+      "defaultStrength": {
+        "id": "CG-evidence-strength:pp"
+      }
+    },
+    "variant": {
+      "id": "CanAll066",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": "CtxAll070",
+      "identifier": "http://reg.genome.network/allele/CA016087"
+    },
+    "outcome": {
+      "id": "CG-criterion-outcome:met",
+      "type": "Coding",
+      "code": "met",
+      "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+      "display": "Met"
+    },
+    "hasEvidence": [
+      {
+        "id": "EvLn051",
+        "type": "EvidenceLine",
+        "explanation": "EvLn051",
+        "hasInformation": [
+          {
+            "id": "MolCon117",
+            "type": "MolecularConsequence",
+            "contextualAllele": {
+              "id": "CtxAll070",
+              "type": "ContextualAllele",
+              "relatedCanonicalAllele": {
+                "id": "CanAll066",
+                "type": "CanonicalAllele",
+                "preferredCtxAllele": "CtxAll070",
+                "identifier": "http://reg.genome.network/allele/CA016087"
+              },
+              "alleleName": "NM_000257.3(MYH7):c.5401G>A"
+            },
+            "consequence": {
+              "id": "CC070",
+              "type": "CodeableConcept",
+              "coding": [
+                {
+                  "id": "SO:0001583",
+                  "type": "Coding",
+                  "code": "0001583",
+                  "system": "http://sequenceontology.org/",
+                  "display": "missense variant"
+                }
+              ]
+            },
+            "lof": true
+          },
+          {
+            "id": "CondMech118",
+            "type": "ConditionMechanism",
+            "explanation": "Of 178 pathogenic  alleles in ClinVar, 149 are missense.",
+            "mechanism": {
+              "id": "SO:0001583",
+              "type": "Coding",
+              "code": "0001583",
+              "system": "http://sequenceontology.org/",
+              "display": "missense variant"
+            },
+            "mechanismConfidence": {
+              "id": "CG-cond-mech-strength:common",
+              "type": "Coding",
+              "code": "common",
+              "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
+              "display": "Common"
+            },
+            "gene": {
+              "id": "hgnc:MYH7",
+              "type": "Gene",
+              "symbol": "MYH7"
+            }
+          },
+          {
+            "id": "BMVR119",
+            "type": "BenignMissenseVariationRate",
+            "explanation": "Based on the gene size, ExAC expects 740 missense variants to be observed, but actually observes only 420, giving a z score of 6.5, which is in the top 0.02% of genes.",
+            "gene": {
+              "id": "hgnc:MYH7",
+              "type": "Gene",
+              "symbol": "MYH7"
+            },
+            "value": {
+              "id": "CG-ben-missense-var-rate:low",
+              "type": "Coding",
+              "code": "low",
+              "system": "http://clinicalgenome.org/datamodel/benign-missense-variation-rate/",
+              "display": "Low"
+            }
+          }
+        ]
+      }
+    ],
+    "contribution": [
+      {
+        "type": "Contribution",
+        "agent": "Harry Stevenson",
+        "onDate": "7/21/16 9:41 AM",
+        "role": {
+          "id": "CC345",
+          "type": "CodeableConcept",
+          "coding": [
+            {
+              "id": "CG-contributory-role:assessor",
+              "type": "Coding",
+              "code": "assessor",
+              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
+              "display": "assessor"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "index": 1,
+  "author": "Steven Harrison",
+  "description": "MYH7 example \nMYH7 has a missense Z score of 6.54 - which is in the top 0.2% of missense Z scores - suggesting it is intolerant of missense changes\n\nNM_000257.3(MYH7):c.5401G>A (p.Glu1801Lys)\nhttp://www.ncbi.nlm.nih.gov/clinvar/variation/43069/"
+}
