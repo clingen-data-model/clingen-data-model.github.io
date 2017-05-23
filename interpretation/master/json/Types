@@ -1,0 +1,3133 @@
+{
+  "E01": {
+    "id": "E01",
+    "name": "Information",
+    "link": "Info",
+    "externalIRI": "iao:0000030",
+    "description": "The structured supporting data that can be used to assess criterion in the context of a given interpretation guideline.",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      }
+    ]
+  },
+  "E02": {
+    "id": "E02",
+    "name": "MolecularConsequence",
+    "parentType": "E01",
+    "link": "MolCon",
+    "description": "Classification of an Allele based on its effect on a product",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A009",
+        "entityId": "E02",
+        "name": "contextualAllele",
+        "dataType": "ContextualAllele",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "The contextual (reference-specific) allele that is being classified",
+        "fullyQualifiedName": "MolecularConsequence.contextualAllele"
+      },
+      {
+        "id": "A010",
+        "entityId": "E02",
+        "name": "lof",
+        "dataType": "yes/no/maybe",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "description": "Whether the allele causes a loss of function",
+        "fullyQualifiedName": "MolecularConsequence.lof"
+      },
+      {
+        "id": "A001",
+        "entityId": "E02",
+        "name": "consequence",
+        "dataType": "CodeableConcept",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetId": "VS002",
+        "restrictByValueSet": "No",
+        "valueSetName": "MolecularConsequence",
+        "precedence": 3.0,
+        "notes": "SO Term",
+        "description": "Classification of allele based on the manner in which it alters the sequence",
+        "fullyQualifiedName": "MolecularConsequence.consequence"
+      }
+    ]
+  },
+  "E03": {
+    "id": "E03",
+    "name": "ConditionMechanism",
+    "parentType": "E01",
+    "link": "CondMech",
+    "description": "Qualitative information about the types of alleles that cause a condition",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A012",
+        "entityId": "E03",
+        "name": "condition",
+        "dataType": "MendelianCondition",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "The condition whose mechanism is being described",
+        "fullyQualifiedName": "ConditionMechanism.condition"
+      },
+      {
+        "id": "A011",
+        "entityId": "E03",
+        "name": "gene",
+        "dataType": "Gene",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "description": "Gene in which the given variants occur",
+        "fullyQualifiedName": "ConditionMechanism.gene"
+      },
+      {
+        "id": "A002",
+        "entityId": "E03",
+        "name": "mechanism",
+        "dataType": "Coding",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetId": "VS009",
+        "restrictByValueSet": "Yes",
+        "valueSetName": "Mechanism",
+        "precedence": 3.0,
+        "notes": "SO Term",
+        "description": "SO term for a class of variants",
+        "fullyQualifiedName": "ConditionMechanism.mechanism"
+      },
+      {
+        "id": "A003",
+        "entityId": "E03",
+        "name": "mechanismConfidence",
+        "dataType": "Coding",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "externalIRI": "schema:QualitativeValue",
+        "valueSetId": "VS016",
+        "restrictByValueSet": "Yes",
+        "valueSetName": "ConditionMechanismStrength",
+        "precedence": 4.0,
+        "description": "Qualifier on the Condition/Mechanism pair",
+        "fullyQualifiedName": "ConditionMechanism.mechanismConfidence"
+      }
+    ]
+  },
+  "E04": {
+    "id": "E04",
+    "name": "Criterion",
+    "link": "Crit",
+    "description": "A single rule for evaluating data in an interpretation.",
+    "attributes": [
+      {
+        "id": "A150",
+        "entityId": "E04",
+        "name": "description",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "fullyQualifiedName": "Criterion.description"
+      },
+      {
+        "id": "A151",
+        "entityId": "E04",
+        "name": "shortDescription",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "fullyQualifiedName": "Criterion.shortDescription"
+      },
+      {
+        "id": "A153",
+        "entityId": "E04",
+        "name": "defaultStrength",
+        "dataType": "CodeableConcept",
+        "cardinality": "0..1",
+        "valueSetId": "VS017",
+        "restrictByValueSet": "Yes",
+        "valueSetName": "EvidenceLineStrength",
+        "precedence": 4.0,
+        "fullyQualifiedName": "Criterion.defaultStrength"
+      }
+    ]
+  },
+  "E05": {
+    "id": "E05",
+    "name": "CanonicalAllele",
+    "link": "CanAll",
+    "externalIRI": "ar:allele",
+    "description": "Reference-independent allele that groups multiple ContextualAlleles",
+    "attributes": [
+      {
+        "id": "A135",
+        "entityId": "E05",
+        "name": "preferredCtxAllele",
+        "dataType": "ContextualAllele",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "fullyQualifiedName": "CanonicalAllele.preferredCtxAllele"
+      },
+      {
+        "id": "A136",
+        "entityId": "E05",
+        "name": "identifier",
+        "dataType": "String",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "fullyQualifiedName": "CanonicalAllele.identifier"
+      }
+    ]
+  },
+  "E06": {
+    "id": "E06",
+    "name": "ContextualAllele",
+    "link": "CtxAll",
+    "description": "Reference-dependent allele description",
+    "attributes": [
+      {
+        "id": "A137",
+        "entityId": "E06",
+        "name": "relatedCanonicalAllele",
+        "dataType": "CanonicalAllele",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "fullyQualifiedName": "ContextualAllele.relatedCanonicalAllele"
+      },
+      {
+        "id": "A138",
+        "entityId": "E06",
+        "name": "alleleName",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "fullyQualifiedName": "ContextualAllele.alleleName"
+      },
+      {
+        "id": "A139",
+        "entityId": "E06",
+        "name": "legacyNames",
+        "dataType": "String",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 3.0,
+        "fullyQualifiedName": "ContextualAllele.legacyNames"
+      }
+    ]
+  },
+  "E07": {
+    "id": "E07",
+    "name": "Gene",
+    "link": "G",
+    "externalIRI": "ar:gene",
+    "description": "A collection of transcripts",
+    "attributes": [
+      {
+        "id": "A140",
+        "entityId": "E07",
+        "name": "symbol",
+        "dataType": "String",
+        "cardinality": "1..1",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "fullyQualifiedName": "Gene.symbol"
+      }
+    ]
+  },
+  "E09": {
+    "id": "E09",
+    "name": "CriterionAssessment",
+    "parentType": "E01",
+    "link": "CritAssess",
+    "externalIRI": "sepio:0000001",
+    "description": "Intermediate interpretation of a line of evidence",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A055",
+        "entityId": "E09",
+        "name": "evidence",
+        "dataType": "EvidenceLine",
+        "cardinality": "0..*",
+        "externalIRI": "SEPIO:has_evidence",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "supporting evidence",
+        "fullyQualifiedName": "CriterionAssessment.evidence"
+      },
+      {
+        "id": "A115",
+        "entityId": "E09",
+        "name": "criterion",
+        "dataType": "Criterion",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "The rule describing how the data is being used",
+        "fullyQualifiedName": "CriterionAssessment.criterion"
+      },
+      {
+        "id": "A117",
+        "entityId": "E09",
+        "name": "variant",
+        "dataType": "CanonicalAllele",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "description": "Variant about which the assemssment is made",
+        "fullyQualifiedName": "CriterionAssessment.variant"
+      },
+      {
+        "id": "A118",
+        "entityId": "E09",
+        "name": "condition",
+        "dataType": "MendelianCondition",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 3.0,
+        "description": "Condition for which the assessment is made",
+        "fullyQualifiedName": "CriterionAssessment.condition"
+      },
+      {
+        "id": "A116",
+        "entityId": "E09",
+        "name": "outcome",
+        "dataType": "Coding",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetId": "VS011",
+        "restrictByValueSet": "Yes",
+        "valueSetName": "CriterionEvaluation",
+        "precedence": 4.0,
+        "description": "Result of assessing the data and criterion",
+        "fullyQualifiedName": "CriterionAssessment.outcome"
+      }
+    ]
+  },
+  "E11": {
+    "id": "E11",
+    "name": "Contribution",
+    "link": "Contrib",
+    "description": "(TODO:review this def)\nConceptual class to record provenance related to the creation of an item (e.g., who and when)",
+    "attributes": [
+      {
+        "id": "A006",
+        "entityId": "E11",
+        "name": "agent",
+        "dataType": "String",
+        "cardinality": "1..1",
+        "externalIRI": "foaf:Agent",
+        "precedence": 1.0,
+        "description": "A person, group of people, algorithm, or some other actor that could make a contribution",
+        "fullyQualifiedName": "Contribution.agent"
+      },
+      {
+        "id": "A007",
+        "entityId": "E11",
+        "name": "onDate",
+        "dataType": "Datetime",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "externalIRI": "xsd:Date",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "fullyQualifiedName": "Contribution.onDate"
+      },
+      {
+        "id": "A008",
+        "entityId": "E11",
+        "name": "role",
+        "dataType": "CodeableConcept",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetId": "VS021",
+        "restrictByValueSet": "No",
+        "valueSetName": "ContributoryRole",
+        "precedence": 3.0,
+        "fullyQualifiedName": "Contribution.role"
+      }
+    ]
+  },
+  "E12": {
+    "id": "E12",
+    "name": "Agent",
+    "link": "Agent",
+    "externalIRI": "foaf:Agent",
+    "description": "A person, group of people, algorithm, or some other actor that could perform an activity.",
+    "attributes": [
+      {
+        "id": "A148",
+        "entityId": "E12",
+        "name": "description",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "fullyQualifiedName": "Agent.description"
+      },
+      {
+        "id": "A149",
+        "entityId": "E12",
+        "name": "name",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "fullyQualifiedName": "Agent.name"
+      }
+    ]
+  },
+  "E13": {
+    "id": "E13",
+    "name": "Example",
+    "link": "Ex",
+    "description": "An example selected to demonstrate a particular facet of the data model",
+    "attributes": [
+      {
+        "id": "A013",
+        "entityId": "E13",
+        "name": "informationId",
+        "dataType": "Information",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "fullyQualifiedName": "Example.informationId"
+      },
+      {
+        "id": "A014",
+        "entityId": "E13",
+        "name": "searchTags",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "fullyQualifiedName": "Example.searchTags"
+      },
+      {
+        "id": "A015",
+        "entityId": "E13",
+        "name": "index",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 3.0,
+        "fullyQualifiedName": "Example.index"
+      },
+      {
+        "id": "A035",
+        "entityId": "E13",
+        "name": "author",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "externalIRI": "dc:author",
+        "valueSetName": "",
+        "precedence": 4.0,
+        "fullyQualifiedName": "Example.author"
+      },
+      {
+        "id": "A036",
+        "entityId": "E13",
+        "name": "description",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "externalIRI": "dc:description",
+        "valueSetName": "",
+        "precedence": 5.0,
+        "fullyQualifiedName": "Example.description"
+      },
+      {
+        "id": "A037",
+        "entityId": "E13",
+        "name": "image",
+        "dataType": "Image",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 6.0,
+        "fullyQualifiedName": "Example.image"
+      }
+    ]
+  },
+  "E14": {
+    "id": "E14",
+    "name": "MendelianCondition",
+    "parentType": "E01",
+    "link": "MendCond",
+    "description": "A condition with a specific mode of inheritance",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A157",
+        "entityId": "E14",
+        "name": "name",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "fullyQualifiedName": "MendelianCondition.name"
+      },
+      {
+        "id": "A158",
+        "entityId": "E14",
+        "name": "disease",
+        "dataType": "CodeableConcept",
+        "cardinality": "0..*",
+        "valueSetId": "VS018",
+        "restrictByValueSet": "No",
+        "valueSetName": "Disease",
+        "precedence": 2.0,
+        "fullyQualifiedName": "MendelianCondition.disease"
+      },
+      {
+        "id": "A141",
+        "entityId": "E14",
+        "name": "phenotype",
+        "dataType": "CodeableConcept",
+        "cardinality": "0..*",
+        "valueSetId": "VS019",
+        "restrictByValueSet": "No",
+        "valueSetName": "Phenotype",
+        "precedence": 3.0,
+        "fullyQualifiedName": "MendelianCondition.phenotype"
+      },
+      {
+        "id": "A142",
+        "entityId": "E14",
+        "name": "modeOfInheritance",
+        "dataType": "Coding",
+        "cardinality": "0..1",
+        "valueSetId": "VS007",
+        "restrictByValueSet": "Yes",
+        "valueSetName": "ModeOfInheritance",
+        "precedence": 4.0,
+        "fullyQualifiedName": "MendelianCondition.modeOfInheritance"
+      },
+      {
+        "id": "A143",
+        "entityId": "E14",
+        "name": "gene",
+        "dataType": "Gene",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 5.0,
+        "fullyQualifiedName": "MendelianCondition.gene"
+      }
+    ]
+  },
+  "E16": {
+    "id": "E16",
+    "name": "Individual",
+    "link": "Indiv",
+    "externalIRI": "foaf:Person",
+    "description": "A particular person",
+    "attributes": [
+      {
+        "id": "A145",
+        "entityId": "E16",
+        "name": "description",
+        "dataType": "String",
+        "cardinality": "1..1",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "fullyQualifiedName": "Individual.description"
+      }
+    ]
+  },
+  "E17": {
+    "id": "E17",
+    "name": "IndividualCondition",
+    "parentType": "E01",
+    "link": "IndCond",
+    "description": "Whether or not an Individual has a Condition",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A016",
+        "entityId": "E17",
+        "name": "individual",
+        "dataType": "Individual",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "The person being assessed for the condition",
+        "fullyQualifiedName": "IndividualCondition.individual"
+      },
+      {
+        "id": "A017",
+        "entityId": "E17",
+        "name": "condition",
+        "dataType": "MendelianCondition",
+        "cardinality": "1..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "description": "The condition that the person may have",
+        "fullyQualifiedName": "IndividualCondition.condition"
+      },
+      {
+        "id": "A018",
+        "entityId": "E17",
+        "name": "hasCondition",
+        "dataType": "boolean",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 3.0,
+        "description": "Whether or not the person has the condition",
+        "fullyQualifiedName": "IndividualCondition.hasCondition"
+      }
+    ]
+  },
+  "E18": {
+    "id": "E18",
+    "name": "FamilyHistory",
+    "parentType": "E01",
+    "link": "FamHist",
+    "description": "Whether or not a Condition occurs in a given Family",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A019",
+        "entityId": "E18",
+        "name": "proband",
+        "dataType": "Individual",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "The person that was the original source of the condition in this family",
+        "fullyQualifiedName": "FamilyHistory.proband"
+      },
+      {
+        "id": "A020",
+        "entityId": "E18",
+        "name": "condition",
+        "dataType": "MendelianCondition",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "description": "A condition that the family may or may not have",
+        "fullyQualifiedName": "FamilyHistory.condition"
+      },
+      {
+        "id": "A021",
+        "entityId": "E18",
+        "name": "familyHasCondition",
+        "dataType": "boolean",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 3.0,
+        "description": "Whether or not this family has the stated condition",
+        "fullyQualifiedName": "FamilyHistory.familyHasCondition"
+      }
+    ]
+  },
+  "E19": {
+    "id": "E19",
+    "name": "DeNovoAllele",
+    "parentType": "E01",
+    "link": "DeNovo",
+    "description": "Whether or not a particular Allele is DeNovo in an Individual",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A074",
+        "entityId": "E19",
+        "name": "alleleInheritance",
+        "dataType": "Coding",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetId": "VS022",
+        "restrictByValueSet": "Yes",
+        "valueSetName": "AlleleInheritanceType",
+        "fullyQualifiedName": "DeNovoAllele.alleleInheritance"
+      },
+      {
+        "id": "A022",
+        "entityId": "E19",
+        "name": "canonicalAllele",
+        "dataType": "CanonicalAllele",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "The allele whose denovo status is being described",
+        "fullyQualifiedName": "DeNovoAllele.canonicalAllele"
+      },
+      {
+        "id": "A023",
+        "entityId": "E19",
+        "name": "individual",
+        "dataType": "Individual",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "description": "The individual whose allele may be denovo",
+        "fullyQualifiedName": "DeNovoAllele.individual"
+      },
+      {
+        "id": "A024",
+        "entityId": "E19",
+        "name": "maternityConfirmed",
+        "dataType": "boolean",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 3.0,
+        "notes": "FALSE means that we did not confirm maternity, not that the maternity was confirmed to be wrong. ",
+        "description": "Whether or not maternity was confirmed.  False indicates that maternity was not confirmed, not that maternity was found to be incorrect.",
+        "fullyQualifiedName": "DeNovoAllele.maternityConfirmed"
+      },
+      {
+        "id": "A025",
+        "entityId": "E19",
+        "name": "paternityConfirmed",
+        "dataType": "boolean",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 4.0,
+        "notes": "FALSE means that we did not confirm paternity, not that the paternity was confirmed to be wrong. ",
+        "description": "Whether or not paternity was confirmed.  False indicates  that paternity was not confirmed, not that paternity was found to be incorrect.",
+        "fullyQualifiedName": "DeNovoAllele.paternityConfirmed"
+      }
+    ]
+  },
+  "E20": {
+    "id": "E20",
+    "name": "FunctionalData",
+    "parentType": "E01",
+    "link": "Func",
+    "description": "Data about the function of a gene product",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A028",
+        "entityId": "E20",
+        "name": "contextualAllele",
+        "dataType": "ContextualAllele",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "Allele defined with respect to the measured transcript",
+        "fullyQualifiedName": "FunctionalData.contextualAllele"
+      },
+      {
+        "id": "A029",
+        "entityId": "E20",
+        "name": "gene",
+        "dataType": "Gene",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "externalIRI": "SO:0000704",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "description": "Gene to which the functional data applies",
+        "fullyQualifiedName": "FunctionalData.gene"
+      },
+      {
+        "id": "A026",
+        "entityId": "E20",
+        "name": "result",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 3.0,
+        "description": "Result of the functional experiment",
+        "fullyQualifiedName": "FunctionalData.result"
+      },
+      {
+        "id": "A027",
+        "entityId": "E20",
+        "name": "dataType",
+        "dataType": "CodeableConcept",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetId": "VS012",
+        "restrictByValueSet": "No",
+        "valueSetName": "FunctionalDataType",
+        "precedence": 4.0,
+        "notes": "?",
+        "description": "Specific type of functional data collected",
+        "fullyQualifiedName": "FunctionalData.dataType"
+      }
+    ]
+  },
+  "E21": {
+    "id": "E21",
+    "name": "CaseControl",
+    "parentType": "E01",
+    "link": "CaseCtrl",
+    "description": "Allele frequencies as a function of case-control status",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A038",
+        "entityId": "E21",
+        "name": "canonicalAllele",
+        "dataType": "CanonicalAllele",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "The allele studied in the case-control experiment",
+        "fullyQualifiedName": "CaseControl.canonicalAllele"
+      },
+      {
+        "id": "A039",
+        "entityId": "E21",
+        "name": "condition",
+        "dataType": "MendelianCondition",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "description": "The condition studied in the case-control experiment",
+        "fullyQualifiedName": "CaseControl.condition"
+      },
+      {
+        "id": "A042",
+        "entityId": "E21",
+        "name": "caseGroupFrequency",
+        "dataType": "AlleleFrequency",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 3.0,
+        "description": "The group of individuals with the condition",
+        "fullyQualifiedName": "CaseControl.caseGroupFrequency"
+      },
+      {
+        "id": "A043",
+        "entityId": "E21",
+        "name": "controlGroupFrequency",
+        "dataType": "AlleleFrequency",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 4.0,
+        "description": "The group of individuals without the condition",
+        "fullyQualifiedName": "CaseControl.controlGroupFrequency"
+      },
+      {
+        "id": "A040",
+        "entityId": "E21",
+        "name": "oddsRatio",
+        "dataType": "float",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "externalIRI": "http://purl.obolibrary.org/obo/STATO_0000182",
+        "valueSetName": "",
+        "precedence": 5.0,
+        "description": "Ratio of the probability of having the condition given the allele to the probability of the condition without the allele.",
+        "fullyQualifiedName": "CaseControl.oddsRatio"
+      },
+      {
+        "id": "A041",
+        "entityId": "E21",
+        "name": "confidenceLevel",
+        "dataType": "float",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "externalIRI": "http://purl.obolibrary.org/obo/OBI_0000175",
+        "valueSetName": "",
+        "precedence": 6.0,
+        "description": "Confidence level in percent",
+        "fullyQualifiedName": "CaseControl.confidenceLevel"
+      },
+      {
+        "id": "A048",
+        "entityId": "E21",
+        "name": "confidenceIntervalLower",
+        "dataType": "float",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "externalIRI": "http://purl.obolibrary.org/obo/STATO_0000315",
+        "valueSetName": "",
+        "precedence": 7.0,
+        "description": "Lower bound of the confidence interval for the odds ratio",
+        "fullyQualifiedName": "CaseControl.confidenceIntervalLower"
+      },
+      {
+        "id": "A049",
+        "entityId": "E21",
+        "name": "confidenceIntervalUpper",
+        "dataType": "float",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "externalIRI": "http://purl.obolibrary.org/obo/STATO_0000314",
+        "valueSetName": "",
+        "precedence": 8.0,
+        "description": "Upper bound of the confidence interval for the odds ratio",
+        "fullyQualifiedName": "CaseControl.confidenceIntervalUpper"
+      }
+    ]
+  },
+  "E22": {
+    "id": "E22",
+    "name": "Locus",
+    "parentType": "E01",
+    "link": "Loc",
+    "description": "Location, position or interval on a given sequence",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A052",
+        "entityId": "E22",
+        "name": "referenceSequence",
+        "dataType": "ReferenceSequence",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "Sequence on which the region is defined",
+        "fullyQualifiedName": "Locus.referenceSequence"
+      },
+      {
+        "id": "A053",
+        "entityId": "E22",
+        "name": "start",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "description": "Start of the region in 0-based coordinates",
+        "fullyQualifiedName": "Locus.start"
+      },
+      {
+        "id": "A054",
+        "entityId": "E22",
+        "name": "stop",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 3.0,
+        "description": "End of the region in 0-based coordinates",
+        "fullyQualifiedName": "Locus.stop"
+      }
+    ]
+  },
+  "E23": {
+    "id": "E23",
+    "name": "AlleleFrequency",
+    "parentType": "E01",
+    "link": "AllFreq",
+    "externalIRI": "http://purl.obolibrary.org/obo/STATO_0000254",
+    "description": "The frequency of an allele in a population or a defined group of individuals",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A031",
+        "entityId": "E23",
+        "name": "allele",
+        "dataType": "CanonicalAllele",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "externalIRI": "SO:0001023 (unless we want to insist on a CA specific type)",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "The variant for which the frequency is given",
+        "fullyQualifiedName": "AlleleFrequency.allele"
+      },
+      {
+        "id": "A047",
+        "entityId": "E23",
+        "name": "population",
+        "dataType": "CodeableConcept",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetId": "VS013",
+        "restrictByValueSet": "No",
+        "valueSetName": "PopulationType",
+        "precedence": 2.0,
+        "description": "Ancestry of population or group over which the frequency was measured",
+        "fullyQualifiedName": "AlleleFrequency.population"
+      },
+      {
+        "id": "A030",
+        "entityId": "E23",
+        "name": "ascertainment",
+        "dataType": "CodeableConcept",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetId": "VS023",
+        "restrictByValueSet": "No",
+        "valueSetName": "AscertainmentType",
+        "precedence": 3.0,
+        "description": "The criteria applied to create the dataset in which the frequency was measured",
+        "fullyQualifiedName": "AlleleFrequency.ascertainment"
+      },
+      {
+        "id": "A060",
+        "entityId": "E23",
+        "name": "alleleFrequency",
+        "dataType": "float",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 4.0,
+        "description": "Frequency of the named allele in the population",
+        "fullyQualifiedName": "AlleleFrequency.alleleFrequency"
+      },
+      {
+        "id": "A032",
+        "entityId": "E23",
+        "name": "alleleCount",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 5.0,
+        "description": "Frequency numerator: number of times the allele was observed",
+        "fullyQualifiedName": "AlleleFrequency.alleleCount"
+      },
+      {
+        "id": "A033",
+        "entityId": "E23",
+        "name": "alleleNumber",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 6.0,
+        "description": "Frequency denominator: number of observations",
+        "fullyQualifiedName": "AlleleFrequency.alleleNumber"
+      },
+      {
+        "id": "A044",
+        "entityId": "E23",
+        "name": "individualCount",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 7.0,
+        "description": "Number of individuals sampled",
+        "fullyQualifiedName": "AlleleFrequency.individualCount"
+      },
+      {
+        "id": "A045",
+        "entityId": "E23",
+        "name": "homozygousAlleleIndividualCount",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 8.0,
+        "description": "Number of individuals in the group that are homozygous for the allele",
+        "fullyQualifiedName": "AlleleFrequency.homozygousAlleleIndividualCount"
+      },
+      {
+        "id": "A046",
+        "entityId": "E23",
+        "name": "heterozygousAlleleIndividualCount",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 9.0,
+        "description": "Number of individuals in the group who are heterozygous for the allele.",
+        "fullyQualifiedName": "AlleleFrequency.heterozygousAlleleIndividualCount"
+      },
+      {
+        "id": "A051",
+        "entityId": "E23",
+        "name": "hemizygousAlleleIndividualCount",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 10.0,
+        "description": "Number of individuals in the group that are hemizygous for the allele",
+        "fullyQualifiedName": "AlleleFrequency.hemizygousAlleleIndividualCount"
+      },
+      {
+        "id": "A062",
+        "entityId": "E23",
+        "name": "medianCoverage",
+        "dataType": "float",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 11.0,
+        "description": "Median coverage at the allele site in the data set",
+        "fullyQualifiedName": "AlleleFrequency.medianCoverage"
+      }
+    ]
+  },
+  "E24": {
+    "id": "E24",
+    "name": "RegionAnnotation",
+    "parentType": "E01",
+    "link": "RegAnn",
+    "description": "Whether or not a sequence region is of a certain type or types.",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A063",
+        "entityId": "E24",
+        "name": "region",
+        "dataType": "Locus",
+        "cardinality": "1..1",
+        "externalIRI": "SO:0000001",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "Region",
+        "fullyQualifiedName": "RegionAnnotation.region"
+      },
+      {
+        "id": "A057",
+        "entityId": "E24",
+        "name": "includedTypes",
+        "dataType": "Coding",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetId": "VS004",
+        "restrictByValueSet": "Yes",
+        "valueSetName": "RegionAnnotationType",
+        "precedence": 2.0,
+        "fullyQualifiedName": "RegionAnnotation.includedTypes"
+      },
+      {
+        "id": "A056",
+        "entityId": "E24",
+        "name": "excludedTypes",
+        "dataType": "Coding",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetId": "VS004",
+        "restrictByValueSet": "Yes",
+        "valueSetName": "RegionAnnotationType",
+        "precedence": 3.0,
+        "fullyQualifiedName": "RegionAnnotation.excludedTypes"
+      }
+    ]
+  },
+  "E25": {
+    "id": "E25",
+    "name": "RegionAlleles",
+    "parentType": "E01",
+    "link": "RegAll",
+    "description": "Whether or not sequence region contains a given set of alleles.",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A071",
+        "entityId": "E25",
+        "name": "region",
+        "dataType": "Locus",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "Region within which alleles are being measured",
+        "fullyQualifiedName": "RegionAlleles.region"
+      },
+      {
+        "id": "A058",
+        "entityId": "E25",
+        "name": "includedAlleles",
+        "dataType": "ContextualAllele",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "description": "Alleles that are within the region",
+        "fullyQualifiedName": "RegionAlleles.includedAlleles"
+      },
+      {
+        "id": "A059",
+        "entityId": "E25",
+        "name": "excludedAlleles",
+        "dataType": "ContextualAllele",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 3.0,
+        "description": "Alleles that are NOT within the region",
+        "fullyQualifiedName": "RegionAlleles.excludedAlleles"
+      }
+    ]
+  },
+  "E26": {
+    "id": "E26",
+    "name": "ReferenceSequence",
+    "link": "RefSeq",
+    "description": "*TODO* short description needed",
+    "attributes": [
+      {
+        "id": "A144",
+        "entityId": "E26",
+        "name": "accession",
+        "dataType": "CodeableConcept",
+        "cardinality": "1..1",
+        "valueSetId": "VS020",
+        "restrictByValueSet": "No",
+        "valueSetName": "ReferenceSequence",
+        "precedence": 1.0,
+        "fullyQualifiedName": "ReferenceSequence.accession"
+      }
+    ]
+  },
+  "E28": {
+    "id": "E28",
+    "name": "IndividualAllele",
+    "parentType": "E01",
+    "link": "IndAll",
+    "description": "Whether or not an Individual has an allele",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A065",
+        "entityId": "E28",
+        "name": "individual",
+        "dataType": "Individual",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "Person whose alleles the data represents",
+        "fullyQualifiedName": "IndividualAllele.individual"
+      },
+      {
+        "id": "A066",
+        "entityId": "E28",
+        "name": "primaryAllele",
+        "dataType": "CanonicalAllele",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "description": "One allele that the person has",
+        "fullyQualifiedName": "IndividualAllele.primaryAllele"
+      },
+      {
+        "id": "A068",
+        "entityId": "E28",
+        "name": "primaryZygosity",
+        "dataType": "Coding",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetId": "VS006",
+        "restrictByValueSet": "Yes",
+        "valueSetName": "AllelicState",
+        "precedence": 3.0,
+        "description": "Zygosity of the primary allele in the individual",
+        "fullyQualifiedName": "IndividualAllele.primaryZygosity"
+      },
+      {
+        "id": "A067",
+        "entityId": "E28",
+        "name": "secondaryAllele",
+        "dataType": "CanonicalAllele",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 4.0,
+        "description": "A second allele that the person has",
+        "fullyQualifiedName": "IndividualAllele.secondaryAllele"
+      },
+      {
+        "id": "A069",
+        "entityId": "E28",
+        "name": "secondaryZygosity",
+        "dataType": "Coding",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetId": "VS006",
+        "restrictByValueSet": "Yes",
+        "valueSetName": "AllelicState",
+        "precedence": 5.0,
+        "description": "Zygosity of the secondary allele in the individual",
+        "fullyQualifiedName": "IndividualAllele.secondaryZygosity"
+      },
+      {
+        "id": "A070",
+        "entityId": "E28",
+        "name": "phase",
+        "dataType": "Coding",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetId": "VS005",
+        "restrictByValueSet": "Yes",
+        "valueSetName": "Phase",
+        "precedence": 6.0,
+        "description": "Phase of the primary and secondary individual",
+        "fullyQualifiedName": "IndividualAllele.phase"
+      }
+    ]
+  },
+  "E32": {
+    "id": "E32",
+    "name": "AssertionMethod",
+    "link": "AssertMeth",
+    "description": "The set of rules describing how to create an interpretation from a set of Data.",
+    "attributes": [
+      {
+        "id": "A155",
+        "entityId": "E32",
+        "name": "description",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "fullyQualifiedName": "AssertionMethod.description"
+      },
+      {
+        "id": "A173",
+        "entityId": "E32",
+        "name": "version",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "fullyQualifiedName": "AssertionMethod.version"
+      },
+      {
+        "id": "A156",
+        "entityId": "E32",
+        "name": "url",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "fullyQualifiedName": "AssertionMethod.url"
+      },
+      {
+        "id": "A174",
+        "entityId": "E32",
+        "name": "scoringAlgorithm",
+        "dataType": "ScoringAlgorithm",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "fullyQualifiedName": "AssertionMethod.scoringAlgorithm"
+      }
+    ]
+  },
+  "E33": {
+    "id": "E33",
+    "name": "ScoringAlgorithm",
+    "link": "ScorAlg",
+    "description": "The rules for combining CriterionAssessments into an Interpretation",
+    "attributes": [
+      {
+        "id": "A176",
+        "entityId": "E33",
+        "name": "description",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "fullyQualifiedName": "ScoringAlgorithm.description"
+      }
+    ]
+  },
+  "E35": {
+    "id": "E35",
+    "name": "VariantInterpretation",
+    "parentType": "E01",
+    "link": "VarInterp",
+    "externalIRI": "sepio:0000001",
+    "description": "Evidence-based conclusion about the pathogenicity of a sequence variant",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A122",
+        "entityId": "E35",
+        "name": "variant",
+        "dataType": "CanonicalAllele",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "The variant whose pathogenicity is being described",
+        "fullyQualifiedName": "VariantInterpretation.variant"
+      },
+      {
+        "id": "A123",
+        "entityId": "E35",
+        "name": "condition",
+        "dataType": "MendelianCondition",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "description": "The condition for which the variant's pathogenicity is described",
+        "fullyQualifiedName": "VariantInterpretation.condition"
+      },
+      {
+        "id": "A124",
+        "entityId": "E35",
+        "name": "clinicalSignificance",
+        "dataType": "Coding",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetId": "VS003",
+        "restrictByValueSet": "Yes",
+        "valueSetName": "Significance",
+        "precedence": 3.0,
+        "description": "The coded pathogenicity of the variant for the condition",
+        "fullyQualifiedName": "VariantInterpretation.clinicalSignificance"
+      },
+      {
+        "id": "A125",
+        "entityId": "E35",
+        "name": "assertionMethod",
+        "dataType": "AssertionMethod",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 4.0,
+        "description": "The  framework that formally defines the methodology used in creating this interpretation.",
+        "fullyQualifiedName": "VariantInterpretation.assertionMethod"
+      },
+      {
+        "id": "A061",
+        "entityId": "E35",
+        "name": "evidence",
+        "dataType": "EvidenceLine",
+        "cardinality": "0..*",
+        "valueSetName": "",
+        "precedence": 5.0,
+        "description": "** TODO **",
+        "fullyQualifiedName": "VariantInterpretation.evidence"
+      }
+    ]
+  },
+  "E36": {
+    "id": "E36",
+    "name": "InformationSource",
+    "link": "InfoSrc",
+    "description": "Citation for a Information entity",
+    "attributes": [
+      {
+        "id": "A129",
+        "entityId": "E36",
+        "name": "externalIdentifier",
+        "dataType": "String",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "description": "Indentifier of the Data element in the DataSource",
+        "fullyQualifiedName": "InformationSource.externalIdentifier"
+      },
+      {
+        "id": "A130",
+        "entityId": "E36",
+        "name": "linkedIRI",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 3.0,
+        "description": "IRI of the Data element",
+        "fullyQualifiedName": "InformationSource.linkedIRI"
+      },
+      {
+        "id": "A131",
+        "entityId": "E36",
+        "name": "version",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 4.0,
+        "description": "Version of the Data Source from which the Data was retrieved",
+        "fullyQualifiedName": "InformationSource.version"
+      }
+    ]
+  },
+  "E40": {
+    "id": "E40",
+    "name": "CodeableConcept",
+    "link": "CC",
+    "externalIRI": "fhir:CodableConcept",
+    "description": "(FHIR) defines the structure needed to support the use cases that allow for the flexibility of representing a concept by either a text name or a set of equivalent Codings or both.",
+    "attributes": [
+      {
+        "id": "A072",
+        "entityId": "E40",
+        "name": "text",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "precedence": 1.0,
+        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept.",
+        "fullyQualifiedName": "CodeableConcept.text"
+      },
+      {
+        "id": "A073",
+        "entityId": "E40",
+        "name": "coding",
+        "dataType": "Coding",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "externalIRI": "fhir:coding",
+        "precedence": 2.0,
+        "description": "Codings thtat identify the concept. If more than one then the codings are typically considered equivalent. (FHIR offers additional attributes to qualify the codings further if needed) ",
+        "fullyQualifiedName": "CodeableConcept.coding"
+      }
+    ]
+  },
+  "E41": {
+    "id": "E41",
+    "name": "CodeSystem",
+    "link": "CS",
+    "externalIRI": "fhir:CodeSystem",
+    "description": "(FHIR) defines a set of codes with meanings (also known as enumeration, terminology, classification, and/or ontology)",
+    "attributes": [
+
+    ]
+  },
+  "E42": {
+    "id": "E42",
+    "name": "Coding",
+    "link": "CD",
+    "externalIRI": "fhir:Coding",
+    "description": "(FHIR) Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the hierarchical relationships are.",
+    "attributes": [
+      {
+        "id": "A004",
+        "entityId": "E42",
+        "name": "code",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "externalIRI": "fhir:Code",
+        "precedence": 1.0,
+        "description": "a unique value within a system (or namespace) to represent or identify a concept",
+        "fullyQualifiedName": "Coding.code"
+      },
+      {
+        "id": "A005",
+        "entityId": "E42",
+        "name": "system",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "externalIRI": "fhir:System",
+        "precedence": 2.0,
+        "description": "a unique global value assigned to a coding system which acts as a namespace for the set of unique immutable and reliable codes it publishes",
+        "fullyQualifiedName": "Coding.system"
+      },
+      {
+        "id": "A064",
+        "entityId": "E42",
+        "name": "display",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 3.0,
+        "description": "A human-readable representation of a coded concept. ",
+        "fullyQualifiedName": "Coding.display"
+      }
+    ]
+  },
+  "E43": {
+    "id": "E43",
+    "name": "BenignMissenseVariationRate",
+    "parentType": "E01",
+    "link": "BMVR",
+    "description": "The amount of benign missense variation in a particular region",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A076",
+        "entityId": "E43",
+        "name": "region",
+        "dataType": "Locus",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "Sequence on which the region is defined",
+        "fullyQualifiedName": "BenignMissenseVariationRate.region"
+      },
+      {
+        "id": "A094",
+        "entityId": "E43",
+        "name": "gene",
+        "dataType": "Gene",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "Gene that contains the missense variants",
+        "fullyQualifiedName": "BenignMissenseVariationRate.gene"
+      },
+      {
+        "id": "A080",
+        "entityId": "E43",
+        "name": "value",
+        "dataType": "Coding",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetId": "VS014",
+        "restrictByValueSet": "No",
+        "valueSetName": "BenignMissenseVariationRate",
+        "precedence": 2.0,
+        "description": "The rate at which Benign missense variants occur within the region",
+        "fullyQualifiedName": "BenignMissenseVariationRate.value"
+      }
+    ]
+  },
+  "E44": {
+    "id": "E44",
+    "name": "Family",
+    "parentType": "E01",
+    "link": "Fam",
+    "description": "A group of individuals related in a known manner.",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A146",
+        "entityId": "E44",
+        "name": "label",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "fullyQualifiedName": "Family.label"
+      },
+      {
+        "id": "A147",
+        "entityId": "E44",
+        "name": "description",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "fullyQualifiedName": "Family.description"
+      }
+    ]
+  },
+  "E45": {
+    "id": "E45",
+    "name": "FamilySegregationData",
+    "parentType": "E01",
+    "link": "FamSegData",
+    "description": "Cosegregation of an allele and a condition in a single family",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A082",
+        "entityId": "E45",
+        "name": "canonicalAllele",
+        "dataType": "CanonicalAllele",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "Allele being tested for cosegregation",
+        "fullyQualifiedName": "FamilySegregationData.canonicalAllele"
+      },
+      {
+        "id": "A081",
+        "entityId": "E45",
+        "name": "condition",
+        "dataType": "MendelianCondition",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "description": "Condition being tested for cosegregation",
+        "fullyQualifiedName": "FamilySegregationData.condition"
+      },
+      {
+        "id": "A083",
+        "entityId": "E45",
+        "name": "family",
+        "dataType": "Family",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 3.0,
+        "description": "Family in which segregation is being tested",
+        "fullyQualifiedName": "FamilySegregationData.family"
+      },
+      {
+        "id": "A084",
+        "entityId": "E45",
+        "name": "phenotypePositiveAllelePositive",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 4.0,
+        "description": "Number of (non-proband) individuals with both the condition and the allele",
+        "fullyQualifiedName": "FamilySegregationData.phenotypePositiveAllelePositive"
+      },
+      {
+        "id": "A050",
+        "entityId": "E45",
+        "name": "phenotypePositiveAlleleNegative",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 5.0,
+        "description": "Number of (non-proband) individuals with the condition and without the allele",
+        "fullyQualifiedName": "FamilySegregationData.phenotypePositiveAlleleNegative"
+      },
+      {
+        "id": "A085",
+        "entityId": "E45",
+        "name": "phenotypeNegativeAllelePositive",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 6.0,
+        "description": "Number of (non-proband) individuals without the condition and with the allele",
+        "fullyQualifiedName": "FamilySegregationData.phenotypeNegativeAllelePositive"
+      },
+      {
+        "id": "A126",
+        "entityId": "E45",
+        "name": "phenotypeNegativeAlleleNegative",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 7.0,
+        "description": "The number of non-proband family members that have neither the allele nor the phenotype",
+        "fullyQualifiedName": "FamilySegregationData.phenotypeNegativeAlleleNegative"
+      },
+      {
+        "id": "A093",
+        "entityId": "E45",
+        "name": "pedigree",
+        "dataType": "String",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 8.0,
+        "description": "Detailed information about the family structure, affected status, and genotypes in pedigree/linkage format.",
+        "fullyQualifiedName": "FamilySegregationData.pedigree"
+      },
+      {
+        "id": "A090",
+        "entityId": "E45",
+        "name": "columns",
+        "dataType": "String",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 9.0,
+        "description": "Column names for the pedigree data element",
+        "fullyQualifiedName": "FamilySegregationData.columns"
+      },
+      {
+        "id": "A092",
+        "entityId": "E45",
+        "name": "genotypeValues",
+        "dataType": "String",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 10.0,
+        "description": "Map describing how genotypes are represented in the pedigree",
+        "fullyQualifiedName": "FamilySegregationData.genotypeValues"
+      },
+      {
+        "id": "A091",
+        "entityId": "E45",
+        "name": "affectedValues",
+        "dataType": "String",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 11.0,
+        "description": "Map describing how affected status is represented in the pedigree",
+        "fullyQualifiedName": "FamilySegregationData.affectedValues"
+      },
+      {
+        "id": "A110",
+        "entityId": "E45",
+        "name": "anyInconsistentSegregations",
+        "dataType": "boolean",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 12.0,
+        "description": "Whether phenotype positive/allele negative or phenotype negative/allele positive individuals are in the family",
+        "fullyQualifiedName": "FamilySegregationData.anyInconsistentSegregations"
+      }
+    ]
+  },
+  "E46": {
+    "id": "E46",
+    "name": "AggregateSegregationData",
+    "parentType": "E01",
+    "link": "AggSegData",
+    "description": "Cosegregation of an allele and a condition aggregated across families",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A086",
+        "entityId": "E46",
+        "name": "canonicalAllele",
+        "dataType": "CanonicalAllele",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "Allele being tested for cosegregation",
+        "fullyQualifiedName": "AggregateSegregationData.canonicalAllele"
+      },
+      {
+        "id": "A087",
+        "entityId": "E46",
+        "name": "condition",
+        "dataType": "MendelianCondition",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "description": "Condition being tested for cosegregation",
+        "fullyQualifiedName": "AggregateSegregationData.condition"
+      },
+      {
+        "id": "A088",
+        "entityId": "E46",
+        "name": "totalNumberOfSegregations",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 3.0,
+        "description": "Total number of segregations across families",
+        "fullyQualifiedName": "AggregateSegregationData.totalNumberOfSegregations"
+      },
+      {
+        "id": "A089",
+        "entityId": "E46",
+        "name": "familySegregationData",
+        "dataType": "FamilySegregationData",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 4.0,
+        "description": "List of FamilySegregrationData that have been aggregated",
+        "fullyQualifiedName": "AggregateSegregationData.familySegregationData"
+      },
+      {
+        "id": "A160",
+        "entityId": "E46",
+        "name": "modeOfInheritance",
+        "dataType": "CodeableConcept",
+        "cardinality": "0..1",
+        "valueSetId": "VS007",
+        "restrictByValueSet": "Yes",
+        "valueSetName": "ModeOfInheritance",
+        "precedence": 5.0,
+        "description": "Mode Of Inheritance used in evaluation of segregation",
+        "fullyQualifiedName": "AggregateSegregationData.modeOfInheritance"
+      },
+      {
+        "id": "A161",
+        "entityId": "E46",
+        "name": "totalOfAllelePosConditionPosIndividuals",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 6.0,
+        "description": "Number of individuals across families that have the allele and the condition",
+        "fullyQualifiedName": "AggregateSegregationData.totalOfAllelePosConditionPosIndividuals"
+      },
+      {
+        "id": "A162",
+        "entityId": "E46",
+        "name": "totalOfAlleleNegConditionNegIndividuals",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 7.0,
+        "description": "Number of individuals across families that lack both the allele and the condition",
+        "fullyQualifiedName": "AggregateSegregationData.totalOfAlleleNegConditionNegIndividuals"
+      },
+      {
+        "id": "A163",
+        "entityId": "E46",
+        "name": "totalOfAllelePosConditionNegIndividuals",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 8.0,
+        "description": "Number of individuals across families that have the allele but not the condition",
+        "fullyQualifiedName": "AggregateSegregationData.totalOfAllelePosConditionNegIndividuals"
+      },
+      {
+        "id": "A164",
+        "entityId": "E46",
+        "name": "totalOfAlleleNegConditionPosIndividuals",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 9.0,
+        "description": "Number of individuals across families that do not have the allele but do have the condition",
+        "fullyQualifiedName": "AggregateSegregationData.totalOfAlleleNegConditionPosIndividuals"
+      },
+      {
+        "id": "A165",
+        "entityId": "E46",
+        "name": "totalOfUntestedConditionPosIndividuals",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 10.0,
+        "description": "Number of individuals across families that have the condition but whose allele is untested",
+        "fullyQualifiedName": "AggregateSegregationData.totalOfUntestedConditionPosIndividuals"
+      },
+      {
+        "id": "A166",
+        "entityId": "E46",
+        "name": "totalOfUntestedConditionNegIndividuals",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 11.0,
+        "description": "Number of individuals across families that do not have the condition but whose allele is untested",
+        "fullyQualifiedName": "AggregateSegregationData.totalOfUntestedConditionNegIndividuals"
+      },
+      {
+        "id": "A167",
+        "entityId": "E46",
+        "name": "totalOfFamiliesWithInconsistentSegregations",
+        "dataType": "int",
+        "cardinality": "0..1",
+        "valueSetName": "",
+        "precedence": 12.0,
+        "description": "Number of families containing segregations that are inconsistent with the allele causing the condition",
+        "fullyQualifiedName": "AggregateSegregationData.totalOfFamiliesWithInconsistentSegregations"
+      }
+    ]
+  },
+  "E47": {
+    "id": "E47",
+    "name": "InSilicoPrediction",
+    "parentType": "E01",
+    "link": "InSilicoPred",
+    "description": "Computationally predicted functional impact of an allele",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A095",
+        "entityId": "E47",
+        "name": "quantitativePrediction",
+        "dataType": "float",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "fullyQualifiedName": "InSilicoPrediction.quantitativePrediction"
+      },
+      {
+        "id": "A034",
+        "entityId": "E47",
+        "name": "transcript",
+        "dataType": "ReferenceSequence",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "The contextual allele on which the prediction is made",
+        "fullyQualifiedName": "InSilicoPrediction.transcript"
+      },
+      {
+        "id": "A096",
+        "entityId": "E47",
+        "name": "canonicalAllele",
+        "dataType": "CanonicalAllele",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "The contextual allele on which the prediction is made",
+        "fullyQualifiedName": "InSilicoPrediction.canonicalAllele"
+      },
+      {
+        "id": "A098",
+        "entityId": "E47",
+        "name": "algorithm",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "description": "The computational tool or algorithm that makes the prediction",
+        "fullyQualifiedName": "InSilicoPrediction.algorithm"
+      },
+      {
+        "id": "A097",
+        "entityId": "E47",
+        "name": "predictionType",
+        "dataType": "CodeableConcept",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetId": "VS010",
+        "restrictByValueSet": "No",
+        "valueSetName": "PredictionType",
+        "precedence": 3.0,
+        "description": "The type of prediction being made",
+        "fullyQualifiedName": "InSilicoPrediction.predictionType"
+      },
+      {
+        "id": "A099",
+        "entityId": "E47",
+        "name": "categoricalPrediction",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 4.0,
+        "description": "The value of the prediction",
+        "fullyQualifiedName": "InSilicoPrediction.categoricalPrediction"
+      }
+    ]
+  },
+  "E48": {
+    "id": "E48",
+    "name": "ConditionEtiology",
+    "parentType": "E01",
+    "link": "CondEtiol",
+    "description": "Specificity of the condition to a gene.",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A100",
+        "entityId": "E48",
+        "name": "condition",
+        "dataType": "MendelianCondition",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "The condition for which the eitiology is defined",
+        "fullyQualifiedName": "ConditionEtiology.condition"
+      },
+      {
+        "id": "A101",
+        "entityId": "E48",
+        "name": "gene",
+        "dataType": "Gene",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "description": "Gene that causes the condition",
+        "fullyQualifiedName": "ConditionEtiology.gene"
+      },
+      {
+        "id": "A102",
+        "entityId": "E48",
+        "name": "specificity",
+        "dataType": "String",
+        "cardinality": "1..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 3.0,
+        "description": "Specificity of the Gene for the Condition",
+        "fullyQualifiedName": "ConditionEtiology.specificity"
+      }
+    ]
+  },
+  "E49": {
+    "id": "E49",
+    "name": "ConditionPrevelance",
+    "parentType": "E01",
+    "link": "CondPrev",
+    "description": "Frequency of a condition in a population",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A103",
+        "entityId": "E49",
+        "name": "condition",
+        "dataType": "MendelianCondition",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "Condition for which the prevelance is described",
+        "fullyQualifiedName": "ConditionPrevelance.condition"
+      },
+      {
+        "id": "A106",
+        "entityId": "E49",
+        "name": "population",
+        "dataType": "CodeableConcept",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetId": "VS013",
+        "restrictByValueSet": "No",
+        "valueSetName": "PopulationType",
+        "precedence": 2.0,
+        "description": "Population over which the prevelance is defined",
+        "fullyQualifiedName": "ConditionPrevelance.population"
+      },
+      {
+        "id": "A104",
+        "entityId": "E49",
+        "name": "minimum",
+        "dataType": "float",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 3.0,
+        "description": "Minimum bound on the condition's prevelance",
+        "fullyQualifiedName": "ConditionPrevelance.minimum"
+      },
+      {
+        "id": "A105",
+        "entityId": "E49",
+        "name": "maximum",
+        "dataType": "float",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 4.0,
+        "description": "Maximum bound on the condition's prevelance",
+        "fullyQualifiedName": "ConditionPrevelance.maximum"
+      },
+      {
+        "id": "A109",
+        "entityId": "E49",
+        "name": "prevelance",
+        "dataType": "float",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 5.0,
+        "description": "Prevelance of the condition in the population",
+        "fullyQualifiedName": "ConditionPrevelance.prevelance"
+      }
+    ]
+  },
+  "E50": {
+    "id": "E50",
+    "name": "ConditionPenetrance",
+    "parentType": "E01",
+    "link": "CondPenet",
+    "description": "Qualitative characterization of a condition's penetrance",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A107",
+        "entityId": "E50",
+        "name": "condition",
+        "dataType": "MendelianCondition",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "Condition for which the penetrance is described",
+        "fullyQualifiedName": "ConditionPenetrance.condition"
+      },
+      {
+        "id": "A108",
+        "entityId": "E50",
+        "name": "penetrance",
+        "dataType": "CodeableConcept",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetId": "VS015",
+        "restrictByValueSet": "Yes",
+        "valueSetName": "PenetranceType",
+        "precedence": 2.0,
+        "description": "Qualitative penetrance value",
+        "fullyQualifiedName": "ConditionPenetrance.penetrance"
+      }
+    ]
+  },
+  "E51": {
+    "id": "E51",
+    "name": "Conservation",
+    "parentType": "E01",
+    "link": "Conserv",
+    "description": "Characterizes whether the allele is fixed across species",
+    "attributes": [
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "InformationSource",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "Information.source"
+      },
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Information.explanation"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Information.contribution"
+      },
+      {
+        "id": "A111",
+        "entityId": "E51",
+        "name": "allele",
+        "dataType": "CanonicalAllele",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "The allele for which conservation values are given",
+        "fullyQualifiedName": "Conservation.allele"
+      },
+      {
+        "id": "A113",
+        "entityId": "E51",
+        "name": "algorithm",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 2.0,
+        "description": "Method or program used to calculate conservation",
+        "fullyQualifiedName": "Conservation.algorithm"
+      },
+      {
+        "id": "A114",
+        "entityId": "E51",
+        "name": "score",
+        "dataType": "float",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 3.0,
+        "description": "Numerical score for the conservation of the allele",
+        "fullyQualifiedName": "Conservation.score"
+      },
+      {
+        "id": "A112",
+        "entityId": "E51",
+        "name": "conserved",
+        "dataType": "boolean",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "valueSetName": "",
+        "precedence": 4.0,
+        "description": "Whether the allele is conserved",
+        "fullyQualifiedName": "Conservation.conserved"
+      }
+    ]
+  },
+  "E54": {
+    "id": "E54",
+    "name": "ValueSet",
+    "link": "VS",
+    "externalIRI": "fhir:ValueSet",
+    "description": "(FHIR) A value set specifies a set of codes drawn from one or more code systems.",
+    "attributes": [
+      {
+        "id": "A121",
+        "entityId": "E54",
+        "name": "includesCoding",
+        "dataType": "Coding",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "fullyQualifiedName": "ValueSet.includesCoding"
+      },
+      {
+        "id": "A132",
+        "entityId": "E54",
+        "name": "name",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "fullyQualifiedName": "ValueSet.name"
+      },
+      {
+        "id": "A133",
+        "entityId": "E54",
+        "name": "description",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "fullyQualifiedName": "ValueSet.description"
+      }
+    ]
+  },
+  "E55": {
+    "id": "E55",
+    "name": "ValueSetCoding",
+    "link": "VSC",
+    "description": "This maps to the use of codes in relationship to ValueSets in HL7 FHIR.  For details on understanding how Codes and ValueSets are defined see HL7 FHIR spec 4.1 Using Codes and its subsections (https://www.hl7.org/fhir/terminologies.html) .",
+    "attributes": [
+
+    ]
+  },
+  "E56": {
+    "id": "E56",
+    "name": "EvidenceLine",
+    "link": "EvLn",
+    "externalIRI": "sepio:0000002",
+    "description": "A reification of the underlying supporting data which may be one or more data points or assertions. Typically grouped in a specific manner for use in an owning assertion activity (either Variant Interpretation or CriterionAssessment. All evidence may optionally be given a strength by an agent.",
+    "attributes": [
+      {
+        "id": "A177",
+        "entityId": "E56",
+        "name": "explanation",
+        "dataType": "String",
+        "cardinality": "1..1",
+        "defaultValue": "not null",
+        "valueSetName": "",
+        "precedence": 1.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "EvidenceLine.explanation"
+      },
+      {
+        "id": "A179",
+        "entityId": "E56",
+        "name": "evidenceStrength",
+        "dataType": "CodeableConcept",
+        "cardinality": "0..1",
+        "valueSetId": "VS017",
+        "restrictByValueSet": "No",
+        "valueSetName": "EvidenceLineStrength",
+        "precedence": 2.0,
+        "fullyQualifiedName": "EvidenceLine.evidenceStrength"
+      },
+      {
+        "id": "A178",
+        "entityId": "E56",
+        "name": "information",
+        "dataType": "Information",
+        "cardinality": "0..*",
+        "valueSetName": "",
+        "precedence": 3.0,
+        "fullyQualifiedName": "EvidenceLine.information"
+      },
+      {
+        "id": "A180",
+        "entityId": "E56",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "precedence": 4.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "EvidenceLine.contribution"
+      }
+    ]
+  }
+}
