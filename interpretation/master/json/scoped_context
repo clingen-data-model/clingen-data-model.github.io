@@ -1,0 +1,642 @@
+{
+  "@context": {
+    "cg": "http://datamodel.clinicalgenome.org/types/",
+    "base": "http://datamodel.clinicalgenome.org/types/",
+    "gns": "http://schema.genome.network/",
+    "id": "@id",
+    "type": "@type",
+    "Information": {
+      "@id": "iao:0000030",
+      "@context": {
+        "source": "cg:source",
+        "explanation": "cg:explanation",
+        "contribution": {
+          "@id": "cg:contribution",
+          "@type": "@id"
+        }
+      }
+    },
+    "MolecularConsequence": {
+      "@id": "cg:MolecularConsequence",
+      "@context": {
+        "contextualAllele": {
+          "@id": "cg:contextualAllele",
+          "@type": "@id"
+        },
+        "lof": {
+          "@id": "cg:lof",
+          "@type": "@id"
+        },
+        "consequence": {
+          "@id": "cg:consequence",
+          "@type": "@id"
+        }
+      }
+    },
+    "ConditionMechanism": {
+      "@id": "cg:ConditionMechanism",
+      "@context": {
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "gene": {
+          "@id": "cg:gene",
+          "@type": "@id"
+        },
+        "mechanism": {
+          "@id": "cg:mechanism",
+          "@type": "@id"
+        },
+        "mechanismConfidence": {
+          "@id": "cg:mechanismConfidence",
+          "@type": "@id"
+        }
+      }
+    },
+    "Criterion": {
+      "@id": "cg:Criterion",
+      "@context": {
+        "description": "cg:description",
+        "shortDescription": "cg:shortDescription",
+        "defaultStrength": {
+          "@id": "cg:defaultStrength",
+          "@type": "@id"
+        }
+      }
+    },
+    "CanonicalAllele": {
+      "@id": "ar:allele",
+      "@context": {
+        "preferredCtxAllele": {
+          "@id": "cg:preferredCtxAllele",
+          "@type": "@id"
+        },
+        "identifier": "cg:identifier"
+      }
+    },
+    "ContextualAllele": {
+      "@id": "cg:ContextualAllele",
+      "@context": {
+        "relatedCanonicalAllele": {
+          "@id": "cg:relatedCanonicalAllele",
+          "@type": "@id"
+        },
+        "alleleName": "cg:alleleName",
+        "legacyNames": "cg:legacyNames"
+      }
+    },
+    "Gene": {
+      "@id": "ar:gene",
+      "@context": {
+        "symbol": "cg:symbol"
+      }
+    },
+    "CriterionAssessment": {
+      "@id": "sepio:0000001",
+      "@context": {
+        "evidence": {
+          "@id": "cg:evidence",
+          "@type": "@id"
+        },
+        "criterion": {
+          "@id": "cg:criterion",
+          "@type": "@id"
+        },
+        "variant": {
+          "@id": "cg:variant",
+          "@type": "@id"
+        },
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "outcome": {
+          "@id": "cg:outcome",
+          "@type": "@id"
+        }
+      }
+    },
+    "Contribution": {
+      "@id": "cg:Contribution",
+      "@context": {
+        "agent": {
+          "@id": "cg:agent",
+          "@type": "@id"
+        },
+        "onDate": {
+          "@id": "cg:onDate",
+          "@type": "@id"
+        },
+        "role": {
+          "@id": "cg:role",
+          "@type": "@id"
+        }
+      }
+    },
+    "Agent": {
+      "@id": "foaf:Agent",
+      "@context": {
+        "description": "cg:description",
+        "name": "cg:name"
+      }
+    },
+    "Example": {
+      "@id": "cg:Example",
+      "@context": {
+        "informationId": {
+          "@id": "cg:informationId",
+          "@type": "@id"
+        },
+        "searchTags": "cg:searchTags",
+        "index": "cg:index",
+        "author": "cg:author",
+        "description": "cg:description",
+        "image": {
+          "@id": "cg:image",
+          "@type": "@id"
+        }
+      }
+    },
+    "MendelianCondition": {
+      "@id": "cg:MendelianCondition",
+      "@context": {
+        "name": "cg:name",
+        "disease": {
+          "@id": "cg:disease",
+          "@type": "@id"
+        },
+        "phenotype": {
+          "@id": "cg:phenotype",
+          "@type": "@id"
+        },
+        "modeOfInheritance": {
+          "@id": "cg:modeOfInheritance",
+          "@type": "@id"
+        },
+        "gene": {
+          "@id": "cg:gene",
+          "@type": "@id"
+        }
+      }
+    },
+    "Individual": {
+      "@id": "foaf:Person",
+      "@context": {
+        "description": "cg:description"
+      }
+    },
+    "IndividualCondition": {
+      "@id": "cg:IndividualCondition",
+      "@context": {
+        "individual": {
+          "@id": "cg:individual",
+          "@type": "@id"
+        },
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "hasCondition": "cg:hasCondition"
+      }
+    },
+    "FamilyHistory": {
+      "@id": "cg:FamilyHistory",
+      "@context": {
+        "proband": {
+          "@id": "cg:proband",
+          "@type": "@id"
+        },
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "familyHasCondition": "cg:familyHasCondition"
+      }
+    },
+    "DeNovoAllele": {
+      "@id": "cg:DeNovoAllele",
+      "@context": {
+        "alleleInheritance": {
+          "@id": "cg:alleleInheritance",
+          "@type": "@id"
+        },
+        "canonicalAllele": {
+          "@id": "cg:canonicalAllele",
+          "@type": "@id"
+        },
+        "individual": {
+          "@id": "cg:individual",
+          "@type": "@id"
+        },
+        "maternityConfirmed": "cg:maternityConfirmed",
+        "paternityConfirmed": "cg:paternityConfirmed"
+      }
+    },
+    "FunctionalData": {
+      "@id": "cg:FunctionalData",
+      "@context": {
+        "contextualAllele": {
+          "@id": "cg:contextualAllele",
+          "@type": "@id"
+        },
+        "gene": {
+          "@id": "cg:gene",
+          "@type": "@id"
+        },
+        "result": "cg:result",
+        "dataType": {
+          "@id": "cg:dataType",
+          "@type": "@id"
+        }
+      }
+    },
+    "CaseControl": {
+      "@id": "cg:CaseControl",
+      "@context": {
+        "canonicalAllele": {
+          "@id": "cg:canonicalAllele",
+          "@type": "@id"
+        },
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "caseGroupFrequency": {
+          "@id": "cg:caseGroupFrequency",
+          "@type": "@id"
+        },
+        "controlGroupFrequency": {
+          "@id": "cg:controlGroupFrequency",
+          "@type": "@id"
+        },
+        "oddsRatio": "cg:oddsRatio",
+        "confidenceLevel": "cg:confidenceLevel",
+        "confidenceIntervalLower": "cg:confidenceIntervalLower",
+        "confidenceIntervalUpper": "cg:confidenceIntervalUpper"
+      }
+    },
+    "Locus": {
+      "@id": "cg:Locus",
+      "@context": {
+        "referenceSequence": {
+          "@id": "cg:referenceSequence",
+          "@type": "@id"
+        },
+        "start": "cg:start",
+        "stop": "cg:stop"
+      }
+    },
+    "AlleleFrequency": {
+      "@id": "http://purl.obolibrary.org/obo/STATO_0000254",
+      "@context": {
+        "allele": {
+          "@id": "cg:allele",
+          "@type": "@id"
+        },
+        "population": {
+          "@id": "cg:population",
+          "@type": "@id"
+        },
+        "ascertainment": {
+          "@id": "cg:ascertainment",
+          "@type": "@id"
+        },
+        "alleleFrequency": "cg:alleleFrequency",
+        "alleleCount": "cg:alleleCount",
+        "alleleNumber": "cg:alleleNumber",
+        "individualCount": "cg:individualCount",
+        "homozygousAlleleIndividualCount": "cg:homozygousAlleleIndividualCount",
+        "heterozygousAlleleIndividualCount": "cg:heterozygousAlleleIndividualCount",
+        "hemizygousAlleleIndividualCount": "cg:hemizygousAlleleIndividualCount",
+        "medianCoverage": "cg:medianCoverage"
+      }
+    },
+    "RegionAnnotation": {
+      "@id": "cg:RegionAnnotation",
+      "@context": {
+        "region": {
+          "@id": "cg:region",
+          "@type": "@id"
+        },
+        "includedTypes": {
+          "@id": "cg:includedTypes",
+          "@type": "@id"
+        },
+        "excludedTypes": {
+          "@id": "cg:excludedTypes",
+          "@type": "@id"
+        }
+      }
+    },
+    "RegionAlleles": {
+      "@id": "cg:RegionAlleles",
+      "@context": {
+        "region": {
+          "@id": "cg:region",
+          "@type": "@id"
+        },
+        "includedAlleles": {
+          "@id": "cg:includedAlleles",
+          "@type": "@id"
+        },
+        "excludedAlleles": {
+          "@id": "cg:excludedAlleles",
+          "@type": "@id"
+        }
+      }
+    },
+    "ReferenceSequence": {
+      "@id": "cg:ReferenceSequence",
+      "@context": {
+        "accession": {
+          "@id": "cg:accession",
+          "@type": "@id"
+        }
+      }
+    },
+    "IndividualAllele": {
+      "@id": "cg:IndividualAllele",
+      "@context": {
+        "individual": {
+          "@id": "cg:individual",
+          "@type": "@id"
+        },
+        "primaryAllele": {
+          "@id": "cg:primaryAllele",
+          "@type": "@id"
+        },
+        "primaryZygosity": {
+          "@id": "cg:primaryZygosity",
+          "@type": "@id"
+        },
+        "secondaryAllele": {
+          "@id": "cg:secondaryAllele",
+          "@type": "@id"
+        },
+        "secondaryZygosity": {
+          "@id": "cg:secondaryZygosity",
+          "@type": "@id"
+        },
+        "phase": {
+          "@id": "cg:phase",
+          "@type": "@id"
+        }
+      }
+    },
+    "AssertionMethod": {
+      "@id": "cg:AssertionMethod",
+      "@context": {
+        "description": "cg:description",
+        "version": "cg:version",
+        "url": "cg:url",
+        "scoringAlgorithm": {
+          "@id": "cg:scoringAlgorithm",
+          "@type": "@id"
+        }
+      }
+    },
+    "ScoringAlgorithm": {
+      "@id": "cg:ScoringAlgorithm",
+      "@context": {
+        "description": "cg:description"
+      }
+    },
+    "VariantInterpretation": {
+      "@id": "sepio:0000001",
+      "@context": {
+        "variant": {
+          "@id": "cg:variant",
+          "@type": "@id"
+        },
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "clinicalSignificance": {
+          "@id": "cg:clinicalSignificance",
+          "@type": "@id"
+        },
+        "assertionMethod": {
+          "@id": "cg:assertionMethod",
+          "@type": "@id"
+        },
+        "evidence": {
+          "@id": "cg:evidence",
+          "@type": "@id"
+        }
+      }
+    },
+    "CodeableConcept": {
+      "@id": "fhir:CodableConcept",
+      "@context": {
+        "text": "cg:text",
+        "coding": {
+          "@id": "cg:coding",
+          "@type": "@id"
+        }
+      }
+    },
+    "CodeSystem": {
+      "@id": "fhir:CodeSystem",
+      "@context": {
+      }
+    },
+    "Coding": {
+      "@id": "fhir:Coding",
+      "@context": {
+        "code": "cg:code",
+        "system": "cg:system",
+        "display": "cg:display"
+      }
+    },
+    "BenignMissenseVariationRate": {
+      "@id": "cg:BenignMissenseVariationRate",
+      "@context": {
+        "region": {
+          "@id": "cg:region",
+          "@type": "@id"
+        },
+        "gene": {
+          "@id": "cg:gene",
+          "@type": "@id"
+        },
+        "value": {
+          "@id": "cg:value",
+          "@type": "@id"
+        }
+      }
+    },
+    "Family": {
+      "@id": "cg:Family",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description"
+      }
+    },
+    "FamilySegregationData": {
+      "@id": "cg:FamilySegregationData",
+      "@context": {
+        "canonicalAllele": {
+          "@id": "cg:canonicalAllele",
+          "@type": "@id"
+        },
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "family": {
+          "@id": "cg:family",
+          "@type": "@id"
+        },
+        "phenotypePositiveAllelePositive": "cg:phenotypePositiveAllelePositive",
+        "phenotypePositiveAlleleNegative": "cg:phenotypePositiveAlleleNegative",
+        "phenotypeNegativeAllelePositive": "cg:phenotypeNegativeAllelePositive",
+        "phenotypeNegativeAlleleNegative": "cg:phenotypeNegativeAlleleNegative",
+        "pedigree": "cg:pedigree",
+        "columns": "cg:columns",
+        "genotypeValues": "cg:genotypeValues",
+        "affectedValues": "cg:affectedValues",
+        "anyInconsistentSegregations": "cg:anyInconsistentSegregations"
+      }
+    },
+    "AggregateSegregationData": {
+      "@id": "cg:AggregateSegregationData",
+      "@context": {
+        "canonicalAllele": {
+          "@id": "cg:canonicalAllele",
+          "@type": "@id"
+        },
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "totalNumberOfSegregations": "cg:totalNumberOfSegregations",
+        "familySegregationData": {
+          "@id": "cg:familySegregationData",
+          "@type": "@id"
+        },
+        "modeOfInheritance": {
+          "@id": "cg:modeOfInheritance",
+          "@type": "@id"
+        },
+        "totalOfAllelePosConditionPosIndividuals": "cg:totalOfAllelePosConditionPosIndividuals",
+        "totalOfAlleleNegConditionNegIndividuals": "cg:totalOfAlleleNegConditionNegIndividuals",
+        "totalOfAllelePosConditionNegIndividuals": "cg:totalOfAllelePosConditionNegIndividuals",
+        "totalOfAlleleNegConditionPosIndividuals": "cg:totalOfAlleleNegConditionPosIndividuals",
+        "totalOfUntestedConditionPosIndividuals": "cg:totalOfUntestedConditionPosIndividuals",
+        "totalOfUntestedConditionNegIndividuals": "cg:totalOfUntestedConditionNegIndividuals",
+        "totalOfFamiliesWithInconsistentSegregations": "cg:totalOfFamiliesWithInconsistentSegregations"
+      }
+    },
+    "InSilicoPrediction": {
+      "@id": "cg:InSilicoPrediction",
+      "@context": {
+        "quantitativePrediction": "cg:quantitativePrediction",
+        "transcript": {
+          "@id": "cg:transcript",
+          "@type": "@id"
+        },
+        "canonicalAllele": {
+          "@id": "cg:canonicalAllele",
+          "@type": "@id"
+        },
+        "algorithm": "cg:algorithm",
+        "predictionType": {
+          "@id": "cg:predictionType",
+          "@type": "@id"
+        },
+        "categoricalPrediction": "cg:categoricalPrediction"
+      }
+    },
+    "ConditionEtiology": {
+      "@id": "cg:ConditionEtiology",
+      "@context": {
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "gene": {
+          "@id": "cg:gene",
+          "@type": "@id"
+        },
+        "specificity": "cg:specificity"
+      }
+    },
+    "ConditionPrevelance": {
+      "@id": "cg:ConditionPrevelance",
+      "@context": {
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "population": {
+          "@id": "cg:population",
+          "@type": "@id"
+        },
+        "minimum": "cg:minimum",
+        "maximum": "cg:maximum",
+        "prevelance": "cg:prevelance"
+      }
+    },
+    "ConditionPenetrance": {
+      "@id": "cg:ConditionPenetrance",
+      "@context": {
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "penetrance": {
+          "@id": "cg:penetrance",
+          "@type": "@id"
+        }
+      }
+    },
+    "Conservation": {
+      "@id": "cg:Conservation",
+      "@context": {
+        "allele": {
+          "@id": "cg:allele",
+          "@type": "@id"
+        },
+        "algorithm": "cg:algorithm",
+        "score": "cg:score",
+        "conserved": "cg:conserved"
+      }
+    },
+    "ValueSet": {
+      "@id": "fhir:ValueSet",
+      "@context": {
+        "includesCoding": {
+          "@id": "cg:includesCoding",
+          "@type": "@id"
+        },
+        "name": "cg:name",
+        "description": "cg:description"
+      }
+    },
+    "ValueSetCoding": {
+      "@id": "cg:ValueSetCoding",
+      "@context": {
+      }
+    },
+    "EvidenceLine": {
+      "@id": "sepio:0000002",
+      "@context": {
+        "explanation": "cg:explanation",
+        "evidenceStrength": {
+          "@id": "cg:evidenceStrength",
+          "@type": "@id"
+        },
+        "information": {
+          "@id": "cg:information",
+          "@type": "@id"
+        },
+        "contribution": {
+          "@id": "cg:contribution",
+          "@type": "@id"
+        }
+      }
+    }
+  }
+}
