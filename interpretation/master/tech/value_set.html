@@ -96,7 +96,7 @@
               <a href="../">Welcome</a>
             </li>
             <li><a href="../user/">User Guide</a></li>
-            <li class="active"><a href="./">Technical Reference</a></li><ul><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="evidence_line.html">EvidenceLine</a></li><li><a href="information/">Information</a></li><li class="active"><a href="value_set.html">ValueSet</a></li><li><a href="variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="./">Technical Reference</a></li><ul><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="evidence_line.html">EvidenceLine</a></li><li><a href="statement/">Statement</a></li><li class="active"><a href="value_set.html">ValueSet</a></li><li><a href="variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -444,10 +444,10 @@
         <tr>
           <td><p><a href="details/details.html#VS004">VS004</a></p></td>
           <td>
-              <p><a href="details/details.html#CG-reg-anno-type:functional">CG-reg-anno-type:functional</a></p><p><a href="details/details.html#CG-reg-anno-type:hotspot">CG-reg-anno-type:hotspot</a></p><p><a href="details/details.html#CG-reg-anno-type:repeat">CG-reg-anno-type:repeat</a></p>
+              <p><a href="details/details.html#CG-reg-type:functional">CG-reg-type:functional</a></p><p><a href="details/details.html#CG-reg-type:hotspot">CG-reg-type:hotspot</a></p><p><a href="details/details.html#CG-reg-type:repeat">CG-reg-type:repeat</a></p>
          </td>
           <td>
-              <p>RegionAnnotationType</p>
+              <p>RegionType</p>
          </td>
           <td>
               
@@ -456,27 +456,27 @@
           <td><div class="example_view" id="VS004"><pre><code>{
   "id": "VS004",
   "type": "ValueSet",
-  "name": "RegionAnnotationType",
+  "name": "RegionType",
   "includesCoding": [
     {
-      "id": "CG-reg-anno-type:functional",
+      "id": "CG-reg-type:functional",
       "type": "Coding",
       "code": "functional",
-      "system": "http://clinicalgenome.org/datamodel/region-annotation-type/",
+      "system": "http://clinicalgenome.org/datamodel/region-type/",
       "display": "Functional"
     },
     {
-      "id": "CG-reg-anno-type:hotspot",
+      "id": "CG-reg-type:hotspot",
       "type": "Coding",
       "code": "hotspot",
-      "system": "http://clinicalgenome.org/datamodel/region-annotation-type/",
+      "system": "http://clinicalgenome.org/datamodel/region-type/",
       "display": "Mutational Hotspot"
     },
     {
-      "id": "CG-reg-anno-type:repeat",
+      "id": "CG-reg-type:repeat",
       "type": "Coding",
       "code": "repeat",
-      "system": "http://clinicalgenome.org/datamodel/region-annotation-type/",
+      "system": "http://clinicalgenome.org/datamodel/region-type/",
       "display": "Repeat"
     }
   ]
@@ -947,7 +947,7 @@
               <p><a href="details/details.html#CG-func-data-type:activation">CG-func-data-type:activation</a></p><p><a href="details/details.html#CG-func-data-type:atpase">CG-func-data-type:atpase</a></p><p><a href="details/details.html#CG-func-data-type:binding">CG-func-data-type:binding</a></p><p><a href="details/details.html#CG-func-data-type:celloc">CG-func-data-type:celloc</a></p><p><a href="details/details.html#CG-func-data-type:elk1phosvialucif">CG-func-data-type:elk1phosvialucif</a></p><p><a href="details/details.html#CG-func-data-type:iodeff">CG-func-data-type:iodeff</a></p><p><a href="details/details.html#CG-func-data-type:motility">CG-func-data-type:motility</a></p><p><a href="details/details.html#CG-func-data-type:neuritegrowth">CG-func-data-type:neuritegrowth</a></p><p><a href="details/details.html#CG-func-data-type:yeastcomp">CG-func-data-type:yeastcomp</a></p>
          </td>
           <td>
-              <p>FunctionalDataType</p>
+              <p>AlleleFunctionalImpactType</p>
          </td>
           <td>
               
@@ -956,70 +956,34 @@
           <td><div class="example_view" id="VS012"><pre><code>{
   "id": "VS012",
   "type": "ValueSet",
-  "name": "FunctionalDataType",
+  "name": "AlleleFunctionalImpactType",
   "includesCoding": [
     {
-      "id": "CG-func-data-type:activation",
-      "type": "Coding",
-      "code": "activation",
-      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
-      "display": "Activation Assay"
+      "id": "CG-func-data-type:activation"
     },
     {
-      "id": "CG-func-data-type:atpase",
-      "type": "Coding",
-      "code": "atpase",
-      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
-      "display": "ATPase assay"
+      "id": "CG-func-data-type:atpase"
     },
     {
-      "id": "CG-func-data-type:binding",
-      "type": "Coding",
-      "code": "binding",
-      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
-      "display": "Binding assay"
+      "id": "CG-func-data-type:binding"
     },
     {
-      "id": "CG-func-data-type:celloc",
-      "type": "Coding",
-      "code": "celloc",
-      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
-      "display": "cellular localization"
+      "id": "CG-func-data-type:celloc"
     },
     {
-      "id": "CG-func-data-type:elk1phosvialucif",
-      "type": "Coding",
-      "code": "elk1phosvialucif",
-      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
-      "display": "Elk1 pohsphorylation via luciferase assay"
+      "id": "CG-func-data-type:elk1phosvialucif"
     },
     {
-      "id": "CG-func-data-type:iodeff",
-      "type": "Coding",
-      "code": "iodeff",
-      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
-      "display": "iodide efflux"
+      "id": "CG-func-data-type:iodeff"
     },
     {
-      "id": "CG-func-data-type:motility",
-      "type": "Coding",
-      "code": "motility",
-      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
-      "display": "motility assay"
+      "id": "CG-func-data-type:motility"
     },
     {
-      "id": "CG-func-data-type:neuritegrowth",
-      "type": "Coding",
-      "code": "neuritegrowth",
-      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
-      "display": "neurite outgrowth"
+      "id": "CG-func-data-type:neuritegrowth"
     },
     {
-      "id": "CG-func-data-type:yeastcomp",
-      "type": "Coding",
-      "code": "yeastcomp",
-      "system": "http://clinicalgenome.org/datamodel/functional-data-type/",
-      "display": "Yeast complementation assay"
+      "id": "CG-func-data-type:yeastcomp"
     }
   ]
 }
