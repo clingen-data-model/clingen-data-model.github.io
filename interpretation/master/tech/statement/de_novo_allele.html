@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li class="active"><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="functional_data.html">AlleleFunctionalImpact</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">LocusHeterogeneity</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">AlleleConservation</a></li><li class="active"><a href="de_novo_allele.html">IndividualAlleleInheritance</a></li><li><a href="family_history.html">FamilyCondition</a></li><li><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="functional_data.html">AlleleFunctionalImpact</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">GeneticCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -105,8 +105,8 @@
           <article>
 
 
-            <h1>DeNovoAllele</h1>
-            <p>Whether or not a particular Allele is DeNovo in an Individual</p>
+            <h1>IndividualAlleleInheritance</h1>
+            <p>A statement about the origin of a particular allele in an individual - i.e. whether it occurred  de novo in the individual as a result of a spontaneous mutation event, or whether it was inherited from a parent.</p>
 
                 <p>Descended from Statement</p>
 
@@ -219,12 +219,12 @@
       </tr></thead>
       <tbody>
         <tr>
-          <td><p><a href="../details/details.html#DeNovo014">DeNovo014</a></p></td>
+          <td><p><a href="../details/details.html#IndAllInh014">IndAllInh014</a></p></td>
           <td>
               <p>parentage confirmed via haplotyping.</p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allele-inheritance:denovo">CG-allele-inheritance:denovo</a></p>
+              <p><a href="../details/details.html#GENO-allele-inheritance-type:0000880">GENO-allele-inheritance-type:0000880</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll014">CanAll014</a></p>
@@ -239,9 +239,9 @@
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="DeNovo014"><pre><code>{
-  "id": "DeNovo014",
-  "type": "DeNovoAllele",
+          <td><div class="example_view" id="IndAllInh014"><pre><code>{
+  "id": "IndAllInh014",
+  "type": "IndividualAlleleInheritance",
   "explanation": "parentage confirmed via haplotyping.",
   "canonicalAllele": {
     "id": "CanAll014",
@@ -258,10 +258,10 @@
   "paternityConfirmed": true,
   "alleleInheritance": [
     {
-      "id": "CG-allele-inheritance:denovo",
+      "id": "GENO-allele-inheritance-type:0000880",
       "type": "Coding",
-      "code": "denovo",
-      "system": "http://clinicalgenome.org/datamodel/allele-inheritance/",
+      "code": "0000880",
+      "system": "http://obofoundry.org/geno/",
       "display": "de novo"
     }
   ]
@@ -271,12 +271,12 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#DeNovo017">DeNovo017</a></p></td>
+          <td><p><a href="../details/details.html#IndAllInh017">IndAllInh017</a></p></td>
           <td>
               <p>Non-paternity was excluded by assessment with microsatellites</p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allele-inheritance:denovo">CG-allele-inheritance:denovo</a></p>
+              <p><a href="../details/details.html#GENO-allele-inheritance-type:0000880">GENO-allele-inheritance-type:0000880</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll015">CanAll015</a></p>
@@ -291,9 +291,9 @@
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="DeNovo017"><pre><code>{
-  "id": "DeNovo017",
-  "type": "DeNovoAllele",
+          <td><div class="example_view" id="IndAllInh017"><pre><code>{
+  "id": "IndAllInh017",
+  "type": "IndividualAlleleInheritance",
   "explanation": "Non-paternity was excluded by assessment with microsatellites",
   "canonicalAllele": {
     "id": "CanAll015",
@@ -310,10 +310,10 @@
   "paternityConfirmed": true,
   "alleleInheritance": [
     {
-      "id": "CG-allele-inheritance:denovo",
+      "id": "GENO-allele-inheritance-type:0000880",
       "type": "Coding",
-      "code": "denovo",
-      "system": "http://clinicalgenome.org/datamodel/allele-inheritance/",
+      "code": "0000880",
+      "system": "http://obofoundry.org/geno/",
       "display": "de novo"
     }
   ]
@@ -323,12 +323,12 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#DeNovo020">DeNovo020</a></p></td>
+          <td><p><a href="../details/details.html#IndAllInh020">IndAllInh020</a></p></td>
           <td>
               <p>Variant from trio WES, which confirmed parentage</p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allele-inheritance:denovo">CG-allele-inheritance:denovo</a></p>
+              <p><a href="../details/details.html#GENO-allele-inheritance-type:0000880">GENO-allele-inheritance-type:0000880</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll016">CanAll016</a></p>
@@ -343,9 +343,9 @@
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="DeNovo020"><pre><code>{
-  "id": "DeNovo020",
-  "type": "DeNovoAllele",
+          <td><div class="example_view" id="IndAllInh020"><pre><code>{
+  "id": "IndAllInh020",
+  "type": "IndividualAlleleInheritance",
   "explanation": "Variant from trio WES, which confirmed parentage",
   "canonicalAllele": {
     "id": "CanAll016",
@@ -362,10 +362,10 @@
   "paternityConfirmed": true,
   "alleleInheritance": [
     {
-      "id": "CG-allele-inheritance:denovo",
+      "id": "GENO-allele-inheritance-type:0000880",
       "type": "Coding",
-      "code": "denovo",
-      "system": "http://clinicalgenome.org/datamodel/allele-inheritance/",
+      "code": "0000880",
+      "system": "http://obofoundry.org/geno/",
       "display": "de novo"
     }
   ]
@@ -375,12 +375,12 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#DeNovo087">DeNovo087</a></p></td>
+          <td><p><a href="../details/details.html#IndAllInh087">IndAllInh087</a></p></td>
           <td>
               <p>parentage confirmation not mentioned in the source article</p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allele-inheritance:denovo">CG-allele-inheritance:denovo</a></p>
+              <p><a href="../details/details.html#GENO-allele-inheritance-type:0000880">GENO-allele-inheritance-type:0000880</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll059">CanAll059</a></p>
@@ -395,9 +395,9 @@
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="DeNovo087"><pre><code>{
-  "id": "DeNovo087",
-  "type": "DeNovoAllele",
+          <td><div class="example_view" id="IndAllInh087"><pre><code>{
+  "id": "IndAllInh087",
+  "type": "IndividualAlleleInheritance",
   "explanation": "parentage confirmation not mentioned in the source article",
   "canonicalAllele": {
     "id": "CanAll059",
@@ -414,10 +414,10 @@
   "paternityConfirmed": true,
   "alleleInheritance": [
     {
-      "id": "CG-allele-inheritance:denovo",
+      "id": "GENO-allele-inheritance-type:0000880",
       "type": "Coding",
-      "code": "denovo",
-      "system": "http://clinicalgenome.org/datamodel/allele-inheritance/",
+      "code": "0000880",
+      "system": "http://obofoundry.org/geno/",
       "display": "de novo"
     }
   ]
@@ -427,12 +427,12 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#DeNovo088">DeNovo088</a></p></td>
+          <td><p><a href="../details/details.html#IndAllInh088">IndAllInh088</a></p></td>
           <td>
               <p>parentage confirmation not mentioned in the source article</p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allele-inheritance:denovo">CG-allele-inheritance:denovo</a></p>
+              <p><a href="../details/details.html#GENO-allele-inheritance-type:0000880">GENO-allele-inheritance-type:0000880</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll059">CanAll059</a></p>
@@ -447,9 +447,9 @@
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="DeNovo088"><pre><code>{
-  "id": "DeNovo088",
-  "type": "DeNovoAllele",
+          <td><div class="example_view" id="IndAllInh088"><pre><code>{
+  "id": "IndAllInh088",
+  "type": "IndividualAlleleInheritance",
   "explanation": "parentage confirmation not mentioned in the source article",
   "canonicalAllele": {
     "id": "CanAll059",
@@ -466,10 +466,10 @@
   "paternityConfirmed": true,
   "alleleInheritance": [
     {
-      "id": "CG-allele-inheritance:denovo",
+      "id": "GENO-allele-inheritance-type:0000880",
       "type": "Coding",
-      "code": "denovo",
-      "system": "http://clinicalgenome.org/datamodel/allele-inheritance/",
+      "code": "0000880",
+      "system": "http://obofoundry.org/geno/",
       "display": "de novo"
     }
   ]
@@ -479,12 +479,12 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#DeNovo091">DeNovo091</a></p></td>
+          <td><p><a href="../details/details.html#IndAllInh091">IndAllInh091</a></p></td>
           <td>
               <p>parentage confirmation not mentioned in the source article</p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allele-inheritance:denovo">CG-allele-inheritance:denovo</a></p>
+              <p><a href="../details/details.html#GENO-allele-inheritance-type:0000880">GENO-allele-inheritance-type:0000880</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll060">CanAll060</a></p>
@@ -499,9 +499,9 @@
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="DeNovo091"><pre><code>{
-  "id": "DeNovo091",
-  "type": "DeNovoAllele",
+          <td><div class="example_view" id="IndAllInh091"><pre><code>{
+  "id": "IndAllInh091",
+  "type": "IndividualAlleleInheritance",
   "explanation": "parentage confirmation not mentioned in the source article",
   "canonicalAllele": {
     "id": "CanAll060",
@@ -518,10 +518,10 @@
   "paternityConfirmed": true,
   "alleleInheritance": [
     {
-      "id": "CG-allele-inheritance:denovo",
+      "id": "GENO-allele-inheritance-type:0000880",
       "type": "Coding",
-      "code": "denovo",
-      "system": "http://clinicalgenome.org/datamodel/allele-inheritance/",
+      "code": "0000880",
+      "system": "http://obofoundry.org/geno/",
       "display": "de novo"
     }
   ]
@@ -531,12 +531,12 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#DeNovo094">DeNovo094</a></p></td>
+          <td><p><a href="../details/details.html#IndAllInh094">IndAllInh094</a></p></td>
           <td>
               
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allele-inheritance:denovo">CG-allele-inheritance:denovo</a></p>
+              <p><a href="../details/details.html#GENO-allele-inheritance-type:0000880">GENO-allele-inheritance-type:0000880</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll061">CanAll061</a></p>
@@ -551,9 +551,9 @@
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="DeNovo094"><pre><code>{
-  "id": "DeNovo094",
-  "type": "DeNovoAllele",
+          <td><div class="example_view" id="IndAllInh094"><pre><code>{
+  "id": "IndAllInh094",
+  "type": "IndividualAlleleInheritance",
   "canonicalAllele": {
     "id": "CanAll061",
     "type": "CanonicalAllele",
@@ -569,10 +569,10 @@
   "paternityConfirmed": true,
   "alleleInheritance": [
     {
-      "id": "CG-allele-inheritance:denovo",
+      "id": "GENO-allele-inheritance-type:0000880",
       "type": "Coding",
-      "code": "denovo",
-      "system": "http://clinicalgenome.org/datamodel/allele-inheritance/",
+      "code": "0000880",
+      "system": "http://obofoundry.org/geno/",
       "display": "de novo"
     }
   ]
@@ -582,12 +582,12 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#DeNovo097">DeNovo097</a></p></td>
+          <td><p><a href="../details/details.html#IndAllInh097">IndAllInh097</a></p></td>
           <td>
               
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allele-inheritance:denovo">CG-allele-inheritance:denovo</a></p>
+              <p><a href="../details/details.html#GENO-allele-inheritance-type:0000880">GENO-allele-inheritance-type:0000880</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll061">CanAll061</a></p>
@@ -602,9 +602,9 @@
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="DeNovo097"><pre><code>{
-  "id": "DeNovo097",
-  "type": "DeNovoAllele",
+          <td><div class="example_view" id="IndAllInh097"><pre><code>{
+  "id": "IndAllInh097",
+  "type": "IndividualAlleleInheritance",
   "canonicalAllele": {
     "id": "CanAll061",
     "type": "CanonicalAllele",
@@ -620,10 +620,10 @@
   "paternityConfirmed": true,
   "alleleInheritance": [
     {
-      "id": "CG-allele-inheritance:denovo",
+      "id": "GENO-allele-inheritance-type:0000880",
       "type": "Coding",
-      "code": "denovo",
-      "system": "http://clinicalgenome.org/datamodel/allele-inheritance/",
+      "code": "0000880",
+      "system": "http://obofoundry.org/geno/",
       "display": "de novo"
     }
   ]
@@ -633,12 +633,12 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#DeNovo100">DeNovo100</a></p></td>
+          <td><p><a href="../details/details.html#IndAllInh100">IndAllInh100</a></p></td>
           <td>
               
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allele-inheritance:denovo">CG-allele-inheritance:denovo</a></p>
+              <p><a href="../details/details.html#GENO-allele-inheritance-type:0000880">GENO-allele-inheritance-type:0000880</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll061">CanAll061</a></p>
@@ -653,9 +653,9 @@
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="DeNovo100"><pre><code>{
-  "id": "DeNovo100",
-  "type": "DeNovoAllele",
+          <td><div class="example_view" id="IndAllInh100"><pre><code>{
+  "id": "IndAllInh100",
+  "type": "IndividualAlleleInheritance",
   "canonicalAllele": {
     "id": "CanAll061",
     "type": "CanonicalAllele",
@@ -671,10 +671,10 @@
   "paternityConfirmed": true,
   "alleleInheritance": [
     {
-      "id": "CG-allele-inheritance:denovo",
+      "id": "GENO-allele-inheritance-type:0000880",
       "type": "Coding",
-      "code": "denovo",
-      "system": "http://clinicalgenome.org/datamodel/allele-inheritance/",
+      "code": "0000880",
+      "system": "http://obofoundry.org/geno/",
       "display": "de novo"
     }
   ]
@@ -684,18 +684,18 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#DeNovo106">DeNovo106</a></p></td>
+          <td><p><a href="../details/details.html#IndAllInh106">IndAllInh106</a></p></td>
           <td>
               
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allele-inheritance:denovo">CG-allele-inheritance:denovo</a></p>
+              <p><a href="../details/details.html#GENO-allele-inheritance-type:0000880">GENO-allele-inheritance-type:0000880</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll125">CanAll125</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv03">Indiv03</a></p>
+              <p><a href="../details/details.html#Indiv030">Indiv030</a></p>
          </td>
           <td>
               <p>true</p>
@@ -704,9 +704,9 @@
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="DeNovo106"><pre><code>{
-  "id": "DeNovo106",
-  "type": "DeNovoAllele",
+          <td><div class="example_view" id="IndAllInh106"><pre><code>{
+  "id": "IndAllInh106",
+  "type": "IndividualAlleleInheritance",
   "canonicalAllele": {
     "id": "CanAll125",
     "type": "CanonicalAllele",
@@ -714,16 +714,18 @@
     "identifier": "http://reg.genome.network/allele/CA280055"
   },
   "individual": {
-    "id": "Indiv03"
+    "id": "Indiv030",
+    "type": "Individual",
+    "description": "individual #030"
   },
   "maternityConfirmed": true,
   "paternityConfirmed": true,
   "alleleInheritance": [
     {
-      "id": "CG-allele-inheritance:denovo",
+      "id": "GENO-allele-inheritance-type:0000880",
       "type": "Coding",
-      "code": "denovo",
-      "system": "http://clinicalgenome.org/datamodel/allele-inheritance/",
+      "code": "0000880",
+      "system": "http://obofoundry.org/geno/",
       "display": "de novo"
     }
   ]

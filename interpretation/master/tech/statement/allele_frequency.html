@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li class="active"><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="functional_data.html">AlleleFunctionalImpact</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li class="active"><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">LocusHeterogeneity</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">AlleleConservation</a></li><li><a href="de_novo_allele.html">IndividualAlleleInheritance</a></li><li><a href="family_history.html">FamilyCondition</a></li><li><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="functional_data.html">AlleleFunctionalImpact</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">GeneticCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -106,7 +106,9 @@
 
 
             <h1>AlleleFrequency</h1>
-            <p>The frequency of an allele in a population or a defined group of individuals</p>
+            <p>Preferred: A statement that describes the frequency of an allele as determined in a defined group of individuals (typically a representative sampling that serves as a proxy for some larger population of individuals)
+
+A statement that describes the outcome of a study that uses a representative sampling to estimate the frequency of an allele in a larger  population individuals.</p>
 
                 <p>Descended from Statement</p>
 
@@ -888,7 +890,11 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "BROAD-population-type:NFE"
+        "id": "BROAD-population-type:nfe",
+        "type": "Coding",
+        "code": "nfe",
+        "system": "http://broadinstitute.org/populations/",
+        "display": "Non-Finnish European"
       }
     ]
   },
@@ -1050,7 +1056,11 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "BROAD-population-type:FIN"
+        "id": "BROAD-population-type:fin",
+        "type": "Coding",
+        "code": "fin",
+        "system": "http://broadinstitute.org/populations/",
+        "display": "Finnish"
       }
     ]
   },
@@ -1570,7 +1580,11 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "BROAD-population-type:EAS"
+        "id": "BROAD-population-type:eas",
+        "type": "Coding",
+        "code": "eas",
+        "system": "http://broadinstitute.org/populations/",
+        "display": "East Asian"
       }
     ]
   },
@@ -1981,7 +1995,11 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "BROAD-population-type:NFE"
+        "id": "BROAD-population-type:nfe",
+        "type": "Coding",
+        "code": "nfe",
+        "system": "http://broadinstitute.org/populations/",
+        "display": "Non-Finnish European"
       }
     ]
   },

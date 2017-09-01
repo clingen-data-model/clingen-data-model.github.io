@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">ConditionEtiology</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="de_novo_allele.html">DeNovoAllele</a></li><li class="active"><a href="family_history.html">FamilyHistory</a></li><li><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="functional_data.html">AlleleFunctionalImpact</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">MendelianCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">LocusHeterogeneity</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">AlleleConservation</a></li><li><a href="de_novo_allele.html">IndividualAlleleInheritance</a></li><li class="active"><a href="family_history.html">FamilyCondition</a></li><li><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="functional_data.html">AlleleFunctionalImpact</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">GeneticCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -105,8 +105,8 @@
           <article>
 
 
-            <h1>FamilyHistory</h1>
-            <p>Whether or not a Condition occurs in a given Family</p>
+            <h1>FamilyCondition</h1>
+            <p>A statement describing the presence of a particular disease appears in the history of a family.</p>
 
                 <p>Descended from Statement</p>
 
@@ -143,7 +143,7 @@
             </tr>
             <tr>
                 <td>condition</td>
-                <td>MendelianCondition</td>
+                <td>GeneticCondition</td>
                 <td>0..*</td>
                 <td>A condition that the family may or may not have</td>
             </tr>
@@ -205,7 +205,7 @@
       </tr></thead>
       <tbody>
         <tr>
-          <td><p><a href="../details/details.html#FamHist013">FamHist013</a></p></td>
+          <td><p><a href="../details/details.html#FamCond013">FamCond013</a></p></td>
           <td>
               
          </td>
@@ -213,15 +213,15 @@
               <p><a href="../details/details.html#Indiv001">Indiv001</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#MendCond052">MendCond052</a></p>
+              <p><a href="../details/details.html#GenCond052">GenCond052</a></p>
          </td>
           <td>
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="FamHist013"><pre><code>{
-  "id": "FamHist013",
-  "type": "FamilyHistory",
+          <td><div class="example_view" id="FamCond013"><pre><code>{
+  "id": "FamCond013",
+  "type": "FamilyCondition",
   "proband": {
     "id": "Indiv001",
     "type": "Individual",
@@ -229,8 +229,8 @@
   },
   "condition": [
     {
-      "id": "MendCond052",
-      "type": "MendelianCondition",
+      "id": "GenCond052",
+      "type": "GeneticCondition",
       "explanation": "dilated cardiomyopathy",
       "disease": [
         {
@@ -250,7 +250,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#FamHist016">FamHist016</a></p></td>
+          <td><p><a href="../details/details.html#FamCond016">FamCond016</a></p></td>
           <td>
               
          </td>
@@ -258,15 +258,15 @@
               <p><a href="../details/details.html#Indiv002">Indiv002</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#MendCond008">MendCond008</a></p>
+              <p><a href="../details/details.html#GenCond008">GenCond008</a></p>
          </td>
           <td>
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="FamHist016"><pre><code>{
-  "id": "FamHist016",
-  "type": "FamilyHistory",
+          <td><div class="example_view" id="FamCond016"><pre><code>{
+  "id": "FamCond016",
+  "type": "FamilyCondition",
   "proband": {
     "id": "Indiv002",
     "type": "Individual",
@@ -274,8 +274,8 @@
   },
   "condition": [
     {
-      "id": "MendCond008",
-      "type": "MendelianCondition",
+      "id": "GenCond008",
+      "type": "GeneticCondition",
       "explanation": "desmin related myopathy",
       "disease": [
         {
@@ -296,7 +296,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#FamHist019">FamHist019</a></p></td>
+          <td><p><a href="../details/details.html#FamCond019">FamCond019</a></p></td>
           <td>
               
          </td>
@@ -304,15 +304,15 @@
               <p><a href="../details/details.html#Indiv003">Indiv003</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#MendCond009">MendCond009</a></p>
+              <p><a href="../details/details.html#GenCond009">GenCond009</a></p>
          </td>
           <td>
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="FamHist019"><pre><code>{
-  "id": "FamHist019",
-  "type": "FamilyHistory",
+          <td><div class="example_view" id="FamCond019"><pre><code>{
+  "id": "FamCond019",
+  "type": "FamilyCondition",
   "proband": {
     "id": "Indiv003",
     "type": "Individual",
@@ -320,8 +320,8 @@
   },
   "condition": [
     {
-      "id": "MendCond009",
-      "type": "MendelianCondition",
+      "id": "GenCond009",
+      "type": "GeneticCondition",
       "explanation": "Epilepsy with Mental Retardation",
       "name": "Epilepsy with Mental Retardation"
     }
@@ -333,7 +333,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#FamHist085">FamHist085</a></p></td>
+          <td><p><a href="../details/details.html#FamCond085">FamCond085</a></p></td>
           <td>
               
          </td>
@@ -341,15 +341,15 @@
               <p><a href="../details/details.html#Indiv007">Indiv007</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#MendCond018">MendCond018</a></p>
+              <p><a href="../details/details.html#GenCond018">GenCond018</a></p>
          </td>
           <td>
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="FamHist085"><pre><code>{
-  "id": "FamHist085",
-  "type": "FamilyHistory",
+          <td><div class="example_view" id="FamCond085"><pre><code>{
+  "id": "FamCond085",
+  "type": "FamilyCondition",
   "proband": {
     "id": "Indiv007",
     "type": "Individual",
@@ -357,8 +357,8 @@
   },
   "condition": [
     {
-      "id": "MendCond018",
-      "type": "MendelianCondition",
+      "id": "GenCond018",
+      "type": "GeneticCondition",
       "explanation": "Birt-Hogg-Dube Syndrome",
       "disease": [
         {
@@ -378,7 +378,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#FamHist086">FamHist086</a></p></td>
+          <td><p><a href="../details/details.html#FamCond086">FamCond086</a></p></td>
           <td>
               
          </td>
@@ -386,15 +386,15 @@
               <p><a href="../details/details.html#Indiv008">Indiv008</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#MendCond018">MendCond018</a></p>
+              <p><a href="../details/details.html#GenCond018">GenCond018</a></p>
          </td>
           <td>
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="FamHist086"><pre><code>{
-  "id": "FamHist086",
-  "type": "FamilyHistory",
+          <td><div class="example_view" id="FamCond086"><pre><code>{
+  "id": "FamCond086",
+  "type": "FamilyCondition",
   "proband": {
     "id": "Indiv008",
     "type": "Individual",
@@ -402,8 +402,8 @@
   },
   "condition": [
     {
-      "id": "MendCond018",
-      "type": "MendelianCondition",
+      "id": "GenCond018",
+      "type": "GeneticCondition",
       "explanation": "Birt-Hogg-Dube Syndrome",
       "disease": [
         {
@@ -423,7 +423,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#FamHist090">FamHist090</a></p></td>
+          <td><p><a href="../details/details.html#FamCond090">FamCond090</a></p></td>
           <td>
               
          </td>
@@ -431,15 +431,15 @@
               <p><a href="../details/details.html#Indiv009">Indiv009</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#MendCond019">MendCond019</a></p>
+              <p><a href="../details/details.html#GenCond019">GenCond019</a></p>
          </td>
           <td>
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="FamHist090"><pre><code>{
-  "id": "FamHist090",
-  "type": "FamilyHistory",
+          <td><div class="example_view" id="FamCond090"><pre><code>{
+  "id": "FamCond090",
+  "type": "FamilyCondition",
   "proband": {
     "id": "Indiv009",
     "type": "Individual",
@@ -447,8 +447,8 @@
   },
   "condition": [
     {
-      "id": "MendCond019",
-      "type": "MendelianCondition",
+      "id": "GenCond019",
+      "type": "GeneticCondition",
       "explanation": "cardiofaciocutaneous syndrome",
       "disease": [
         {
@@ -468,7 +468,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#FamHist093">FamHist093</a></p></td>
+          <td><p><a href="../details/details.html#FamCond093">FamCond093</a></p></td>
           <td>
               
          </td>
@@ -476,15 +476,15 @@
               <p><a href="../details/details.html#Indiv010">Indiv010</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#MendCond068">MendCond068</a></p>
+              <p><a href="../details/details.html#GenCond068">GenCond068</a></p>
          </td>
           <td>
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="FamHist093"><pre><code>{
-  "id": "FamHist093",
-  "type": "FamilyHistory",
+          <td><div class="example_view" id="FamCond093"><pre><code>{
+  "id": "FamCond093",
+  "type": "FamilyCondition",
   "proband": {
     "id": "Indiv010",
     "type": "Individual",
@@ -492,8 +492,8 @@
   },
   "condition": [
     {
-      "id": "MendCond068",
-      "type": "MendelianCondition",
+      "id": "GenCond068",
+      "type": "GeneticCondition",
       "explanation": "cardiofaciocutaneous syndrome",
       "disease": [
         {
@@ -513,7 +513,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#FamHist096">FamHist096</a></p></td>
+          <td><p><a href="../details/details.html#FamCond096">FamCond096</a></p></td>
           <td>
               
          </td>
@@ -521,15 +521,15 @@
               <p><a href="../details/details.html#Indiv011">Indiv011</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#MendCond068">MendCond068</a></p>
+              <p><a href="../details/details.html#GenCond068">GenCond068</a></p>
          </td>
           <td>
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="FamHist096"><pre><code>{
-  "id": "FamHist096",
-  "type": "FamilyHistory",
+          <td><div class="example_view" id="FamCond096"><pre><code>{
+  "id": "FamCond096",
+  "type": "FamilyCondition",
   "proband": {
     "id": "Indiv011",
     "type": "Individual",
@@ -537,8 +537,8 @@
   },
   "condition": [
     {
-      "id": "MendCond068",
-      "type": "MendelianCondition",
+      "id": "GenCond068",
+      "type": "GeneticCondition",
       "explanation": "cardiofaciocutaneous syndrome",
       "disease": [
         {
@@ -558,7 +558,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#FamHist099">FamHist099</a></p></td>
+          <td><p><a href="../details/details.html#FamCond099">FamCond099</a></p></td>
           <td>
               
          </td>
@@ -566,15 +566,15 @@
               <p><a href="../details/details.html#Indiv012">Indiv012</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#MendCond068">MendCond068</a></p>
+              <p><a href="../details/details.html#GenCond068">GenCond068</a></p>
          </td>
           <td>
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="FamHist099"><pre><code>{
-  "id": "FamHist099",
-  "type": "FamilyHistory",
+          <td><div class="example_view" id="FamCond099"><pre><code>{
+  "id": "FamCond099",
+  "type": "FamilyCondition",
   "proband": {
     "id": "Indiv012",
     "type": "Individual",
@@ -582,8 +582,8 @@
   },
   "condition": [
     {
-      "id": "MendCond068",
-      "type": "MendelianCondition",
+      "id": "GenCond068",
+      "type": "GeneticCondition",
       "explanation": "cardiofaciocutaneous syndrome",
       "disease": [
         {
@@ -603,7 +603,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#FamHist112">FamHist112</a></p></td>
+          <td><p><a href="../details/details.html#FamCond112">FamCond112</a></p></td>
           <td>
               
          </td>
@@ -611,15 +611,15 @@
               <p><a href="../details/details.html#Indiv030">Indiv030</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#MendCond069">MendCond069</a></p>
+              <p><a href="../details/details.html#GenCond069">GenCond069</a></p>
          </td>
           <td>
               <p>true</p>
          </td>
           <!--
-          <td><div class="example_view" id="FamHist112"><pre><code>{
-  "id": "FamHist112",
-  "type": "FamilyHistory",
+          <td><div class="example_view" id="FamCond112"><pre><code>{
+  "id": "FamCond112",
+  "type": "FamilyCondition",
   "proband": {
     "id": "Indiv030",
     "type": "Individual",
@@ -627,8 +627,8 @@
   },
   "condition": [
     {
-      "id": "MendCond069",
-      "type": "MendelianCondition",
+      "id": "GenCond069",
+      "type": "GeneticCondition",
       "explanation": "cardiofaciocutaneous syndrome",
       "disease": [
         {
