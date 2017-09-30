@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Data Model
+    </title>
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../stylesheets/brand2.css" rel="stylesheet" /><link href="../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header col-sm-4 col-md-3">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand " href="#">ClinGen Documentation</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                Models
+                  ::
+                  <span class="glyphicon leaf"></span>Interpretation
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                  <li class="allele" >
+                    <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
+                  </li>
+                  <li class="interpretation" >
+                    <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span>Interpretation</a></li>
+                  </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >development release<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                  <li><a href="/0.1/tech/domain_entities/individual.html">0.1</a></li>
+                  <li><a href="/development/tech/domain_entities/individual.html">development</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
+      <div class='col-sm-offset-4 col-md-offset-3'>
+        <ol class="breadcrumb bg-none margin-none">
+          <li><a href="../../">Interpretation Model</a></li>
+<li><a href="../">Technical Reference and Examples</a></li>
+<li><a href="./">Domain Entities</a></li>
+
+        </ol>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-4 col-md-3 sidebar">
+         <div class='nav-sidebar nav-sidebar-title'>
+<a href="https://clinicalgenome.org">            	<img width="80%" height="80%" alt="ClinGen Documentation" class="img-responsive" src="../../images/clingen-doc-logo.png" />
+</a>        	</div>
+          <ul class="nav nav-sidebar">
+            
+            <li class="active">
+              <a href="../../">Welcome</a>
+            </li>
+            <li><a href="../../user/">User Guide</a></li>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../agent.html">Agent</a></li><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../contribution.html">Contribution</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Domain Entities</a></li><ul><li><a href="canonical_allele.html">CanonicalAllele</a></li><li><a href="contextual_allele.html">ContextualAllele</a></li><li><a href="genetic_condition.html">GeneticCondition</a></li><li class="active"><a href="individual.html">Individual</a></li><li><a href="sequence_location.html">SequenceLocation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li><a href="../statement/">Statement</a></li><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <!-- Old style.  We might still need the model here? -->
+            <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+          </ul>
+        </div>
+        <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+          <article>
+
+
+            <h1>Individual</h1>
+            <p>A human being regarded as an individual.</p>
+
+                <p>foaf:Person</p>
+
+
+            <hr class='col-sm-12' />
+
+
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>Individual provides a class whose instances represent human beings.  The identifier for an individual is not required to be resolvable in any system.  Instead, the scope of the identifier is usually at the message level so that multiple statements about the same individual may be understood as related.</p>
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>description</td>
+                <td>String</td>
+                <td>1..1</td>
+                <td></td>
+                <td>DC:description</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>description</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="../details/details.html#Indiv001">Indiv001</a></p></td>
+          <td>
+              <p>individual #001</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv001"><pre><code>{
+  "id": "Indiv001",
+  "type": "Individual",
+  "description": "individual #001"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv002">Indiv002</a></p></td>
+          <td>
+              <p>individual #002</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv002"><pre><code>{
+  "id": "Indiv002",
+  "type": "Individual",
+  "description": "individual #002"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv003">Indiv003</a></p></td>
+          <td>
+              <p>individual #003</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv003"><pre><code>{
+  "id": "Indiv003",
+  "type": "Individual",
+  "description": "individual #003"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv004">Indiv004</a></p></td>
+          <td>
+              <p>individual #004</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv004"><pre><code>{
+  "id": "Indiv004",
+  "type": "Individual",
+  "description": "individual #004"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv005">Indiv005</a></p></td>
+          <td>
+              <p>individual #005</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv005"><pre><code>{
+  "id": "Indiv005",
+  "type": "Individual",
+  "description": "individual #005"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv006">Indiv006</a></p></td>
+          <td>
+              <p>individual #006</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv006"><pre><code>{
+  "id": "Indiv006",
+  "type": "Individual",
+  "description": "individual #006"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv007">Indiv007</a></p></td>
+          <td>
+              <p>individual #007</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv007"><pre><code>{
+  "id": "Indiv007",
+  "type": "Individual",
+  "description": "individual #007"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv008">Indiv008</a></p></td>
+          <td>
+              <p>individual #008</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv008"><pre><code>{
+  "id": "Indiv008",
+  "type": "Individual",
+  "description": "individual #008"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv009">Indiv009</a></p></td>
+          <td>
+              <p>individual #009</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv009"><pre><code>{
+  "id": "Indiv009",
+  "type": "Individual",
+  "description": "individual #009"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv010">Indiv010</a></p></td>
+          <td>
+              <p>individual #010</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv010"><pre><code>{
+  "id": "Indiv010",
+  "type": "Individual",
+  "description": "individual #010"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv011">Indiv011</a></p></td>
+          <td>
+              <p>individual #011</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv011"><pre><code>{
+  "id": "Indiv011",
+  "type": "Individual",
+  "description": "individual #011"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv012">Indiv012</a></p></td>
+          <td>
+              <p>individual #012</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv012"><pre><code>{
+  "id": "Indiv012",
+  "type": "Individual",
+  "description": "individual #012"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv013">Indiv013</a></p></td>
+          <td>
+              <p>individual #013</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv013"><pre><code>{
+  "id": "Indiv013",
+  "type": "Individual",
+  "description": "individual #013"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv014">Indiv014</a></p></td>
+          <td>
+              <p>individual #014</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv014"><pre><code>{
+  "id": "Indiv014",
+  "type": "Individual",
+  "description": "individual #014"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv015">Indiv015</a></p></td>
+          <td>
+              <p>individual #015</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv015"><pre><code>{
+  "id": "Indiv015",
+  "type": "Individual",
+  "description": "individual #015"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv016">Indiv016</a></p></td>
+          <td>
+              <p>individual #016</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv016"><pre><code>{
+  "id": "Indiv016",
+  "type": "Individual",
+  "description": "individual #016"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv017">Indiv017</a></p></td>
+          <td>
+              <p>individual #017</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv017"><pre><code>{
+  "id": "Indiv017",
+  "type": "Individual",
+  "description": "individual #017"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv018">Indiv018</a></p></td>
+          <td>
+              <p>individual #018</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv018"><pre><code>{
+  "id": "Indiv018",
+  "type": "Individual",
+  "description": "individual #018"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv019">Indiv019</a></p></td>
+          <td>
+              <p>individual #019</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv019"><pre><code>{
+  "id": "Indiv019",
+  "type": "Individual",
+  "description": "individual #019"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv020">Indiv020</a></p></td>
+          <td>
+              <p>individual #020</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv020"><pre><code>{
+  "id": "Indiv020",
+  "type": "Individual",
+  "description": "individual #020"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv021">Indiv021</a></p></td>
+          <td>
+              <p>individual #021</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv021"><pre><code>{
+  "id": "Indiv021",
+  "type": "Individual",
+  "description": "individual #021"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv022">Indiv022</a></p></td>
+          <td>
+              <p>individual #022</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv022"><pre><code>{
+  "id": "Indiv022",
+  "type": "Individual",
+  "description": "individual #022"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv023">Indiv023</a></p></td>
+          <td>
+              <p>individual #023</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv023"><pre><code>{
+  "id": "Indiv023",
+  "type": "Individual",
+  "description": "individual #023"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv024">Indiv024</a></p></td>
+          <td>
+              <p>individual #024</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv024"><pre><code>{
+  "id": "Indiv024",
+  "type": "Individual",
+  "description": "individual #024"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv025">Indiv025</a></p></td>
+          <td>
+              <p>individual #025</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv025"><pre><code>{
+  "id": "Indiv025",
+  "type": "Individual",
+  "description": "individual #025"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv026">Indiv026</a></p></td>
+          <td>
+              <p>individual #026</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv026"><pre><code>{
+  "id": "Indiv026",
+  "type": "Individual",
+  "description": "individual #026"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv027">Indiv027</a></p></td>
+          <td>
+              <p>individual #027</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv027"><pre><code>{
+  "id": "Indiv027",
+  "type": "Individual",
+  "description": "individual #027"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv028">Indiv028</a></p></td>
+          <td>
+              <p>individual #028</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv028"><pre><code>{
+  "id": "Indiv028",
+  "type": "Individual",
+  "description": "individual #028"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv029">Indiv029</a></p></td>
+          <td>
+              <p>individual #029</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv029"><pre><code>{
+  "id": "Indiv029",
+  "type": "Individual",
+  "description": "individual #029"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Indiv030">Indiv030</a></p></td>
+          <td>
+              <p>individual #030</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Indiv030"><pre><code>{
+  "id": "Indiv030",
+  "type": "Individual",
+  "description": "individual #030"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../javascripts/jquery.js"></script><script src="../../javascripts/bootstrap.js"></script><script src="../../javascripts/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>

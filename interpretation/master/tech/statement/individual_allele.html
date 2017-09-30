@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">LocusHeterogeneity</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">AlleleConservation</a></li><li><a href="de_novo_allele.html">IndividualAlleleInheritance</a></li><li><a href="family_history.html">FamilyCondition</a></li><li><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="functional_data.html">AlleleFunctionalImpact</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li class="active"><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">GeneticCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../agent.html">Agent</a></li><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../contribution.html">Contribution</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">LocusHeterogeneity</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">AlleleConservation</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li class="active"><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">GeneticCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_type.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -107,6 +107,8 @@
 
             <h1>IndividualAllele</h1>
             <p>A statement describing the allelic state of one or more alleles in the genome of an individual (e.g. zygosity information, or phase relative to a second allele).</p>
+
+                <p>SEPIO:0000245</p>
 
                 <p>Descended from Statement</p>
 
@@ -132,6 +134,7 @@
                 <th>Type</th>
                 <th>Cardinality</th>
                 <th>Description</th>
+                <th>IRI</th>
             </tr>
             </thead>
             <tbody>
@@ -140,36 +143,42 @@
                 <td>Individual</td>
                 <td>0..1</td>
                 <td>Person whose alleles the data represents</td>
+                <td>SEPIO:0000280</td>
             </tr>
             <tr>
                 <td>primaryAllele</td>
                 <td>CanonicalAllele</td>
                 <td>0..1</td>
                 <td>One allele that the person has</td>
+                <td></td>
             </tr>
             <tr>
                 <td>primaryZygosity</td>
                 <td>Coding</td>
                 <td>0..1</td>
                 <td>Zygosity of the primary allele in the individual</td>
+                <td>???</td>
             </tr>
             <tr>
                 <td>secondaryAllele</td>
                 <td>CanonicalAllele</td>
                 <td>0..1</td>
                 <td>A second allele that the person has</td>
+                <td></td>
             </tr>
             <tr>
                 <td>secondaryZygosity</td>
                 <td>Coding</td>
                 <td>0..1</td>
                 <td>Zygosity of the secondary allele in the individual</td>
+                <td>???</td>
             </tr>
             <tr>
                 <td>phase</td>
                 <td>Coding</td>
                 <td>0..1</td>
                 <td>Phase of the primary and secondary individual</td>
+                <td>SEPIO:0000197</td>
             </tr>
             </tbody>
         </table>
@@ -185,22 +194,17 @@
                 <th>Cardinality</th>
                 <th>Inherited From</th>
                 <th>Description</th>
+                <th>IRI</th>
             </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>source</td>
-                    <td>String</td>
-                    <td>0..*</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>explanation</td>
+                    <td>description</td>
                     <td>String</td>
                     <td>0..1</td>
                     <td></td>
                     <td>A human-readable description of the entity</td>
+                    <td>DC:description</td>
                 </tr>
                 <tr>
                     <td>contribution</td>
@@ -208,6 +212,15 @@
                     <td>0..*</td>
                     <td></td>
                     <td>The contributions (agent, time and role) made to this entity</td>
+                    <td>SEPIO:0000159</td>
+                </tr>
+                <tr>
+                    <td>source</td>
+                    <td>String</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td></td>
+                    <td>DC:source</td>
                 </tr>
             </tbody>
         </table>
@@ -216,7 +229,7 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
-        <th>explanation</th>
+        <th>description</th>
         <th>individual</th>
         <th>primaryAllele</th>
         <th>primaryZygosity</th>
@@ -237,22 +250,22 @@
               <p><a href="../details/details.html#CanAll035">CanAll035</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allelic-state:heterozygous">CG-allelic-state:heterozygous</a></p>
+              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll036">CanAll036</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allelic-state:heterozygous">CG-allelic-state:heterozygous</a></p>
+              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-phase:trans">CG-phase:trans</a></p>
+              <p><a href="../details/details.html#GENO:0000132">GENO:0000132</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll058"><pre><code>{
   "id": "IndAll058",
   "type": "IndividualAllele",
-  "explanation": "Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband.",
+  "description": "Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband.",
   "individual": {
     "id": "Indiv004",
     "type": "Individual",
@@ -271,24 +284,24 @@
     "identifier": "http://reg.genome.network/allele/CA273615"
   },
   "primaryZygosity": {
-    "id": "CG-allelic-state:heterozygous",
+    "id": "GENO:0000135",
     "type": "Coding",
-    "code": "heterozygous",
-    "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+    "code": "0000135",
+    "system": "http://obofoundry.org/geno/",
     "display": "heterozygous"
   },
   "secondaryZygosity": {
-    "id": "CG-allelic-state:heterozygous",
+    "id": "GENO:0000135",
     "type": "Coding",
-    "code": "heterozygous",
-    "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+    "code": "0000135",
+    "system": "http://obofoundry.org/geno/",
     "display": "heterozygous"
   },
   "phase": {
-    "id": "CG-phase:trans",
+    "id": "GENO:0000132",
     "type": "Coding",
-    "code": "trans",
-    "system": "http://clinicalgenome.org/datamodel/phase/",
+    "code": "0000132",
+    "system": "http://obofoundry.org/geno/",
     "display": "in trans"
   },
   "contribution": [
@@ -297,19 +310,19 @@
       "agent": {
         "id": "Agent001",
         "type": "Agent",
-        "name": "Harry Stevenson"
+        "label": "Harry Stevenson"
       },
-      "onDate": "5/31/16 9:15 AM",
-      "role": {
+      "contributionDate": "5/31/16 9:15 AM",
+      "contributionRole": {
         "id": "CC386",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:curator",
+            "id": "SEPIO:0000156",
             "type": "Coding",
-            "code": "curator",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "curator"
+            "code": "0000156",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "curator role"
           }
         ]
       }
@@ -335,22 +348,22 @@
               <p><a href="../details/details.html#CanAll037">CanAll037</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allelic-state:heterozygous">CG-allelic-state:heterozygous</a></p>
+              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll038">CanAll038</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allelic-state:heterozygous">CG-allelic-state:heterozygous</a></p>
+              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-phase:trans">CG-phase:trans</a></p>
+              <p><a href="../details/details.html#GENO:0000132">GENO:0000132</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll062"><pre><code>{
   "id": "IndAll062",
   "type": "IndividualAllele",
-  "explanation": "Based on the NGS data, we are able to determine that c.298G>A and c.411+1G>A are in trans as no NGS reads carry both variants.",
+  "description": "Based on the NGS data, we are able to determine that c.298G>A and c.411+1G>A are in trans as no NGS reads carry both variants.",
   "individual": {
     "id": "Indiv005",
     "type": "Individual",
@@ -369,24 +382,24 @@
     "identifier": "http://reg.genome.network/allele/CA501223"
   },
   "primaryZygosity": {
-    "id": "CG-allelic-state:heterozygous",
+    "id": "GENO:0000135",
     "type": "Coding",
-    "code": "heterozygous",
-    "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+    "code": "0000135",
+    "system": "http://obofoundry.org/geno/",
     "display": "heterozygous"
   },
   "secondaryZygosity": {
-    "id": "CG-allelic-state:heterozygous",
+    "id": "GENO:0000135",
     "type": "Coding",
-    "code": "heterozygous",
-    "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+    "code": "0000135",
+    "system": "http://obofoundry.org/geno/",
     "display": "heterozygous"
   },
   "phase": {
-    "id": "CG-phase:trans",
+    "id": "GENO:0000132",
     "type": "Coding",
-    "code": "trans",
-    "system": "http://clinicalgenome.org/datamodel/phase/",
+    "code": "0000132",
+    "system": "http://obofoundry.org/geno/",
     "display": "in trans"
   }
 }
@@ -406,7 +419,7 @@
               <p><a href="../details/details.html#CanAll039">CanAll039</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allelic-state:homozygous">CG-allelic-state:homozygous</a></p>
+              <p><a href="../details/details.html#GENO:0000136">GENO:0000136</a></p>
          </td>
           <td>
               
@@ -433,10 +446,10 @@
     "identifier": "http://reg.genome.network/allele/CA090904"
   },
   "primaryZygosity": {
-    "id": "CG-allelic-state:homozygous",
+    "id": "GENO:0000136",
     "type": "Coding",
-    "code": "homozygous",
-    "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+    "code": "0000136",
+    "system": "http://obofoundry.org/geno/",
     "display": "homozygous"
   }
 }
@@ -456,7 +469,7 @@
               <p><a href="../details/details.html#CanAll081">CanAll081</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allelic-state:heterozygous">CG-allelic-state:heterozygous</a></p>
+              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
          </td>
           <td>
               
@@ -483,10 +496,10 @@
     "identifier": "http://reg.genome.network/allele/CA090918"
   },
   "primaryZygosity": {
-    "id": "CG-allelic-state:heterozygous",
+    "id": "GENO:0000135",
     "type": "Coding",
-    "code": "heterozygous",
-    "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+    "code": "0000135",
+    "system": "http://obofoundry.org/geno/",
     "display": "heterozygous"
   }
 }
@@ -506,7 +519,7 @@
               <p><a href="../details/details.html#CanAll081">CanAll081</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allelic-state:homozygous">CG-allelic-state:homozygous</a></p>
+              <p><a href="../details/details.html#GENO:0000136">GENO:0000136</a></p>
          </td>
           <td>
               
@@ -533,10 +546,10 @@
     "identifier": "http://reg.genome.network/allele/CA090918"
   },
   "primaryZygosity": {
-    "id": "CG-allelic-state:homozygous",
+    "id": "GENO:0000136",
     "type": "Coding",
-    "code": "homozygous",
-    "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+    "code": "0000136",
+    "system": "http://obofoundry.org/geno/",
     "display": "homozygous"
   }
 }
@@ -556,7 +569,7 @@
               <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allelic-state:heterozygous">CG-allelic-state:heterozygous</a></p>
+              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
          </td>
           <td>
               
@@ -583,10 +596,10 @@
     "identifier": "http://reg.genome.network/allele/CA008351"
   },
   "primaryZygosity": {
-    "id": "CG-allelic-state:heterozygous",
+    "id": "GENO:0000135",
     "type": "Coding",
-    "code": "heterozygous",
-    "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+    "code": "0000135",
+    "system": "http://obofoundry.org/geno/",
     "display": "heterozygous"
   }
 }
@@ -606,7 +619,7 @@
               <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allelic-state:heterozygous">CG-allelic-state:heterozygous</a></p>
+              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
          </td>
           <td>
               
@@ -633,10 +646,10 @@
     "identifier": "http://reg.genome.network/allele/CA008351"
   },
   "primaryZygosity": {
-    "id": "CG-allelic-state:heterozygous",
+    "id": "GENO:0000135",
     "type": "Coding",
-    "code": "heterozygous",
-    "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+    "code": "0000135",
+    "system": "http://obofoundry.org/geno/",
     "display": "heterozygous"
   }
 }
@@ -656,7 +669,7 @@
               <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allelic-state:heterozygous">CG-allelic-state:heterozygous</a></p>
+              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
          </td>
           <td>
               
@@ -683,10 +696,10 @@
     "identifier": "http://reg.genome.network/allele/CA008351"
   },
   "primaryZygosity": {
-    "id": "CG-allelic-state:heterozygous",
+    "id": "GENO:0000135",
     "type": "Coding",
-    "code": "heterozygous",
-    "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+    "code": "0000135",
+    "system": "http://obofoundry.org/geno/",
     "display": "heterozygous"
   }
 }
@@ -706,7 +719,7 @@
               <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allelic-state:heterozygous">CG-allelic-state:heterozygous</a></p>
+              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
          </td>
           <td>
               
@@ -733,10 +746,10 @@
     "identifier": "http://reg.genome.network/allele/CA008351"
   },
   "primaryZygosity": {
-    "id": "CG-allelic-state:heterozygous",
+    "id": "GENO:0000135",
     "type": "Coding",
-    "code": "heterozygous",
-    "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+    "code": "0000135",
+    "system": "http://obofoundry.org/geno/",
     "display": "heterozygous"
   }
 }
@@ -756,7 +769,7 @@
               <p><a href="../details/details.html#CanAll083">CanAll083</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allelic-state:heterozygous">CG-allelic-state:heterozygous</a></p>
+              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
          </td>
           <td>
               
@@ -783,10 +796,10 @@
     "identifier": "http://reg.genome.network/allele/CA013604"
   },
   "primaryZygosity": {
-    "id": "CG-allelic-state:heterozygous",
+    "id": "GENO:0000135",
     "type": "Coding",
-    "code": "heterozygous",
-    "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+    "code": "0000135",
+    "system": "http://obofoundry.org/geno/",
     "display": "heterozygous"
   }
 }
@@ -806,7 +819,7 @@
               <p><a href="../details/details.html#CanAll083">CanAll083</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allelic-state:heterozygous">CG-allelic-state:heterozygous</a></p>
+              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
          </td>
           <td>
               
@@ -833,10 +846,10 @@
     "identifier": "http://reg.genome.network/allele/CA013604"
   },
   "primaryZygosity": {
-    "id": "CG-allelic-state:heterozygous",
+    "id": "GENO:0000135",
     "type": "Coding",
-    "code": "heterozygous",
-    "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+    "code": "0000135",
+    "system": "http://obofoundry.org/geno/",
     "display": "heterozygous"
   }
 }
@@ -865,7 +878,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#CG-phase:cis">CG-phase:cis</a></p>
+              <p><a href="../details/details.html#GENO:0000131">GENO:0000131</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll206"><pre><code>{
@@ -889,10 +902,10 @@
     "identifier": "http://reg.genome.network/allele/CA252233"
   },
   "phase": {
-    "id": "CG-phase:cis",
+    "id": "GENO:0000131",
     "type": "Coding",
-    "code": "cis",
-    "system": "http://clinicalgenome.org/datamodel/phase/",
+    "code": "0000131",
+    "system": "http://obofoundry.org/geno/",
     "display": "in cis"
   }
 }
@@ -921,7 +934,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#CG-phase:cis">CG-phase:cis</a></p>
+              <p><a href="../details/details.html#GENO:0000131">GENO:0000131</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll207"><pre><code>{
@@ -945,10 +958,10 @@
     "identifier": "http://reg.genome.network/allele/CA252233"
   },
   "phase": {
-    "id": "CG-phase:cis",
+    "id": "GENO:0000131",
     "type": "Coding",
-    "code": "cis",
-    "system": "http://clinicalgenome.org/datamodel/phase/",
+    "code": "0000131",
+    "system": "http://obofoundry.org/geno/",
     "display": "in cis"
   }
 }
@@ -977,7 +990,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#CG-phase:cis">CG-phase:cis</a></p>
+              <p><a href="../details/details.html#GENO:0000131">GENO:0000131</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll211"><pre><code>{
@@ -1001,10 +1014,10 @@
     "identifier": "http://reg.genome.network/allele/CA182839"
   },
   "phase": {
-    "id": "CG-phase:cis",
+    "id": "GENO:0000131",
     "type": "Coding",
-    "code": "cis",
-    "system": "http://clinicalgenome.org/datamodel/phase/",
+    "code": "0000131",
+    "system": "http://obofoundry.org/geno/",
     "display": "in cis"
   }
 }
@@ -1033,7 +1046,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#CG-phase:trans">CG-phase:trans</a></p>
+              <p><a href="../details/details.html#GENO:0000132">GENO:0000132</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll214"><pre><code>{
@@ -1057,10 +1070,10 @@
     "identifier": "http://reg.genome.network/allele/CA501236"
   },
   "phase": {
-    "id": "CG-phase:trans",
+    "id": "GENO:0000132",
     "type": "Coding",
-    "code": "trans",
-    "system": "http://clinicalgenome.org/datamodel/phase/",
+    "code": "0000132",
+    "system": "http://obofoundry.org/geno/",
     "display": "in trans"
   }
 }
@@ -1172,16 +1185,16 @@
               <p><a href="../details/details.html#CanAll109">CanAll109</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allelic-state:heterozygous">CG-allelic-state:heterozygous</a></p>
+              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll110">CanAll110</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allelic-state:heterozygous">CG-allelic-state:heterozygous</a></p>
+              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-phase:trans">CG-phase:trans</a></p>
+              <p><a href="../details/details.html#GENO:0000132">GENO:0000132</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll245"><pre><code>{
@@ -1205,24 +1218,24 @@
     "identifier": "http://reg.genome.network/allele/CA274460"
   },
   "primaryZygosity": {
-    "id": "CG-allelic-state:heterozygous",
+    "id": "GENO:0000135",
     "type": "Coding",
-    "code": "heterozygous",
-    "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+    "code": "0000135",
+    "system": "http://obofoundry.org/geno/",
     "display": "heterozygous"
   },
   "secondaryZygosity": {
-    "id": "CG-allelic-state:heterozygous",
+    "id": "GENO:0000135",
     "type": "Coding",
-    "code": "heterozygous",
-    "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+    "code": "0000135",
+    "system": "http://obofoundry.org/geno/",
     "display": "heterozygous"
   },
   "phase": {
-    "id": "CG-phase:trans",
+    "id": "GENO:0000132",
     "type": "Coding",
-    "code": "trans",
-    "system": "http://clinicalgenome.org/datamodel/phase/",
+    "code": "0000132",
+    "system": "http://obofoundry.org/geno/",
     "display": "in trans"
   }
 }
@@ -1248,7 +1261,7 @@
               <p><a href="../details/details.html#CanAll111">CanAll111</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-allelic-state:homozygous">CG-allelic-state:homozygous</a></p>
+              <p><a href="../details/details.html#GENO:0000136">GENO:0000136</a></p>
          </td>
           <td>
               
@@ -1275,10 +1288,10 @@
     "identifier": "http://reg.genome.network/allele/CA277980"
   },
   "secondaryZygosity": {
-    "id": "CG-allelic-state:homozygous",
+    "id": "GENO:0000136",
     "type": "Coding",
-    "code": "homozygous",
-    "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+    "code": "0000136",
+    "system": "http://obofoundry.org/geno/",
     "display": "homozygous"
   }
 }
@@ -1356,7 +1369,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#CG-phase:trans">CG-phase:trans</a></p>
+              <p><a href="../details/details.html#GENO:0000132">GENO:0000132</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll366"><pre><code>{
@@ -1380,10 +1393,10 @@
     "identifier": "http://reg.genome.network/allele/CA253304"
   },
   "phase": {
-    "id": "CG-phase:trans",
+    "id": "GENO:0000132",
     "type": "Coding",
-    "code": "trans",
-    "system": "http://clinicalgenome.org/datamodel/phase/",
+    "code": "0000132",
+    "system": "http://obofoundry.org/geno/",
     "display": "in trans"
   }
 }
@@ -1412,7 +1425,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#CG-phase:trans">CG-phase:trans</a></p>
+              <p><a href="../details/details.html#GENO:0000132">GENO:0000132</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll367"><pre><code>{
@@ -1436,10 +1449,10 @@
     "identifier": "http://reg.genome.network/allele/CA273665"
   },
   "phase": {
-    "id": "CG-phase:trans",
+    "id": "GENO:0000132",
     "type": "Coding",
-    "code": "trans",
-    "system": "http://clinicalgenome.org/datamodel/phase/",
+    "code": "0000132",
+    "system": "http://obofoundry.org/geno/",
     "display": "in trans"
   }
 }

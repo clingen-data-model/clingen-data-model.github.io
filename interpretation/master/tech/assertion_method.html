@@ -96,7 +96,7 @@
               <a href="../">Welcome</a>
             </li>
             <li><a href="../user/">User Guide</a></li>
-            <li class="active"><a href="./">Technical Reference</a></li><ul><li class="active"><a href="assertion_method.html">AssertionMethod</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="evidence_line.html">EvidenceLine</a></li><li><a href="scoring_algorithm.html">ScoringAlgorithm</a></li><li><a href="statement/">Statement</a></li><li><a href="value_set.html">ValueSet</a></li><li><a href="variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="./">Technical Reference</a></li><ul><li><a href="agent.html">Agent</a></li><li class="active"><a href="assertion_method.html">AssertionMethod</a></li><li><a href="contribution.html">Contribution</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="domain_entities/">Domain Entities</a></li><li><a href="evidence_line.html">EvidenceLine</a></li><li><a href="scoring_algorithm.html">ScoringAlgorithm</a></li><li><a href="statement/">Statement</a></li><li><a href="value_set.html">ValueSet</a></li><li><a href="variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -107,6 +107,8 @@
 
             <h1>AssertionMethod</h1>
             <p>A specification that describes how to interpret information as evidence in order to make an  assertion about the pathogenicity of a genetic variant.</p>
+
+                <p>SEPIO:0000193</p>
 
 
             <hr class='col-sm-12' />
@@ -129,6 +131,7 @@
                 <th>Type</th>
                 <th>Cardinality</th>
                 <th>Description</th>
+                <th>IRI</th>
             </tr>
             </thead>
             <tbody>
@@ -137,24 +140,28 @@
                 <td>String</td>
                 <td>0..1</td>
                 <td></td>
-            </tr>
-            <tr>
-                <td>version</td>
-                <td>String</td>
-                <td>0..1</td>
-                <td></td>
+                <td>DC:description</td>
             </tr>
             <tr>
                 <td>url</td>
                 <td>String</td>
                 <td>0..1</td>
                 <td></td>
+                <td>ERO:0000480</td>
+            </tr>
+            <tr>
+                <td>version</td>
+                <td>String</td>
+                <td>0..1</td>
+                <td></td>
+                <td>PAV:version</td>
             </tr>
             <tr>
                 <td>scoringAlgorithm</td>
                 <td>ScoringAlgorithm</td>
                 <td>0..1</td>
                 <td></td>
+                <td>BFO:0000051</td>
             </tr>
             </tbody>
         </table>
@@ -166,8 +173,8 @@
       <thead><tr>
         <th>ID</th>
         <th>description</th>
-        <th>version</th>
         <th>url</th>
+        <th>version</th>
         <th>scoringAlgorithm</th>
       </tr></thead>
       <tbody>
@@ -177,10 +184,10 @@
               <p>ACMG ISV guidelines 2015</p>
          </td>
           <td>
-              <p>1.0</p>
+              <p>https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf</p>
          </td>
           <td>
-              <p>https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf</p>
+              <p>1.0</p>
          </td>
           <td>
               <p><a href="details/details.html#ScorAlg01">ScorAlg01</a></p>
@@ -190,8 +197,8 @@
   "id": "AssertMeth001",
   "type": "AssertionMethod",
   "description": "ACMG ISV guidelines 2015",
-  "version": "1.0",
   "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
+  "version": "1.0",
   "scoringAlgorithm": {
     "id": "ScorAlg01",
     "type": "ScoringAlgorithm",

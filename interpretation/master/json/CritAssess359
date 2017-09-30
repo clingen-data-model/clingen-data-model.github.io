@@ -5,7 +5,6 @@
     "id": "BP7",
     "type": "Criterion",
     "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
-    "shortDescription": "Synonymous variant without predicted splice effect in region with low conservation",
     "defaultStrength": {
       "id": "CG-evidence-strength:bp"
     }
@@ -17,22 +16,21 @@
     "identifier": "http://reg.genome.network/allele/CA013536"
   },
   "outcome": {
-    "id": "CG-criterion-outcome:met",
+    "id": "SEPIO:0000223",
     "type": "Coding",
-    "code": "met",
-    "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+    "code": "0000223",
+    "system": "http://obofoundry.org/sepio/",
     "display": "Met"
   },
   "evidenceLine": [
     {
       "id": "EvLn101",
       "type": "EvidenceLine",
-      "explanation": "EvLn101",
       "evidenceItem": [
         {
           "id": "InSilicoPred262",
           "type": "InSilicoPrediction",
-          "explanation": "Provenance would show that this comes from Alamut",
+          "description": "Provenance would show that this comes from Alamut",
           "transcript": {
             "id": "RefSeq011",
             "type": "ReferenceSequence",
@@ -51,10 +49,10 @@
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-prediction-type:sp",
+                "id": "SEPIO:0000323",
                 "type": "Coding",
-                "code": "sp",
-                "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+                "code": "0000323",
+                "system": "http://obofoundry.org/sepio/",
                 "display": "splicing prediction"
               }
             ]
@@ -70,7 +68,13 @@
             "preferredCtxAllele": "CtxAll124",
             "identifier": "http://reg.genome.network/allele/CA013536"
           },
-          "conserved": true,
+          "outcome": {
+            "id": "SEPIO-CG:99004",
+            "type": "Coding",
+            "code": "99004",
+            "system": "http://obofoundry.org/sepio/clingen",
+            "display": "not conserved"
+          },
           "algorithm": "phyloP",
           "score": -0.76
         },
@@ -83,7 +87,13 @@
             "preferredCtxAllele": "CtxAll124",
             "identifier": "http://reg.genome.network/allele/CA013536"
           },
-          "conserved": true,
+          "outcome": {
+            "id": "SEPIO-CG:99004",
+            "type": "Coding",
+            "code": "99004",
+            "system": "http://obofoundry.org/sepio/clingen",
+            "display": "not conserved"
+          },
           "algorithm": "PhastCons",
           "score": 0.63
         },
@@ -124,19 +134,19 @@
       "agent": {
         "id": "Agent007",
         "type": "Agent",
-        "name": "Stefan DiMarino"
+        "label": "Stefan DiMarino"
       },
-      "onDate": "10/10/16 8:05 AM",
-      "role": {
+      "contributionDate": "10/10/16 8:05 AM",
+      "contributionRole": {
         "id": "CC405",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:assessor",
+            "id": "SEPIO:0000154",
             "type": "Coding",
-            "code": "assessor",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "assessor"
+            "code": "0000154",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "assessor role"
           }
         ]
       }

@@ -96,7 +96,7 @@
               <a href="../">Welcome</a>
             </li>
             <li><a href="../user/">User Guide</a></li>
-            <li class="active"><a href="./">Technical Reference</a></li><ul><li><a href="assertion_method.html">AssertionMethod</a></li><li class="active"><a href="criterion.html">Criterion</a></li><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="evidence_line.html">EvidenceLine</a></li><li><a href="scoring_algorithm.html">ScoringAlgorithm</a></li><li><a href="statement/">Statement</a></li><li><a href="value_set.html">ValueSet</a></li><li><a href="variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="./">Technical Reference</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="assertion_method.html">AssertionMethod</a></li><li><a href="contribution.html">Contribution</a></li><li class="active"><a href="criterion.html">Criterion</a></li><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="domain_entities/">Domain Entities</a></li><li><a href="evidence_line.html">EvidenceLine</a></li><li><a href="scoring_algorithm.html">ScoringAlgorithm</a></li><li><a href="statement/">Statement</a></li><li><a href="value_set.html">ValueSet</a></li><li><a href="variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -110,6 +110,8 @@
 
 A specification that describes how to interpret the direction and strength of evidence provided by a specific type of information for the pathogenicity or benignancy of a genetic variant.</p>
 
+                <p>SEPIO:0000192</p>
+
 
             <hr class='col-sm-12' />
 
@@ -117,7 +119,11 @@ A specification that describes how to interpret the direction and strength of ev
             
 
     <!-- this is primarily the Scope and Usage section -->
-    
+    <h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>In the ACMG Variant Pathogenicity guideline, data is assessed by the application of a prescribed set of criteria.  These criteria describe standard arguments that can be made about the pathogenicity of a variant.</p>
+
+<p>For instance, a variant with a common frequency in a population is unlikely to be causal for a serious rare condition.  This inference is captured in a Criterion.  In the ACMG framework, this particular criterion has the identifier BA1.  In this version of the model, instances of Criteria correspond exactly to the criteria of the ACMG Variant Pathogenicity guideline.</p>
 
 
     <!-- image here if available -->
@@ -131,26 +137,30 @@ A specification that describes how to interpret the direction and strength of ev
                 <th>Type</th>
                 <th>Cardinality</th>
                 <th>Description</th>
+                <th>IRI</th>
             </tr>
             </thead>
             <tbody>
+            <tr>
+                <td>label</td>
+                <td>String</td>
+                <td>0..1</td>
+                <td></td>
+                <td>RDFS:label</td>
+            </tr>
             <tr>
                 <td>description</td>
                 <td>String</td>
                 <td>0..1</td>
                 <td></td>
-            </tr>
-            <tr>
-                <td>shortDescription</td>
-                <td>String</td>
-                <td>0..1</td>
-                <td></td>
+                <td>DC:description</td>
             </tr>
             <tr>
                 <td>defaultStrength</td>
                 <td>CodeableConcept</td>
                 <td>0..1</td>
                 <td></td>
+                <td>SEPIO:0000196</td>
             </tr>
             </tbody>
         </table>
@@ -161,18 +171,18 @@ A specification that describes how to interpret the direction and strength of ev
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
+        <th>label</th>
         <th>description</th>
-        <th>shortDescription</th>
         <th>defaultStrength</th>
       </tr></thead>
       <tbody>
         <tr>
           <td><p><a href="details/details.html#PVS1">PVS1</a></p></td>
           <td>
-              <p>null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease</p>
+              
          </td>
           <td>
-              <p>Null variant in gene with known LOF mechanism</p>
+              <p>null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:pvs">CG-evidence-strength:pvs</a></p>
@@ -182,7 +192,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "PVS1",
   "type": "Criterion",
   "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
-  "shortDescription": "Null variant in gene with known LOF mechanism",
   "defaultStrength": {
     "id": "CG-evidence-strength:pvs"
   }
@@ -194,10 +203,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#PS1">PS1</a></p></td>
           <td>
-              <p>Same amino acid change as a previously established pathogenic variant regardless of nucleotide change</p>
+              
          </td>
           <td>
-              <p>Nucleotide change results in previously reported pathogenic amino acid change</p>
+              <p>Same amino acid change as a previously established pathogenic variant regardless of nucleotide change</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:ps">CG-evidence-strength:ps</a></p>
@@ -207,7 +216,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "PS1",
   "type": "Criterion",
   "description": "Same amino acid change as a previously established pathogenic variant regardless of nucleotide change",
-  "shortDescription": "Nucleotide change results in previously reported pathogenic amino acid change",
   "defaultStrength": {
     "id": "CG-evidence-strength:ps"
   }
@@ -219,10 +227,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#PS2">PS2</a></p></td>
           <td>
-              <p>De novo (both maternity and paternity confirmed) in a patient with the disease and no family history</p>
+              
          </td>
           <td>
-              <p>Confirmed de novo in individual without family history of condition</p>
+              <p>De novo (both maternity and paternity confirmed) in a patient with the disease and no family history</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:ps">CG-evidence-strength:ps</a></p>
@@ -232,7 +240,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "PS2",
   "type": "Criterion",
   "description": "De novo (both maternity and paternity confirmed) in a patient with the disease and no family history",
-  "shortDescription": "Confirmed de novo in individual without family history of condition",
   "defaultStrength": {
     "id": "CG-evidence-strength:ps"
   }
@@ -244,10 +251,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#PS3">PS3</a></p></td>
           <td>
-              <p>Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product</p>
+              
          </td>
           <td>
-              <p>Well-established functional studies showing damaging effect</p>
+              <p>Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:ps">CG-evidence-strength:ps</a></p>
@@ -257,7 +264,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "PS3",
   "type": "Criterion",
   "description": "Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product",
-  "shortDescription": "Well-established functional studies showing damaging effect",
   "defaultStrength": {
     "id": "CG-evidence-strength:ps"
   }
@@ -269,10 +275,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#PS4">PS4</a></p></td>
           <td>
-              <p>The prevalence of the variant in affected individuals is significantly increased compared with the prevalence in controls</p>
+              
          </td>
           <td>
-              <p>Prevelance increase in affected vs. control</p>
+              <p>The prevalence of the variant in affected individuals is significantly increased compared with the prevalence in controls</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:ps">CG-evidence-strength:ps</a></p>
@@ -282,7 +288,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "PS4",
   "type": "Criterion",
   "description": "The prevalence of the variant in affected individuals is significantly increased compared with the prevalence in controls",
-  "shortDescription": "Prevelance increase in affected vs. control",
   "defaultStrength": {
     "id": "CG-evidence-strength:ps"
   }
@@ -294,10 +299,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#PM1">PM1</a></p></td>
           <td>
-              <p>Located in a mutational hot spot and/or critical and well-established functional domain (e.g., active site of an enzyme) without benign variation</p>
+              
          </td>
           <td>
-              <p>Located in hot spot without benign variation</p>
+              <p>Located in a mutational hot spot and/or critical and well-established functional domain (e.g., active site of an enzyme) without benign variation</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p>
@@ -307,7 +312,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "PM1",
   "type": "Criterion",
   "description": "Located in a mutational hot spot and/or critical and well-established functional domain (e.g., active site of an enzyme) without benign variation",
-  "shortDescription": "Located in hot spot without benign variation",
   "defaultStrength": {
     "id": "CG-evidence-strength:pm"
   }
@@ -319,10 +323,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#PM2">PM2</a></p></td>
           <td>
-              <p>Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium</p>
+              
          </td>
           <td>
-              <p>Absent from controls</p>
+              <p>Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p>
@@ -332,7 +336,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "PM2",
   "type": "Criterion",
   "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
-  "shortDescription": "Absent from controls",
   "defaultStrength": {
     "id": "CG-evidence-strength:pm"
   }
@@ -344,10 +347,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#PM3">PM3</a></p></td>
           <td>
-              <p>For recessive disorders, detected in trans with a pathogenic variant</p>
+              
          </td>
           <td>
-              <p>Recessive in trans with pathogenic variant</p>
+              <p>For recessive disorders, detected in trans with a pathogenic variant</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p>
@@ -357,7 +360,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "PM3",
   "type": "Criterion",
   "description": "For recessive disorders, detected in trans with a pathogenic variant",
-  "shortDescription": "Recessive in trans with pathogenic variant",
   "defaultStrength": {
     "id": "CG-evidence-strength:pm"
   }
@@ -369,10 +371,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#PM4">PM4</a></p></td>
           <td>
-              <p>Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants</p>
+              
          </td>
           <td>
-              <p>Protein length changes or stop-loss</p>
+              <p>Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p>
@@ -382,7 +384,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "PM4",
   "type": "Criterion",
   "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
-  "shortDescription": "Protein length changes or stop-loss",
   "defaultStrength": {
     "id": "CG-evidence-strength:pm"
   }
@@ -394,10 +395,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#PM5">PM5</a></p></td>
           <td>
-              <p>Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before</p>
+              
          </td>
           <td>
-              <p>Novel missense at same amino acid as known pathogenic missense</p>
+              <p>Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p>
@@ -407,7 +408,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "PM5",
   "type": "Criterion",
   "description": "Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before",
-  "shortDescription": "Novel missense at same amino acid as known pathogenic missense",
   "defaultStrength": {
     "id": "CG-evidence-strength:pm"
   }
@@ -419,10 +419,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#PM6">PM6</a></p></td>
           <td>
-              <p>Assumed de novo, but without confirmation of paternity and maternity</p>
+              
          </td>
           <td>
-              <p>Assumed de novo (parental status not confirmed)</p>
+              <p>Assumed de novo, but without confirmation of paternity and maternity</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p>
@@ -432,7 +432,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "PM6",
   "type": "Criterion",
   "description": "Assumed de novo, but without confirmation of paternity and maternity",
-  "shortDescription": "Assumed de novo (parental status not confirmed)",
   "defaultStrength": {
     "id": "CG-evidence-strength:pm"
   }
@@ -444,10 +443,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#PP1">PP1</a></p></td>
           <td>
-              <p>Cosegregation with disease in multiple affected family members in a gene definitively known to cause the disease</p>
+              
          </td>
           <td>
-              <p>Segregates with disease in affected family members</p>
+              <p>Cosegregation with disease in multiple affected family members in a gene definitively known to cause the disease</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:pp">CG-evidence-strength:pp</a></p>
@@ -457,7 +456,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "PP1",
   "type": "Criterion",
   "description": "Cosegregation with disease in multiple affected family members in a gene definitively known to cause the disease",
-  "shortDescription": "Segregates with disease in affected family members",
   "defaultStrength": {
     "id": "CG-evidence-strength:pp"
   }
@@ -469,10 +467,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#PP2">PP2</a></p></td>
           <td>
-              <p>Missense variant in a gene that has a low rate of benign missense variation and in which missense variants are a common mechanism of disease</p>
+              
          </td>
           <td>
-              <p>Missense in condition where pathogenic missense common</p>
+              <p>Missense variant in a gene that has a low rate of benign missense variation and in which missense variants are a common mechanism of disease</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:pp">CG-evidence-strength:pp</a></p>
@@ -482,7 +480,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "PP2",
   "type": "Criterion",
   "description": "Missense variant in a gene that has a low rate of benign missense variation and in which missense variants are a common mechanism of disease",
-  "shortDescription": "Missense in condition where pathogenic missense common",
   "defaultStrength": {
     "id": "CG-evidence-strength:pp"
   }
@@ -494,10 +491,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#PP3">PP3</a></p></td>
           <td>
-              <p>Multiple lines of computational evidence support a deleterious effect on the gene or gene product (conservation, evolutionary, splicing impact, etc.)</p>
+              
          </td>
           <td>
-              <p>Computational evidence supports deleterious impact</p>
+              <p>Multiple lines of computational evidence support a deleterious effect on the gene or gene product (conservation, evolutionary, splicing impact, etc.)</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:pp">CG-evidence-strength:pp</a></p>
@@ -507,7 +504,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "PP3",
   "type": "Criterion",
   "description": "Multiple lines of computational evidence support a deleterious effect on the gene or gene product (conservation, evolutionary, splicing impact, etc.)",
-  "shortDescription": "Computational evidence supports deleterious impact",
   "defaultStrength": {
     "id": "CG-evidence-strength:pp"
   }
@@ -519,10 +515,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#PP4">PP4</a></p></td>
           <td>
-              <p>Patient’s phenotype or family history is highly specific for a disease with a single genetic etiology</p>
+              
          </td>
           <td>
-              <p>Disease specific phenotype and family history</p>
+              <p>Patient’s phenotype or family history is highly specific for a disease with a single genetic etiology</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:pp">CG-evidence-strength:pp</a></p>
@@ -532,7 +528,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "PP4",
   "type": "Criterion",
   "description": "Patient’s phenotype or family history is highly specific for a disease with a single genetic etiology",
-  "shortDescription": "Disease specific phenotype and family history",
   "defaultStrength": {
     "id": "CG-evidence-strength:pp"
   }
@@ -544,10 +539,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#PP5">PP5</a></p></td>
           <td>
-              <p>Reputable source recently reports variant as pathogenic, but the evidence is not available to the laboratory to perform an independent evaluation</p>
+              
          </td>
           <td>
-              <p>Reported pathogenic by reputable source without shared data</p>
+              <p>Reputable source recently reports variant as pathogenic, but the evidence is not available to the laboratory to perform an independent evaluation</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:pp">CG-evidence-strength:pp</a></p>
@@ -557,7 +552,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "PP5",
   "type": "Criterion",
   "description": "Reputable source recently reports variant as pathogenic, but the evidence is not available to the laboratory to perform an independent evaluation",
-  "shortDescription": "Reported pathogenic by reputable source without shared data",
   "defaultStrength": {
     "id": "CG-evidence-strength:pp"
   }
@@ -569,10 +563,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#BA1">BA1</a></p></td>
           <td>
-              <p>Allele frequency is >5% in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium</p>
+              
          </td>
           <td>
-              <p>Present in population databases at greater than 5%</p>
+              <p>Allele frequency is >5% in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:ba">CG-evidence-strength:ba</a></p>
@@ -582,7 +576,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "BA1",
   "type": "Criterion",
   "description": "Allele frequency is >5% in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
-  "shortDescription": "Present in population databases at greater than 5%",
   "defaultStrength": {
     "id": "CG-evidence-strength:ba"
   }
@@ -594,10 +587,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#BS1">BS1</a></p></td>
           <td>
-              <p>Allele frequency is greater than expected for disorder</p>
+              
          </td>
           <td>
-              <p>MAF too high for disorder</p>
+              <p>Allele frequency is greater than expected for disorder</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:bs">CG-evidence-strength:bs</a></p>
@@ -607,7 +600,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "BS1",
   "type": "Criterion",
   "description": "Allele frequency is greater than expected for disorder",
-  "shortDescription": "MAF too high for disorder",
   "defaultStrength": {
     "id": "CG-evidence-strength:bs"
   }
@@ -619,10 +611,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#BS2">BS2</a></p></td>
           <td>
-              <p>Observed in a healthy adult individual for a recessive (homozygous), dominant (heterozygous), or X-linked (hemizygous) disorder, with full penetrance expected at an early age</p>
+              
          </td>
           <td>
-              <p>Control frequency higher than expected for penetrance</p>
+              <p>Observed in a healthy adult individual for a recessive (homozygous), dominant (heterozygous), or X-linked (hemizygous) disorder, with full penetrance expected at an early age</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:bs">CG-evidence-strength:bs</a></p>
@@ -632,7 +624,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "BS2",
   "type": "Criterion",
   "description": "Observed in a healthy adult individual for a recessive (homozygous), dominant (heterozygous), or X-linked (hemizygous) disorder, with full penetrance expected at an early age",
-  "shortDescription": "Control frequency higher than expected for penetrance",
   "defaultStrength": {
     "id": "CG-evidence-strength:bs"
   }
@@ -644,10 +635,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#BS3">BS3</a></p></td>
           <td>
-              <p>Well-established in vitro or in vivo functional studies show no damaging effect on protein function or splicing</p>
+              
          </td>
           <td>
-              <p>Well-established functional studies do not show damaging effect</p>
+              <p>Well-established in vitro or in vivo functional studies show no damaging effect on protein function or splicing</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:bs">CG-evidence-strength:bs</a></p>
@@ -657,7 +648,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "BS3",
   "type": "Criterion",
   "description": "Well-established in vitro or in vivo functional studies show no damaging effect on protein function or splicing",
-  "shortDescription": "Well-established functional studies do not show damaging effect",
   "defaultStrength": {
     "id": "CG-evidence-strength:bs"
   }
@@ -669,10 +659,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#BS4">BS4</a></p></td>
           <td>
-              <p>Lack of segregation in affected members of a family</p>
+              
          </td>
           <td>
-              <p>Does not segregate with disease</p>
+              <p>Lack of segregation in affected members of a family</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:bs">CG-evidence-strength:bs</a></p>
@@ -682,7 +672,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "BS4",
   "type": "Criterion",
   "description": "Lack of segregation in affected members of a family",
-  "shortDescription": "Does not segregate with disease",
   "defaultStrength": {
     "id": "CG-evidence-strength:bs"
   }
@@ -694,10 +683,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#BP1">BP1</a></p></td>
           <td>
-              <p>Missense variant in a gene for which primarily truncating variants are known to cause disease</p>
+              
          </td>
           <td>
-              <p>Missense variant when truncating is expected mechanism</p>
+              <p>Missense variant in a gene for which primarily truncating variants are known to cause disease</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
@@ -707,7 +696,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "BP1",
   "type": "Criterion",
   "description": "Missense variant in a gene for which primarily truncating variants are known to cause disease",
-  "shortDescription": "Missense variant when truncating is expected mechanism",
   "defaultStrength": {
     "id": "CG-evidence-strength:bp"
   }
@@ -719,10 +707,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#BP2">BP2</a></p></td>
           <td>
-              <p>Observed in trans with a pathogenic variant for a fully penetrant dominant gene/disorder or observed in cis with a pathogenic variant in any inheritance pattern</p>
+              
          </td>
           <td>
-              <p>In trans with dominant OR in cis with pathogenic variant</p>
+              <p>Observed in trans with a pathogenic variant for a fully penetrant dominant gene/disorder or observed in cis with a pathogenic variant in any inheritance pattern</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
@@ -732,7 +720,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "BP2",
   "type": "Criterion",
   "description": "Observed in trans with a pathogenic variant for a fully penetrant dominant gene/disorder or observed in cis with a pathogenic variant in any inheritance pattern",
-  "shortDescription": "In trans with dominant OR in cis with pathogenic variant",
   "defaultStrength": {
     "id": "CG-evidence-strength:bp"
   }
@@ -744,10 +731,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#BP3">BP3</a></p></td>
           <td>
-              <p>In-frame deletions/insertions in a repetitive region without a known function</p>
+              
          </td>
           <td>
-              <p>In-frame indel without known function</p>
+              <p>In-frame deletions/insertions in a repetitive region without a known function</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
@@ -757,7 +744,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "BP3",
   "type": "Criterion",
   "description": "In-frame deletions/insertions in a repetitive region without a known function",
-  "shortDescription": "In-frame indel without known function",
   "defaultStrength": {
     "id": "CG-evidence-strength:bp"
   }
@@ -769,10 +755,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#BP4">BP4</a></p></td>
           <td>
-              <p>Multiple lines of computational evidence suggest no impact on gene or gene product (conservation, evolutionary, splicing impact, etc.)</p>
+              
          </td>
           <td>
-              <p>Computational evidence supports benign impact</p>
+              <p>Multiple lines of computational evidence suggest no impact on gene or gene product (conservation, evolutionary, splicing impact, etc.)</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
@@ -782,7 +768,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "BP4",
   "type": "Criterion",
   "description": "Multiple lines of computational evidence suggest no impact on gene or gene product (conservation, evolutionary, splicing impact, etc.)",
-  "shortDescription": "Computational evidence supports benign impact",
   "defaultStrength": {
     "id": "CG-evidence-strength:bp"
   }
@@ -794,10 +779,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#BP5">BP5</a></p></td>
           <td>
-              <p>Variant found in a case with an alternate molecular basis for disease</p>
+              
          </td>
           <td>
-              <p>Variant found in case with alternate explanation</p>
+              <p>Variant found in a case with an alternate molecular basis for disease</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
@@ -807,7 +792,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "BP5",
   "type": "Criterion",
   "description": "Variant found in a case with an alternate molecular basis for disease",
-  "shortDescription": "Variant found in case with alternate explanation",
   "defaultStrength": {
     "id": "CG-evidence-strength:bp"
   }
@@ -819,10 +803,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#BP6">BP6</a></p></td>
           <td>
-              <p>Reputable source recently reports variant as benign, but the evidence is not available to the laboratory to perform an independent evaluation</p>
+              
          </td>
           <td>
-              <p>Reported benign by reputable source without shared data</p>
+              <p>Reputable source recently reports variant as benign, but the evidence is not available to the laboratory to perform an independent evaluation</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
@@ -832,7 +816,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "BP6",
   "type": "Criterion",
   "description": "Reputable source recently reports variant as benign, but the evidence is not available to the laboratory to perform an independent evaluation",
-  "shortDescription": "Reported benign by reputable source without shared data",
   "defaultStrength": {
     "id": "CG-evidence-strength:bp"
   }
@@ -844,10 +827,10 @@ A specification that describes how to interpret the direction and strength of ev
         <tr>
           <td><p><a href="details/details.html#BP7">BP7</a></p></td>
           <td>
-              <p>A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved</p>
+              
          </td>
           <td>
-              <p>Synonymous variant without predicted splice effect in region with low conservation</p>
+              <p>A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved</p>
          </td>
           <td>
               <p><a href="details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
@@ -857,7 +840,6 @@ A specification that describes how to interpret the direction and strength of ev
   "id": "BP7",
   "type": "Criterion",
   "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
-  "shortDescription": "Synonymous variant without predicted splice effect in region with low conservation",
   "defaultStrength": {
     "id": "CG-evidence-strength:bp"
   }

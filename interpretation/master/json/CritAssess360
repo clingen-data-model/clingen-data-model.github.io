@@ -1,12 +1,11 @@
 {
   "id": "CritAssess360",
   "type": "CriterionAssessment",
-  "explanation": "This variant is a silent variant that does not result in an amino acid change. It is not very conserved and splicing tools suggest no change. However, BP7 does not apply because the variant is located in the first base of exon 4 of RAF1, which is part of the 3’ splice region of the exon. For that reason, we can’t fully trust computational tools. Functional assays would have to confirm that this variant truly does not alter splicing.",
+  "description": "This variant is a silent variant that does not result in an amino acid change. It is not very conserved and splicing tools suggest no change. However, BP7 does not apply because the variant is located in the first base of exon 4 of RAF1, which is part of the 3’ splice region of the exon. For that reason, we can’t fully trust computational tools. Functional assays would have to confirm that this variant truly does not alter splicing.",
   "criterion": {
     "id": "BP7",
     "type": "Criterion",
     "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
-    "shortDescription": "Synonymous variant without predicted splice effect in region with low conservation",
     "defaultStrength": {
       "id": "CG-evidence-strength:bp"
     }
@@ -18,17 +17,16 @@
     "identifier": "http://reg.genome.network/allele/CA177682"
   },
   "outcome": {
-    "id": "CG-criterion-outcome:not-met",
+    "id": "SEPIO:0000224",
     "type": "Coding",
-    "code": "not-met",
-    "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+    "code": "0000224",
+    "system": "http://obofoundry.org/sepio/",
     "display": "Not Met"
   },
   "evidenceLine": [
     {
       "id": "EvLn102",
       "type": "EvidenceLine",
-      "explanation": "EvLn102",
       "evidenceItem": [
         {
           "id": "InSilicoPred266",
@@ -51,10 +49,10 @@
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-prediction-type:sp",
+                "id": "SEPIO:0000323",
                 "type": "Coding",
-                "code": "sp",
-                "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+                "code": "0000323",
+                "system": "http://obofoundry.org/sepio/",
                 "display": "splicing prediction"
               }
             ]
@@ -70,7 +68,13 @@
             "preferredCtxAllele": "CtxAll125",
             "identifier": "http://reg.genome.network/allele/CA177682"
           },
-          "conserved": true,
+          "outcome": {
+            "id": "SEPIO-CG:99004",
+            "type": "Coding",
+            "code": "99004",
+            "system": "http://obofoundry.org/sepio/clingen",
+            "display": "not conserved"
+          },
           "algorithm": "phyloP",
           "score": 0.45
         },
@@ -83,7 +87,13 @@
             "preferredCtxAllele": "CtxAll125",
             "identifier": "http://reg.genome.network/allele/CA177682"
           },
-          "conserved": true,
+          "outcome": {
+            "id": "SEPIO-CG:99004",
+            "type": "Coding",
+            "code": "99004",
+            "system": "http://obofoundry.org/sepio/clingen",
+            "display": "not conserved"
+          },
           "algorithm": "PhastCons",
           "score": 1.0
         },
@@ -124,19 +134,19 @@
       "agent": {
         "id": "Agent007",
         "type": "Agent",
-        "name": "Stefan DiMarino"
+        "label": "Stefan DiMarino"
       },
-      "onDate": "10/10/16 8:06 AM",
-      "role": {
+      "contributionDate": "10/10/16 8:06 AM",
+      "contributionRole": {
         "id": "CC406",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:assessor",
+            "id": "SEPIO:0000154",
             "type": "Coding",
-            "code": "assessor",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "assessor"
+            "code": "0000154",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "assessor role"
           }
         ]
       }

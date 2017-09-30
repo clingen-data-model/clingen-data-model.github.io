@@ -1,0 +1,3024 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Data Model
+    </title>
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../stylesheets/brand2.css" rel="stylesheet" /><link href="../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header col-sm-4 col-md-3">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand " href="#">ClinGen Documentation</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                Models
+                  ::
+                  <span class="glyphicon leaf"></span>Interpretation
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                  <li class="allele" >
+                    <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
+                  </li>
+                  <li class="interpretation" >
+                    <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span>Interpretation</a></li>
+                  </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >development release<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                  <li><a href="/0.1/tech/domain_entities/genetic_condition.html">0.1</a></li>
+                  <li><a href="/development/tech/domain_entities/genetic_condition.html">development</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
+      <div class='col-sm-offset-4 col-md-offset-3'>
+        <ol class="breadcrumb bg-none margin-none">
+          <li><a href="../../">Interpretation Model</a></li>
+<li><a href="../">Technical Reference and Examples</a></li>
+<li><a href="./">Domain Entities</a></li>
+
+        </ol>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-4 col-md-3 sidebar">
+         <div class='nav-sidebar nav-sidebar-title'>
+<a href="https://clinicalgenome.org">            	<img width="80%" height="80%" alt="ClinGen Documentation" class="img-responsive" src="../../images/clingen-doc-logo.png" />
+</a>        	</div>
+          <ul class="nav nav-sidebar">
+            
+            <li class="active">
+              <a href="../../">Welcome</a>
+            </li>
+            <li><a href="../../user/">User Guide</a></li>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../agent.html">Agent</a></li><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../contribution.html">Contribution</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Domain Entities</a></li><ul><li><a href="canonical_allele.html">CanonicalAllele</a></li><li><a href="contextual_allele.html">ContextualAllele</a></li><li class="active"><a href="genetic_condition.html">GeneticCondition</a></li><li><a href="individual.html">Individual</a></li><li><a href="sequence_location.html">SequenceLocation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li><a href="../statement/">Statement</a></li><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <!-- Old style.  We might still need the model here? -->
+            <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+          </ul>
+        </div>
+        <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+          <article>
+
+
+            <h1>GeneticCondition</h1>
+            <p>A disease, or a set of one or more co-occurring phenotypes, typically controlled by a single locus with a defined inheritance pattern.</p>
+
+                <p>SEPIO:0000219</p>
+
+
+            <hr class='col-sm-12' />
+
+
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>Numerous ontologies and vocabulary sets have been derived to describe diseases, conditions, and phenotypes.   This class provides a generic wrapper for these terms, as well as allowing a mechanism to define conditions that have not been identified in any existing vocabulary.</p>
+
+<p>The GeneticCondition is most often used to describe monogenic conditions of the type described in OMIM, but it is not restricted to that.  For instance, many ontologies such as the Disease Ontology aggregate monogenic conditions into higher order terms that have similar clinical presentation.  These higher level terms are valid conditions about which to make interpretive statements, but are not strictly monogenic.</p>
+
+<p>There is also widespread disagreement across vocabularies as to whether a mode of inheritance should be modeled as a property of a condition, or a statement about a condition.  We have chosen to add mode of inheritance as a property of the condition.  Because the condition also has a disease, which may be a reference to an external term such as a DOID, this construct allows the user to specify e.g. the dominant form of a DOID and make statements about it.</p>
+
+<p>Mendelian Conditions are rare, and new conditions will be observed.  GeneticCondition allows the specification of a previously unnamed condition via an array of phenotype terms.</p>
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>name</td>
+                <td>String</td>
+                <td>0..1</td>
+                <td></td>
+                <td>RDFS:label</td>
+            </tr>
+            <tr>
+                <td>disease</td>
+                <td>CodeableConcept</td>
+                <td>0..*</td>
+                <td></td>
+                <td>BFO:0000051</td>
+            </tr>
+            <tr>
+                <td>phenotype</td>
+                <td>CodeableConcept</td>
+                <td>0..*</td>
+                <td></td>
+                <td>BFO:0000051</td>
+            </tr>
+            <tr>
+                <td>modeOfInheritance</td>
+                <td>Coding</td>
+                <td>0..1</td>
+                <td></td>
+                <td>RO:0000091</td>
+            </tr>
+            <tr>
+                <td>gene</td>
+                <td>Gene</td>
+                <td>0..1</td>
+                <td></td>
+                <td>RO:0000057</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>name</th>
+        <th>disease</th>
+        <th>phenotype</th>
+        <th>modeOfInheritance</th>
+        <th>gene</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="../details/details.html#GenCond001">GenCond001</a></p></td>
+          <td>
+              <p>Breast Ovarian Cancer, Autosomal Dominant</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#MESH:D061325">MESH:D061325</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond001"><pre><code>{
+  "id": "GenCond001",
+  "type": "GeneticCondition",
+  "name": "Breast Ovarian Cancer, Autosomal Dominant",
+  "disease": [
+    {
+      "id": "MESH:D061325",
+      "type": "Coding",
+      "code": "D061325",
+      "system": "https://meshb.nlm.nih.gov/",
+      "display": "hereditary breast ovarian cancer"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond002">GenCond002</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:217604">Orphanet:217604</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond002"><pre><code>{
+  "id": "GenCond002",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217604",
+      "type": "Coding",
+      "code": "217604",
+      "system": "http://www.orpha.net/",
+      "display": "dilated cardiomyopathy"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond003">GenCond003</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:648">Orphanet:648</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond003"><pre><code>{
+  "id": "GenCond003",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:648",
+      "type": "Coding",
+      "code": "648",
+      "system": "http://www.orpha.net/",
+      "display": "noonan syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond004">GenCond004</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:244">Orphanet:244</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond004"><pre><code>{
+  "id": "GenCond004",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:244",
+      "type": "Coding",
+      "code": "244",
+      "system": "http://www.orpha.net/",
+      "display": "Primary ciliary dyskenisia"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond005">GenCond005</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:3071">Orphanet:3071</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond005"><pre><code>{
+  "id": "GenCond005",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:3071",
+      "type": "Coding",
+      "code": "3071",
+      "system": "http://www.orpha.net/",
+      "display": "costello syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond006">GenCond006</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#OMIM:609942">OMIM:609942</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond006"><pre><code>{
+  "id": "GenCond006",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "OMIM:609942",
+      "type": "Coding",
+      "code": "609942",
+      "system": "http://www.omim.org/",
+      "display": "noonan syndrome 3"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond007">GenCond007</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:167848">Orphanet:167848</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond007"><pre><code>{
+  "id": "GenCond007",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:167848",
+      "type": "Coding",
+      "code": "167848",
+      "system": "http://www.orpha.net/",
+      "display": "cardiomyopathy"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond008">GenCond008</a></p></td>
+          <td>
+              <p>desmin related myopathy</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#OMIM:601419">OMIM:601419</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond008"><pre><code>{
+  "id": "GenCond008",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "OMIM:601419",
+      "type": "Coding",
+      "code": "601419",
+      "system": "http://www.omim.org/",
+      "display": "myofibrillar myopathy 1"
+    }
+  ],
+  "name": "desmin related myopathy"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond009">GenCond009</a></p></td>
+          <td>
+              <p>Epilepsy with Mental Retardation</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond009"><pre><code>{
+  "id": "GenCond009",
+  "type": "GeneticCondition",
+  "name": "Epilepsy with Mental Retardation"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond010">GenCond010</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#hgnc:GIPC3">hgnc:GIPC3</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond010"><pre><code>{
+  "id": "GenCond010",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:87884",
+      "type": "Coding",
+      "code": "87884",
+      "system": "http://www.orpha.net/",
+      "display": "nonsyndromic deafness"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  },
+  "gene": {
+    "id": "hgnc:GIPC3",
+    "type": "Gene"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond011">GenCond011</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:423">Orphanet:423</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond011"><pre><code>{
+  "id": "GenCond011",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:423",
+      "type": "Coding",
+      "code": "423",
+      "system": "http://www.orpha.net/",
+      "display": "Malignant hyperthermia"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond012">GenCond012</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0011014">HP:0011014</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond012"><pre><code>{
+  "id": "GenCond012",
+  "type": "GeneticCondition",
+  "phenotype": [
+    {
+      "id": "HP:0011014",
+      "type": "Coding",
+      "code": "0011014",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Abnormal Glucose Homeostasis"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond013">GenCond013</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:324">Orphanet:324</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0001419">HP:0001419</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond013"><pre><code>{
+  "id": "GenCond013",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:324",
+      "type": "Coding",
+      "code": "324",
+      "system": "http://www.orpha.net/",
+      "display": "Fabry disease"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0001419",
+    "type": "Coding",
+    "code": "0001419",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "X-linked recessive inheritance"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond014">GenCond014</a></p></td>
+          <td>
+              <p>PCD autosomal recessive w/ outer dynein arm (ODA) defects</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:244">Orphanet:244</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0200106">HP:0200106</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond014"><pre><code>{
+  "id": "GenCond014",
+  "type": "GeneticCondition",
+  "name": "PCD autosomal recessive w/ outer dynein arm (ODA) defects",
+  "disease": [
+    {
+      "id": "Orphanet:244",
+      "type": "Coding",
+      "code": "244",
+      "system": "http://www.orpha.net/",
+      "display": "Primary ciliary dyskenisia"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  },
+  "phenotype": [
+    {
+      "id": "HP:0200106",
+      "type": "Coding",
+      "code": "0200106",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Absent/shortened dynein arms"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond015">GenCond015</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:216">Orphanet:216</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#hgnc:TTP1">hgnc:TTP1</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond015"><pre><code>{
+  "id": "GenCond015",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:216",
+      "type": "Coding",
+      "code": "216",
+      "system": "http://www.orpha.net/",
+      "display": "neuronal ceroid lipofuscinosis"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  },
+  "gene": {
+    "id": "hgnc:TTP1",
+    "type": "Gene"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond016">GenCond016</a></p></td>
+          <td>
+              <p>Primary familial hypertrophic cardiomyopathy, Autosomal Dominant</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:217569">Orphanet:217569</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond016"><pre><code>{
+  "id": "GenCond016",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217569",
+      "type": "Coding",
+      "code": "217569",
+      "system": "http://www.orpha.net/",
+      "display": "hypertrophic cardiomyopathy"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  },
+  "name": "Primary familial hypertrophic cardiomyopathy, Autosomal Dominant"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond017">GenCond017</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:664">Orphanet:664</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond017"><pre><code>{
+  "id": "GenCond017",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:664",
+      "type": "Coding",
+      "code": "664",
+      "system": "http://www.orpha.net/",
+      "display": "Ornithine carbamoyltransferase deficiency"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond018">GenCond018</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:122">Orphanet:122</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond018"><pre><code>{
+  "id": "GenCond018",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:122",
+      "type": "Coding",
+      "code": "122",
+      "system": "http://www.orpha.net/",
+      "display": "Birt-Hogg-Dube Syndrome"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond019">GenCond019</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:1340">Orphanet:1340</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond019"><pre><code>{
+  "id": "GenCond019",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:1340",
+      "type": "Coding",
+      "code": "1340",
+      "system": "http://www.orpha.net/",
+      "display": "cardiofaciocutaneous syndrome"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond020">GenCond020</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:217569">Orphanet:217569</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond020"><pre><code>{
+  "id": "GenCond020",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217569",
+      "type": "Coding",
+      "code": "217569",
+      "system": "http://www.orpha.net/",
+      "display": "hypertrophic cardiomyopathy"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond021">GenCond021</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:886">Orphanet:886</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond021"><pre><code>{
+  "id": "GenCond021",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:886",
+      "type": "Coding",
+      "code": "886",
+      "system": "http://www.orpha.net/",
+      "display": "Usher syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond022">GenCond022</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:774">Orphanet:774</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond022"><pre><code>{
+  "id": "GenCond022",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:774",
+      "type": "Coding",
+      "code": "774",
+      "system": "http://www.orpha.net/",
+      "display": "hereditary hemorrhagic telangiectasia"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond023">GenCond023</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#OMIM:612555">OMIM:612555</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond023"><pre><code>{
+  "id": "GenCond023",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "OMIM:612555",
+      "type": "Coding",
+      "code": "612555",
+      "system": "http://www.omim.org/",
+      "display": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond024">GenCond024</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#OMIM:614065">OMIM:614065</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond024"><pre><code>{
+  "id": "GenCond024",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "OMIM:614065",
+      "type": "Coding",
+      "code": "614065",
+      "system": "http://www.omim.org/",
+      "display": "Myopathy, Distal, type 4"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond025">GenCond025</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:586">Orphanet:586</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond025"><pre><code>{
+  "id": "GenCond025",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:586",
+      "type": "Coding",
+      "code": "586",
+      "system": "http://www.orpha.net/",
+      "display": "Cystic Fibrosis"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond026">GenCond026</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:558">Orphanet:558</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond026"><pre><code>{
+  "id": "GenCond026",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:558",
+      "type": "Coding",
+      "code": "558",
+      "system": "http://www.orpha.net/",
+      "display": "Marfan Syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond027">GenCond027</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:2609">Orphanet:2609</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0001423">HP:0001423</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond027"><pre><code>{
+  "id": "GenCond027",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:2609",
+      "type": "Coding",
+      "code": "2609",
+      "system": "http://www.orpha.net/",
+      "display": "Mitochondrial complex 1 deficiency"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0001423",
+    "type": "Coding",
+    "code": "0001423",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "X-linked dominant inheritance"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond028">GenCond028</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:2855">Orphanet:2855</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond028"><pre><code>{
+  "id": "GenCond028",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:2855",
+      "type": "Coding",
+      "code": "2855",
+      "system": "http://www.orpha.net/",
+      "display": "Perrault Syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond029">GenCond029</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:319182">Orphanet:319182</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond029"><pre><code>{
+  "id": "GenCond029",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:319182",
+      "type": "Coding",
+      "code": "319182",
+      "system": "http://www.orpha.net/",
+      "display": "Wiedemann-Steiner syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond030">GenCond030</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:733">Orphanet:733</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond030"><pre><code>{
+  "id": "GenCond030",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:733",
+      "type": "Coding",
+      "code": "733",
+      "system": "http://www.orpha.net/",
+      "display": "Familial Adenomatous Polyposis"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond035">GenCond035</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#OMIM:143890">OMIM:143890</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond035"><pre><code>{
+  "id": "GenCond035",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "OMIM:143890",
+      "type": "Coding",
+      "code": "143890",
+      "system": "http://www.omim.org/",
+      "display": "Hypercholesterolemia, Familial"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond036">GenCond036</a></p></td>
+          <td>
+              <p>hereditary breast and ovarian cancer</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:145">Orphanet:145</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond036"><pre><code>{
+  "id": "GenCond036",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:145",
+      "type": "Coding",
+      "code": "145",
+      "system": "http://www.orpha.net/",
+      "display": "hereditary breast and ovarian cancer syndrome"
+    }
+  ],
+  "name": "hereditary breast and ovarian cancer"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond037">GenCond037</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:84">Orphanet:84</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond037"><pre><code>{
+  "id": "GenCond037",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:84",
+      "type": "Coding",
+      "code": "84",
+      "system": "http://www.orpha.net/",
+      "display": "Fanconi Anemia"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond038">GenCond038</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:791">Orphanet:791</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond038"><pre><code>{
+  "id": "GenCond038",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:791",
+      "type": "Coding",
+      "code": "791",
+      "system": "http://www.orpha.net/",
+      "display": "Retinitis Pigmentosa"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond039">GenCond039</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0012873">HP:0012873</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond039"><pre><code>{
+  "id": "GenCond039",
+  "type": "GeneticCondition",
+  "phenotype": [
+    {
+      "id": "HP:0012873",
+      "type": "Coding",
+      "code": "0012873",
+      "system": "http://human-phenotype-ontology.github.io/",
+      "display": "Absent vas deferens"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond040">GenCond040</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:364526">Orphanet:364526</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond040"><pre><code>{
+  "id": "GenCond040",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:364526",
+      "type": "Coding",
+      "code": "364526",
+      "system": "http://www.orpha.net/",
+      "display": "Primary bone dysplasia"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond041">GenCond041</a></p></td>
+          <td>
+              <p>Pseudoachondroplastic spondyloepiphyseal dysplasia</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:750">Orphanet:750</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond041"><pre><code>{
+  "id": "GenCond041",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:750",
+      "type": "Coding",
+      "code": "750",
+      "system": "http://www.orpha.net/",
+      "display": "pseudoachondroplasia"
+    }
+  ],
+  "name": "Pseudoachondroplastic spondyloepiphyseal dysplasia"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond042">GenCond042</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:750">Orphanet:750</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond042"><pre><code>{
+  "id": "GenCond042",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:750",
+      "type": "Coding",
+      "code": "750",
+      "system": "http://www.orpha.net/",
+      "display": "pseudoachondroplasia"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond043">GenCond043</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#OMIM:612555">OMIM:612555</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond043"><pre><code>{
+  "id": "GenCond043",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "OMIM:612555",
+      "type": "Coding",
+      "code": "612555",
+      "system": "http://www.omim.org/",
+      "display": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond044">GenCond044</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:414">Orphanet:414</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond044"><pre><code>{
+  "id": "GenCond044",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:414",
+      "type": "Coding",
+      "code": "414",
+      "system": "http://www.orpha.net/",
+      "display": "Gyrate atrophy of choroid and retina"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond045">GenCond045</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:244">Orphanet:244</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond045"><pre><code>{
+  "id": "GenCond045",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:244",
+      "type": "Coding",
+      "code": "244",
+      "system": "http://www.orpha.net/",
+      "display": "Primary ciliary dyskenisia"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond046">GenCond046</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:247">Orphanet:247</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond046"><pre><code>{
+  "id": "GenCond046",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:247",
+      "type": "Coding",
+      "code": "247",
+      "system": "http://www.orpha.net/",
+      "display": "arrhythmogenic right ventricular cardiomyopathy"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond047">GenCond047</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:217604">Orphanet:217604</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond047"><pre><code>{
+  "id": "GenCond047",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217604",
+      "type": "Coding",
+      "code": "217604",
+      "system": "http://www.orpha.net/",
+      "display": "dilated cardiomyopathy"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond048">GenCond048</a></p></td>
+          <td>
+              <p>Hearing Loss</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond048"><pre><code>{
+  "id": "GenCond048",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:87884",
+      "type": "Coding",
+      "code": "87884",
+      "system": "http://www.orpha.net/",
+      "display": "nonsyndromic deafness"
+    }
+  ],
+  "name": "Hearing Loss"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond049">GenCond049</a></p></td>
+          <td>
+              <p>Rasopathy</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:98733">Orphanet:98733</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond049"><pre><code>{
+  "id": "GenCond049",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:98733",
+      "type": "Coding",
+      "code": "98733",
+      "system": "http://www.orpha.net/",
+      "display": "Noonan syndrome and Noonan-related syndrome"
+    }
+  ],
+  "name": "Rasopathy"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond050">GenCond050</a></p></td>
+          <td>
+              <p>Breast Ovarian Cancer, Autosomal Dominant</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#MESH:D061325">MESH:D061325</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond050"><pre><code>{
+  "id": "GenCond050",
+  "type": "GeneticCondition",
+  "name": "Breast Ovarian Cancer, Autosomal Dominant",
+  "disease": [
+    {
+      "id": "MESH:D061325",
+      "type": "Coding",
+      "code": "D061325",
+      "system": "https://meshb.nlm.nih.gov/",
+      "display": "hereditary breast ovarian cancer"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond051">GenCond051</a></p></td>
+          <td>
+              <p>Breast Ovarian Cancer, Autosomal Dominant</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#MESH:D061325">MESH:D061325</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond051"><pre><code>{
+  "id": "GenCond051",
+  "type": "GeneticCondition",
+  "name": "Breast Ovarian Cancer, Autosomal Dominant",
+  "disease": [
+    {
+      "id": "MESH:D061325",
+      "type": "Coding",
+      "code": "D061325",
+      "system": "https://meshb.nlm.nih.gov/",
+      "display": "hereditary breast ovarian cancer"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond052">GenCond052</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:217604">Orphanet:217604</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond052"><pre><code>{
+  "id": "GenCond052",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217604",
+      "type": "Coding",
+      "code": "217604",
+      "system": "http://www.orpha.net/",
+      "display": "dilated cardiomyopathy"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond053">GenCond053</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:217604">Orphanet:217604</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond053"><pre><code>{
+  "id": "GenCond053",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217604",
+      "type": "Coding",
+      "code": "217604",
+      "system": "http://www.orpha.net/",
+      "display": "dilated cardiomyopathy"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond054">GenCond054</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:247">Orphanet:247</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond054"><pre><code>{
+  "id": "GenCond054",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:247",
+      "type": "Coding",
+      "code": "247",
+      "system": "http://www.orpha.net/",
+      "display": "arrhythmogenic right ventricular cardiomyopathy"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond055">GenCond055</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:648">Orphanet:648</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond055"><pre><code>{
+  "id": "GenCond055",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:648",
+      "type": "Coding",
+      "code": "648",
+      "system": "http://www.orpha.net/",
+      "display": "noonan syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond056">GenCond056</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:648">Orphanet:648</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond056"><pre><code>{
+  "id": "GenCond056",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:648",
+      "type": "Coding",
+      "code": "648",
+      "system": "http://www.orpha.net/",
+      "display": "noonan syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond057">GenCond057</a></p></td>
+          <td>
+              <p>Hearing Loss</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond057"><pre><code>{
+  "id": "GenCond057",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:87884",
+      "type": "Coding",
+      "code": "87884",
+      "system": "http://www.orpha.net/",
+      "display": "nonsyndromic deafness"
+    }
+  ],
+  "name": "Hearing Loss"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond058">GenCond058</a></p></td>
+          <td>
+              <p>Hearing Loss</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond058"><pre><code>{
+  "id": "GenCond058",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:87884",
+      "type": "Coding",
+      "code": "87884",
+      "system": "http://www.orpha.net/",
+      "display": "nonsyndromic deafness"
+    }
+  ],
+  "name": "Hearing Loss"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond059">GenCond059</a></p></td>
+          <td>
+              <p>Hearing Loss, Autosomal Recessive</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond059"><pre><code>{
+  "id": "GenCond059",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:87884",
+      "type": "Coding",
+      "code": "87884",
+      "system": "http://www.orpha.net/",
+      "display": "nonsyndromic deafness"
+    }
+  ],
+  "name": "Hearing Loss, Autosomal Recessive",
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond060">GenCond060</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond060"><pre><code>{
+  "id": "GenCond060",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:87884",
+      "type": "Coding",
+      "code": "87884",
+      "system": "http://www.orpha.net/",
+      "display": "nonsyndromic deafness"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond061">GenCond061</a></p></td>
+          <td>
+              <p>Hearing Loss, Autosomal Recessive</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond061"><pre><code>{
+  "id": "GenCond061",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:87884",
+      "type": "Coding",
+      "code": "87884",
+      "system": "http://www.orpha.net/",
+      "display": "nonsyndromic deafness"
+    }
+  ],
+  "name": "Hearing Loss, Autosomal Recessive",
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond062">GenCond062</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:244">Orphanet:244</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond062"><pre><code>{
+  "id": "GenCond062",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:244",
+      "type": "Coding",
+      "code": "244",
+      "system": "http://www.orpha.net/",
+      "display": "Primary ciliary dyskenisia"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond063">GenCond063</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:244">Orphanet:244</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond063"><pre><code>{
+  "id": "GenCond063",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:244",
+      "type": "Coding",
+      "code": "244",
+      "system": "http://www.orpha.net/",
+      "display": "Primary ciliary dyskenisia"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond064">GenCond064</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:217569">Orphanet:217569</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond064"><pre><code>{
+  "id": "GenCond064",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217569",
+      "type": "Coding",
+      "code": "217569",
+      "system": "http://www.orpha.net/",
+      "display": "hypertrophic cardiomyopathy"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond065">GenCond065</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:217569">Orphanet:217569</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond065"><pre><code>{
+  "id": "GenCond065",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217569",
+      "type": "Coding",
+      "code": "217569",
+      "system": "http://www.orpha.net/",
+      "display": "hypertrophic cardiomyopathy"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond066">GenCond066</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:217569">Orphanet:217569</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond066"><pre><code>{
+  "id": "GenCond066",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217569",
+      "type": "Coding",
+      "code": "217569",
+      "system": "http://www.orpha.net/",
+      "display": "hypertrophic cardiomyopathy"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond067">GenCond067</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:217569">Orphanet:217569</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond067"><pre><code>{
+  "id": "GenCond067",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217569",
+      "type": "Coding",
+      "code": "217569",
+      "system": "http://www.orpha.net/",
+      "display": "hypertrophic cardiomyopathy"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond068">GenCond068</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:1340">Orphanet:1340</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond068"><pre><code>{
+  "id": "GenCond068",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:1340",
+      "type": "Coding",
+      "code": "1340",
+      "system": "http://www.orpha.net/",
+      "display": "cardiofaciocutaneous syndrome"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond069">GenCond069</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:1340">Orphanet:1340</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond069"><pre><code>{
+  "id": "GenCond069",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:1340",
+      "type": "Coding",
+      "code": "1340",
+      "system": "http://www.orpha.net/",
+      "display": "cardiofaciocutaneous syndrome"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond070">GenCond070</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:1340">Orphanet:1340</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond070"><pre><code>{
+  "id": "GenCond070",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:1340",
+      "type": "Coding",
+      "code": "1340",
+      "system": "http://www.orpha.net/",
+      "display": "cardiofaciocutaneous syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond071">GenCond071</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:886">Orphanet:886</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000007">HP:0000007</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond071"><pre><code>{
+  "id": "GenCond071",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:886",
+      "type": "Coding",
+      "code": "886",
+      "system": "http://www.orpha.net/",
+      "display": "Usher syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "Coding",
+    "code": "0000007",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Recessive"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond072">GenCond072</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:558">Orphanet:558</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond072"><pre><code>{
+  "id": "GenCond072",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:558",
+      "type": "Coding",
+      "code": "558",
+      "system": "http://www.orpha.net/",
+      "display": "Marfan Syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond073">GenCond073</a></p></td>
+          <td>
+              <p>hereditary breast and ovarian cancer</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:145">Orphanet:145</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond073"><pre><code>{
+  "id": "GenCond073",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:145",
+      "type": "Coding",
+      "code": "145",
+      "system": "http://www.orpha.net/",
+      "display": "hereditary breast and ovarian cancer syndrome"
+    }
+  ],
+  "name": "hereditary breast and ovarian cancer"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond074">GenCond074</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:247">Orphanet:247</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond074"><pre><code>{
+  "id": "GenCond074",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:247",
+      "type": "Coding",
+      "code": "247",
+      "system": "http://www.orpha.net/",
+      "display": "arrhythmogenic right ventricular cardiomyopathy"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#GenCond075">GenCond075</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Orphanet:648">Orphanet:648</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#HP:0000006">HP:0000006</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="GenCond075"><pre><code>{
+  "id": "GenCond075",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:648",
+      "type": "Coding",
+      "code": "648",
+      "system": "http://www.orpha.net/",
+      "display": "noonan syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "Coding",
+    "code": "0000006",
+    "system": "http://human-phenotype-ontology.github.io/",
+    "display": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../javascripts/jquery.js"></script><script src="../../javascripts/bootstrap.js"></script><script src="../../javascripts/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>

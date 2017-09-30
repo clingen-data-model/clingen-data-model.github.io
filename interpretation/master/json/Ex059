@@ -8,7 +8,6 @@
       "id": "BS4",
       "type": "Criterion",
       "description": "Lack of segregation in affected members of a family",
-      "shortDescription": "Does not segregate with disease",
       "defaultStrength": {
         "id": "CG-evidence-strength:bs"
       }
@@ -23,7 +22,6 @@
       {
         "id": "GenCond035",
         "type": "GeneticCondition",
-        "explanation": "Hypercholesterolemia, Familial, Autosomal Dominant",
         "disease": [
           {
             "id": "OMIM:143890",
@@ -43,26 +41,24 @@
       }
     ],
     "outcome": {
-      "id": "CG-criterion-outcome:met",
+      "id": "SEPIO:0000223",
       "type": "Coding",
-      "code": "met",
-      "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+      "code": "0000223",
+      "system": "http://obofoundry.org/sepio/",
       "display": "Met"
     },
     "evidenceLine": [
       {
         "id": "EvLn079",
         "type": "EvidenceLine",
-        "explanation": "EvLn079",
         "evidenceItem": [
           {
             "id": "FamSeg196",
             "type": "FamilySegregation",
-            "explanation": "observed in one case diagnosed with Familial Hypercholesterolemia, characterized by elevated LDLC levels. Two siblings of the proband also have elevated LDLC levels but neither carry the 313+2T>C variant.",
+            "description": "observed in one case diagnosed with Familial Hypercholesterolemia, characterized by elevated LDLC levels. Two siblings of the proband also have elevated LDLC levels but neither carry the 313+2T>C variant.",
             "condition": {
               "id": "GenCond035",
               "type": "GeneticCondition",
-              "explanation": "Hypercholesterolemia, Familial, Autosomal Dominant",
               "disease": [
                 {
                   "id": "OMIM:143890",
@@ -93,7 +89,13 @@
             },
             "phenotypePositiveAllelePositive": 0,
             "phenotypePositiveAlleleNegative": 2,
-            "anyInconsistentSegregations": true
+            "inconsistentSegregationsObserved": {
+              "id": "SEPIO-CG:99011",
+              "type": "Coding",
+              "code": "99011",
+              "system": "http://obofoundry.org/sepio/clingen",
+              "display": "present"
+            }
           }
         ]
       }
@@ -104,19 +106,19 @@
         "agent": {
           "id": "Agent001",
           "type": "Agent",
-          "name": "Harry Stevenson"
+          "label": "Harry Stevenson"
         },
-        "onDate": "9/5/16 9:51 AM",
-        "role": {
+        "contributionDate": "9/5/16 9:51 AM",
+        "contributionRole": {
           "id": "CC372",
           "type": "CodeableConcept",
           "coding": [
             {
-              "id": "CG-contributory-role:assessor",
+              "id": "SEPIO:0000154",
               "type": "Coding",
-              "code": "assessor",
-              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-              "display": "assessor"
+              "code": "0000154",
+              "system": "http://obofoundry.org/sepio/",
+              "display": "assessor role"
             }
           ]
         }

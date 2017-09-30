@@ -4,12 +4,11 @@
   "informationId": {
     "id": "CritAssess336",
     "type": "CriterionAssessment",
-    "explanation": "The inconsistent segregation data is reasonably explainable as a phenocopy, and therefore does not provide evidence for the benignity of this allele.",
+    "description": "The inconsistent segregation data is reasonably explainable as a phenocopy, and therefore does not provide evidence for the benignity of this allele.",
     "criterion": {
       "id": "BS4",
       "type": "Criterion",
       "description": "Lack of segregation in affected members of a family",
-      "shortDescription": "Does not segregate with disease",
       "defaultStrength": {
         "id": "CG-evidence-strength:bs"
       }
@@ -24,7 +23,6 @@
       {
         "id": "GenCond065",
         "type": "GeneticCondition",
-        "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
         "disease": [
           {
             "id": "Orphanet:217569",
@@ -44,26 +42,24 @@
       }
     ],
     "outcome": {
-      "id": "CG-criterion-outcome:not-met",
+      "id": "SEPIO:0000224",
       "type": "Coding",
-      "code": "not-met",
-      "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+      "code": "0000224",
+      "system": "http://obofoundry.org/sepio/",
       "display": "Not Met"
     },
     "evidenceLine": [
       {
         "id": "EvLn080",
         "type": "EvidenceLine",
-        "explanation": "EvLn080",
         "evidenceItem": [
           {
             "id": "FamSeg197",
             "type": "FamilySegregation",
-            "explanation": "The individual with HCM but without the allele is likely a phenocopy explained\nby environmental factors (obese, alcohol)",
+            "description": "The individual with HCM but without the allele is likely a phenocopy explained\nby environmental factors (obese, alcohol)",
             "condition": {
               "id": "GenCond065",
               "type": "GeneticCondition",
-              "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
               "disease": [
                 {
                   "id": "Orphanet:217569",
@@ -94,7 +90,13 @@
             },
             "phenotypePositiveAllelePositive": 3,
             "phenotypePositiveAlleleNegative": 1,
-            "anyInconsistentSegregations": true
+            "inconsistentSegregationsObserved": {
+              "id": "SEPIO-CG:99011",
+              "type": "Coding",
+              "code": "99011",
+              "system": "http://obofoundry.org/sepio/clingen",
+              "display": "present"
+            }
           }
         ]
       }
@@ -105,19 +107,19 @@
         "agent": {
           "id": "Agent001",
           "type": "Agent",
-          "name": "Harry Stevenson"
+          "label": "Harry Stevenson"
         },
-        "onDate": "9/5/16 10:51 AM",
-        "role": {
+        "contributionDate": "9/5/16 10:51 AM",
+        "contributionRole": {
           "id": "CC373",
           "type": "CodeableConcept",
           "coding": [
             {
-              "id": "CG-contributory-role:assessor",
+              "id": "SEPIO:0000154",
               "type": "Coding",
-              "code": "assessor",
-              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-              "display": "assessor"
+              "code": "0000154",
+              "system": "http://obofoundry.org/sepio/",
+              "display": "assessor role"
             }
           ]
         }

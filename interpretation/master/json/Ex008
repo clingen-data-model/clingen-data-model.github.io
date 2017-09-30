@@ -4,12 +4,11 @@
   "informationId": {
     "id": "CritAssess282",
     "type": "CriterionAssessment",
-    "explanation": "De novo variant occurred on haplotype inherited from the father. Maternity no explicitly confirmed - but if variant occurred on haplotype inherited from the father, then confirmation of maternity not required.",
+    "description": "De novo variant occurred on haplotype inherited from the father. Maternity no explicitly confirmed - but if variant occurred on haplotype inherited from the father, then confirmation of maternity not required.",
     "criterion": {
       "id": "PS2",
       "type": "Criterion",
       "description": "De novo (both maternity and paternity confirmed) in a patient with the disease and no family history",
-      "shortDescription": "Confirmed de novo in individual without family history of condition",
       "defaultStrength": {
         "id": "CG-evidence-strength:ps"
       }
@@ -24,7 +23,6 @@
       {
         "id": "GenCond008",
         "type": "GeneticCondition",
-        "explanation": "desmin related myopathy",
         "disease": [
           {
             "id": "OMIM:601419",
@@ -38,17 +36,16 @@
       }
     ],
     "outcome": {
-      "id": "CG-criterion-outcome:met",
+      "id": "SEPIO:0000223",
       "type": "Coding",
-      "code": "met",
-      "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+      "code": "0000223",
+      "system": "http://obofoundry.org/sepio/",
       "display": "Met"
     },
     "evidenceLine": [
       {
         "id": "EvLn010",
         "type": "EvidenceLine",
-        "explanation": "EvLn010",
         "evidenceItem": [
           {
             "id": "IndCond015",
@@ -62,7 +59,6 @@
               {
                 "id": "GenCond008",
                 "type": "GeneticCondition",
-                "explanation": "desmin related myopathy",
                 "disease": [
                   {
                     "id": "OMIM:601419",
@@ -75,7 +71,13 @@
                 "name": "desmin related myopathy"
               }
             ],
-            "hasCondition": true
+            "individualHasCondition": {
+              "id": "SEPIO-CG:99009",
+              "type": "Coding",
+              "code": "99009",
+              "system": "http://obofoundry.org/sepio/clingen",
+              "display": "affected"
+            }
           },
           {
             "id": "FamCond016",
@@ -89,7 +91,6 @@
               {
                 "id": "GenCond008",
                 "type": "GeneticCondition",
-                "explanation": "desmin related myopathy",
                 "disease": [
                   {
                     "id": "OMIM:601419",
@@ -102,12 +103,18 @@
                 "name": "desmin related myopathy"
               }
             ],
-            "familyHasCondition": true
+            "familyHasCondition": {
+              "id": "SEPIO-CG:99010",
+              "type": "Coding",
+              "code": "99010",
+              "system": "http://obofoundry.org/sepio/clingen",
+              "display": "unaffected"
+            }
           },
           {
             "id": "IndAllInh017",
             "type": "IndividualAlleleInheritance",
-            "explanation": "Non-paternity was excluded by assessment with microsatellites",
+            "description": "Non-paternity was excluded by assessment with microsatellites",
             "canonicalAllele": {
               "id": "CanAll015",
               "type": "CanonicalAllele",
@@ -119,11 +126,16 @@
               "type": "Individual",
               "description": "individual #002"
             },
-            "maternityConfirmed": true,
-            "paternityConfirmed": true,
+            "parentalConfirmation": {
+              "id": "SEPIO-CG:99006",
+              "type": "Coding",
+              "code": "99006",
+              "system": "http://obofoundry.org/sepio/clingen",
+              "display": "paternal confirmation"
+            },
             "alleleInheritance": [
               {
-                "id": "GENO-allele-inheritance-type:0000880",
+                "id": "GENO:0000880",
                 "type": "Coding",
                 "code": "0000880",
                 "system": "http://obofoundry.org/geno/",
@@ -140,19 +152,19 @@
         "agent": {
           "id": "Agent001",
           "type": "Agent",
-          "name": "Harry Stevenson"
+          "label": "Harry Stevenson"
         },
-        "onDate": "6/3/16 9:17 AM",
-        "role": {
+        "contributionDate": "6/3/16 9:17 AM",
+        "contributionRole": {
           "id": "CC306",
           "type": "CodeableConcept",
           "coding": [
             {
-              "id": "CG-contributory-role:assessor",
+              "id": "SEPIO:0000154",
               "type": "Coding",
-              "code": "assessor",
-              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-              "display": "assessor"
+              "code": "0000154",
+              "system": "http://obofoundry.org/sepio/",
+              "display": "assessor role"
             }
           ]
         }

@@ -1,12 +1,11 @@
 {
   "id": "CritAssess300",
   "type": "CriterionAssessment",
-  "explanation": "leads to an in-frame deletion of 5 amino acids (not repeat region).",
+  "description": "leads to an in-frame deletion of 5 amino acids (not repeat region).",
   "criterion": {
     "id": "PM4",
     "type": "Criterion",
     "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
-    "shortDescription": "Protein length changes or stop-loss",
     "defaultStrength": {
       "id": "CG-evidence-strength:pm"
     }
@@ -18,17 +17,16 @@
     "identifier": "http://reg.genome.network/allele/CA090938"
   },
   "outcome": {
-    "id": "CG-criterion-outcome:met",
+    "id": "SEPIO:0000223",
     "type": "Coding",
-    "code": "met",
-    "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+    "code": "0000223",
+    "system": "http://obofoundry.org/sepio/",
     "display": "Met"
   },
   "evidenceLine": [
     {
       "id": "EvLn033",
       "type": "EvidenceLine",
-      "explanation": "EvLn033",
       "evidenceItem": [
         {
           "id": "MolCon070",
@@ -59,9 +57,9 @@
           }
         },
         {
-          "id": "RegTyp073",
-          "type": "RegionType",
-          "explanation": "NP_056375.2[35..43] is not repeating.",
+          "id": "ExclRegTyp073",
+          "type": "ExcludedRegionType",
+          "description": "NP_056375.2[35..43] is not repeating.",
           "region": {
             "id": "Loc386",
             "type": "SequenceLocation",
@@ -75,13 +73,13 @@
             "start": 35,
             "stop": 43
           },
-          "excludedTypes": [
+          "annotation": [
             {
-              "id": "CG-reg-type:repeat",
+              "id": "SO:0000657",
               "type": "Coding",
-              "code": "repeat",
-              "system": "http://clinicalgenome.org/datamodel/region-type/",
-              "display": "Repeat"
+              "code": "0000657",
+              "system": "http://sequenceontology.org/",
+              "display": "repeat region "
             }
           ]
         }
@@ -94,19 +92,19 @@
       "agent": {
         "id": "Agent003",
         "type": "Agent",
-        "name": "Sasha Rande"
+        "label": "Sasha Rande"
       },
-      "onDate": "6/12/16 8:31 AM",
-      "role": {
+      "contributionDate": "6/12/16 8:31 AM",
+      "contributionRole": {
         "id": "CC328",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:assessor",
+            "id": "SEPIO:0000154",
             "type": "Coding",
-            "code": "assessor",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "assessor"
+            "code": "0000154",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "assessor role"
           }
         ]
       }

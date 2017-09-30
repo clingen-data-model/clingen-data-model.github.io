@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">LocusHeterogeneity</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">AlleleConservation</a></li><li><a href="de_novo_allele.html">IndividualAlleleInheritance</a></li><li><a href="family_history.html">FamilyCondition</a></li><li><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="functional_data.html">AlleleFunctionalImpact</a></li><li class="active"><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">GeneticCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../agent.html">Agent</a></li><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../contribution.html">Contribution</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">LocusHeterogeneity</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">AlleleConservation</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation_data.html">FamilySegregation</a></li><li class="active"><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">GeneticCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_type.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -107,6 +107,8 @@
 
             <h1>InSilicoPrediction</h1>
             <p>A statement based on the output of a computational algorithm that predicts the impact of a particular allele on the function of its resulting gene product (e.g. 'deleterious', 'damaging', 'tolerated').</p>
+
+                <p>SEPIO:0000249</p>
 
                 <p>Descended from Statement</p>
 
@@ -132,44 +134,51 @@
                 <th>Type</th>
                 <th>Cardinality</th>
                 <th>Description</th>
+                <th>IRI</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td>quantitativePrediction</td>
-                <td>float</td>
-                <td>0..1</td>
-                <td></td>
+                <td>canonicalAllele</td>
+                <td>CanonicalAllele</td>
+                <td>1..1</td>
+                <td>The contextual allele on which the prediction is made</td>
+                <td>SEPIO:0000275</td>
             </tr>
             <tr>
                 <td>transcript</td>
                 <td>ReferenceSequence</td>
                 <td>0..1</td>
                 <td>The contextual allele on which the prediction is made</td>
-            </tr>
-            <tr>
-                <td>canonicalAllele</td>
-                <td>CanonicalAllele</td>
-                <td>1..1</td>
-                <td>The contextual allele on which the prediction is made</td>
-            </tr>
-            <tr>
-                <td>algorithm</td>
-                <td>String</td>
-                <td>0..1</td>
-                <td>The computational tool or algorithm that makes the prediction</td>
+                <td>SEPIO:0000283</td>
             </tr>
             <tr>
                 <td>predictionType</td>
                 <td>CodeableConcept</td>
                 <td>1..1</td>
                 <td>The type of prediction being made</td>
+                <td>SEPIO:0000255</td>
+            </tr>
+            <tr>
+                <td>score</td>
+                <td>float</td>
+                <td>0..1</td>
+                <td></td>
+                <td>SEPIO:0000168</td>
             </tr>
             <tr>
                 <td>categoricalPrediction</td>
                 <td>String</td>
                 <td>0..1</td>
                 <td>The value of the prediction</td>
+                <td>SEPIO:0000197</td>
+            </tr>
+            <tr>
+                <td>algorithm</td>
+                <td>String</td>
+                <td>0..1</td>
+                <td>The computational tool or algorithm that makes the prediction</td>
+                <td>SEPIO:0000130</td>
             </tr>
             </tbody>
         </table>
@@ -185,22 +194,17 @@
                 <th>Cardinality</th>
                 <th>Inherited From</th>
                 <th>Description</th>
+                <th>IRI</th>
             </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>source</td>
-                    <td>String</td>
-                    <td>0..*</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>explanation</td>
+                    <td>description</td>
                     <td>String</td>
                     <td>0..1</td>
                     <td></td>
                     <td>A human-readable description of the entity</td>
+                    <td>DC:description</td>
                 </tr>
                 <tr>
                     <td>contribution</td>
@@ -208,6 +212,15 @@
                     <td>0..*</td>
                     <td></td>
                     <td>The contributions (agent, time and role) made to this entity</td>
+                    <td>SEPIO:0000159</td>
+                </tr>
+                <tr>
+                    <td>source</td>
+                    <td>String</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td></td>
+                    <td>DC:source</td>
                 </tr>
             </tbody>
         </table>
@@ -216,13 +229,13 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
-        <th>explanation</th>
-        <th>quantitativePrediction</th>
-        <th>transcript</th>
+        <th>description</th>
         <th>canonicalAllele</th>
-        <th>algorithm</th>
+        <th>transcript</th>
         <th>predictionType</th>
+        <th>score</th>
         <th>categoricalPrediction</th>
+        <th>algorithm</th>
       </tr></thead>
       <tbody>
         <tr>
@@ -231,28 +244,28 @@
               <p>Provenance would show that this comes from Alamut</p>
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll118">CanAll118</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq011">RefSeq011</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll118">CanAll118</a></p>
+              <p><a href="../details/details.html#CC056">CC056</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p><a href="../details/details.html#CC056">CC056</a></p>
+              <p>no impact</p>
          </td>
           <td>
-              <p>no impact</p>
+              
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred068"><pre><code>{
   "id": "InSilicoPred068",
   "type": "InSilicoPrediction",
-  "explanation": "Provenance would show that this comes from Alamut",
+  "description": "Provenance would show that this comes from Alamut",
   "transcript": {
     "id": "RefSeq011",
     "type": "ReferenceSequence",
@@ -271,10 +284,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:sp",
+        "id": "SEPIO:0000323",
         "type": "Coding",
-        "code": "sp",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000323",
+        "system": "http://obofoundry.org/sepio/",
         "display": "splicing prediction"
       }
     ]
@@ -291,22 +304,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq001">RefSeq001</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
-         </td>
-          <td>
-              <p>SIFT</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC074">CC074</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Damaging</p>
+         </td>
+          <td>
+              <p>SIFT</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred120"><pre><code>{
@@ -330,10 +343,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -351,22 +364,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq001">RefSeq001</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
-         </td>
-          <td>
-              <p>Polyphen</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC075">CC075</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Probably damaging</p>
+         </td>
+          <td>
+              <p>Polyphen</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred121"><pre><code>{
@@ -390,10 +403,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -411,22 +424,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq001">RefSeq001</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
-         </td>
-          <td>
-              <p>FATHMM</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC076">CC076</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Tolerated</p>
+         </td>
+          <td>
+              <p>FATHMM</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred122"><pre><code>{
@@ -450,10 +463,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -471,22 +484,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq001">RefSeq001</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
-         </td>
-          <td>
-              <p>LRT</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC077">CC077</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Damaging</p>
+         </td>
+          <td>
+              <p>LRT</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred123"><pre><code>{
@@ -510,10 +523,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -531,22 +544,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq001">RefSeq001</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
-         </td>
-          <td>
-              <p>MetaSVM</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC078">CC078</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Tolerated</p>
+         </td>
+          <td>
+              <p>MetaSVM</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred124"><pre><code>{
@@ -570,10 +583,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -591,22 +604,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq001">RefSeq001</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
-         </td>
-          <td>
-              <p>Mutation assessor</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC079">CC079</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Tolerated</p>
+         </td>
+          <td>
+              <p>Mutation assessor</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred125"><pre><code>{
@@ -630,10 +643,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -651,22 +664,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq001">RefSeq001</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
-         </td>
-          <td>
-              <p>Mutation taster</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC080">CC080</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Disease-causing</p>
+         </td>
+          <td>
+              <p>Mutation taster</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred126"><pre><code>{
@@ -690,10 +703,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -711,22 +724,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq001">RefSeq001</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
-         </td>
-          <td>
-              <p>Provean</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC081">CC081</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Damaging</p>
+         </td>
+          <td>
+              <p>Provean</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred127"><pre><code>{
@@ -750,10 +763,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -771,22 +784,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq001">RefSeq001</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
-         </td>
-          <td>
-              <p>Condel</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC082">CC082</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>deleterious</p>
+         </td>
+          <td>
+              <p>Condel</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred128"><pre><code>{
@@ -810,10 +823,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -831,22 +844,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq012">RefSeq012</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
-         </td>
-          <td>
-              <p>SIFT</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC083">CC083</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>deleterious</p>
+         </td>
+          <td>
+              <p>SIFT</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred129"><pre><code>{
@@ -870,10 +883,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -891,22 +904,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq012">RefSeq012</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
-         </td>
-          <td>
-              <p>Polyphen</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC084">CC084</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Probably damaging</p>
+         </td>
+          <td>
+              <p>Polyphen</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred130"><pre><code>{
@@ -930,10 +943,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -951,22 +964,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq012">RefSeq012</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
-         </td>
-          <td>
-              <p>FATHMM</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC085">CC085</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Damaging</p>
+         </td>
+          <td>
+              <p>FATHMM</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred131"><pre><code>{
@@ -990,10 +1003,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -1011,22 +1024,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq012">RefSeq012</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
-         </td>
-          <td>
-              <p>LRT</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC086">CC086</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Damaging</p>
+         </td>
+          <td>
+              <p>LRT</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred132"><pre><code>{
@@ -1050,10 +1063,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -1071,22 +1084,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq012">RefSeq012</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
-         </td>
-          <td>
-              <p>MetaSVM</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC087">CC087</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Tolerated</p>
+         </td>
+          <td>
+              <p>MetaSVM</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred133"><pre><code>{
@@ -1110,10 +1123,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -1131,22 +1144,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq012">RefSeq012</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
-         </td>
-          <td>
-              <p>Mutation assessor</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC088">CC088</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Medium functional impact</p>
+         </td>
+          <td>
+              <p>Mutation assessor</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred134"><pre><code>{
@@ -1170,10 +1183,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -1191,22 +1204,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq012">RefSeq012</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
-         </td>
-          <td>
-              <p>Mutation taster</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC089">CC089</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Disease-causing</p>
+         </td>
+          <td>
+              <p>Mutation taster</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred135"><pre><code>{
@@ -1230,10 +1243,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -1251,22 +1264,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq012">RefSeq012</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
-         </td>
-          <td>
-              <p>Provean</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC090">CC090</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Damaging</p>
+         </td>
+          <td>
+              <p>Provean</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred136"><pre><code>{
@@ -1290,10 +1303,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -1311,22 +1324,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq012">RefSeq012</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
-         </td>
-          <td>
-              <p>Condel</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC091">CC091</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>deleterious</p>
+         </td>
+          <td>
+              <p>Condel</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred137"><pre><code>{
@@ -1350,10 +1363,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -1371,22 +1384,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
-         </td>
-          <td>
-              <p>SIFT</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC092">CC092</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Tolerated</p>
+         </td>
+          <td>
+              <p>SIFT</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred138"><pre><code>{
@@ -1410,10 +1423,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -1431,22 +1444,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
-         </td>
-          <td>
-              <p>Polyphen2</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC093">CC093</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>benign</p>
+         </td>
+          <td>
+              <p>Polyphen2</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred139"><pre><code>{
@@ -1470,10 +1483,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -1491,22 +1504,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
-         </td>
-          <td>
-              <p>AlignGVGD</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC094">CC094</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>C0 (benign)</p>
+         </td>
+          <td>
+              <p>AlignGVGD</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred140"><pre><code>{
@@ -1530,10 +1543,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -1551,22 +1564,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
-         </td>
-          <td>
-              <p>MAPP</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC095">CC095</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>good (benign)</p>
+         </td>
+          <td>
+              <p>MAPP</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred141"><pre><code>{
@@ -1590,10 +1603,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -1611,22 +1624,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
-         </td>
-          <td>
-              <p>MutationTaster</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC096">CC096</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>disease-causing</p>
+         </td>
+          <td>
+              <p>MutationTaster</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred142"><pre><code>{
@@ -1650,10 +1663,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -1671,22 +1684,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
-         </td>
-          <td>
-              <p>SSF</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC097">CC097</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>71.53</p>
+         </td>
+          <td>
+              <p>SSF</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred143"><pre><code>{
@@ -1710,10 +1723,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:sp",
+        "id": "SEPIO:0000323",
         "type": "Coding",
-        "code": "sp",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000323",
+        "system": "http://obofoundry.org/sepio/",
         "display": "splicing prediction"
       }
     ]
@@ -1731,22 +1744,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
-         </td>
-          <td>
-              <p>MaxEnt</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC098">CC098</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>7.39</p>
+         </td>
+          <td>
+              <p>MaxEnt</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred144"><pre><code>{
@@ -1770,10 +1783,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:sp",
+        "id": "SEPIO:0000323",
         "type": "Coding",
-        "code": "sp",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000323",
+        "system": "http://obofoundry.org/sepio/",
         "display": "splicing prediction"
       }
     ]
@@ -1791,22 +1804,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
-         </td>
-          <td>
-              <p>NNSPLICE</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC099">CC099</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>0.87</p>
+         </td>
+          <td>
+              <p>NNSPLICE</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred145"><pre><code>{
@@ -1830,10 +1843,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:sp",
+        "id": "SEPIO:0000323",
         "type": "Coding",
-        "code": "sp",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000323",
+        "system": "http://obofoundry.org/sepio/",
         "display": "splicing prediction"
       }
     ]
@@ -1851,22 +1864,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
-         </td>
-          <td>
-              <p>GeneSplicer</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC100">CC100</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>7.75</p>
+         </td>
+          <td>
+              <p>GeneSplicer</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred146"><pre><code>{
@@ -1890,10 +1903,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:sp",
+        "id": "SEPIO:0000323",
         "type": "Coding",
-        "code": "sp",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000323",
+        "system": "http://obofoundry.org/sepio/",
         "display": "splicing prediction"
       }
     ]
@@ -1911,22 +1924,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
-         </td>
-          <td>
-              <p>HSF</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC101">CC101</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>81.75</p>
+         </td>
+          <td>
+              <p>HSF</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred147"><pre><code>{
@@ -1950,10 +1963,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:sp",
+        "id": "SEPIO:0000323",
         "type": "Coding",
-        "code": "sp",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000323",
+        "system": "http://obofoundry.org/sepio/",
         "display": "splicing prediction"
       }
     ]
@@ -1971,22 +1984,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq014">RefSeq014</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
-         </td>
-          <td>
-              <p>SIFT</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC166">CC166</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Benign</p>
+         </td>
+          <td>
+              <p>SIFT</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred232"><pre><code>{
@@ -2010,10 +2023,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -2031,22 +2044,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq014">RefSeq014</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
-         </td>
-          <td>
-              <p>Polyphen</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC167">CC167</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Possibly damaging</p>
+         </td>
+          <td>
+              <p>Polyphen</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred233"><pre><code>{
@@ -2070,10 +2083,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -2091,22 +2104,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq014">RefSeq014</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
-         </td>
-          <td>
-              <p>FATHMM</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC168">CC168</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Benign</p>
+         </td>
+          <td>
+              <p>FATHMM</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred234"><pre><code>{
@@ -2130,10 +2143,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -2151,22 +2164,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq014">RefSeq014</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
-         </td>
-          <td>
-              <p>LRT</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC169">CC169</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Benign</p>
+         </td>
+          <td>
+              <p>LRT</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred235"><pre><code>{
@@ -2190,10 +2203,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -2211,22 +2224,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq014">RefSeq014</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
-         </td>
-          <td>
-              <p>MetaSVM</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC170">CC170</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Benign</p>
+         </td>
+          <td>
+              <p>MetaSVM</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred236"><pre><code>{
@@ -2250,10 +2263,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -2271,22 +2284,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq014">RefSeq014</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
-         </td>
-          <td>
-              <p>Mutation assessor</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC171">CC171</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Benign</p>
+         </td>
+          <td>
+              <p>Mutation assessor</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred237"><pre><code>{
@@ -2310,10 +2323,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -2331,22 +2344,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq014">RefSeq014</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
-         </td>
-          <td>
-              <p>Mutation taster</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC172">CC172</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Benign</p>
+         </td>
+          <td>
+              <p>Mutation taster</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred238"><pre><code>{
@@ -2370,10 +2383,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -2391,22 +2404,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq014">RefSeq014</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
-         </td>
-          <td>
-              <p>Provean</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC173">CC173</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Benign</p>
+         </td>
+          <td>
+              <p>Provean</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred239"><pre><code>{
@@ -2430,10 +2443,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -2451,22 +2464,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq014">RefSeq014</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
-         </td>
-          <td>
-              <p>Condel</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC174">CC174</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>deleterious</p>
+         </td>
+          <td>
+              <p>Condel</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred240"><pre><code>{
@@ -2490,10 +2503,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]
@@ -2511,22 +2524,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll117">CanAll117</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq015">RefSeq015</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll117">CanAll117</a></p>
+              <p><a href="../details/details.html#CC187">CC187</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p><a href="../details/details.html#CC187">CC187</a></p>
+              <p>no impact</p>
          </td>
           <td>
-              <p>no impact</p>
+              
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred258"><pre><code>{
@@ -2550,10 +2563,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:sp",
+        "id": "SEPIO:0000323",
         "type": "Coding",
-        "code": "sp",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000323",
+        "system": "http://obofoundry.org/sepio/",
         "display": "splicing prediction"
       }
     ]
@@ -2570,28 +2583,28 @@
               <p>Provenance would show that this comes from Alamut</p>
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll118">CanAll118</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq011">RefSeq011</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll118">CanAll118</a></p>
+              <p><a href="../details/details.html#CC189">CC189</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p><a href="../details/details.html#CC189">CC189</a></p>
+              <p>no impact</p>
          </td>
           <td>
-              <p>no impact</p>
+              
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred262"><pre><code>{
   "id": "InSilicoPred262",
   "type": "InSilicoPrediction",
-  "explanation": "Provenance would show that this comes from Alamut",
+  "description": "Provenance would show that this comes from Alamut",
   "transcript": {
     "id": "RefSeq011",
     "type": "ReferenceSequence",
@@ -2610,10 +2623,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:sp",
+        "id": "SEPIO:0000323",
         "type": "Coding",
-        "code": "sp",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000323",
+        "system": "http://obofoundry.org/sepio/",
         "display": "splicing prediction"
       }
     ]
@@ -2630,22 +2643,22 @@
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll119">CanAll119</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#RefSeq016">RefSeq016</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll119">CanAll119</a></p>
+              <p><a href="../details/details.html#CC191">CC191</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p><a href="../details/details.html#CC191">CC191</a></p>
+              <p>no impact</p>
          </td>
           <td>
-              <p>no impact</p>
+              
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred266"><pre><code>{
@@ -2669,10 +2682,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:sp",
+        "id": "SEPIO:0000323",
         "type": "Coding",
-        "code": "sp",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000323",
+        "system": "http://obofoundry.org/sepio/",
         "display": "splicing prediction"
       }
     ]
@@ -2689,22 +2702,22 @@
               
          </td>
           <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
               <p><a href="../details/details.html#CtxAll111">CtxAll111</a></p>
          </td>
           <td>
-              <p>Polyphen-2 HumDiv</p>
+              
          </td>
           <td>
               <p><a href="../details/details.html#CC282">CC282</a></p>
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>ProbablyDamaging</p>
+         </td>
+          <td>
+              <p>Polyphen-2 HumDiv</p>
          </td>
           <!--
           <td><div class="example_view" id="InSilicoPred362"><pre><code>{
@@ -2726,10 +2739,10 @@
     "type": "CodeableConcept",
     "coding": [
       {
-        "id": "CG-prediction-type:me",
+        "id": "SEPIO:0000322",
         "type": "Coding",
-        "code": "me",
-        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+        "code": "0000322",
+        "system": "http://obofoundry.org/sepio/",
         "display": "missense effect"
       }
     ]

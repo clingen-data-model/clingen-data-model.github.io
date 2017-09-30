@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">LocusHeterogeneity</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">AlleleConservation</a></li><li><a href="de_novo_allele.html">IndividualAlleleInheritance</a></li><li><a href="family_history.html">FamilyCondition</a></li><li><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="functional_data.html">AlleleFunctionalImpact</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">GeneticCondition</a></li><li class="active"><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../agent.html">Agent</a></li><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../contribution.html">Contribution</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">LocusHeterogeneity</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">AlleleConservation</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">GeneticCondition</a></li><li class="active"><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_type.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -106,8 +106,9 @@
 
 
             <h1>MolecularConsequence</h1>
-            <p>A statement that describes the molecular consequence of an allele at the level of a transcript or genomic  region.
-</p>
+            <p>A statement that describes the expected effect of a variant allele at the level of genomic or transcript sequence</p>
+
+                <p>SEPIO:0000229</p>
 
                 <p>Descended from Statement</p>
 
@@ -119,7 +120,7 @@
     <!-- this is primarily the Scope and Usage section -->
     <h2 id="scope-and-usage">Scope and Usage:</h2>
 
-<p>An allele can be classified by the effect that it has on the gene product.  For instance, an allele may create a stop codon or modify an amino acid.  These effects are considered as a consequence; terms for these consequences have been compiled in the Sequence Ontology.  In addition, some of these consequences can be grouped into whether or not they cause a loss of function.  That is, the consequence is so severe that the resulting gene product is non-functional.   The lof attribute captures information about whether the given ContextualAllele causes such a loss of function.  Note that the lof is highly correlated with consequence, some care must be taken in assigning lof status based on consequence.  For example, stop-gain mutations are generally considered LOF, but if the stop is created near the end of the transcript, a partially functional product may result.</p>
+<p>An allele can be classified by the effect that it has on the gene product.  For instance, an allele may create a stop codon or modify an amino acid.  These effects are considered as a consequence; terms for these consequences have been compiled in the Sequence Ontology.</p>
 
 
     <!-- image here if available -->
@@ -133,26 +134,23 @@
                 <th>Type</th>
                 <th>Cardinality</th>
                 <th>Description</th>
+                <th>IRI</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <td>contextualAllele</td>
                 <td>ContextualAllele</td>
-                <td>0..1</td>
-                <td>The contextual (reference-specific) allele that is being classified</td>
-            </tr>
-            <tr>
-                <td>lof</td>
-                <td>yes/no/maybe</td>
                 <td>1..1</td>
-                <td>Whether the allele causes a loss of function</td>
+                <td>The contextual (reference-specific) allele that is being classified</td>
+                <td>SEPIO:0000275</td>
             </tr>
             <tr>
                 <td>consequence</td>
                 <td>CodeableConcept</td>
-                <td>0..1</td>
+                <td>1..1</td>
                 <td>Classification of allele based on the manner in which it alters the sequence</td>
+                <td>SEPIO:0000197</td>
             </tr>
             </tbody>
         </table>
@@ -168,22 +166,17 @@
                 <th>Cardinality</th>
                 <th>Inherited From</th>
                 <th>Description</th>
+                <th>IRI</th>
             </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>source</td>
-                    <td>String</td>
-                    <td>0..*</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>explanation</td>
+                    <td>description</td>
                     <td>String</td>
                     <td>0..1</td>
                     <td></td>
                     <td>A human-readable description of the entity</td>
+                    <td>DC:description</td>
                 </tr>
                 <tr>
                     <td>contribution</td>
@@ -191,6 +184,15 @@
                     <td>0..*</td>
                     <td></td>
                     <td>The contributions (agent, time and role) made to this entity</td>
+                    <td>SEPIO:0000159</td>
+                </tr>
+                <tr>
+                    <td>source</td>
+                    <td>String</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td></td>
+                    <td>DC:source</td>
                 </tr>
             </tbody>
         </table>
@@ -199,9 +201,8 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
-        <th>explanation</th>
+        <th>description</th>
         <th>contextualAllele</th>
-        <th>lof</th>
         <th>consequence</th>
       </tr></thead>
       <tbody>
@@ -214,16 +215,13 @@
               <p><a href="../details/details.html#CtxAll001">CtxAll001</a></p>
          </td>
           <td>
-              <p>true</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC001">CC001</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon001"><pre><code>{
   "id": "MolCon001",
   "type": "MolecularConsequence",
-  "explanation": "Protein ends at p.826 and this frameshift would create stop at p.852 (769+83) thus NMD would not occur. Instead an elongated protein",
+  "description": "Protein ends at p.826 and this frameshift would create stop at p.852 (769+83) thus NMD would not occur. Instead an elongated protein",
   "contextualAllele": {
     "id": "CtxAll001",
     "type": "ContextualAllele",
@@ -247,8 +245,7 @@
         "display": "frameshift variant"
       }
     ]
-  },
-  "lof": true
+  }
 }
           </code></pre></div></td>
           -->
@@ -263,16 +260,13 @@
               <p><a href="../details/details.html#CtxAll002">CtxAll002</a></p>
          </td>
           <td>
-              <p>true</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC004">CC004</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon003"><pre><code>{
   "id": "MolCon003",
   "type": "MolecularConsequence",
-  "explanation": "LOF is predicted to occur as variant is >55bp from penultimate exon",
+  "description": "LOF is predicted to occur as variant is >55bp from penultimate exon",
   "contextualAllele": {
     "id": "CtxAll002",
     "type": "ContextualAllele",
@@ -296,8 +290,7 @@
         "display": "frameshift variant"
       }
     ]
-  },
-  "lof": true
+  }
 }
           </code></pre></div></td>
           -->
@@ -312,16 +305,13 @@
               <p><a href="../details/details.html#CtxAll003">CtxAll003</a></p>
          </td>
           <td>
-              <p>true</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC007">CC007</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon005"><pre><code>{
   "id": "MolCon005",
   "type": "MolecularConsequence",
-  "explanation": "LOF is predicted but this transcript is rare",
+  "description": "LOF is predicted but this transcript is rare",
   "contextualAllele": {
     "id": "CtxAll003",
     "type": "ContextualAllele",
@@ -345,8 +335,7 @@
         "display": "frameshift variant"
       }
     ]
-  },
-  "lof": true
+  }
 }
           </code></pre></div></td>
           -->
@@ -359,9 +348,6 @@
          </td>
           <td>
               <p><a href="../details/details.html#CtxAll004">CtxAll004</a></p>
-         </td>
-          <td>
-              <p>true</p>
          </td>
           <td>
               <p><a href="../details/details.html#CC008">CC008</a></p>
@@ -393,8 +379,7 @@
         "display": "interior intron"
       }
     ]
-  },
-  "lof": true
+  }
 }
           </code></pre></div></td>
           -->
@@ -407,9 +392,6 @@
          </td>
           <td>
               <p><a href="../details/details.html#CtxAll044">CtxAll044</a></p>
-         </td>
-          <td>
-              
          </td>
           <td>
               <p><a href="../details/details.html#CC054">CC054</a></p>
@@ -448,19 +430,19 @@
       "agent": {
         "id": "Agent001",
         "type": "Agent",
-        "name": "Harry Stevenson"
+        "label": "Harry Stevenson"
       },
-      "onDate": "6/1/16 2:03 PM",
-      "role": {
+      "contributionDate": "6/1/16 2:03 PM",
+      "contributionRole": {
         "id": "CC388",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:curator",
+            "id": "SEPIO:0000156",
             "type": "Coding",
-            "code": "curator",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "curator"
+            "code": "0000156",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "curator role"
           }
         ]
       }
@@ -481,9 +463,6 @@
          </td>
           <td>
               <p><a href="../details/details.html#CtxAll046">CtxAll046</a></p>
-         </td>
-          <td>
-              
          </td>
           <td>
               <p><a href="../details/details.html#CC058">CC058</a></p>
@@ -530,9 +509,6 @@
               <p><a href="../details/details.html#CtxAll048">CtxAll048</a></p>
          </td>
           <td>
-              
-         </td>
-          <td>
               <p><a href="../details/details.html#CC060">CC060</a></p>
          </td>
           <!--
@@ -575,9 +551,6 @@
          </td>
           <td>
               <p><a href="../details/details.html#CtxAll124">CtxAll124</a></p>
-         </td>
-          <td>
-              
          </td>
           <td>
               <p><a href="../details/details.html#CC061">CC061</a></p>
@@ -624,9 +597,6 @@
               <p><a href="../details/details.html#CtxAll070">CtxAll070</a></p>
          </td>
           <td>
-              <p>true</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC070">CC070</a></p>
          </td>
           <!--
@@ -656,8 +626,7 @@
         "display": "missense variant"
       }
     ]
-  },
-  "lof": true
+  }
 }
           </code></pre></div></td>
           -->
@@ -670,9 +639,6 @@
          </td>
           <td>
               <p><a href="../details/details.html#CtxAll099">CtxAll099</a></p>
-         </td>
-          <td>
-              <p>true</p>
          </td>
           <td>
               <p><a href="../details/details.html#CC122">CC122</a></p>
@@ -704,8 +670,7 @@
         "display": "missense variant"
       }
     ]
-  },
-  "lof": true
+  }
 }
           </code></pre></div></td>
           -->
@@ -718,9 +683,6 @@
          </td>
           <td>
               <p><a href="../details/details.html#CtxAll097">CtxAll097</a></p>
-         </td>
-          <td>
-              <p>true</p>
          </td>
           <td>
               <p><a href="../details/details.html#CC138">CC138</a></p>
@@ -752,8 +714,7 @@
         "display": "missense variant"
       }
     ]
-  },
-  "lof": true
+  }
 }
           </code></pre></div></td>
           -->
@@ -766,9 +727,6 @@
          </td>
           <td>
               <p><a href="../details/details.html#CtxAll098">CtxAll098</a></p>
-         </td>
-          <td>
-              <p>true</p>
          </td>
           <td>
               <p><a href="../details/details.html#CC143">CC143</a></p>
@@ -800,8 +758,7 @@
         "display": "missense variant"
       }
     ]
-  },
-  "lof": true
+  }
 }
           </code></pre></div></td>
           -->
@@ -814,9 +771,6 @@
          </td>
           <td>
               <p><a href="../details/details.html#CtxAll099">CtxAll099</a></p>
-         </td>
-          <td>
-              <p>true</p>
          </td>
           <td>
               <p><a href="../details/details.html#CC146">CC146</a></p>
@@ -848,8 +802,7 @@
         "display": "missense variant"
       }
     ]
-  },
-  "lof": true
+  }
 }
           </code></pre></div></td>
           -->
@@ -862,9 +815,6 @@
          </td>
           <td>
               <p><a href="../details/details.html#CtxAll106">CtxAll106</a></p>
-         </td>
-          <td>
-              
          </td>
           <td>
               <p><a href="../details/details.html#CC161">CC161</a></p>
@@ -911,9 +861,6 @@
               <p><a href="../details/details.html#CtxAll107">CtxAll107</a></p>
          </td>
           <td>
-              
-         </td>
-          <td>
               <p><a href="../details/details.html#CC163">CC163</a></p>
          </td>
           <!--
@@ -956,9 +903,6 @@
          </td>
           <td>
               <p><a href="../details/details.html#CtxAll108">CtxAll108</a></p>
-         </td>
-          <td>
-              
          </td>
           <td>
               <p><a href="../details/details.html#CC165">CC165</a></p>
@@ -1005,9 +949,6 @@
               <p><a href="../details/details.html#CtxAll123">CtxAll123</a></p>
          </td>
           <td>
-              
-         </td>
-          <td>
               <p><a href="../details/details.html#CC188">CC188</a></p>
          </td>
           <!--
@@ -1050,9 +991,6 @@
          </td>
           <td>
               <p><a href="../details/details.html#CtxAll124">CtxAll124</a></p>
-         </td>
-          <td>
-              
          </td>
           <td>
               <p><a href="../details/details.html#CC190">CC190</a></p>
@@ -1099,9 +1037,6 @@
               <p><a href="../details/details.html#CtxAll125">CtxAll125</a></p>
          </td>
           <td>
-              
-         </td>
-          <td>
               <p><a href="../details/details.html#CC192">CC192</a></p>
          </td>
           <!--
@@ -1146,16 +1081,13 @@
               <p><a href="../details/details.html#CtxAll127">CtxAll127</a></p>
          </td>
           <td>
-              <p>true</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#CC194">CC194</a></p>
          </td>
           <!--
           <td><div class="example_view" id="MolCon272"><pre><code>{
   "id": "MolCon272",
   "type": "MolecularConsequence",
-  "explanation": "This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466).",
+  "description": "This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466).",
   "contextualAllele": {
     "id": "CtxAll127",
     "type": "ContextualAllele",
@@ -1179,8 +1111,7 @@
         "display": "splice-site variant"
       }
     ]
-  },
-  "lof": true
+  }
 }
           </code></pre></div></td>
           -->

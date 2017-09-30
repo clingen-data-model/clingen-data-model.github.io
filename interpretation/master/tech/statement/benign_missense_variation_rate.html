@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li class="active"><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">LocusHeterogeneity</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">AlleleConservation</a></li><li><a href="de_novo_allele.html">IndividualAlleleInheritance</a></li><li><a href="family_history.html">FamilyCondition</a></li><li><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="functional_data.html">AlleleFunctionalImpact</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">GeneticCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../agent.html">Agent</a></li><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../contribution.html">Contribution</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li class="active"><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">LocusHeterogeneity</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">AlleleConservation</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">GeneticCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_type.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -106,9 +106,9 @@
 
 
             <h1>BenignMissenseVariationRate</h1>
-            <p>A statement about the frequency at which missense variants in a particular region DO NOT cause a pathological condition  (i.e.  the amount of "benign missense variation" in the region).
+            <p>A statement about the frequency at which missense variants in a particular region are tolerated (i.e. do not cause a pathological condition)</p>
 
-Preferred: A statement about the frequency at which missense variants in a particular region are tolerated (i.e. do not cause a pathological condition)</p>
+                <p>SEPIO:0000246</p>
 
                 <p>Descended from Statement</p>
 
@@ -136,6 +136,7 @@ Preferred: A statement about the frequency at which missense variants in a parti
                 <th>Type</th>
                 <th>Cardinality</th>
                 <th>Description</th>
+                <th>IRI</th>
             </tr>
             </thead>
             <tbody>
@@ -144,18 +145,21 @@ Preferred: A statement about the frequency at which missense variants in a parti
                 <td>SequenceLocation</td>
                 <td>0..1</td>
                 <td>Sequence on which the region is defined</td>
+                <td>SEPIO:0000279</td>
             </tr>
             <tr>
                 <td>gene</td>
                 <td>Gene</td>
                 <td>0..1</td>
                 <td>Gene that contains the missense variants</td>
+                <td>SEPIO:0000278</td>
             </tr>
             <tr>
                 <td>value</td>
                 <td>Coding</td>
                 <td>1..1</td>
                 <td>The rate at which Benign missense variants occur within the region</td>
+                <td>SEPIO:0000197</td>
             </tr>
             </tbody>
         </table>
@@ -171,22 +175,17 @@ Preferred: A statement about the frequency at which missense variants in a parti
                 <th>Cardinality</th>
                 <th>Inherited From</th>
                 <th>Description</th>
+                <th>IRI</th>
             </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>source</td>
-                    <td>String</td>
-                    <td>0..*</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>explanation</td>
+                    <td>description</td>
                     <td>String</td>
                     <td>0..1</td>
                     <td></td>
                     <td>A human-readable description of the entity</td>
+                    <td>DC:description</td>
                 </tr>
                 <tr>
                     <td>contribution</td>
@@ -194,6 +193,15 @@ Preferred: A statement about the frequency at which missense variants in a parti
                     <td>0..*</td>
                     <td></td>
                     <td>The contributions (agent, time and role) made to this entity</td>
+                    <td>SEPIO:0000159</td>
+                </tr>
+                <tr>
+                    <td>source</td>
+                    <td>String</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td></td>
+                    <td>DC:source</td>
                 </tr>
             </tbody>
         </table>
@@ -202,7 +210,7 @@ Preferred: A statement about the frequency at which missense variants in a parti
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
-        <th>explanation</th>
+        <th>description</th>
         <th>region</th>
         <th>gene</th>
         <th>value</th>
@@ -220,13 +228,13 @@ Preferred: A statement about the frequency at which missense variants in a parti
               
          </td>
           <td>
-              <p><a href="../details/details.html#CG-ben-missense-var-rate:low">CG-ben-missense-var-rate:low</a></p>
+              <p><a href="../details/details.html#SEPIO:0000266">SEPIO:0000266</a></p>
          </td>
           <!--
           <td><div class="example_view" id="BMVR102"><pre><code>{
   "id": "BMVR102",
   "type": "BenignMissenseVariationRate",
-  "explanation": "ClinVar shows no benign missense variants in (or near) this region.  The closest is NM_000169.2:c.8T>C",
+  "description": "ClinVar shows no benign missense variants in (or near) this region.  The closest is NM_000169.2:c.8T>C",
   "region": {
     "id": "Loc383",
     "type": "SequenceLocation",
@@ -241,10 +249,10 @@ Preferred: A statement about the frequency at which missense variants in a parti
     "stop": 1012
   },
   "value": {
-    "id": "CG-ben-missense-var-rate:low",
+    "id": "SEPIO:0000266",
     "type": "Coding",
-    "code": "low",
-    "system": "http://clinicalgenome.org/datamodel/benign-missense-variation-rate/",
+    "code": "0000266",
+    "system": "http://obofoundry.org/sepio/",
     "display": "Low"
   }
 }
@@ -264,23 +272,22 @@ Preferred: A statement about the frequency at which missense variants in a parti
               <p><a href="../details/details.html#hgnc:MYH7">hgnc:MYH7</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-ben-missense-var-rate:low">CG-ben-missense-var-rate:low</a></p>
+              <p><a href="../details/details.html#SEPIO:0000266">SEPIO:0000266</a></p>
          </td>
           <!--
           <td><div class="example_view" id="BMVR119"><pre><code>{
   "id": "BMVR119",
   "type": "BenignMissenseVariationRate",
-  "explanation": "Based on the gene size, ExAC expects 740 missense variants to be observed, but actually observes only 420, giving a z score of 6.5, which is in the top 0.02% of genes.",
+  "description": "Based on the gene size, ExAC expects 740 missense variants to be observed, but actually observes only 420, giving a z score of 6.5, which is in the top 0.02% of genes.",
   "gene": {
     "id": "hgnc:MYH7",
-    "type": "Gene",
-    "symbol": "MYH7"
+    "type": "Gene"
   },
   "value": {
-    "id": "CG-ben-missense-var-rate:low",
+    "id": "SEPIO:0000266",
     "type": "Coding",
-    "code": "low",
-    "system": "http://clinicalgenome.org/datamodel/benign-missense-variation-rate/",
+    "code": "0000266",
+    "system": "http://obofoundry.org/sepio/",
     "display": "Low"
   }
 }
@@ -300,23 +307,22 @@ Preferred: A statement about the frequency at which missense variants in a parti
               <p><a href="../details/details.html#hgnc:TTN">hgnc:TTN</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CG-ben-missense-var-rate:high">CG-ben-missense-var-rate:high</a></p>
+              <p><a href="../details/details.html#SEPIO:0000265">SEPIO:0000265</a></p>
          </td>
           <!--
           <td><div class="example_view" id="BMVR161"><pre><code>{
   "id": "BMVR161",
   "type": "BenignMissenseVariationRate",
-  "explanation": "In LMM data alone, we have over 150 benign missense variants in TTN.",
+  "description": "In LMM data alone, we have over 150 benign missense variants in TTN.",
   "gene": {
     "id": "hgnc:TTN",
-    "type": "Gene",
-    "symbol": "TTN"
+    "type": "Gene"
   },
   "value": {
-    "id": "CG-ben-missense-var-rate:high",
+    "id": "SEPIO:0000265",
     "type": "Coding",
-    "code": "high",
-    "system": "http://clinicalgenome.org/datamodel/benign-missense-variation-rate/",
+    "code": "0000265",
+    "system": "http://obofoundry.org/sepio/",
     "display": "High"
   }
 }

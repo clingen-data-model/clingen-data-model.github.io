@@ -4,12 +4,11 @@
   "informationId": {
     "id": "CritAssess298",
     "type": "CriterionAssessment",
-    "explanation": "Application of PM3 is incorrect as the variant in trans is know known to be pathogenic (it is the same variant).",
+    "description": "Application of PM3 is incorrect as the variant in trans is know known to be pathogenic (it is the same variant).",
     "criterion": {
       "id": "PM3",
       "type": "Criterion",
       "description": "For recessive disorders, detected in trans with a pathogenic variant",
-      "shortDescription": "Recessive in trans with pathogenic variant",
       "defaultStrength": {
         "id": "CG-evidence-strength:pm"
       }
@@ -24,7 +23,6 @@
       {
         "id": "GenCond015",
         "type": "GeneticCondition",
-        "explanation": "neuronal ceroid lipofuscinosis, Autosomal Recessive, TTP1",
         "disease": [
           {
             "id": "Orphanet:216",
@@ -43,23 +41,21 @@
         },
         "gene": {
           "id": "hgnc:TTP1",
-          "type": "Gene",
-          "symbol": "TTP1"
+          "type": "Gene"
         }
       }
     ],
     "outcome": {
-      "id": "CG-criterion-outcome:not-met",
+      "id": "SEPIO:0000224",
       "type": "Coding",
-      "code": "not-met",
-      "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+      "code": "0000224",
+      "system": "http://obofoundry.org/sepio/",
       "display": "Not Met"
     },
     "evidenceLine": [
       {
         "id": "EvLn031",
         "type": "EvidenceLine",
-        "explanation": "EvLn031",
         "evidenceItem": [
           {
             "id": "IndCond064",
@@ -73,7 +69,6 @@
               {
                 "id": "GenCond015",
                 "type": "GeneticCondition",
-                "explanation": "neuronal ceroid lipofuscinosis, Autosomal Recessive, TTP1",
                 "disease": [
                   {
                     "id": "Orphanet:216",
@@ -92,12 +87,17 @@
                 },
                 "gene": {
                   "id": "hgnc:TTP1",
-                  "type": "Gene",
-                  "symbol": "TTP1"
+                  "type": "Gene"
                 }
               }
             ],
-            "hasCondition": true
+            "individualHasCondition": {
+              "id": "SEPIO-CG:99009",
+              "type": "Coding",
+              "code": "99009",
+              "system": "http://obofoundry.org/sepio/clingen",
+              "display": "affected"
+            }
           },
           {
             "id": "IndAll065",
@@ -114,10 +114,10 @@
               "identifier": "http://reg.genome.network/allele/CA090904"
             },
             "primaryZygosity": {
-              "id": "CG-allelic-state:homozygous",
+              "id": "GENO:0000136",
               "type": "Coding",
-              "code": "homozygous",
-              "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+              "code": "0000136",
+              "system": "http://obofoundry.org/geno/",
               "display": "homozygous"
             }
           }
@@ -130,19 +130,19 @@
         "agent": {
           "id": "Agent001",
           "type": "Agent",
-          "name": "Harry Stevenson"
+          "label": "Harry Stevenson"
         },
-        "onDate": "6/10/16 9:15 AM",
-        "role": {
+        "contributionDate": "6/10/16 9:15 AM",
+        "contributionRole": {
           "id": "CC326",
           "type": "CodeableConcept",
           "coding": [
             {
-              "id": "CG-contributory-role:assessor",
+              "id": "SEPIO:0000154",
               "type": "Coding",
-              "code": "assessor",
-              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-              "display": "assessor"
+              "code": "0000154",
+              "system": "http://obofoundry.org/sepio/",
+              "display": "assessor role"
             }
           ]
         }

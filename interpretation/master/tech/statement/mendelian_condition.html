@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">LocusHeterogeneity</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">AlleleConservation</a></li><li><a href="de_novo_allele.html">IndividualAlleleInheritance</a></li><li><a href="family_history.html">FamilyCondition</a></li><li><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="functional_data.html">AlleleFunctionalImpact</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li class="active"><a href="mendelian_condition.html">GeneticCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../agent.html">Agent</a></li><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../contribution.html">Contribution</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">LocusHeterogeneity</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">AlleleConservation</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li class="active"><a href="mendelian_condition.html">GeneticCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_type.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -108,7 +108,8 @@
             <h1>GeneticCondition</h1>
             <p>A disease, or a set of one or more co-occurring phenotypes, typically controlled by a single locus with a defined inheritance pattern.</p>
 
-                <p>Descended from Statement</p>
+                <p>SEPIO:0000219</p>
+
 
             <hr class='col-sm-12' />
 
@@ -130,6 +131,7 @@
                 <th>Type</th>
                 <th>Cardinality</th>
                 <th>Description</th>
+                <th>IRI</th>
             </tr>
             </thead>
             <tbody>
@@ -138,77 +140,45 @@
                 <td>String</td>
                 <td>0..1</td>
                 <td></td>
+                <td>RDFS:label</td>
             </tr>
             <tr>
                 <td>disease</td>
                 <td>CodeableConcept</td>
                 <td>0..*</td>
                 <td></td>
+                <td>BFO:0000051</td>
             </tr>
             <tr>
                 <td>phenotype</td>
                 <td>CodeableConcept</td>
                 <td>0..*</td>
                 <td></td>
+                <td>BFO:0000051</td>
             </tr>
             <tr>
                 <td>modeOfInheritance</td>
                 <td>Coding</td>
                 <td>0..1</td>
                 <td></td>
+                <td>RO:0000091</td>
             </tr>
             <tr>
                 <td>gene</td>
                 <td>Gene</td>
                 <td>0..1</td>
                 <td></td>
+                <td>RO:0000057</td>
             </tr>
             </tbody>
         </table>
 
 
-    <h2>Inherited Attributes</h2>
-
-        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Cardinality</th>
-                <th>Inherited From</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>source</td>
-                    <td>String</td>
-                    <td>0..*</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>explanation</td>
-                    <td>String</td>
-                    <td>0..1</td>
-                    <td></td>
-                    <td>A human-readable description of the entity</td>
-                </tr>
-                <tr>
-                    <td>contribution</td>
-                    <td>Contribution</td>
-                    <td>0..*</td>
-                    <td></td>
-                    <td>The contributions (agent, time and role) made to this entity</td>
-                </tr>
-            </tbody>
-        </table>
 
     <h2>Examples</h2>
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
-        <th>explanation</th>
         <th>name</th>
         <th>disease</th>
         <th>phenotype</th>
@@ -218,9 +188,6 @@
       <tbody>
         <tr>
           <td><p><a href="../details/details.html#GenCond001">GenCond001</a></p></td>
-          <td>
-              <p>Breast Ovarian Cancer, Autosomal Dominant</p>
-         </td>
           <td>
               <p>Breast Ovarian Cancer, Autosomal Dominant</p>
          </td>
@@ -240,7 +207,6 @@
           <td><div class="example_view" id="GenCond001"><pre><code>{
   "id": "GenCond001",
   "type": "GeneticCondition",
-  "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
   "name": "Breast Ovarian Cancer, Autosomal Dominant",
   "disease": [
     {
@@ -266,9 +232,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond002">GenCond002</a></p></td>
           <td>
-              <p>dilated cardiomyopathy, Autosomal Dominant</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -287,7 +250,6 @@
           <td><div class="example_view" id="GenCond002"><pre><code>{
   "id": "GenCond002",
   "type": "GeneticCondition",
-  "explanation": "dilated cardiomyopathy, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:217604",
@@ -312,9 +274,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond003">GenCond003</a></p></td>
           <td>
-              <p>noonan syndrome, Autosomal Dominant</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -333,7 +292,6 @@
           <td><div class="example_view" id="GenCond003"><pre><code>{
   "id": "GenCond003",
   "type": "GeneticCondition",
-  "explanation": "noonan syndrome, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:648",
@@ -358,9 +316,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond004">GenCond004</a></p></td>
           <td>
-              <p>Primary ciliary dyskenisia</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -379,7 +334,6 @@
           <td><div class="example_view" id="GenCond004"><pre><code>{
   "id": "GenCond004",
   "type": "GeneticCondition",
-  "explanation": "Primary ciliary dyskenisia",
   "disease": [
     {
       "id": "Orphanet:244",
@@ -396,9 +350,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond005">GenCond005</a></p></td>
-          <td>
-              <p>costello syndrome, Autosomal Dominant</p>
-         </td>
           <td>
               
          </td>
@@ -418,7 +369,6 @@
           <td><div class="example_view" id="GenCond005"><pre><code>{
   "id": "GenCond005",
   "type": "GeneticCondition",
-  "explanation": "costello syndrome, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:3071",
@@ -443,9 +393,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond006">GenCond006</a></p></td>
           <td>
-              <p>noonan syndrome 3</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -464,7 +411,6 @@
           <td><div class="example_view" id="GenCond006"><pre><code>{
   "id": "GenCond006",
   "type": "GeneticCondition",
-  "explanation": "noonan syndrome 3",
   "disease": [
     {
       "id": "OMIM:609942",
@@ -481,9 +427,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond007">GenCond007</a></p></td>
-          <td>
-              <p>cardiomyopathy, Autosomal Dominant</p>
-         </td>
           <td>
               
          </td>
@@ -503,7 +446,6 @@
           <td><div class="example_view" id="GenCond007"><pre><code>{
   "id": "GenCond007",
   "type": "GeneticCondition",
-  "explanation": "cardiomyopathy, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:167848",
@@ -531,9 +473,6 @@
               <p>desmin related myopathy</p>
          </td>
           <td>
-              <p>desmin related myopathy</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#OMIM:601419">OMIM:601419</a></p>
          </td>
           <td>
@@ -549,7 +488,6 @@
           <td><div class="example_view" id="GenCond008"><pre><code>{
   "id": "GenCond008",
   "type": "GeneticCondition",
-  "explanation": "desmin related myopathy",
   "disease": [
     {
       "id": "OMIM:601419",
@@ -571,9 +509,6 @@
               <p>Epilepsy with Mental Retardation</p>
          </td>
           <td>
-              <p>Epilepsy with Mental Retardation</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -589,7 +524,6 @@
           <td><div class="example_view" id="GenCond009"><pre><code>{
   "id": "GenCond009",
   "type": "GeneticCondition",
-  "explanation": "Epilepsy with Mental Retardation",
   "name": "Epilepsy with Mental Retardation"
 }
           </code></pre></div></td>
@@ -598,9 +532,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond010">GenCond010</a></p></td>
-          <td>
-              <p>nonsyndromic deafness, Autosomal Recessive, GIPC3</p>
-         </td>
           <td>
               
          </td>
@@ -620,7 +551,6 @@
           <td><div class="example_view" id="GenCond010"><pre><code>{
   "id": "GenCond010",
   "type": "GeneticCondition",
-  "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3",
   "disease": [
     {
       "id": "Orphanet:87884",
@@ -639,8 +569,7 @@
   },
   "gene": {
     "id": "hgnc:GIPC3",
-    "type": "Gene",
-    "symbol": "GIPC3"
+    "type": "Gene"
   }
 }
           </code></pre></div></td>
@@ -649,9 +578,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond011">GenCond011</a></p></td>
-          <td>
-              <p>Malignant hyperthermia, Autosomal Dominant</p>
-         </td>
           <td>
               
          </td>
@@ -671,7 +597,6 @@
           <td><div class="example_view" id="GenCond011"><pre><code>{
   "id": "GenCond011",
   "type": "GeneticCondition",
-  "explanation": "Malignant hyperthermia, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:423",
@@ -696,9 +621,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond012">GenCond012</a></p></td>
           <td>
-              <p>Abnormal Glucose Homeostasis</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -717,7 +639,6 @@
           <td><div class="example_view" id="GenCond012"><pre><code>{
   "id": "GenCond012",
   "type": "GeneticCondition",
-  "explanation": "Abnormal Glucose Homeostasis",
   "phenotype": [
     {
       "id": "HP:0011014",
@@ -734,9 +655,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond013">GenCond013</a></p></td>
-          <td>
-              <p>Fabry disease, X linked recessive inheritance</p>
-         </td>
           <td>
               
          </td>
@@ -756,7 +674,6 @@
           <td><div class="example_view" id="GenCond013"><pre><code>{
   "id": "GenCond013",
   "type": "GeneticCondition",
-  "explanation": "Fabry disease, X linked recessive inheritance",
   "disease": [
     {
       "id": "Orphanet:324",
@@ -784,9 +701,6 @@
               <p>PCD autosomal recessive w/ outer dynein arm (ODA) defects</p>
          </td>
           <td>
-              <p>PCD autosomal recessive w/ outer dynein arm (ODA) defects</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#Orphanet:244">Orphanet:244</a></p>
          </td>
           <td>
@@ -802,7 +716,6 @@
           <td><div class="example_view" id="GenCond014"><pre><code>{
   "id": "GenCond014",
   "type": "GeneticCondition",
-  "explanation": "PCD autosomal recessive w/ outer dynein arm (ODA) defects",
   "name": "PCD autosomal recessive w/ outer dynein arm (ODA) defects",
   "disease": [
     {
@@ -837,9 +750,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond015">GenCond015</a></p></td>
           <td>
-              <p>neuronal ceroid lipofuscinosis, Autosomal Recessive, TTP1</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -858,7 +768,6 @@
           <td><div class="example_view" id="GenCond015"><pre><code>{
   "id": "GenCond015",
   "type": "GeneticCondition",
-  "explanation": "neuronal ceroid lipofuscinosis, Autosomal Recessive, TTP1",
   "disease": [
     {
       "id": "Orphanet:216",
@@ -877,8 +786,7 @@
   },
   "gene": {
     "id": "hgnc:TTP1",
-    "type": "Gene",
-    "symbol": "TTP1"
+    "type": "Gene"
   }
 }
           </code></pre></div></td>
@@ -887,9 +795,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond016">GenCond016</a></p></td>
-          <td>
-              <p>Primary familial hypertrophic cardiomyopathy, Autosomal Dominant</p>
-         </td>
           <td>
               <p>Primary familial hypertrophic cardiomyopathy, Autosomal Dominant</p>
          </td>
@@ -909,7 +814,6 @@
           <td><div class="example_view" id="GenCond016"><pre><code>{
   "id": "GenCond016",
   "type": "GeneticCondition",
-  "explanation": "Primary familial hypertrophic cardiomyopathy, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:217569",
@@ -935,9 +839,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond017">GenCond017</a></p></td>
           <td>
-              <p>Ornithine carbamoyltransferase deficiency</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -956,7 +857,6 @@
           <td><div class="example_view" id="GenCond017"><pre><code>{
   "id": "GenCond017",
   "type": "GeneticCondition",
-  "explanation": "Ornithine carbamoyltransferase deficiency",
   "disease": [
     {
       "id": "Orphanet:664",
@@ -973,9 +873,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond018">GenCond018</a></p></td>
-          <td>
-              <p>Birt-Hogg-Dube Syndrome</p>
-         </td>
           <td>
               
          </td>
@@ -995,7 +892,6 @@
           <td><div class="example_view" id="GenCond018"><pre><code>{
   "id": "GenCond018",
   "type": "GeneticCondition",
-  "explanation": "Birt-Hogg-Dube Syndrome",
   "disease": [
     {
       "id": "Orphanet:122",
@@ -1012,9 +908,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond019">GenCond019</a></p></td>
-          <td>
-              <p>cardiofaciocutaneous syndrome</p>
-         </td>
           <td>
               
          </td>
@@ -1034,7 +927,6 @@
           <td><div class="example_view" id="GenCond019"><pre><code>{
   "id": "GenCond019",
   "type": "GeneticCondition",
-  "explanation": "cardiofaciocutaneous syndrome",
   "disease": [
     {
       "id": "Orphanet:1340",
@@ -1051,9 +943,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond020">GenCond020</a></p></td>
-          <td>
-              <p>hypertrophic cardiomyopathy, Autosomal Dominant</p>
-         </td>
           <td>
               
          </td>
@@ -1073,7 +962,6 @@
           <td><div class="example_view" id="GenCond020"><pre><code>{
   "id": "GenCond020",
   "type": "GeneticCondition",
-  "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:217569",
@@ -1098,9 +986,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond021">GenCond021</a></p></td>
           <td>
-              <p>Usher syndrome, Autosomal Recessive</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -1119,7 +1004,6 @@
           <td><div class="example_view" id="GenCond021"><pre><code>{
   "id": "GenCond021",
   "type": "GeneticCondition",
-  "explanation": "Usher syndrome, Autosomal Recessive",
   "disease": [
     {
       "id": "Orphanet:886",
@@ -1144,9 +1028,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond022">GenCond022</a></p></td>
           <td>
-              <p>hereditary hemorrhagic telangiectasia, Autosomal Dominant</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -1165,7 +1046,6 @@
           <td><div class="example_view" id="GenCond022"><pre><code>{
   "id": "GenCond022",
   "type": "GeneticCondition",
-  "explanation": "hereditary hemorrhagic telangiectasia, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:774",
@@ -1190,9 +1070,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond023">GenCond023</a></p></td>
           <td>
-              <p>Breast-Ovarian Cancer, Familial, Susceptibility To, 2, Autosomal Dominant</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -1211,7 +1088,6 @@
           <td><div class="example_view" id="GenCond023"><pre><code>{
   "id": "GenCond023",
   "type": "GeneticCondition",
-  "explanation": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2, Autosomal Dominant",
   "disease": [
     {
       "id": "OMIM:612555",
@@ -1236,9 +1112,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond024">GenCond024</a></p></td>
           <td>
-              <p>Myopathy, Distal, type 4, Autosomal Dominant</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -1257,7 +1130,6 @@
           <td><div class="example_view" id="GenCond024"><pre><code>{
   "id": "GenCond024",
   "type": "GeneticCondition",
-  "explanation": "Myopathy, Distal, type 4, Autosomal Dominant",
   "disease": [
     {
       "id": "OMIM:614065",
@@ -1282,9 +1154,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond025">GenCond025</a></p></td>
           <td>
-              <p>Cystic Fibrosis, Autosomal Recessive</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -1303,7 +1172,6 @@
           <td><div class="example_view" id="GenCond025"><pre><code>{
   "id": "GenCond025",
   "type": "GeneticCondition",
-  "explanation": "Cystic Fibrosis, Autosomal Recessive",
   "disease": [
     {
       "id": "Orphanet:586",
@@ -1328,9 +1196,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond026">GenCond026</a></p></td>
           <td>
-              <p>Marfan Syndrome, Autosomal Dominant</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -1349,7 +1214,6 @@
           <td><div class="example_view" id="GenCond026"><pre><code>{
   "id": "GenCond026",
   "type": "GeneticCondition",
-  "explanation": "Marfan Syndrome, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:558",
@@ -1374,9 +1238,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond027">GenCond027</a></p></td>
           <td>
-              <p>Mitochondrial complex 1 deficiency, X-linked dominant inheritance</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -1395,7 +1256,6 @@
           <td><div class="example_view" id="GenCond027"><pre><code>{
   "id": "GenCond027",
   "type": "GeneticCondition",
-  "explanation": "Mitochondrial complex 1 deficiency, X-linked dominant inheritance",
   "disease": [
     {
       "id": "Orphanet:2609",
@@ -1420,9 +1280,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond028">GenCond028</a></p></td>
           <td>
-              <p>Perrault Syndrome, Autosomal Recessive</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -1441,7 +1298,6 @@
           <td><div class="example_view" id="GenCond028"><pre><code>{
   "id": "GenCond028",
   "type": "GeneticCondition",
-  "explanation": "Perrault Syndrome, Autosomal Recessive",
   "disease": [
     {
       "id": "Orphanet:2855",
@@ -1466,9 +1322,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond029">GenCond029</a></p></td>
           <td>
-              <p>Wiedemann-Steiner syndrome, Autosomal Dominant</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -1487,7 +1340,6 @@
           <td><div class="example_view" id="GenCond029"><pre><code>{
   "id": "GenCond029",
   "type": "GeneticCondition",
-  "explanation": "Wiedemann-Steiner syndrome, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:319182",
@@ -1512,9 +1364,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond030">GenCond030</a></p></td>
           <td>
-              <p>Familial Adenomatous Polyposis, Autosomal Dominant</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -1533,7 +1382,6 @@
           <td><div class="example_view" id="GenCond030"><pre><code>{
   "id": "GenCond030",
   "type": "GeneticCondition",
-  "explanation": "Familial Adenomatous Polyposis, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:733",
@@ -1558,9 +1406,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond035">GenCond035</a></p></td>
           <td>
-              <p>Hypercholesterolemia, Familial, Autosomal Dominant</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -1579,7 +1424,6 @@
           <td><div class="example_view" id="GenCond035"><pre><code>{
   "id": "GenCond035",
   "type": "GeneticCondition",
-  "explanation": "Hypercholesterolemia, Familial, Autosomal Dominant",
   "disease": [
     {
       "id": "OMIM:143890",
@@ -1607,9 +1451,6 @@
               <p>hereditary breast and ovarian cancer</p>
          </td>
           <td>
-              <p>hereditary breast and ovarian cancer</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#Orphanet:145">Orphanet:145</a></p>
          </td>
           <td>
@@ -1625,7 +1466,6 @@
           <td><div class="example_view" id="GenCond036"><pre><code>{
   "id": "GenCond036",
   "type": "GeneticCondition",
-  "explanation": "hereditary breast and ovarian cancer",
   "disease": [
     {
       "id": "Orphanet:145",
@@ -1643,9 +1483,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond037">GenCond037</a></p></td>
-          <td>
-              <p>Fanconi Anemia</p>
-         </td>
           <td>
               
          </td>
@@ -1665,7 +1502,6 @@
           <td><div class="example_view" id="GenCond037"><pre><code>{
   "id": "GenCond037",
   "type": "GeneticCondition",
-  "explanation": "Fanconi Anemia",
   "disease": [
     {
       "id": "Orphanet:84",
@@ -1682,9 +1518,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond038">GenCond038</a></p></td>
-          <td>
-              <p>Retinitis Pigmentosa</p>
-         </td>
           <td>
               
          </td>
@@ -1704,7 +1537,6 @@
           <td><div class="example_view" id="GenCond038"><pre><code>{
   "id": "GenCond038",
   "type": "GeneticCondition",
-  "explanation": "Retinitis Pigmentosa",
   "disease": [
     {
       "id": "Orphanet:791",
@@ -1721,9 +1553,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond039">GenCond039</a></p></td>
-          <td>
-              <p>Absent vas deferens</p>
-         </td>
           <td>
               
          </td>
@@ -1743,7 +1572,6 @@
           <td><div class="example_view" id="GenCond039"><pre><code>{
   "id": "GenCond039",
   "type": "GeneticCondition",
-  "explanation": "Absent vas deferens",
   "phenotype": [
     {
       "id": "HP:0012873",
@@ -1760,9 +1588,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond040">GenCond040</a></p></td>
-          <td>
-              <p>Primary bone dysplasia</p>
-         </td>
           <td>
               
          </td>
@@ -1782,7 +1607,6 @@
           <td><div class="example_view" id="GenCond040"><pre><code>{
   "id": "GenCond040",
   "type": "GeneticCondition",
-  "explanation": "Primary bone dysplasia",
   "disease": [
     {
       "id": "Orphanet:364526",
@@ -1803,9 +1627,6 @@
               <p>Pseudoachondroplastic spondyloepiphyseal dysplasia</p>
          </td>
           <td>
-              <p>Pseudoachondroplastic spondyloepiphyseal dysplasia</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#Orphanet:750">Orphanet:750</a></p>
          </td>
           <td>
@@ -1821,7 +1642,6 @@
           <td><div class="example_view" id="GenCond041"><pre><code>{
   "id": "GenCond041",
   "type": "GeneticCondition",
-  "explanation": "Pseudoachondroplastic spondyloepiphyseal dysplasia",
   "disease": [
     {
       "id": "Orphanet:750",
@@ -1839,9 +1659,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond042">GenCond042</a></p></td>
-          <td>
-              <p>pseudoachondroplasia</p>
-         </td>
           <td>
               
          </td>
@@ -1861,7 +1678,6 @@
           <td><div class="example_view" id="GenCond042"><pre><code>{
   "id": "GenCond042",
   "type": "GeneticCondition",
-  "explanation": "pseudoachondroplasia",
   "disease": [
     {
       "id": "Orphanet:750",
@@ -1878,9 +1694,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond043">GenCond043</a></p></td>
-          <td>
-              <p>Breast-Ovarian Cancer, Familial, Susceptibility To, 2</p>
-         </td>
           <td>
               
          </td>
@@ -1900,7 +1713,6 @@
           <td><div class="example_view" id="GenCond043"><pre><code>{
   "id": "GenCond043",
   "type": "GeneticCondition",
-  "explanation": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2",
   "disease": [
     {
       "id": "OMIM:612555",
@@ -1917,9 +1729,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond044">GenCond044</a></p></td>
-          <td>
-              <p>Gyrate atrophy of choroid and retina</p>
-         </td>
           <td>
               
          </td>
@@ -1939,7 +1748,6 @@
           <td><div class="example_view" id="GenCond044"><pre><code>{
   "id": "GenCond044",
   "type": "GeneticCondition",
-  "explanation": "Gyrate atrophy of choroid and retina",
   "disease": [
     {
       "id": "Orphanet:414",
@@ -1956,9 +1764,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond045">GenCond045</a></p></td>
-          <td>
-              <p>Primary ciliary dyskenisia, Autosomal Recessive</p>
-         </td>
           <td>
               
          </td>
@@ -1978,7 +1783,6 @@
           <td><div class="example_view" id="GenCond045"><pre><code>{
   "id": "GenCond045",
   "type": "GeneticCondition",
-  "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
   "disease": [
     {
       "id": "Orphanet:244",
@@ -2003,9 +1807,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond046">GenCond046</a></p></td>
           <td>
-              <p>arrhythmogenic right ventricular cardiomyopathy</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -2024,7 +1825,6 @@
           <td><div class="example_view" id="GenCond046"><pre><code>{
   "id": "GenCond046",
   "type": "GeneticCondition",
-  "explanation": "arrhythmogenic right ventricular cardiomyopathy",
   "disease": [
     {
       "id": "Orphanet:247",
@@ -2041,9 +1841,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond047">GenCond047</a></p></td>
-          <td>
-              <p>dilated cardiomyopathy</p>
-         </td>
           <td>
               
          </td>
@@ -2063,7 +1860,6 @@
           <td><div class="example_view" id="GenCond047"><pre><code>{
   "id": "GenCond047",
   "type": "GeneticCondition",
-  "explanation": "dilated cardiomyopathy",
   "disease": [
     {
       "id": "Orphanet:217604",
@@ -2084,9 +1880,6 @@
               <p>Hearing Loss</p>
          </td>
           <td>
-              <p>Hearing Loss</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
          </td>
           <td>
@@ -2102,7 +1895,6 @@
           <td><div class="example_view" id="GenCond048"><pre><code>{
   "id": "GenCond048",
   "type": "GeneticCondition",
-  "explanation": "Hearing Loss",
   "disease": [
     {
       "id": "Orphanet:87884",
@@ -2124,9 +1916,6 @@
               <p>Rasopathy</p>
          </td>
           <td>
-              <p>Rasopathy</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#Orphanet:98733">Orphanet:98733</a></p>
          </td>
           <td>
@@ -2142,7 +1931,6 @@
           <td><div class="example_view" id="GenCond049"><pre><code>{
   "id": "GenCond049",
   "type": "GeneticCondition",
-  "explanation": "Rasopathy",
   "disease": [
     {
       "id": "Orphanet:98733",
@@ -2164,9 +1952,6 @@
               <p>Breast Ovarian Cancer, Autosomal Dominant</p>
          </td>
           <td>
-              <p>Breast Ovarian Cancer, Autosomal Dominant</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#MESH:D061325">MESH:D061325</a></p>
          </td>
           <td>
@@ -2182,7 +1967,6 @@
           <td><div class="example_view" id="GenCond050"><pre><code>{
   "id": "GenCond050",
   "type": "GeneticCondition",
-  "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
   "name": "Breast Ovarian Cancer, Autosomal Dominant",
   "disease": [
     {
@@ -2211,9 +1995,6 @@
               <p>Breast Ovarian Cancer, Autosomal Dominant</p>
          </td>
           <td>
-              <p>Breast Ovarian Cancer, Autosomal Dominant</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#MESH:D061325">MESH:D061325</a></p>
          </td>
           <td>
@@ -2229,7 +2010,6 @@
           <td><div class="example_view" id="GenCond051"><pre><code>{
   "id": "GenCond051",
   "type": "GeneticCondition",
-  "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
   "name": "Breast Ovarian Cancer, Autosomal Dominant",
   "disease": [
     {
@@ -2255,9 +2035,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond052">GenCond052</a></p></td>
           <td>
-              <p>dilated cardiomyopathy</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -2276,7 +2053,6 @@
           <td><div class="example_view" id="GenCond052"><pre><code>{
   "id": "GenCond052",
   "type": "GeneticCondition",
-  "explanation": "dilated cardiomyopathy",
   "disease": [
     {
       "id": "Orphanet:217604",
@@ -2293,9 +2069,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond053">GenCond053</a></p></td>
-          <td>
-              <p>dilated cardiomyopathy</p>
-         </td>
           <td>
               
          </td>
@@ -2315,7 +2088,6 @@
           <td><div class="example_view" id="GenCond053"><pre><code>{
   "id": "GenCond053",
   "type": "GeneticCondition",
-  "explanation": "dilated cardiomyopathy",
   "disease": [
     {
       "id": "Orphanet:217604",
@@ -2332,9 +2104,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond054">GenCond054</a></p></td>
-          <td>
-              <p>arrhythmogenic right ventricular cardiomyopathy</p>
-         </td>
           <td>
               
          </td>
@@ -2354,7 +2123,6 @@
           <td><div class="example_view" id="GenCond054"><pre><code>{
   "id": "GenCond054",
   "type": "GeneticCondition",
-  "explanation": "arrhythmogenic right ventricular cardiomyopathy",
   "disease": [
     {
       "id": "Orphanet:247",
@@ -2371,9 +2139,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond055">GenCond055</a></p></td>
-          <td>
-              <p>noonan syndrome, Autosomal Dominant</p>
-         </td>
           <td>
               
          </td>
@@ -2393,7 +2158,6 @@
           <td><div class="example_view" id="GenCond055"><pre><code>{
   "id": "GenCond055",
   "type": "GeneticCondition",
-  "explanation": "noonan syndrome, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:648",
@@ -2418,9 +2182,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond056">GenCond056</a></p></td>
           <td>
-              <p>noonan syndrome, Autosomal Dominant</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -2439,7 +2200,6 @@
           <td><div class="example_view" id="GenCond056"><pre><code>{
   "id": "GenCond056",
   "type": "GeneticCondition",
-  "explanation": "noonan syndrome, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:648",
@@ -2467,9 +2227,6 @@
               <p>Hearing Loss</p>
          </td>
           <td>
-              <p>Hearing Loss</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
          </td>
           <td>
@@ -2485,7 +2242,6 @@
           <td><div class="example_view" id="GenCond057"><pre><code>{
   "id": "GenCond057",
   "type": "GeneticCondition",
-  "explanation": "Hearing Loss",
   "disease": [
     {
       "id": "Orphanet:87884",
@@ -2507,9 +2263,6 @@
               <p>Hearing Loss</p>
          </td>
           <td>
-              <p>Hearing Loss</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
          </td>
           <td>
@@ -2525,7 +2278,6 @@
           <td><div class="example_view" id="GenCond058"><pre><code>{
   "id": "GenCond058",
   "type": "GeneticCondition",
-  "explanation": "Hearing Loss",
   "disease": [
     {
       "id": "Orphanet:87884",
@@ -2547,9 +2299,6 @@
               <p>Hearing Loss, Autosomal Recessive</p>
          </td>
           <td>
-              <p>Hearing Loss, Autosomal Recessive</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
          </td>
           <td>
@@ -2565,7 +2314,6 @@
           <td><div class="example_view" id="GenCond059"><pre><code>{
   "id": "GenCond059",
   "type": "GeneticCondition",
-  "explanation": "Hearing Loss, Autosomal Recessive",
   "disease": [
     {
       "id": "Orphanet:87884",
@@ -2591,9 +2339,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond060">GenCond060</a></p></td>
           <td>
-              <p>nonsyndromic deafness</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -2612,7 +2357,6 @@
           <td><div class="example_view" id="GenCond060"><pre><code>{
   "id": "GenCond060",
   "type": "GeneticCondition",
-  "explanation": "nonsyndromic deafness",
   "disease": [
     {
       "id": "Orphanet:87884",
@@ -2633,9 +2377,6 @@
               <p>Hearing Loss, Autosomal Recessive</p>
          </td>
           <td>
-              <p>Hearing Loss, Autosomal Recessive</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#Orphanet:87884">Orphanet:87884</a></p>
          </td>
           <td>
@@ -2651,7 +2392,6 @@
           <td><div class="example_view" id="GenCond061"><pre><code>{
   "id": "GenCond061",
   "type": "GeneticCondition",
-  "explanation": "Hearing Loss, Autosomal Recessive",
   "disease": [
     {
       "id": "Orphanet:87884",
@@ -2677,9 +2417,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond062">GenCond062</a></p></td>
           <td>
-              <p>Primary ciliary dyskenisia, Autosomal Recessive</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -2698,7 +2435,6 @@
           <td><div class="example_view" id="GenCond062"><pre><code>{
   "id": "GenCond062",
   "type": "GeneticCondition",
-  "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
   "disease": [
     {
       "id": "Orphanet:244",
@@ -2723,9 +2459,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond063">GenCond063</a></p></td>
           <td>
-              <p>Primary ciliary dyskenisia, Autosomal Recessive</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -2744,7 +2477,6 @@
           <td><div class="example_view" id="GenCond063"><pre><code>{
   "id": "GenCond063",
   "type": "GeneticCondition",
-  "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
   "disease": [
     {
       "id": "Orphanet:244",
@@ -2769,9 +2501,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond064">GenCond064</a></p></td>
           <td>
-              <p>hypertrophic cardiomyopathy</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -2790,7 +2519,6 @@
           <td><div class="example_view" id="GenCond064"><pre><code>{
   "id": "GenCond064",
   "type": "GeneticCondition",
-  "explanation": "hypertrophic cardiomyopathy",
   "disease": [
     {
       "id": "Orphanet:217569",
@@ -2807,9 +2535,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond065">GenCond065</a></p></td>
-          <td>
-              <p>hypertrophic cardiomyopathy, Autosomal Dominant</p>
-         </td>
           <td>
               
          </td>
@@ -2829,7 +2554,6 @@
           <td><div class="example_view" id="GenCond065"><pre><code>{
   "id": "GenCond065",
   "type": "GeneticCondition",
-  "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:217569",
@@ -2854,9 +2578,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond066">GenCond066</a></p></td>
           <td>
-              <p>hypertrophic cardiomyopathy, Autosomal Dominant</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -2875,7 +2596,6 @@
           <td><div class="example_view" id="GenCond066"><pre><code>{
   "id": "GenCond066",
   "type": "GeneticCondition",
-  "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:217569",
@@ -2900,9 +2620,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond067">GenCond067</a></p></td>
           <td>
-              <p>hypertrophic cardiomyopathy</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -2921,7 +2638,6 @@
           <td><div class="example_view" id="GenCond067"><pre><code>{
   "id": "GenCond067",
   "type": "GeneticCondition",
-  "explanation": "hypertrophic cardiomyopathy",
   "disease": [
     {
       "id": "Orphanet:217569",
@@ -2938,9 +2654,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond068">GenCond068</a></p></td>
-          <td>
-              <p>cardiofaciocutaneous syndrome</p>
-         </td>
           <td>
               
          </td>
@@ -2960,7 +2673,6 @@
           <td><div class="example_view" id="GenCond068"><pre><code>{
   "id": "GenCond068",
   "type": "GeneticCondition",
-  "explanation": "cardiofaciocutaneous syndrome",
   "disease": [
     {
       "id": "Orphanet:1340",
@@ -2977,9 +2689,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond069">GenCond069</a></p></td>
-          <td>
-              <p>cardiofaciocutaneous syndrome</p>
-         </td>
           <td>
               
          </td>
@@ -2999,7 +2708,6 @@
           <td><div class="example_view" id="GenCond069"><pre><code>{
   "id": "GenCond069",
   "type": "GeneticCondition",
-  "explanation": "cardiofaciocutaneous syndrome",
   "disease": [
     {
       "id": "Orphanet:1340",
@@ -3016,9 +2724,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond070">GenCond070</a></p></td>
-          <td>
-              <p>cardiofaciocutaneous syndrome, Autosomal Dominant</p>
-         </td>
           <td>
               
          </td>
@@ -3038,7 +2743,6 @@
           <td><div class="example_view" id="GenCond070"><pre><code>{
   "id": "GenCond070",
   "type": "GeneticCondition",
-  "explanation": "cardiofaciocutaneous syndrome, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:1340",
@@ -3063,9 +2767,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond071">GenCond071</a></p></td>
           <td>
-              <p>Usher syndrome, Autosomal Recessive</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -3084,7 +2785,6 @@
           <td><div class="example_view" id="GenCond071"><pre><code>{
   "id": "GenCond071",
   "type": "GeneticCondition",
-  "explanation": "Usher syndrome, Autosomal Recessive",
   "disease": [
     {
       "id": "Orphanet:886",
@@ -3109,9 +2809,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond072">GenCond072</a></p></td>
           <td>
-              <p>Marfan Syndrome, Autosomal Dominant</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -3130,7 +2827,6 @@
           <td><div class="example_view" id="GenCond072"><pre><code>{
   "id": "GenCond072",
   "type": "GeneticCondition",
-  "explanation": "Marfan Syndrome, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:558",
@@ -3158,9 +2854,6 @@
               <p>hereditary breast and ovarian cancer</p>
          </td>
           <td>
-              <p>hereditary breast and ovarian cancer</p>
-         </td>
-          <td>
               <p><a href="../details/details.html#Orphanet:145">Orphanet:145</a></p>
          </td>
           <td>
@@ -3176,7 +2869,6 @@
           <td><div class="example_view" id="GenCond073"><pre><code>{
   "id": "GenCond073",
   "type": "GeneticCondition",
-  "explanation": "hereditary breast and ovarian cancer",
   "disease": [
     {
       "id": "Orphanet:145",
@@ -3194,9 +2886,6 @@
 
         <tr>
           <td><p><a href="../details/details.html#GenCond074">GenCond074</a></p></td>
-          <td>
-              <p>arrhythmogenic right ventricular cardiomyopathy, Autosomal Dominant</p>
-         </td>
           <td>
               
          </td>
@@ -3216,7 +2905,6 @@
           <td><div class="example_view" id="GenCond074"><pre><code>{
   "id": "GenCond074",
   "type": "GeneticCondition",
-  "explanation": "arrhythmogenic right ventricular cardiomyopathy, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:247",
@@ -3241,9 +2929,6 @@
         <tr>
           <td><p><a href="../details/details.html#GenCond075">GenCond075</a></p></td>
           <td>
-              <p>noonan syndrome, Autosomal Dominant</p>
-         </td>
-          <td>
               
          </td>
           <td>
@@ -3262,7 +2947,6 @@
           <td><div class="example_view" id="GenCond075"><pre><code>{
   "id": "GenCond075",
   "type": "GeneticCondition",
-  "explanation": "noonan syndrome, Autosomal Dominant",
   "disease": [
     {
       "id": "Orphanet:648",

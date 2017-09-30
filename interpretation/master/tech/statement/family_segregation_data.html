@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">LocusHeterogeneity</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">AlleleConservation</a></li><li><a href="de_novo_allele.html">IndividualAlleleInheritance</a></li><li><a href="family_history.html">FamilyCondition</a></li><li class="active"><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="functional_data.html">AlleleFunctionalImpact</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">GeneticCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../agent.html">Agent</a></li><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../contribution.html">Contribution</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">LocusHeterogeneity</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">AlleleConservation</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li class="active"><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">GeneticCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_type.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -106,7 +106,11 @@
 
 
             <h1>FamilySegregation</h1>
-            <p>A statement describing the correlation between the presence of a particular allele and the manifestation of a mendelian condition, as inherited through a single family pedigree (i.e. co-segregation of an allele and condition in a single family).</p>
+            <p>A statement describing the correlation between the presence of a particular allele and the manifestation of a mendelian condition, as inherited through a single family pedigree (i.e. co-segregation of an allele and condition in a single family).
+
+</p>
+
+                <p>SEPIO:0000247</p>
 
                 <p>Descended from Statement</p>
 
@@ -134,6 +138,7 @@
                 <th>Type</th>
                 <th>Cardinality</th>
                 <th>Description</th>
+                <th>IRI</th>
             </tr>
             </thead>
             <tbody>
@@ -142,72 +147,91 @@
                 <td>CanonicalAllele</td>
                 <td>1..1</td>
                 <td>Allele being tested for cosegregation</td>
+                <td>SEPIO:0000275</td>
             </tr>
             <tr>
                 <td>condition</td>
                 <td>GeneticCondition</td>
                 <td>1..1</td>
                 <td>Condition being tested for cosegregation</td>
+                <td>SEPIO:0000276</td>
             </tr>
             <tr>
                 <td>family</td>
                 <td>Family</td>
                 <td>1..1</td>
                 <td>Family in which segregation is being tested</td>
+                <td>SEPIO:0000282</td>
             </tr>
             <tr>
                 <td>phenotypePositiveAllelePositive</td>
                 <td>int</td>
                 <td>0..1</td>
                 <td>Number of (non-proband) individuals with both the condition and the allele</td>
+                <td>SEPIO:0000292</td>
             </tr>
             <tr>
                 <td>phenotypePositiveAlleleNegative</td>
                 <td>int</td>
                 <td>0..1</td>
                 <td>Number of (non-proband) individuals with the condition and without the allele</td>
+                <td>SEPIO:0000290</td>
             </tr>
             <tr>
                 <td>phenotypeNegativeAllelePositive</td>
                 <td>int</td>
                 <td>0..1</td>
                 <td>Number of (non-proband) individuals without the condition and with the allele</td>
+                <td>SEPIO:0000291</td>
             </tr>
             <tr>
                 <td>phenotypeNegativeAlleleNegative</td>
                 <td>int</td>
                 <td>0..1</td>
                 <td>The number of non-proband family members that have neither the allele nor the phenotype</td>
+                <td>SEPIO:0000289</td>
             </tr>
             <tr>
                 <td>pedigree</td>
                 <td>String</td>
                 <td>0..*</td>
                 <td>Detailed information about the family structure, affected status, and genotypes in pedigree/linkage format.</td>
+                <td>SEPIO:0000318</td>
             </tr>
             <tr>
                 <td>columns</td>
                 <td>String</td>
                 <td>0..*</td>
                 <td>Column names for the pedigree data element</td>
+                <td>SEPIO:0000316</td>
             </tr>
             <tr>
                 <td>genotypeValues</td>
                 <td>String</td>
                 <td>0..*</td>
                 <td>Map describing how genotypes are represented in the pedigree</td>
+                <td>SEPIO:0000317</td>
             </tr>
             <tr>
                 <td>affectedValues</td>
                 <td>String</td>
                 <td>0..*</td>
                 <td>Map describing how affected status is represented in the pedigree</td>
+                <td>SEPIO:0000313</td>
             </tr>
             <tr>
-                <td>anyInconsistentSegregations</td>
-                <td>boolean</td>
+                <td>inconsistentSegregationsObserved</td>
+                <td>Coding</td>
                 <td>0..1</td>
                 <td>Whether phenotype positive/allele negative or phenotype negative/allele positive individuals are in the family</td>
+                <td>SEPIO:0000314</td>
+            </tr>
+            <tr>
+                <td>inconsistentSegregationCount</td>
+                <td>int</td>
+                <td>0..1</td>
+                <td></td>
+                <td>SEPIO:0000315</td>
             </tr>
             </tbody>
         </table>
@@ -223,22 +247,17 @@
                 <th>Cardinality</th>
                 <th>Inherited From</th>
                 <th>Description</th>
+                <th>IRI</th>
             </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>source</td>
-                    <td>String</td>
-                    <td>0..*</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>explanation</td>
+                    <td>description</td>
                     <td>String</td>
                     <td>0..1</td>
                     <td></td>
                     <td>A human-readable description of the entity</td>
+                    <td>DC:description</td>
                 </tr>
                 <tr>
                     <td>contribution</td>
@@ -246,6 +265,15 @@
                     <td>0..*</td>
                     <td></td>
                     <td>The contributions (agent, time and role) made to this entity</td>
+                    <td>SEPIO:0000159</td>
+                </tr>
+                <tr>
+                    <td>source</td>
+                    <td>String</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td></td>
+                    <td>DC:source</td>
                 </tr>
             </tbody>
         </table>
@@ -254,7 +282,7 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
-        <th>explanation</th>
+        <th>description</th>
         <th>canonicalAllele</th>
         <th>condition</th>
         <th>family</th>
@@ -266,7 +294,8 @@
         <th>columns</th>
         <th>genotypeValues</th>
         <th>affectedValues</th>
-        <th>anyInconsistentSegregations</th>
+        <th>inconsistentSegregationsObserved</th>
+        <th>inconsistentSegregationCount</th>
       </tr></thead>
       <tbody>
         <tr>
@@ -308,7 +337,10 @@
               
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99011">SEPIO-CG:99011</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
           <td><div class="example_view" id="FamSeg076"><pre><code>{
@@ -317,7 +349,6 @@
   "condition": {
     "id": "GenCond056",
     "type": "GeneticCondition",
-    "explanation": "noonan syndrome, Autosomal Dominant",
     "disease": [
       {
         "id": "Orphanet:648",
@@ -349,7 +380,13 @@
   "phenotypePositiveAllelePositive": 0,
   "phenotypeNegativeAllelePositive": 2,
   "phenotypePositiveAlleleNegative": 0,
-  "anyInconsistentSegregations": true
+  "inconsistentSegregationsObserved": {
+    "id": "SEPIO-CG:99011",
+    "type": "Coding",
+    "code": "99011",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "present"
+  }
 }
           </code></pre></div></td>
           -->
@@ -396,15 +433,17 @@
           <td>
               
          </td>
+          <td>
+              
+         </td>
           <!--
           <td><div class="example_view" id="FamSeg103"><pre><code>{
   "id": "FamSeg103",
   "type": "FamilySegregation",
-  "explanation": "identified in 1 individual with HCM. Segregation analysis determined 5 other members of the family also carried this variant. However, only 3 of those family members had HCM (aged 48-75). The 2 other family members were young and asymptomatic. So from this paper, only count 3 segregations. The two apparently refuting segregations can be ignored due to the age-dependent penetrance of HCM.",
+  "description": "identified in 1 individual with HCM. Segregation analysis determined 5 other members of the family also carried this variant. However, only 3 of those family members had HCM (aged 48-75). The 2 other family members were young and asymptomatic. So from this paper, only count 3 segregations. The two apparently refuting segregations can be ignored due to the age-dependent penetrance of HCM.",
   "condition": {
     "id": "GenCond020",
     "type": "GeneticCondition",
-    "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
     "disease": [
       {
         "id": "Orphanet:217569",
@@ -431,8 +470,8 @@
   "family": {
     "id": "Fam001",
     "type": "Family",
-    "label": "12A",
-    "description": "Family #001"
+    "description": "Family #001",
+    "label": "12A"
   },
   "phenotypePositiveAllelePositive": 3,
   "phenotypeNegativeAllelePositive": 2,
@@ -442,19 +481,19 @@
       "agent": {
         "id": "Agent007",
         "type": "Agent",
-        "name": "Stefan DiMarino"
+        "label": "Stefan DiMarino"
       },
-      "onDate": "9/13/16",
-      "role": {
+      "contributionDate": "9/13/16",
+      "contributionRole": {
         "id": "CC383",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:curator",
+            "id": "SEPIO:0000156",
             "type": "Coding",
-            "code": "curator",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "curator"
+            "code": "0000156",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "curator role"
           }
         ]
       }
@@ -509,15 +548,17 @@
           <td>
               
          </td>
+          <td>
+              
+         </td>
           <!--
           <td><div class="example_view" id="FamSeg104"><pre><code>{
   "id": "FamSeg104",
   "type": "FamilySegregation",
-  "explanation": "In LMM internal family, c.1351+1G>A was identified in 1 individual with HCM. Variant also found in individual’s sister - who also had clinical dx of HCM.",
+  "description": "In LMM internal family, c.1351+1G>A was identified in 1 individual with HCM. Variant also found in individual’s sister - who also had clinical dx of HCM.",
   "condition": {
     "id": "GenCond020",
     "type": "GeneticCondition",
-    "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
     "disease": [
       {
         "id": "Orphanet:217569",
@@ -553,19 +594,19 @@
       "agent": {
         "id": "Agent001",
         "type": "Agent",
-        "name": "Harry Stevenson"
+        "label": "Harry Stevenson"
       },
-      "onDate": "9/13/16",
-      "role": {
+      "contributionDate": "9/13/16",
+      "contributionRole": {
         "id": "CC384",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:curator",
+            "id": "SEPIO:0000156",
             "type": "Coding",
-            "code": "curator",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "curator"
+            "code": "0000156",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "curator role"
           }
         ]
       }
@@ -620,15 +661,17 @@
           <td>
               
          </td>
+          <td>
+              
+         </td>
           <!--
           <td><div class="example_view" id="FamSeg107"><pre><code>{
   "id": "FamSeg107",
   "type": "FamilySegregation",
-  "explanation": "proband and 5 affected family members all homozygous for NM_206933.2(USH2A):c.1000C>G (p.Arg334Gly).",
+  "description": "proband and 5 affected family members all homozygous for NM_206933.2(USH2A):c.1000C>G (p.Arg334Gly).",
   "condition": {
     "id": "GenCond021",
     "type": "GeneticCondition",
-    "explanation": "Usher syndrome, Autosomal Recessive",
     "disease": [
       {
         "id": "Orphanet:886",
@@ -704,15 +747,17 @@
           <td>
               
          </td>
+          <td>
+              
+         </td>
           <!--
           <td><div class="example_view" id="FamSeg108"><pre><code>{
   "id": "FamSeg108",
   "type": "FamilySegregation",
-  "explanation": "c.1000C>T identified in het state in 1 individual with Usher. Individual compound het with Gly1840Val USH2A variant - confirmed in trans. Gly1840Val called Pathogenic. Individual has 3 affected sibs all of whom are compound het with 1000C>T & Gly1840Val. One additional sib only carried 1000C>T and is unaffected.",
+  "description": "c.1000C>T identified in het state in 1 individual with Usher. Individual compound het with Gly1840Val USH2A variant - confirmed in trans. Gly1840Val called Pathogenic. Individual has 3 affected sibs all of whom are compound het with 1000C>T & Gly1840Val. One additional sib only carried 1000C>T and is unaffected.",
   "condition": {
     "id": "GenCond021",
     "type": "GeneticCondition",
-    "explanation": "Usher syndrome, Autosomal Recessive",
     "disease": [
       {
         "id": "Orphanet:886",
@@ -787,6 +832,9 @@
           <td>
               
          </td>
+          <td>
+              
+         </td>
           <!--
           <td><div class="example_view" id="FamSeg111"><pre><code>{
   "id": "FamSeg111",
@@ -794,7 +842,6 @@
   "condition": {
     "id": "GenCond051",
     "type": "GeneticCondition",
-    "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
     "name": "Breast Ovarian Cancer, Autosomal Dominant",
     "disease": [
       {
@@ -876,6 +923,9 @@
           <td>
               
          </td>
+          <td>
+              
+         </td>
           <!--
           <td><div class="example_view" id="FamSeg113"><pre><code>{
   "id": "FamSeg113",
@@ -883,7 +933,6 @@
   "condition": {
     "id": "GenCond002",
     "type": "GeneticCondition",
-    "explanation": "dilated cardiomyopathy, Autosomal Dominant",
     "disease": [
       {
         "id": "Orphanet:217604",
@@ -991,6 +1040,9 @@
           <td>
               
          </td>
+          <td>
+              
+         </td>
           <!--
           <td><div class="example_view" id="FamSeg114"><pre><code>{
   "id": "FamSeg114",
@@ -998,7 +1050,6 @@
   "condition": {
     "id": "GenCond002",
     "type": "GeneticCondition",
-    "explanation": "dilated cardiomyopathy, Autosomal Dominant",
     "disease": [
       {
         "id": "Orphanet:217604",
@@ -1085,17 +1136,19 @@
               
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99011">SEPIO-CG:99011</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
           <td><div class="example_view" id="FamSeg196"><pre><code>{
   "id": "FamSeg196",
   "type": "FamilySegregation",
-  "explanation": "observed in one case diagnosed with Familial Hypercholesterolemia, characterized by elevated LDLC levels. Two siblings of the proband also have elevated LDLC levels but neither carry the 313+2T>C variant.",
+  "description": "observed in one case diagnosed with Familial Hypercholesterolemia, characterized by elevated LDLC levels. Two siblings of the proband also have elevated LDLC levels but neither carry the 313+2T>C variant.",
   "condition": {
     "id": "GenCond035",
     "type": "GeneticCondition",
-    "explanation": "Hypercholesterolemia, Familial, Autosomal Dominant",
     "disease": [
       {
         "id": "OMIM:143890",
@@ -1126,7 +1179,13 @@
   },
   "phenotypePositiveAllelePositive": 0,
   "phenotypePositiveAlleleNegative": 2,
-  "anyInconsistentSegregations": true
+  "inconsistentSegregationsObserved": {
+    "id": "SEPIO-CG:99011",
+    "type": "Coding",
+    "code": "99011",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "present"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1172,17 +1231,19 @@ by environmental factors (obese, alcohol)</p>
               
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99011">SEPIO-CG:99011</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
           <td><div class="example_view" id="FamSeg197"><pre><code>{
   "id": "FamSeg197",
   "type": "FamilySegregation",
-  "explanation": "The individual with HCM but without the allele is likely a phenocopy explained\nby environmental factors (obese, alcohol)",
+  "description": "The individual with HCM but without the allele is likely a phenocopy explained\nby environmental factors (obese, alcohol)",
   "condition": {
     "id": "GenCond065",
     "type": "GeneticCondition",
-    "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
     "disease": [
       {
         "id": "Orphanet:217569",
@@ -1213,7 +1274,13 @@ by environmental factors (obese, alcohol)</p>
   },
   "phenotypePositiveAllelePositive": 3,
   "phenotypePositiveAlleleNegative": 1,
-  "anyInconsistentSegregations": true
+  "inconsistentSegregationsObserved": {
+    "id": "SEPIO-CG:99011",
+    "type": "Coding",
+    "code": "99011",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "present"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1258,7 +1325,10 @@ by environmental factors (obese, alcohol)</p>
               
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99011">SEPIO-CG:99011</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
           <td><div class="example_view" id="FamSeg271"><pre><code>{
@@ -1267,7 +1337,6 @@ by environmental factors (obese, alcohol)</p>
   "condition": {
     "id": "GenCond066",
     "type": "GeneticCondition",
-    "explanation": "hypertrophic cardiomyopathy, Autosomal Dominant",
     "disease": [
       {
         "id": "Orphanet:217569",
@@ -1298,7 +1367,13 @@ by environmental factors (obese, alcohol)</p>
   },
   "phenotypePositiveAllelePositive": 0,
   "phenotypePositiveAlleleNegative": 2,
-  "anyInconsistentSegregations": true
+  "inconsistentSegregationsObserved": {
+    "id": "SEPIO-CG:99011",
+    "type": "Coding",
+    "code": "99011",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "present"
+  }
 }
           </code></pre></div></td>
           -->

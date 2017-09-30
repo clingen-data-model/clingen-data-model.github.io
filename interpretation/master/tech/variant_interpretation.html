@@ -96,7 +96,7 @@
               <a href="../">Welcome</a>
             </li>
             <li><a href="../user/">User Guide</a></li>
-            <li class="active"><a href="./">Technical Reference</a></li><ul><li><a href="assertion_method.html">AssertionMethod</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="evidence_line.html">EvidenceLine</a></li><li><a href="scoring_algorithm.html">ScoringAlgorithm</a></li><li><a href="statement/">Statement</a></li><li><a href="value_set.html">ValueSet</a></li><li class="active"><a href="variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="./">Technical Reference</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="assertion_method.html">AssertionMethod</a></li><li><a href="contribution.html">Contribution</a></li><li><a href="criterion.html">Criterion</a></li><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="domain_entities/">Domain Entities</a></li><li><a href="evidence_line.html">EvidenceLine</a></li><li><a href="scoring_algorithm.html">ScoringAlgorithm</a></li><li><a href="statement/">Statement</a></li><li><a href="value_set.html">ValueSet</a></li><li class="active"><a href="variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -107,6 +107,8 @@
 
             <h1>VariantInterpretation</h1>
             <p>An assertion about the pathogenicity of a genetic sequence variant, based on evaluation of one or more lines of evidence.</p>
+
+                <p>SEPIO:0000190</p>
 
                 <p>Descended from Statement</p>
 
@@ -144,6 +146,7 @@ and may serve as a starting point for exploring the model.</p>
                 <th>Type</th>
                 <th>Cardinality</th>
                 <th>Description</th>
+                <th>IRI</th>
             </tr>
             </thead>
             <tbody>
@@ -152,30 +155,35 @@ and may serve as a starting point for exploring the model.</p>
                 <td>CanonicalAllele</td>
                 <td>1..1</td>
                 <td>The variant whose pathogenicity is being described</td>
+                <td>SEPIO:0000275</td>
             </tr>
             <tr>
                 <td>condition</td>
                 <td>GeneticCondition</td>
                 <td>0..*</td>
                 <td>The condition for which the variant's pathogenicity is described</td>
+                <td>SEPIO:0000276</td>
             </tr>
             <tr>
-                <td>clinicalSignificance</td>
+                <td>outcome</td>
                 <td>Coding</td>
                 <td>1..1</td>
                 <td>The coded pathogenicity of the variant for the condition</td>
+                <td>SEPIO:0000197</td>
             </tr>
             <tr>
                 <td>assertionMethod</td>
                 <td>AssertionMethod</td>
                 <td>0..1</td>
                 <td>The  framework that formally defines the methodology used in creating this interpretation.</td>
+                <td>SEPIO:0000041</td>
             </tr>
             <tr>
                 <td>evidenceLine</td>
                 <td>EvidenceLine</td>
                 <td>0..*</td>
                 <td>** TODO **</td>
+                <td>SEPIO:0000006</td>
             </tr>
             </tbody>
         </table>
@@ -191,22 +199,17 @@ and may serve as a starting point for exploring the model.</p>
                 <th>Cardinality</th>
                 <th>Inherited From</th>
                 <th>Description</th>
+                <th>IRI</th>
             </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>source</td>
-                    <td>String</td>
-                    <td>0..*</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>explanation</td>
+                    <td>description</td>
                     <td>String</td>
                     <td>0..1</td>
                     <td></td>
                     <td>A human-readable description of the entity</td>
+                    <td>DC:description</td>
                 </tr>
                 <tr>
                     <td>contribution</td>
@@ -214,6 +217,15 @@ and may serve as a starting point for exploring the model.</p>
                     <td>0..*</td>
                     <td></td>
                     <td>The contributions (agent, time and role) made to this entity</td>
+                    <td>SEPIO:0000159</td>
+                </tr>
+                <tr>
+                    <td>source</td>
+                    <td>String</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td></td>
+                    <td>DC:source</td>
                 </tr>
             </tbody>
         </table>
@@ -222,10 +234,10 @@ and may serve as a starting point for exploring the model.</p>
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
-        <th>explanation</th>
+        <th>description</th>
         <th>variant</th>
         <th>condition</th>
-        <th>clinicalSignificance</th>
+        <th>outcome</th>
         <th>assertionMethod</th>
         <th>evidenceLine</th>
       </tr></thead>
@@ -254,7 +266,7 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp008"><pre><code>{
   "id": "VarInterp008",
   "type": "VariantInterpretation",
-  "explanation": "NM_002834.3:c.855T>G Pathogenic for Noonan Syndrome",
+  "description": "NM_002834.3:c.855T>G Pathogenic for Noonan Syndrome",
   "variant": {
     "id": "CanAll005",
     "type": "CanonicalAllele",
@@ -265,7 +277,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond003",
       "type": "GeneticCondition",
-      "explanation": "noonan syndrome, Autosomal Dominant",
       "disease": [
         {
           "id": "Orphanet:648",
@@ -284,7 +295,7 @@ and may serve as a starting point for exploring the model.</p>
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -320,7 +331,7 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp009"><pre><code>{
   "id": "VarInterp009",
   "type": "VariantInterpretation",
-  "explanation": "NM_001369.2:c.6249G>A Pathogenic for PCD",
+  "description": "NM_001369.2:c.6249G>A Pathogenic for PCD",
   "variant": {
     "id": "CanAll008",
     "type": "CanonicalAllele",
@@ -331,7 +342,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond004",
       "type": "GeneticCondition",
-      "explanation": "Primary ciliary dyskenisia",
       "disease": [
         {
           "id": "Orphanet:244",
@@ -343,7 +353,7 @@ and may serve as a starting point for exploring the model.</p>
       ]
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -379,7 +389,7 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp010"><pre><code>{
   "id": "VarInterp010",
   "type": "VariantInterpretation",
-  "explanation": "NM_004985.4(KRAS):c.173C>T (p.Thr58Ile) Pathogenic for Noonan Syndrome 3",
+  "description": "NM_004985.4(KRAS):c.173C>T (p.Thr58Ile) Pathogenic for Noonan Syndrome 3",
   "variant": {
     "id": "CanAll011",
     "type": "CanonicalAllele",
@@ -390,7 +400,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond006",
       "type": "GeneticCondition",
-      "explanation": "noonan syndrome 3",
       "disease": [
         {
           "id": "OMIM:609942",
@@ -402,7 +411,7 @@ and may serve as a starting point for exploring the model.</p>
       ]
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -438,7 +447,7 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp011"><pre><code>{
   "id": "VarInterp011",
   "type": "VariantInterpretation",
-  "explanation": "NM_004985.4(KRAS):c.173C>T (p.Thr58Ile) Pathogenic for Costello syndrome",
+  "description": "NM_004985.4(KRAS):c.173C>T (p.Thr58Ile) Pathogenic for Costello syndrome",
   "variant": {
     "id": "CanAll011",
     "type": "CanonicalAllele",
@@ -449,7 +458,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond055",
       "type": "GeneticCondition",
-      "explanation": "noonan syndrome, Autosomal Dominant",
       "disease": [
         {
           "id": "Orphanet:648",
@@ -468,7 +476,7 @@ and may serve as a starting point for exploring the model.</p>
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -504,7 +512,7 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp041"><pre><code>{
   "id": "VarInterp041",
   "type": "VariantInterpretation",
-  "explanation": "Arg343His in Exon 08 of LOXHD1: This variant is not expected to have clinical significance because it has been identified in 2.0% (27/1384) of African American chromosomes by the NHLBI Exome Sequencing Project (http://evs.gs.washington.edu/EVS).",
+  "description": "Arg343His in Exon 08 of LOXHD1: This variant is not expected to have clinical significance because it has been identified in 2.0% (27/1384) of African American chromosomes by the NHLBI Exome Sequencing Project (http://evs.gs.washington.edu/EVS).",
   "variant": {
     "id": "CanAll092",
     "type": "CanonicalAllele",
@@ -515,7 +523,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond061",
       "type": "GeneticCondition",
-      "explanation": "Hearing Loss, Autosomal Recessive",
       "disease": [
         {
           "id": "Orphanet:87884",
@@ -535,7 +542,7 @@ and may serve as a starting point for exploring the model.</p>
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6675-8",
     "type": "Coding",
     "code": "LA6675-8",
@@ -546,8 +553,8 @@ and may serve as a starting point for exploring the model.</p>
     "id": "AssertMeth001",
     "type": "AssertionMethod",
     "description": "ACMG ISV guidelines 2015",
-    "version": "1.0",
     "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
+    "version": "1.0",
     "scoringAlgorithm": {
       "id": "ScorAlg01",
       "type": "ScoringAlgorithm",
@@ -558,17 +565,15 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "EvLn113",
       "type": "EvidenceLine",
-      "explanation": "EvLn113",
       "evidenceItem": [
         {
           "id": "CritAssess372",
           "type": "CriterionAssessment",
-          "explanation": "This variant is present in 2% (27/1384) of African American Chromosomes in ESP.",
+          "description": "This variant is present in 2% (27/1384) of African American Chromosomes in ESP.",
           "criterion": {
             "id": "BS1",
             "type": "Criterion",
             "description": "Allele frequency is greater than expected for disorder",
-            "shortDescription": "MAF too high for disorder",
             "defaultStrength": {
               "id": "CG-evidence-strength:bs"
             }
@@ -583,7 +588,6 @@ and may serve as a starting point for exploring the model.</p>
             {
               "id": "GenCond057",
               "type": "GeneticCondition",
-              "explanation": "Hearing Loss",
               "disease": [
                 {
                   "id": "Orphanet:87884",
@@ -597,17 +601,16 @@ and may serve as a starting point for exploring the model.</p>
             }
           ],
           "outcome": {
-            "id": "CG-criterion-outcome:met",
+            "id": "SEPIO:0000223",
             "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "code": "0000223",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Met"
           },
           "evidenceLine": [
             {
               "id": "EvLn109",
               "type": "EvidenceLine",
-              "explanation": "EvLn109",
               "evidenceItem": [
                 {
                   "id": "AllFreq038",
@@ -617,11 +620,11 @@ and may serve as a starting point for exploring the model.</p>
                     "type": "CodeableConcept",
                     "coding": [
                       {
-                        "id": "CG-ascertainment-type:ExAC",
+                        "id": "SEPIO:0000332",
                         "type": "Coding",
-                        "code": "ExAC",
-                        "system": "http://clinicalgenome.org/datamodel/ascertainment-type/",
-                        "display": "ExAC"
+                        "code": "0000332",
+                        "system": "http://obofoundry.org/sepio/",
+                        "display": "ExAc ascertainment method"
                       }
                     ]
                   },
@@ -655,7 +658,6 @@ and may serve as a starting point for exploring the model.</p>
                     {
                       "id": "GenCond057",
                       "type": "GeneticCondition",
-                      "explanation": "Hearing Loss",
                       "disease": [
                         {
                           "id": "Orphanet:87884",
@@ -693,19 +695,19 @@ and may serve as a starting point for exploring the model.</p>
               "agent": {
                 "id": "Agent007",
                 "type": "Agent",
-                "name": "Stefan DiMarino"
+                "label": "Stefan DiMarino"
               },
-              "onDate": "03/08/2017 9:46 AM",
-              "role": {
+              "contributionDate": "03/08/2017 9:46 AM",
+              "contributionRole": {
                 "id": "CC411",
                 "type": "CodeableConcept",
                 "coding": [
                   {
-                    "id": "CG-contributory-role:assessor",
+                    "id": "SEPIO:0000154",
                     "type": "Coding",
-                    "code": "assessor",
-                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                    "display": "assessor"
+                    "code": "0000154",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "assessor role"
                   }
                 ]
               }
@@ -718,10 +720,10 @@ and may serve as a starting point for exploring the model.</p>
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-evidence-strength:bs",
+            "id": "SEPIO:0000328",
             "type": "Coding",
-            "code": "bs",
-            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "code": "0000328",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Benign Strong"
           }
         ]
@@ -732,19 +734,19 @@ and may serve as a starting point for exploring the model.</p>
           "agent": {
             "id": "Agent007",
             "type": "Agent",
-            "name": "Stefan DiMarino"
+            "label": "Stefan DiMarino"
           },
-          "onDate": "03/08/2017 9:46 AM",
-          "role": {
+          "contributionDate": "03/08/2017 9:46 AM",
+          "contributionRole": {
             "id": "CC428",
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-contributory-role:assessor",
+                "id": "SEPIO:0000154",
                 "type": "Coding",
-                "code": "assessor",
-                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                "display": "assessor"
+                "code": "0000154",
+                "system": "http://obofoundry.org/sepio/",
+                "display": "assessor role"
               }
             ]
           }
@@ -754,17 +756,15 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "EvLn114",
       "type": "EvidenceLine",
-      "explanation": "EvLn114",
       "evidenceItem": [
         {
           "id": "CritAssess340",
           "type": "CriterionAssessment",
-          "explanation": "Homozygous truncating variants in LOXHD1 are associated with autosomal recessive hearing loss. This was demonstrated by both identification in human patients and a mouse model. (I used the OMIM entry as a source, but you could also directly use the papers.)",
+          "description": "Homozygous truncating variants in LOXHD1 are associated with autosomal recessive hearing loss. This was demonstrated by both identification in human patients and a mouse model. (I used the OMIM entry as a source, but you could also directly use the papers.)",
           "criterion": {
             "id": "BP1",
             "type": "Criterion",
             "description": "Missense variant in a gene for which primarily truncating variants are known to cause disease",
-            "shortDescription": "Missense variant when truncating is expected mechanism",
             "defaultStrength": {
               "id": "CG-evidence-strength:bp"
             }
@@ -779,7 +779,6 @@ and may serve as a starting point for exploring the model.</p>
             {
               "id": "GenCond059",
               "type": "GeneticCondition",
-              "explanation": "Hearing Loss, Autosomal Recessive",
               "disease": [
                 {
                   "id": "Orphanet:87884",
@@ -800,17 +799,16 @@ and may serve as a starting point for exploring the model.</p>
             }
           ],
           "outcome": {
-            "id": "CG-criterion-outcome:met",
+            "id": "SEPIO:0000223",
             "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "code": "0000223",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Met"
           },
           "evidenceLine": [
             {
               "id": "EvLn083",
               "type": "EvidenceLine",
-              "explanation": "EvLn083",
               "evidenceItem": [
                 {
                   "id": "MolCon201",
@@ -838,13 +836,34 @@ and may serve as a starting point for exploring the model.</p>
                         "display": "missense variant"
                       }
                     ]
+                  }
+                },
+                {
+                  "id": "Null406",
+                  "type": "NullAllele",
+                  "contextualAllele": {
+                    "id": "CtxAll097",
+                    "type": "ContextualAllele",
+                    "relatedCanonicalAllele": {
+                      "id": "CanAll091",
+                      "type": "CanonicalAllele",
+                      "preferredCtxAllele": "CtxAll097",
+                      "identifier": "http://reg.genome.network/allele/CA020822"
+                    },
+                    "alleleName": "NM_000059.3(BRCA2) :c.4779A>C"
                   },
-                  "lof": true
+                  "annotation": {
+                    "id": "SO:0002054",
+                    "type": "Coding",
+                    "code": "0002054",
+                    "system": "http://sequenceontology.org/",
+                    "display": "loss of function variant"
+                  }
                 },
                 {
                   "id": "CondMech202",
                   "type": "ConditionMechanism",
-                  "explanation": "shown in both humans and mouse models",
+                  "description": "shown in both humans and mouse models",
                   "mechanism": {
                     "id": "SO:0002054",
                     "type": "Coding",
@@ -853,21 +872,19 @@ and may serve as a starting point for exploring the model.</p>
                     "display": "loss of function variant"
                   },
                   "mechanismConfidence": {
-                    "id": "CG-cond-mech-strength:primary",
+                    "id": "SEPIO:0000270",
                     "type": "Coding",
-                    "code": "primary",
-                    "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
-                    "display": "Primary"
+                    "code": "0000270",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "primary"
                   },
                   "gene": {
                     "id": "hgnc:LOXHD1",
-                    "type": "Gene",
-                    "symbol": "LOXHD1"
+                    "type": "Gene"
                   },
                   "condition": {
                     "id": "GenCond059",
                     "type": "GeneticCondition",
-                    "explanation": "Hearing Loss, Autosomal Recessive",
                     "disease": [
                       {
                         "id": "Orphanet:87884",
@@ -896,19 +913,19 @@ and may serve as a starting point for exploring the model.</p>
               "agent": {
                 "id": "Agent007",
                 "type": "Agent",
-                "name": "Stefan DiMarino"
+                "label": "Stefan DiMarino"
               },
-              "onDate": "9/6/16 10:00 AM",
-              "role": {
+              "contributionDate": "9/6/16 10:00 AM",
+              "contributionRole": {
                 "id": "CC377",
                 "type": "CodeableConcept",
                 "coding": [
                   {
-                    "id": "CG-contributory-role:assessor",
+                    "id": "SEPIO:0000154",
                     "type": "Coding",
-                    "code": "assessor",
-                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                    "display": "assessor"
+                    "code": "0000154",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "assessor role"
                   }
                 ]
               }
@@ -921,10 +938,10 @@ and may serve as a starting point for exploring the model.</p>
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-evidence-strength:bp",
+            "id": "SEPIO:0000327",
             "type": "Coding",
-            "code": "bp",
-            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "code": "0000327",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Benign Supporting"
           }
         ]
@@ -935,19 +952,19 @@ and may serve as a starting point for exploring the model.</p>
           "agent": {
             "id": "Agent001",
             "type": "Agent",
-            "name": "Harry Stevenson"
+            "label": "Harry Stevenson"
           },
-          "onDate": "7/1/16 9:23 AM",
-          "role": {
+          "contributionDate": "7/1/16 9:23 AM",
+          "contributionRole": {
             "id": "CC429",
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-contributory-role:assessor",
+                "id": "SEPIO:0000154",
                 "type": "Coding",
-                "code": "assessor",
-                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                "display": "assessor"
+                "code": "0000154",
+                "system": "http://obofoundry.org/sepio/",
+                "display": "assessor role"
               }
             ]
           }
@@ -957,17 +974,15 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "EvLn115",
       "type": "EvidenceLine",
-      "explanation": "EvLn115",
       "evidenceItem": [
         {
           "id": "CritAssess363",
           "type": "CriterionAssessment",
-          "explanation": "This variant was identified in one individual with pathogenic variants in another gene. Internal LMM data: The proband had one pathogenic and one likely pathogenic variant in (in trans) in SLC26A4. This proband had mild to profound hearing loss with EVA, which is characteristic of Pendred Syndrome. SLC26A4 is the only gene associated with Pendred Syndrome",
+          "description": "This variant was identified in one individual with pathogenic variants in another gene. Internal LMM data: The proband had one pathogenic and one likely pathogenic variant in (in trans) in SLC26A4. This proband had mild to profound hearing loss with EVA, which is characteristic of Pendred Syndrome. SLC26A4 is the only gene associated with Pendred Syndrome",
           "criterion": {
             "id": "BP5",
             "type": "Criterion",
             "description": "Variant found in a case with an alternate molecular basis for disease",
-            "shortDescription": "Variant found in case with alternate explanation",
             "defaultStrength": {
               "id": "CG-evidence-strength:bp"
             }
@@ -982,7 +997,6 @@ and may serve as a starting point for exploring the model.</p>
             {
               "id": "GenCond058",
               "type": "GeneticCondition",
-              "explanation": "Hearing Loss",
               "disease": [
                 {
                   "id": "Orphanet:87884",
@@ -996,17 +1010,16 @@ and may serve as a starting point for exploring the model.</p>
             }
           ],
           "outcome": {
-            "id": "CG-criterion-outcome:met",
+            "id": "SEPIO:0000223",
             "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "code": "0000223",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Met"
           },
           "evidenceLine": [
             {
               "id": "EvLn106",
               "type": "EvidenceLine",
-              "explanation": "EvLn106",
               "evidenceItem": [
                 {
                   "id": "VarInterp364",
@@ -1021,7 +1034,6 @@ and may serve as a starting point for exploring the model.</p>
                     {
                       "id": "GenCond058",
                       "type": "GeneticCondition",
-                      "explanation": "Hearing Loss",
                       "disease": [
                         {
                           "id": "Orphanet:87884",
@@ -1034,7 +1046,7 @@ and may serve as a starting point for exploring the model.</p>
                       "name": "Hearing Loss"
                     }
                   ],
-                  "clinicalSignificance": {
+                  "outcome": {
                     "id": "LN:LA26332-9",
                     "type": "Coding",
                     "code": "LA26332-9",
@@ -1055,7 +1067,6 @@ and may serve as a starting point for exploring the model.</p>
                     {
                       "id": "GenCond058",
                       "type": "GeneticCondition",
-                      "explanation": "Hearing Loss",
                       "disease": [
                         {
                           "id": "Orphanet:87884",
@@ -1068,7 +1079,7 @@ and may serve as a starting point for exploring the model.</p>
                       "name": "Hearing Loss"
                     }
                   ],
-                  "clinicalSignificance": {
+                  "outcome": {
                     "id": "LN:LA6668-3",
                     "type": "Coding",
                     "code": "LA6668-3",
@@ -1097,10 +1108,10 @@ and may serve as a starting point for exploring the model.</p>
                     "identifier": "http://reg.genome.network/allele/CA253304"
                   },
                   "phase": {
-                    "id": "CG-phase:trans",
+                    "id": "GENO:0000132",
                     "type": "Coding",
-                    "code": "trans",
-                    "system": "http://clinicalgenome.org/datamodel/phase/",
+                    "code": "0000132",
+                    "system": "http://obofoundry.org/geno/",
                     "display": "in trans"
                   }
                 },
@@ -1125,17 +1136,17 @@ and may serve as a starting point for exploring the model.</p>
                     "identifier": "http://reg.genome.network/allele/CA273665"
                   },
                   "phase": {
-                    "id": "CG-phase:trans",
+                    "id": "GENO:0000132",
                     "type": "Coding",
-                    "code": "trans",
-                    "system": "http://clinicalgenome.org/datamodel/phase/",
+                    "code": "0000132",
+                    "system": "http://obofoundry.org/geno/",
                     "display": "in trans"
                   }
                 },
                 {
                   "id": "IndCond368",
                   "type": "IndividualCondition",
-                  "explanation": "This proband had mild to profound hearing loss with EVA, which is characteristic of Pendred Syndrome.",
+                  "description": "This proband had mild to profound hearing loss with EVA, which is characteristic of Pendred Syndrome.",
                   "individual": {
                     "id": "Indiv029",
                     "type": "Individual",
@@ -1145,7 +1156,6 @@ and may serve as a starting point for exploring the model.</p>
                     {
                       "id": "GenCond058",
                       "type": "GeneticCondition",
-                      "explanation": "Hearing Loss",
                       "disease": [
                         {
                           "id": "Orphanet:87884",
@@ -1158,7 +1168,13 @@ and may serve as a starting point for exploring the model.</p>
                       "name": "Hearing Loss"
                     }
                   ],
-                  "hasCondition": true
+                  "individualHasCondition": {
+                    "id": "SEPIO-CG:99009",
+                    "type": "Coding",
+                    "code": "99009",
+                    "system": "http://obofoundry.org/sepio/clingen",
+                    "display": "affected"
+                  }
                 }
               ]
             }
@@ -1169,19 +1185,19 @@ and may serve as a starting point for exploring the model.</p>
               "agent": {
                 "id": "Agent007",
                 "type": "Agent",
-                "name": "Stefan DiMarino"
+                "label": "Stefan DiMarino"
               },
-              "onDate": "03/07/2017 4:30 PM",
-              "role": {
+              "contributionDate": "03/07/2017 4:30 PM",
+              "contributionRole": {
                 "id": "CC408",
                 "type": "CodeableConcept",
                 "coding": [
                   {
-                    "id": "CG-contributory-role:assessor",
+                    "id": "SEPIO:0000154",
                     "type": "Coding",
-                    "code": "assessor",
-                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                    "display": "assessor"
+                    "code": "0000154",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "assessor role"
                   }
                 ]
               }
@@ -1194,10 +1210,10 @@ and may serve as a starting point for exploring the model.</p>
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-evidence-strength:bp",
+            "id": "SEPIO:0000327",
             "type": "Coding",
-            "code": "bp",
-            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "code": "0000327",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Benign Supporting"
           }
         ]
@@ -1208,19 +1224,19 @@ and may serve as a starting point for exploring the model.</p>
           "agent": {
             "id": "Agent007",
             "type": "Agent",
-            "name": "Stefan DiMarino"
+            "label": "Stefan DiMarino"
           },
-          "onDate": "03/07/2017 4:30 PM",
-          "role": {
+          "contributionDate": "03/07/2017 4:30 PM",
+          "contributionRole": {
             "id": "CC430",
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-contributory-role:assessor",
+                "id": "SEPIO:0000154",
                 "type": "Coding",
-                "code": "assessor",
-                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                "display": "assessor"
+                "code": "0000154",
+                "system": "http://obofoundry.org/sepio/",
+                "display": "assessor role"
               }
             ]
           }
@@ -1234,19 +1250,19 @@ and may serve as a starting point for exploring the model.</p>
       "agent": {
         "id": "Agent006",
         "type": "Agent",
-        "name": "CSER classifier #6"
+        "label": "CSER classifier #6"
       },
-      "onDate": "6/26/2015 12:06 PM",
-      "role": {
+      "contributionDate": "6/26/2015 12:06 PM",
+      "contributionRole": {
         "id": "CC350",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:interpreter",
+            "id": "SEPIO:0000331",
             "type": "Coding",
-            "code": "interpreter",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "interpreter"
+            "code": "0000331",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "interpreter role"
           }
         ]
       }
@@ -1281,14 +1297,14 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp042"><pre><code>{
   "id": "VarInterp042",
   "type": "VariantInterpretation",
-  "explanation": "Uncertain Sig(not specified) NM_000363.4(TNNI3):c.484C>T (p.Arg162Trp)",
+  "description": "Uncertain Sig(not specified) NM_000363.4(TNNI3):c.484C>T (p.Arg162Trp)",
   "variant": {
     "id": "CanAll049",
     "type": "CanonicalAllele",
     "preferredCtxAllele": "CtxAll053",
     "identifier": "http://reg.genome.network/allele/CA021738"
   },
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA26333-7",
     "type": "Coding",
     "code": "LA26333-7",
@@ -1301,19 +1317,19 @@ and may serve as a starting point for exploring the model.</p>
       "agent": {
         "id": "Agent001",
         "type": "Agent",
-        "name": "Harry Stevenson"
+        "label": "Harry Stevenson"
       },
-      "onDate": "7/13/16 8:46 AM",
-      "role": {
+      "contributionDate": "7/13/16 8:46 AM",
+      "contributionRole": {
         "id": "CC336",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:interpreter",
+            "id": "SEPIO:0000331",
             "type": "Coding",
-            "code": "interpreter",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "interpreter"
+            "code": "0000331",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "interpreter role"
           }
         ]
       }
@@ -1351,14 +1367,14 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp044"><pre><code>{
   "id": "VarInterp044",
   "type": "VariantInterpretation",
-  "explanation": "p.Tyr109Tyr in exon 4 of MYH7: This variant is not expected to have clinical significance because it does not alter an amino acid residue and is not located near a splice junction. It has been identified in 0.2% (31/16512) of South Asian chromosomes by the Exome Aggregation Consortium (ExAC, http://exac.broadinstitute.org; dbSNP rs36211408).",
+  "description": "p.Tyr109Tyr in exon 4 of MYH7: This variant is not expected to have clinical significance because it does not alter an amino acid residue and is not located near a splice junction. It has been identified in 0.2% (31/16512) of South Asian chromosomes by the Exome Aggregation Consortium (ExAC, http://exac.broadinstitute.org; dbSNP rs36211408).",
   "variant": {
     "id": "CanAll118",
     "type": "CanonicalAllele",
     "preferredCtxAllele": "CtxAll124",
     "identifier": "http://reg.genome.network/allele/CA013536"
   },
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA26334-5",
     "type": "Coding",
     "code": "LA26334-5",
@@ -1369,8 +1385,8 @@ and may serve as a starting point for exploring the model.</p>
     "id": "AssertMeth001",
     "type": "AssertionMethod",
     "description": "ACMG ISV guidelines 2015",
-    "version": "1.0",
     "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
+    "version": "1.0",
     "scoringAlgorithm": {
       "id": "ScorAlg01",
       "type": "ScoringAlgorithm",
@@ -1381,17 +1397,15 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "EvLn120",
       "type": "EvidenceLine",
-      "explanation": "EvLn120",
       "evidenceItem": [
         {
           "id": "CritAssess371",
           "type": "CriterionAssessment",
-          "explanation": "This variant is present in 0.2% (31/16512) of South Asian Chromosomes in ExAC.",
+          "description": "This variant is present in 0.2% (31/16512) of South Asian Chromosomes in ExAC.",
           "criterion": {
             "id": "BS1",
             "type": "Criterion",
             "description": "Allele frequency is greater than expected for disorder",
-            "shortDescription": "MAF too high for disorder",
             "defaultStrength": {
               "id": "CG-evidence-strength:bs"
             }
@@ -1403,17 +1417,16 @@ and may serve as a starting point for exploring the model.</p>
             "identifier": "http://reg.genome.network/allele/CA013536"
           },
           "outcome": {
-            "id": "CG-criterion-outcome:met",
+            "id": "SEPIO:0000223",
             "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "code": "0000223",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Met"
           },
           "evidenceLine": [
             {
               "id": "EvLn108",
               "type": "EvidenceLine",
-              "explanation": "EvLn108",
               "evidenceItem": [
                 {
                   "id": "AllFreq037",
@@ -1423,11 +1436,11 @@ and may serve as a starting point for exploring the model.</p>
                     "type": "CodeableConcept",
                     "coding": [
                       {
-                        "id": "CG-ascertainment-type:ExAC",
+                        "id": "SEPIO:0000332",
                         "type": "Coding",
-                        "code": "ExAC",
-                        "system": "http://clinicalgenome.org/datamodel/ascertainment-type/",
-                        "display": "ExAC"
+                        "code": "0000332",
+                        "system": "http://obofoundry.org/sepio/",
+                        "display": "ExAc ascertainment method"
                       }
                     ]
                   },
@@ -1463,19 +1476,19 @@ and may serve as a starting point for exploring the model.</p>
               "agent": {
                 "id": "Agent007",
                 "type": "Agent",
-                "name": "Stefan DiMarino"
+                "label": "Stefan DiMarino"
               },
-              "onDate": "03/08/2017 7:43 AM",
-              "role": {
+              "contributionDate": "03/08/2017 7:43 AM",
+              "contributionRole": {
                 "id": "CC410",
                 "type": "CodeableConcept",
                 "coding": [
                   {
-                    "id": "CG-contributory-role:assessor",
+                    "id": "SEPIO:0000154",
                     "type": "Coding",
-                    "code": "assessor",
-                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                    "display": "assessor"
+                    "code": "0000154",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "assessor role"
                   }
                 ]
               }
@@ -1488,10 +1501,10 @@ and may serve as a starting point for exploring the model.</p>
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-evidence-strength:bs",
+            "id": "SEPIO:0000328",
             "type": "Coding",
-            "code": "bs",
-            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "code": "0000328",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Benign Strong"
           }
         ]
@@ -1502,19 +1515,19 @@ and may serve as a starting point for exploring the model.</p>
           "agent": {
             "id": "Agent007",
             "type": "Agent",
-            "name": "Stefan DiMarino"
+            "label": "Stefan DiMarino"
           },
-          "onDate": "03/08/2017 7:43 AM",
-          "role": {
+          "contributionDate": "03/08/2017 7:43 AM",
+          "contributionRole": {
             "id": "CC433",
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-contributory-role:assessor",
+                "id": "SEPIO:0000154",
                 "type": "Coding",
-                "code": "assessor",
-                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                "display": "assessor"
+                "code": "0000154",
+                "system": "http://obofoundry.org/sepio/",
+                "display": "assessor role"
               }
             ]
           }
@@ -1524,17 +1537,15 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "EvLn118",
       "type": "EvidenceLine",
-      "explanation": "EvLn118",
       "evidenceItem": [
         {
           "id": "CritAssess373",
           "type": "CriterionAssessment",
-          "explanation": "This is a synonymous variant with little conservation and no predicted impact on splicing. Conservation and splicing algorithm values are listed below.",
+          "description": "This is a synonymous variant with little conservation and no predicted impact on splicing. Conservation and splicing algorithm values are listed below.",
           "criterion": {
             "id": "BP4",
             "type": "Criterion",
             "description": "Multiple lines of computational evidence suggest no impact on gene or gene product (conservation, evolutionary, splicing impact, etc.)",
-            "shortDescription": "Computational evidence supports benign impact",
             "defaultStrength": {
               "id": "CG-evidence-strength:bp"
             }
@@ -1546,22 +1557,21 @@ and may serve as a starting point for exploring the model.</p>
             "identifier": "http://reg.genome.network/allele/CA013536"
           },
           "outcome": {
-            "id": "CG-criterion-outcome:met",
+            "id": "SEPIO:0000223",
             "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "code": "0000223",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Met"
           },
           "evidenceLine": [
             {
               "id": "EvLn117",
               "type": "EvidenceLine",
-              "explanation": "EvLn117",
               "evidenceItem": [
                 {
                   "id": "InSilicoPred068",
                   "type": "InSilicoPrediction",
-                  "explanation": "Provenance would show that this comes from Alamut",
+                  "description": "Provenance would show that this comes from Alamut",
                   "transcript": {
                     "id": "RefSeq011",
                     "type": "ReferenceSequence",
@@ -1580,10 +1590,10 @@ and may serve as a starting point for exploring the model.</p>
                     "type": "CodeableConcept",
                     "coding": [
                       {
-                        "id": "CG-prediction-type:sp",
+                        "id": "SEPIO:0000323",
                         "type": "Coding",
-                        "code": "sp",
-                        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+                        "code": "0000323",
+                        "system": "http://obofoundry.org/sepio/",
                         "display": "splicing prediction"
                       }
                     ]
@@ -1599,7 +1609,13 @@ and may serve as a starting point for exploring the model.</p>
                     "preferredCtxAllele": "CtxAll124",
                     "identifier": "http://reg.genome.network/allele/CA013536"
                   },
-                  "conserved": true,
+                  "outcome": {
+                    "id": "SEPIO-CG:99004",
+                    "type": "Coding",
+                    "code": "99004",
+                    "system": "http://obofoundry.org/sepio/clingen",
+                    "display": "not conserved"
+                  },
                   "algorithm": "phyloP",
                   "score": -0.76
                 },
@@ -1612,7 +1628,13 @@ and may serve as a starting point for exploring the model.</p>
                     "preferredCtxAllele": "CtxAll124",
                     "identifier": "http://reg.genome.network/allele/CA013536"
                   },
-                  "conserved": true,
+                  "outcome": {
+                    "id": "SEPIO-CG:99004",
+                    "type": "Coding",
+                    "code": "99004",
+                    "system": "http://obofoundry.org/sepio/clingen",
+                    "display": "not conserved"
+                  },
                   "algorithm": "PhastCons",
                   "score": 0.63
                 },
@@ -1643,6 +1665,28 @@ and may serve as a starting point for exploring the model.</p>
                     },
                     "alleleName": "NM_000257.2(MYH7):c.327C>T"
                   }
+                },
+                {
+                  "id": "Null415",
+                  "type": "NullAllele",
+                  "contextualAllele": {
+                    "id": "CtxAll127",
+                    "type": "ContextualAllele",
+                    "relatedCanonicalAllele": {
+                      "id": "CanAll121",
+                      "type": "CanonicalAllele",
+                      "preferredCtxAllele": "CtxAll127",
+                      "identifier": "http://reg.genome.network/allele/CA022880"
+                    },
+                    "alleleName": "NM_024422.3(DSC2): c.631-2A>G (p.?)"
+                  },
+                  "annotation": {
+                    "id": "SO:0002054",
+                    "type": "Coding",
+                    "code": "0002054",
+                    "system": "http://sequenceontology.org/",
+                    "display": "loss of function variant"
+                  }
                 }
               ]
             }
@@ -1653,19 +1697,19 @@ and may serve as a starting point for exploring the model.</p>
               "agent": {
                 "id": "Agent007",
                 "type": "Agent",
-                "name": "Stefan DiMarino"
+                "label": "Stefan DiMarino"
               },
-              "onDate": "03/08/2017 10:02 AM",
-              "role": {
+              "contributionDate": "03/08/2017 10:02 AM",
+              "contributionRole": {
                 "id": "CC412",
                 "type": "CodeableConcept",
                 "coding": [
                   {
-                    "id": "CG-contributory-role:assessor",
+                    "id": "SEPIO:0000154",
                     "type": "Coding",
-                    "code": "assessor",
-                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                    "display": "assessor"
+                    "code": "0000154",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "assessor role"
                   }
                 ]
               }
@@ -1678,10 +1722,10 @@ and may serve as a starting point for exploring the model.</p>
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-evidence-strength:bp",
+            "id": "SEPIO:0000327",
             "type": "Coding",
-            "code": "bp",
-            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "code": "0000327",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Benign Supporting"
           }
         ]
@@ -1692,19 +1736,19 @@ and may serve as a starting point for exploring the model.</p>
           "agent": {
             "id": "Agent007",
             "type": "Agent",
-            "name": "Stefan DiMarino"
+            "label": "Stefan DiMarino"
           },
-          "onDate": "03/08/2017 10:02 AM",
-          "role": {
+          "contributionDate": "03/08/2017 10:02 AM",
+          "contributionRole": {
             "id": "CC431",
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-contributory-role:assessor",
+                "id": "SEPIO:0000154",
                 "type": "Coding",
-                "code": "assessor",
-                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                "display": "assessor"
+                "code": "0000154",
+                "system": "http://obofoundry.org/sepio/",
+                "display": "assessor role"
               }
             ]
           }
@@ -1714,7 +1758,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "EvLn119",
       "type": "EvidenceLine",
-      "explanation": "EvLn119",
       "evidenceItem": [
         {
           "id": "CritAssess359",
@@ -1723,7 +1766,6 @@ and may serve as a starting point for exploring the model.</p>
             "id": "BP7",
             "type": "Criterion",
             "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
-            "shortDescription": "Synonymous variant without predicted splice effect in region with low conservation",
             "defaultStrength": {
               "id": "CG-evidence-strength:bp"
             }
@@ -1735,22 +1777,21 @@ and may serve as a starting point for exploring the model.</p>
             "identifier": "http://reg.genome.network/allele/CA013536"
           },
           "outcome": {
-            "id": "CG-criterion-outcome:met",
+            "id": "SEPIO:0000223",
             "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "code": "0000223",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Met"
           },
           "evidenceLine": [
             {
               "id": "EvLn101",
               "type": "EvidenceLine",
-              "explanation": "EvLn101",
               "evidenceItem": [
                 {
                   "id": "InSilicoPred262",
                   "type": "InSilicoPrediction",
-                  "explanation": "Provenance would show that this comes from Alamut",
+                  "description": "Provenance would show that this comes from Alamut",
                   "transcript": {
                     "id": "RefSeq011",
                     "type": "ReferenceSequence",
@@ -1769,10 +1810,10 @@ and may serve as a starting point for exploring the model.</p>
                     "type": "CodeableConcept",
                     "coding": [
                       {
-                        "id": "CG-prediction-type:sp",
+                        "id": "SEPIO:0000323",
                         "type": "Coding",
-                        "code": "sp",
-                        "system": "http://clinicalgenome.org/datamodel/prediction-type/",
+                        "code": "0000323",
+                        "system": "http://obofoundry.org/sepio/",
                         "display": "splicing prediction"
                       }
                     ]
@@ -1788,7 +1829,13 @@ and may serve as a starting point for exploring the model.</p>
                     "preferredCtxAllele": "CtxAll124",
                     "identifier": "http://reg.genome.network/allele/CA013536"
                   },
-                  "conserved": true,
+                  "outcome": {
+                    "id": "SEPIO-CG:99004",
+                    "type": "Coding",
+                    "code": "99004",
+                    "system": "http://obofoundry.org/sepio/clingen",
+                    "display": "not conserved"
+                  },
                   "algorithm": "phyloP",
                   "score": -0.76
                 },
@@ -1801,7 +1848,13 @@ and may serve as a starting point for exploring the model.</p>
                     "preferredCtxAllele": "CtxAll124",
                     "identifier": "http://reg.genome.network/allele/CA013536"
                   },
-                  "conserved": true,
+                  "outcome": {
+                    "id": "SEPIO-CG:99004",
+                    "type": "Coding",
+                    "code": "99004",
+                    "system": "http://obofoundry.org/sepio/clingen",
+                    "display": "not conserved"
+                  },
                   "algorithm": "PhastCons",
                   "score": 0.63
                 },
@@ -1842,19 +1895,19 @@ and may serve as a starting point for exploring the model.</p>
               "agent": {
                 "id": "Agent007",
                 "type": "Agent",
-                "name": "Stefan DiMarino"
+                "label": "Stefan DiMarino"
               },
-              "onDate": "10/10/16 8:05 AM",
-              "role": {
+              "contributionDate": "10/10/16 8:05 AM",
+              "contributionRole": {
                 "id": "CC405",
                 "type": "CodeableConcept",
                 "coding": [
                   {
-                    "id": "CG-contributory-role:assessor",
+                    "id": "SEPIO:0000154",
                     "type": "Coding",
-                    "code": "assessor",
-                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                    "display": "assessor"
+                    "code": "0000154",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "assessor role"
                   }
                 ]
               }
@@ -1867,10 +1920,10 @@ and may serve as a starting point for exploring the model.</p>
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-evidence-strength:bp",
+            "id": "SEPIO:0000327",
             "type": "Coding",
-            "code": "bp",
-            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "code": "0000327",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Benign Supporting"
           }
         ]
@@ -1881,19 +1934,19 @@ and may serve as a starting point for exploring the model.</p>
           "agent": {
             "id": "Agent007",
             "type": "Agent",
-            "name": "Stefan DiMarino"
+            "label": "Stefan DiMarino"
           },
-          "onDate": "10/10/16 8:05 AM",
-          "role": {
+          "contributionDate": "10/10/16 8:05 AM",
+          "contributionRole": {
             "id": "CC432",
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-contributory-role:assessor",
+                "id": "SEPIO:0000154",
                 "type": "Coding",
-                "code": "assessor",
-                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                "display": "assessor"
+                "code": "0000154",
+                "system": "http://obofoundry.org/sepio/",
+                "display": "assessor role"
               }
             ]
           }
@@ -1907,19 +1960,19 @@ and may serve as a starting point for exploring the model.</p>
       "agent": {
         "id": "Agent006",
         "type": "Agent",
-        "name": "CSER classifier #6"
+        "label": "CSER classifier #6"
       },
-      "onDate": "6/26/2015 12:06 PM",
-      "role": {
+      "contributionDate": "6/26/2015 12:06 PM",
+      "contributionRole": {
         "id": "CC369",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:interpreter",
+            "id": "SEPIO:0000331",
             "type": "Coding",
-            "code": "interpreter",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "interpreter"
+            "code": "0000331",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "interpreter role"
           }
         ]
       }
@@ -1954,7 +2007,7 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp045"><pre><code>{
   "id": "VarInterp045",
   "type": "VariantInterpretation",
-  "explanation": "The c.631-2A>G variant in DSC2 has been reported in 1 Caucasian individual with ARVC (Heuser 2006). This variant has also been identified by our laboratory in 2 individuals (1 with ARVC and 1 with LVNC). This variant has been reported in 1/66564 European chromosomes by the Exome Aggregation Consortium (ExAC, http://exac.broadinstitute.org; dbSNP rs397514042). This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006). Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/). In summary, although additional studies are required to fully establish its clinical significance, the c.631-2A>G variant is likely pathogenic.",
+  "description": "The c.631-2A>G variant in DSC2 has been reported in 1 Caucasian individual with ARVC (Heuser 2006). This variant has also been identified by our laboratory in 2 individuals (1 with ARVC and 1 with LVNC). This variant has been reported in 1/66564 European chromosomes by the Exome Aggregation Consortium (ExAC, http://exac.broadinstitute.org; dbSNP rs397514042). This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006). Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/). In summary, although additional studies are required to fully establish its clinical significance, the c.631-2A>G variant is likely pathogenic.",
   "variant": {
     "id": "CanAll121",
     "type": "CanonicalAllele",
@@ -1965,7 +2018,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond074",
       "type": "GeneticCondition",
-      "explanation": "arrhythmogenic right ventricular cardiomyopathy, Autosomal Dominant",
       "disease": [
         {
           "id": "Orphanet:247",
@@ -1984,7 +2036,7 @@ and may serve as a starting point for exploring the model.</p>
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA26332-9",
     "type": "Coding",
     "code": "LA26332-9",
@@ -1995,8 +2047,8 @@ and may serve as a starting point for exploring the model.</p>
     "id": "AssertMeth001",
     "type": "AssertionMethod",
     "description": "ACMG ISV guidelines 2015",
-    "version": "1.0",
     "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
+    "version": "1.0",
     "scoringAlgorithm": {
       "id": "ScorAlg01",
       "type": "ScoringAlgorithm",
@@ -2007,17 +2059,15 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "EvLn121",
       "type": "EvidenceLine",
-      "explanation": "EvLn121",
       "evidenceItem": [
         {
           "id": "CritAssess361",
           "type": "CriterionAssessment",
-          "explanation": "This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466). Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/).",
+          "description": "This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466). Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/).",
           "criterion": {
             "id": "PVS1",
             "type": "Criterion",
             "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
-            "shortDescription": "Null variant in gene with known LOF mechanism",
             "defaultStrength": {
               "id": "CG-evidence-strength:pvs"
             }
@@ -2032,7 +2082,6 @@ and may serve as a starting point for exploring the model.</p>
             {
               "id": "GenCond046",
               "type": "GeneticCondition",
-              "explanation": "arrhythmogenic right ventricular cardiomyopathy",
               "disease": [
                 {
                   "id": "Orphanet:247",
@@ -2045,22 +2094,21 @@ and may serve as a starting point for exploring the model.</p>
             }
           ],
           "outcome": {
-            "id": "CG-criterion-outcome:met",
+            "id": "SEPIO:0000223",
             "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "code": "0000223",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Met"
           },
           "evidenceLine": [
             {
               "id": "EvLn103",
               "type": "EvidenceLine",
-              "explanation": "EvLn103",
               "evidenceItem": [
                 {
                   "id": "MolCon272",
                   "type": "MolecularConsequence",
-                  "explanation": "This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466).",
+                  "description": "This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466).",
                   "contextualAllele": {
                     "id": "CtxAll127",
                     "type": "ContextualAllele",
@@ -2084,13 +2132,12 @@ and may serve as a starting point for exploring the model.</p>
                         "display": "splice-site variant"
                       }
                     ]
-                  },
-                  "lof": true
+                  }
                 },
                 {
                   "id": "CondMech273",
                   "type": "ConditionMechanism",
-                  "explanation": "Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/).",
+                  "description": "Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/).",
                   "mechanism": {
                     "id": "SO:0002054",
                     "type": "Coding",
@@ -2101,7 +2148,6 @@ and may serve as a starting point for exploring the model.</p>
                   "condition": {
                     "id": "GenCond046",
                     "type": "GeneticCondition",
-                    "explanation": "arrhythmogenic right ventricular cardiomyopathy",
                     "disease": [
                       {
                         "id": "Orphanet:247",
@@ -2113,16 +2159,15 @@ and may serve as a starting point for exploring the model.</p>
                     ]
                   },
                   "mechanismConfidence": {
-                    "id": "CG-cond-mech-strength:established",
+                    "id": "SEPIO:0000269",
                     "type": "Coding",
-                    "code": "established",
-                    "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
-                    "display": "Established"
+                    "code": "0000269",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "established"
                   },
                   "gene": {
                     "id": "hgnc:DSC2",
-                    "type": "Gene",
-                    "symbol": "DSC2"
+                    "type": "Gene"
                   }
                 }
               ]
@@ -2134,19 +2179,19 @@ and may serve as a starting point for exploring the model.</p>
               "agent": {
                 "id": "Agent007",
                 "type": "Agent",
-                "name": "Stefan DiMarino"
+                "label": "Stefan DiMarino"
               },
-              "onDate": "01/17/17 9:12 AM",
-              "role": {
+              "contributionDate": "01/17/17 9:12 AM",
+              "contributionRole": {
                 "id": "CC407",
                 "type": "CodeableConcept",
                 "coding": [
                   {
-                    "id": "CG-contributory-role:assessor",
+                    "id": "SEPIO:0000154",
                     "type": "Coding",
-                    "code": "assessor",
-                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                    "display": "assessor"
+                    "code": "0000154",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "assessor role"
                   }
                 ]
               }
@@ -2159,10 +2204,10 @@ and may serve as a starting point for exploring the model.</p>
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-evidence-strength:pvs",
+            "id": "SEPIO:0000220",
             "type": "Coding",
-            "code": "pvs",
-            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "code": "0000220",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Pathogenic Very Strong"
           }
         ]
@@ -2173,19 +2218,19 @@ and may serve as a starting point for exploring the model.</p>
           "agent": {
             "id": "Agent007",
             "type": "Agent",
-            "name": "Stefan DiMarino"
+            "label": "Stefan DiMarino"
           },
-          "onDate": "01/17/17 9:12 AM",
-          "role": {
+          "contributionDate": "01/17/17 9:12 AM",
+          "contributionRole": {
             "id": "CC434",
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-contributory-role:assessor",
+                "id": "SEPIO:0000154",
                 "type": "Coding",
-                "code": "assessor",
-                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                "display": "assessor"
+                "code": "0000154",
+                "system": "http://obofoundry.org/sepio/",
+                "display": "assessor role"
               }
             ]
           }
@@ -2195,17 +2240,15 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "EvLn122",
       "type": "EvidenceLine",
-      "explanation": "EvLn122",
       "evidenceItem": [
         {
           "id": "CritAssess369",
           "type": "CriterionAssessment",
-          "explanation": "This variant has been reported in 1/66564 European chromosomes by the Exome Aggregation Consortium (ExAC, http://exac.broadinstitute.org; dbSNP rs397514042).",
+          "description": "This variant has been reported in 1/66564 European chromosomes by the Exome Aggregation Consortium (ExAC, http://exac.broadinstitute.org; dbSNP rs397514042).",
           "criterion": {
             "id": "PM2",
             "type": "Criterion",
             "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
-            "shortDescription": "Absent from controls",
             "defaultStrength": {
               "id": "CG-evidence-strength:pm"
             }
@@ -2217,17 +2260,16 @@ and may serve as a starting point for exploring the model.</p>
             "identifier": "http://reg.genome.network/allele/CA022880"
           },
           "outcome": {
-            "id": "CG-criterion-outcome:met",
+            "id": "SEPIO:0000223",
             "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "code": "0000223",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Met"
           },
           "evidenceLine": [
             {
               "id": "EvLn107",
               "type": "EvidenceLine",
-              "explanation": "EvLn107",
               "evidenceItem": [
                 {
                   "id": "AllFreq370",
@@ -2237,11 +2279,11 @@ and may serve as a starting point for exploring the model.</p>
                     "type": "CodeableConcept",
                     "coding": [
                       {
-                        "id": "CG-ascertainment-type:ExAC",
+                        "id": "SEPIO:0000332",
                         "type": "Coding",
-                        "code": "ExAC",
-                        "system": "http://clinicalgenome.org/datamodel/ascertainment-type/",
-                        "display": "ExAC"
+                        "code": "0000332",
+                        "system": "http://obofoundry.org/sepio/",
+                        "display": "ExAc ascertainment method"
                       }
                     ]
                   },
@@ -2278,19 +2320,19 @@ and may serve as a starting point for exploring the model.</p>
               "agent": {
                 "id": "Agent001",
                 "type": "Agent",
-                "name": "Harry Stevenson"
+                "label": "Harry Stevenson"
               },
-              "onDate": "03/07/2017 5:22 PM",
-              "role": {
+              "contributionDate": "03/07/2017 5:22 PM",
+              "contributionRole": {
                 "id": "CC409",
                 "type": "CodeableConcept",
                 "coding": [
                   {
-                    "id": "CG-contributory-role:assessor",
+                    "id": "SEPIO:0000154",
                     "type": "Coding",
-                    "code": "assessor",
-                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                    "display": "assessor"
+                    "code": "0000154",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "assessor role"
                   }
                 ]
               }
@@ -2303,10 +2345,10 @@ and may serve as a starting point for exploring the model.</p>
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-evidence-strength:pm",
+            "id": "SEPIO:0000216",
             "type": "Coding",
-            "code": "pm",
-            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "code": "0000216",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Pathogenic Moderate"
           }
         ]
@@ -2317,19 +2359,19 @@ and may serve as a starting point for exploring the model.</p>
           "agent": {
             "id": "Agent001",
             "type": "Agent",
-            "name": "Harry Stevenson"
+            "label": "Harry Stevenson"
           },
-          "onDate": "03/07/2017 5:22 PM",
-          "role": {
+          "contributionDate": "03/07/2017 5:22 PM",
+          "contributionRole": {
             "id": "CC435",
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-contributory-role:assessor",
+                "id": "SEPIO:0000154",
                 "type": "Coding",
-                "code": "assessor",
-                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                "display": "assessor"
+                "code": "0000154",
+                "system": "http://obofoundry.org/sepio/",
+                "display": "assessor role"
               }
             ]
           }
@@ -2343,19 +2385,19 @@ and may serve as a starting point for exploring the model.</p>
       "agent": {
         "id": "Agent006",
         "type": "Agent",
-        "name": "CSER classifier #6"
+        "label": "CSER classifier #6"
       },
-      "onDate": "6/26/2015 12:06 PM",
-      "role": {
+      "contributionDate": "6/26/2015 12:06 PM",
+      "contributionRole": {
         "id": "CC395",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:interpreter",
+            "id": "SEPIO:0000331",
             "type": "Coding",
-            "code": "interpreter",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "interpreter"
+            "code": "0000331",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "interpreter role"
           }
         ]
       }
@@ -2400,7 +2442,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond013",
       "type": "GeneticCondition",
-      "explanation": "Fabry disease, X linked recessive inheritance",
       "disease": [
         {
           "id": "Orphanet:324",
@@ -2419,7 +2460,7 @@ and may serve as a starting point for exploring the model.</p>
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -2465,7 +2506,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond013",
       "type": "GeneticCondition",
-      "explanation": "Fabry disease, X linked recessive inheritance",
       "disease": [
         {
           "id": "Orphanet:324",
@@ -2484,7 +2524,7 @@ and may serve as a starting point for exploring the model.</p>
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -2530,7 +2570,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond013",
       "type": "GeneticCondition",
-      "explanation": "Fabry disease, X linked recessive inheritance",
       "disease": [
         {
           "id": "Orphanet:324",
@@ -2549,7 +2588,7 @@ and may serve as a starting point for exploring the model.</p>
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -2595,7 +2634,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond013",
       "type": "GeneticCondition",
-      "explanation": "Fabry disease, X linked recessive inheritance",
       "disease": [
         {
           "id": "Orphanet:324",
@@ -2614,7 +2652,7 @@ and may serve as a starting point for exploring the model.</p>
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -2650,7 +2688,7 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp055"><pre><code>{
   "id": "VarInterp055",
   "type": "VariantInterpretation",
-  "explanation": "The Tyr337Cys variant in SOS1 has been reported in 1 individual with clinical features of Noonan syndrome (Roberts 2007), but has also been reported to be present in 2 unaffected individuals from one family (Personal Communication). This variant was absent from large population studies. Studies have shown that the Tyr337Cys variant may impact protein function by increasing its activity though these results are inconclusive and these in vitro assays may not accurately represent biological function (Smith 2013). Due to the conflicting data about this variant, the clinical significance of the Tyr337Cys variant is uncertain.",
+  "description": "The Tyr337Cys variant in SOS1 has been reported in 1 individual with clinical features of Noonan syndrome (Roberts 2007), but has also been reported to be present in 2 unaffected individuals from one family (Personal Communication). This variant was absent from large population studies. Studies have shown that the Tyr337Cys variant may impact protein function by increasing its activity though these results are inconclusive and these in vitro assays may not accurately represent biological function (Smith 2013). Due to the conflicting data about this variant, the clinical significance of the Tyr337Cys variant is uncertain.",
   "variant": {
     "id": "CanAll124",
     "type": "CanonicalAllele",
@@ -2661,7 +2699,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond075",
       "type": "GeneticCondition",
-      "explanation": "noonan syndrome, Autosomal Dominant",
       "disease": [
         {
           "id": "Orphanet:648",
@@ -2680,7 +2717,7 @@ and may serve as a starting point for exploring the model.</p>
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA26333-7",
     "type": "Coding",
     "code": "LA26333-7",
@@ -2691,8 +2728,8 @@ and may serve as a starting point for exploring the model.</p>
     "id": "AssertMeth001",
     "type": "AssertionMethod",
     "description": "ACMG ISV guidelines 2015",
-    "version": "1.0",
     "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
+    "version": "1.0",
     "scoringAlgorithm": {
       "id": "ScorAlg01",
       "type": "ScoringAlgorithm",
@@ -2703,17 +2740,15 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "EvLn124",
       "type": "EvidenceLine",
-      "explanation": "EvLn124",
       "evidenceItem": [
         {
           "id": "CritAssess374",
           "type": "CriterionAssessment",
-          "explanation": "Flag-tagged construct with the variant was transfected into HEK cells. As per the RASopathy working group’s approved assays (see example 3 above), Smith et al. showed that the Y337C mutation increased levels of pERK in starved HEK cells via western blotting.",
+          "description": "Flag-tagged construct with the variant was transfected into HEK cells. As per the RASopathy working group’s approved assays (see example 3 above), Smith et al. showed that the Y337C mutation increased levels of pERK in starved HEK cells via western blotting.",
           "criterion": {
             "id": "PS3",
             "type": "Criterion",
             "description": "Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product",
-            "shortDescription": "Well-established functional studies showing damaging effect",
             "defaultStrength": {
               "id": "CG-evidence-strength:ps"
             }
@@ -2725,32 +2760,31 @@ and may serve as a starting point for exploring the model.</p>
             "identifier": "http://reg.genome.network/allele/CA090930"
           },
           "outcome": {
-            "id": "CG-criterion-outcome:met",
+            "id": "SEPIO:0000223",
             "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "code": "0000223",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Met"
           },
           "evidenceLine": [
             {
               "id": "EvLn116",
               "type": "EvidenceLine",
-              "explanation": "EvLn116",
               "evidenceItem": [
                 {
                   "id": "Func067",
                   "type": "AlleleFunctionalImpact",
-                  "explanation": "PMID: 23487764",
-                  "result": "increased ERK activtation",
-                  "dataType": {
+                  "description": "PMID: 23487764",
+                  "resultDescription": "increased ERK activtation",
+                  "assayType": {
                     "id": "CC055",
                     "type": "CodeableConcept",
                     "coding": [
                       {
-                        "id": "CG-allele-func-impact-type:activation",
+                        "id": "OBI:XXXXXX1",
                         "type": "Coding",
-                        "code": "activation",
-                        "system": "http://clinicalgenome.org/datamodel/allele-func-impact-type/",
+                        "code": "XXXXXX1",
+                        "system": "http://purl.obolibrary.org/obo/OBI_",
                         "display": "Activation Assay"
                       }
                     ]
@@ -2768,8 +2802,7 @@ and may serve as a starting point for exploring the model.</p>
                   },
                   "gene": {
                     "id": "hgnc:SOS1",
-                    "type": "Gene",
-                    "symbol": "SOS1"
+                    "type": "Gene"
                   }
                 }
               ]
@@ -2781,19 +2814,19 @@ and may serve as a starting point for exploring the model.</p>
               "agent": {
                 "id": "Agent007",
                 "type": "Agent",
-                "name": "Stefan DiMarino"
+                "label": "Stefan DiMarino"
               },
-              "onDate": "3/14/2017 10:29 AM",
-              "role": {
+              "contributionDate": "3/14/2017 10:29 AM",
+              "contributionRole": {
                 "id": "CC415",
                 "type": "CodeableConcept",
                 "coding": [
                   {
-                    "id": "CG-contributory-role:assessor",
+                    "id": "SEPIO:0000154",
                     "type": "Coding",
-                    "code": "assessor",
-                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                    "display": "assessor"
+                    "code": "0000154",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "assessor role"
                   }
                 ]
               }
@@ -2806,10 +2839,10 @@ and may serve as a starting point for exploring the model.</p>
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-evidence-strength:ps",
+            "id": "SEPIO:0000330",
             "type": "Coding",
-            "code": "ps",
-            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "code": "0000330",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Pathogenic Strong"
           }
         ]
@@ -2820,19 +2853,19 @@ and may serve as a starting point for exploring the model.</p>
           "agent": {
             "id": "Agent007",
             "type": "Agent",
-            "name": "Stefan DiMarino"
+            "label": "Stefan DiMarino"
           },
-          "onDate": "3/14/2017 10:29 AM",
-          "role": {
+          "contributionDate": "3/14/2017 10:29 AM",
+          "contributionRole": {
             "id": "CC436",
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-contributory-role:assessor",
+                "id": "SEPIO:0000154",
                 "type": "Coding",
-                "code": "assessor",
-                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                "display": "assessor"
+                "code": "0000154",
+                "system": "http://obofoundry.org/sepio/",
+                "display": "assessor role"
               }
             ]
           }
@@ -2842,17 +2875,15 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "EvLn125",
       "type": "EvidenceLine",
-      "explanation": "EvLn125",
       "evidenceItem": [
         {
           "id": "CritAssess375",
           "type": "CriterionAssessment",
-          "explanation": "A personal communication to our lab informed us of an individual and his son who both harbored the variant but with clinical workup did not appear to have Noonan Syndrome or symptoms indicative of Noonan Syndrome.",
+          "description": "A personal communication to our lab informed us of an individual and his son who both harbored the variant but with clinical workup did not appear to have Noonan Syndrome or symptoms indicative of Noonan Syndrome.",
           "criterion": {
             "id": "BS4",
             "type": "Criterion",
             "description": "Lack of segregation in affected members of a family",
-            "shortDescription": "Does not segregate with disease",
             "defaultStrength": {
               "id": "CG-evidence-strength:bs"
             }
@@ -2867,7 +2898,6 @@ and may serve as a starting point for exploring the model.</p>
             {
               "id": "GenCond056",
               "type": "GeneticCondition",
-              "explanation": "noonan syndrome, Autosomal Dominant",
               "disease": [
                 {
                   "id": "Orphanet:648",
@@ -2887,17 +2917,16 @@ and may serve as a starting point for exploring the model.</p>
             }
           ],
           "outcome": {
-            "id": "CG-criterion-outcome:met",
+            "id": "SEPIO:0000223",
             "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "code": "0000223",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Met"
           },
           "evidenceLine": [
             {
               "id": "EvLn123",
               "type": "EvidenceLine",
-              "explanation": "EvLn123",
               "evidenceItem": [
                 {
                   "id": "FamSeg076",
@@ -2905,7 +2934,6 @@ and may serve as a starting point for exploring the model.</p>
                   "condition": {
                     "id": "GenCond056",
                     "type": "GeneticCondition",
-                    "explanation": "noonan syndrome, Autosomal Dominant",
                     "disease": [
                       {
                         "id": "Orphanet:648",
@@ -2937,7 +2965,13 @@ and may serve as a starting point for exploring the model.</p>
                   "phenotypePositiveAllelePositive": 0,
                   "phenotypeNegativeAllelePositive": 2,
                   "phenotypePositiveAlleleNegative": 0,
-                  "anyInconsistentSegregations": true
+                  "inconsistentSegregationsObserved": {
+                    "id": "SEPIO-CG:99011",
+                    "type": "Coding",
+                    "code": "99011",
+                    "system": "http://obofoundry.org/sepio/clingen",
+                    "display": "present"
+                  }
                 }
               ]
             }
@@ -2948,19 +2982,19 @@ and may serve as a starting point for exploring the model.</p>
               "agent": {
                 "id": "Agent007",
                 "type": "Agent",
-                "name": "Stefan DiMarino"
+                "label": "Stefan DiMarino"
               },
-              "onDate": "3/14/2017 10:45 AM",
-              "role": {
+              "contributionDate": "3/14/2017 10:45 AM",
+              "contributionRole": {
                 "id": "CC416",
                 "type": "CodeableConcept",
                 "coding": [
                   {
-                    "id": "CG-contributory-role:assessor",
+                    "id": "SEPIO:0000154",
                     "type": "Coding",
-                    "code": "assessor",
-                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                    "display": "assessor"
+                    "code": "0000154",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "assessor role"
                   }
                 ]
               }
@@ -2973,10 +3007,10 @@ and may serve as a starting point for exploring the model.</p>
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-evidence-strength:bs",
+            "id": "SEPIO:0000328",
             "type": "Coding",
-            "code": "bs",
-            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "code": "0000328",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Benign Strong"
           }
         ]
@@ -2987,19 +3021,19 @@ and may serve as a starting point for exploring the model.</p>
           "agent": {
             "id": "Agent007",
             "type": "Agent",
-            "name": "Stefan DiMarino"
+            "label": "Stefan DiMarino"
           },
-          "onDate": "3/14/2017 10:45 AM",
-          "role": {
+          "contributionDate": "3/14/2017 10:45 AM",
+          "contributionRole": {
             "id": "CC437",
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-contributory-role:assessor",
+                "id": "SEPIO:0000154",
                 "type": "Coding",
-                "code": "assessor",
-                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                "display": "assessor"
+                "code": "0000154",
+                "system": "http://obofoundry.org/sepio/",
+                "display": "assessor role"
               }
             ]
           }
@@ -3013,19 +3047,19 @@ and may serve as a starting point for exploring the model.</p>
       "agent": {
         "id": "Agent008",
         "type": "Agent",
-        "name": "Gene Geneticist"
+        "label": "Gene Geneticist"
       },
-      "onDate": "8/14/2014 10:29 AM",
-      "role": {
+      "contributionDate": "8/14/2014 10:29 AM",
+      "contributionRole": {
         "id": "CC413",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:interpreter",
+            "id": "SEPIO:0000331",
             "type": "Coding",
-            "code": "interpreter",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "interpreter"
+            "code": "0000331",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "interpreter role"
           }
         ]
       }
@@ -3073,7 +3107,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond062",
       "type": "GeneticCondition",
-      "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
       "disease": [
         {
           "id": "Orphanet:244",
@@ -3092,7 +3125,7 @@ and may serve as a starting point for exploring the model.</p>
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -3105,19 +3138,19 @@ and may serve as a starting point for exploring the model.</p>
       "agent": {
         "id": "Agent007",
         "type": "Agent",
-        "name": "Stefan DiMarino"
+        "label": "Stefan DiMarino"
       },
-      "onDate": "5/31/16 11:01 AM",
-      "role": {
+      "contributionDate": "5/31/16 11:01 AM",
+      "contributionRole": {
         "id": "CC387",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:interpreter",
+            "id": "SEPIO:0000331",
             "type": "Coding",
-            "code": "interpreter",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "interpreter"
+            "code": "0000331",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "interpreter role"
           }
         ]
       }
@@ -3165,7 +3198,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond010",
       "type": "GeneticCondition",
-      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3",
       "disease": [
         {
           "id": "Orphanet:87884",
@@ -3184,12 +3216,11 @@ and may serve as a starting point for exploring the model.</p>
       },
       "gene": {
         "id": "hgnc:GIPC3",
-        "type": "Gene",
-        "symbol": "GIPC3"
+        "type": "Gene"
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -3225,7 +3256,7 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp060"><pre><code>{
   "id": "VarInterp060",
   "type": "VariantInterpretation",
-  "explanation": "The Lys483Asn variant in BRAF has not been previously reported in the literature, but has been identified as a de novo variant in one proband in our laboratory. In addition, this residue is highly conserved across evolutionarily distinct species and computational analyses (PolyPhen2, SIFT, AlignGVGD) predict that this variant will impact the normal function of BRAF. It should be noted that the sensitivity and specificity of these computational programs has not been determined by our laboratory. Therefore, this variant is likely to be pathogenic.",
+  "description": "The Lys483Asn variant in BRAF has not been previously reported in the literature, but has been identified as a de novo variant in one proband in our laboratory. In addition, this residue is highly conserved across evolutionarily distinct species and computational analyses (PolyPhen2, SIFT, AlignGVGD) predict that this variant will impact the normal function of BRAF. It should be noted that the sensitivity and specificity of these computational programs has not been determined by our laboratory. Therefore, this variant is likely to be pathogenic.",
   "variant": {
     "id": "CanAll127",
     "type": "CanonicalAllele",
@@ -3236,7 +3267,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond049",
       "type": "GeneticCondition",
-      "explanation": "Rasopathy",
       "disease": [
         {
           "id": "Orphanet:98733",
@@ -3249,7 +3279,7 @@ and may serve as a starting point for exploring the model.</p>
       "name": "Rasopathy"
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA26332-9",
     "type": "Coding",
     "code": "LA26332-9",
@@ -3262,19 +3292,19 @@ and may serve as a starting point for exploring the model.</p>
       "agent": {
         "id": "Agent010",
         "type": "Agent",
-        "name": "ACME Molecular Lab"
+        "label": "ACME Molecular Lab"
       },
-      "onDate": "6/12/2011 9:00 AM",
-      "role": {
+      "contributionDate": "6/12/2011 9:00 AM",
+      "contributionRole": {
         "id": "CC420",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:interpreter",
+            "id": "SEPIO:0000331",
             "type": "Coding",
-            "code": "interpreter",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "interpreter"
+            "code": "0000331",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "interpreter role"
           }
         ]
       }
@@ -3309,7 +3339,7 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp063"><pre><code>{
   "id": "VarInterp063",
   "type": "VariantInterpretation",
-  "explanation": "The Lys483Gln variant in BRAF has been identified in one proband with clinical features of Cardio-facio-cutaneous syndrome, and was not identified in either of this individual's parents (LMM unpublished data). This variant has not been identified in large population studies. In addition, another variant at the same residue (Lys483Asn) was identified as a de novo variant in an individual with features of a Noonan spectrum disorder (LMM unpublished data). Computational analyses (biochemical amino acid properties, conservation, AlignGVGD, PolyPhen2, and SIFT) suggest that the Lys483Gln variant may impact the normal function of the protein. In summary, this variant is likely pathogenic, though additional studies are required to fully establish its clinical significance.",
+  "description": "The Lys483Gln variant in BRAF has been identified in one proband with clinical features of Cardio-facio-cutaneous syndrome, and was not identified in either of this individual's parents (LMM unpublished data). This variant has not been identified in large population studies. In addition, another variant at the same residue (Lys483Asn) was identified as a de novo variant in an individual with features of a Noonan spectrum disorder (LMM unpublished data). Computational analyses (biochemical amino acid properties, conservation, AlignGVGD, PolyPhen2, and SIFT) suggest that the Lys483Gln variant may impact the normal function of the protein. In summary, this variant is likely pathogenic, though additional studies are required to fully establish its clinical significance.",
   "variant": {
     "id": "CanAll125",
     "type": "CanonicalAllele",
@@ -3320,7 +3350,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond070",
       "type": "GeneticCondition",
-      "explanation": "cardiofaciocutaneous syndrome, Autosomal Dominant",
       "disease": [
         {
           "id": "Orphanet:1340",
@@ -3339,7 +3368,7 @@ and may serve as a starting point for exploring the model.</p>
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA26332-9",
     "type": "Coding",
     "code": "LA26332-9",
@@ -3350,8 +3379,8 @@ and may serve as a starting point for exploring the model.</p>
     "id": "AssertMeth001",
     "type": "AssertionMethod",
     "description": "ACMG ISV guidelines 2015",
-    "version": "1.0",
     "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
+    "version": "1.0",
     "scoringAlgorithm": {
       "id": "ScorAlg01",
       "type": "ScoringAlgorithm",
@@ -3362,7 +3391,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "EvLn127",
       "type": "EvidenceLine",
-      "explanation": "EvLn127",
       "evidenceItem": [
         {
           "id": "CritAssess376",
@@ -3371,7 +3399,6 @@ and may serve as a starting point for exploring the model.</p>
             "id": "PM2",
             "type": "Criterion",
             "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
-            "shortDescription": "Absent from controls",
             "defaultStrength": {
               "id": "CG-evidence-strength:pm"
             }
@@ -3383,17 +3410,16 @@ and may serve as a starting point for exploring the model.</p>
             "identifier": "http://reg.genome.network/allele/CA280055"
           },
           "outcome": {
-            "id": "CG-criterion-outcome:met",
+            "id": "SEPIO:0000223",
             "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "code": "0000223",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Met"
           },
           "evidenceLine": [
             {
               "id": "EvLn126",
               "type": "EvidenceLine",
-              "explanation": "EvLn126",
               "evidenceItem": [
                 {
                   "id": "AllFreq101",
@@ -3403,11 +3429,11 @@ and may serve as a starting point for exploring the model.</p>
                     "type": "CodeableConcept",
                     "coding": [
                       {
-                        "id": "CG-ascertainment-type:ExAC",
+                        "id": "SEPIO:0000332",
                         "type": "Coding",
-                        "code": "ExAC",
-                        "system": "http://clinicalgenome.org/datamodel/ascertainment-type/",
-                        "display": "ExAC"
+                        "code": "0000332",
+                        "system": "http://obofoundry.org/sepio/",
+                        "display": "ExAc ascertainment method"
                       }
                     ]
                   },
@@ -3443,19 +3469,19 @@ and may serve as a starting point for exploring the model.</p>
               "agent": {
                 "id": "Agent010",
                 "type": "Agent",
-                "name": "ACME Molecular Lab"
+                "label": "ACME Molecular Lab"
               },
-              "onDate": "6/11/2011 11:45 AM",
-              "role": {
+              "contributionDate": "6/11/2011 11:45 AM",
+              "contributionRole": {
                 "id": "CC417",
                 "type": "CodeableConcept",
                 "coding": [
                   {
-                    "id": "CG-contributory-role:assessor",
+                    "id": "SEPIO:0000154",
                     "type": "Coding",
-                    "code": "assessor",
-                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                    "display": "assessor"
+                    "code": "0000154",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "assessor role"
                   }
                 ]
               }
@@ -3468,10 +3494,10 @@ and may serve as a starting point for exploring the model.</p>
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-evidence-strength:pm",
+            "id": "SEPIO:0000216",
             "type": "Coding",
-            "code": "pm",
-            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "code": "0000216",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Pathogenic Moderate"
           }
         ]
@@ -3482,19 +3508,19 @@ and may serve as a starting point for exploring the model.</p>
           "agent": {
             "id": "Agent010",
             "type": "Agent",
-            "name": "ACME Molecular Lab"
+            "label": "ACME Molecular Lab"
           },
-          "onDate": "6/11/2011 11:45 AM",
-          "role": {
+          "contributionDate": "6/11/2011 11:45 AM",
+          "contributionRole": {
             "id": "CC438",
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-contributory-role:assessor",
+                "id": "SEPIO:0000154",
                 "type": "Coding",
-                "code": "assessor",
-                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                "display": "assessor"
+                "code": "0000154",
+                "system": "http://obofoundry.org/sepio/",
+                "display": "assessor role"
               }
             ]
           }
@@ -3504,17 +3530,15 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "EvLn129",
       "type": "EvidenceLine",
-      "explanation": "EvLn129",
       "evidenceItem": [
         {
           "id": "CritAssess377",
           "type": "CriterionAssessment",
-          "explanation": "Parental testing in our lab confirmed this variant was present de novo in 1 proband with clinical features of CFC. (LMM internal Data)",
+          "description": "Parental testing in our lab confirmed this variant was present de novo in 1 proband with clinical features of CFC. (LMM internal Data)",
           "criterion": {
             "id": "PM6",
             "type": "Criterion",
             "description": "Assumed de novo, but without confirmation of paternity and maternity",
-            "shortDescription": "Assumed de novo (parental status not confirmed)",
             "defaultStrength": {
               "id": "CG-evidence-strength:pm"
             }
@@ -3529,7 +3553,6 @@ and may serve as a starting point for exploring the model.</p>
             {
               "id": "GenCond069",
               "type": "GeneticCondition",
-              "explanation": "cardiofaciocutaneous syndrome",
               "disease": [
                 {
                   "id": "Orphanet:1340",
@@ -3542,10 +3565,10 @@ and may serve as a starting point for exploring the model.</p>
             }
           ],
           "outcome": {
-            "id": "CG-criterion-outcome:met",
+            "id": "SEPIO:0000223",
             "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "code": "0000223",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Met"
           },
           "contribution": [
@@ -3554,19 +3577,19 @@ and may serve as a starting point for exploring the model.</p>
               "agent": {
                 "id": "Agent010",
                 "type": "Agent",
-                "name": "ACME Molecular Lab"
+                "label": "ACME Molecular Lab"
               },
-              "onDate": "6/11/2011 12:45:00",
-              "role": {
+              "contributionDate": "6/11/2011 12:45:00",
+              "contributionRole": {
                 "id": "CC418",
                 "type": "CodeableConcept",
                 "coding": [
                   {
-                    "id": "CG-contributory-role:assessor",
+                    "id": "SEPIO:0000154",
                     "type": "Coding",
-                    "code": "assessor",
-                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                    "display": "assessor"
+                    "code": "0000154",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "assessor role"
                   }
                 ]
               }
@@ -3579,10 +3602,10 @@ and may serve as a starting point for exploring the model.</p>
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-evidence-strength:pm",
+            "id": "SEPIO:0000216",
             "type": "Coding",
-            "code": "pm",
-            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "code": "0000216",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Pathogenic Moderate"
           }
         ]
@@ -3593,19 +3616,19 @@ and may serve as a starting point for exploring the model.</p>
           "agent": {
             "id": "Agent010",
             "type": "Agent",
-            "name": "ACME Molecular Lab"
+            "label": "ACME Molecular Lab"
           },
-          "onDate": "6/11/2011 12:45:00",
-          "role": {
+          "contributionDate": "6/11/2011 12:45:00",
+          "contributionRole": {
             "id": "CC439",
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-contributory-role:assessor",
+                "id": "SEPIO:0000154",
                 "type": "Coding",
-                "code": "assessor",
-                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                "display": "assessor"
+                "code": "0000154",
+                "system": "http://obofoundry.org/sepio/",
+                "display": "assessor role"
               }
             ]
           }
@@ -3615,17 +3638,15 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "EvLn131",
       "type": "EvidenceLine",
-      "explanation": "EvLn131",
       "evidenceItem": [
         {
           "id": "CritAssess378",
           "type": "CriterionAssessment",
-          "explanation": "Another variant at the same residue (Lys483Asn) was identified as a de novo variant in an individual with features of a Noonan spectrum disorder (LMM unpublished data). The other variant: NM_004333.4(BRAF):c.1449A>C (p.Lys483Asn) is classified as likely pathogenic by LMM for Rasopathy.",
+          "description": "Another variant at the same residue (Lys483Asn) was identified as a de novo variant in an individual with features of a Noonan spectrum disorder (LMM unpublished data). The other variant: NM_004333.4(BRAF):c.1449A>C (p.Lys483Asn) is classified as likely pathogenic by LMM for Rasopathy.",
           "criterion": {
             "id": "PM5",
             "type": "Criterion",
             "description": "Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before",
-            "shortDescription": "Novel missense at same amino acid as known pathogenic missense",
             "defaultStrength": {
               "id": "CG-evidence-strength:pm"
             }
@@ -3640,7 +3661,6 @@ and may serve as a starting point for exploring the model.</p>
             {
               "id": "GenCond049",
               "type": "GeneticCondition",
-              "explanation": "Rasopathy",
               "disease": [
                 {
                   "id": "Orphanet:98733",
@@ -3654,22 +3674,21 @@ and may serve as a starting point for exploring the model.</p>
             }
           ],
           "outcome": {
-            "id": "CG-criterion-outcome:met",
+            "id": "SEPIO:0000223",
             "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "code": "0000223",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Met"
           },
           "evidenceLine": [
             {
               "id": "EvLn130",
               "type": "EvidenceLine",
-              "explanation": "EvLn130",
               "evidenceItem": [
                 {
                   "id": "VarInterp060",
                   "type": "VariantInterpretation",
-                  "explanation": "The Lys483Asn variant in BRAF has not been previously reported in the literature, but has been identified as a de novo variant in one proband in our laboratory. In addition, this residue is highly conserved across evolutionarily distinct species and computational analyses (PolyPhen2, SIFT, AlignGVGD) predict that this variant will impact the normal function of BRAF. It should be noted that the sensitivity and specificity of these computational programs has not been determined by our laboratory. Therefore, this variant is likely to be pathogenic.",
+                  "description": "The Lys483Asn variant in BRAF has not been previously reported in the literature, but has been identified as a de novo variant in one proband in our laboratory. In addition, this residue is highly conserved across evolutionarily distinct species and computational analyses (PolyPhen2, SIFT, AlignGVGD) predict that this variant will impact the normal function of BRAF. It should be noted that the sensitivity and specificity of these computational programs has not been determined by our laboratory. Therefore, this variant is likely to be pathogenic.",
                   "variant": {
                     "id": "CanAll127",
                     "type": "CanonicalAllele",
@@ -3680,7 +3699,6 @@ and may serve as a starting point for exploring the model.</p>
                     {
                       "id": "GenCond049",
                       "type": "GeneticCondition",
-                      "explanation": "Rasopathy",
                       "disease": [
                         {
                           "id": "Orphanet:98733",
@@ -3693,7 +3711,7 @@ and may serve as a starting point for exploring the model.</p>
                       "name": "Rasopathy"
                     }
                   ],
-                  "clinicalSignificance": {
+                  "outcome": {
                     "id": "LN:LA26332-9",
                     "type": "Coding",
                     "code": "LA26332-9",
@@ -3706,19 +3724,19 @@ and may serve as a starting point for exploring the model.</p>
                       "agent": {
                         "id": "Agent010",
                         "type": "Agent",
-                        "name": "ACME Molecular Lab"
+                        "label": "ACME Molecular Lab"
                       },
-                      "onDate": "6/12/2011 9:00 AM",
-                      "role": {
+                      "contributionDate": "6/12/2011 9:00 AM",
+                      "contributionRole": {
                         "id": "CC420",
                         "type": "CodeableConcept",
                         "coding": [
                           {
-                            "id": "CG-contributory-role:interpreter",
+                            "id": "SEPIO:0000331",
                             "type": "Coding",
-                            "code": "interpreter",
-                            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                            "display": "interpreter"
+                            "code": "0000331",
+                            "system": "http://obofoundry.org/sepio/",
+                            "display": "interpreter role"
                           }
                         ]
                       }
@@ -3734,19 +3752,19 @@ and may serve as a starting point for exploring the model.</p>
               "agent": {
                 "id": "Agent010",
                 "type": "Agent",
-                "name": "ACME Molecular Lab"
+                "label": "ACME Molecular Lab"
               },
-              "onDate": "6/10/2011 1:45 PM",
-              "role": {
+              "contributionDate": "6/10/2011 1:45 PM",
+              "contributionRole": {
                 "id": "CC419",
                 "type": "CodeableConcept",
                 "coding": [
                   {
-                    "id": "CG-contributory-role:assessor",
+                    "id": "SEPIO:0000154",
                     "type": "Coding",
-                    "code": "assessor",
-                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                    "display": "assessor"
+                    "code": "0000154",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "assessor role"
                   }
                 ]
               }
@@ -3759,10 +3777,10 @@ and may serve as a starting point for exploring the model.</p>
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-evidence-strength:pm",
+            "id": "SEPIO:0000216",
             "type": "Coding",
-            "code": "pm",
-            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "code": "0000216",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Pathogenic Moderate"
           }
         ]
@@ -3773,19 +3791,19 @@ and may serve as a starting point for exploring the model.</p>
           "agent": {
             "id": "Agent010",
             "type": "Agent",
-            "name": "ACME Molecular Lab"
+            "label": "ACME Molecular Lab"
           },
-          "onDate": "6/10/2011 1:45 PM",
-          "role": {
+          "contributionDate": "6/10/2011 1:45 PM",
+          "contributionRole": {
             "id": "CC440",
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-contributory-role:assessor",
+                "id": "SEPIO:0000154",
                 "type": "Coding",
-                "code": "assessor",
-                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                "display": "assessor"
+                "code": "0000154",
+                "system": "http://obofoundry.org/sepio/",
+                "display": "assessor role"
               }
             ]
           }
@@ -3799,19 +3817,19 @@ and may serve as a starting point for exploring the model.</p>
       "agent": {
         "id": "Agent009",
         "type": "Agent",
-        "name": "George Geneticist"
+        "label": "George Geneticist"
       },
-      "onDate": "8/14/2014 10:29 AM",
-      "role": {
+      "contributionDate": "8/14/2014 10:29 AM",
+      "contributionRole": {
         "id": "CC414",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:interpreter",
+            "id": "SEPIO:0000331",
             "type": "Coding",
-            "code": "interpreter",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "interpreter"
+            "code": "0000331",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "interpreter role"
           }
         ]
       }
@@ -3856,7 +3874,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond016",
       "type": "GeneticCondition",
-      "explanation": "Primary familial hypertrophic cardiomyopathy, Autosomal Dominant",
       "disease": [
         {
           "id": "Orphanet:217569",
@@ -3876,7 +3893,7 @@ and may serve as a starting point for exploring the model.</p>
       "name": "Primary familial hypertrophic cardiomyopathy, Autosomal Dominant"
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA26332-9",
     "type": "Coding",
     "code": "LA26332-9",
@@ -3889,19 +3906,19 @@ and may serve as a starting point for exploring the model.</p>
       "agent": {
         "id": "Agent011",
         "type": "Agent",
-        "name": "Genetics Diagnostic Laboratory,Children's Hospital of Eastern Ontario"
+        "label": "Genetics Diagnostic Laboratory,Children's Hospital of Eastern Ontario"
       },
-      "onDate": "6/1/2014 9:02 AM",
-      "role": {
+      "contributionDate": "6/1/2014 9:02 AM",
+      "contributionRole": {
         "id": "CC422",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:interpreter",
+            "id": "SEPIO:0000331",
             "type": "Coding",
-            "code": "interpreter",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "interpreter"
+            "code": "0000331",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "interpreter role"
           }
         ]
       }
@@ -3949,7 +3966,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond016",
       "type": "GeneticCondition",
-      "explanation": "Primary familial hypertrophic cardiomyopathy, Autosomal Dominant",
       "disease": [
         {
           "id": "Orphanet:217569",
@@ -3969,7 +3985,7 @@ and may serve as a starting point for exploring the model.</p>
       "name": "Primary familial hypertrophic cardiomyopathy, Autosomal Dominant"
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -3982,19 +3998,19 @@ and may serve as a starting point for exploring the model.</p>
       "agent": {
         "id": "Agent012",
         "type": "Agent",
-        "name": "GeneDx"
+        "label": "GeneDx"
       },
-      "onDate": "6/20/2016 11:12 AM",
-      "role": {
+      "contributionDate": "6/20/2016 11:12 AM",
+      "contributionRole": {
         "id": "CC423",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:interpreter",
+            "id": "SEPIO:0000331",
             "type": "Coding",
-            "code": "interpreter",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "interpreter"
+            "code": "0000331",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "interpreter role"
           }
         ]
       }
@@ -4042,7 +4058,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond017",
       "type": "GeneticCondition",
-      "explanation": "Ornithine carbamoyltransferase deficiency",
       "disease": [
         {
           "id": "Orphanet:664",
@@ -4054,7 +4069,7 @@ and may serve as a starting point for exploring the model.</p>
       ]
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -4100,7 +4115,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond050",
       "type": "GeneticCondition",
-      "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
       "name": "Breast Ovarian Cancer, Autosomal Dominant",
       "disease": [
         {
@@ -4120,7 +4134,7 @@ and may serve as a starting point for exploring the model.</p>
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -4156,7 +4170,7 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp150"><pre><code>{
   "id": "VarInterp150",
   "type": "VariantInterpretation",
-  "explanation": "Variant has been classified as “Pathogenic” by Sharing Clinical Reports Project (SCV000054057.3)",
+  "description": "Variant has been classified as “Pathogenic” by Sharing Clinical Reports Project (SCV000054057.3)",
   "variant": {
     "id": "CanAll072",
     "type": "CanonicalAllele",
@@ -4167,7 +4181,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond023",
       "type": "GeneticCondition",
-      "explanation": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2, Autosomal Dominant",
       "disease": [
         {
           "id": "OMIM:612555",
@@ -4186,7 +4199,7 @@ and may serve as a starting point for exploring the model.</p>
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -4222,7 +4235,7 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp151"><pre><code>{
   "id": "VarInterp151",
   "type": "VariantInterpretation",
-  "explanation": "Variant has been classified as “Pathogenic” by OMIM (SCV000043718.1)",
+  "description": "Variant has been classified as “Pathogenic” by OMIM (SCV000043718.1)",
   "variant": {
     "id": "CanAll073",
     "type": "CanonicalAllele",
@@ -4233,7 +4246,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond024",
       "type": "GeneticCondition",
-      "explanation": "Myopathy, Distal, type 4, Autosomal Dominant",
       "disease": [
         {
           "id": "OMIM:614065",
@@ -4252,7 +4264,7 @@ and may serve as a starting point for exploring the model.</p>
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -4288,7 +4300,7 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp152"><pre><code>{
   "id": "VarInterp152",
   "type": "VariantInterpretation",
-  "explanation": "Variant has been classified as “Pathogenic” by Expert panel CFTR (SCV000245981.1)",
+  "description": "Variant has been classified as “Pathogenic” by Expert panel CFTR (SCV000245981.1)",
   "variant": {
     "id": "CanAll074",
     "type": "CanonicalAllele",
@@ -4299,7 +4311,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond025",
       "type": "GeneticCondition",
-      "explanation": "Cystic Fibrosis, Autosomal Recessive",
       "disease": [
         {
           "id": "Orphanet:586",
@@ -4318,7 +4329,7 @@ and may serve as a starting point for exploring the model.</p>
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -4364,7 +4375,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond038",
       "type": "GeneticCondition",
-      "explanation": "Retinitis Pigmentosa",
       "disease": [
         {
           "id": "Orphanet:791",
@@ -4376,7 +4386,7 @@ and may serve as a starting point for exploring the model.</p>
       ]
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -4422,7 +4432,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond039",
       "type": "GeneticCondition",
-      "explanation": "Absent vas deferens",
       "phenotype": [
         {
           "id": "HP:0012873",
@@ -4434,7 +4443,7 @@ and may serve as a starting point for exploring the model.</p>
       ]
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -4480,7 +4489,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond007",
       "type": "GeneticCondition",
-      "explanation": "cardiomyopathy, Autosomal Dominant",
       "disease": [
         {
           "id": "Orphanet:167848",
@@ -4499,7 +4507,7 @@ and may serve as a starting point for exploring the model.</p>
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA26333-7",
     "type": "Coding",
     "code": "LA26333-7",
@@ -4545,7 +4553,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond067",
       "type": "GeneticCondition",
-      "explanation": "hypertrophic cardiomyopathy",
       "disease": [
         {
           "id": "Orphanet:217569",
@@ -4557,7 +4564,7 @@ and may serve as a starting point for exploring the model.</p>
       ]
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA26332-9",
     "type": "Coding",
     "code": "LA26332-9",
@@ -4603,7 +4610,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond060",
       "type": "GeneticCondition",
-      "explanation": "nonsyndromic deafness",
       "disease": [
         {
           "id": "Orphanet:87884",
@@ -4615,7 +4621,7 @@ and may serve as a starting point for exploring the model.</p>
       ]
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA26332-9",
     "type": "Coding",
     "code": "LA26332-9",
@@ -4661,7 +4667,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond060",
       "type": "GeneticCondition",
-      "explanation": "nonsyndromic deafness",
       "disease": [
         {
           "id": "Orphanet:87884",
@@ -4673,7 +4678,7 @@ and may serve as a starting point for exploring the model.</p>
       ]
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA26332-9",
     "type": "Coding",
     "code": "LA26332-9",
@@ -4719,7 +4724,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond071",
       "type": "GeneticCondition",
-      "explanation": "Usher syndrome, Autosomal Recessive",
       "disease": [
         {
           "id": "Orphanet:886",
@@ -4738,7 +4742,7 @@ and may serve as a starting point for exploring the model.</p>
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -4784,7 +4788,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond042",
       "type": "GeneticCondition",
-      "explanation": "pseudoachondroplasia",
       "disease": [
         {
           "id": "Orphanet:750",
@@ -4796,7 +4799,7 @@ and may serve as a starting point for exploring the model.</p>
       ]
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",
@@ -4832,7 +4835,7 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp255"><pre><code>{
   "id": "VarInterp255",
   "type": "VariantInterpretation",
-  "explanation": "classified by ENIGMA.",
+  "description": "classified by ENIGMA.",
   "variant": {
     "id": "CanAll114",
     "type": "CanonicalAllele",
@@ -4843,7 +4846,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond073",
       "type": "GeneticCondition",
-      "explanation": "hereditary breast and ovarian cancer",
       "disease": [
         {
           "id": "Orphanet:145",
@@ -4856,7 +4858,7 @@ and may serve as a starting point for exploring the model.</p>
       "name": "hereditary breast and ovarian cancer"
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6675-8",
     "type": "Coding",
     "code": "LA6675-8",
@@ -4892,7 +4894,7 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp256"><pre><code>{
   "id": "VarInterp256",
   "type": "VariantInterpretation",
-  "explanation": "classified by Sharing Clinical Reports Project.",
+  "description": "classified by Sharing Clinical Reports Project.",
   "variant": {
     "id": "CanAll115",
     "type": "CanonicalAllele",
@@ -4903,7 +4905,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond043",
       "type": "GeneticCondition",
-      "explanation": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2",
       "disease": [
         {
           "id": "OMIM:612555",
@@ -4915,7 +4916,7 @@ and may serve as a starting point for exploring the model.</p>
       ]
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6675-8",
     "type": "Coding",
     "code": "LA6675-8",
@@ -4951,7 +4952,7 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp257"><pre><code>{
   "id": "VarInterp257",
   "type": "VariantInterpretation",
-  "explanation": "classified by OMIM",
+  "description": "classified by OMIM",
   "variant": {
     "id": "CanAll116",
     "type": "CanonicalAllele",
@@ -4962,7 +4963,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond044",
       "type": "GeneticCondition",
-      "explanation": "Gyrate atrophy of choroid and retina",
       "disease": [
         {
           "id": "Orphanet:414",
@@ -4974,7 +4974,7 @@ and may serve as a starting point for exploring the model.</p>
       ]
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6675-8",
     "type": "Coding",
     "code": "LA6675-8",
@@ -5010,7 +5010,7 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp270"><pre><code>{
   "id": "VarInterp270",
   "type": "VariantInterpretation",
-  "explanation": "Pseudoachondroplastic spondyloepiphyseal dysplasia syndrome is caused by a combination of a pathogenic variant in COL2A1 and another in COMP.   So CA113 may be involved, but is not the sole cause.",
+  "description": "Pseudoachondroplastic spondyloepiphyseal dysplasia syndrome is caused by a combination of a pathogenic variant in COL2A1 and another in COMP.   So CA113 may be involved, but is not the sole cause.",
   "variant": {
     "id": "CanAll113",
     "type": "CanonicalAllele",
@@ -5021,7 +5021,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond041",
       "type": "GeneticCondition",
-      "explanation": "Pseudoachondroplastic spondyloepiphyseal dysplasia",
       "disease": [
         {
           "id": "Orphanet:750",
@@ -5034,7 +5033,7 @@ and may serve as a starting point for exploring the model.</p>
       "name": "Pseudoachondroplastic spondyloepiphyseal dysplasia"
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA26333-7",
     "type": "Coding",
     "code": "LA26333-7",
@@ -5070,7 +5069,7 @@ and may serve as a starting point for exploring the model.</p>
           <td><div class="example_view" id="VarInterp274"><pre><code>{
   "id": "VarInterp274",
   "type": "VariantInterpretation",
-  "explanation": "The Trp2490_Leu2496del variant in DNAH5 leads to an in-frame deletion of 7 amino acids. This variant has been reported together with a second DNAH5 variant (Met2083Ile) in one individual with PCD and situs inversus (Berg 2011). In addition, this variant has been identified in trans configuration with a disease-causing variant in one affected proband (LMM unpublished data). Data from large population studies is insufficient to determine whether this variant is present in the general population. In summary, this variant is likely pathogenic, though additional studies are required to fully establish its clinical significance.",
+  "description": "The Trp2490_Leu2496del variant in DNAH5 leads to an in-frame deletion of 7 amino acids. This variant has been reported together with a second DNAH5 variant (Met2083Ile) in one individual with PCD and situs inversus (Berg 2011). In addition, this variant has been identified in trans configuration with a disease-causing variant in one affected proband (LMM unpublished data). Data from large population studies is insufficient to determine whether this variant is present in the general population. In summary, this variant is likely pathogenic, though additional studies are required to fully establish its clinical significance.",
   "variant": {
     "id": "CanAll035",
     "type": "CanonicalAllele",
@@ -5081,7 +5080,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond063",
       "type": "GeneticCondition",
-      "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
       "disease": [
         {
           "id": "Orphanet:244",
@@ -5100,7 +5098,7 @@ and may serve as a starting point for exploring the model.</p>
       }
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA26332-9",
     "type": "Coding",
     "code": "LA26332-9",
@@ -5111,8 +5109,8 @@ and may serve as a starting point for exploring the model.</p>
     "id": "AssertMeth001",
     "type": "AssertionMethod",
     "description": "ACMG ISV guidelines 2015",
-    "version": "1.0",
     "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
+    "version": "1.0",
     "scoringAlgorithm": {
       "id": "ScorAlg01",
       "type": "ScoringAlgorithm",
@@ -5123,17 +5121,15 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "EvLn110",
       "type": "EvidenceLine",
-      "explanation": "EvLn110",
       "evidenceItem": [
         {
           "id": "CritAssess305",
           "type": "CriterionAssessment",
-          "explanation": "while the variant is absent from exac, however\n1) very low coverage across this region (~5X) and usually 20X is used as a cut-off to say “absent”\n2) variant is 21 nt deletion - databases may not be able to call a variant of that size (I rarely see an indel of this size in ExAC).",
+          "description": "while the variant is absent from exac, however\n1) very low coverage across this region (~5X) and usually 20X is used as a cut-off to say “absent”\n2) variant is 21 nt deletion - databases may not be able to call a variant of that size (I rarely see an indel of this size in ExAC).",
           "criterion": {
             "id": "PM2",
             "type": "Criterion",
             "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
-            "shortDescription": "Absent from controls",
             "defaultStrength": {
               "id": "CG-evidence-strength:pm"
             }
@@ -5145,17 +5141,16 @@ and may serve as a starting point for exploring the model.</p>
             "identifier": "http://reg.genome.network/allele/CA090919"
           },
           "outcome": {
-            "id": "CG-criterion-outcome:not-met",
+            "id": "SEPIO:0000224",
             "type": "Coding",
-            "code": "not-met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "code": "0000224",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Not Met"
           },
           "evidenceLine": [
             {
               "id": "EvLn040",
               "type": "EvidenceLine",
-              "explanation": "EvLn040",
               "evidenceItem": [
                 {
                   "id": "AllFreq082",
@@ -5165,11 +5160,11 @@ and may serve as a starting point for exploring the model.</p>
                     "type": "CodeableConcept",
                     "coding": [
                       {
-                        "id": "CG-ascertainment-type:ExAC",
+                        "id": "SEPIO:0000332",
                         "type": "Coding",
-                        "code": "ExAC",
-                        "system": "http://clinicalgenome.org/datamodel/ascertainment-type/",
-                        "display": "ExAC"
+                        "code": "0000332",
+                        "system": "http://obofoundry.org/sepio/",
+                        "display": "ExAc ascertainment method"
                       }
                     ]
                   },
@@ -5201,19 +5196,19 @@ and may serve as a starting point for exploring the model.</p>
                       "agent": {
                         "id": "Agent001",
                         "type": "Agent",
-                        "name": "Harry Stevenson"
+                        "label": "Harry Stevenson"
                       },
-                      "onDate": "6/1/16 2:15 PM",
-                      "role": {
+                      "contributionDate": "6/1/16 2:15 PM",
+                      "contributionRole": {
                         "id": "CC390",
                         "type": "CodeableConcept",
                         "coding": [
                           {
-                            "id": "CG-contributory-role:curator",
+                            "id": "SEPIO:0000156",
                             "type": "Coding",
-                            "code": "curator",
-                            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                            "display": "curator"
+                            "code": "0000156",
+                            "system": "http://obofoundry.org/sepio/",
+                            "display": "curator role"
                           }
                         ]
                       }
@@ -5232,19 +5227,19 @@ and may serve as a starting point for exploring the model.</p>
               "agent": {
                 "id": "Agent001",
                 "type": "Agent",
-                "name": "Harry Stevenson"
+                "label": "Harry Stevenson"
               },
-              "onDate": "7/1/16 10:53 AM",
-              "role": {
+              "contributionDate": "7/1/16 10:53 AM",
+              "contributionRole": {
                 "id": "CC333",
                 "type": "CodeableConcept",
                 "coding": [
                   {
-                    "id": "CG-contributory-role:assessor",
+                    "id": "SEPIO:0000154",
                     "type": "Coding",
-                    "code": "assessor",
-                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                    "display": "assessor"
+                    "code": "0000154",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "assessor role"
                   }
                 ]
               }
@@ -5254,19 +5249,19 @@ and may serve as a starting point for exploring the model.</p>
               "agent": {
                 "id": "Agent004",
                 "type": "Agent",
-                "name": "CSER Bakeoff Project"
+                "label": "CSER Bakeoff Project"
               },
-              "onDate": "7/1/16 10:53 AM",
-              "role": {
+              "contributionDate": "7/1/16 10:53 AM",
+              "contributionRole": {
                 "id": "CC334",
                 "type": "CodeableConcept",
                 "coding": [
                   {
-                    "id": "CG-contributory-role:assessor",
+                    "id": "SEPIO:0000154",
                     "type": "Coding",
-                    "code": "assessor",
-                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                    "display": "assessor"
+                    "code": "0000154",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "assessor role"
                   }
                 ]
               }
@@ -5279,10 +5274,10 @@ and may serve as a starting point for exploring the model.</p>
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-evidence-strength:na",
+            "id": "SEPIO:0000218",
             "type": "Coding",
-            "code": "na",
-            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "code": "0000218",
+            "system": "http://obofoundry.org/sepio/",
             "display": "None"
           }
         ]
@@ -5293,19 +5288,19 @@ and may serve as a starting point for exploring the model.</p>
           "agent": {
             "id": "Agent001",
             "type": "Agent",
-            "name": "Harry Stevenson"
+            "label": "Harry Stevenson"
           },
-          "onDate": "7/1/16 10:53 AM",
-          "role": {
+          "contributionDate": "7/1/16 10:53 AM",
+          "contributionRole": {
             "id": "CC424",
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-contributory-role:assessor",
+                "id": "SEPIO:0000154",
                 "type": "Coding",
-                "code": "assessor",
-                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                "display": "assessor"
+                "code": "0000154",
+                "system": "http://obofoundry.org/sepio/",
+                "display": "assessor role"
               }
             ]
           }
@@ -5315,19 +5310,19 @@ and may serve as a starting point for exploring the model.</p>
           "agent": {
             "id": "Agent004",
             "type": "Agent",
-            "name": "CSER Bakeoff Project"
+            "label": "CSER Bakeoff Project"
           },
-          "onDate": "7/1/16 10:53 AM",
-          "role": {
+          "contributionDate": "7/1/16 10:53 AM",
+          "contributionRole": {
             "id": "CC425",
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-contributory-role:assessor",
+                "id": "SEPIO:0000154",
                 "type": "Coding",
-                "code": "assessor",
-                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                "display": "assessor"
+                "code": "0000154",
+                "system": "http://obofoundry.org/sepio/",
+                "display": "assessor role"
               }
             ]
           }
@@ -5337,7 +5332,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "EvLn111",
       "type": "EvidenceLine",
-      "explanation": "EvLn111",
       "evidenceItem": [
         {
           "id": "CritAssess296",
@@ -5346,7 +5340,6 @@ and may serve as a starting point for exploring the model.</p>
             "id": "PM3",
             "type": "Criterion",
             "description": "For recessive disorders, detected in trans with a pathogenic variant",
-            "shortDescription": "Recessive in trans with pathogenic variant",
             "defaultStrength": {
               "id": "CG-evidence-strength:pm"
             }
@@ -5361,7 +5354,6 @@ and may serve as a starting point for exploring the model.</p>
             {
               "id": "GenCond062",
               "type": "GeneticCondition",
-              "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
               "disease": [
                 {
                   "id": "Orphanet:244",
@@ -5381,17 +5373,16 @@ and may serve as a starting point for exploring the model.</p>
             }
           ],
           "outcome": {
-            "id": "CG-criterion-outcome:met",
+            "id": "SEPIO:0000223",
             "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "code": "0000223",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Met"
           },
           "evidenceLine": [
             {
               "id": "EvLn029",
               "type": "EvidenceLine",
-              "explanation": "EvLn029",
               "evidenceItem": [
                 {
                   "id": "IndCond056",
@@ -5405,7 +5396,6 @@ and may serve as a starting point for exploring the model.</p>
                     {
                       "id": "GenCond014",
                       "type": "GeneticCondition",
-                      "explanation": "PCD autosomal recessive w/ outer dynein arm (ODA) defects",
                       "name": "PCD autosomal recessive w/ outer dynein arm (ODA) defects",
                       "disease": [
                         {
@@ -5434,26 +5424,32 @@ and may serve as a starting point for exploring the model.</p>
                       ]
                     }
                   ],
-                  "hasCondition": true,
+                  "individualHasCondition": {
+                    "id": "SEPIO-CG:99009",
+                    "type": "Coding",
+                    "code": "99009",
+                    "system": "http://obofoundry.org/sepio/clingen",
+                    "display": "affected"
+                  },
                   "contribution": [
                     {
                       "type": "Contribution",
                       "agent": {
                         "id": "Agent007",
                         "type": "Agent",
-                        "name": "Stefan DiMarino"
+                        "label": "Stefan DiMarino"
                       },
-                      "onDate": "5/31/16 8:46 AM",
-                      "role": {
+                      "contributionDate": "5/31/16 8:46 AM",
+                      "contributionRole": {
                         "id": "CC385",
                         "type": "CodeableConcept",
                         "coding": [
                           {
-                            "id": "CG-contributory-role:curator",
+                            "id": "SEPIO:0000156",
                             "type": "Coding",
-                            "code": "curator",
-                            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                            "display": "curator"
+                            "code": "0000156",
+                            "system": "http://obofoundry.org/sepio/",
+                            "display": "curator role"
                           }
                         ]
                       }
@@ -5476,7 +5472,6 @@ and may serve as a starting point for exploring the model.</p>
                     {
                       "id": "GenCond062",
                       "type": "GeneticCondition",
-                      "explanation": "Primary ciliary dyskenisia, Autosomal Recessive",
                       "disease": [
                         {
                           "id": "Orphanet:244",
@@ -5495,7 +5490,7 @@ and may serve as a starting point for exploring the model.</p>
                       }
                     }
                   ],
-                  "clinicalSignificance": {
+                  "outcome": {
                     "id": "LN:LA6668-3",
                     "type": "Coding",
                     "code": "LA6668-3",
@@ -5508,19 +5503,19 @@ and may serve as a starting point for exploring the model.</p>
                       "agent": {
                         "id": "Agent007",
                         "type": "Agent",
-                        "name": "Stefan DiMarino"
+                        "label": "Stefan DiMarino"
                       },
-                      "onDate": "5/31/16 11:01 AM",
-                      "role": {
+                      "contributionDate": "5/31/16 11:01 AM",
+                      "contributionRole": {
                         "id": "CC387",
                         "type": "CodeableConcept",
                         "coding": [
                           {
-                            "id": "CG-contributory-role:interpreter",
+                            "id": "SEPIO:0000331",
                             "type": "Coding",
-                            "code": "interpreter",
-                            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                            "display": "interpreter"
+                            "code": "0000331",
+                            "system": "http://obofoundry.org/sepio/",
+                            "display": "interpreter role"
                           }
                         ]
                       }
@@ -5533,7 +5528,7 @@ and may serve as a starting point for exploring the model.</p>
                 {
                   "id": "IndAll058",
                   "type": "IndividualAllele",
-                  "explanation": "Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband.",
+                  "description": "Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband.",
                   "individual": {
                     "id": "Indiv004",
                     "type": "Individual",
@@ -5552,24 +5547,24 @@ and may serve as a starting point for exploring the model.</p>
                     "identifier": "http://reg.genome.network/allele/CA273615"
                   },
                   "primaryZygosity": {
-                    "id": "CG-allelic-state:heterozygous",
+                    "id": "GENO:0000135",
                     "type": "Coding",
-                    "code": "heterozygous",
-                    "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+                    "code": "0000135",
+                    "system": "http://obofoundry.org/geno/",
                     "display": "heterozygous"
                   },
                   "secondaryZygosity": {
-                    "id": "CG-allelic-state:heterozygous",
+                    "id": "GENO:0000135",
                     "type": "Coding",
-                    "code": "heterozygous",
-                    "system": "http://clinicalgenome.org/datamodel/allelic-state/",
+                    "code": "0000135",
+                    "system": "http://obofoundry.org/geno/",
                     "display": "heterozygous"
                   },
                   "phase": {
-                    "id": "CG-phase:trans",
+                    "id": "GENO:0000132",
                     "type": "Coding",
-                    "code": "trans",
-                    "system": "http://clinicalgenome.org/datamodel/phase/",
+                    "code": "0000132",
+                    "system": "http://obofoundry.org/geno/",
                     "display": "in trans"
                   },
                   "contribution": [
@@ -5578,19 +5573,19 @@ and may serve as a starting point for exploring the model.</p>
                       "agent": {
                         "id": "Agent001",
                         "type": "Agent",
-                        "name": "Harry Stevenson"
+                        "label": "Harry Stevenson"
                       },
-                      "onDate": "5/31/16 9:15 AM",
-                      "role": {
+                      "contributionDate": "5/31/16 9:15 AM",
+                      "contributionRole": {
                         "id": "CC386",
                         "type": "CodeableConcept",
                         "coding": [
                           {
-                            "id": "CG-contributory-role:curator",
+                            "id": "SEPIO:0000156",
                             "type": "Coding",
-                            "code": "curator",
-                            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                            "display": "curator"
+                            "code": "0000156",
+                            "system": "http://obofoundry.org/sepio/",
+                            "display": "curator role"
                           }
                         ]
                       }
@@ -5609,19 +5604,19 @@ and may serve as a starting point for exploring the model.</p>
               "agent": {
                 "id": "Agent001",
                 "type": "Agent",
-                "name": "Harry Stevenson"
+                "label": "Harry Stevenson"
               },
-              "onDate": "6/2/16 8:01 AM",
-              "role": {
+              "contributionDate": "6/2/16 8:01 AM",
+              "contributionRole": {
                 "id": "CC324",
                 "type": "CodeableConcept",
                 "coding": [
                   {
-                    "id": "CG-contributory-role:assessor",
+                    "id": "SEPIO:0000154",
                     "type": "Coding",
-                    "code": "assessor",
-                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                    "display": "assessor"
+                    "code": "0000154",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "assessor role"
                   }
                 ]
               }
@@ -5634,10 +5629,10 @@ and may serve as a starting point for exploring the model.</p>
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-evidence-strength:pm",
+            "id": "SEPIO:0000216",
             "type": "Coding",
-            "code": "pm",
-            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "code": "0000216",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Pathogenic Moderate"
           }
         ]
@@ -5648,19 +5643,19 @@ and may serve as a starting point for exploring the model.</p>
           "agent": {
             "id": "Agent001",
             "type": "Agent",
-            "name": "Harry Stevenson"
+            "label": "Harry Stevenson"
           },
-          "onDate": "6/2/16 8:01 AM",
-          "role": {
+          "contributionDate": "6/2/16 8:01 AM",
+          "contributionRole": {
             "id": "CC426",
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-contributory-role:assessor",
+                "id": "SEPIO:0000154",
                 "type": "Coding",
-                "code": "assessor",
-                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                "display": "assessor"
+                "code": "0000154",
+                "system": "http://obofoundry.org/sepio/",
+                "display": "assessor role"
               }
             ]
           }
@@ -5670,17 +5665,15 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "EvLn112",
       "type": "EvidenceLine",
-      "explanation": "EvLn112",
       "evidenceItem": [
         {
           "id": "CritAssess299",
           "type": "CriterionAssessment",
-          "explanation": "leads to an in-frame deletion of 7 amino acids (not repeat region).",
+          "description": "leads to an in-frame deletion of 7 amino acids (not repeat region).",
           "criterion": {
             "id": "PM4",
             "type": "Criterion",
             "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
-            "shortDescription": "Protein length changes or stop-loss",
             "defaultStrength": {
               "id": "CG-evidence-strength:pm"
             }
@@ -5692,17 +5685,16 @@ and may serve as a starting point for exploring the model.</p>
             "identifier": "http://reg.genome.network/allele/CA090919"
           },
           "outcome": {
-            "id": "CG-criterion-outcome:met",
+            "id": "SEPIO:0000223",
             "type": "Coding",
-            "code": "met",
-            "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+            "code": "0000223",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Met"
           },
           "evidenceLine": [
             {
               "id": "EvLn032",
               "type": "EvidenceLine",
-              "explanation": "EvLn032",
               "evidenceItem": [
                 {
                   "id": "MolCon066",
@@ -5737,19 +5729,19 @@ and may serve as a starting point for exploring the model.</p>
                       "agent": {
                         "id": "Agent001",
                         "type": "Agent",
-                        "name": "Harry Stevenson"
+                        "label": "Harry Stevenson"
                       },
-                      "onDate": "6/1/16 2:03 PM",
-                      "role": {
+                      "contributionDate": "6/1/16 2:03 PM",
+                      "contributionRole": {
                         "id": "CC388",
                         "type": "CodeableConcept",
                         "coding": [
                           {
-                            "id": "CG-contributory-role:curator",
+                            "id": "SEPIO:0000156",
                             "type": "Coding",
-                            "code": "curator",
-                            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                            "display": "curator"
+                            "code": "0000156",
+                            "system": "http://obofoundry.org/sepio/",
+                            "display": "curator role"
                           }
                         ]
                       }
@@ -5760,9 +5752,9 @@ and may serve as a starting point for exploring the model.</p>
                   ]
                 },
                 {
-                  "id": "RegTyp069",
-                  "type": "RegionType",
-                  "explanation": "This is not a repreating region.",
+                  "id": "ExclRegTyp069",
+                  "type": "ExcludedRegionType",
+                  "description": "This is not a repreating region.",
                   "region": {
                     "id": "Loc385",
                     "type": "SequenceLocation",
@@ -5776,13 +5768,13 @@ and may serve as a starting point for exploring the model.</p>
                     "start": 2490,
                     "stop": 2496
                   },
-                  "includedTypes": [
+                  "annotation": [
                     {
-                      "id": "CG-reg-type:repeat",
+                      "id": "SO:0000657",
                       "type": "Coding",
-                      "code": "repeat",
-                      "system": "http://clinicalgenome.org/datamodel/region-type/",
-                      "display": "Repeat"
+                      "code": "0000657",
+                      "system": "http://sequenceontology.org/",
+                      "display": "repeat region "
                     }
                   ],
                   "contribution": [
@@ -5791,19 +5783,19 @@ and may serve as a starting point for exploring the model.</p>
                       "agent": {
                         "id": "Agent007",
                         "type": "Agent",
-                        "name": "Stefan DiMarino"
+                        "label": "Stefan DiMarino"
                       },
-                      "onDate": "6/1/16 2:10 PM",
-                      "role": {
+                      "contributionDate": "6/1/16 2:10 PM",
+                      "contributionRole": {
                         "id": "CC389",
                         "type": "CodeableConcept",
                         "coding": [
                           {
-                            "id": "CG-contributory-role:curator",
+                            "id": "SEPIO:0000156",
                             "type": "Coding",
-                            "code": "curator",
-                            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                            "display": "curator"
+                            "code": "0000156",
+                            "system": "http://obofoundry.org/sepio/",
+                            "display": "curator role"
                           }
                         ]
                       }
@@ -5822,19 +5814,19 @@ and may serve as a starting point for exploring the model.</p>
               "agent": {
                 "id": "Agent003",
                 "type": "Agent",
-                "name": "Sasha Rande"
+                "label": "Sasha Rande"
               },
-              "onDate": "6/12/16 7:30 AM",
-              "role": {
+              "contributionDate": "6/12/16 7:30 AM",
+              "contributionRole": {
                 "id": "CC327",
                 "type": "CodeableConcept",
                 "coding": [
                   {
-                    "id": "CG-contributory-role:assessor",
+                    "id": "SEPIO:0000154",
                     "type": "Coding",
-                    "code": "assessor",
-                    "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                    "display": "assessor"
+                    "code": "0000154",
+                    "system": "http://obofoundry.org/sepio/",
+                    "display": "assessor role"
                   }
                 ]
               }
@@ -5847,10 +5839,10 @@ and may serve as a starting point for exploring the model.</p>
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-evidence-strength:pm",
+            "id": "SEPIO:0000216",
             "type": "Coding",
-            "code": "pm",
-            "system": "http://clinicalgenome.org/datamodel/criterion-evidence-strength/",
+            "code": "0000216",
+            "system": "http://obofoundry.org/sepio/",
             "display": "Pathogenic Moderate"
           }
         ]
@@ -5861,19 +5853,19 @@ and may serve as a starting point for exploring the model.</p>
           "agent": {
             "id": "Agent003",
             "type": "Agent",
-            "name": "Sasha Rande"
+            "label": "Sasha Rande"
           },
-          "onDate": "6/12/16 7:30 AM",
-          "role": {
+          "contributionDate": "6/12/16 7:30 AM",
+          "contributionRole": {
             "id": "CC427",
             "type": "CodeableConcept",
             "coding": [
               {
-                "id": "CG-contributory-role:assessor",
+                "id": "SEPIO:0000154",
                 "type": "Coding",
-                "code": "assessor",
-                "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-                "display": "assessor"
+                "code": "0000154",
+                "system": "http://obofoundry.org/sepio/",
+                "display": "assessor role"
               }
             ]
           }
@@ -5887,19 +5879,19 @@ and may serve as a starting point for exploring the model.</p>
       "agent": {
         "id": "Agent009",
         "type": "Agent",
-        "name": "George Geneticist"
+        "label": "George Geneticist"
       },
-      "onDate": "6/26/2015 12:03 PM",
-      "role": {
+      "contributionDate": "6/26/2015 12:03 PM",
+      "contributionRole": {
         "id": "CC335",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:interpreter",
+            "id": "SEPIO:0000331",
             "type": "Coding",
-            "code": "interpreter",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "interpreter"
+            "code": "0000331",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "interpreter role"
           }
         ]
       }
@@ -5944,7 +5936,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond058",
       "type": "GeneticCondition",
-      "explanation": "Hearing Loss",
       "disease": [
         {
           "id": "Orphanet:87884",
@@ -5957,7 +5948,7 @@ and may serve as a starting point for exploring the model.</p>
       "name": "Hearing Loss"
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA26332-9",
     "type": "Coding",
     "code": "LA26332-9",
@@ -6003,7 +5994,6 @@ and may serve as a starting point for exploring the model.</p>
     {
       "id": "GenCond058",
       "type": "GeneticCondition",
-      "explanation": "Hearing Loss",
       "disease": [
         {
           "id": "Orphanet:87884",
@@ -6016,7 +6006,7 @@ and may serve as a starting point for exploring the model.</p>
       "name": "Hearing Loss"
     }
   ],
-  "clinicalSignificance": {
+  "outcome": {
     "id": "LN:LA6668-3",
     "type": "Coding",
     "code": "LA6668-3",

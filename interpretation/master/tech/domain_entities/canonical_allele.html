@@ -1,0 +1,2626 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Data Model
+    </title>
+
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../stylesheets/brand2.css" rel="stylesheet" /><link href="../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header col-sm-4 col-md-3">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand " href="#">ClinGen Documentation</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >
+                Models
+                  ::
+                  <span class="glyphicon leaf"></span>Interpretation
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                  <li class="allele" >
+                    <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
+                  </li>
+                  <li class="interpretation" >
+                    <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span>Interpretation</a></li>
+                  </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >development release<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                  <li><a href="/0.1/tech/domain_entities/canonical_allele.html">0.1</a></li>
+                  <li><a href="/development/tech/domain_entities/canonical_allele.html">development</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class='container-fluid bg-lblue padding-left-none padding-right-none'>
+      <div class='col-sm-offset-4 col-md-offset-3'>
+        <ol class="breadcrumb bg-none margin-none">
+          <li><a href="../../">Interpretation Model</a></li>
+<li><a href="../">Technical Reference and Examples</a></li>
+<li><a href="./">Domain Entities</a></li>
+
+        </ol>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-4 col-md-3 sidebar">
+         <div class='nav-sidebar nav-sidebar-title'>
+<a href="https://clinicalgenome.org">            	<img width="80%" height="80%" alt="ClinGen Documentation" class="img-responsive" src="../../images/clingen-doc-logo.png" />
+</a>        	</div>
+          <ul class="nav nav-sidebar">
+            
+            <li class="active">
+              <a href="../../">Welcome</a>
+            </li>
+            <li><a href="../../user/">User Guide</a></li>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../agent.html">Agent</a></li><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../contribution.html">Contribution</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="./">Domain Entities</a></li><ul><li class="active"><a href="canonical_allele.html">CanonicalAllele</a></li><li><a href="contextual_allele.html">ContextualAllele</a></li><li><a href="genetic_condition.html">GeneticCondition</a></li><li><a href="individual.html">Individual</a></li><li><a href="sequence_location.html">SequenceLocation</a></li></ul><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li><a href="../statement/">Statement</a></li><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <!-- Old style.  We might still need the model here? -->
+            <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+          </ul>
+        </div>
+        <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+          <article>
+
+
+            <h1>CanonicalAllele</h1>
+            <p>One of a set of coexisting sequence variants at a defined genomic locus, or a set of such variants located in cis on the same copy of the chromosome.
+</p>
+
+                <p>GENO:0000890</p>
+
+
+            <hr class='col-sm-12' />
+
+
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>Canonical Alleles are reference-independent identifiers for alleles.  They are more completely described in the <a href="http://datamodel.clinicalgenome.org/allele/master/index.html">ClinGen Allele model</a>.</p>
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>preferredCtxAllele</td>
+                <td>ContextualAllele</td>
+                <td>1..1</td>
+                <td></td>
+                <td>SEPIO:0000256</td>
+            </tr>
+            <tr>
+                <td>identifier</td>
+                <td>String</td>
+                <td>1..1</td>
+                <td></td>
+                <td>DC:identifier</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>preferredCtxAllele</th>
+        <th>identifier</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="../details/details.html#CanAll001">CanAll001</a></p></td>
+          <td>
+              <p>CtxAll001</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA090943</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll001"><pre><code>{
+  "id": "CanAll001",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll001",
+  "identifier": "http://reg.genome.network/allele/CA090943"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll002">CanAll002</a></p></td>
+          <td>
+              <p>CtxAll002</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA090898</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll002"><pre><code>{
+  "id": "CanAll002",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll002",
+  "identifier": "http://reg.genome.network/allele/CA090898"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll003">CanAll003</a></p></td>
+          <td>
+              <p>CtxAll003</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA238217</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll003"><pre><code>{
+  "id": "CanAll003",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll003",
+  "identifier": "http://reg.genome.network/allele/CA238217"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll004">CanAll004</a></p></td>
+          <td>
+              <p>CtxAll005</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA261606</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll004"><pre><code>{
+  "id": "CanAll004",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll005",
+  "identifier": "http://reg.genome.network/allele/CA261606"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll005">CanAll005</a></p></td>
+          <td>
+              <p>CtxAll006</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA220155</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll005"><pre><code>{
+  "id": "CanAll005",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll006",
+  "identifier": "http://reg.genome.network/allele/CA220155"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll006">CanAll006</a></p></td>
+          <td>
+              <p>CtxAll007</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA220157</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll006"><pre><code>{
+  "id": "CanAll006",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll007",
+  "identifier": "http://reg.genome.network/allele/CA220157"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll007">CanAll007</a></p></td>
+          <td>
+              <p>CtxAll008</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA501220</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll007"><pre><code>{
+  "id": "CanAll007",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll008",
+  "identifier": "http://reg.genome.network/allele/CA501220"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll008">CanAll008</a></p></td>
+          <td>
+              <p>CtxAll009</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA501221</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll008"><pre><code>{
+  "id": "CanAll008",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll009",
+  "identifier": "http://reg.genome.network/allele/CA501221"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll009">CanAll009</a></p></td>
+          <td>
+              <p>CtxAll010</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA501222</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll009"><pre><code>{
+  "id": "CanAll009",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll010",
+  "identifier": "http://reg.genome.network/allele/CA501222"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll010">CanAll010</a></p></td>
+          <td>
+              <p>CtxAll012</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA341206</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll010"><pre><code>{
+  "id": "CanAll010",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll012",
+  "identifier": "http://reg.genome.network/allele/CA341206"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll011">CanAll011</a></p></td>
+          <td>
+              <p>CtxAll014</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA256480</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll011"><pre><code>{
+  "id": "CanAll011",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll014",
+  "identifier": "http://reg.genome.network/allele/CA256480"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll012">CanAll012</a></p></td>
+          <td>
+              <p>CtxAll015</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA341207</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll012"><pre><code>{
+  "id": "CanAll012",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll015",
+  "identifier": "http://reg.genome.network/allele/CA341207"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll013">CanAll013</a></p></td>
+          <td>
+              <p>CtxAll016</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA256481</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll013"><pre><code>{
+  "id": "CanAll013",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll016",
+  "identifier": "http://reg.genome.network/allele/CA256481"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll014">CanAll014</a></p></td>
+          <td>
+              <p>CtxAll017</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA016441</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll014"><pre><code>{
+  "id": "CanAll014",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll017",
+  "identifier": "http://reg.genome.network/allele/CA016441"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll015">CanAll015</a></p></td>
+          <td>
+              <p>CtxAll018</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA257646</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll015"><pre><code>{
+  "id": "CanAll015",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll018",
+  "identifier": "http://reg.genome.network/allele/CA257646"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll016">CanAll016</a></p></td>
+          <td>
+              <p>CtxAll019</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA354186</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll016"><pre><code>{
+  "id": "CanAll016",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll019",
+  "identifier": "http://reg.genome.network/allele/CA354186"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll017">CanAll017</a></p></td>
+          <td>
+              <p>CtxAll020</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA090410</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll017"><pre><code>{
+  "id": "CanAll017",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll020",
+  "identifier": "http://reg.genome.network/allele/CA090410"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll018">CanAll018</a></p></td>
+          <td>
+              <p>CtxAll021</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA501233</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll018"><pre><code>{
+  "id": "CanAll018",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll021",
+  "identifier": "http://reg.genome.network/allele/CA501233"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll019">CanAll019</a></p></td>
+          <td>
+              <p>CtxAll022</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA090884</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll019"><pre><code>{
+  "id": "CanAll019",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll022",
+  "identifier": "http://reg.genome.network/allele/CA090884"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll020">CanAll020</a></p></td>
+          <td>
+              <p>CtxAll023</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA220161</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll020"><pre><code>{
+  "id": "CanAll020",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll023",
+  "identifier": "http://reg.genome.network/allele/CA220161"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll021">CanAll021</a></p></td>
+          <td>
+              <p>CtxAll024</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA093846</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll021"><pre><code>{
+  "id": "CanAll021",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll024",
+  "identifier": "http://reg.genome.network/allele/CA093846"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll022">CanAll022</a></p></td>
+          <td>
+              <p>CtxAll025</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA253316</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll022"><pre><code>{
+  "id": "CanAll022",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll025",
+  "identifier": "http://reg.genome.network/allele/CA253316"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll023">CanAll023</a></p></td>
+          <td>
+              <p>CtxAll026</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA024311</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll023"><pre><code>{
+  "id": "CanAll023",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll026",
+  "identifier": "http://reg.genome.network/allele/CA024311"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll024">CanAll024</a></p></td>
+          <td>
+              <p>CtxAll027</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA123287</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll024"><pre><code>{
+  "id": "CanAll024",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll027",
+  "identifier": "http://reg.genome.network/allele/CA123287"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll025">CanAll025</a></p></td>
+          <td>
+              <p>CtxAll028</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA090928</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll025"><pre><code>{
+  "id": "CanAll025",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll028",
+  "identifier": "http://reg.genome.network/allele/CA090928"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll026">CanAll026</a></p></td>
+          <td>
+              <p>CtxAll029</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA123651</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll026"><pre><code>{
+  "id": "CanAll026",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll029",
+  "identifier": "http://reg.genome.network/allele/CA123651"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll027">CanAll027</a></p></td>
+          <td>
+              <p>CtxAll030</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA352275</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll027"><pre><code>{
+  "id": "CanAll027",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll030",
+  "identifier": "http://reg.genome.network/allele/CA352275"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll028">CanAll028</a></p></td>
+          <td>
+              <p>CtxAll031</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA022141</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll028"><pre><code>{
+  "id": "CanAll028",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll031",
+  "identifier": "http://reg.genome.network/allele/CA022141"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll029">CanAll029</a></p></td>
+          <td>
+              <p>CtxAll032</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA022153</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll029"><pre><code>{
+  "id": "CanAll029",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll032",
+  "identifier": "http://reg.genome.network/allele/CA022153"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll030">CanAll030</a></p></td>
+          <td>
+              <p>CtxAll033</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA022159</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll030"><pre><code>{
+  "id": "CanAll030",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll033",
+  "identifier": "http://reg.genome.network/allele/CA022159"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll031">CanAll031</a></p></td>
+          <td>
+              <p>CtxAll034</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA022189</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll031"><pre><code>{
+  "id": "CanAll031",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll034",
+  "identifier": "http://reg.genome.network/allele/CA022189"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll032">CanAll032</a></p></td>
+          <td>
+              <p>CtxAll035</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA011797</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll032"><pre><code>{
+  "id": "CanAll032",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll035",
+  "identifier": "http://reg.genome.network/allele/CA011797"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll033">CanAll033</a></p></td>
+          <td>
+              <p>CtxAll037</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA011797</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll033"><pre><code>{
+  "id": "CanAll033",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll037",
+  "identifier": "http://reg.genome.network/allele/CA011797"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll034">CanAll034</a></p></td>
+          <td>
+              <p>CtxAll038</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA273141</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll034"><pre><code>{
+  "id": "CanAll034",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll038",
+  "identifier": "http://reg.genome.network/allele/CA273141"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll035">CanAll035</a></p></td>
+          <td>
+              <p>CtxAll039</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA090919</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll035"><pre><code>{
+  "id": "CanAll035",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll039",
+  "identifier": "http://reg.genome.network/allele/CA090919"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll036">CanAll036</a></p></td>
+          <td>
+              <p>CtxAll040</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA273615</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll036"><pre><code>{
+  "id": "CanAll036",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll040",
+  "identifier": "http://reg.genome.network/allele/CA273615"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll037">CanAll037</a></p></td>
+          <td>
+              <p>CtxAll041</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA176145</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll037"><pre><code>{
+  "id": "CanAll037",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll041",
+  "identifier": "http://reg.genome.network/allele/CA176145"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll038">CanAll038</a></p></td>
+          <td>
+              <p>CtxAll042</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA501223</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll038"><pre><code>{
+  "id": "CanAll038",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll042",
+  "identifier": "http://reg.genome.network/allele/CA501223"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll039">CanAll039</a></p></td>
+          <td>
+              <p>CtxAll043</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA090904</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll039"><pre><code>{
+  "id": "CanAll039",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll043",
+  "identifier": "http://reg.genome.network/allele/CA090904"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll040">CanAll040</a></p></td>
+          <td>
+              <p>CtxAll044</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA273136</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll040"><pre><code>{
+  "id": "CanAll040",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll044",
+  "identifier": "http://reg.genome.network/allele/CA273136"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll041">CanAll041</a></p></td>
+          <td>
+              <p>CtxAll045</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA090938</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll041"><pre><code>{
+  "id": "CanAll041",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll045",
+  "identifier": "http://reg.genome.network/allele/CA090938"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll042">CanAll042</a></p></td>
+          <td>
+              <p>CtxAll046</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA322149</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll042"><pre><code>{
+  "id": "CanAll042",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll046",
+  "identifier": "http://reg.genome.network/allele/CA322149"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll043">CanAll043</a></p></td>
+          <td>
+              <p>CtxAll047</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA501224</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll043"><pre><code>{
+  "id": "CanAll043",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll047",
+  "identifier": "http://reg.genome.network/allele/CA501224"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll044">CanAll044</a></p></td>
+          <td>
+              <p>CtxAll048</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA501225</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll044"><pre><code>{
+  "id": "CanAll044",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll048",
+  "identifier": "http://reg.genome.network/allele/CA501225"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll045">CanAll045</a></p></td>
+          <td>
+              <p>CtxAll049</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA021744</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll045"><pre><code>{
+  "id": "CanAll045",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll049",
+  "identifier": "http://reg.genome.network/allele/CA021744"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll046">CanAll046</a></p></td>
+          <td>
+              <p>CtxAll050</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA099228</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll046"><pre><code>{
+  "id": "CanAll046",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll050",
+  "identifier": "http://reg.genome.network/allele/CA099228"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll047">CanAll047</a></p></td>
+          <td>
+              <p>CtxAll051</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA021749</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll047"><pre><code>{
+  "id": "CanAll047",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll051",
+  "identifier": "http://reg.genome.network/allele/CA021749"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll048">CanAll048</a></p></td>
+          <td>
+              <p>CtxAll052</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA099236</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll048"><pre><code>{
+  "id": "CanAll048",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll052",
+  "identifier": "http://reg.genome.network/allele/CA099236"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll049">CanAll049</a></p></td>
+          <td>
+              <p>CtxAll053</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA021738</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll049"><pre><code>{
+  "id": "CanAll049",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll053",
+  "identifier": "http://reg.genome.network/allele/CA021738"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll050">CanAll050</a></p></td>
+          <td>
+              <p>CtxAll054</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA180540</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll050"><pre><code>{
+  "id": "CanAll050",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll054",
+  "identifier": "http://reg.genome.network/allele/CA180540"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll051">CanAll051</a></p></td>
+          <td>
+              <p>CtxAll055</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA090910</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll051"><pre><code>{
+  "id": "CanAll051",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll055",
+  "identifier": "http://reg.genome.network/allele/CA090910"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll052">CanAll052</a></p></td>
+          <td>
+              <p>CtxAll056</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA102369</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll052"><pre><code>{
+  "id": "CanAll052",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll056",
+  "identifier": "http://reg.genome.network/allele/CA102369"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll053">CanAll053</a></p></td>
+          <td>
+              <p>CtxAll057</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA224454</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll053"><pre><code>{
+  "id": "CanAll053",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll057",
+  "identifier": "http://reg.genome.network/allele/CA224454"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll054">CanAll054</a></p></td>
+          <td>
+              <p>CtxAll058</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA102377</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll054"><pre><code>{
+  "id": "CanAll054",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll058",
+  "identifier": "http://reg.genome.network/allele/CA102377"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll055">CanAll055</a></p></td>
+          <td>
+              <p>CtxAll059</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA501227</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll055"><pre><code>{
+  "id": "CanAll055",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll059",
+  "identifier": "http://reg.genome.network/allele/CA501227"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll056">CanAll056</a></p></td>
+          <td>
+              <p>CtxAll060</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA501228</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll056"><pre><code>{
+  "id": "CanAll056",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll060",
+  "identifier": "http://reg.genome.network/allele/CA501228"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll057">CanAll057</a></p></td>
+          <td>
+              <p>CtxAll061</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA003449</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll057"><pre><code>{
+  "id": "CanAll057",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll061",
+  "identifier": "http://reg.genome.network/allele/CA003449"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll058">CanAll058</a></p></td>
+          <td>
+              <p>CtxAll062</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA268383</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll058"><pre><code>{
+  "id": "CanAll058",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll062",
+  "identifier": "http://reg.genome.network/allele/CA268383"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll059">CanAll059</a></p></td>
+          <td>
+              <p>CtxAll063</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA090951</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll059"><pre><code>{
+  "id": "CanAll059",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll063",
+  "identifier": "http://reg.genome.network/allele/CA090951"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll060">CanAll060</a></p></td>
+          <td>
+              <p>CtxAll064</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA279966</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll060"><pre><code>{
+  "id": "CanAll060",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll064",
+  "identifier": "http://reg.genome.network/allele/CA279966"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll061">CanAll061</a></p></td>
+          <td>
+              <p>CtxAll065</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA279976</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll061"><pre><code>{
+  "id": "CanAll061",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll065",
+  "identifier": "http://reg.genome.network/allele/CA279976"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll062">CanAll062</a></p></td>
+          <td>
+              <p>CtxAll066</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA143213</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll062"><pre><code>{
+  "id": "CanAll062",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll066",
+  "identifier": "http://reg.genome.network/allele/CA143213"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll063">CanAll063</a></p></td>
+          <td>
+              <p>CtxAll067</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA010136</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll063"><pre><code>{
+  "id": "CanAll063",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll067",
+  "identifier": "http://reg.genome.network/allele/CA010136"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll064">CanAll064</a></p></td>
+          <td>
+              <p>CtxAll068</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA501226</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll064"><pre><code>{
+  "id": "CanAll064",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll068",
+  "identifier": "http://reg.genome.network/allele/CA501226"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll065">CanAll065</a></p></td>
+          <td>
+              <p>CtxAll069</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA006429</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll065"><pre><code>{
+  "id": "CanAll065",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll069",
+  "identifier": "http://reg.genome.network/allele/CA006429"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll066">CanAll066</a></p></td>
+          <td>
+              <p>CtxAll070</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA016087</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll066"><pre><code>{
+  "id": "CanAll066",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll070",
+  "identifier": "http://reg.genome.network/allele/CA016087"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll067">CanAll067</a></p></td>
+          <td>
+              <p>CtxAll071</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA090928</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll067"><pre><code>{
+  "id": "CanAll067",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll071",
+  "identifier": "http://reg.genome.network/allele/CA090928"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll068">CanAll068</a></p></td>
+          <td>
+              <p>CtxAll072</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA090884</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll068"><pre><code>{
+  "id": "CanAll068",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll072",
+  "identifier": "http://reg.genome.network/allele/CA090884"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll069">CanAll069</a></p></td>
+          <td>
+              <p>CtxAll075</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA022019</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll069"><pre><code>{
+  "id": "CanAll069",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll075",
+  "identifier": "http://reg.genome.network/allele/CA022019"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll070">CanAll070</a></p></td>
+          <td>
+              <p>CtxAll076</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA090915</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll070"><pre><code>{
+  "id": "CanAll070",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll076",
+  "identifier": "http://reg.genome.network/allele/CA090915"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll071">CanAll071</a></p></td>
+          <td>
+              <p>CtxAll077</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA501234</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll071"><pre><code>{
+  "id": "CanAll071",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll077",
+  "identifier": "http://reg.genome.network/allele/CA501234"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll072">CanAll072</a></p></td>
+          <td>
+              <p>CtxAll078</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA019369</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll072"><pre><code>{
+  "id": "CanAll072",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll078",
+  "identifier": "http://reg.genome.network/allele/CA019369"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll073">CanAll073</a></p></td>
+          <td>
+              <p>CtxAll079</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA128479</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll073"><pre><code>{
+  "id": "CanAll073",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll079",
+  "identifier": "http://reg.genome.network/allele/CA128479"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll074">CanAll074</a></p></td>
+          <td>
+              <p>CtxAll080</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA276116</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll074"><pre><code>{
+  "id": "CanAll074",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll080",
+  "identifier": "http://reg.genome.network/allele/CA276116"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll075">CanAll075</a></p></td>
+          <td>
+              <p>CtxAll081</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA090891</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll075"><pre><code>{
+  "id": "CanAll075",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll081",
+  "identifier": "http://reg.genome.network/allele/CA090891"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll076">CanAll076</a></p></td>
+          <td>
+              <p>CtxAll082</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA134997</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll076"><pre><code>{
+  "id": "CanAll076",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll082",
+  "identifier": "http://reg.genome.network/allele/CA134997"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll077">CanAll077</a></p></td>
+          <td>
+              <p>CtxAll083</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA501229</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll077"><pre><code>{
+  "id": "CanAll077",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll083",
+  "identifier": "http://reg.genome.network/allele/CA501229"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll078">CanAll078</a></p></td>
+          <td>
+              <p>CtxAll084</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA017597</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll078"><pre><code>{
+  "id": "CanAll078",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll084",
+  "identifier": "http://reg.genome.network/allele/CA017597"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll079">CanAll079</a></p></td>
+          <td>
+              <p>CtxAll085</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA090926</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll079"><pre><code>{
+  "id": "CanAll079",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll085",
+  "identifier": "http://reg.genome.network/allele/CA090926"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll080">CanAll080</a></p></td>
+          <td>
+              <p>CtxAll086</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA501230</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll080"><pre><code>{
+  "id": "CanAll080",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll086",
+  "identifier": "http://reg.genome.network/allele/CA501230"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll081">CanAll081</a></p></td>
+          <td>
+              <p>CtxAll087</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA090918</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll081"><pre><code>{
+  "id": "CanAll081",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll087",
+  "identifier": "http://reg.genome.network/allele/CA090918"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll082">CanAll082</a></p></td>
+          <td>
+              <p>CtxAll088</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA008351</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll082"><pre><code>{
+  "id": "CanAll082",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll088",
+  "identifier": "http://reg.genome.network/allele/CA008351"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll083">CanAll083</a></p></td>
+          <td>
+              <p>CtxAll089</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA013604</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll083"><pre><code>{
+  "id": "CanAll083",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll089",
+  "identifier": "http://reg.genome.network/allele/CA013604"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll084">CanAll084</a></p></td>
+          <td>
+              <p>CtxAll090</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA005477</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll084"><pre><code>{
+  "id": "CanAll084",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll090",
+  "identifier": "http://reg.genome.network/allele/CA005477"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll085">CanAll085</a></p></td>
+          <td>
+              <p>CtxAll091</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA132727</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll085"><pre><code>{
+  "id": "CanAll085",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll091",
+  "identifier": "http://reg.genome.network/allele/CA132727"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll086">CanAll086</a></p></td>
+          <td>
+              <p>CtxAll092</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA109417</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll086"><pre><code>{
+  "id": "CanAll086",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll092",
+  "identifier": "http://reg.genome.network/allele/CA109417"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll087">CanAll087</a></p></td>
+          <td>
+              <p>CtxAll093</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA501231</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll087"><pre><code>{
+  "id": "CanAll087",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll093",
+  "identifier": "http://reg.genome.network/allele/CA501231"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll088">CanAll088</a></p></td>
+          <td>
+              <p>CtxAll094</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA023690</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll088"><pre><code>{
+  "id": "CanAll088",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll094",
+  "identifier": "http://reg.genome.network/allele/CA023690"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll089">CanAll089</a></p></td>
+          <td>
+              <p>CtxAll095</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA010777</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll089"><pre><code>{
+  "id": "CanAll089",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll095",
+  "identifier": "http://reg.genome.network/allele/CA010777"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll090">CanAll090</a></p></td>
+          <td>
+              <p>CtxAll096</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA133141</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll090"><pre><code>{
+  "id": "CanAll090",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll096",
+  "identifier": "http://reg.genome.network/allele/CA133141"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll091">CanAll091</a></p></td>
+          <td>
+              <p>CtxAll097</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA020822</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll091"><pre><code>{
+  "id": "CanAll091",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll097",
+  "identifier": "http://reg.genome.network/allele/CA020822"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll092">CanAll092</a></p></td>
+          <td>
+              <p>CtxAll098</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA090950</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll092"><pre><code>{
+  "id": "CanAll092",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll098",
+  "identifier": "http://reg.genome.network/allele/CA090950"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll093">CanAll093</a></p></td>
+          <td>
+              <p>CtxAll099</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA256496</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll093"><pre><code>{
+  "id": "CanAll093",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll099",
+  "identifier": "http://reg.genome.network/allele/CA256496"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll094">CanAll094</a></p></td>
+          <td>
+              <p>CtxAll100</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA143572</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll094"><pre><code>{
+  "id": "CanAll094",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll100",
+  "identifier": "http://reg.genome.network/allele/CA143572"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll095">CanAll095</a></p></td>
+          <td>
+              <p>CtxAll101</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA252233</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll095"><pre><code>{
+  "id": "CanAll095",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll101",
+  "identifier": "http://reg.genome.network/allele/CA252233"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll096">CanAll096</a></p></td>
+          <td>
+              <p>CtxAll102</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA182840</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll096"><pre><code>{
+  "id": "CanAll096",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll102",
+  "identifier": "http://reg.genome.network/allele/CA182840"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll097">CanAll097</a></p></td>
+          <td>
+              <p>CtxAll103</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA182839</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll097"><pre><code>{
+  "id": "CanAll097",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll103",
+  "identifier": "http://reg.genome.network/allele/CA182839"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll098">CanAll098</a></p></td>
+          <td>
+              <p>CtxAll104</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA501235</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll098"><pre><code>{
+  "id": "CanAll098",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll104",
+  "identifier": "http://reg.genome.network/allele/CA501235"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll099">CanAll099</a></p></td>
+          <td>
+              <p>CtxAll105</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA501236</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll099"><pre><code>{
+  "id": "CanAll099",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll105",
+  "identifier": "http://reg.genome.network/allele/CA501236"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll100">CanAll100</a></p></td>
+          <td>
+              <p>CtxAll106</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA148212</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll100"><pre><code>{
+  "id": "CanAll100",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll106",
+  "identifier": "http://reg.genome.network/allele/CA148212"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll101">CanAll101</a></p></td>
+          <td>
+              <p>CtxAll107</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA273551</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll101"><pre><code>{
+  "id": "CanAll101",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll107",
+  "identifier": "http://reg.genome.network/allele/CA273551"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll102">CanAll102</a></p></td>
+          <td>
+              <p>CtxAll108</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA184168</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll102"><pre><code>{
+  "id": "CanAll102",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll108",
+  "identifier": "http://reg.genome.network/allele/CA184168"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll103">CanAll103</a></p></td>
+          <td>
+              <p>CtxAll109</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA020822</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll103"><pre><code>{
+  "id": "CanAll103",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll109",
+  "identifier": "http://reg.genome.network/allele/CA020822"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll105">CanAll105</a></p></td>
+          <td>
+              <p>CtxAll111</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA501237</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll105"><pre><code>{
+  "id": "CanAll105",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll111",
+  "identifier": "http://reg.genome.network/allele/CA501237"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll106">CanAll106</a></p></td>
+          <td>
+              <p>CtxAll112</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA012381</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll106"><pre><code>{
+  "id": "CanAll106",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll112",
+  "identifier": "http://reg.genome.network/allele/CA012381"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll107">CanAll107</a></p></td>
+          <td>
+              <p>CtxAll113</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA005304</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll107"><pre><code>{
+  "id": "CanAll107",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll113",
+  "identifier": "http://reg.genome.network/allele/CA005304"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll108">CanAll108</a></p></td>
+          <td>
+              <p>CtxAll114</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA137502</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll108"><pre><code>{
+  "id": "CanAll108",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll114",
+  "identifier": "http://reg.genome.network/allele/CA137502"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll109">CanAll109</a></p></td>
+          <td>
+              <p>CtxAll115</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA172240</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll109"><pre><code>{
+  "id": "CanAll109",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll115",
+  "identifier": "http://reg.genome.network/allele/CA172240"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll110">CanAll110</a></p></td>
+          <td>
+              <p>CtxAll116</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA274460</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll110"><pre><code>{
+  "id": "CanAll110",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll116",
+  "identifier": "http://reg.genome.network/allele/CA274460"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll111">CanAll111</a></p></td>
+          <td>
+              <p>CtxAll117</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA277980</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll111"><pre><code>{
+  "id": "CanAll111",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll117",
+  "identifier": "http://reg.genome.network/allele/CA277980"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll112">CanAll112</a></p></td>
+          <td>
+              <p>CtxAll118</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA204551</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll112"><pre><code>{
+  "id": "CanAll112",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll118",
+  "identifier": "http://reg.genome.network/allele/CA204551"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll113">CanAll113</a></p></td>
+          <td>
+              <p>CtxAll119</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA254703</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll113"><pre><code>{
+  "id": "CanAll113",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll119",
+  "identifier": "http://reg.genome.network/allele/CA254703"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll114">CanAll114</a></p></td>
+          <td>
+              <p>CtxAll120</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA276195</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll114"><pre><code>{
+  "id": "CanAll114",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll120",
+  "identifier": "http://reg.genome.network/allele/CA276195"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll115">CanAll115</a></p></td>
+          <td>
+              <p>CtxAll121</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA016113</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll115"><pre><code>{
+  "id": "CanAll115",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll121",
+  "identifier": "http://reg.genome.network/allele/CA016113"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll116">CanAll116</a></p></td>
+          <td>
+              <p>CtxAll122</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA113946</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll116"><pre><code>{
+  "id": "CanAll116",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll122",
+  "identifier": "http://reg.genome.network/allele/CA113946"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll117">CanAll117</a></p></td>
+          <td>
+              <p>CtxAll123</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA501232</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll117"><pre><code>{
+  "id": "CanAll117",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll123",
+  "identifier": "http://reg.genome.network/allele/CA501232"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll118">CanAll118</a></p></td>
+          <td>
+              <p>CtxAll124</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA013536</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll118"><pre><code>{
+  "id": "CanAll118",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll124",
+  "identifier": "http://reg.genome.network/allele/CA013536"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll119">CanAll119</a></p></td>
+          <td>
+              <p>CtxAll125</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA177682</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll119"><pre><code>{
+  "id": "CanAll119",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll125",
+  "identifier": "http://reg.genome.network/allele/CA177682"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll120">CanAll120</a></p></td>
+          <td>
+              <p>CtxAll126</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA126726</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll120"><pre><code>{
+  "id": "CanAll120",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll126",
+  "identifier": "http://reg.genome.network/allele/CA126726"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll121">CanAll121</a></p></td>
+          <td>
+              <p>CtxAll127</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA022880</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll121"><pre><code>{
+  "id": "CanAll121",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll127",
+  "identifier": "http://reg.genome.network/allele/CA022880"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll122">CanAll122</a></p></td>
+          <td>
+              <p>CtxAll128</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA253304</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll122"><pre><code>{
+  "id": "CanAll122",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll128",
+  "identifier": "http://reg.genome.network/allele/CA253304"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll123">CanAll123</a></p></td>
+          <td>
+              <p>CtxAll129</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA273665</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll123"><pre><code>{
+  "id": "CanAll123",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll129",
+  "identifier": "http://reg.genome.network/allele/CA273665"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll124">CanAll124</a></p></td>
+          <td>
+              <p>CtxAll130</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA090930</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll124"><pre><code>{
+  "id": "CanAll124",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll130",
+  "identifier": "http://reg.genome.network/allele/CA090930"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll125">CanAll125</a></p></td>
+          <td>
+              <p>CtxAll131</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA280055</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll125"><pre><code>{
+  "id": "CanAll125",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll131",
+  "identifier": "http://reg.genome.network/allele/CA280055"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll126">CanAll126</a></p></td>
+          <td>
+              <p>CtxAll132</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA280057</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll126"><pre><code>{
+  "id": "CanAll126",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll132",
+  "identifier": "http://reg.genome.network/allele/CA280057"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll127">CanAll127</a></p></td>
+          <td>
+              <p>CtxAll133</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA273507</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll127"><pre><code>{
+  "id": "CanAll127",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll133",
+  "identifier": "http://reg.genome.network/allele/CA273507"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#CanAll128">CanAll128</a></p></td>
+          <td>
+              <p>CtxAll134</p>
+         </td>
+          <td>
+              <p>http://reg.genome.network/allele/CA273509</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CanAll128"><pre><code>{
+  "id": "CanAll128",
+  "type": "CanonicalAllele",
+  "preferredCtxAllele": "CtxAll134",
+  "identifier": "http://reg.genome.network/allele/CA273509"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../javascripts/jquery.js"></script><script src="../../javascripts/bootstrap.js"></script><script src="../../javascripts/jquery.jsonview.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>

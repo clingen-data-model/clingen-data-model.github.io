@@ -4,12 +4,11 @@
   "informationId": {
     "id": "CritAssess277",
     "type": "CriterionAssessment",
-    "explanation": "This variant only occurs as LOF in an uncommon transcript (NM_133437.4).  For most transcripts, the variant is intronic.",
+    "description": "This variant only occurs as LOF in an uncommon transcript (NM_133437.4).  For most transcripts, the variant is intronic.",
     "criterion": {
       "id": "PVS1",
       "type": "Criterion",
       "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
-      "shortDescription": "Null variant in gene with known LOF mechanism",
       "defaultStrength": {
         "id": "CG-evidence-strength:pvs"
       }
@@ -24,7 +23,6 @@
       {
         "id": "GenCond047",
         "type": "GeneticCondition",
-        "explanation": "dilated cardiomyopathy",
         "disease": [
           {
             "id": "Orphanet:217604",
@@ -37,22 +35,21 @@
       }
     ],
     "outcome": {
-      "id": "CG-criterion-outcome:not-met",
+      "id": "SEPIO:0000224",
       "type": "Coding",
-      "code": "not-met",
-      "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+      "code": "0000224",
+      "system": "http://obofoundry.org/sepio/",
       "display": "Not Met"
     },
     "evidenceLine": [
       {
         "id": "EvLn003",
         "type": "EvidenceLine",
-        "explanation": "EvLn003",
         "evidenceItem": [
           {
             "id": "MolCon005",
             "type": "MolecularConsequence",
-            "explanation": "LOF is predicted but this transcript is rare",
+            "description": "LOF is predicted but this transcript is rare",
             "contextualAllele": {
               "id": "CtxAll003",
               "type": "ContextualAllele",
@@ -76,8 +73,29 @@
                   "display": "frameshift variant"
                 }
               ]
+            }
+          },
+          {
+            "id": "Null398",
+            "type": "NullAllele",
+            "contextualAllele": {
+              "id": "CtxAll003",
+              "type": "ContextualAllele",
+              "relatedCanonicalAllele": {
+                "id": "CanAll003",
+                "type": "CanonicalAllele",
+                "preferredCtxAllele": "CtxAll003",
+                "identifier": "http://reg.genome.network/allele/CA238217"
+              },
+              "alleleName": "NM_133437.4(TTN):c.10670dupG "
             },
-            "lof": true
+            "annotation": {
+              "id": "SO:0002054",
+              "type": "Coding",
+              "code": "0002054",
+              "system": "http://sequenceontology.org/",
+              "display": "loss of function variant"
+            }
           },
           {
             "id": "CondMech007",
@@ -90,21 +108,19 @@
               "display": "loss of function variant"
             },
             "mechanismConfidence": {
-              "id": "CG-cond-mech-strength:established",
+              "id": "SEPIO:0000269",
               "type": "Coding",
-              "code": "established",
-              "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
-              "display": "Established"
+              "code": "0000269",
+              "system": "http://obofoundry.org/sepio/",
+              "display": "established"
             },
             "gene": {
               "id": "hgnc:TTN",
-              "type": "Gene",
-              "symbol": "TTN"
+              "type": "Gene"
             },
             "condition": {
               "id": "GenCond047",
               "type": "GeneticCondition",
-              "explanation": "dilated cardiomyopathy",
               "disease": [
                 {
                   "id": "Orphanet:217604",
@@ -121,7 +137,6 @@
       {
         "id": "EvLn004",
         "type": "EvidenceLine",
-        "explanation": "EvLn004",
         "evidenceItem": [
           {
             "id": "MolCon006",
@@ -149,8 +164,29 @@
                   "display": "interior intron"
                 }
               ]
+            }
+          },
+          {
+            "id": "Null399",
+            "type": "NullAllele",
+            "contextualAllele": {
+              "id": "CtxAll004",
+              "type": "ContextualAllele",
+              "relatedCanonicalAllele": {
+                "id": "CanAll003",
+                "type": "CanonicalAllele",
+                "preferredCtxAllele": "CtxAll003",
+                "identifier": "http://reg.genome.network/allele/CA238217"
+              },
+              "alleleName": "LRG_391t2:c.10303+2691dupG"
             },
-            "lof": true
+            "annotation": {
+              "id": "SEPIO-CG:99015",
+              "type": "Coding",
+              "code": "99015",
+              "system": "http://obofoundry.org/sepio/clingen",
+              "display": "No"
+            }
           },
           {
             "id": "CondMech007",
@@ -163,21 +199,19 @@
               "display": "loss of function variant"
             },
             "mechanismConfidence": {
-              "id": "CG-cond-mech-strength:established",
+              "id": "SEPIO:0000269",
               "type": "Coding",
-              "code": "established",
-              "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
-              "display": "Established"
+              "code": "0000269",
+              "system": "http://obofoundry.org/sepio/",
+              "display": "established"
             },
             "gene": {
               "id": "hgnc:TTN",
-              "type": "Gene",
-              "symbol": "TTN"
+              "type": "Gene"
             },
             "condition": {
               "id": "GenCond047",
               "type": "GeneticCondition",
-              "explanation": "dilated cardiomyopathy",
               "disease": [
                 {
                   "id": "Orphanet:217604",
@@ -198,19 +232,19 @@
         "agent": {
           "id": "Agent001",
           "type": "Agent",
-          "name": "Harry Stevenson"
+          "label": "Harry Stevenson"
         },
-        "onDate": "6/2/16 2:22 PM",
-        "role": {
+        "contributionDate": "6/2/16 2:22 PM",
+        "contributionRole": {
           "id": "CC300",
           "type": "CodeableConcept",
           "coding": [
             {
-              "id": "CG-contributory-role:assessor",
+              "id": "SEPIO:0000154",
               "type": "Coding",
-              "code": "assessor",
-              "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-              "display": "assessor"
+              "code": "0000154",
+              "system": "http://obofoundry.org/sepio/",
+              "display": "assessor role"
             }
           ]
         }

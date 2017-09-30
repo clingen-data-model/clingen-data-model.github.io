@@ -96,7 +96,7 @@
               <a href="../../">Welcome</a>
             </li>
             <li><a href="../../user/">User Guide</a></li>
-            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="agent.html">Agent</a></li><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">LocusHeterogeneity</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">AlleleConservation</a></li><li><a href="de_novo_allele.html">IndividualAlleleInheritance</a></li><li><a href="family_history.html">FamilyCondition</a></li><li><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="functional_data.html">AlleleFunctionalImpact</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li class="active"><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">GeneticCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="region_annotation.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
+            <li class="active"><a href="../">Technical Reference</a></li><ul><li><a href="../agent.html">Agent</a></li><li><a href="../assertion_method.html">AssertionMethod</a></li><li><a href="../contribution.html">Contribution</a></li><li><a href="../criterion.html">Criterion</a></li><li><a href="../criterion_assessment.html">CriterionAssessment</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li><a href="../evidence_line.html">EvidenceLine</a></li><li><a href="../scoring_algorithm.html">ScoringAlgorithm</a></li><li class="active"><a href="./">Statement</a></li><ul><li><a href="aggregation_segregation_data.html">AggregateSegregation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_etiology.html">LocusHeterogeneity</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="conservation.html">AlleleConservation</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation_data.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li class="active"><a href="individual_condition.html">IndividualCondition</a></li><li><a href="mendelian_condition.html">GeneticCondition</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_type.html">RegionType</a></li></ul><li><a href="../value_set.html">ValueSet</a></li><li><a href="../variant_interpretation.html">VariantInterpretation</a></li></ul>
             <!-- Old style.  We might still need the model here? -->
             <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
           </ul>
@@ -107,6 +107,8 @@
 
             <h1>IndividualCondition</h1>
             <p>A statement about whether a individual is affected by or exhibits a particular condition.</p>
+
+                <p>SEPIO:0000238</p>
 
                 <p>Descended from Statement</p>
 
@@ -132,6 +134,7 @@
                 <th>Type</th>
                 <th>Cardinality</th>
                 <th>Description</th>
+                <th>IRI</th>
             </tr>
             </thead>
             <tbody>
@@ -140,18 +143,21 @@
                 <td>Individual</td>
                 <td>0..1</td>
                 <td>The person being assessed for the condition</td>
+                <td>SEPIO:0000280</td>
             </tr>
             <tr>
                 <td>condition</td>
                 <td>MendelianCondition</td>
                 <td>1..*</td>
                 <td>The condition that the person may have</td>
+                <td>SEPIO:0000276</td>
             </tr>
             <tr>
-                <td>hasCondition</td>
-                <td>boolean</td>
+                <td>individualHasCondition</td>
+                <td>Coding</td>
                 <td>0..1</td>
                 <td>Whether or not the person has the condition</td>
+                <td>SEPIO:0000197</td>
             </tr>
             </tbody>
         </table>
@@ -167,22 +173,17 @@
                 <th>Cardinality</th>
                 <th>Inherited From</th>
                 <th>Description</th>
+                <th>IRI</th>
             </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>source</td>
-                    <td>String</td>
-                    <td>0..*</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>explanation</td>
+                    <td>description</td>
                     <td>String</td>
                     <td>0..1</td>
                     <td></td>
                     <td>A human-readable description of the entity</td>
+                    <td>DC:description</td>
                 </tr>
                 <tr>
                     <td>contribution</td>
@@ -190,6 +191,15 @@
                     <td>0..*</td>
                     <td></td>
                     <td>The contributions (agent, time and role) made to this entity</td>
+                    <td>SEPIO:0000159</td>
+                </tr>
+                <tr>
+                    <td>source</td>
+                    <td>String</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td></td>
+                    <td>DC:source</td>
                 </tr>
             </tbody>
         </table>
@@ -198,10 +208,10 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
-        <th>explanation</th>
+        <th>description</th>
         <th>individual</th>
         <th>condition</th>
-        <th>hasCondition</th>
+        <th>individualHasCondition</th>
       </tr></thead>
       <tbody>
         <tr>
@@ -216,7 +226,7 @@
               <p><a href="../details/details.html#GenCond052">GenCond052</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#true">true</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond012"><pre><code>{
@@ -231,7 +241,6 @@
     {
       "id": "GenCond052",
       "type": "GeneticCondition",
-      "explanation": "dilated cardiomyopathy",
       "disease": [
         {
           "id": "Orphanet:217604",
@@ -243,7 +252,9 @@
       ]
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "true"
+  }
 }
           </code></pre></div></td>
           -->
@@ -261,7 +272,7 @@
               <p><a href="../details/details.html#GenCond008">GenCond008</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond015"><pre><code>{
@@ -276,7 +287,6 @@
     {
       "id": "GenCond008",
       "type": "GeneticCondition",
-      "explanation": "desmin related myopathy",
       "disease": [
         {
           "id": "OMIM:601419",
@@ -289,7 +299,13 @@
       "name": "desmin related myopathy"
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -307,7 +323,7 @@
               <p><a href="../details/details.html#GenCond009">GenCond009</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond018"><pre><code>{
@@ -322,11 +338,16 @@
     {
       "id": "GenCond009",
       "type": "GeneticCondition",
-      "explanation": "Epilepsy with Mental Retardation",
       "name": "Epilepsy with Mental Retardation"
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -344,7 +365,7 @@
               <p><a href="../details/details.html#GenCond014">GenCond014</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond056"><pre><code>{
@@ -359,7 +380,6 @@
     {
       "id": "GenCond014",
       "type": "GeneticCondition",
-      "explanation": "PCD autosomal recessive w/ outer dynein arm (ODA) defects",
       "name": "PCD autosomal recessive w/ outer dynein arm (ODA) defects",
       "disease": [
         {
@@ -388,26 +408,32 @@
       ]
     }
   ],
-  "hasCondition": true,
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  },
   "contribution": [
     {
       "type": "Contribution",
       "agent": {
         "id": "Agent007",
         "type": "Agent",
-        "name": "Stefan DiMarino"
+        "label": "Stefan DiMarino"
       },
-      "onDate": "5/31/16 8:46 AM",
-      "role": {
+      "contributionDate": "5/31/16 8:46 AM",
+      "contributionRole": {
         "id": "CC385",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:curator",
+            "id": "SEPIO:0000156",
             "type": "Coding",
-            "code": "curator",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "curator"
+            "code": "0000156",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "curator role"
           }
         ]
       }
@@ -433,7 +459,7 @@
               <p><a href="../details/details.html#GenCond010">GenCond010</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond061"><pre><code>{
@@ -448,7 +474,6 @@
     {
       "id": "GenCond010",
       "type": "GeneticCondition",
-      "explanation": "nonsyndromic deafness, Autosomal Recessive, GIPC3",
       "disease": [
         {
           "id": "Orphanet:87884",
@@ -467,12 +492,17 @@
       },
       "gene": {
         "id": "hgnc:GIPC3",
-        "type": "Gene",
-        "symbol": "GIPC3"
+        "type": "Gene"
       }
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -490,7 +520,7 @@
               <p><a href="../details/details.html#GenCond015">GenCond015</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond064"><pre><code>{
@@ -505,7 +535,6 @@
     {
       "id": "GenCond015",
       "type": "GeneticCondition",
-      "explanation": "neuronal ceroid lipofuscinosis, Autosomal Recessive, TTP1",
       "disease": [
         {
           "id": "Orphanet:216",
@@ -524,12 +553,17 @@
       },
       "gene": {
         "id": "hgnc:TTP1",
-        "type": "Gene",
-        "symbol": "TTP1"
+        "type": "Gene"
       }
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -547,7 +581,7 @@
               <p><a href="../details/details.html#GenCond018">GenCond018</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond083"><pre><code>{
@@ -562,7 +596,6 @@
     {
       "id": "GenCond018",
       "type": "GeneticCondition",
-      "explanation": "Birt-Hogg-Dube Syndrome",
       "disease": [
         {
           "id": "Orphanet:122",
@@ -574,7 +607,13 @@
       ]
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -592,7 +631,7 @@
               <p><a href="../details/details.html#GenCond018">GenCond018</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond084"><pre><code>{
@@ -607,7 +646,6 @@
     {
       "id": "GenCond018",
       "type": "GeneticCondition",
-      "explanation": "Birt-Hogg-Dube Syndrome",
       "disease": [
         {
           "id": "Orphanet:122",
@@ -619,7 +657,13 @@
       ]
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -637,7 +681,7 @@
               <p><a href="../details/details.html#GenCond019">GenCond019</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond089"><pre><code>{
@@ -652,7 +696,6 @@
     {
       "id": "GenCond019",
       "type": "GeneticCondition",
-      "explanation": "cardiofaciocutaneous syndrome",
       "disease": [
         {
           "id": "Orphanet:1340",
@@ -664,7 +707,13 @@
       ]
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -682,7 +731,7 @@
               <p><a href="../details/details.html#GenCond068">GenCond068</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond092"><pre><code>{
@@ -697,7 +746,6 @@
     {
       "id": "GenCond068",
       "type": "GeneticCondition",
-      "explanation": "cardiofaciocutaneous syndrome",
       "disease": [
         {
           "id": "Orphanet:1340",
@@ -709,7 +757,13 @@
       ]
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -727,7 +781,7 @@
               <p><a href="../details/details.html#GenCond068">GenCond068</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond095"><pre><code>{
@@ -742,7 +796,6 @@
     {
       "id": "GenCond068",
       "type": "GeneticCondition",
-      "explanation": "cardiofaciocutaneous syndrome",
       "disease": [
         {
           "id": "Orphanet:1340",
@@ -754,7 +807,13 @@
       ]
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -772,7 +831,7 @@
               <p><a href="../details/details.html#GenCond068">GenCond068</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond098"><pre><code>{
@@ -787,7 +846,6 @@
     {
       "id": "GenCond068",
       "type": "GeneticCondition",
-      "explanation": "cardiofaciocutaneous syndrome",
       "disease": [
         {
           "id": "Orphanet:1340",
@@ -799,7 +857,13 @@
       ]
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -817,7 +881,7 @@
               <p><a href="../details/details.html#GenCond069">GenCond069</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond110"><pre><code>{
@@ -832,7 +896,6 @@
     {
       "id": "GenCond069",
       "type": "GeneticCondition",
-      "explanation": "cardiofaciocutaneous syndrome",
       "disease": [
         {
           "id": "Orphanet:1340",
@@ -844,7 +907,13 @@
       ]
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -862,7 +931,7 @@
               <p><a href="../details/details.html#GenCond029">GenCond029</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond174"><pre><code>{
@@ -877,7 +946,6 @@
     {
       "id": "GenCond029",
       "type": "GeneticCondition",
-      "explanation": "Wiedemann-Steiner syndrome, Autosomal Dominant",
       "disease": [
         {
           "id": "Orphanet:319182",
@@ -896,7 +964,13 @@
       }
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99010",
+    "type": "Coding",
+    "code": "99010",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "unaffected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -914,7 +988,7 @@
               <p><a href="../details/details.html#GenCond029">GenCond029</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond175"><pre><code>{
@@ -929,7 +1003,6 @@
     {
       "id": "GenCond029",
       "type": "GeneticCondition",
-      "explanation": "Wiedemann-Steiner syndrome, Autosomal Dominant",
       "disease": [
         {
           "id": "Orphanet:319182",
@@ -948,7 +1021,13 @@
       }
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99010",
+    "type": "Coding",
+    "code": "99010",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "unaffected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -966,7 +1045,7 @@
               <p><a href="../details/details.html#GenCond030">GenCond030</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond182"><pre><code>{
@@ -981,7 +1060,6 @@
     {
       "id": "GenCond030",
       "type": "GeneticCondition",
-      "explanation": "Familial Adenomatous Polyposis, Autosomal Dominant",
       "disease": [
         {
           "id": "Orphanet:733",
@@ -1000,7 +1078,13 @@
       }
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99010",
+    "type": "Coding",
+    "code": "99010",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "unaffected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1018,7 +1102,7 @@
               <p><a href="../details/details.html#GenCond030">GenCond030</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond183"><pre><code>{
@@ -1033,7 +1117,6 @@
     {
       "id": "GenCond030",
       "type": "GeneticCondition",
-      "explanation": "Familial Adenomatous Polyposis, Autosomal Dominant",
       "disease": [
         {
           "id": "Orphanet:733",
@@ -1052,7 +1135,13 @@
       }
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99010",
+    "type": "Coding",
+    "code": "99010",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "unaffected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1070,7 +1159,7 @@
               <p><a href="../details/details.html#GenCond030">GenCond030</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond184"><pre><code>{
@@ -1085,7 +1174,6 @@
     {
       "id": "GenCond030",
       "type": "GeneticCondition",
-      "explanation": "Familial Adenomatous Polyposis, Autosomal Dominant",
       "disease": [
         {
           "id": "Orphanet:733",
@@ -1104,7 +1192,13 @@
       }
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99010",
+    "type": "Coding",
+    "code": "99010",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "unaffected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1122,7 +1216,7 @@
               <p><a href="../details/details.html#GenCond030">GenCond030</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond185"><pre><code>{
@@ -1137,7 +1231,6 @@
     {
       "id": "GenCond030",
       "type": "GeneticCondition",
-      "explanation": "Familial Adenomatous Polyposis, Autosomal Dominant",
       "disease": [
         {
           "id": "Orphanet:733",
@@ -1156,7 +1249,13 @@
       }
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99010",
+    "type": "Coding",
+    "code": "99010",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "unaffected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1174,7 +1273,7 @@
               <p><a href="../details/details.html#GenCond072">GenCond072</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond190"><pre><code>{
@@ -1189,7 +1288,6 @@
     {
       "id": "GenCond072",
       "type": "GeneticCondition",
-      "explanation": "Marfan Syndrome, Autosomal Dominant",
       "disease": [
         {
           "id": "Orphanet:558",
@@ -1208,7 +1306,13 @@
       }
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99010",
+    "type": "Coding",
+    "code": "99010",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "unaffected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1226,7 +1330,7 @@
               <p><a href="../details/details.html#GenCond072">GenCond072</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond191"><pre><code>{
@@ -1241,7 +1345,6 @@
     {
       "id": "GenCond072",
       "type": "GeneticCondition",
-      "explanation": "Marfan Syndrome, Autosomal Dominant",
       "disease": [
         {
           "id": "Orphanet:558",
@@ -1260,7 +1363,13 @@
       }
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99010",
+    "type": "Coding",
+    "code": "99010",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "unaffected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1278,7 +1387,7 @@
               <p><a href="../details/details.html#GenCond038">GenCond038</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond208"><pre><code>{
@@ -1293,7 +1402,6 @@
     {
       "id": "GenCond038",
       "type": "GeneticCondition",
-      "explanation": "Retinitis Pigmentosa",
       "disease": [
         {
           "id": "Orphanet:791",
@@ -1305,7 +1413,13 @@
       ]
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1323,7 +1437,7 @@
               <p><a href="../details/details.html#GenCond038">GenCond038</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond209"><pre><code>{
@@ -1338,7 +1452,6 @@
     {
       "id": "GenCond038",
       "type": "GeneticCondition",
-      "explanation": "Retinitis Pigmentosa",
       "disease": [
         {
           "id": "Orphanet:791",
@@ -1350,7 +1463,13 @@
       ]
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1368,7 +1487,7 @@
               <p><a href="../details/details.html#GenCond039">GenCond039</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond212"><pre><code>{
@@ -1383,7 +1502,6 @@
     {
       "id": "GenCond039",
       "type": "GeneticCondition",
-      "explanation": "Absent vas deferens",
       "phenotype": [
         {
           "id": "HP:0012873",
@@ -1395,7 +1513,13 @@
       ]
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1413,7 +1537,7 @@
               <p><a href="../details/details.html#GenCond007">GenCond007</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond215"><pre><code>{
@@ -1428,7 +1552,6 @@
     {
       "id": "GenCond007",
       "type": "GeneticCondition",
-      "explanation": "cardiomyopathy, Autosomal Dominant",
       "disease": [
         {
           "id": "Orphanet:167848",
@@ -1447,7 +1570,13 @@
       }
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1465,7 +1594,7 @@
               <p><a href="../details/details.html#GenCond067">GenCond067</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#true">true</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond242"><pre><code>{
@@ -1480,7 +1609,6 @@
     {
       "id": "GenCond067",
       "type": "GeneticCondition",
-      "explanation": "hypertrophic cardiomyopathy",
       "disease": [
         {
           "id": "Orphanet:217569",
@@ -1492,7 +1620,9 @@
       ]
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "true"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1510,7 +1640,7 @@
               <p><a href="../details/details.html#GenCond060">GenCond060</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond246"><pre><code>{
@@ -1525,7 +1655,6 @@
     {
       "id": "GenCond060",
       "type": "GeneticCondition",
-      "explanation": "nonsyndromic deafness",
       "disease": [
         {
           "id": "Orphanet:87884",
@@ -1537,7 +1666,13 @@
       ]
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1555,7 +1690,7 @@
               <p><a href="../details/details.html#GenCond071">GenCond071</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond250"><pre><code>{
@@ -1570,7 +1705,6 @@
     {
       "id": "GenCond071",
       "type": "GeneticCondition",
-      "explanation": "Usher syndrome, Autosomal Recessive",
       "disease": [
         {
           "id": "Orphanet:886",
@@ -1589,7 +1723,13 @@
       }
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1607,7 +1747,7 @@
               <p><a href="../details/details.html#GenCond041">GenCond041</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond252"><pre><code>{
@@ -1622,7 +1762,6 @@
     {
       "id": "GenCond041",
       "type": "GeneticCondition",
-      "explanation": "Pseudoachondroplastic spondyloepiphyseal dysplasia",
       "disease": [
         {
           "id": "Orphanet:750",
@@ -1635,7 +1774,13 @@
       "name": "Pseudoachondroplastic spondyloepiphyseal dysplasia"
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->
@@ -1653,13 +1798,13 @@
               <p><a href="../details/details.html#GenCond058">GenCond058</a></p>
          </td>
           <td>
-              <p>true</p>
+              <p><a href="../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndCond368"><pre><code>{
   "id": "IndCond368",
   "type": "IndividualCondition",
-  "explanation": "This proband had mild to profound hearing loss with EVA, which is characteristic of Pendred Syndrome.",
+  "description": "This proband had mild to profound hearing loss with EVA, which is characteristic of Pendred Syndrome.",
   "individual": {
     "id": "Indiv029",
     "type": "Individual",
@@ -1669,7 +1814,6 @@
     {
       "id": "GenCond058",
       "type": "GeneticCondition",
-      "explanation": "Hearing Loss",
       "disease": [
         {
           "id": "Orphanet:87884",
@@ -1682,7 +1826,13 @@
       "name": "Hearing Loss"
     }
   ],
-  "hasCondition": true
+  "individualHasCondition": {
+    "id": "SEPIO-CG:99009",
+    "type": "Coding",
+    "code": "99009",
+    "system": "http://obofoundry.org/sepio/clingen",
+    "display": "affected"
+  }
 }
           </code></pre></div></td>
           -->

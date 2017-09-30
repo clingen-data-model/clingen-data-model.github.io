@@ -1,12 +1,11 @@
 {
   "id": "CritAssess346",
   "type": "CriterionAssessment",
-  "explanation": "BP3 does not apply for this variant because it is not an in-frame deletion (it's a deletion of 10 bp) and, although the I Band is a repetitive region that contains tandem arrays of immunoglobulin domains, these folds may be an important component for TTN's elasticity.",
+  "description": "BP3 does not apply for this variant because it is not an in-frame deletion (it's a deletion of 10 bp) and, although the I Band is a repetitive region that contains tandem arrays of immunoglobulin domains, these folds may be an important component for TTN's elasticity.",
   "criterion": {
     "id": "BP3",
     "type": "Criterion",
     "description": "In-frame deletions/insertions in a repetitive region without a known function",
-    "shortDescription": "In-frame indel without known function",
     "defaultStrength": {
       "id": "CG-evidence-strength:bp"
     }
@@ -18,22 +17,21 @@
     "identifier": "http://reg.genome.network/allele/CA273551"
   },
   "outcome": {
-    "id": "CG-criterion-outcome:not-met",
+    "id": "SEPIO:0000224",
     "type": "Coding",
-    "code": "not-met",
-    "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+    "code": "0000224",
+    "system": "http://obofoundry.org/sepio/",
     "display": "Not Met"
   },
   "evidenceLine": [
     {
       "id": "EvLn090",
       "type": "EvidenceLine",
-      "explanation": "EvLn090",
       "evidenceItem": [
         {
           "id": "RegTyp225",
           "type": "RegionType",
-          "explanation": "The I-Band is a large region of repetitive Igg domains. ",
+          "description": "The I-Band is a large region of repetitive Igg domains. ",
           "region": {
             "id": "Loc392",
             "type": "SequenceLocation",
@@ -47,20 +45,20 @@
             "start": 6509,
             "stop": 39262
           },
-          "includedTypes": [
+          "annotation": [
             {
-              "id": "CG-reg-type:repeat",
+              "id": "SO:0000657",
               "type": "Coding",
-              "code": "repeat",
-              "system": "http://clinicalgenome.org/datamodel/region-type/",
-              "display": "Repeat"
+              "code": "0000657",
+              "system": "http://sequenceontology.org/",
+              "display": "repeat region "
             }
           ]
         },
         {
           "id": "RegAll393",
           "type": "RegionAlleles",
-          "explanation": "Allele NM_133378.4 (TTN): c.26752_26761delACGGCAGAGC is contained by this region.",
+          "description": "Allele NM_133378.4 (TTN): c.26752_26761delACGGCAGAGC is contained by this region.",
           "region": {
             "id": "Loc392",
             "type": "SequenceLocation",
@@ -74,7 +72,7 @@
             "start": 6509,
             "stop": 39262
           },
-          "includedAlleles": [
+          "allele": [
             {
               "id": "CtxAll107",
               "type": "ContextualAllele",
@@ -86,7 +84,14 @@
               },
               "alleleName": "NM_133378.4 (TTN): c.26752_26761delACGGCAGAGC"
             }
-          ]
+          ],
+          "outcome": {
+            "id": "SEPIO-CG:99020",
+            "type": "Coding",
+            "code": "99020",
+            "system": "http://obofoundry.org/sepio/clingen",
+            "display": "included"
+          }
         },
         {
           "id": "MolCon227",
@@ -125,19 +130,19 @@
       "agent": {
         "id": "Agent007",
         "type": "Agent",
-        "name": "Stefan DiMarino"
+        "label": "Stefan DiMarino"
       },
-      "onDate": "9/15/16 9:23 AM",
-      "role": {
+      "contributionDate": "9/15/16 9:23 AM",
+      "contributionRole": {
         "id": "CC392",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:assessor",
+            "id": "SEPIO:0000154",
             "type": "Coding",
-            "code": "assessor",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "assessor"
+            "code": "0000154",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "assessor role"
           }
         ]
       }

@@ -5,7 +5,6 @@
     "id": "PVS1",
     "type": "Criterion",
     "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
-    "shortDescription": "Null variant in gene with known LOF mechanism",
     "defaultStrength": {
       "id": "CG-evidence-strength:pvs"
     }
@@ -20,7 +19,6 @@
     {
       "id": "GenCond001",
       "type": "GeneticCondition",
-      "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
       "name": "Breast Ovarian Cancer, Autosomal Dominant",
       "disease": [
         {
@@ -41,22 +39,21 @@
     }
   ],
   "outcome": {
-    "id": "CG-criterion-outcome:met",
+    "id": "SEPIO:0000223",
     "type": "Coding",
-    "code": "met",
-    "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+    "code": "0000223",
+    "system": "http://obofoundry.org/sepio/",
     "display": "Met"
   },
   "evidenceLine": [
     {
       "id": "EvLn002",
       "type": "EvidenceLine",
-      "explanation": "EvLn002",
       "evidenceItem": [
         {
           "id": "MolCon003",
           "type": "MolecularConsequence",
-          "explanation": "LOF is predicted to occur as variant is >55bp from penultimate exon",
+          "description": "LOF is predicted to occur as variant is >55bp from penultimate exon",
           "contextualAllele": {
             "id": "CtxAll002",
             "type": "ContextualAllele",
@@ -80,13 +77,34 @@
                 "display": "frameshift variant"
               }
             ]
+          }
+        },
+        {
+          "id": "Null397",
+          "type": "NullAllele",
+          "contextualAllele": {
+            "id": "CtxAll002",
+            "type": "ContextualAllele",
+            "relatedCanonicalAllele": {
+              "id": "CanAll002",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": "CtxAll002",
+              "identifier": "http://reg.genome.network/allele/CA090898"
+            },
+            "alleleName": "NM_000059.3(BRCA2):c.7762_7764delinsTT"
           },
-          "lof": true
+          "annotation": {
+            "id": "SO:0002054",
+            "type": "Coding",
+            "code": "0002054",
+            "system": "http://sequenceontology.org/",
+            "display": "loss of function variant"
+          }
         },
         {
           "id": "CondMech004",
           "type": "ConditionMechanism",
-          "explanation": "This is so well-known that it does not require a citation.",
+          "description": "This is so well-known that it does not require a citation.",
           "mechanism": {
             "id": "SO:0002054",
             "type": "Coding",
@@ -95,21 +113,19 @@
             "display": "loss of function variant"
           },
           "mechanismConfidence": {
-            "id": "CG-cond-mech-strength:established",
+            "id": "SEPIO:0000269",
             "type": "Coding",
-            "code": "established",
-            "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
-            "display": "Established"
+            "code": "0000269",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "established"
           },
           "gene": {
             "id": "hgnc:BRCA2",
-            "type": "Gene",
-            "symbol": "BRCA2"
+            "type": "Gene"
           },
           "condition": {
             "id": "GenCond001",
             "type": "GeneticCondition",
-            "explanation": "Breast Ovarian Cancer, Autosomal Dominant",
             "name": "Breast Ovarian Cancer, Autosomal Dominant",
             "disease": [
               {
@@ -138,19 +154,19 @@
       "agent": {
         "id": "Agent001",
         "type": "Agent",
-        "name": "Harry Stevenson"
+        "label": "Harry Stevenson"
       },
-      "onDate": "6/2/16 12:15 PM",
-      "role": {
+      "contributionDate": "6/2/16 12:15 PM",
+      "contributionRole": {
         "id": "CC299",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:assessor",
+            "id": "SEPIO:0000154",
             "type": "Coding",
-            "code": "assessor",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "assessor"
+            "code": "0000154",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "assessor role"
           }
         ]
       }

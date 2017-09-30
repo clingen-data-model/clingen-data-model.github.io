@@ -1,12 +1,11 @@
 {
   "id": "CritAssess281",
   "type": "CriterionAssessment",
-  "explanation": "IC1: Individual has condition, FH1: No family history, DNA1: variant is denovo (parentage confirmed)",
+  "description": "IC1: Individual has condition, FH1: No family history, DNA1: variant is denovo (parentage confirmed)",
   "criterion": {
     "id": "PS2",
     "type": "Criterion",
     "description": "De novo (both maternity and paternity confirmed) in a patient with the disease and no family history",
-    "shortDescription": "Confirmed de novo in individual without family history of condition",
     "defaultStrength": {
       "id": "CG-evidence-strength:ps"
     }
@@ -21,7 +20,6 @@
     {
       "id": "GenCond052",
       "type": "GeneticCondition",
-      "explanation": "dilated cardiomyopathy",
       "disease": [
         {
           "id": "Orphanet:217604",
@@ -34,17 +32,16 @@
     }
   ],
   "outcome": {
-    "id": "CG-criterion-outcome:met",
+    "id": "SEPIO:0000223",
     "type": "Coding",
-    "code": "met",
-    "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+    "code": "0000223",
+    "system": "http://obofoundry.org/sepio/",
     "display": "Met"
   },
   "evidenceLine": [
     {
       "id": "EvLn009",
       "type": "EvidenceLine",
-      "explanation": "EvLn009",
       "evidenceItem": [
         {
           "id": "IndCond012",
@@ -58,7 +55,6 @@
             {
               "id": "GenCond052",
               "type": "GeneticCondition",
-              "explanation": "dilated cardiomyopathy",
               "disease": [
                 {
                   "id": "Orphanet:217604",
@@ -70,7 +66,9 @@
               ]
             }
           ],
-          "hasCondition": true
+          "individualHasCondition": {
+            "id": "true"
+          }
         },
         {
           "id": "FamCond013",
@@ -84,7 +82,6 @@
             {
               "id": "GenCond052",
               "type": "GeneticCondition",
-              "explanation": "dilated cardiomyopathy",
               "disease": [
                 {
                   "id": "Orphanet:217604",
@@ -96,12 +93,18 @@
               ]
             }
           ],
-          "familyHasCondition": true
+          "familyHasCondition": {
+            "id": "SEPIO-CG:99010",
+            "type": "Coding",
+            "code": "99010",
+            "system": "http://obofoundry.org/sepio/clingen",
+            "display": "unaffected"
+          }
         },
         {
           "id": "IndAllInh014",
           "type": "IndividualAlleleInheritance",
-          "explanation": "parentage confirmed via haplotyping.",
+          "description": "parentage confirmed via haplotyping.",
           "canonicalAllele": {
             "id": "CanAll014",
             "type": "CanonicalAllele",
@@ -113,11 +116,16 @@
             "type": "Individual",
             "description": "individual #001"
           },
-          "maternityConfirmed": true,
-          "paternityConfirmed": true,
+          "parentalConfirmation": {
+            "id": "SEPIO-CG:99007",
+            "type": "Coding",
+            "code": "99007",
+            "system": "http://obofoundry.org/sepio/clingen",
+            "display": "maternal and paternal confirmation"
+          },
           "alleleInheritance": [
             {
-              "id": "GENO-allele-inheritance-type:0000880",
+              "id": "GENO:0000880",
               "type": "Coding",
               "code": "0000880",
               "system": "http://obofoundry.org/geno/",
@@ -134,19 +142,19 @@
       "agent": {
         "id": "Agent001",
         "type": "Agent",
-        "name": "Harry Stevenson"
+        "label": "Harry Stevenson"
       },
-      "onDate": "6/3/16 8:00 AM",
-      "role": {
+      "contributionDate": "6/3/16 8:00 AM",
+      "contributionRole": {
         "id": "CC305",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:assessor",
+            "id": "SEPIO:0000154",
             "type": "Coding",
-            "code": "assessor",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "assessor"
+            "code": "0000154",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "assessor role"
           }
         ]
       }

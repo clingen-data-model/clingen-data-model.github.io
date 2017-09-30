@@ -1,12 +1,11 @@
 {
   "id": "CritAssess341",
   "type": "CriterionAssessment",
-  "explanation": "While truncations are usually the cause of TTN related DCM, missense variants in certain regions can also cause disease.",
+  "description": "While truncations are usually the cause of TTN related DCM, missense variants in certain regions can also cause disease.",
   "criterion": {
     "id": "BP1",
     "type": "Criterion",
     "description": "Missense variant in a gene for which primarily truncating variants are known to cause disease",
-    "shortDescription": "Missense variant when truncating is expected mechanism",
     "defaultStrength": {
       "id": "CG-evidence-strength:bp"
     }
@@ -21,7 +20,6 @@
     {
       "id": "GenCond053",
       "type": "GeneticCondition",
-      "explanation": "dilated cardiomyopathy",
       "disease": [
         {
           "id": "Orphanet:217604",
@@ -34,17 +32,16 @@
     }
   ],
   "outcome": {
-    "id": "CG-criterion-outcome:not-met",
+    "id": "SEPIO:0000224",
     "type": "Coding",
-    "code": "not-met",
-    "system": "http://clinicalgenome.org/datamodel/criterion-assertion-outcome/",
+    "code": "0000224",
+    "system": "http://obofoundry.org/sepio/",
     "display": "Not Met"
   },
   "evidenceLine": [
     {
       "id": "EvLn084",
       "type": "EvidenceLine",
-      "explanation": "EvLn084",
       "evidenceItem": [
         {
           "id": "MolCon203",
@@ -72,8 +69,29 @@
                 "display": "missense variant"
               }
             ]
+          }
+        },
+        {
+          "id": "Null407",
+          "type": "NullAllele",
+          "contextualAllele": {
+            "id": "CtxAll098",
+            "type": "ContextualAllele",
+            "relatedCanonicalAllele": {
+              "id": "CanAll092",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": "CtxAll098",
+              "identifier": "http://reg.genome.network/allele/CA090950"
+            },
+            "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
           },
-          "lof": true
+          "annotation": {
+            "id": "SEPIO-CG:99015",
+            "type": "Coding",
+            "code": "99015",
+            "system": "http://obofoundry.org/sepio/clingen",
+            "display": "No"
+          }
         },
         {
           "id": "CondMech204",
@@ -86,21 +104,19 @@
             "display": "loss of function variant"
           },
           "mechanismConfidence": {
-            "id": "CG-cond-mech-strength:primary",
+            "id": "SEPIO:0000270",
             "type": "Coding",
-            "code": "primary",
-            "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
-            "display": "Primary"
+            "code": "0000270",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "primary"
           },
           "gene": {
             "id": "hgnc:TTN",
-            "type": "Gene",
-            "symbol": "TTN"
+            "type": "Gene"
           },
           "condition": {
             "id": "GenCond053",
             "type": "GeneticCondition",
-            "explanation": "dilated cardiomyopathy",
             "disease": [
               {
                 "id": "Orphanet:217604",
@@ -115,7 +131,7 @@
         {
           "id": "CondMech205",
           "type": "ConditionMechanism",
-          "explanation": "Truncating variants in TTN are associated with DCM. However, if missense variants are located in the A-band, impact the A-band, or are in a highly expressed region, they can also be associated with DCM.",
+          "description": "Truncating variants in TTN are associated with DCM. However, if missense variants are located in the A-band, impact the A-band, or are in a highly expressed region, they can also be associated with DCM.",
           "mechanism": {
             "id": "SO:0001583",
             "type": "Coding",
@@ -124,21 +140,19 @@
             "display": "missense variant"
           },
           "mechanismConfidence": {
-            "id": "CG-cond-mech-strength:established",
+            "id": "SEPIO:0000269",
             "type": "Coding",
-            "code": "established",
-            "system": "http://clinicalgenome.org/datamodel/condition-mechanism-strength/",
-            "display": "Established"
+            "code": "0000269",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "established"
           },
           "gene": {
             "id": "hgnc:TTN",
-            "type": "Gene",
-            "symbol": "TTN"
+            "type": "Gene"
           },
           "condition": {
             "id": "GenCond053",
             "type": "GeneticCondition",
-            "explanation": "dilated cardiomyopathy",
             "disease": [
               {
                 "id": "Orphanet:217604",
@@ -159,19 +173,19 @@
       "agent": {
         "id": "Agent007",
         "type": "Agent",
-        "name": "Stefan DiMarino"
+        "label": "Stefan DiMarino"
       },
-      "onDate": "9/6/16 11:00 AM",
-      "role": {
+      "contributionDate": "9/6/16 11:00 AM",
+      "contributionRole": {
         "id": "CC378",
         "type": "CodeableConcept",
         "coding": [
           {
-            "id": "CG-contributory-role:assessor",
+            "id": "SEPIO:0000154",
             "type": "Coding",
-            "code": "assessor",
-            "system": "http://clinicalgenome.org/datamodel/contributory-role/",
-            "display": "assessor"
+            "code": "0000154",
+            "system": "http://obofoundry.org/sepio/",
+            "display": "assessor role"
           }
         ]
       }
