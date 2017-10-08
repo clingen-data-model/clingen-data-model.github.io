@@ -1,20 +1,27 @@
 {
   "id": "CritAssess307",
   "type": "CriterionAssessment",
-  "description": "affected child with CFC was found to carry c.158T>C. Both parents are unaffected and from Sanger seq neither parent was found to carry c.158T>C variant - so authors conclude variant occurred de novo. Since there was no mention of parental confirmation, PS2 cannot be used but PM6 is applicable",
   "criterion": {
-    "id": "PM6",
+    "id": "Crit313",
     "type": "Criterion",
+    "label": "PM6",
     "description": "Assumed de novo, but without confirmation of paternity and maternity",
     "defaultStrength": {
-      "id": "CG-evidence-strength:pm"
+      "id": "ELSID143",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Moderate"
     }
   },
   "variant": {
     "id": "CanAll060",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll064",
-    "identifier": "http://reg.genome.network/allele/CA279966"
+    "preferredCtxAllele": {
+      "id": "CtxAll064",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll060",
+      "alleleName": "NM_002755.3(MAP2K1):c.158T>C"
+    }
   },
   "condition": [
     {
@@ -22,21 +29,17 @@
       "type": "GeneticCondition",
       "disease": [
         {
-          "id": "Orphanet:1340",
-          "type": "Coding",
-          "code": "1340",
-          "system": "http://www.orpha.net/",
-          "display": "cardiofaciocutaneous syndrome"
+          "id": "DisID156",
+          "type": "Disease",
+          "label": "cardiofaciocutaneous syndrome"
         }
       ]
     }
   ],
   "outcome": {
-    "id": "SEPIO:0000223",
-    "type": "Coding",
-    "code": "0000223",
-    "system": "http://obofoundry.org/sepio/",
-    "display": "Met"
+    "id": "CEID074",
+    "type": "CriterionEvaluation",
+    "label": "Met"
   },
   "evidenceLine": [
     {
@@ -47,7 +50,7 @@
           "id": "IndCond089",
           "type": "IndividualCondition",
           "individual": {
-            "id": "Indiv009",
+            "id": "Indiv341",
             "type": "Individual",
             "description": "individual #009"
           },
@@ -57,28 +60,24 @@
               "type": "GeneticCondition",
               "disease": [
                 {
-                  "id": "Orphanet:1340",
-                  "type": "Coding",
-                  "code": "1340",
-                  "system": "http://www.orpha.net/",
-                  "display": "cardiofaciocutaneous syndrome"
+                  "id": "DisID156",
+                  "type": "Disease",
+                  "label": "cardiofaciocutaneous syndrome"
                 }
               ]
             }
           ],
           "individualHasCondition": {
-            "id": "SEPIO-CG:99009",
-            "type": "Coding",
-            "code": "99009",
-            "system": "http://obofoundry.org/sepio/clingen",
-            "display": "affected"
+            "id": "CondStID218",
+            "type": "ConditionStatus",
+            "label": "affected"
           }
         },
         {
           "id": "FamCond090",
           "type": "FamilyCondition",
           "proband": {
-            "id": "Indiv009",
+            "id": "Indiv341",
             "type": "Individual",
             "description": "individual #009"
           },
@@ -88,54 +87,51 @@
               "type": "GeneticCondition",
               "disease": [
                 {
-                  "id": "Orphanet:1340",
-                  "type": "Coding",
-                  "code": "1340",
-                  "system": "http://www.orpha.net/",
-                  "display": "cardiofaciocutaneous syndrome"
+                  "id": "DisID156",
+                  "type": "Disease",
+                  "label": "cardiofaciocutaneous syndrome"
                 }
               ]
             }
           ],
           "familyHasCondition": {
-            "id": "SEPIO-CG:99010",
-            "type": "Coding",
-            "code": "99010",
-            "system": "http://obofoundry.org/sepio/clingen",
-            "display": "unaffected"
+            "id": "CondStID219",
+            "type": "ConditionStatus",
+            "label": "unaffected"
           }
         },
         {
           "id": "IndAllInh091",
           "type": "IndividualAlleleInheritance",
-          "description": "parentage confirmation not mentioned in the source article",
           "canonicalAllele": {
             "id": "CanAll060",
             "type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll064",
-            "identifier": "http://reg.genome.network/allele/CA279966"
+            "preferredCtxAllele": {
+              "id": "CtxAll064",
+              "type": "ContextualAllele",
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll060",
+              "alleleName": "NM_002755.3(MAP2K1):c.158T>C"
+            }
           },
           "individual": {
-            "id": "Indiv009",
+            "id": "Indiv341",
             "type": "Individual",
             "description": "individual #009"
           },
           "parentalConfirmation": {
-            "id": "SEPIO-CG:99008",
-            "type": "Coding",
-            "code": "99008",
-            "system": "http://obofoundry.org/sepio/clingen",
-            "display": "no parental confirmation"
+            "id": "PCID217",
+            "type": "ParentalConfirmation",
+            "label": "no parental confirmation"
           },
           "alleleInheritance": [
             {
-              "id": "GENO:0000880",
-              "type": "Coding",
-              "code": "0000880",
-              "system": "http://obofoundry.org/geno/",
-              "display": "de novo"
+              "id": "AITID197",
+              "type": "AlleleInheritanceType",
+              "label": "de novo"
             }
-          ]
+          ],
+          "description": "parentage confirmation not mentioned in the source article"
         }
       ]
     }
@@ -150,18 +146,11 @@
       },
       "contributionDate": "7/20/16 7:49 AM",
       "contributionRole": {
-        "id": "CC339",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     }
-  ]
+  ],
+  "description": "affected child with CFC was found to carry c.158T>C. Both parents are unaffected and from Sanger seq neither parent was found to carry c.158T>C variant - so authors conclude variant occurred de novo. Since there was no mention of parental confirmation, PS2 cannot be used but PM6 is applicable"
 }

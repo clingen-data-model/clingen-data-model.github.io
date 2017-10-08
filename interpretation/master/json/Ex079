@@ -5,18 +5,26 @@
     "id": "CritAssess356",
     "type": "CriterionAssessment",
     "criterion": {
-      "id": "BP6",
+      "id": "Crit329",
       "type": "Criterion",
+      "label": "BP6",
       "description": "Reputable source recently reports variant as benign, but the evidence is not available to the laboratory to perform an independent evaluation",
       "defaultStrength": {
-        "id": "CG-evidence-strength:bp"
+        "id": "ELSID140",
+        "type": "EvidenceLineStrength",
+        "label": "Benign Supporting"
       }
     },
     "variant": {
       "id": "CanAll115",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll121",
-      "identifier": "http://reg.genome.network/allele/CA016113"
+      "preferredCtxAllele": {
+        "id": "CtxAll121",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll115",
+        "alleleName": "NM_000059.3(BRCA2):c.-26G>A"
+      }
     },
     "condition": [
       {
@@ -24,21 +32,17 @@
         "type": "GeneticCondition",
         "disease": [
           {
-            "id": "OMIM:612555",
-            "type": "Coding",
-            "code": "612555",
-            "system": "http://www.omim.org/",
-            "display": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
+            "id": "DisID153",
+            "type": "Disease",
+            "label": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
           }
         ]
       }
     ],
     "outcome": {
-      "id": "SEPIO:0000223",
-      "type": "Coding",
-      "code": "0000223",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Met"
+      "id": "CEID074",
+      "type": "CriterionEvaluation",
+      "label": "Met"
     },
     "evidenceLine": [
       {
@@ -48,12 +52,16 @@
           {
             "id": "VarInterp256",
             "type": "VariantInterpretation",
-            "description": "classified by Sharing Clinical Reports Project.",
             "variant": {
               "id": "CanAll115",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll121",
-              "identifier": "http://reg.genome.network/allele/CA016113"
+              "preferredCtxAllele": {
+                "id": "CtxAll121",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll115",
+                "alleleName": "NM_000059.3(BRCA2):c.-26G>A"
+              }
             },
             "condition": [
               {
@@ -61,22 +69,19 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "OMIM:612555",
-                    "type": "Coding",
-                    "code": "612555",
-                    "system": "http://www.omim.org/",
-                    "display": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
+                    "id": "DisID153",
+                    "type": "Disease",
+                    "label": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
                   }
                 ]
               }
             ],
             "outcome": {
-              "id": "LN:LA6675-8",
-              "type": "Coding",
-              "code": "LA6675-8",
-              "system": "http://loinc.org/",
-              "display": "Benign"
-            }
+              "id": "SIGID032",
+              "type": "Significance",
+              "label": "Benign"
+            },
+            "description": "classified by Sharing Clinical Reports Project."
           }
         ]
       }
@@ -91,17 +96,9 @@
         },
         "contributionDate": "10/10/16 8:02 AM",
         "contributionRole": {
-          "id": "CC402",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
     ]

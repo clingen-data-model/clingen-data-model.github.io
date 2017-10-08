@@ -5,18 +5,26 @@
     "id": "CritAssess319",
     "type": "CriterionAssessment",
     "criterion": {
-      "id": "PP4",
+      "id": "Crit317",
       "type": "Criterion",
+      "label": "PP4",
       "description": "Patient’s phenotype or family history is highly specific for a disease with a single genetic etiology",
       "defaultStrength": {
-        "id": "CG-evidence-strength:pp"
+        "id": "ELSID144",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Supporting"
       }
     },
     "variant": {
       "id": "CanAll071",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll077",
-      "identifier": "http://reg.genome.network/allele/CA501234"
+      "preferredCtxAllele": {
+        "id": "CtxAll077",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll071",
+        "alleleName": "NM_000257.2(MYH7):c.1822T>G"
+      }
     },
     "condition": [
       {
@@ -24,21 +32,17 @@
         "type": "GeneticCondition",
         "disease": [
           {
-            "id": "Orphanet:217569",
-            "type": "Coding",
-            "code": "217569",
-            "system": "http://www.orpha.net/",
-            "display": "hypertrophic cardiomyopathy"
+            "id": "DisID160",
+            "type": "Disease",
+            "label": "hypertrophic cardiomyopathy"
           }
         ]
       }
     ],
     "outcome": {
-      "id": "SEPIO:0000224",
-      "type": "Coding",
-      "code": "0000224",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Not Met"
+      "id": "CEID075",
+      "type": "CriterionEvaluation",
+      "label": "Not Met"
     },
     "evidenceLine": [
       {
@@ -48,27 +52,26 @@
           {
             "id": "LocHet149",
             "type": "LocusHeterogeneity",
-            "description": "1.Only ~50% of HCM is genetic (can be caused by environment) \n2. More than 10 genes can cause HCM (specifically 9 sarcomere genes)",
             "condition": {
               "id": "GenCond064",
               "type": "GeneticCondition",
               "disease": [
                 {
-                  "id": "Orphanet:217569",
-                  "type": "Coding",
-                  "code": "217569",
-                  "system": "http://www.orpha.net/",
-                  "display": "hypertrophic cardiomyopathy"
+                  "id": "DisID160",
+                  "type": "Disease",
+                  "label": "hypertrophic cardiomyopathy"
                 }
               ]
             },
             "gene": {
-              "id": "hgnc:MYH7",
-              "type": "Gene"
+              "id": "G234",
+              "type": "Gene",
+              "geneSymbol": "MYH7"
             },
             "specificity": {
               "id": "low"
-            }
+            },
+            "description": "1.Only ~50% of HCM is genetic (can be caused by environment) \n2. More than 10 genes can cause HCM (specifically 9 sarcomere genes)"
           }
         ]
       }
@@ -83,17 +86,9 @@
         },
         "contributionDate": "8/29/16 3:00 PM",
         "contributionRole": {
-          "id": "CC353",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
     ]

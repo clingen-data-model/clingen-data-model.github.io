@@ -2,25 +2,41 @@
   "id": "CritAssess284",
   "type": "CriterionAssessment",
   "criterion": {
-    "id": "PS3",
+    "id": "Crit306",
     "type": "Criterion",
+    "label": "PS3",
     "description": "Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product",
     "defaultStrength": {
-      "id": "CG-evidence-strength:ps"
-    }
+      "id": "ELSID145",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Strong"
+    },
+    "comments": "This particular rule will probably be downgraded often, given that there are not many “Functional studies that have been validated and shown to be reproducible and robust in a clinical diagnostic laboratory setting”"
   },
   "variant": {
     "id": "CanAll017",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll020",
-    "identifier": "http://reg.genome.network/allele/CA090410"
+    "preferredCtxAllele": {
+      "id": "CtxAll020",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll017",
+      "alleleName": "NM_001001431.2(TNNT2):c.391C>T",
+      "produces": [
+        {
+          "id": "CtxAll021",
+          "type": "ContextualAllele",
+          "producedBy": "CtxAll020",
+          "relatedCanonicalAllele": "CanAll018",
+          "alleleName": "NP_001001431.1:p.Arg131Trp"
+        }
+      ]
+    }
   },
   "outcome": {
-    "id": "SEPIO:0000223",
-    "type": "Coding",
-    "code": "0000223",
-    "system": "http://obofoundry.org/sepio/",
-    "display": "Met"
+    "id": "CEID074",
+    "type": "CriterionEvaluation",
+    "label": "Met"
   },
   "evidenceLine": [
     {
@@ -32,32 +48,21 @@
           "type": "AlleleFunctionalImpact",
           "resultDescription": "the mutation lowered the Ca2+  affinity of the reconstituted thin filaments;",
           "assayType": {
-            "id": "CC015",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "OBI:0001146",
-                "type": "Coding",
-                "code": "0001146",
-                "system": "http://purl.obolibrary.org/obo/OBI_",
-                "display": "Binding assay"
-              }
-            ]
+            "id": "AFITID078",
+            "type": "AlleleFunctionalImpactType",
+            "label": "Binding assay"
           },
           "contextualAllele": {
             "id": "CtxAll021",
             "type": "ContextualAllele",
-            "relatedCanonicalAllele": {
-              "id": "CanAll018",
-              "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll021",
-              "identifier": "http://reg.genome.network/allele/CA501233"
-            },
+            "producedBy": "CtxAll020",
+            "relatedCanonicalAllele": "CanAll018",
             "alleleName": "NP_001001431.1:p.Arg131Trp"
           },
           "gene": {
-            "id": "hgnc:TNNT2",
-            "type": "Gene"
+            "id": "G237",
+            "type": "Gene",
+            "geneSymbol": "TNNT2"
           }
         }
       ]
@@ -71,32 +76,21 @@
           "type": "AlleleFunctionalImpact",
           "resultDescription": "reduced Ca2 sensitivity of activation",
           "assayType": {
-            "id": "CC016",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "OBI:XXXXXX2",
-                "type": "Coding",
-                "code": "XXXXXX2",
-                "system": "http://purl.obolibrary.org/obo/OBI_",
-                "display": "ATPase assay"
-              }
-            ]
+            "id": "AFITID077",
+            "type": "AlleleFunctionalImpactType",
+            "label": "ATPase assay"
           },
           "contextualAllele": {
             "id": "CtxAll021",
             "type": "ContextualAllele",
-            "relatedCanonicalAllele": {
-              "id": "CanAll018",
-              "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll021",
-              "identifier": "http://reg.genome.network/allele/CA501233"
-            },
+            "producedBy": "CtxAll020",
+            "relatedCanonicalAllele": "CanAll018",
             "alleleName": "NP_001001431.1:p.Arg131Trp"
           },
           "gene": {
-            "id": "hgnc:TNNT2",
-            "type": "Gene"
+            "id": "G237",
+            "type": "Gene",
+            "geneSymbol": "TNNT2"
           }
         }
       ]
@@ -110,32 +104,21 @@
           "type": "AlleleFunctionalImpact",
           "resultDescription": "reduced Ca2 sensitivity of activation",
           "assayType": {
-            "id": "CC017",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "OBI:XXXXXX5",
-                "type": "Coding",
-                "code": "XXXXXX5",
-                "system": "http://purl.obolibrary.org/obo/OBI_",
-                "display": "motility assay"
-              }
-            ]
+            "id": "AFITID082",
+            "type": "AlleleFunctionalImpactType",
+            "label": "motility assay"
           },
           "contextualAllele": {
             "id": "CtxAll021",
             "type": "ContextualAllele",
-            "relatedCanonicalAllele": {
-              "id": "CanAll018",
-              "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll021",
-              "identifier": "http://reg.genome.network/allele/CA501233"
-            },
+            "producedBy": "CtxAll020",
+            "relatedCanonicalAllele": "CanAll018",
             "alleleName": "NP_001001431.1:p.Arg131Trp"
           },
           "gene": {
-            "id": "hgnc:TNNT2",
-            "type": "Gene"
+            "id": "G237",
+            "type": "Gene",
+            "geneSymbol": "TNNT2"
           }
         }
       ]
@@ -149,32 +132,21 @@
           "type": "AlleleFunctionalImpact",
           "resultDescription": "desensitized Ca2+ binding to the thin filament.",
           "assayType": {
-            "id": "CC018",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "OBI:0001146",
-                "type": "Coding",
-                "code": "0001146",
-                "system": "http://purl.obolibrary.org/obo/OBI_",
-                "display": "Binding assay"
-              }
-            ]
+            "id": "AFITID078",
+            "type": "AlleleFunctionalImpactType",
+            "label": "Binding assay"
           },
           "contextualAllele": {
             "id": "CtxAll021",
             "type": "ContextualAllele",
-            "relatedCanonicalAllele": {
-              "id": "CanAll018",
-              "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll021",
-              "identifier": "http://reg.genome.network/allele/CA501233"
-            },
+            "producedBy": "CtxAll020",
+            "relatedCanonicalAllele": "CanAll018",
             "alleleName": "NP_001001431.1:p.Arg131Trp"
           },
           "gene": {
-            "id": "hgnc:TNNT2",
-            "type": "Gene"
+            "id": "G237",
+            "type": "Gene",
+            "geneSymbol": "TNNT2"
           }
         }
       ]
@@ -190,17 +162,9 @@
       },
       "contributionDate": "6/3/16 2:50 PM",
       "contributionRole": {
-        "id": "CC308",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     },
     {
@@ -212,17 +176,9 @@
       },
       "contributionDate": "6/3/16 2:50 PM",
       "contributionRole": {
-        "id": "CC309",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     }
   ]

@@ -221,7 +221,7 @@
             </tr>
             <tr>
                 <td>inconsistentSegregationsObserved</td>
-                <td>Coding</td>
+                <td>InconsistentSegregationObserved</td>
                 <td>0..1</td>
                 <td>Whether phenotype positive/allele negative or phenotype negative/allele positive individuals are in the family</td>
                 <td>SEPIO:0000314</td>
@@ -310,7 +310,7 @@
               <p><a href="../details/details.html#GenCond056">GenCond056</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#Fam011">Fam011</a></p>
+              <p><a href="../details/details.html#Fam373">Fam373</a></p>
          </td>
           <td>
               <p>0</p>
@@ -337,7 +337,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#SEPIO-CG:99011">SEPIO-CG:99011</a></p>
+              <p><a href="../details/details.html#ISegObsID220">ISegObsID220</a></p>
          </td>
           <td>
               
@@ -351,29 +351,30 @@
     "type": "GeneticCondition",
     "disease": [
       {
-        "id": "Orphanet:648",
-        "type": "Coding",
-        "code": "648",
-        "system": "http://www.orpha.net/",
-        "display": "noonan syndrome"
+        "id": "DisID175",
+        "type": "Disease",
+        "label": "noonan syndrome"
       }
     ],
     "modeOfInheritance": {
-      "id": "HP:0000006",
-      "type": "Coding",
-      "code": "0000006",
-      "system": "http://human-phenotype-ontology.github.io/",
-      "display": "Autosomal Dominant"
+      "id": "MOIID051",
+      "type": "ModeOfInheritance",
+      "label": "Autosomal Dominant"
     }
   },
   "canonicalAllele": {
     "id": "CanAll124",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll130",
-    "identifier": "http://reg.genome.network/allele/CA090930"
+    "preferredCtxAllele": {
+      "id": "CtxAll130",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll124",
+      "alleleName": "NM_005633.3(SOS1):c.1010A>G (p.Tyr337Cys)"
+    }
   },
   "family": {
-    "id": "Fam011",
+    "id": "Fam373",
     "type": "Family",
     "description": "Family #011"
   },
@@ -381,11 +382,9 @@
   "phenotypeNegativeAllelePositive": 2,
   "phenotypePositiveAlleleNegative": 0,
   "inconsistentSegregationsObserved": {
-    "id": "SEPIO-CG:99011",
-    "type": "Coding",
-    "code": "99011",
-    "system": "http://obofoundry.org/sepio/clingen",
-    "display": "present"
+    "id": "ISegObsID220",
+    "type": "InconsistentSegregationObserved",
+    "label": "present"
   }
 }
           </code></pre></div></td>
@@ -404,7 +403,7 @@
               <p><a href="../details/details.html#GenCond020">GenCond020</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#Fam001">Fam001</a></p>
+              <p><a href="../details/details.html#Fam363">Fam363</a></p>
          </td>
           <td>
               <p>3</p>
@@ -440,38 +439,38 @@
           <td><div class="example_view" id="FamSeg103"><pre><code>{
   "id": "FamSeg103",
   "type": "FamilySegregation",
-  "description": "identified in 1 individual with HCM. Segregation analysis determined 5 other members of the family also carried this variant. However, only 3 of those family members had HCM (aged 48-75). The 2 other family members were young and asymptomatic. So from this paper, only count 3 segregations. The two apparently refuting segregations can be ignored due to the age-dependent penetrance of HCM.",
   "condition": {
     "id": "GenCond020",
     "type": "GeneticCondition",
     "disease": [
       {
-        "id": "Orphanet:217569",
-        "type": "Coding",
-        "code": "217569",
-        "system": "http://www.orpha.net/",
-        "display": "hypertrophic cardiomyopathy"
+        "id": "DisID160",
+        "type": "Disease",
+        "label": "hypertrophic cardiomyopathy"
       }
     ],
     "modeOfInheritance": {
-      "id": "HP:0000006",
-      "type": "Coding",
-      "code": "0000006",
-      "system": "http://human-phenotype-ontology.github.io/",
-      "display": "Autosomal Dominant"
+      "id": "MOIID051",
+      "type": "ModeOfInheritance",
+      "label": "Autosomal Dominant"
     }
   },
   "canonicalAllele": {
     "id": "CanAll063",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll067",
-    "identifier": "http://reg.genome.network/allele/CA010136"
+    "preferredCtxAllele": {
+      "id": "CtxAll067",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll063",
+      "alleleName": "NM_000256.3(MYBPC3)c.1351+1G>A"
+    }
   },
   "family": {
-    "id": "Fam001",
+    "id": "Fam363",
     "type": "Family",
-    "description": "Family #001",
-    "label": "12A"
+    "label": "12A",
+    "description": "Family #001"
   },
   "phenotypePositiveAllelePositive": 3,
   "phenotypeNegativeAllelePositive": 2,
@@ -485,23 +484,16 @@
       },
       "contributionDate": "9/13/16",
       "contributionRole": {
-        "id": "CC383",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000156",
-            "type": "Coding",
-            "code": "0000156",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "curator role"
-          }
-        ]
+        "id": "CRID194",
+        "type": "ContributoryRole",
+        "label": "curator role"
       }
     }
   ],
   "source": [
     "http://www.ncbi.nlm.nih.gov/pubmed/17081393"
-  ]
+  ],
+  "description": "identified in 1 individual with HCM. Segregation analysis determined 5 other members of the family also carried this variant. However, only 3 of those family members had HCM (aged 48-75). The 2 other family members were young and asymptomatic. So from this paper, only count 3 segregations. The two apparently refuting segregations can be ignored due to the age-dependent penetrance of HCM."
 }
           </code></pre></div></td>
           -->
@@ -519,7 +511,7 @@
               <p><a href="../details/details.html#GenCond020">GenCond020</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#Fam002">Fam002</a></p>
+              <p><a href="../details/details.html#Fam364">Fam364</a></p>
          </td>
           <td>
               <p>1</p>
@@ -555,35 +547,35 @@
           <td><div class="example_view" id="FamSeg104"><pre><code>{
   "id": "FamSeg104",
   "type": "FamilySegregation",
-  "description": "In LMM internal family, c.1351+1G>A was identified in 1 individual with HCM. Variant also found in individual’s sister - who also had clinical dx of HCM.",
   "condition": {
     "id": "GenCond020",
     "type": "GeneticCondition",
     "disease": [
       {
-        "id": "Orphanet:217569",
-        "type": "Coding",
-        "code": "217569",
-        "system": "http://www.orpha.net/",
-        "display": "hypertrophic cardiomyopathy"
+        "id": "DisID160",
+        "type": "Disease",
+        "label": "hypertrophic cardiomyopathy"
       }
     ],
     "modeOfInheritance": {
-      "id": "HP:0000006",
-      "type": "Coding",
-      "code": "0000006",
-      "system": "http://human-phenotype-ontology.github.io/",
-      "display": "Autosomal Dominant"
+      "id": "MOIID051",
+      "type": "ModeOfInheritance",
+      "label": "Autosomal Dominant"
     }
   },
   "canonicalAllele": {
     "id": "CanAll063",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll067",
-    "identifier": "http://reg.genome.network/allele/CA010136"
+    "preferredCtxAllele": {
+      "id": "CtxAll067",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll063",
+      "alleleName": "NM_000256.3(MYBPC3)c.1351+1G>A"
+    }
   },
   "family": {
-    "id": "Fam002",
+    "id": "Fam364",
     "type": "Family",
     "description": "Family #002"
   },
@@ -598,23 +590,16 @@
       },
       "contributionDate": "9/13/16",
       "contributionRole": {
-        "id": "CC384",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000156",
-            "type": "Coding",
-            "code": "0000156",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "curator role"
-          }
-        ]
+        "id": "CRID194",
+        "type": "ContributoryRole",
+        "label": "curator role"
       }
     }
   ],
   "source": [
     "http://partners.org/ppm/lmm/gi/variant/12345"
-  ]
+  ],
+  "description": "In LMM internal family, c.1351+1G>A was identified in 1 individual with HCM. Variant also found in individual’s sister - who also had clinical dx of HCM."
 }
           </code></pre></div></td>
           -->
@@ -632,7 +617,7 @@
               <p><a href="../details/details.html#GenCond021">GenCond021</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#Fam003">Fam003</a></p>
+              <p><a href="../details/details.html#Fam365">Fam365</a></p>
          </td>
           <td>
               <p>5</p>
@@ -668,39 +653,40 @@
           <td><div class="example_view" id="FamSeg107"><pre><code>{
   "id": "FamSeg107",
   "type": "FamilySegregation",
-  "description": "proband and 5 affected family members all homozygous for NM_206933.2(USH2A):c.1000C>G (p.Arg334Gly).",
   "condition": {
     "id": "GenCond021",
     "type": "GeneticCondition",
     "disease": [
       {
-        "id": "Orphanet:886",
-        "type": "Coding",
-        "code": "886",
-        "system": "http://www.orpha.net/",
-        "display": "Usher syndrome"
+        "id": "DisID184",
+        "type": "Disease",
+        "label": "Usher syndrome"
       }
     ],
     "modeOfInheritance": {
-      "id": "HP:0000007",
-      "type": "Coding",
-      "code": "0000007",
-      "system": "http://human-phenotype-ontology.github.io/",
-      "display": "Autosomal Recessive"
+      "id": "MOIID052",
+      "type": "ModeOfInheritance",
+      "label": "Autosomal Recessive"
     }
   },
   "canonicalAllele": {
     "id": "CanAll062",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll066",
-    "identifier": "http://reg.genome.network/allele/CA143213"
+    "preferredCtxAllele": {
+      "id": "CtxAll066",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll062",
+      "alleleName": "NM_206933.2(USH2A):c.1000C>G (p.Arg334Gly)"
+    }
   },
   "family": {
-    "id": "Fam003",
+    "id": "Fam365",
     "type": "Family",
     "description": "Family #003"
   },
-  "phenotypePositiveAllelePositive": 5
+  "phenotypePositiveAllelePositive": 5,
+  "description": "proband and 5 affected family members all homozygous for NM_206933.2(USH2A):c.1000C>G (p.Arg334Gly)."
 }
           </code></pre></div></td>
           -->
@@ -718,7 +704,7 @@
               <p><a href="../details/details.html#GenCond021">GenCond021</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#Fam004">Fam004</a></p>
+              <p><a href="../details/details.html#Fam366">Fam366</a></p>
          </td>
           <td>
               
@@ -754,38 +740,39 @@
           <td><div class="example_view" id="FamSeg108"><pre><code>{
   "id": "FamSeg108",
   "type": "FamilySegregation",
-  "description": "c.1000C>T identified in het state in 1 individual with Usher. Individual compound het with Gly1840Val USH2A variant - confirmed in trans. Gly1840Val called Pathogenic. Individual has 3 affected sibs all of whom are compound het with 1000C>T & Gly1840Val. One additional sib only carried 1000C>T and is unaffected.",
   "condition": {
     "id": "GenCond021",
     "type": "GeneticCondition",
     "disease": [
       {
-        "id": "Orphanet:886",
-        "type": "Coding",
-        "code": "886",
-        "system": "http://www.orpha.net/",
-        "display": "Usher syndrome"
+        "id": "DisID184",
+        "type": "Disease",
+        "label": "Usher syndrome"
       }
     ],
     "modeOfInheritance": {
-      "id": "HP:0000007",
-      "type": "Coding",
-      "code": "0000007",
-      "system": "http://human-phenotype-ontology.github.io/",
-      "display": "Autosomal Recessive"
+      "id": "MOIID052",
+      "type": "ModeOfInheritance",
+      "label": "Autosomal Recessive"
     }
   },
   "canonicalAllele": {
     "id": "CanAll062",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll066",
-    "identifier": "http://reg.genome.network/allele/CA143213"
+    "preferredCtxAllele": {
+      "id": "CtxAll066",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll062",
+      "alleleName": "NM_206933.2(USH2A):c.1000C>G (p.Arg334Gly)"
+    }
   },
   "family": {
-    "id": "Fam004",
+    "id": "Fam366",
     "type": "Family",
     "description": "Family #004"
-  }
+  },
+  "description": "c.1000C>T identified in het state in 1 individual with Usher. Individual compound het with Gly1840Val USH2A variant - confirmed in trans. Gly1840Val called Pathogenic. Individual has 3 affected sibs all of whom are compound het with 1000C>T & Gly1840Val. One additional sib only carried 1000C>T and is unaffected."
 }
           </code></pre></div></td>
           -->
@@ -803,7 +790,7 @@
               <p><a href="../details/details.html#GenCond051">GenCond051</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#Fam005">Fam005</a></p>
+              <p><a href="../details/details.html#Fam367">Fam367</a></p>
          </td>
           <td>
               <p>2</p>
@@ -845,29 +832,30 @@
     "name": "Breast Ovarian Cancer, Autosomal Dominant",
     "disease": [
       {
-        "id": "MESH:D061325",
-        "type": "Coding",
-        "code": "D061325",
-        "system": "https://meshb.nlm.nih.gov/",
-        "display": "hereditary breast ovarian cancer"
+        "id": "DisID148",
+        "type": "Disease",
+        "label": "hereditary breast ovarian cancer"
       }
     ],
     "modeOfInheritance": {
-      "id": "HP:0000006",
-      "type": "Coding",
-      "code": "0000006",
-      "system": "http://human-phenotype-ontology.github.io/",
-      "display": "Autosomal Dominant"
+      "id": "MOIID051",
+      "type": "ModeOfInheritance",
+      "label": "Autosomal Dominant"
     }
   },
   "canonicalAllele": {
     "id": "CanAll064",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll068",
-    "identifier": "http://reg.genome.network/allele/CA501226"
+    "preferredCtxAllele": {
+      "id": "CtxAll068",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll064",
+      "alleleName": "NM_000059.3(BRCA2):c.1832C>G"
+    }
   },
   "family": {
-    "id": "Fam005",
+    "id": "Fam367",
     "type": "Family",
     "description": "Family #005"
   },
@@ -889,7 +877,7 @@
               <p><a href="../details/details.html#GenCond002">GenCond002</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#Fam006">Fam006</a></p>
+              <p><a href="../details/details.html#Fam368">Fam368</a></p>
          </td>
           <td>
               <p>1</p>
@@ -935,29 +923,30 @@
     "type": "GeneticCondition",
     "disease": [
       {
-        "id": "Orphanet:217604",
-        "type": "Coding",
-        "code": "217604",
-        "system": "http://www.orpha.net/",
-        "display": "dilated cardiomyopathy"
+        "id": "DisID162",
+        "type": "Disease",
+        "label": "dilated cardiomyopathy"
       }
     ],
     "modeOfInheritance": {
-      "id": "HP:0000006",
-      "type": "Coding",
-      "code": "0000006",
-      "system": "http://human-phenotype-ontology.github.io/",
-      "display": "Autosomal Dominant"
+      "id": "MOIID051",
+      "type": "ModeOfInheritance",
+      "label": "Autosomal Dominant"
     }
   },
   "canonicalAllele": {
     "id": "CanAll065",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll069",
-    "identifier": "http://reg.genome.network/allele/CA006429"
+    "preferredCtxAllele": {
+      "id": "CtxAll069",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll065",
+      "alleleName": "NM_001001430.2(TNNT2):c.629_631delAGA"
+    }
   },
   "family": {
-    "id": "Fam006",
+    "id": "Fam368",
     "type": "Family",
     "description": "Family #006"
   },
@@ -992,7 +981,7 @@
               <p><a href="../details/details.html#GenCond002">GenCond002</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#Fam007">Fam007</a></p>
+              <p><a href="../details/details.html#Fam369">Fam369</a></p>
          </td>
           <td>
               <p>2</p>
@@ -1052,29 +1041,30 @@
     "type": "GeneticCondition",
     "disease": [
       {
-        "id": "Orphanet:217604",
-        "type": "Coding",
-        "code": "217604",
-        "system": "http://www.orpha.net/",
-        "display": "dilated cardiomyopathy"
+        "id": "DisID162",
+        "type": "Disease",
+        "label": "dilated cardiomyopathy"
       }
     ],
     "modeOfInheritance": {
-      "id": "HP:0000006",
-      "type": "Coding",
-      "code": "0000006",
-      "system": "http://human-phenotype-ontology.github.io/",
-      "display": "Autosomal Dominant"
+      "id": "MOIID051",
+      "type": "ModeOfInheritance",
+      "label": "Autosomal Dominant"
     }
   },
   "canonicalAllele": {
     "id": "CanAll065",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll069",
-    "identifier": "http://reg.genome.network/allele/CA006429"
+    "preferredCtxAllele": {
+      "id": "CtxAll069",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll065",
+      "alleleName": "NM_001001430.2(TNNT2):c.629_631delAGA"
+    }
   },
   "family": {
-    "id": "Fam007",
+    "id": "Fam369",
     "type": "Family",
     "description": "Family #007"
   },
@@ -1109,7 +1099,7 @@
               <p><a href="../details/details.html#GenCond035">GenCond035</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#Fam008">Fam008</a></p>
+              <p><a href="../details/details.html#Fam370">Fam370</a></p>
          </td>
           <td>
               <p>0</p>
@@ -1136,7 +1126,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#SEPIO-CG:99011">SEPIO-CG:99011</a></p>
+              <p><a href="../details/details.html#ISegObsID220">ISegObsID220</a></p>
          </td>
           <td>
               
@@ -1145,47 +1135,46 @@
           <td><div class="example_view" id="FamSeg196"><pre><code>{
   "id": "FamSeg196",
   "type": "FamilySegregation",
-  "description": "observed in one case diagnosed with Familial Hypercholesterolemia, characterized by elevated LDLC levels. Two siblings of the proband also have elevated LDLC levels but neither carry the 313+2T>C variant.",
   "condition": {
     "id": "GenCond035",
     "type": "GeneticCondition",
     "disease": [
       {
-        "id": "OMIM:143890",
-        "type": "Coding",
-        "code": "143890",
-        "system": "http://www.omim.org/",
-        "display": "Hypercholesterolemia, Familial"
+        "id": "DisID150",
+        "type": "Disease",
+        "label": "Hypercholesterolemia, Familial"
       }
     ],
     "modeOfInheritance": {
-      "id": "HP:0000006",
-      "type": "Coding",
-      "code": "0000006",
-      "system": "http://human-phenotype-ontology.github.io/",
-      "display": "Autosomal Dominant"
+      "id": "MOIID051",
+      "type": "ModeOfInheritance",
+      "label": "Autosomal Dominant"
     }
   },
   "canonicalAllele": {
     "id": "CanAll088",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll094",
-    "identifier": "http://reg.genome.network/allele/CA023690"
+    "preferredCtxAllele": {
+      "id": "CtxAll094",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll088",
+      "alleleName": "NM_000527.4(LDLR):c.313+2T>C"
+    }
   },
   "family": {
-    "id": "Fam008",
+    "id": "Fam370",
     "type": "Family",
     "description": "Family #008"
   },
   "phenotypePositiveAllelePositive": 0,
   "phenotypePositiveAlleleNegative": 2,
   "inconsistentSegregationsObserved": {
-    "id": "SEPIO-CG:99011",
-    "type": "Coding",
-    "code": "99011",
-    "system": "http://obofoundry.org/sepio/clingen",
-    "display": "present"
-  }
+    "id": "ISegObsID220",
+    "type": "InconsistentSegregationObserved",
+    "label": "present"
+  },
+  "description": "observed in one case diagnosed with Familial Hypercholesterolemia, characterized by elevated LDLC levels. Two siblings of the proband also have elevated LDLC levels but neither carry the 313+2T>C variant."
 }
           </code></pre></div></td>
           -->
@@ -1204,7 +1193,7 @@ by environmental factors (obese, alcohol)</p>
               <p><a href="../details/details.html#GenCond065">GenCond065</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#Fam009">Fam009</a></p>
+              <p><a href="../details/details.html#Fam371">Fam371</a></p>
          </td>
           <td>
               <p>3</p>
@@ -1231,7 +1220,7 @@ by environmental factors (obese, alcohol)</p>
               
          </td>
           <td>
-              <p><a href="../details/details.html#SEPIO-CG:99011">SEPIO-CG:99011</a></p>
+              <p><a href="../details/details.html#ISegObsID220">ISegObsID220</a></p>
          </td>
           <td>
               
@@ -1240,47 +1229,46 @@ by environmental factors (obese, alcohol)</p>
           <td><div class="example_view" id="FamSeg197"><pre><code>{
   "id": "FamSeg197",
   "type": "FamilySegregation",
-  "description": "The individual with HCM but without the allele is likely a phenocopy explained\nby environmental factors (obese, alcohol)",
   "condition": {
     "id": "GenCond065",
     "type": "GeneticCondition",
     "disease": [
       {
-        "id": "Orphanet:217569",
-        "type": "Coding",
-        "code": "217569",
-        "system": "http://www.orpha.net/",
-        "display": "hypertrophic cardiomyopathy"
+        "id": "DisID160",
+        "type": "Disease",
+        "label": "hypertrophic cardiomyopathy"
       }
     ],
     "modeOfInheritance": {
-      "id": "HP:0000006",
-      "type": "Coding",
-      "code": "0000006",
-      "system": "http://human-phenotype-ontology.github.io/",
-      "display": "Autosomal Dominant"
+      "id": "MOIID051",
+      "type": "ModeOfInheritance",
+      "label": "Autosomal Dominant"
     }
   },
   "canonicalAllele": {
     "id": "CanAll089",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll095",
-    "identifier": "http://reg.genome.network/allele/CA010777"
+    "preferredCtxAllele": {
+      "id": "CtxAll095",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll089",
+      "alleleName": "NM_000256.3(MYBPC3):c.1624+4A>T"
+    }
   },
   "family": {
-    "id": "Fam009",
+    "id": "Fam371",
     "type": "Family",
     "description": "Family #009"
   },
   "phenotypePositiveAllelePositive": 3,
   "phenotypePositiveAlleleNegative": 1,
   "inconsistentSegregationsObserved": {
-    "id": "SEPIO-CG:99011",
-    "type": "Coding",
-    "code": "99011",
-    "system": "http://obofoundry.org/sepio/clingen",
-    "display": "present"
-  }
+    "id": "ISegObsID220",
+    "type": "InconsistentSegregationObserved",
+    "label": "present"
+  },
+  "description": "The individual with HCM but without the allele is likely a phenocopy explained\nby environmental factors (obese, alcohol)"
 }
           </code></pre></div></td>
           -->
@@ -1298,7 +1286,7 @@ by environmental factors (obese, alcohol)</p>
               <p><a href="../details/details.html#GenCond066">GenCond066</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#Fam010">Fam010</a></p>
+              <p><a href="../details/details.html#Fam372">Fam372</a></p>
          </td>
           <td>
               <p>0</p>
@@ -1325,7 +1313,7 @@ by environmental factors (obese, alcohol)</p>
               
          </td>
           <td>
-              <p><a href="../details/details.html#SEPIO-CG:99011">SEPIO-CG:99011</a></p>
+              <p><a href="../details/details.html#ISegObsID220">ISegObsID220</a></p>
          </td>
           <td>
               
@@ -1339,40 +1327,39 @@ by environmental factors (obese, alcohol)</p>
     "type": "GeneticCondition",
     "disease": [
       {
-        "id": "Orphanet:217569",
-        "type": "Coding",
-        "code": "217569",
-        "system": "http://www.orpha.net/",
-        "display": "hypertrophic cardiomyopathy"
+        "id": "DisID160",
+        "type": "Disease",
+        "label": "hypertrophic cardiomyopathy"
       }
     ],
     "modeOfInheritance": {
-      "id": "HP:0000006",
-      "type": "Coding",
-      "code": "0000006",
-      "system": "http://human-phenotype-ontology.github.io/",
-      "display": "Autosomal Dominant"
+      "id": "MOIID051",
+      "type": "ModeOfInheritance",
+      "label": "Autosomal Dominant"
     }
   },
   "canonicalAllele": {
     "id": "CanAll090",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll096",
-    "identifier": "http://reg.genome.network/allele/CA133141"
+    "preferredCtxAllele": {
+      "id": "CtxAll096",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll090",
+      "alleleName": "NM_001103.3(ACTN2):c.1484C>T (p.Thr495Met)"
+    }
   },
   "family": {
-    "id": "Fam010",
+    "id": "Fam372",
     "type": "Family",
     "description": "Family #010"
   },
   "phenotypePositiveAllelePositive": 0,
   "phenotypePositiveAlleleNegative": 2,
   "inconsistentSegregationsObserved": {
-    "id": "SEPIO-CG:99011",
-    "type": "Coding",
-    "code": "99011",
-    "system": "http://obofoundry.org/sepio/clingen",
-    "display": "present"
+    "id": "ISegObsID220",
+    "type": "InconsistentSegregationObserved",
+    "label": "present"
   }
 }
           </code></pre></div></td>

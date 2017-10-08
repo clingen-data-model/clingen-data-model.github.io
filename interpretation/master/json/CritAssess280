@@ -1,20 +1,37 @@
 {
   "id": "CritAssess280",
   "type": "CriterionAssessment",
-  "description": "While the two amino acid changes are not identical, they are the same amino acid change in analagous residues of HRAS and KRAS.",
   "criterion": {
-    "id": "PS1",
+    "id": "Crit304",
     "type": "Criterion",
+    "label": "PS1",
     "description": "Same amino acid change as a previously established pathogenic variant regardless of nucleotide change",
     "defaultStrength": {
-      "id": "CG-evidence-strength:ps"
-    }
+      "id": "ELSID145",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Strong"
+    },
+    "comments": "Beware of changes that impact splicing rather than at the amino acid/protein level\nFrom CSER paper: One site erroneously used this to apply prior publication of the same exact variant while this rule, as described in more depth on the ACMG/AMP guideline, only applies when the established pathogenic variant has a different nucleotide change than the variant being interpreted."
   },
   "variant": {
     "id": "CanAll010",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll012",
-    "identifier": "http://reg.genome.network/allele/CA341206"
+    "preferredCtxAllele": {
+      "id": "CtxAll012",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll010",
+      "alleleName": "NM_176795.4(HRAS):c.173C>T (p.Thr58Ile)",
+      "produces": [
+        {
+          "id": "CtxAll015",
+          "type": "ContextualAllele",
+          "producedBy": "CtxAll012",
+          "relatedCanonicalAllele": "CanAll012",
+          "alleleName": "NP_005334.1:p.Thr58Ile"
+        }
+      ]
+    }
   },
   "condition": [
     {
@@ -22,28 +39,22 @@
       "type": "GeneticCondition",
       "disease": [
         {
-          "id": "Orphanet:3071",
-          "type": "Coding",
-          "code": "3071",
-          "system": "http://www.orpha.net/",
-          "display": "costello syndrome"
+          "id": "DisID167",
+          "type": "Disease",
+          "label": "costello syndrome"
         }
       ],
       "modeOfInheritance": {
-        "id": "HP:0000006",
-        "type": "Coding",
-        "code": "0000006",
-        "system": "http://human-phenotype-ontology.github.io/",
-        "display": "Autosomal Dominant"
+        "id": "MOIID051",
+        "type": "ModeOfInheritance",
+        "label": "Autosomal Dominant"
       }
     }
   ],
   "outcome": {
-    "id": "SEPIO:0000223",
-    "type": "Coding",
-    "code": "0000223",
-    "system": "http://obofoundry.org/sepio/",
-    "display": "Met"
+    "id": "CEID074",
+    "type": "CriterionEvaluation",
+    "label": "Met"
   },
   "evidenceLine": [
     {
@@ -53,12 +64,25 @@
         {
           "id": "VarInterp010",
           "type": "VariantInterpretation",
-          "description": "NM_004985.4(KRAS):c.173C>T (p.Thr58Ile) Pathogenic for Noonan Syndrome 3",
           "variant": {
             "id": "CanAll011",
             "type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll014",
-            "identifier": "http://reg.genome.network/allele/CA256480"
+            "preferredCtxAllele": {
+              "id": "CtxAll014",
+              "type": "ContextualAllele",
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll011",
+              "alleleName": "NM_004985.4(KRAS):c.173C>T (p.Thr58Ile)",
+              "produces": [
+                {
+                  "id": "CtxAll016",
+                  "type": "ContextualAllele",
+                  "producedBy": "CtxAll014",
+                  "relatedCanonicalAllele": "CanAll013",
+                  "alleleName": "NP_004976.2:p.Thr58Ile"
+                }
+              ]
+            }
           },
           "condition": [
             {
@@ -66,22 +90,19 @@
               "type": "GeneticCondition",
               "disease": [
                 {
-                  "id": "OMIM:609942",
-                  "type": "Coding",
-                  "code": "609942",
-                  "system": "http://www.omim.org/",
-                  "display": "noonan syndrome 3"
+                  "id": "DisID152",
+                  "type": "Disease",
+                  "label": "noonan syndrome 3"
                 }
               ]
             }
           ],
           "outcome": {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
+            "id": "SIGID031",
+            "type": "Significance",
+            "label": "Pathogenic"
+          },
+          "description": "NM_004985.4(KRAS):c.173C>T (p.Thr58Ile) Pathogenic for Noonan Syndrome 3"
         }
       ]
     },
@@ -92,12 +113,25 @@
         {
           "id": "VarInterp011",
           "type": "VariantInterpretation",
-          "description": "NM_004985.4(KRAS):c.173C>T (p.Thr58Ile) Pathogenic for Costello syndrome",
           "variant": {
             "id": "CanAll011",
             "type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll014",
-            "identifier": "http://reg.genome.network/allele/CA256480"
+            "preferredCtxAllele": {
+              "id": "CtxAll014",
+              "type": "ContextualAllele",
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll011",
+              "alleleName": "NM_004985.4(KRAS):c.173C>T (p.Thr58Ile)",
+              "produces": [
+                {
+                  "id": "CtxAll016",
+                  "type": "ContextualAllele",
+                  "producedBy": "CtxAll014",
+                  "relatedCanonicalAllele": "CanAll013",
+                  "alleleName": "NP_004976.2:p.Thr58Ile"
+                }
+              ]
+            }
           },
           "condition": [
             {
@@ -105,29 +139,24 @@
               "type": "GeneticCondition",
               "disease": [
                 {
-                  "id": "Orphanet:648",
-                  "type": "Coding",
-                  "code": "648",
-                  "system": "http://www.orpha.net/",
-                  "display": "noonan syndrome"
+                  "id": "DisID175",
+                  "type": "Disease",
+                  "label": "noonan syndrome"
                 }
               ],
               "modeOfInheritance": {
-                "id": "HP:0000006",
-                "type": "Coding",
-                "code": "0000006",
-                "system": "http://human-phenotype-ontology.github.io/",
-                "display": "Autosomal Dominant"
+                "id": "MOIID051",
+                "type": "ModeOfInheritance",
+                "label": "Autosomal Dominant"
               }
             }
           ],
           "outcome": {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
-          }
+            "id": "SIGID031",
+            "type": "Significance",
+            "label": "Pathogenic"
+          },
+          "description": "NM_004985.4(KRAS):c.173C>T (p.Thr58Ile) Pathogenic for Costello syndrome"
         }
       ]
     }
@@ -142,17 +171,9 @@
       },
       "contributionDate": "6/2/16 5:22 PM",
       "contributionRole": {
-        "id": "CC303",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     },
     {
@@ -164,18 +185,11 @@
       },
       "contributionDate": "6/2/16 5:22 PM",
       "contributionRole": {
-        "id": "CC304",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     }
-  ]
+  ],
+  "description": "While the two amino acid changes are not identical, they are the same amino acid change in analagous residues of HRAS and KRAS."
 }

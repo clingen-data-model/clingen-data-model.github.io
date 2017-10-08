@@ -1,27 +1,33 @@
 {
   "id": "CritAssess350",
   "type": "CriterionAssessment",
-  "description": "While AI111 is considered probably damaging by at least one in silico predictor, the transcript for AI111 ( NM_133379.3 ) is not clinically relevant.  In clinically relevant transcripts, thisthis canonical allele is intronic.",
   "criterion": {
-    "id": "BP4",
+    "id": "Crit327",
     "type": "Criterion",
+    "label": "BP4",
     "description": "Multiple lines of computational evidence suggest no impact on gene or gene product (conservation, evolutionary, splicing impact, etc.)",
     "defaultStrength": {
-      "id": "CG-evidence-strength:bp"
-    }
+      "id": "ELSID140",
+      "type": "EvidenceLineStrength",
+      "label": "Benign Supporting"
+    },
+    "comments": "same issues as PP3."
   },
   "variant": {
     "id": "CanAll105",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll111",
-    "identifier": "http://reg.genome.network/allele/CA501237"
+    "preferredCtxAllele": {
+      "id": "CtxAll111",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll105",
+      "alleleName": "NM_133379.3(TTN) : c.15283T>C"
+    }
   },
   "outcome": {
-    "id": "SEPIO:0000224",
-    "type": "Coding",
-    "code": "0000224",
-    "system": "http://obofoundry.org/sepio/",
-    "display": "Not Met"
+    "id": "CEID075",
+    "type": "CriterionEvaluation",
+    "label": "Not Met"
   },
   "evidenceLine": [
     {
@@ -34,26 +40,14 @@
           "canonicalAllele": {
             "id": "CtxAll111",
             "type": "ContextualAllele",
-            "relatedCanonicalAllele": {
-              "id": "CanAll105",
-              "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll111",
-              "identifier": "http://reg.genome.network/allele/CA501237"
-            },
+            "producedBy": null,
+            "relatedCanonicalAllele": "CanAll105",
             "alleleName": "NM_133379.3(TTN) : c.15283T>C"
           },
           "predictionType": {
-            "id": "CC282",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SEPIO:0000322",
-                "type": "Coding",
-                "code": "0000322",
-                "system": "http://obofoundry.org/sepio/",
-                "display": "missense effect"
-              }
-            ]
+            "id": "PredTID072",
+            "type": "PredictionType",
+            "label": "missense effect"
           },
           "categoricalPrediction": "ProbablyDamaging",
           "algorithm": "Polyphen-2 HumDiv"
@@ -71,18 +65,11 @@
       },
       "contributionDate": "10/4/16 10:37 AM",
       "contributionRole": {
-        "id": "CC396",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     }
-  ]
+  ],
+  "description": "While AI111 is considered probably damaging by at least one in silico predictor, the transcript for AI111 ( NM_133379.3 ) is not clinically relevant.  In clinically relevant transcripts, thisthis canonical allele is intronic."
 }

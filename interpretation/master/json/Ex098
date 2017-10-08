@@ -4,20 +4,36 @@
   "informationId": {
     "id": "CritAssess377",
     "type": "CriterionAssessment",
-    "description": "Parental testing in our lab confirmed this variant was present de novo in 1 proband with clinical features of CFC. (LMM internal Data)",
     "criterion": {
-      "id": "PM6",
+      "id": "Crit313",
       "type": "Criterion",
+      "label": "PM6",
       "description": "Assumed de novo, but without confirmation of paternity and maternity",
       "defaultStrength": {
-        "id": "CG-evidence-strength:pm"
+        "id": "ELSID143",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Moderate"
       }
     },
     "variant": {
       "id": "CanAll125",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll131",
-      "identifier": "http://reg.genome.network/allele/CA280055"
+      "preferredCtxAllele": {
+        "id": "CtxAll131",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll125",
+        "alleleName": "NM_004333.4(BRAF):c.1447A>C (p.Lys483Gln)",
+        "produces": [
+          {
+            "id": "CtxAll132",
+            "type": "ContextualAllele",
+            "producedBy": "CtxAll131",
+            "relatedCanonicalAllele": "CanAll126",
+            "alleleName": "NP_004324.2:p.Lys483Gln"
+          }
+        ]
+      }
     },
     "condition": [
       {
@@ -25,22 +41,121 @@
         "type": "GeneticCondition",
         "disease": [
           {
-            "id": "Orphanet:1340",
-            "type": "Coding",
-            "code": "1340",
-            "system": "http://www.orpha.net/",
-            "display": "cardiofaciocutaneous syndrome"
+            "id": "DisID156",
+            "type": "Disease",
+            "label": "cardiofaciocutaneous syndrome"
           }
         ]
       }
     ],
     "outcome": {
-      "id": "SEPIO:0000223",
-      "type": "Coding",
-      "code": "0000223",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Met"
+      "id": "CEID074",
+      "type": "CriterionEvaluation",
+      "label": "Met"
     },
+    "evidenceLine": [
+      {
+        "id": "EvLn128",
+        "type": "EvidenceLine",
+        "evidenceItem": [
+          {
+            "id": "IndAllInh106",
+            "type": "IndividualAlleleInheritance",
+            "canonicalAllele": {
+              "id": "CanAll125",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll131",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll125",
+                "alleleName": "NM_004333.4(BRAF):c.1447A>C (p.Lys483Gln)",
+                "produces": [
+                  {
+                    "id": "CtxAll132",
+                    "type": "ContextualAllele",
+                    "producedBy": "CtxAll131",
+                    "relatedCanonicalAllele": "CanAll126",
+                    "alleleName": "NP_004324.2:p.Lys483Gln"
+                  }
+                ]
+              }
+            },
+            "individual": {
+              "id": "Indiv362",
+              "type": "Individual",
+              "description": "individual #030"
+            },
+            "parentalConfirmation": {
+              "id": "PCID217",
+              "type": "ParentalConfirmation",
+              "label": "no parental confirmation"
+            },
+            "alleleInheritance": [
+              {
+                "id": "AITID197",
+                "type": "AlleleInheritanceType",
+                "label": "de novo"
+              }
+            ]
+          },
+          {
+            "id": "IndCond110",
+            "type": "IndividualCondition",
+            "individual": {
+              "id": "Indiv362",
+              "type": "Individual",
+              "description": "individual #030"
+            },
+            "condition": [
+              {
+                "id": "GenCond069",
+                "type": "GeneticCondition",
+                "disease": [
+                  {
+                    "id": "DisID156",
+                    "type": "Disease",
+                    "label": "cardiofaciocutaneous syndrome"
+                  }
+                ]
+              }
+            ],
+            "individualHasCondition": {
+              "id": "CondStID218",
+              "type": "ConditionStatus",
+              "label": "affected"
+            }
+          },
+          {
+            "id": "FamCond112",
+            "type": "FamilyCondition",
+            "proband": {
+              "id": "Indiv362",
+              "type": "Individual",
+              "description": "individual #030"
+            },
+            "condition": [
+              {
+                "id": "GenCond069",
+                "type": "GeneticCondition",
+                "disease": [
+                  {
+                    "id": "DisID156",
+                    "type": "Disease",
+                    "label": "cardiofaciocutaneous syndrome"
+                  }
+                ]
+              }
+            ],
+            "familyHasCondition": {
+              "id": "CondStID219",
+              "type": "ConditionStatus",
+              "label": "unaffected"
+            }
+          }
+        ]
+      }
+    ],
     "contribution": [
       {
         "type": "Contribution",
@@ -51,20 +166,13 @@
         },
         "contributionDate": "6/11/2011 12:45:00",
         "contributionRole": {
-          "id": "CC418",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
-    ]
+    ],
+    "description": "Parental testing in our lab confirmed this variant was present de novo in 1 proband with clinical features of CFC. (LMM internal Data)"
   },
   "index": 4,
   "author": "Marina DiStefano",

@@ -2,18 +2,26 @@
   "id": "CritAssess318",
   "type": "CriterionAssessment",
   "criterion": {
-    "id": "PP4",
+    "id": "Crit317",
     "type": "Criterion",
+    "label": "PP4",
     "description": "Patient’s phenotype or family history is highly specific for a disease with a single genetic etiology",
     "defaultStrength": {
-      "id": "CG-evidence-strength:pp"
+      "id": "ELSID144",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Supporting"
     }
   },
   "variant": {
     "id": "CanAll070",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll076",
-    "identifier": "http://reg.genome.network/allele/CA090915"
+    "preferredCtxAllele": {
+      "id": "CtxAll076",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll070",
+      "alleleName": "NM_001114753.1(ENG):c.818C>T"
+    }
   },
   "condition": [
     {
@@ -21,28 +29,22 @@
       "type": "GeneticCondition",
       "disease": [
         {
-          "id": "Orphanet:774",
-          "type": "Coding",
-          "code": "774",
-          "system": "http://www.orpha.net/",
-          "display": "hereditary hemorrhagic telangiectasia"
+          "id": "DisID180",
+          "type": "Disease",
+          "label": "hereditary hemorrhagic telangiectasia"
         }
       ],
       "modeOfInheritance": {
-        "id": "HP:0000006",
-        "type": "Coding",
-        "code": "0000006",
-        "system": "http://human-phenotype-ontology.github.io/",
-        "display": "Autosomal Dominant"
+        "id": "MOIID051",
+        "type": "ModeOfInheritance",
+        "label": "Autosomal Dominant"
       }
     }
   ],
   "outcome": {
-    "id": "SEPIO:0000223",
-    "type": "Coding",
-    "code": "0000223",
-    "system": "http://obofoundry.org/sepio/",
-    "display": "Met"
+    "id": "CEID074",
+    "type": "CriterionEvaluation",
+    "label": "Met"
   },
   "evidenceLine": [
     {
@@ -52,34 +54,31 @@
         {
           "id": "LocHet148",
           "type": "LocusHeterogeneity",
-          "description": "HHT type 1 is only known to be caused by variants in ENG -",
           "condition": {
             "id": "GenCond022",
             "type": "GeneticCondition",
             "disease": [
               {
-                "id": "Orphanet:774",
-                "type": "Coding",
-                "code": "774",
-                "system": "http://www.orpha.net/",
-                "display": "hereditary hemorrhagic telangiectasia"
+                "id": "DisID180",
+                "type": "Disease",
+                "label": "hereditary hemorrhagic telangiectasia"
               }
             ],
             "modeOfInheritance": {
-              "id": "HP:0000006",
-              "type": "Coding",
-              "code": "0000006",
-              "system": "http://human-phenotype-ontology.github.io/",
-              "display": "Autosomal Dominant"
+              "id": "MOIID051",
+              "type": "ModeOfInheritance",
+              "label": "Autosomal Dominant"
             }
           },
           "gene": {
-            "id": "hgnc:ENG",
-            "type": "Gene"
+            "id": "G261",
+            "type": "Gene",
+            "geneSymbol": "ENG"
           },
           "specificity": {
             "id": "complete"
-          }
+          },
+          "description": "HHT type 1 is only known to be caused by variants in ENG -"
         }
       ]
     }
@@ -94,17 +93,9 @@
       },
       "contributionDate": "8/28/16 2:00 PM",
       "contributionRole": {
-        "id": "CC351",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     },
     {
@@ -116,17 +107,9 @@
       },
       "contributionDate": "8/28/16 2:00 PM",
       "contributionRole": {
-        "id": "CC352",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     }
   ]

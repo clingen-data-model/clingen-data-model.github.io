@@ -4,27 +4,33 @@
   "informationId": {
     "id": "CritAssess156",
     "type": "CriterionAssessment",
-    "description": "Most pathogenic variants in TTN are truncating. However, a small number of missense variants in TTN are associated with ARVC (Taylor 2011 PMID:21810661 ) Because TTN is such a large gene, the statistical expectation of benign missense variants is very high.",
     "criterion": {
-      "id": "PP2",
+      "id": "Crit315",
       "type": "Criterion",
+      "label": "PP2",
       "description": "Missense variant in a gene that has a low rate of benign missense variation and in which missense variants are a common mechanism of disease",
       "defaultStrength": {
-        "id": "CG-evidence-strength:pp"
-      }
+        "id": "ELSID144",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Supporting"
+      },
+      "comments": "Seems no one has established firm rules for when this rule is applicable so not sure how great any examples will be\nAgree with the lack of firm rules. Seems like one criteria may be observed missense variants over 5% allele frequency in ExAC. If this seems reasonable then I could generate a couple of examples."
     },
     "variant": {
       "id": "CanAll093",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll099",
-      "identifier": "http://reg.genome.network/allele/CA256496"
+      "preferredCtxAllele": {
+        "id": "CtxAll099",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll093",
+        "alleleName": "NM_133378.4(TTN): c.2926T>C"
+      }
     },
     "outcome": {
-      "id": "SEPIO:0000224",
-      "type": "Coding",
-      "code": "0000224",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Not Met"
+      "id": "CEID075",
+      "type": "CriterionEvaluation",
+      "label": "Not Met"
     },
     "evidenceLine": [
       {
@@ -34,18 +40,17 @@
           {
             "id": "BMVR161",
             "type": "BenignMissenseVariationRate",
-            "description": "In LMM data alone, we have over 150 benign missense variants in TTN.",
             "gene": {
-              "id": "hgnc:TTN",
-              "type": "Gene"
+              "id": "G229",
+              "type": "Gene",
+              "geneSymbol": "TTN"
             },
             "value": {
-              "id": "SEPIO:0000265",
-              "type": "Coding",
-              "code": "0000265",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "High"
-            }
+              "id": "BMVRID128",
+              "type": "BenignMissenseVariationRate",
+              "label": "High"
+            },
+            "description": "In LMM data alone, we have over 150 benign missense variants in TTN."
           },
           {
             "id": "MolCon169",
@@ -53,63 +58,46 @@
             "contextualAllele": {
               "id": "CtxAll099",
               "type": "ContextualAllele",
-              "relatedCanonicalAllele": {
-                "id": "CanAll093",
-                "type": "CanonicalAllele",
-                "preferredCtxAllele": "CtxAll099",
-                "identifier": "http://reg.genome.network/allele/CA256496"
-              },
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll093",
               "alleleName": "NM_133378.4(TTN): c.2926T>C"
             },
             "consequence": {
-              "id": "CC122",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "SO:0001583",
-                  "type": "Coding",
-                  "code": "0001583",
-                  "system": "http://sequenceontology.org/",
-                  "display": "missense variant"
-                }
-              ]
+              "id": "MCTID011",
+              "type": "MolecularConsequenceType",
+              "label": "missense variant"
             }
           },
           {
             "id": "CondMech165",
             "type": "ConditionMechanism",
-            "description": "Taylor 2011 PMID:21810661",
             "mechanism": {
-              "id": "SO:0001583",
-              "type": "Coding",
-              "code": "0001583",
-              "system": "http://sequenceontology.org/",
-              "display": "missense variant"
+              "id": "MCTID011",
+              "type": "MolecularConsequenceType",
+              "label": "missense variant"
             },
             "mechanismConfidence": {
-              "id": "SEPIO:0000268",
-              "type": "Coding",
-              "code": "0000268",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "common"
+              "id": "CMSID133",
+              "type": "ConditionMechanismStrength",
+              "label": "common"
             },
             "gene": {
-              "id": "hgnc:TTN",
-              "type": "Gene"
+              "id": "G229",
+              "type": "Gene",
+              "geneSymbol": "TTN"
             },
             "condition": {
               "id": "GenCond054",
               "type": "GeneticCondition",
               "disease": [
                 {
-                  "id": "Orphanet:247",
-                  "type": "Coding",
-                  "code": "247",
-                  "system": "http://www.orpha.net/",
-                  "display": "arrhythmogenic right ventricular cardiomyopathy"
+                  "id": "DisID164",
+                  "type": "Disease",
+                  "label": "arrhythmogenic right ventricular cardiomyopathy"
                 }
               ]
-            }
+            },
+            "description": "Taylor 2011 PMID:21810661"
           }
         ]
       }
@@ -124,20 +112,13 @@
         },
         "contributionDate": "7/2/2012 8:45 AM",
         "contributionRole": {
-          "id": "CC421",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
-    ]
+    ],
+    "description": "Most pathogenic variants in TTN are truncating. However, a small number of missense variants in TTN are associated with ARVC (Taylor 2011 PMID:21810661 ) Because TTN is such a large gene, the statistical expectation of benign missense variants is very high."
   },
   "index": 2,
   "author": "LMM, Partners Healthcare",

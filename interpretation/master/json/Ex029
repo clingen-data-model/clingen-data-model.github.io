@@ -4,20 +4,37 @@
   "informationId": {
     "id": "CritAssess303",
     "type": "CriterionAssessment",
-    "description": "Other pathogenic variants at the same residue per ClinVar : NM_000531.5(OTC):c.119G>A (p.Arg40His) However no assertion criteria is provided for these variants. So pathogenicity needs to be determined by literature search. \n\nSo PM5 is applicable when assessing p.Leu1764Il",
     "criterion": {
-      "id": "PM5",
+      "id": "Crit312",
       "type": "Criterion",
+      "label": "PM5",
       "description": "Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before",
       "defaultStrength": {
-        "id": "CG-evidence-strength:pm"
-      }
+        "id": "ELSID143",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Moderate"
+      },
+      "comments": "Need to be sure that pathogenic variant exists at the residue in question. Sometimes discrepancy resolution may be required. Some thing like Variantexplorer.org may be useful.\nSometimes no assertion is provided in ClinVar ...may require curation by lit. search."
     },
     "variant": {
       "id": "CanAll051",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll055",
-      "identifier": "http://reg.genome.network/allele/CA090910"
+      "preferredCtxAllele": {
+        "id": "CtxAll055",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll051",
+        "alleleName": "NM_000531.5(OTC):c.118C>T",
+        "produces": [
+          {
+            "id": "CtxAll056",
+            "type": "ContextualAllele",
+            "producedBy": "CtxAll055",
+            "relatedCanonicalAllele": "CanAll052",
+            "alleleName": "NP_000522.3:p.Arg40Cys"
+          }
+        ]
+      }
     },
     "condition": [
       {
@@ -25,21 +42,17 @@
         "type": "GeneticCondition",
         "disease": [
           {
-            "id": "Orphanet:664",
-            "type": "Coding",
-            "code": "664",
-            "system": "http://www.orpha.net/",
-            "display": "Ornithine carbamoyltransferase deficiency"
+            "id": "DisID176",
+            "type": "Disease",
+            "label": "Ornithine carbamoyltransferase deficiency"
           }
         ]
       }
     ],
     "outcome": {
-      "id": "SEPIO:0000224",
-      "type": "Coding",
-      "code": "0000224",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Not Met"
+      "id": "CEID075",
+      "type": "CriterionEvaluation",
+      "label": "Not Met"
     },
     "evidenceLine": [
       {
@@ -52,8 +65,29 @@
             "variant": {
               "id": "CanAll053",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll057",
-              "identifier": "http://reg.genome.network/allele/CA224454"
+              "preferredCtxAllele": {
+                "id": "CtxAll057",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll053",
+                "alleleName": "NM_000531.5(OTC):c.119G>A",
+                "produces": [
+                  {
+                    "id": "CtxAll058",
+                    "type": "ContextualAllele",
+                    "producedBy": "CtxAll057",
+                    "relatedCanonicalAllele": "CanAll054",
+                    "alleleName": "NP_000522.3:p.Arg40His"
+                  },
+                  {
+                    "id": "CtxAll058",
+                    "type": "ContextualAllele",
+                    "producedBy": "CtxAll057",
+                    "relatedCanonicalAllele": "CanAll054",
+                    "alleleName": "NP_000522.3:p.Arg40His"
+                  }
+                ]
+              }
             },
             "condition": [
               {
@@ -61,21 +95,17 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "Orphanet:664",
-                    "type": "Coding",
-                    "code": "664",
-                    "system": "http://www.orpha.net/",
-                    "display": "Ornithine carbamoyltransferase deficiency"
+                    "id": "DisID176",
+                    "type": "Disease",
+                    "label": "Ornithine carbamoyltransferase deficiency"
                   }
                 ]
               }
             ],
             "outcome": {
-              "id": "LN:LA6668-3",
-              "type": "Coding",
-              "code": "LA6668-3",
-              "system": "http://loinc.org/",
-              "display": "Pathogenic"
+              "id": "SIGID031",
+              "type": "Significance",
+              "label": "Pathogenic"
             }
           }
         ]
@@ -91,20 +121,13 @@
         },
         "contributionDate": "6/12/16 11:03 AM",
         "contributionRole": {
-          "id": "CC331",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
-    ]
+    ],
+    "description": "Other pathogenic variants at the same residue per ClinVar : NM_000531.5(OTC):c.119G>A (p.Arg40His) However no assertion criteria is provided for these variants. So pathogenicity needs to be determined by literature search. \n\nSo PM5 is applicable when assessing p.Leu1764Il"
   },
   "searchTags": "cser",
   "index": 2,

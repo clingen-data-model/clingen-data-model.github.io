@@ -1,27 +1,33 @@
 {
   "id": "CritAssess374",
   "type": "CriterionAssessment",
-  "description": "Flag-tagged construct with the variant was transfected into HEK cells. As per the RASopathy working group’s approved assays (see example 3 above), Smith et al. showed that the Y337C mutation increased levels of pERK in starved HEK cells via western blotting.",
   "criterion": {
-    "id": "PS3",
+    "id": "Crit306",
     "type": "Criterion",
+    "label": "PS3",
     "description": "Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product",
     "defaultStrength": {
-      "id": "CG-evidence-strength:ps"
-    }
+      "id": "ELSID145",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Strong"
+    },
+    "comments": "This particular rule will probably be downgraded often, given that there are not many “Functional studies that have been validated and shown to be reproducible and robust in a clinical diagnostic laboratory setting”"
   },
   "variant": {
     "id": "CanAll124",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll130",
-    "identifier": "http://reg.genome.network/allele/CA090930"
+    "preferredCtxAllele": {
+      "id": "CtxAll130",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll124",
+      "alleleName": "NM_005633.3(SOS1):c.1010A>G (p.Tyr337Cys)"
+    }
   },
   "outcome": {
-    "id": "SEPIO:0000223",
-    "type": "Coding",
-    "code": "0000223",
-    "system": "http://obofoundry.org/sepio/",
-    "display": "Met"
+    "id": "CEID074",
+    "type": "CriterionEvaluation",
+    "label": "Met"
   },
   "evidenceLine": [
     {
@@ -31,36 +37,25 @@
         {
           "id": "Func067",
           "type": "AlleleFunctionalImpact",
-          "description": "PMID: 23487764",
           "resultDescription": "increased ERK activtation",
           "assayType": {
-            "id": "CC055",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "OBI:XXXXXX1",
-                "type": "Coding",
-                "code": "XXXXXX1",
-                "system": "http://purl.obolibrary.org/obo/OBI_",
-                "display": "Activation Assay"
-              }
-            ]
+            "id": "AFITID076",
+            "type": "AlleleFunctionalImpactType",
+            "label": "Activation Assay"
           },
           "contextualAllele": {
             "id": "CtxAll130",
             "type": "ContextualAllele",
-            "relatedCanonicalAllele": {
-              "id": "CanAll124",
-              "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll130",
-              "identifier": "http://reg.genome.network/allele/CA090930"
-            },
+            "producedBy": null,
+            "relatedCanonicalAllele": "CanAll124",
             "alleleName": "NM_005633.3(SOS1):c.1010A>G (p.Tyr337Cys)"
           },
           "gene": {
-            "id": "hgnc:SOS1",
-            "type": "Gene"
-          }
+            "id": "G278",
+            "type": "Gene",
+            "geneSymbol": "SOS1"
+          },
+          "description": "PMID: 23487764"
         }
       ]
     }
@@ -75,18 +70,11 @@
       },
       "contributionDate": "3/14/2017 10:29 AM",
       "contributionRole": {
-        "id": "CC415",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     }
-  ]
+  ],
+  "description": "Flag-tagged construct with the variant was transfected into HEK cells. As per the RASopathy working group’s approved assays (see example 3 above), Smith et al. showed that the Y337C mutation increased levels of pERK in starved HEK cells via western blotting."
 }

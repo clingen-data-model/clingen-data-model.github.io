@@ -4,20 +4,28 @@
   "informationId": {
     "id": "CritAssess282",
     "type": "CriterionAssessment",
-    "description": "De novo variant occurred on haplotype inherited from the father. Maternity no explicitly confirmed - but if variant occurred on haplotype inherited from the father, then confirmation of maternity not required.",
     "criterion": {
-      "id": "PS2",
+      "id": "Crit305",
       "type": "Criterion",
+      "label": "PS2",
       "description": "De novo (both maternity and paternity confirmed) in a patient with the disease and no family history",
       "defaultStrength": {
-        "id": "CG-evidence-strength:ps"
-      }
+        "id": "ELSID145",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Strong"
+      },
+      "comments": "MYH7 is adding specificity to this rule with\na. No family history = parents have had ECHO and ECG\nb. Only paternity confirmation required"
     },
     "variant": {
       "id": "CanAll015",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll018",
-      "identifier": "http://reg.genome.network/allele/CA257646"
+      "preferredCtxAllele": {
+        "id": "CtxAll018",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll015",
+        "alleleName": "NM_001927.3(DES):c.1216C>T (p.Arg406Trp)"
+      }
     },
     "condition": [
       {
@@ -25,22 +33,18 @@
         "type": "GeneticCondition",
         "disease": [
           {
-            "id": "OMIM:601419",
-            "type": "Coding",
-            "code": "601419",
-            "system": "http://www.omim.org/",
-            "display": "myofibrillar myopathy 1"
+            "id": "DisID151",
+            "type": "Disease",
+            "label": "myofibrillar myopathy 1"
           }
         ],
         "name": "desmin related myopathy"
       }
     ],
     "outcome": {
-      "id": "SEPIO:0000223",
-      "type": "Coding",
-      "code": "0000223",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Met"
+      "id": "CEID074",
+      "type": "CriterionEvaluation",
+      "label": "Met"
     },
     "evidenceLine": [
       {
@@ -51,7 +55,7 @@
             "id": "IndCond015",
             "type": "IndividualCondition",
             "individual": {
-              "id": "Indiv002",
+              "id": "Indiv334",
               "type": "Individual",
               "description": "individual #002"
             },
@@ -61,29 +65,25 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "OMIM:601419",
-                    "type": "Coding",
-                    "code": "601419",
-                    "system": "http://www.omim.org/",
-                    "display": "myofibrillar myopathy 1"
+                    "id": "DisID151",
+                    "type": "Disease",
+                    "label": "myofibrillar myopathy 1"
                   }
                 ],
                 "name": "desmin related myopathy"
               }
             ],
             "individualHasCondition": {
-              "id": "SEPIO-CG:99009",
-              "type": "Coding",
-              "code": "99009",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "affected"
+              "id": "CondStID218",
+              "type": "ConditionStatus",
+              "label": "affected"
             }
           },
           {
             "id": "FamCond016",
             "type": "FamilyCondition",
             "proband": {
-              "id": "Indiv002",
+              "id": "Indiv334",
               "type": "Individual",
               "description": "individual #002"
             },
@@ -93,55 +93,52 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "OMIM:601419",
-                    "type": "Coding",
-                    "code": "601419",
-                    "system": "http://www.omim.org/",
-                    "display": "myofibrillar myopathy 1"
+                    "id": "DisID151",
+                    "type": "Disease",
+                    "label": "myofibrillar myopathy 1"
                   }
                 ],
                 "name": "desmin related myopathy"
               }
             ],
             "familyHasCondition": {
-              "id": "SEPIO-CG:99010",
-              "type": "Coding",
-              "code": "99010",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "unaffected"
+              "id": "CondStID219",
+              "type": "ConditionStatus",
+              "label": "unaffected"
             }
           },
           {
             "id": "IndAllInh017",
             "type": "IndividualAlleleInheritance",
-            "description": "Non-paternity was excluded by assessment with microsatellites",
             "canonicalAllele": {
               "id": "CanAll015",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll018",
-              "identifier": "http://reg.genome.network/allele/CA257646"
+              "preferredCtxAllele": {
+                "id": "CtxAll018",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll015",
+                "alleleName": "NM_001927.3(DES):c.1216C>T (p.Arg406Trp)"
+              }
             },
             "individual": {
-              "id": "Indiv002",
+              "id": "Indiv334",
               "type": "Individual",
               "description": "individual #002"
             },
             "parentalConfirmation": {
-              "id": "SEPIO-CG:99006",
-              "type": "Coding",
-              "code": "99006",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "paternal confirmation"
+              "id": "PCID215",
+              "type": "ParentalConfirmation",
+              "label": "paternal confirmation"
             },
             "alleleInheritance": [
               {
-                "id": "GENO:0000880",
-                "type": "Coding",
-                "code": "0000880",
-                "system": "http://obofoundry.org/geno/",
-                "display": "de novo"
+                "id": "AITID197",
+                "type": "AlleleInheritanceType",
+                "label": "de novo"
               }
-            ]
+            ],
+            "description": "Non-paternity was excluded by assessment with microsatellites"
           }
         ]
       }
@@ -156,20 +153,13 @@
         },
         "contributionDate": "6/3/16 9:17 AM",
         "contributionRole": {
-          "id": "CC306",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
-    ]
+    ],
+    "description": "De novo variant occurred on haplotype inherited from the father. Maternity no explicitly confirmed - but if variant occurred on haplotype inherited from the father, then confirmation of maternity not required."
   },
   "index": 2,
   "author": "Steven Harrison",

@@ -4,20 +4,27 @@
   "informationId": {
     "id": "CritAssess288",
     "type": "CriterionAssessment",
-    "description": "Across publications, this variant is thought to account for 2%-10% of patients with Malignant hyperthermia. But variant is also only found in 9/66740 Europeans in ExAC (.01%). Based on these differences, groups applied PS4 to this variant classification (without a formal OR analysis).",
     "criterion": {
-      "id": "PS4",
+      "id": "Crit307",
       "type": "Criterion",
+      "label": "PS4",
       "description": "The prevalence of the variant in affected individuals is significantly increased compared with the prevalence in controls",
       "defaultStrength": {
-        "id": "CG-evidence-strength:ps"
+        "id": "ELSID145",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Strong"
       }
     },
     "variant": {
       "id": "CanAll023",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll026",
-      "identifier": "http://reg.genome.network/allele/CA024311"
+      "preferredCtxAllele": {
+        "id": "CtxAll026",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll023",
+        "alleleName": "NM_000540.2 (RYR1):c.1840C>T"
+      }
     },
     "condition": [
       {
@@ -25,28 +32,22 @@
         "type": "GeneticCondition",
         "disease": [
           {
-            "id": "Orphanet:423",
-            "type": "Coding",
-            "code": "423",
-            "system": "http://www.orpha.net/",
-            "display": "Malignant hyperthermia"
+            "id": "DisID172",
+            "type": "Disease",
+            "label": "Malignant hyperthermia"
           }
         ],
         "modeOfInheritance": {
-          "id": "HP:0000006",
-          "type": "Coding",
-          "code": "0000006",
-          "system": "http://human-phenotype-ontology.github.io/",
-          "display": "Autosomal Dominant"
+          "id": "MOIID051",
+          "type": "ModeOfInheritance",
+          "label": "Autosomal Dominant"
         }
       }
     ],
     "outcome": {
-      "id": "SEPIO:0000223",
-      "type": "Coding",
-      "code": "0000223",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Met"
+      "id": "CEID074",
+      "type": "CriterionEvaluation",
+      "label": "Met"
     },
     "evidenceLine": [
       {
@@ -56,69 +57,72 @@
           {
             "id": "CaseCtrl033",
             "type": "CaseControl",
-            "description": "Did not calculate formal odds ratio",
             "canonicalAllele": {
               "id": "CanAll023",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll026",
-              "identifier": "http://reg.genome.network/allele/CA024311"
+              "preferredCtxAllele": {
+                "id": "CtxAll026",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll023",
+                "alleleName": "NM_000540.2 (RYR1):c.1840C>T"
+              }
             },
             "condition": {
               "id": "GenCond011",
               "type": "GeneticCondition",
               "disease": [
                 {
-                  "id": "Orphanet:423",
-                  "type": "Coding",
-                  "code": "423",
-                  "system": "http://www.orpha.net/",
-                  "display": "Malignant hyperthermia"
+                  "id": "DisID172",
+                  "type": "Disease",
+                  "label": "Malignant hyperthermia"
                 }
               ],
               "modeOfInheritance": {
-                "id": "HP:0000006",
-                "type": "Coding",
-                "code": "0000006",
-                "system": "http://human-phenotype-ontology.github.io/",
-                "display": "Autosomal Dominant"
+                "id": "MOIID051",
+                "type": "ModeOfInheritance",
+                "label": "Autosomal Dominant"
               }
             },
             "caseGroupFrequency": {
               "id": "AllFreq032",
               "type": "AlleleFrequency",
-              "description": "This allele is thought to account for between 2% and 10% of patients with Malignant hyperthermia.",
               "allele": {
                 "id": "CanAll023",
                 "type": "CanonicalAllele",
-                "preferredCtxAllele": "CtxAll026",
-                "identifier": "http://reg.genome.network/allele/CA024311"
-              }
+                "preferredCtxAllele": {
+                  "id": "CtxAll026",
+                  "type": "ContextualAllele",
+                  "producedBy": null,
+                  "relatedCanonicalAllele": "CanAll023",
+                  "alleleName": "NM_000540.2 (RYR1):c.1840C>T"
+                }
+              },
+              "description": "This allele is thought to account for between 2% and 10% of patients with Malignant hyperthermia."
             },
             "controlGroupFrequency": {
               "id": "AllFreq031",
               "type": "AlleleFrequency",
               "ascertainment": {
-                "id": "CC011",
-                "type": "CodeableConcept",
-                "coding": [
-                  {
-                    "id": "SEPIO:0000332",
-                    "type": "Coding",
-                    "code": "0000332",
-                    "system": "http://obofoundry.org/sepio/",
-                    "display": "ExAc ascertainment method"
-                  }
-                ]
+                "id": "AsctTID203",
+                "type": "AscertainmentType",
+                "label": "ExAc ascertainment method"
               },
               "allele": {
                 "id": "CanAll023",
                 "type": "CanonicalAllele",
-                "preferredCtxAllele": "CtxAll026",
-                "identifier": "http://reg.genome.network/allele/CA024311"
+                "preferredCtxAllele": {
+                  "id": "CtxAll026",
+                  "type": "ContextualAllele",
+                  "producedBy": null,
+                  "relatedCanonicalAllele": "CanAll023",
+                  "alleleName": "NM_000540.2 (RYR1):c.1840C>T"
+                }
               },
               "alleleCount": 9,
               "alleleNumber": 66740
-            }
+            },
+            "description": "Did not calculate formal odds ratio"
           }
         ]
       }
@@ -133,20 +137,13 @@
         },
         "contributionDate": "6/5/16 2:39 PM",
         "contributionRole": {
-          "id": "CC315",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
-    ]
+    ],
+    "description": "Across publications, this variant is thought to account for 2%-10% of patients with Malignant hyperthermia. But variant is also only found in 9/66740 Europeans in ExAC (.01%). Based on these differences, groups applied PS4 to this variant classification (without a formal OR analysis)."
   },
   "index": 2,
   "author": "Steven Harrison",

@@ -1,12 +1,25 @@
 {
   "id": "VarInterp063",
   "type": "VariantInterpretation",
-  "description": "The Lys483Gln variant in BRAF has been identified in one proband with clinical features of Cardio-facio-cutaneous syndrome, and was not identified in either of this individual's parents (LMM unpublished data). This variant has not been identified in large population studies. In addition, another variant at the same residue (Lys483Asn) was identified as a de novo variant in an individual with features of a Noonan spectrum disorder (LMM unpublished data). Computational analyses (biochemical amino acid properties, conservation, AlignGVGD, PolyPhen2, and SIFT) suggest that the Lys483Gln variant may impact the normal function of the protein. In summary, this variant is likely pathogenic, though additional studies are required to fully establish its clinical significance.",
   "variant": {
     "id": "CanAll125",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll131",
-    "identifier": "http://reg.genome.network/allele/CA280055"
+    "preferredCtxAllele": {
+      "id": "CtxAll131",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll125",
+      "alleleName": "NM_004333.4(BRAF):c.1447A>C (p.Lys483Gln)",
+      "produces": [
+        {
+          "id": "CtxAll132",
+          "type": "ContextualAllele",
+          "producedBy": "CtxAll131",
+          "relatedCanonicalAllele": "CanAll126",
+          "alleleName": "NP_004324.2:p.Lys483Gln"
+        }
+      ]
+    }
   },
   "condition": [
     {
@@ -14,37 +27,31 @@
       "type": "GeneticCondition",
       "disease": [
         {
-          "id": "Orphanet:1340",
-          "type": "Coding",
-          "code": "1340",
-          "system": "http://www.orpha.net/",
-          "display": "cardiofaciocutaneous syndrome"
+          "id": "DisID156",
+          "type": "Disease",
+          "label": "cardiofaciocutaneous syndrome"
         }
       ],
       "modeOfInheritance": {
-        "id": "HP:0000006",
-        "type": "Coding",
-        "code": "0000006",
-        "system": "http://human-phenotype-ontology.github.io/",
-        "display": "Autosomal Dominant"
+        "id": "MOIID051",
+        "type": "ModeOfInheritance",
+        "label": "Autosomal Dominant"
       }
     }
   ],
   "outcome": {
-    "id": "LN:LA26332-9",
-    "type": "Coding",
-    "code": "LA26332-9",
-    "system": "http://loinc.org/",
-    "display": "Likely Pathogenic"
+    "id": "SIGID028",
+    "type": "Significance",
+    "label": "Likely Pathogenic"
   },
   "assertionMethod": {
-    "id": "AssertMeth001",
+    "id": "AssertMeth331",
     "type": "AssertionMethod",
     "description": "ACMG ISV guidelines 2015",
     "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
     "version": "1.0",
     "scoringAlgorithm": {
-      "id": "ScorAlg01",
+      "id": "ScorAlg332",
       "type": "ScoringAlgorithm",
       "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance."
     }
@@ -58,25 +65,41 @@
           "id": "CritAssess376",
           "type": "CriterionAssessment",
           "criterion": {
-            "id": "PM2",
+            "id": "Crit309",
             "type": "Criterion",
+            "label": "PM2",
             "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
             "defaultStrength": {
-              "id": "CG-evidence-strength:pm"
-            }
+              "id": "ELSID143",
+              "type": "EvidenceLineStrength",
+              "label": "Pathogenic Moderate"
+            },
+            "comments": "Some groups are allowing to rule to be used if even not 100% absent\nFor instance, Cardio has allowed PM2 to be used if MAF is <0.05% with 95% CI if\nCI lower is ~0.00% (at 2 decimal places) AND CI upper is below 0.05%\n Caveat: Population data for insertions/deletions may be poorly called by next-generation sequencing"
           },
           "variant": {
             "id": "CanAll125",
             "type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll131",
-            "identifier": "http://reg.genome.network/allele/CA280055"
+            "preferredCtxAllele": {
+              "id": "CtxAll131",
+              "type": "ContextualAllele",
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll125",
+              "alleleName": "NM_004333.4(BRAF):c.1447A>C (p.Lys483Gln)",
+              "produces": [
+                {
+                  "id": "CtxAll132",
+                  "type": "ContextualAllele",
+                  "producedBy": "CtxAll131",
+                  "relatedCanonicalAllele": "CanAll126",
+                  "alleleName": "NP_004324.2:p.Lys483Gln"
+                }
+              ]
+            }
           },
           "outcome": {
-            "id": "SEPIO:0000223",
-            "type": "Coding",
-            "code": "0000223",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "Met"
+            "id": "CEID074",
+            "type": "CriterionEvaluation",
+            "label": "Met"
           },
           "evidenceLine": [
             {
@@ -87,36 +110,34 @@
                   "id": "AllFreq101",
                   "type": "AlleleFrequency",
                   "ascertainment": {
-                    "id": "CC033",
-                    "type": "CodeableConcept",
-                    "coding": [
-                      {
-                        "id": "SEPIO:0000332",
-                        "type": "Coding",
-                        "code": "0000332",
-                        "system": "http://obofoundry.org/sepio/",
-                        "display": "ExAc ascertainment method"
-                      }
-                    ]
+                    "id": "AsctTID203",
+                    "type": "AscertainmentType",
+                    "label": "ExAc ascertainment method"
                   },
                   "population": {
-                    "id": "CC068",
-                    "type": "CodeableConcept",
-                    "coding": [
-                      {
-                        "id": "CG-population-type:combined",
-                        "type": "Coding",
-                        "code": "combined",
-                        "system": "http://clinicalgenome.org/datamodel/population-type/",
-                        "display": "Combined"
-                      }
-                    ]
+                    "id": "PTID093",
+                    "type": "PopulationType",
+                    "label": "Combined"
                   },
                   "allele": {
                     "id": "CanAll125",
                     "type": "CanonicalAllele",
-                    "preferredCtxAllele": "CtxAll131",
-                    "identifier": "http://reg.genome.network/allele/CA280055"
+                    "preferredCtxAllele": {
+                      "id": "CtxAll131",
+                      "type": "ContextualAllele",
+                      "producedBy": null,
+                      "relatedCanonicalAllele": "CanAll125",
+                      "alleleName": "NM_004333.4(BRAF):c.1447A>C (p.Lys483Gln)",
+                      "produces": [
+                        {
+                          "id": "CtxAll132",
+                          "type": "ContextualAllele",
+                          "producedBy": "CtxAll131",
+                          "relatedCanonicalAllele": "CanAll126",
+                          "alleleName": "NP_004324.2:p.Lys483Gln"
+                        }
+                      ]
+                    }
                   },
                   "alleleCount": 0,
                   "alleleFrequency": 0.0,
@@ -135,34 +156,18 @@
               },
               "contributionDate": "6/11/2011 11:45 AM",
               "contributionRole": {
-                "id": "CC417",
-                "type": "CodeableConcept",
-                "coding": [
-                  {
-                    "id": "SEPIO:0000154",
-                    "type": "Coding",
-                    "code": "0000154",
-                    "system": "http://obofoundry.org/sepio/",
-                    "display": "assessor role"
-                  }
-                ]
+                "id": "CRID193",
+                "type": "ContributoryRole",
+                "label": "assessor role"
               }
             }
           ]
         }
       ],
       "evidenceStrength": {
-        "id": "CC454",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000216",
-            "type": "Coding",
-            "code": "0000216",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "Pathogenic Moderate"
-          }
-        ]
+        "id": "ELSID143",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Moderate"
       },
       "contribution": [
         {
@@ -174,17 +179,9 @@
           },
           "contributionDate": "6/11/2011 11:45 AM",
           "contributionRole": {
-            "id": "CC438",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SEPIO:0000154",
-                "type": "Coding",
-                "code": "0000154",
-                "system": "http://obofoundry.org/sepio/",
-                "display": "assessor role"
-              }
-            ]
+            "id": "CRID193",
+            "type": "ContributoryRole",
+            "label": "assessor role"
           }
         }
       ]
@@ -196,20 +193,36 @@
         {
           "id": "CritAssess377",
           "type": "CriterionAssessment",
-          "description": "Parental testing in our lab confirmed this variant was present de novo in 1 proband with clinical features of CFC. (LMM internal Data)",
           "criterion": {
-            "id": "PM6",
+            "id": "Crit313",
             "type": "Criterion",
+            "label": "PM6",
             "description": "Assumed de novo, but without confirmation of paternity and maternity",
             "defaultStrength": {
-              "id": "CG-evidence-strength:pm"
+              "id": "ELSID143",
+              "type": "EvidenceLineStrength",
+              "label": "Pathogenic Moderate"
             }
           },
           "variant": {
             "id": "CanAll125",
             "type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll131",
-            "identifier": "http://reg.genome.network/allele/CA280055"
+            "preferredCtxAllele": {
+              "id": "CtxAll131",
+              "type": "ContextualAllele",
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll125",
+              "alleleName": "NM_004333.4(BRAF):c.1447A>C (p.Lys483Gln)",
+              "produces": [
+                {
+                  "id": "CtxAll132",
+                  "type": "ContextualAllele",
+                  "producedBy": "CtxAll131",
+                  "relatedCanonicalAllele": "CanAll126",
+                  "alleleName": "NP_004324.2:p.Lys483Gln"
+                }
+              ]
+            }
           },
           "condition": [
             {
@@ -217,22 +230,121 @@
               "type": "GeneticCondition",
               "disease": [
                 {
-                  "id": "Orphanet:1340",
-                  "type": "Coding",
-                  "code": "1340",
-                  "system": "http://www.orpha.net/",
-                  "display": "cardiofaciocutaneous syndrome"
+                  "id": "DisID156",
+                  "type": "Disease",
+                  "label": "cardiofaciocutaneous syndrome"
                 }
               ]
             }
           ],
           "outcome": {
-            "id": "SEPIO:0000223",
-            "type": "Coding",
-            "code": "0000223",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "Met"
+            "id": "CEID074",
+            "type": "CriterionEvaluation",
+            "label": "Met"
           },
+          "evidenceLine": [
+            {
+              "id": "EvLn128",
+              "type": "EvidenceLine",
+              "evidenceItem": [
+                {
+                  "id": "IndAllInh106",
+                  "type": "IndividualAlleleInheritance",
+                  "canonicalAllele": {
+                    "id": "CanAll125",
+                    "type": "CanonicalAllele",
+                    "preferredCtxAllele": {
+                      "id": "CtxAll131",
+                      "type": "ContextualAllele",
+                      "producedBy": null,
+                      "relatedCanonicalAllele": "CanAll125",
+                      "alleleName": "NM_004333.4(BRAF):c.1447A>C (p.Lys483Gln)",
+                      "produces": [
+                        {
+                          "id": "CtxAll132",
+                          "type": "ContextualAllele",
+                          "producedBy": "CtxAll131",
+                          "relatedCanonicalAllele": "CanAll126",
+                          "alleleName": "NP_004324.2:p.Lys483Gln"
+                        }
+                      ]
+                    }
+                  },
+                  "individual": {
+                    "id": "Indiv362",
+                    "type": "Individual",
+                    "description": "individual #030"
+                  },
+                  "parentalConfirmation": {
+                    "id": "PCID217",
+                    "type": "ParentalConfirmation",
+                    "label": "no parental confirmation"
+                  },
+                  "alleleInheritance": [
+                    {
+                      "id": "AITID197",
+                      "type": "AlleleInheritanceType",
+                      "label": "de novo"
+                    }
+                  ]
+                },
+                {
+                  "id": "IndCond110",
+                  "type": "IndividualCondition",
+                  "individual": {
+                    "id": "Indiv362",
+                    "type": "Individual",
+                    "description": "individual #030"
+                  },
+                  "condition": [
+                    {
+                      "id": "GenCond069",
+                      "type": "GeneticCondition",
+                      "disease": [
+                        {
+                          "id": "DisID156",
+                          "type": "Disease",
+                          "label": "cardiofaciocutaneous syndrome"
+                        }
+                      ]
+                    }
+                  ],
+                  "individualHasCondition": {
+                    "id": "CondStID218",
+                    "type": "ConditionStatus",
+                    "label": "affected"
+                  }
+                },
+                {
+                  "id": "FamCond112",
+                  "type": "FamilyCondition",
+                  "proband": {
+                    "id": "Indiv362",
+                    "type": "Individual",
+                    "description": "individual #030"
+                  },
+                  "condition": [
+                    {
+                      "id": "GenCond069",
+                      "type": "GeneticCondition",
+                      "disease": [
+                        {
+                          "id": "DisID156",
+                          "type": "Disease",
+                          "label": "cardiofaciocutaneous syndrome"
+                        }
+                      ]
+                    }
+                  ],
+                  "familyHasCondition": {
+                    "id": "CondStID219",
+                    "type": "ConditionStatus",
+                    "label": "unaffected"
+                  }
+                }
+              ]
+            }
+          ],
           "contribution": [
             {
               "type": "Contribution",
@@ -243,34 +355,19 @@
               },
               "contributionDate": "6/11/2011 12:45:00",
               "contributionRole": {
-                "id": "CC418",
-                "type": "CodeableConcept",
-                "coding": [
-                  {
-                    "id": "SEPIO:0000154",
-                    "type": "Coding",
-                    "code": "0000154",
-                    "system": "http://obofoundry.org/sepio/",
-                    "display": "assessor role"
-                  }
-                ]
+                "id": "CRID193",
+                "type": "ContributoryRole",
+                "label": "assessor role"
               }
             }
-          ]
+          ],
+          "description": "Parental testing in our lab confirmed this variant was present de novo in 1 proband with clinical features of CFC. (LMM internal Data)"
         }
       ],
       "evidenceStrength": {
-        "id": "CC455",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000216",
-            "type": "Coding",
-            "code": "0000216",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "Pathogenic Moderate"
-          }
-        ]
+        "id": "ELSID143",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Moderate"
       },
       "contribution": [
         {
@@ -282,17 +379,9 @@
           },
           "contributionDate": "6/11/2011 12:45:00",
           "contributionRole": {
-            "id": "CC439",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SEPIO:0000154",
-                "type": "Coding",
-                "code": "0000154",
-                "system": "http://obofoundry.org/sepio/",
-                "display": "assessor role"
-              }
-            ]
+            "id": "CRID193",
+            "type": "ContributoryRole",
+            "label": "assessor role"
           }
         }
       ]
@@ -304,20 +393,37 @@
         {
           "id": "CritAssess378",
           "type": "CriterionAssessment",
-          "description": "Another variant at the same residue (Lys483Asn) was identified as a de novo variant in an individual with features of a Noonan spectrum disorder (LMM unpublished data). The other variant: NM_004333.4(BRAF):c.1449A>C (p.Lys483Asn) is classified as likely pathogenic by LMM for Rasopathy.",
           "criterion": {
-            "id": "PM5",
+            "id": "Crit312",
             "type": "Criterion",
+            "label": "PM5",
             "description": "Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before",
             "defaultStrength": {
-              "id": "CG-evidence-strength:pm"
-            }
+              "id": "ELSID143",
+              "type": "EvidenceLineStrength",
+              "label": "Pathogenic Moderate"
+            },
+            "comments": "Need to be sure that pathogenic variant exists at the residue in question. Sometimes discrepancy resolution may be required. Some thing like Variantexplorer.org may be useful.\nSometimes no assertion is provided in ClinVar ...may require curation by lit. search."
           },
           "variant": {
             "id": "CanAll125",
             "type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll131",
-            "identifier": "http://reg.genome.network/allele/CA280055"
+            "preferredCtxAllele": {
+              "id": "CtxAll131",
+              "type": "ContextualAllele",
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll125",
+              "alleleName": "NM_004333.4(BRAF):c.1447A>C (p.Lys483Gln)",
+              "produces": [
+                {
+                  "id": "CtxAll132",
+                  "type": "ContextualAllele",
+                  "producedBy": "CtxAll131",
+                  "relatedCanonicalAllele": "CanAll126",
+                  "alleleName": "NP_004324.2:p.Lys483Gln"
+                }
+              ]
+            }
           },
           "condition": [
             {
@@ -325,22 +431,18 @@
               "type": "GeneticCondition",
               "disease": [
                 {
-                  "id": "Orphanet:98733",
-                  "type": "Coding",
-                  "code": "98733",
-                  "system": "http://www.orpha.net/",
-                  "display": "Noonan syndrome and Noonan-related syndrome"
+                  "id": "DisID185",
+                  "type": "Disease",
+                  "label": "Noonan syndrome and noonan-related syndrom"
                 }
               ],
               "name": "Rasopathy"
             }
           ],
           "outcome": {
-            "id": "SEPIO:0000223",
-            "type": "Coding",
-            "code": "0000223",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "Met"
+            "id": "CEID074",
+            "type": "CriterionEvaluation",
+            "label": "Met"
           },
           "evidenceLine": [
             {
@@ -350,12 +452,25 @@
                 {
                   "id": "VarInterp060",
                   "type": "VariantInterpretation",
-                  "description": "The Lys483Asn variant in BRAF has not been previously reported in the literature, but has been identified as a de novo variant in one proband in our laboratory. In addition, this residue is highly conserved across evolutionarily distinct species and computational analyses (PolyPhen2, SIFT, AlignGVGD) predict that this variant will impact the normal function of BRAF. It should be noted that the sensitivity and specificity of these computational programs has not been determined by our laboratory. Therefore, this variant is likely to be pathogenic.",
                   "variant": {
                     "id": "CanAll127",
                     "type": "CanonicalAllele",
-                    "preferredCtxAllele": "CtxAll133",
-                    "identifier": "http://reg.genome.network/allele/CA273507"
+                    "preferredCtxAllele": {
+                      "id": "CtxAll133",
+                      "type": "ContextualAllele",
+                      "producedBy": null,
+                      "relatedCanonicalAllele": "CanAll127",
+                      "alleleName": "NM_004333.4(BRAF):c.1449A>C",
+                      "produces": [
+                        {
+                          "id": "CtxAll134",
+                          "type": "ContextualAllele",
+                          "producedBy": "CtxAll133",
+                          "relatedCanonicalAllele": "CanAll128",
+                          "alleleName": "NP_004324.2:p.Lys483Asn"
+                        }
+                      ]
+                    }
                   },
                   "condition": [
                     {
@@ -363,22 +478,18 @@
                       "type": "GeneticCondition",
                       "disease": [
                         {
-                          "id": "Orphanet:98733",
-                          "type": "Coding",
-                          "code": "98733",
-                          "system": "http://www.orpha.net/",
-                          "display": "Noonan syndrome and Noonan-related syndrome"
+                          "id": "DisID185",
+                          "type": "Disease",
+                          "label": "Noonan syndrome and noonan-related syndrom"
                         }
                       ],
                       "name": "Rasopathy"
                     }
                   ],
                   "outcome": {
-                    "id": "LN:LA26332-9",
-                    "type": "Coding",
-                    "code": "LA26332-9",
-                    "system": "http://loinc.org/",
-                    "display": "Likely Pathogenic"
+                    "id": "SIGID028",
+                    "type": "Significance",
+                    "label": "Likely Pathogenic"
                   },
                   "contribution": [
                     {
@@ -390,20 +501,13 @@
                       },
                       "contributionDate": "6/12/2011 9:00 AM",
                       "contributionRole": {
-                        "id": "CC420",
-                        "type": "CodeableConcept",
-                        "coding": [
-                          {
-                            "id": "SEPIO:0000331",
-                            "type": "Coding",
-                            "code": "0000331",
-                            "system": "http://obofoundry.org/sepio/",
-                            "display": "interpreter role"
-                          }
-                        ]
+                        "id": "CRID196",
+                        "type": "ContributoryRole",
+                        "label": "interpreter role"
                       }
                     }
-                  ]
+                  ],
+                  "description": "The Lys483Asn variant in BRAF has not been previously reported in the literature, but has been identified as a de novo variant in one proband in our laboratory. In addition, this residue is highly conserved across evolutionarily distinct species and computational analyses (PolyPhen2, SIFT, AlignGVGD) predict that this variant will impact the normal function of BRAF. It should be noted that the sensitivity and specificity of these computational programs has not been determined by our laboratory. Therefore, this variant is likely to be pathogenic."
                 }
               ]
             }
@@ -418,34 +522,19 @@
               },
               "contributionDate": "6/10/2011 1:45 PM",
               "contributionRole": {
-                "id": "CC419",
-                "type": "CodeableConcept",
-                "coding": [
-                  {
-                    "id": "SEPIO:0000154",
-                    "type": "Coding",
-                    "code": "0000154",
-                    "system": "http://obofoundry.org/sepio/",
-                    "display": "assessor role"
-                  }
-                ]
+                "id": "CRID193",
+                "type": "ContributoryRole",
+                "label": "assessor role"
               }
             }
-          ]
+          ],
+          "description": "Another variant at the same residue (Lys483Asn) was identified as a de novo variant in an individual with features of a Noonan spectrum disorder (LMM unpublished data). The other variant: NM_004333.4(BRAF):c.1449A>C (p.Lys483Asn) is classified as likely pathogenic by LMM for Rasopathy."
         }
       ],
       "evidenceStrength": {
-        "id": "CC456",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000216",
-            "type": "Coding",
-            "code": "0000216",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "Pathogenic Moderate"
-          }
-        ]
+        "id": "ELSID143",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Moderate"
       },
       "contribution": [
         {
@@ -457,17 +546,9 @@
           },
           "contributionDate": "6/10/2011 1:45 PM",
           "contributionRole": {
-            "id": "CC440",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SEPIO:0000154",
-                "type": "Coding",
-                "code": "0000154",
-                "system": "http://obofoundry.org/sepio/",
-                "display": "assessor role"
-              }
-            ]
+            "id": "CRID193",
+            "type": "ContributoryRole",
+            "label": "assessor role"
           }
         }
       ]
@@ -483,18 +564,11 @@
       },
       "contributionDate": "8/14/2014 10:29 AM",
       "contributionRole": {
-        "id": "CC414",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000331",
-            "type": "Coding",
-            "code": "0000331",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "interpreter role"
-          }
-        ]
+        "id": "CRID196",
+        "type": "ContributoryRole",
+        "label": "interpreter role"
       }
     }
-  ]
+  ],
+  "description": "The Lys483Gln variant in BRAF has been identified in one proband with clinical features of Cardio-facio-cutaneous syndrome, and was not identified in either of this individual's parents (LMM unpublished data). This variant has not been identified in large population studies. In addition, another variant at the same residue (Lys483Asn) was identified as a de novo variant in an individual with features of a Noonan spectrum disorder (LMM unpublished data). Computational analyses (biochemical amino acid properties, conservation, AlignGVGD, PolyPhen2, and SIFT) suggest that the Lys483Gln variant may impact the normal function of the protein. In summary, this variant is likely pathogenic, though additional studies are required to fully establish its clinical significance."
 }

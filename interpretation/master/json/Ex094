@@ -4,12 +4,16 @@
   "informationId": {
     "id": "VarInterp045",
     "type": "VariantInterpretation",
-    "description": "The c.631-2A>G variant in DSC2 has been reported in 1 Caucasian individual with ARVC (Heuser 2006). This variant has also been identified by our laboratory in 2 individuals (1 with ARVC and 1 with LVNC). This variant has been reported in 1/66564 European chromosomes by the Exome Aggregation Consortium (ExAC, http://exac.broadinstitute.org; dbSNP rs397514042). This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006). Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/). In summary, although additional studies are required to fully establish its clinical significance, the c.631-2A>G variant is likely pathogenic.",
     "variant": {
       "id": "CanAll121",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll127",
-      "identifier": "http://reg.genome.network/allele/CA022880"
+      "preferredCtxAllele": {
+        "id": "CtxAll127",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll121",
+        "alleleName": "NM_024422.3(DSC2): c.631-2A>G (p.?)"
+      }
     },
     "condition": [
       {
@@ -17,37 +21,31 @@
         "type": "GeneticCondition",
         "disease": [
           {
-            "id": "Orphanet:247",
-            "type": "Coding",
-            "code": "247",
-            "system": "http://www.orpha.net/",
-            "display": "arrhythmogenic right ventricular cardiomyopathy"
+            "id": "DisID164",
+            "type": "Disease",
+            "label": "arrhythmogenic right ventricular cardiomyopathy"
           }
         ],
         "modeOfInheritance": {
-          "id": "HP:0000006",
-          "type": "Coding",
-          "code": "0000006",
-          "system": "http://human-phenotype-ontology.github.io/",
-          "display": "Autosomal Dominant"
+          "id": "MOIID051",
+          "type": "ModeOfInheritance",
+          "label": "Autosomal Dominant"
         }
       }
     ],
     "outcome": {
-      "id": "LN:LA26332-9",
-      "type": "Coding",
-      "code": "LA26332-9",
-      "system": "http://loinc.org/",
-      "display": "Likely Pathogenic"
+      "id": "SIGID028",
+      "type": "Significance",
+      "label": "Likely Pathogenic"
     },
     "assertionMethod": {
-      "id": "AssertMeth001",
+      "id": "AssertMeth331",
       "type": "AssertionMethod",
       "description": "ACMG ISV guidelines 2015",
       "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
       "version": "1.0",
       "scoringAlgorithm": {
-        "id": "ScorAlg01",
+        "id": "ScorAlg332",
         "type": "ScoringAlgorithm",
         "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance."
       }
@@ -60,20 +58,28 @@
           {
             "id": "CritAssess361",
             "type": "CriterionAssessment",
-            "description": "This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466). Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/).",
             "criterion": {
-              "id": "PVS1",
+              "id": "Crit303",
               "type": "Criterion",
+              "label": "PVS1",
               "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
               "defaultStrength": {
-                "id": "CG-evidence-strength:pvs"
-              }
+                "id": "ELSID146",
+                "type": "EvidenceLineStrength",
+                "label": "Pathogenic Very Strong"
+              },
+              "comments": "The two main concerns for applying this rule is:\na. Is LOF an established disease mechanism?\nb. Is LOF actually occurring?"
             },
             "variant": {
               "id": "CanAll121",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll127",
-              "identifier": "http://reg.genome.network/allele/CA022880"
+              "preferredCtxAllele": {
+                "id": "CtxAll127",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll121",
+                "alleleName": "NM_024422.3(DSC2): c.631-2A>G (p.?)"
+              }
             },
             "condition": [
               {
@@ -81,21 +87,17 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "Orphanet:247",
-                    "type": "Coding",
-                    "code": "247",
-                    "system": "http://www.orpha.net/",
-                    "display": "arrhythmogenic right ventricular cardiomyopathy"
+                    "id": "DisID164",
+                    "type": "Disease",
+                    "label": "arrhythmogenic right ventricular cardiomyopathy"
                   }
                 ]
               }
             ],
             "outcome": {
-              "id": "SEPIO:0000223",
-              "type": "Coding",
-              "code": "0000223",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "Met"
+              "id": "CEID074",
+              "type": "CriterionEvaluation",
+              "label": "Met"
             },
             "evidenceLine": [
               {
@@ -105,67 +107,50 @@
                   {
                     "id": "MolCon272",
                     "type": "MolecularConsequence",
-                    "description": "This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466).",
                     "contextualAllele": {
                       "id": "CtxAll127",
                       "type": "ContextualAllele",
-                      "relatedCanonicalAllele": {
-                        "id": "CanAll121",
-                        "type": "CanonicalAllele",
-                        "preferredCtxAllele": "CtxAll127",
-                        "identifier": "http://reg.genome.network/allele/CA022880"
-                      },
+                      "producedBy": null,
+                      "relatedCanonicalAllele": "CanAll121",
                       "alleleName": "NM_024422.3(DSC2): c.631-2A>G (p.?)"
                     },
                     "consequence": {
-                      "id": "CC194",
-                      "type": "CodeableConcept",
-                      "coding": [
-                        {
-                          "id": "SO:0001629",
-                          "type": "Coding",
-                          "code": "0001629",
-                          "system": "http://sequenceontology.org/",
-                          "display": "splice-site variant"
-                        }
-                      ]
-                    }
+                      "id": "MCTID015",
+                      "type": "MolecularConsequenceType",
+                      "label": "splice-site variant"
+                    },
+                    "description": "This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466)."
                   },
                   {
                     "id": "CondMech273",
                     "type": "ConditionMechanism",
-                    "description": "Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/).",
                     "mechanism": {
-                      "id": "SO:0002054",
-                      "type": "Coding",
-                      "code": "0002054",
-                      "system": "http://sequenceontology.org/",
-                      "display": "loss of function variant"
+                      "id": "MTID071",
+                      "type": "MechanismType",
+                      "label": "loss of function variant"
                     },
                     "condition": {
                       "id": "GenCond046",
                       "type": "GeneticCondition",
                       "disease": [
                         {
-                          "id": "Orphanet:247",
-                          "type": "Coding",
-                          "code": "247",
-                          "system": "http://www.orpha.net/",
-                          "display": "arrhythmogenic right ventricular cardiomyopathy"
+                          "id": "DisID164",
+                          "type": "Disease",
+                          "label": "arrhythmogenic right ventricular cardiomyopathy"
                         }
                       ]
                     },
                     "mechanismConfidence": {
-                      "id": "SEPIO:0000269",
-                      "type": "Coding",
-                      "code": "0000269",
-                      "system": "http://obofoundry.org/sepio/",
-                      "display": "established"
+                      "id": "CMSID134",
+                      "type": "ConditionMechanismStrength",
+                      "label": "established"
                     },
                     "gene": {
-                      "id": "hgnc:DSC2",
-                      "type": "Gene"
-                    }
+                      "id": "G286",
+                      "type": "Gene",
+                      "geneSymbol": "DSC2"
+                    },
+                    "description": "Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/)."
                   }
                 ]
               }
@@ -180,34 +165,19 @@
                 },
                 "contributionDate": "01/17/17 9:12 AM",
                 "contributionRole": {
-                  "id": "CC407",
-                  "type": "CodeableConcept",
-                  "coding": [
-                    {
-                      "id": "SEPIO:0000154",
-                      "type": "Coding",
-                      "code": "0000154",
-                      "system": "http://obofoundry.org/sepio/",
-                      "display": "assessor role"
-                    }
-                  ]
+                  "id": "CRID193",
+                  "type": "ContributoryRole",
+                  "label": "assessor role"
                 }
               }
-            ]
+            ],
+            "description": "This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466). Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/)."
           }
         ],
         "evidenceStrength": {
-          "id": "CC450",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000220",
-              "type": "Coding",
-              "code": "0000220",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "Pathogenic Very Strong"
-            }
-          ]
+          "id": "ELSID146",
+          "type": "EvidenceLineStrength",
+          "label": "Pathogenic Very Strong"
         },
         "contribution": [
           {
@@ -219,17 +189,9 @@
             },
             "contributionDate": "01/17/17 9:12 AM",
             "contributionRole": {
-              "id": "CC434",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "SEPIO:0000154",
-                  "type": "Coding",
-                  "code": "0000154",
-                  "system": "http://obofoundry.org/sepio/",
-                  "display": "assessor role"
-                }
-              ]
+              "id": "CRID193",
+              "type": "ContributoryRole",
+              "label": "assessor role"
             }
           }
         ]
@@ -241,27 +203,33 @@
           {
             "id": "CritAssess369",
             "type": "CriterionAssessment",
-            "description": "This variant has been reported in 1/66564 European chromosomes by the Exome Aggregation Consortium (ExAC, http://exac.broadinstitute.org; dbSNP rs397514042).",
             "criterion": {
-              "id": "PM2",
+              "id": "Crit309",
               "type": "Criterion",
+              "label": "PM2",
               "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
               "defaultStrength": {
-                "id": "CG-evidence-strength:pm"
-              }
+                "id": "ELSID143",
+                "type": "EvidenceLineStrength",
+                "label": "Pathogenic Moderate"
+              },
+              "comments": "Some groups are allowing to rule to be used if even not 100% absent\nFor instance, Cardio has allowed PM2 to be used if MAF is <0.05% with 95% CI if\nCI lower is ~0.00% (at 2 decimal places) AND CI upper is below 0.05%\n Caveat: Population data for insertions/deletions may be poorly called by next-generation sequencing"
             },
             "variant": {
               "id": "CanAll121",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll127",
-              "identifier": "http://reg.genome.network/allele/CA022880"
+              "preferredCtxAllele": {
+                "id": "CtxAll127",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll121",
+                "alleleName": "NM_024422.3(DSC2): c.631-2A>G (p.?)"
+              }
             },
             "outcome": {
-              "id": "SEPIO:0000223",
-              "type": "Coding",
-              "code": "0000223",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "Met"
+              "id": "CEID074",
+              "type": "CriterionEvaluation",
+              "label": "Met"
             },
             "evidenceLine": [
               {
@@ -272,36 +240,25 @@
                     "id": "AllFreq370",
                     "type": "AlleleFrequency",
                     "ascertainment": {
-                      "id": "CC045",
-                      "type": "CodeableConcept",
-                      "coding": [
-                        {
-                          "id": "SEPIO:0000332",
-                          "type": "Coding",
-                          "code": "0000332",
-                          "system": "http://obofoundry.org/sepio/",
-                          "display": "ExAc ascertainment method"
-                        }
-                      ]
+                      "id": "AsctTID203",
+                      "type": "AscertainmentType",
+                      "label": "ExAc ascertainment method"
                     },
                     "population": {
-                      "id": "CC289",
-                      "type": "CodeableConcept",
-                      "coding": [
-                        {
-                          "id": "BROAD-population-type:nfe",
-                          "type": "Coding",
-                          "code": "nfe",
-                          "system": "http://broadinstitute.org/populations/",
-                          "display": "Non-Finnish European"
-                        }
-                      ]
+                      "id": "PTID090",
+                      "type": "PopulationType",
+                      "label": "Non-Finnish European"
                     },
                     "allele": {
                       "id": "CanAll121",
                       "type": "CanonicalAllele",
-                      "preferredCtxAllele": "CtxAll127",
-                      "identifier": "http://reg.genome.network/allele/CA022880"
+                      "preferredCtxAllele": {
+                        "id": "CtxAll127",
+                        "type": "ContextualAllele",
+                        "producedBy": null,
+                        "relatedCanonicalAllele": "CanAll121",
+                        "alleleName": "NM_024422.3(DSC2): c.631-2A>G (p.?)"
+                      }
                     },
                     "alleleCount": 1,
                     "alleleNumber": 66564,
@@ -321,34 +278,19 @@
                 },
                 "contributionDate": "03/07/2017 5:22 PM",
                 "contributionRole": {
-                  "id": "CC409",
-                  "type": "CodeableConcept",
-                  "coding": [
-                    {
-                      "id": "SEPIO:0000154",
-                      "type": "Coding",
-                      "code": "0000154",
-                      "system": "http://obofoundry.org/sepio/",
-                      "display": "assessor role"
-                    }
-                  ]
+                  "id": "CRID193",
+                  "type": "ContributoryRole",
+                  "label": "assessor role"
                 }
               }
-            ]
+            ],
+            "description": "This variant has been reported in 1/66564 European chromosomes by the Exome Aggregation Consortium (ExAC, http://exac.broadinstitute.org; dbSNP rs397514042)."
           }
         ],
         "evidenceStrength": {
-          "id": "CC451",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000216",
-              "type": "Coding",
-              "code": "0000216",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "Pathogenic Moderate"
-            }
-          ]
+          "id": "ELSID143",
+          "type": "EvidenceLineStrength",
+          "label": "Pathogenic Moderate"
         },
         "contribution": [
           {
@@ -360,17 +302,9 @@
             },
             "contributionDate": "03/07/2017 5:22 PM",
             "contributionRole": {
-              "id": "CC435",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "SEPIO:0000154",
-                  "type": "Coding",
-                  "code": "0000154",
-                  "system": "http://obofoundry.org/sepio/",
-                  "display": "assessor role"
-                }
-              ]
+              "id": "CRID193",
+              "type": "ContributoryRole",
+              "label": "assessor role"
             }
           }
         ]
@@ -386,20 +320,13 @@
         },
         "contributionDate": "6/26/2015 12:06 PM",
         "contributionRole": {
-          "id": "CC395",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000331",
-              "type": "Coding",
-              "code": "0000331",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "interpreter role"
-            }
-          ]
+          "id": "CRID196",
+          "type": "ContributoryRole",
+          "label": "interpreter role"
         }
       }
-    ]
+    ],
+    "description": "The c.631-2A>G variant in DSC2 has been reported in 1 Caucasian individual with ARVC (Heuser 2006). This variant has also been identified by our laboratory in 2 individuals (1 with ARVC and 1 with LVNC). This variant has been reported in 1/66564 European chromosomes by the Exome Aggregation Consortium (ExAC, http://exac.broadinstitute.org; dbSNP rs397514042). This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006). Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/). In summary, although additional studies are required to fully establish its clinical significance, the c.631-2A>G variant is likely pathogenic."
   },
   "index": 4,
   "author": "CSER classifer #6",

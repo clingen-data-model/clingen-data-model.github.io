@@ -4,20 +4,37 @@
   "informationId": {
     "id": "CritAssess278",
     "type": "CriterionAssessment",
-    "description": "The assessed variant produces the same amino acid change (p.Phe285Leu) as known pathogenic variant c.853T>C",
     "criterion": {
-      "id": "PS1",
+      "id": "Crit304",
       "type": "Criterion",
+      "label": "PS1",
       "description": "Same amino acid change as a previously established pathogenic variant regardless of nucleotide change",
       "defaultStrength": {
-        "id": "CG-evidence-strength:ps"
-      }
+        "id": "ELSID145",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Strong"
+      },
+      "comments": "Beware of changes that impact splicing rather than at the amino acid/protein level\nFrom CSER paper: One site erroneously used this to apply prior publication of the same exact variant while this rule, as described in more depth on the ACMG/AMP guideline, only applies when the established pathogenic variant has a different nucleotide change than the variant being interpreted."
     },
     "variant": {
       "id": "CanAll004",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll005",
-      "identifier": "http://reg.genome.network/allele/CA261606"
+      "preferredCtxAllele": {
+        "id": "CtxAll005",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll004",
+        "alleleName": "NM_002834.3(PTPN11):c.855T>G (p.Phe285Leu)",
+        "produces": [
+          {
+            "id": "CtxAll007",
+            "type": "ContextualAllele",
+            "producedBy": "CtxAll006",
+            "relatedCanonicalAllele": "CanAll006",
+            "alleleName": "NP_002825.3:p.Phe285Leu"
+          }
+        ]
+      }
     },
     "condition": [
       {
@@ -25,28 +42,22 @@
         "type": "GeneticCondition",
         "disease": [
           {
-            "id": "Orphanet:648",
-            "type": "Coding",
-            "code": "648",
-            "system": "http://www.orpha.net/",
-            "display": "noonan syndrome"
+            "id": "DisID175",
+            "type": "Disease",
+            "label": "noonan syndrome"
           }
         ],
         "modeOfInheritance": {
-          "id": "HP:0000006",
-          "type": "Coding",
-          "code": "0000006",
-          "system": "http://human-phenotype-ontology.github.io/",
-          "display": "Autosomal Dominant"
+          "id": "MOIID051",
+          "type": "ModeOfInheritance",
+          "label": "Autosomal Dominant"
         }
       }
     ],
     "outcome": {
-      "id": "SEPIO:0000223",
-      "type": "Coding",
-      "code": "0000223",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Met"
+      "id": "CEID074",
+      "type": "CriterionEvaluation",
+      "label": "Met"
     },
     "evidenceLine": [
       {
@@ -56,12 +67,25 @@
           {
             "id": "VarInterp008",
             "type": "VariantInterpretation",
-            "description": "NM_002834.3:c.855T>G Pathogenic for Noonan Syndrome",
             "variant": {
               "id": "CanAll005",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll006",
-              "identifier": "http://reg.genome.network/allele/CA220155"
+              "preferredCtxAllele": {
+                "id": "CtxAll006",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll005",
+                "alleleName": "NM_002834.3(PTPN11):c.853T>C (p.Phe285Leu)",
+                "produces": [
+                  {
+                    "id": "CtxAll007",
+                    "type": "ContextualAllele",
+                    "producedBy": "CtxAll006",
+                    "relatedCanonicalAllele": "CanAll006",
+                    "alleleName": "NP_002825.3:p.Phe285Leu"
+                  }
+                ]
+              }
             },
             "condition": [
               {
@@ -69,29 +93,24 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "Orphanet:648",
-                    "type": "Coding",
-                    "code": "648",
-                    "system": "http://www.orpha.net/",
-                    "display": "noonan syndrome"
+                    "id": "DisID175",
+                    "type": "Disease",
+                    "label": "noonan syndrome"
                   }
                 ],
                 "modeOfInheritance": {
-                  "id": "HP:0000006",
-                  "type": "Coding",
-                  "code": "0000006",
-                  "system": "http://human-phenotype-ontology.github.io/",
-                  "display": "Autosomal Dominant"
+                  "id": "MOIID051",
+                  "type": "ModeOfInheritance",
+                  "label": "Autosomal Dominant"
                 }
               }
             ],
             "outcome": {
-              "id": "LN:LA6668-3",
-              "type": "Coding",
-              "code": "LA6668-3",
-              "system": "http://loinc.org/",
-              "display": "Pathogenic"
-            }
+              "id": "SIGID031",
+              "type": "Significance",
+              "label": "Pathogenic"
+            },
+            "description": "NM_002834.3:c.855T>G Pathogenic for Noonan Syndrome"
           }
         ]
       }
@@ -106,20 +125,13 @@
         },
         "contributionDate": "6/2/16 3:22 PM",
         "contributionRole": {
-          "id": "CC301",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
-    ]
+    ],
+    "description": "The assessed variant produces the same amino acid change (p.Phe285Leu) as known pathogenic variant c.853T>C"
   },
   "index": 1,
   "author": "Steven Harrison",

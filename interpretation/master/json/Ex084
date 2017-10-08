@@ -4,20 +4,28 @@
   "informationId": {
     "id": "CritAssess361",
     "type": "CriterionAssessment",
-    "description": "This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466). Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/).",
     "criterion": {
-      "id": "PVS1",
+      "id": "Crit303",
       "type": "Criterion",
+      "label": "PVS1",
       "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
       "defaultStrength": {
-        "id": "CG-evidence-strength:pvs"
-      }
+        "id": "ELSID146",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Very Strong"
+      },
+      "comments": "The two main concerns for applying this rule is:\na. Is LOF an established disease mechanism?\nb. Is LOF actually occurring?"
     },
     "variant": {
       "id": "CanAll121",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll127",
-      "identifier": "http://reg.genome.network/allele/CA022880"
+      "preferredCtxAllele": {
+        "id": "CtxAll127",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll121",
+        "alleleName": "NM_024422.3(DSC2): c.631-2A>G (p.?)"
+      }
     },
     "condition": [
       {
@@ -25,21 +33,17 @@
         "type": "GeneticCondition",
         "disease": [
           {
-            "id": "Orphanet:247",
-            "type": "Coding",
-            "code": "247",
-            "system": "http://www.orpha.net/",
-            "display": "arrhythmogenic right ventricular cardiomyopathy"
+            "id": "DisID164",
+            "type": "Disease",
+            "label": "arrhythmogenic right ventricular cardiomyopathy"
           }
         ]
       }
     ],
     "outcome": {
-      "id": "SEPIO:0000223",
-      "type": "Coding",
-      "code": "0000223",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Met"
+      "id": "CEID074",
+      "type": "CriterionEvaluation",
+      "label": "Met"
     },
     "evidenceLine": [
       {
@@ -49,67 +53,50 @@
           {
             "id": "MolCon272",
             "type": "MolecularConsequence",
-            "description": "This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466).",
             "contextualAllele": {
               "id": "CtxAll127",
               "type": "ContextualAllele",
-              "relatedCanonicalAllele": {
-                "id": "CanAll121",
-                "type": "CanonicalAllele",
-                "preferredCtxAllele": "CtxAll127",
-                "identifier": "http://reg.genome.network/allele/CA022880"
-              },
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll121",
               "alleleName": "NM_024422.3(DSC2): c.631-2A>G (p.?)"
             },
             "consequence": {
-              "id": "CC194",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "SO:0001629",
-                  "type": "Coding",
-                  "code": "0001629",
-                  "system": "http://sequenceontology.org/",
-                  "display": "splice-site variant"
-                }
-              ]
-            }
+              "id": "MCTID015",
+              "type": "MolecularConsequenceType",
+              "label": "splice-site variant"
+            },
+            "description": "This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466)."
           },
           {
             "id": "CondMech273",
             "type": "ConditionMechanism",
-            "description": "Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/).",
             "mechanism": {
-              "id": "SO:0002054",
-              "type": "Coding",
-              "code": "0002054",
-              "system": "http://sequenceontology.org/",
-              "display": "loss of function variant"
+              "id": "MTID071",
+              "type": "MechanismType",
+              "label": "loss of function variant"
             },
             "condition": {
               "id": "GenCond046",
               "type": "GeneticCondition",
               "disease": [
                 {
-                  "id": "Orphanet:247",
-                  "type": "Coding",
-                  "code": "247",
-                  "system": "http://www.orpha.net/",
-                  "display": "arrhythmogenic right ventricular cardiomyopathy"
+                  "id": "DisID164",
+                  "type": "Disease",
+                  "label": "arrhythmogenic right ventricular cardiomyopathy"
                 }
               ]
             },
             "mechanismConfidence": {
-              "id": "SEPIO:0000269",
-              "type": "Coding",
-              "code": "0000269",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "established"
+              "id": "CMSID134",
+              "type": "ConditionMechanismStrength",
+              "label": "established"
             },
             "gene": {
-              "id": "hgnc:DSC2",
-              "type": "Gene"
-            }
+              "id": "G286",
+              "type": "Gene",
+              "geneSymbol": "DSC2"
+            },
+            "description": "Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/)."
           }
         ]
       }
@@ -124,20 +111,13 @@
         },
         "contributionDate": "01/17/17 9:12 AM",
         "contributionRole": {
-          "id": "CC407",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
-    ]
+    ],
+    "description": "This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466). Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/)."
   },
   "searchTags": "cser",
   "index": 4,

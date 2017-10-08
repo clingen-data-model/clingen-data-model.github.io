@@ -1,27 +1,33 @@
 {
   "id": "CritAssess275",
   "type": "CriterionAssessment",
-  "description": "Variant is not LOF and LOF is not a known mechanism of disease associated with this gene for any condition.",
   "criterion": {
-    "id": "PVS1",
+    "id": "Crit303",
     "type": "Criterion",
+    "label": "PVS1",
     "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
     "defaultStrength": {
-      "id": "CG-evidence-strength:pvs"
-    }
+      "id": "ELSID146",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Very Strong"
+    },
+    "comments": "The two main concerns for applying this rule is:\na. Is LOF an established disease mechanism?\nb. Is LOF actually occurring?"
   },
   "variant": {
     "id": "CanAll001",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll001",
-    "identifier": "http://reg.genome.network/allele/CA090943"
+    "preferredCtxAllele": {
+      "id": "CtxAll001",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll001",
+      "alleleName": "NM_031844.2(HNRNPU):c.2304_2305del (p.Gly769Glufs*83)"
+    }
   },
   "outcome": {
-    "id": "SEPIO:0000224",
-    "type": "Coding",
-    "code": "0000224",
-    "system": "http://obofoundry.org/sepio/",
-    "display": "Not Met"
+    "id": "CEID075",
+    "type": "CriterionEvaluation",
+    "label": "Not Met"
   },
   "evidenceLine": [
     {
@@ -31,31 +37,19 @@
         {
           "id": "MolCon001",
           "type": "MolecularConsequence",
-          "description": "Protein ends at p.826 and this frameshift would create stop at p.852 (769+83) thus NMD would not occur. Instead an elongated protein",
           "contextualAllele": {
             "id": "CtxAll001",
             "type": "ContextualAllele",
-            "relatedCanonicalAllele": {
-              "id": "CanAll001",
-              "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll001",
-              "identifier": "http://reg.genome.network/allele/CA090943"
-            },
+            "producedBy": null,
+            "relatedCanonicalAllele": "CanAll001",
             "alleleName": "NM_031844.2(HNRNPU):c.2304_2305del (p.Gly769Glufs*83)"
           },
           "consequence": {
-            "id": "CC001",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SO:0001589",
-                "type": "Coding",
-                "code": "0001589",
-                "system": "http://sequenceontology.org/",
-                "display": "frameshift variant"
-              }
-            ]
-          }
+            "id": "MCTID014",
+            "type": "MolecularConsequenceType",
+            "label": "frameshift variant"
+          },
+          "description": "Protein ends at p.826 and this frameshift would create stop at p.852 (769+83) thus NMD would not occur. Instead an elongated protein"
         },
         {
           "id": "Null396",
@@ -63,44 +57,35 @@
           "contextualAllele": {
             "id": "CtxAll001",
             "type": "ContextualAllele",
-            "relatedCanonicalAllele": {
-              "id": "CanAll001",
-              "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll001",
-              "identifier": "http://reg.genome.network/allele/CA090943"
-            },
+            "producedBy": null,
+            "relatedCanonicalAllele": "CanAll001",
             "alleleName": "NM_031844.2(HNRNPU):c.2304_2305del (p.Gly769Glufs*83)"
           },
           "annotation": {
-            "id": "SEPIO-CG:99015",
-            "type": "Coding",
-            "code": "99015",
-            "system": "http://obofoundry.org/sepio/clingen",
-            "display": "No"
+            "id": "NullAID224",
+            "type": "NullAllele",
+            "label": "No"
           }
         },
         {
           "id": "CondMech002",
           "type": "ConditionMechanism",
-          "description": "HNRNPU is not associated with any conditions, and therefore LOF is not an established mechanism of any condition for this gene.",
           "mechanism": {
-            "id": "SO:0002054",
-            "type": "Coding",
-            "code": "0002054",
-            "system": "http://sequenceontology.org/",
-            "display": "loss of function variant"
+            "id": "MTID071",
+            "type": "MechanismType",
+            "label": "loss of function variant"
           },
           "mechanismConfidence": {
-            "id": "SEPIO:0000269",
-            "type": "Coding",
-            "code": "0000269",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "established"
+            "id": "CMSID134",
+            "type": "ConditionMechanismStrength",
+            "label": "established"
           },
           "gene": {
-            "id": "hgnc:HNRNPU",
-            "type": "Gene"
-          }
+            "id": "G227",
+            "type": "Gene",
+            "geneSymbol": "HNRNPU"
+          },
+          "description": "HNRNPU is not associated with any conditions, and therefore LOF is not an established mechanism of any condition for this gene."
         }
       ]
     }
@@ -115,18 +100,11 @@
       },
       "contributionDate": "6/1/16 10:10 AM",
       "contributionRole": {
-        "id": "CC298",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     }
-  ]
+  ],
+  "description": "Variant is not LOF and LOF is not a known mechanism of disease associated with this gene for any condition."
 }

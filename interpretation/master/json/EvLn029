@@ -6,7 +6,7 @@
       "id": "IndCond056",
       "type": "IndividualCondition",
       "individual": {
-        "id": "Indiv004",
+        "id": "Indiv336",
         "type": "Individual",
         "description": "individual #004"
       },
@@ -17,37 +17,29 @@
           "name": "PCD autosomal recessive w/ outer dynein arm (ODA) defects",
           "disease": [
             {
-              "id": "Orphanet:244",
-              "type": "Coding",
-              "code": "244",
-              "system": "http://www.orpha.net/",
-              "display": "Primary ciliary dyskenisia"
+              "id": "DisID163",
+              "type": "Disease",
+              "label": "Primary ciliary dyskenisia"
             }
           ],
           "modeOfInheritance": {
-            "id": "HP:0000007",
-            "type": "Coding",
-            "code": "0000007",
-            "system": "http://human-phenotype-ontology.github.io/",
-            "display": "Autosomal Recessive"
+            "id": "MOIID052",
+            "type": "ModeOfInheritance",
+            "label": "Autosomal Recessive"
           },
           "phenotype": [
             {
-              "id": "HP:0200106",
-              "type": "Coding",
-              "code": "0200106",
-              "system": "http://human-phenotype-ontology.github.io/",
-              "display": "Absent/shortened dynein arms"
+              "id": "PhenID191",
+              "type": "Phenotype",
+              "label": "Absent/shortened dynein arms"
             }
           ]
         }
       ],
       "individualHasCondition": {
-        "id": "SEPIO-CG:99009",
-        "type": "Coding",
-        "code": "99009",
-        "system": "http://obofoundry.org/sepio/clingen",
-        "display": "affected"
+        "id": "CondStID218",
+        "type": "ConditionStatus",
+        "label": "affected"
       },
       "contribution": [
         {
@@ -59,17 +51,9 @@
           },
           "contributionDate": "5/31/16 8:46 AM",
           "contributionRole": {
-            "id": "CC385",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SEPIO:0000156",
-                "type": "Coding",
-                "code": "0000156",
-                "system": "http://obofoundry.org/sepio/",
-                "display": "curator role"
-              }
-            ]
+            "id": "CRID194",
+            "type": "ContributoryRole",
+            "label": "curator role"
           }
         }
       ],
@@ -83,8 +67,13 @@
       "variant": {
         "id": "CanAll036",
         "type": "CanonicalAllele",
-        "preferredCtxAllele": "CtxAll040",
-        "identifier": "http://reg.genome.network/allele/CA273615"
+        "preferredCtxAllele": {
+          "id": "CtxAll040",
+          "type": "ContextualAllele",
+          "producedBy": null,
+          "relatedCanonicalAllele": "CanAll036",
+          "alleleName": "NM_001369.2(DNAH5):c.9449delG"
+        }
       },
       "condition": [
         {
@@ -92,28 +81,22 @@
           "type": "GeneticCondition",
           "disease": [
             {
-              "id": "Orphanet:244",
-              "type": "Coding",
-              "code": "244",
-              "system": "http://www.orpha.net/",
-              "display": "Primary ciliary dyskenisia"
+              "id": "DisID163",
+              "type": "Disease",
+              "label": "Primary ciliary dyskenisia"
             }
           ],
           "modeOfInheritance": {
-            "id": "HP:0000007",
-            "type": "Coding",
-            "code": "0000007",
-            "system": "http://human-phenotype-ontology.github.io/",
-            "display": "Autosomal Recessive"
+            "id": "MOIID052",
+            "type": "ModeOfInheritance",
+            "label": "Autosomal Recessive"
           }
         }
       ],
       "outcome": {
-        "id": "LN:LA6668-3",
-        "type": "Coding",
-        "code": "LA6668-3",
-        "system": "http://loinc.org/",
-        "display": "Pathogenic"
+        "id": "SIGID031",
+        "type": "Significance",
+        "label": "Pathogenic"
       },
       "contribution": [
         {
@@ -125,17 +108,9 @@
           },
           "contributionDate": "5/31/16 11:01 AM",
           "contributionRole": {
-            "id": "CC387",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SEPIO:0000331",
-                "type": "Coding",
-                "code": "0000331",
-                "system": "http://obofoundry.org/sepio/",
-                "display": "interpreter role"
-              }
-            ]
+            "id": "CRID196",
+            "type": "ContributoryRole",
+            "label": "interpreter role"
           }
         }
       ],
@@ -146,44 +121,56 @@
     {
       "id": "IndAll058",
       "type": "IndividualAllele",
-      "description": "Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband.",
       "individual": {
-        "id": "Indiv004",
+        "id": "Indiv336",
         "type": "Individual",
         "description": "individual #004"
       },
       "primaryAllele": {
         "id": "CanAll035",
         "type": "CanonicalAllele",
-        "preferredCtxAllele": "CtxAll039",
-        "identifier": "http://reg.genome.network/allele/CA090919"
+        "preferredCtxAllele": {
+          "id": "CtxAll039",
+          "type": "ContextualAllele",
+          "producedBy": null,
+          "relatedCanonicalAllele": "CanAll035",
+          "alleleName": "NM_001369.2(DNAH5):c.7468_7488del",
+          "produces": [
+            {
+              "id": "CtxAll044",
+              "type": "ContextualAllele",
+              "producedBy": "CtxAll039",
+              "relatedCanonicalAllele": "CanAll040",
+              "alleleName": "NP_001360.1:p.Trp2490_Leu2496del"
+            }
+          ]
+        }
       },
       "secondaryAllele": {
         "id": "CanAll036",
         "type": "CanonicalAllele",
-        "preferredCtxAllele": "CtxAll040",
-        "identifier": "http://reg.genome.network/allele/CA273615"
+        "preferredCtxAllele": {
+          "id": "CtxAll040",
+          "type": "ContextualAllele",
+          "producedBy": null,
+          "relatedCanonicalAllele": "CanAll036",
+          "alleleName": "NM_001369.2(DNAH5):c.9449delG"
+        }
       },
       "primaryZygosity": {
-        "id": "GENO:0000135",
-        "type": "Coding",
-        "code": "0000135",
-        "system": "http://obofoundry.org/geno/",
-        "display": "heterozygous"
+        "id": "ASID041",
+        "type": "AllelicState",
+        "label": "heterozygous"
       },
       "secondaryZygosity": {
-        "id": "GENO:0000135",
-        "type": "Coding",
-        "code": "0000135",
-        "system": "http://obofoundry.org/geno/",
-        "display": "heterozygous"
+        "id": "ASID041",
+        "type": "AllelicState",
+        "label": "heterozygous"
       },
       "phase": {
-        "id": "GENO:0000132",
-        "type": "Coding",
-        "code": "0000132",
-        "system": "http://obofoundry.org/geno/",
-        "display": "in trans"
+        "id": "PHZID037",
+        "type": "Phase",
+        "label": "in trans"
       },
       "contribution": [
         {
@@ -195,23 +182,16 @@
           },
           "contributionDate": "5/31/16 9:15 AM",
           "contributionRole": {
-            "id": "CC386",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SEPIO:0000156",
-                "type": "Coding",
-                "code": "0000156",
-                "system": "http://obofoundry.org/sepio/",
-                "display": "curator role"
-              }
-            ]
+            "id": "CRID194",
+            "type": "ContributoryRole",
+            "label": "curator role"
           }
         }
       ],
       "source": [
         "http://partners.org/ppm/lmm/gi/case/123"
-      ]
+      ],
+      "description": "Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband."
     }
   ]
 }

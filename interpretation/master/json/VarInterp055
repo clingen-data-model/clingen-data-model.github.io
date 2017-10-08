@@ -1,12 +1,16 @@
 {
   "id": "VarInterp055",
   "type": "VariantInterpretation",
-  "description": "The Tyr337Cys variant in SOS1 has been reported in 1 individual with clinical features of Noonan syndrome (Roberts 2007), but has also been reported to be present in 2 unaffected individuals from one family (Personal Communication). This variant was absent from large population studies. Studies have shown that the Tyr337Cys variant may impact protein function by increasing its activity though these results are inconclusive and these in vitro assays may not accurately represent biological function (Smith 2013). Due to the conflicting data about this variant, the clinical significance of the Tyr337Cys variant is uncertain.",
   "variant": {
     "id": "CanAll124",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll130",
-    "identifier": "http://reg.genome.network/allele/CA090930"
+    "preferredCtxAllele": {
+      "id": "CtxAll130",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll124",
+      "alleleName": "NM_005633.3(SOS1):c.1010A>G (p.Tyr337Cys)"
+    }
   },
   "condition": [
     {
@@ -14,37 +18,31 @@
       "type": "GeneticCondition",
       "disease": [
         {
-          "id": "Orphanet:648",
-          "type": "Coding",
-          "code": "648",
-          "system": "http://www.orpha.net/",
-          "display": "noonan syndrome"
+          "id": "DisID175",
+          "type": "Disease",
+          "label": "noonan syndrome"
         }
       ],
       "modeOfInheritance": {
-        "id": "HP:0000006",
-        "type": "Coding",
-        "code": "0000006",
-        "system": "http://human-phenotype-ontology.github.io/",
-        "display": "Autosomal Dominant"
+        "id": "MOIID051",
+        "type": "ModeOfInheritance",
+        "label": "Autosomal Dominant"
       }
     }
   ],
   "outcome": {
-    "id": "LN:LA26333-7",
-    "type": "Coding",
-    "code": "LA26333-7",
-    "system": "http://loinc.org/",
-    "display": "Uncertain Signficance"
+    "id": "SIGID029",
+    "type": "Significance",
+    "label": "Uncertain Signficance"
   },
   "assertionMethod": {
-    "id": "AssertMeth001",
+    "id": "AssertMeth331",
     "type": "AssertionMethod",
     "description": "ACMG ISV guidelines 2015",
     "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
     "version": "1.0",
     "scoringAlgorithm": {
-      "id": "ScorAlg01",
+      "id": "ScorAlg332",
       "type": "ScoringAlgorithm",
       "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance."
     }
@@ -57,27 +55,33 @@
         {
           "id": "CritAssess374",
           "type": "CriterionAssessment",
-          "description": "Flag-tagged construct with the variant was transfected into HEK cells. As per the RASopathy working group’s approved assays (see example 3 above), Smith et al. showed that the Y337C mutation increased levels of pERK in starved HEK cells via western blotting.",
           "criterion": {
-            "id": "PS3",
+            "id": "Crit306",
             "type": "Criterion",
+            "label": "PS3",
             "description": "Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product",
             "defaultStrength": {
-              "id": "CG-evidence-strength:ps"
-            }
+              "id": "ELSID145",
+              "type": "EvidenceLineStrength",
+              "label": "Pathogenic Strong"
+            },
+            "comments": "This particular rule will probably be downgraded often, given that there are not many “Functional studies that have been validated and shown to be reproducible and robust in a clinical diagnostic laboratory setting”"
           },
           "variant": {
             "id": "CanAll124",
             "type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll130",
-            "identifier": "http://reg.genome.network/allele/CA090930"
+            "preferredCtxAllele": {
+              "id": "CtxAll130",
+              "type": "ContextualAllele",
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll124",
+              "alleleName": "NM_005633.3(SOS1):c.1010A>G (p.Tyr337Cys)"
+            }
           },
           "outcome": {
-            "id": "SEPIO:0000223",
-            "type": "Coding",
-            "code": "0000223",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "Met"
+            "id": "CEID074",
+            "type": "CriterionEvaluation",
+            "label": "Met"
           },
           "evidenceLine": [
             {
@@ -87,36 +91,25 @@
                 {
                   "id": "Func067",
                   "type": "AlleleFunctionalImpact",
-                  "description": "PMID: 23487764",
                   "resultDescription": "increased ERK activtation",
                   "assayType": {
-                    "id": "CC055",
-                    "type": "CodeableConcept",
-                    "coding": [
-                      {
-                        "id": "OBI:XXXXXX1",
-                        "type": "Coding",
-                        "code": "XXXXXX1",
-                        "system": "http://purl.obolibrary.org/obo/OBI_",
-                        "display": "Activation Assay"
-                      }
-                    ]
+                    "id": "AFITID076",
+                    "type": "AlleleFunctionalImpactType",
+                    "label": "Activation Assay"
                   },
                   "contextualAllele": {
                     "id": "CtxAll130",
                     "type": "ContextualAllele",
-                    "relatedCanonicalAllele": {
-                      "id": "CanAll124",
-                      "type": "CanonicalAllele",
-                      "preferredCtxAllele": "CtxAll130",
-                      "identifier": "http://reg.genome.network/allele/CA090930"
-                    },
+                    "producedBy": null,
+                    "relatedCanonicalAllele": "CanAll124",
                     "alleleName": "NM_005633.3(SOS1):c.1010A>G (p.Tyr337Cys)"
                   },
                   "gene": {
-                    "id": "hgnc:SOS1",
-                    "type": "Gene"
-                  }
+                    "id": "G278",
+                    "type": "Gene",
+                    "geneSymbol": "SOS1"
+                  },
+                  "description": "PMID: 23487764"
                 }
               ]
             }
@@ -131,34 +124,19 @@
               },
               "contributionDate": "3/14/2017 10:29 AM",
               "contributionRole": {
-                "id": "CC415",
-                "type": "CodeableConcept",
-                "coding": [
-                  {
-                    "id": "SEPIO:0000154",
-                    "type": "Coding",
-                    "code": "0000154",
-                    "system": "http://obofoundry.org/sepio/",
-                    "display": "assessor role"
-                  }
-                ]
+                "id": "CRID193",
+                "type": "ContributoryRole",
+                "label": "assessor role"
               }
             }
-          ]
+          ],
+          "description": "Flag-tagged construct with the variant was transfected into HEK cells. As per the RASopathy working group’s approved assays (see example 3 above), Smith et al. showed that the Y337C mutation increased levels of pERK in starved HEK cells via western blotting."
         }
       ],
       "evidenceStrength": {
-        "id": "CC452",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000330",
-            "type": "Coding",
-            "code": "0000330",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "Pathogenic Strong"
-          }
-        ]
+        "id": "ELSID145",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Strong"
       },
       "contribution": [
         {
@@ -170,17 +148,9 @@
           },
           "contributionDate": "3/14/2017 10:29 AM",
           "contributionRole": {
-            "id": "CC436",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SEPIO:0000154",
-                "type": "Coding",
-                "code": "0000154",
-                "system": "http://obofoundry.org/sepio/",
-                "display": "assessor role"
-              }
-            ]
+            "id": "CRID193",
+            "type": "ContributoryRole",
+            "label": "assessor role"
           }
         }
       ]
@@ -192,20 +162,28 @@
         {
           "id": "CritAssess375",
           "type": "CriterionAssessment",
-          "description": "A personal communication to our lab informed us of an individual and his son who both harbored the variant but with clinical workup did not appear to have Noonan Syndrome or symptoms indicative of Noonan Syndrome.",
           "criterion": {
-            "id": "BS4",
+            "id": "Crit323",
             "type": "Criterion",
+            "label": "BS4",
             "description": "Lack of segregation in affected members of a family",
             "defaultStrength": {
-              "id": "CG-evidence-strength:bs"
-            }
+              "id": "ELSID141",
+              "type": "EvidenceLineStrength",
+              "label": "Benign Strong"
+            },
+            "comments": "This rule is for “lack of segregation” meaning phenotype positive / genotype negative (and not pheno neg / geno pos). Also need to be careful of phenocopies. Also need rules for how many cases are needed in use this rule"
           },
           "variant": {
             "id": "CanAll124",
             "type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll130",
-            "identifier": "http://reg.genome.network/allele/CA090930"
+            "preferredCtxAllele": {
+              "id": "CtxAll130",
+              "type": "ContextualAllele",
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll124",
+              "alleleName": "NM_005633.3(SOS1):c.1010A>G (p.Tyr337Cys)"
+            }
           },
           "condition": [
             {
@@ -213,28 +191,22 @@
               "type": "GeneticCondition",
               "disease": [
                 {
-                  "id": "Orphanet:648",
-                  "type": "Coding",
-                  "code": "648",
-                  "system": "http://www.orpha.net/",
-                  "display": "noonan syndrome"
+                  "id": "DisID175",
+                  "type": "Disease",
+                  "label": "noonan syndrome"
                 }
               ],
               "modeOfInheritance": {
-                "id": "HP:0000006",
-                "type": "Coding",
-                "code": "0000006",
-                "system": "http://human-phenotype-ontology.github.io/",
-                "display": "Autosomal Dominant"
+                "id": "MOIID051",
+                "type": "ModeOfInheritance",
+                "label": "Autosomal Dominant"
               }
             }
           ],
           "outcome": {
-            "id": "SEPIO:0000223",
-            "type": "Coding",
-            "code": "0000223",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "Met"
+            "id": "CEID074",
+            "type": "CriterionEvaluation",
+            "label": "Met"
           },
           "evidenceLine": [
             {
@@ -249,29 +221,30 @@
                     "type": "GeneticCondition",
                     "disease": [
                       {
-                        "id": "Orphanet:648",
-                        "type": "Coding",
-                        "code": "648",
-                        "system": "http://www.orpha.net/",
-                        "display": "noonan syndrome"
+                        "id": "DisID175",
+                        "type": "Disease",
+                        "label": "noonan syndrome"
                       }
                     ],
                     "modeOfInheritance": {
-                      "id": "HP:0000006",
-                      "type": "Coding",
-                      "code": "0000006",
-                      "system": "http://human-phenotype-ontology.github.io/",
-                      "display": "Autosomal Dominant"
+                      "id": "MOIID051",
+                      "type": "ModeOfInheritance",
+                      "label": "Autosomal Dominant"
                     }
                   },
                   "canonicalAllele": {
                     "id": "CanAll124",
                     "type": "CanonicalAllele",
-                    "preferredCtxAllele": "CtxAll130",
-                    "identifier": "http://reg.genome.network/allele/CA090930"
+                    "preferredCtxAllele": {
+                      "id": "CtxAll130",
+                      "type": "ContextualAllele",
+                      "producedBy": null,
+                      "relatedCanonicalAllele": "CanAll124",
+                      "alleleName": "NM_005633.3(SOS1):c.1010A>G (p.Tyr337Cys)"
+                    }
                   },
                   "family": {
-                    "id": "Fam011",
+                    "id": "Fam373",
                     "type": "Family",
                     "description": "Family #011"
                   },
@@ -279,11 +252,9 @@
                   "phenotypeNegativeAllelePositive": 2,
                   "phenotypePositiveAlleleNegative": 0,
                   "inconsistentSegregationsObserved": {
-                    "id": "SEPIO-CG:99011",
-                    "type": "Coding",
-                    "code": "99011",
-                    "system": "http://obofoundry.org/sepio/clingen",
-                    "display": "present"
+                    "id": "ISegObsID220",
+                    "type": "InconsistentSegregationObserved",
+                    "label": "present"
                   }
                 }
               ]
@@ -299,34 +270,19 @@
               },
               "contributionDate": "3/14/2017 10:45 AM",
               "contributionRole": {
-                "id": "CC416",
-                "type": "CodeableConcept",
-                "coding": [
-                  {
-                    "id": "SEPIO:0000154",
-                    "type": "Coding",
-                    "code": "0000154",
-                    "system": "http://obofoundry.org/sepio/",
-                    "display": "assessor role"
-                  }
-                ]
+                "id": "CRID193",
+                "type": "ContributoryRole",
+                "label": "assessor role"
               }
             }
-          ]
+          ],
+          "description": "A personal communication to our lab informed us of an individual and his son who both harbored the variant but with clinical workup did not appear to have Noonan Syndrome or symptoms indicative of Noonan Syndrome."
         }
       ],
       "evidenceStrength": {
-        "id": "CC453",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000328",
-            "type": "Coding",
-            "code": "0000328",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "Benign Strong"
-          }
-        ]
+        "id": "ELSID141",
+        "type": "EvidenceLineStrength",
+        "label": "Benign Strong"
       },
       "contribution": [
         {
@@ -338,17 +294,9 @@
           },
           "contributionDate": "3/14/2017 10:45 AM",
           "contributionRole": {
-            "id": "CC437",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SEPIO:0000154",
-                "type": "Coding",
-                "code": "0000154",
-                "system": "http://obofoundry.org/sepio/",
-                "display": "assessor role"
-              }
-            ]
+            "id": "CRID193",
+            "type": "ContributoryRole",
+            "label": "assessor role"
           }
         }
       ]
@@ -364,21 +312,14 @@
       },
       "contributionDate": "8/14/2014 10:29 AM",
       "contributionRole": {
-        "id": "CC413",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000331",
-            "type": "Coding",
-            "code": "0000331",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "interpreter role"
-          }
-        ]
+        "id": "CRID196",
+        "type": "ContributoryRole",
+        "label": "interpreter role"
       }
     }
   ],
   "source": [
     "http://omim.org/entry/244400"
-  ]
+  ],
+  "description": "The Tyr337Cys variant in SOS1 has been reported in 1 individual with clinical features of Noonan syndrome (Roberts 2007), but has also been reported to be present in 2 unaffected individuals from one family (Personal Communication). This variant was absent from large population studies. Studies have shown that the Tyr337Cys variant may impact protein function by increasing its activity though these results are inconclusive and these in vitro assays may not accurately represent biological function (Smith 2013). Due to the conflicting data about this variant, the clinical significance of the Tyr337Cys variant is uncertain."
 }

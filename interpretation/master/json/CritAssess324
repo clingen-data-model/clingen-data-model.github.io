@@ -1,27 +1,33 @@
 {
   "id": "CritAssess324",
   "type": "CriterionAssessment",
-  "description": "Globally, this variant has a MAF of 0.0454 (4.5%) which would put it under the 5% rule and thus BA1 would not be applicable. However, variant is enriched in East Asian population - 29% MAF - so way over the 5% cut-off. So now BA1 is applicable",
   "criterion": {
-    "id": "BA1",
+    "id": "Crit319",
     "type": "Criterion",
+    "label": "BA1",
     "description": "Allele frequency is >5% in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
     "defaultStrength": {
-      "id": "CG-evidence-strength:ba"
-    }
+      "id": "ELSID138",
+      "type": "EvidenceLineStrength",
+      "label": "Benign Stand Alone"
+    },
+    "comments": "Several groups have lowered the BA1 threshold (e.g. PTEN-1%). Also the sequence variant interpretation group is working on a modified version of this guideline including the minimum # of alleles that need to be examined and the population stratification effects, if any."
   },
   "variant": {
     "id": "CanAll076",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll082",
-    "identifier": "http://reg.genome.network/allele/CA134997"
+    "preferredCtxAllele": {
+      "id": "CtxAll082",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll076",
+      "alleleName": "NM_004004.5(GJB2):c.79G>A"
+    }
   },
   "outcome": {
-    "id": "SEPIO:0000223",
-    "type": "Coding",
-    "code": "0000223",
-    "system": "http://obofoundry.org/sepio/",
-    "display": "Met"
+    "id": "CEID074",
+    "type": "CriterionEvaluation",
+    "label": "Met"
   },
   "evidenceLine": [
     {
@@ -32,36 +38,25 @@
           "id": "AllFreq154",
           "type": "AlleleFrequency",
           "ascertainment": {
-            "id": "CC035",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SEPIO:0000332",
-                "type": "Coding",
-                "code": "0000332",
-                "system": "http://obofoundry.org/sepio/",
-                "display": "ExAc ascertainment method"
-              }
-            ]
+            "id": "AsctTID203",
+            "type": "AscertainmentType",
+            "label": "ExAc ascertainment method"
           },
           "population": {
-            "id": "CC106",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "CG-population-type:combined",
-                "type": "Coding",
-                "code": "combined",
-                "system": "http://clinicalgenome.org/datamodel/population-type/",
-                "display": "Combined"
-              }
-            ]
+            "id": "PTID093",
+            "type": "PopulationType",
+            "label": "Combined"
           },
           "allele": {
             "id": "CanAll076",
             "type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll082",
-            "identifier": "http://reg.genome.network/allele/CA134997"
+            "preferredCtxAllele": {
+              "id": "CtxAll082",
+              "type": "ContextualAllele",
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll076",
+              "alleleName": "NM_004004.5(GJB2):c.79G>A"
+            }
           },
           "alleleCount": 5507,
           "alleleNumber": 121350,
@@ -78,36 +73,25 @@
           "id": "AllFreq155",
           "type": "AlleleFrequency",
           "ascertainment": {
-            "id": "CC036",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SEPIO:0000332",
-                "type": "Coding",
-                "code": "0000332",
-                "system": "http://obofoundry.org/sepio/",
-                "display": "ExAc ascertainment method"
-              }
-            ]
+            "id": "AsctTID203",
+            "type": "AscertainmentType",
+            "label": "ExAc ascertainment method"
           },
           "population": {
-            "id": "CC107",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "BROAD-population-type:eas",
-                "type": "Coding",
-                "code": "eas",
-                "system": "http://broadinstitute.org/populations/",
-                "display": "East Asian"
-              }
-            ]
+            "id": "PTID088",
+            "type": "PopulationType",
+            "label": "East Asian"
           },
           "allele": {
             "id": "CanAll076",
             "type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll082",
-            "identifier": "http://reg.genome.network/allele/CA134997"
+            "preferredCtxAllele": {
+              "id": "CtxAll082",
+              "type": "ContextualAllele",
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll076",
+              "alleleName": "NM_004004.5(GJB2):c.79G>A"
+            }
           },
           "alleleCount": 2518,
           "alleleNumber": 8632,
@@ -127,18 +111,11 @@
       },
       "contributionDate": "8/29/16 8:00 PM",
       "contributionRole": {
-        "id": "CC358",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     }
-  ]
+  ],
+  "description": "Globally, this variant has a MAF of 0.0454 (4.5%) which would put it under the 5% rule and thus BA1 would not be applicable. However, variant is enriched in East Asian population - 29% MAF - so way over the 5% cut-off. So now BA1 is applicable"
 }

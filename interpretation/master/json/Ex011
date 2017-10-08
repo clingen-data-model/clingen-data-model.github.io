@@ -5,25 +5,32 @@
     "id": "CritAssess285",
     "type": "CriterionAssessment",
     "criterion": {
-      "id": "PS3",
+      "id": "Crit306",
       "type": "Criterion",
+      "label": "PS3",
       "description": "Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product",
       "defaultStrength": {
-        "id": "CG-evidence-strength:ps"
-      }
+        "id": "ELSID145",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Strong"
+      },
+      "comments": "This particular rule will probably be downgraded often, given that there are not many “Functional studies that have been validated and shown to be reproducible and robust in a clinical diagnostic laboratory setting”"
     },
     "variant": {
       "id": "CanAll019",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll022",
-      "identifier": "http://reg.genome.network/allele/CA090884"
+      "preferredCtxAllele": {
+        "id": "CtxAll022",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll019",
+        "alleleName": "NM_003119.2 (SPG7):c.1529C>T"
+      }
     },
     "outcome": {
-      "id": "SEPIO:0000223",
-      "type": "Coding",
-      "code": "0000223",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Met"
+      "id": "CEID074",
+      "type": "CriterionEvaluation",
+      "label": "Met"
     },
     "evidenceLine": [
       {
@@ -33,36 +40,25 @@
           {
             "id": "Func025",
             "type": "AlleleFunctionalImpact",
-            "description": "Expression of human SPG7 (with this mutation) in yeast with damaged m-AAA protease did not restore respiratory growth or MrpL32 processing, if the function of AFG3L2 was impaired.",
             "resultDescription": "Functionally Damaging",
             "assayType": {
-              "id": "CC019",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "OBI:XXXXXX7",
-                  "type": "Coding",
-                  "code": "XXXXXX7",
-                  "system": "http://purl.obolibrary.org/obo/OBI_",
-                  "display": "Yeast complementation assay"
-                }
-              ]
+              "id": "AFITID084",
+              "type": "AlleleFunctionalImpactType",
+              "label": "Yeast complementation assay"
             },
             "contextualAllele": {
               "id": "CtxAll022",
               "type": "ContextualAllele",
-              "relatedCanonicalAllele": {
-                "id": "CanAll019",
-                "type": "CanonicalAllele",
-                "preferredCtxAllele": "CtxAll022",
-                "identifier": "http://reg.genome.network/allele/CA090884"
-              },
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll019",
               "alleleName": "NM_003119.2 (SPG7):c.1529C>T"
             },
             "gene": {
-              "id": "hgnc:SPG7",
-              "type": "Gene"
-            }
+              "id": "G238",
+              "type": "Gene",
+              "geneSymbol": "SPG7"
+            },
+            "description": "Expression of human SPG7 (with this mutation) in yeast with damaged m-AAA protease did not restore respiratory growth or MrpL32 processing, if the function of AFG3L2 was impaired."
           }
         ]
       }
@@ -77,17 +73,9 @@
         },
         "contributionDate": "6/3/16 6:09 PM",
         "contributionRole": {
-          "id": "CC310",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       },
       {
@@ -99,17 +87,9 @@
         },
         "contributionDate": "6/3/16 6:09 PM",
         "contributionRole": {
-          "id": "CC311",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
     ]

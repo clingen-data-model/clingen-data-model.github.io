@@ -112,6 +112,7 @@ A specification that describes how to interpret the direction and strength of ev
 
                 <p>SEPIO:0000192</p>
 
+                <p>Descended from DomainEntity</p>
 
             <hr class='col-sm-12' />
 
@@ -142,22 +143,8 @@ A specification that describes how to interpret the direction and strength of ev
             </thead>
             <tbody>
             <tr>
-                <td>label</td>
-                <td>String</td>
-                <td>0..1</td>
-                <td></td>
-                <td>RDFS:label</td>
-            </tr>
-            <tr>
-                <td>description</td>
-                <td>String</td>
-                <td>0..1</td>
-                <td></td>
-                <td>DC:description</td>
-            </tr>
-            <tr>
                 <td>defaultStrength</td>
-                <td>CodeableConcept</td>
+                <td>EvidenceLineStrength</td>
                 <td>0..1</td>
                 <td></td>
                 <td>SEPIO:0000196</td>
@@ -166,130 +153,205 @@ A specification that describes how to interpret the direction and strength of ev
         </table>
 
 
+    <h2>Inherited Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Inherited From</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>description</td>
+                    <td>String</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>label</td>
+                    <td>String</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>A freeform text (preferred) representation used by the authoring system to identify a concept.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>synonym</td>
+                    <td>Synonym</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td>Codings thtat identify the concept. If more than one then the codings are typically considered equivalent. (FHIR offers additional attributes to qualify the codings further if needed) </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
 
     <h2>Examples</h2>
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
-        <th>label</th>
         <th>description</th>
+        <th>label</th>
+        <th>synonym</th>
         <th>defaultStrength</th>
       </tr></thead>
       <tbody>
         <tr>
-          <td><p><a href="details/details.html#PVS1">PVS1</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit303">Crit303</a></p></td>
           <td>
               <p>null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:pvs">CG-evidence-strength:pvs</a></p>
+              <p>PVS1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID146">ELSID146</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="PVS1"><pre><code>{
-  "id": "PVS1",
+          <td><div class="example_view" id="Crit303"><pre><code>{
+  "id": "Crit303",
   "type": "Criterion",
+  "label": "PVS1",
   "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
   "defaultStrength": {
-    "id": "CG-evidence-strength:pvs"
-  }
+    "id": "ELSID146",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Very Strong"
+  },
+  "comments": "The two main concerns for applying this rule is:\na. Is LOF an established disease mechanism?\nb. Is LOF actually occurring?"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#PS1">PS1</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit304">Crit304</a></p></td>
           <td>
               <p>Same amino acid change as a previously established pathogenic variant regardless of nucleotide change</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:ps">CG-evidence-strength:ps</a></p>
+              <p>PS1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID145">ELSID145</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="PS1"><pre><code>{
-  "id": "PS1",
+          <td><div class="example_view" id="Crit304"><pre><code>{
+  "id": "Crit304",
   "type": "Criterion",
+  "label": "PS1",
   "description": "Same amino acid change as a previously established pathogenic variant regardless of nucleotide change",
   "defaultStrength": {
-    "id": "CG-evidence-strength:ps"
-  }
+    "id": "ELSID145",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Strong"
+  },
+  "comments": "Beware of changes that impact splicing rather than at the amino acid/protein level\nFrom CSER paper: One site erroneously used this to apply prior publication of the same exact variant while this rule, as described in more depth on the ACMG/AMP guideline, only applies when the established pathogenic variant has a different nucleotide change than the variant being interpreted."
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#PS2">PS2</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit305">Crit305</a></p></td>
           <td>
               <p>De novo (both maternity and paternity confirmed) in a patient with the disease and no family history</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:ps">CG-evidence-strength:ps</a></p>
+              <p>PS2</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID145">ELSID145</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="PS2"><pre><code>{
-  "id": "PS2",
+          <td><div class="example_view" id="Crit305"><pre><code>{
+  "id": "Crit305",
   "type": "Criterion",
+  "label": "PS2",
   "description": "De novo (both maternity and paternity confirmed) in a patient with the disease and no family history",
   "defaultStrength": {
-    "id": "CG-evidence-strength:ps"
-  }
+    "id": "ELSID145",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Strong"
+  },
+  "comments": "MYH7 is adding specificity to this rule with\na. No family history = parents have had ECHO and ECG\nb. Only paternity confirmation required"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#PS3">PS3</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit306">Crit306</a></p></td>
           <td>
               <p>Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:ps">CG-evidence-strength:ps</a></p>
+              <p>PS3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID145">ELSID145</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="PS3"><pre><code>{
-  "id": "PS3",
+          <td><div class="example_view" id="Crit306"><pre><code>{
+  "id": "Crit306",
   "type": "Criterion",
+  "label": "PS3",
   "description": "Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product",
   "defaultStrength": {
-    "id": "CG-evidence-strength:ps"
-  }
+    "id": "ELSID145",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Strong"
+  },
+  "comments": "This particular rule will probably be downgraded often, given that there are not many “Functional studies that have been validated and shown to be reproducible and robust in a clinical diagnostic laboratory setting”"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#PS4">PS4</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit307">Crit307</a></p></td>
           <td>
               <p>The prevalence of the variant in affected individuals is significantly increased compared with the prevalence in controls</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:ps">CG-evidence-strength:ps</a></p>
+              <p>PS4</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID145">ELSID145</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="PS4"><pre><code>{
-  "id": "PS4",
+          <td><div class="example_view" id="Crit307"><pre><code>{
+  "id": "Crit307",
   "type": "Criterion",
+  "label": "PS4",
   "description": "The prevalence of the variant in affected individuals is significantly increased compared with the prevalence in controls",
   "defaultStrength": {
-    "id": "CG-evidence-strength:ps"
+    "id": "ELSID145",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Strong"
   }
 }
           </code></pre></div></td>
@@ -297,143 +359,184 @@ A specification that describes how to interpret the direction and strength of ev
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#PM1">PM1</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit308">Crit308</a></p></td>
           <td>
               <p>Located in a mutational hot spot and/or critical and well-established functional domain (e.g., active site of an enzyme) without benign variation</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p>
+              <p>PM1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID143">ELSID143</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="PM1"><pre><code>{
-  "id": "PM1",
+          <td><div class="example_view" id="Crit308"><pre><code>{
+  "id": "Crit308",
   "type": "Criterion",
+  "label": "PM1",
   "description": "Located in a mutational hot spot and/or critical and well-established functional domain (e.g., active site of an enzyme) without benign variation",
   "defaultStrength": {
-    "id": "CG-evidence-strength:pm"
-  }
+    "id": "ELSID143",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Moderate"
+  },
+  "comments": "Suggested that this rule is NOT appropriate for LOF variants.\nAlso, note that when the region of interest is a “well-established functional domain” then it’s not necessary to show through evidence that it is intolerant of benign missense variants.  However, when a mutational hotspot is being defined, then showing it does not have benign missense variants is important."
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#PM2">PM2</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit309">Crit309</a></p></td>
           <td>
               <p>Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p>
+              <p>PM2</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID143">ELSID143</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="PM2"><pre><code>{
-  "id": "PM2",
+          <td><div class="example_view" id="Crit309"><pre><code>{
+  "id": "Crit309",
   "type": "Criterion",
+  "label": "PM2",
   "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
   "defaultStrength": {
-    "id": "CG-evidence-strength:pm"
-  }
+    "id": "ELSID143",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Moderate"
+  },
+  "comments": "Some groups are allowing to rule to be used if even not 100% absent\nFor instance, Cardio has allowed PM2 to be used if MAF is <0.05% with 95% CI if\nCI lower is ~0.00% (at 2 decimal places) AND CI upper is below 0.05%\n Caveat: Population data for insertions/deletions may be poorly called by next-generation sequencing"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#PM3">PM3</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit310">Crit310</a></p></td>
           <td>
               <p>For recessive disorders, detected in trans with a pathogenic variant</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p>
+              <p>PM3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID143">ELSID143</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="PM3"><pre><code>{
-  "id": "PM3",
+          <td><div class="example_view" id="Crit310"><pre><code>{
+  "id": "Crit310",
   "type": "Criterion",
+  "label": "PM3",
   "description": "For recessive disorders, detected in trans with a pathogenic variant",
   "defaultStrength": {
-    "id": "CG-evidence-strength:pm"
-  }
+    "id": "ELSID143",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Moderate"
+  },
+  "comments": "CSER - Laboratories discussed when to modify the strength of PM3, the variant is seen in trans with a pathogenic variant for recessive disorders. Published literature may not always explicitly state the phase of variants found in affected individuals which raises a challenge for invoking PM3.\nWhen phase has not been established, some felt that PM3 could be invoked as supporting evidence. Also, if the variant is seen in trans with a pathogenic variant in more than one individual it was felt that PM3 can be upgraded to strong. However, sites did not agree on how many additional observations were necessary to call the evidence strong (2 vs. 3) but concluded that such guidance would be useful.\n \nLMM - INCREASES IN STRENGTH IF VARIANT SEEN IN MULTIPLE COMPOUND HETS WITH DIFFERENT LIKELY PATHOGENIC/PATHOGENIC VARIANTS"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#PM4">PM4</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit311">Crit311</a></p></td>
           <td>
               <p>Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p>
+              <p>PM4</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID143">ELSID143</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="PM4"><pre><code>{
-  "id": "PM4",
+          <td><div class="example_view" id="Crit311"><pre><code>{
+  "id": "Crit311",
   "type": "Criterion",
+  "label": "PM4",
   "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
   "defaultStrength": {
-    "id": "CG-evidence-strength:pm"
-  }
+    "id": "ELSID143",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Moderate"
+  },
+  "comments": "Need to ensure that variant is not located within a repeat region\n\nThis rule is also (likely) applicable for frameshift variants that result in extension of the protein as opposed to truncation (similar to stop loss)."
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#PM5">PM5</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit312">Crit312</a></p></td>
           <td>
               <p>Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p>
+              <p>PM5</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID143">ELSID143</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="PM5"><pre><code>{
-  "id": "PM5",
+          <td><div class="example_view" id="Crit312"><pre><code>{
+  "id": "Crit312",
   "type": "Criterion",
+  "label": "PM5",
   "description": "Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before",
   "defaultStrength": {
-    "id": "CG-evidence-strength:pm"
-  }
+    "id": "ELSID143",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Moderate"
+  },
+  "comments": "Need to be sure that pathogenic variant exists at the residue in question. Sometimes discrepancy resolution may be required. Some thing like Variantexplorer.org may be useful.\nSometimes no assertion is provided in ClinVar ...may require curation by lit. search."
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#PM6">PM6</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit313">Crit313</a></p></td>
           <td>
               <p>Assumed de novo, but without confirmation of paternity and maternity</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:pm">CG-evidence-strength:pm</a></p>
+              <p>PM6</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID143">ELSID143</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="PM6"><pre><code>{
-  "id": "PM6",
+          <td><div class="example_view" id="Crit313"><pre><code>{
+  "id": "Crit313",
   "type": "Criterion",
+  "label": "PM6",
   "description": "Assumed de novo, but without confirmation of paternity and maternity",
   "defaultStrength": {
-    "id": "CG-evidence-strength:pm"
+    "id": "ELSID143",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Moderate"
   }
 }
           </code></pre></div></td>
@@ -441,23 +544,29 @@ A specification that describes how to interpret the direction and strength of ev
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#PP1">PP1</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit314">Crit314</a></p></td>
           <td>
               <p>Cosegregation with disease in multiple affected family members in a gene definitively known to cause the disease</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:pp">CG-evidence-strength:pp</a></p>
+              <p>PP1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID144">ELSID144</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="PP1"><pre><code>{
-  "id": "PP1",
+          <td><div class="example_view" id="Crit314"><pre><code>{
+  "id": "Crit314",
   "type": "Criterion",
+  "label": "PP1",
   "description": "Cosegregation with disease in multiple affected family members in a gene definitively known to cause the disease",
   "defaultStrength": {
-    "id": "CG-evidence-strength:pp"
+    "id": "ELSID144",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Supporting"
   }
 }
           </code></pre></div></td>
@@ -465,71 +574,91 @@ A specification that describes how to interpret the direction and strength of ev
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#PP2">PP2</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit315">Crit315</a></p></td>
           <td>
               <p>Missense variant in a gene that has a low rate of benign missense variation and in which missense variants are a common mechanism of disease</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:pp">CG-evidence-strength:pp</a></p>
+              <p>PP2</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID144">ELSID144</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="PP2"><pre><code>{
-  "id": "PP2",
+          <td><div class="example_view" id="Crit315"><pre><code>{
+  "id": "Crit315",
   "type": "Criterion",
+  "label": "PP2",
   "description": "Missense variant in a gene that has a low rate of benign missense variation and in which missense variants are a common mechanism of disease",
   "defaultStrength": {
-    "id": "CG-evidence-strength:pp"
-  }
+    "id": "ELSID144",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Supporting"
+  },
+  "comments": "Seems no one has established firm rules for when this rule is applicable so not sure how great any examples will be\nAgree with the lack of firm rules. Seems like one criteria may be observed missense variants over 5% allele frequency in ExAC. If this seems reasonable then I could generate a couple of examples."
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#PP3">PP3</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit316">Crit316</a></p></td>
           <td>
               <p>Multiple lines of computational evidence support a deleterious effect on the gene or gene product (conservation, evolutionary, splicing impact, etc.)</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:pp">CG-evidence-strength:pp</a></p>
+              <p>PP3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID144">ELSID144</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="PP3"><pre><code>{
-  "id": "PP3",
+          <td><div class="example_view" id="Crit316"><pre><code>{
+  "id": "Crit316",
   "type": "Criterion",
+  "label": "PP3",
   "description": "Multiple lines of computational evidence support a deleterious effect on the gene or gene product (conservation, evolutionary, splicing impact, etc.)",
   "defaultStrength": {
-    "id": "CG-evidence-strength:pp"
-  }
+    "id": "ELSID144",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Supporting"
+  },
+  "comments": "Don’t know if there is a definition of “multiple” . If >1 then the algorithms chosen are at the discretion of the curator/lab.  There is a difference between lines of evidence and number of implementations."
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#PP4">PP4</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit317">Crit317</a></p></td>
           <td>
               <p>Patient’s phenotype or family history is highly specific for a disease with a single genetic etiology</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:pp">CG-evidence-strength:pp</a></p>
+              <p>PP4</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID144">ELSID144</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="PP4"><pre><code>{
-  "id": "PP4",
+          <td><div class="example_view" id="Crit317"><pre><code>{
+  "id": "Crit317",
   "type": "Criterion",
+  "label": "PP4",
   "description": "Patient’s phenotype or family history is highly specific for a disease with a single genetic etiology",
   "defaultStrength": {
-    "id": "CG-evidence-strength:pp"
+    "id": "ELSID144",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Supporting"
   }
 }
           </code></pre></div></td>
@@ -537,23 +666,29 @@ A specification that describes how to interpret the direction and strength of ev
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#PP5">PP5</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit318">Crit318</a></p></td>
           <td>
               <p>Reputable source recently reports variant as pathogenic, but the evidence is not available to the laboratory to perform an independent evaluation</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:pp">CG-evidence-strength:pp</a></p>
+              <p>PP5</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID144">ELSID144</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="PP5"><pre><code>{
-  "id": "PP5",
+          <td><div class="example_view" id="Crit318"><pre><code>{
+  "id": "Crit318",
   "type": "Criterion",
+  "label": "PP5",
   "description": "Reputable source recently reports variant as pathogenic, but the evidence is not available to the laboratory to perform an independent evaluation",
   "defaultStrength": {
-    "id": "CG-evidence-strength:pp"
+    "id": "ELSID144",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Supporting"
   }
 }
           </code></pre></div></td>
@@ -561,47 +696,60 @@ A specification that describes how to interpret the direction and strength of ev
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#BA1">BA1</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit319">Crit319</a></p></td>
           <td>
               <p>Allele frequency is >5% in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:ba">CG-evidence-strength:ba</a></p>
+              <p>BA1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID138">ELSID138</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="BA1"><pre><code>{
-  "id": "BA1",
+          <td><div class="example_view" id="Crit319"><pre><code>{
+  "id": "Crit319",
   "type": "Criterion",
+  "label": "BA1",
   "description": "Allele frequency is >5% in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
   "defaultStrength": {
-    "id": "CG-evidence-strength:ba"
-  }
+    "id": "ELSID138",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Stand Alone"
+  },
+  "comments": "Several groups have lowered the BA1 threshold (e.g. PTEN-1%). Also the sequence variant interpretation group is working on a modified version of this guideline including the minimum # of alleles that need to be examined and the population stratification effects, if any."
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#BS1">BS1</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit320">Crit320</a></p></td>
           <td>
               <p>Allele frequency is greater than expected for disorder</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:bs">CG-evidence-strength:bs</a></p>
+              <p>BS1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID141">ELSID141</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="BS1"><pre><code>{
-  "id": "BS1",
+          <td><div class="example_view" id="Crit320"><pre><code>{
+  "id": "Crit320",
   "type": "Criterion",
+  "label": "BS1",
   "description": "Allele frequency is greater than expected for disorder",
   "defaultStrength": {
-    "id": "CG-evidence-strength:bs"
+    "id": "ELSID141",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Strong"
   }
 }
           </code></pre></div></td>
@@ -609,119 +757,153 @@ A specification that describes how to interpret the direction and strength of ev
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#BS2">BS2</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit321">Crit321</a></p></td>
           <td>
               <p>Observed in a healthy adult individual for a recessive (homozygous), dominant (heterozygous), or X-linked (hemizygous) disorder, with full penetrance expected at an early age</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:bs">CG-evidence-strength:bs</a></p>
+              <p>BS2</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID141">ELSID141</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="BS2"><pre><code>{
-  "id": "BS2",
+          <td><div class="example_view" id="Crit321"><pre><code>{
+  "id": "Crit321",
   "type": "Criterion",
-  "description": "Observed in a healthy adult individual for a recessive (homozygous), dominant (heterozygous), or X-linked (hemizygous) disorder, with full penetrance expected at an early age",
+  "label": "BS2",
   "defaultStrength": {
-    "id": "CG-evidence-strength:bs"
-  }
+    "id": "ELSID141",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Strong"
+  },
+  "description": "Observed in a healthy adult individual for a recessive (homozygous), dominant (heterozygous), or X-linked (hemizygous) disorder, with full penetrance expected at an early age",
+  "comments": "This rule should not be used for diseases with reduced penetrance or late/variable age of  onset (such as certain cardiomyopathies)."
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#BS3">BS3</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit322">Crit322</a></p></td>
           <td>
               <p>Well-established in vitro or in vivo functional studies show no damaging effect on protein function or splicing</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:bs">CG-evidence-strength:bs</a></p>
+              <p>BS3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID141">ELSID141</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="BS3"><pre><code>{
-  "id": "BS3",
+          <td><div class="example_view" id="Crit322"><pre><code>{
+  "id": "Crit322",
   "type": "Criterion",
+  "label": "BS3",
   "description": "Well-established in vitro or in vivo functional studies show no damaging effect on protein function or splicing",
   "defaultStrength": {
-    "id": "CG-evidence-strength:bs"
-  }
+    "id": "ELSID141",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Strong"
+  },
+  "comments": "\nThis will all depend on what is “established”, which could end up being defined by the different clinical domain working groups.\n"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#BS4">BS4</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit323">Crit323</a></p></td>
           <td>
               <p>Lack of segregation in affected members of a family</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:bs">CG-evidence-strength:bs</a></p>
+              <p>BS4</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID141">ELSID141</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="BS4"><pre><code>{
-  "id": "BS4",
+          <td><div class="example_view" id="Crit323"><pre><code>{
+  "id": "Crit323",
   "type": "Criterion",
+  "label": "BS4",
   "description": "Lack of segregation in affected members of a family",
   "defaultStrength": {
-    "id": "CG-evidence-strength:bs"
-  }
+    "id": "ELSID141",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Strong"
+  },
+  "comments": "This rule is for “lack of segregation” meaning phenotype positive / genotype negative (and not pheno neg / geno pos). Also need to be careful of phenocopies. Also need rules for how many cases are needed in use this rule"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#BP1">BP1</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit324">Crit324</a></p></td>
           <td>
               <p>Missense variant in a gene for which primarily truncating variants are known to cause disease</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
+              <p>BP1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID140">ELSID140</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="BP1"><pre><code>{
-  "id": "BP1",
+          <td><div class="example_view" id="Crit324"><pre><code>{
+  "id": "Crit324",
   "type": "Criterion",
+  "label": "BP1",
   "description": "Missense variant in a gene for which primarily truncating variants are known to cause disease",
   "defaultStrength": {
-    "id": "CG-evidence-strength:bp"
-  }
+    "id": "ELSID140",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Supporting"
+  },
+  "comments": "Is there any guidance on the proportion of pathogenic variants that are LOF to apply this rule?  99%? 90%? 75%?"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#BP2">BP2</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit325">Crit325</a></p></td>
           <td>
               <p>Observed in trans with a pathogenic variant for a fully penetrant dominant gene/disorder or observed in cis with a pathogenic variant in any inheritance pattern</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
+              <p>BP2</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID140">ELSID140</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="BP2"><pre><code>{
-  "id": "BP2",
+          <td><div class="example_view" id="Crit325"><pre><code>{
+  "id": "Crit325",
   "type": "Criterion",
+  "label": "BP2",
   "description": "Observed in trans with a pathogenic variant for a fully penetrant dominant gene/disorder or observed in cis with a pathogenic variant in any inheritance pattern",
   "defaultStrength": {
-    "id": "CG-evidence-strength:bp"
+    "id": "ELSID140",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Supporting"
   }
 }
           </code></pre></div></td>
@@ -729,23 +911,29 @@ A specification that describes how to interpret the direction and strength of ev
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#BP3">BP3</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit326">Crit326</a></p></td>
           <td>
               <p>In-frame deletions/insertions in a repetitive region without a known function</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
+              <p>BP3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID140">ELSID140</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="BP3"><pre><code>{
-  "id": "BP3",
+          <td><div class="example_view" id="Crit326"><pre><code>{
+  "id": "Crit326",
   "type": "Criterion",
+  "label": "BP3",
   "description": "In-frame deletions/insertions in a repetitive region without a known function",
   "defaultStrength": {
-    "id": "CG-evidence-strength:bp"
+    "id": "ELSID140",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Supporting"
   }
 }
           </code></pre></div></td>
@@ -753,47 +941,60 @@ A specification that describes how to interpret the direction and strength of ev
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#BP4">BP4</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit327">Crit327</a></p></td>
           <td>
               <p>Multiple lines of computational evidence suggest no impact on gene or gene product (conservation, evolutionary, splicing impact, etc.)</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
+              <p>BP4</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID140">ELSID140</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="BP4"><pre><code>{
-  "id": "BP4",
+          <td><div class="example_view" id="Crit327"><pre><code>{
+  "id": "Crit327",
   "type": "Criterion",
+  "label": "BP4",
   "description": "Multiple lines of computational evidence suggest no impact on gene or gene product (conservation, evolutionary, splicing impact, etc.)",
   "defaultStrength": {
-    "id": "CG-evidence-strength:bp"
-  }
+    "id": "ELSID140",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Supporting"
+  },
+  "comments": "same issues as PP3."
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#BP5">BP5</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit328">Crit328</a></p></td>
           <td>
               <p>Variant found in a case with an alternate molecular basis for disease</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
+              <p>BP5</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID140">ELSID140</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="BP5"><pre><code>{
-  "id": "BP5",
+          <td><div class="example_view" id="Crit328"><pre><code>{
+  "id": "Crit328",
   "type": "Criterion",
+  "label": "BP5",
   "description": "Variant found in a case with an alternate molecular basis for disease",
   "defaultStrength": {
-    "id": "CG-evidence-strength:bp"
+    "id": "ELSID140",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Supporting"
   }
 }
           </code></pre></div></td>
@@ -801,23 +1002,29 @@ A specification that describes how to interpret the direction and strength of ev
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#BP6">BP6</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit329">Crit329</a></p></td>
           <td>
               <p>Reputable source recently reports variant as benign, but the evidence is not available to the laboratory to perform an independent evaluation</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
+              <p>BP6</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID140">ELSID140</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="BP6"><pre><code>{
-  "id": "BP6",
+          <td><div class="example_view" id="Crit329"><pre><code>{
+  "id": "Crit329",
   "type": "Criterion",
+  "label": "BP6",
   "description": "Reputable source recently reports variant as benign, but the evidence is not available to the laboratory to perform an independent evaluation",
   "defaultStrength": {
-    "id": "CG-evidence-strength:bp"
+    "id": "ELSID140",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Supporting"
   }
 }
           </code></pre></div></td>
@@ -825,23 +1032,29 @@ A specification that describes how to interpret the direction and strength of ev
         </tr>
 
         <tr>
-          <td><p><a href="details/details.html#BP7">BP7</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="details/details.html#Crit330">Crit330</a></p></td>
           <td>
               <p>A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved</p>
          </td>
           <td>
-              <p><a href="details/details.html#CG-evidence-strength:bp">CG-evidence-strength:bp</a></p>
+              <p>BP7</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#ELSID140">ELSID140</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="BP7"><pre><code>{
-  "id": "BP7",
+          <td><div class="example_view" id="Crit330"><pre><code>{
+  "id": "Crit330",
   "type": "Criterion",
+  "label": "BP7",
   "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
   "defaultStrength": {
-    "id": "CG-evidence-strength:bp"
+    "id": "ELSID140",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Supporting"
   }
 }
           </code></pre></div></td>

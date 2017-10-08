@@ -1,27 +1,33 @@
 {
   "id": "CritAssess293",
   "type": "CriterionAssessment",
-  "description": "PM2 is applicable as even though variant is not 100% absent, it is practically absent (a 95% CI for the population goes from 0.00% to 0.01%)",
   "criterion": {
-    "id": "PM2",
+    "id": "Crit309",
     "type": "Criterion",
+    "label": "PM2",
     "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
     "defaultStrength": {
-      "id": "CG-evidence-strength:pm"
-    }
+      "id": "ELSID143",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Moderate"
+    },
+    "comments": "Some groups are allowing to rule to be used if even not 100% absent\nFor instance, Cardio has allowed PM2 to be used if MAF is <0.05% with 95% CI if\nCI lower is ~0.00% (at 2 decimal places) AND CI upper is below 0.05%\n Caveat: Population data for insertions/deletions may be poorly called by next-generation sequencing"
   },
   "variant": {
     "id": "CanAll032",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll035",
-    "identifier": "http://reg.genome.network/allele/CA011797"
+    "preferredCtxAllele": {
+      "id": "CtxAll035",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll032",
+      "alleleName": "NM_000257.2(MYH7):c.5135G>A"
+    }
   },
   "outcome": {
-    "id": "SEPIO:0000223",
-    "type": "Coding",
-    "code": "0000223",
-    "system": "http://obofoundry.org/sepio/",
-    "display": "Met"
+    "id": "CEID074",
+    "type": "CriterionEvaluation",
+    "label": "Met"
   },
   "evidenceLine": [
     {
@@ -32,36 +38,25 @@
           "id": "AllFreq051",
           "type": "AlleleFrequency",
           "ascertainment": {
-            "id": "CC028",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SEPIO:0000332",
-                "type": "Coding",
-                "code": "0000332",
-                "system": "http://obofoundry.org/sepio/",
-                "display": "ExAc ascertainment method"
-              }
-            ]
+            "id": "AsctTID203",
+            "type": "AscertainmentType",
+            "label": "ExAc ascertainment method"
           },
           "population": {
-            "id": "CC038",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "BROAD-population-type:nfe",
-                "type": "Coding",
-                "code": "nfe",
-                "system": "http://broadinstitute.org/populations/",
-                "display": "Non-Finnish European"
-              }
-            ]
+            "id": "PTID090",
+            "type": "PopulationType",
+            "label": "Non-Finnish European"
           },
           "allele": {
             "id": "CanAll032",
             "type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll035",
-            "identifier": "http://reg.genome.network/allele/CA011797"
+            "preferredCtxAllele": {
+              "id": "CtxAll035",
+              "type": "ContextualAllele",
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll032",
+              "alleleName": "NM_000257.2(MYH7):c.5135G>A"
+            }
           },
           "alleleCount": 66706,
           "alleleNumber": 1,
@@ -78,36 +73,25 @@
           "id": "AllFreq052",
           "type": "AlleleFrequency",
           "ascertainment": {
-            "id": "CC029",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SEPIO:0000332",
-                "type": "Coding",
-                "code": "0000332",
-                "system": "http://obofoundry.org/sepio/",
-                "display": "ExAc ascertainment method"
-              }
-            ]
+            "id": "AsctTID203",
+            "type": "AscertainmentType",
+            "label": "ExAc ascertainment method"
           },
           "population": {
-            "id": "CC039",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "CG-population-type:combined",
-                "type": "Coding",
-                "code": "combined",
-                "system": "http://clinicalgenome.org/datamodel/population-type/",
-                "display": "Combined"
-              }
-            ]
+            "id": "PTID093",
+            "type": "PopulationType",
+            "label": "Combined"
           },
           "allele": {
             "id": "CanAll032",
             "type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll035",
-            "identifier": "http://reg.genome.network/allele/CA011797"
+            "preferredCtxAllele": {
+              "id": "CtxAll035",
+              "type": "ContextualAllele",
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll032",
+              "alleleName": "NM_000257.2(MYH7):c.5135G>A"
+            }
           },
           "alleleCount": 121366,
           "alleleNumber": 1,
@@ -127,18 +111,11 @@
       },
       "contributionDate": "6/4/16 9:08 AM",
       "contributionRole": {
-        "id": "CC321",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     }
-  ]
+  ],
+  "description": "PM2 is applicable as even though variant is not 100% absent, it is practically absent (a 95% CI for the population goes from 0.00% to 0.01%)"
 }

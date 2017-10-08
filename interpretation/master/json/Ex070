@@ -4,27 +4,32 @@
   "informationId": {
     "id": "CritAssess346",
     "type": "CriterionAssessment",
-    "description": "BP3 does not apply for this variant because it is not an in-frame deletion (it's a deletion of 10 bp) and, although the I Band is a repetitive region that contains tandem arrays of immunoglobulin domains, these folds may be an important component for TTN's elasticity.",
     "criterion": {
-      "id": "BP3",
+      "id": "Crit326",
       "type": "Criterion",
+      "label": "BP3",
       "description": "In-frame deletions/insertions in a repetitive region without a known function",
       "defaultStrength": {
-        "id": "CG-evidence-strength:bp"
+        "id": "ELSID140",
+        "type": "EvidenceLineStrength",
+        "label": "Benign Supporting"
       }
     },
     "variant": {
       "id": "CanAll101",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll107",
-      "identifier": "http://reg.genome.network/allele/CA273551"
+      "preferredCtxAllele": {
+        "id": "CtxAll107",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll101",
+        "alleleName": "NM_133378.4 (TTN): c.26752_26761delACGGCAGAGC"
+      }
     },
     "outcome": {
-      "id": "SEPIO:0000224",
-      "type": "Coding",
-      "code": "0000224",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Not Met"
+      "id": "CEID075",
+      "type": "CriterionEvaluation",
+      "label": "Not Met"
     },
     "evidenceLine": [
       {
@@ -34,43 +39,36 @@
           {
             "id": "RegTyp225",
             "type": "RegionType",
-            "description": "The I-Band is a large region of repetitive Igg domains. ",
             "region": {
               "id": "Loc392",
               "type": "SequenceLocation",
               "referenceSequence": {
-                "id": "RefSeq009",
+                "id": "RefSeq295",
                 "type": "ReferenceSequence",
-                "accession": {
-                  "id": "NM_133378.4"
-                }
+                "accession": "NM_133378.4"
               },
               "start": 6509,
               "stop": 39262
             },
             "annotation": [
               {
-                "id": "SO:0000657",
-                "type": "Coding",
-                "code": "0000657",
-                "system": "http://sequenceontology.org/",
-                "display": "repeat region "
+                "id": "RATID035",
+                "type": "RegionAnnotationType",
+                "label": "repeat region "
               }
-            ]
+            ],
+            "description": "The I-Band is a large region of repetitive Igg domains. "
           },
           {
             "id": "RegAll393",
             "type": "RegionAlleles",
-            "description": "Allele NM_133378.4 (TTN): c.26752_26761delACGGCAGAGC is contained by this region.",
             "region": {
               "id": "Loc392",
               "type": "SequenceLocation",
               "referenceSequence": {
-                "id": "RefSeq009",
+                "id": "RefSeq295",
                 "type": "ReferenceSequence",
-                "accession": {
-                  "id": "NM_133378.4"
-                }
+                "accession": "NM_133378.4"
               },
               "start": 6509,
               "stop": 39262
@@ -79,48 +77,31 @@
               {
                 "id": "CtxAll107",
                 "type": "ContextualAllele",
-                "relatedCanonicalAllele": {
-                  "id": "CanAll101",
-                  "type": "CanonicalAllele",
-                  "preferredCtxAllele": "CtxAll107",
-                  "identifier": "http://reg.genome.network/allele/CA273551"
-                },
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll101",
                 "alleleName": "NM_133378.4 (TTN): c.26752_26761delACGGCAGAGC"
               }
             ],
             "outcome": {
-              "id": "SEPIO-CG:99020",
-              "type": "Coding",
-              "code": "99020",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "included"
-            }
+              "id": "RegAID225",
+              "type": "RegionAllelesOutcome",
+              "label": "included"
+            },
+            "description": "Allele NM_133378.4 (TTN): c.26752_26761delACGGCAGAGC is contained by this region."
           },
           {
             "id": "MolCon227",
             "type": "MolecularConsequence",
             "consequence": {
-              "id": "CC163",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "SO:0001589",
-                  "type": "Coding",
-                  "code": "0001589",
-                  "system": "http://sequenceontology.org/",
-                  "display": "frameshift variant"
-                }
-              ]
+              "id": "MCTID014",
+              "type": "MolecularConsequenceType",
+              "label": "frameshift variant"
             },
             "contextualAllele": {
               "id": "CtxAll107",
               "type": "ContextualAllele",
-              "relatedCanonicalAllele": {
-                "id": "CanAll101",
-                "type": "CanonicalAllele",
-                "preferredCtxAllele": "CtxAll107",
-                "identifier": "http://reg.genome.network/allele/CA273551"
-              },
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll101",
               "alleleName": "NM_133378.4 (TTN): c.26752_26761delACGGCAGAGC"
             }
           }
@@ -137,20 +118,13 @@
         },
         "contributionDate": "9/15/16 9:23 AM",
         "contributionRole": {
-          "id": "CC392",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
-    ]
+    ],
+    "description": "BP3 does not apply for this variant because it is not an in-frame deletion (it's a deletion of 10 bp) and, although the I Band is a repetitive region that contains tandem arrays of immunoglobulin domains, these folds may be an important component for TTN's elasticity."
   },
   "index": 2,
   "author": "#N/A",

@@ -1,20 +1,37 @@
 {
   "id": "CritAssess304",
   "type": "CriterionAssessment",
-  "description": "Another variant at this position, but different AA change, has been observed and called pathogenic for breast ovarian cancer by ENIGMA expert panel:",
   "criterion": {
-    "id": "PM5",
+    "id": "Crit312",
     "type": "Criterion",
+    "label": "PM5",
     "description": "Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before",
     "defaultStrength": {
-      "id": "CG-evidence-strength:pm"
-    }
+      "id": "ELSID143",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Moderate"
+    },
+    "comments": "Need to be sure that pathogenic variant exists at the residue in question. Sometimes discrepancy resolution may be required. Some thing like Variantexplorer.org may be useful.\nSometimes no assertion is provided in ClinVar ...may require curation by lit. search."
   },
   "variant": {
     "id": "CanAll055",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll059",
-    "identifier": "http://reg.genome.network/allele/CA501227"
+    "preferredCtxAllele": {
+      "id": "CtxAll059",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll055",
+      "alleleName": "NM_007294.3(BRCA1):c.5290C>A",
+      "produces": [
+        {
+          "id": "CtxAll060",
+          "type": "ContextualAllele",
+          "producedBy": "CtxAll059",
+          "relatedCanonicalAllele": "CanAll056",
+          "alleleName": "NP_009225.1:p.Leu1764Ile"
+        }
+      ]
+    }
   },
   "condition": [
     {
@@ -23,28 +40,22 @@
       "name": "Breast Ovarian Cancer, Autosomal Dominant",
       "disease": [
         {
-          "id": "MESH:D061325",
-          "type": "Coding",
-          "code": "D061325",
-          "system": "https://meshb.nlm.nih.gov/",
-          "display": "hereditary breast ovarian cancer"
+          "id": "DisID148",
+          "type": "Disease",
+          "label": "hereditary breast ovarian cancer"
         }
       ],
       "modeOfInheritance": {
-        "id": "HP:0000006",
-        "type": "Coding",
-        "code": "0000006",
-        "system": "http://human-phenotype-ontology.github.io/",
-        "display": "Autosomal Dominant"
+        "id": "MOIID051",
+        "type": "ModeOfInheritance",
+        "label": "Autosomal Dominant"
       }
     }
   ],
   "outcome": {
-    "id": "SEPIO:0000223",
-    "type": "Coding",
-    "code": "0000223",
-    "system": "http://obofoundry.org/sepio/",
-    "display": "Met"
+    "id": "CEID074",
+    "type": "CriterionEvaluation",
+    "label": "Met"
   },
   "evidenceLine": [
     {
@@ -57,8 +68,22 @@
           "variant": {
             "id": "CanAll057",
             "type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll061",
-            "identifier": "http://reg.genome.network/allele/CA003449"
+            "preferredCtxAllele": {
+              "id": "CtxAll061",
+              "type": "ContextualAllele",
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll057",
+              "alleleName": "NM_007294.3(BRCA1):c.5291T>C",
+              "produces": [
+                {
+                  "id": "CtxAll062",
+                  "type": "ContextualAllele",
+                  "producedBy": "CtxAll061",
+                  "relatedCanonicalAllele": "CanAll058",
+                  "alleleName": "NP_009225.1:p.Leu1764Pro"
+                }
+              ]
+            }
           },
           "condition": [
             {
@@ -67,28 +92,22 @@
               "name": "Breast Ovarian Cancer, Autosomal Dominant",
               "disease": [
                 {
-                  "id": "MESH:D061325",
-                  "type": "Coding",
-                  "code": "D061325",
-                  "system": "https://meshb.nlm.nih.gov/",
-                  "display": "hereditary breast ovarian cancer"
+                  "id": "DisID148",
+                  "type": "Disease",
+                  "label": "hereditary breast ovarian cancer"
                 }
               ],
               "modeOfInheritance": {
-                "id": "HP:0000006",
-                "type": "Coding",
-                "code": "0000006",
-                "system": "http://human-phenotype-ontology.github.io/",
-                "display": "Autosomal Dominant"
+                "id": "MOIID051",
+                "type": "ModeOfInheritance",
+                "label": "Autosomal Dominant"
               }
             }
           ],
           "outcome": {
-            "id": "LN:LA6668-3",
-            "type": "Coding",
-            "code": "LA6668-3",
-            "system": "http://loinc.org/",
-            "display": "Pathogenic"
+            "id": "SIGID031",
+            "type": "Significance",
+            "label": "Pathogenic"
           }
         }
       ]
@@ -104,18 +123,11 @@
       },
       "contributionDate": "7/1/16 9:23 AM",
       "contributionRole": {
-        "id": "CC332",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     }
-  ]
+  ],
+  "description": "Another variant at this position, but different AA change, has been observed and called pathogenic for breast ovarian cancer by ENIGMA expert panel:"
 }

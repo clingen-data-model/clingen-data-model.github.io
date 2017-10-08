@@ -4,27 +4,42 @@
   "informationId": {
     "id": "CritAssess290",
     "type": "CriterionAssessment",
-    "description": "Variant is located within the kinase domain (where multiple other pathogenic variants are located)",
     "criterion": {
-      "id": "PM1",
+      "id": "Crit308",
       "type": "Criterion",
+      "label": "PM1",
       "description": "Located in a mutational hot spot and/or critical and well-established functional domain (e.g., active site of an enzyme) without benign variation",
       "defaultStrength": {
-        "id": "CG-evidence-strength:pm"
-      }
+        "id": "ELSID143",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Moderate"
+      },
+      "comments": "Suggested that this rule is NOT appropriate for LOF variants.\nAlso, note that when the region of interest is a “well-established functional domain” then it’s not necessary to show through evidence that it is intolerant of benign missense variants.  However, when a mutational hotspot is being defined, then showing it does not have benign missense variants is important."
     },
     "variant": {
       "id": "CanAll025",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll028",
-      "identifier": "http://reg.genome.network/allele/CA090928"
+      "preferredCtxAllele": {
+        "id": "CtxAll028",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll025",
+        "alleleName": "NM_005228.3(EGFR):c.2369C>T",
+        "produces": [
+          {
+            "id": "CtxAll126",
+            "type": "ContextualAllele",
+            "producedBy": "CtxAll028",
+            "relatedCanonicalAllele": "CanAll120",
+            "alleleName": "NP_005219.2:p.Thr790Met"
+          }
+        ]
+      }
     },
     "outcome": {
-      "id": "SEPIO:0000223",
-      "type": "Coding",
-      "code": "0000223",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Met"
+      "id": "CEID074",
+      "type": "CriterionEvaluation",
+      "label": "Met"
     },
     "evidenceLine": [
       {
@@ -34,43 +49,38 @@
           {
             "id": "RegTyp040",
             "type": "RegionType",
-            "description": "This region is the catalytic (kinase) domain.",
             "region": {
               "id": "Loc379",
               "type": "SequenceLocation",
               "referenceSequence": {
-                "id": "RefSeq002",
+                "id": "RefSeq288",
                 "type": "ReferenceSequence",
-                "accession": {
-                  "id": "NP_005219.2"
-                }
+                "accession": "NP_005219.2",
+                "producedBy": "RefSeq287"
               },
               "start": 704,
               "stop": 1016
             },
             "annotation": [
               {
-                "id": "SEPIO:0000320",
-                "type": "Coding",
-                "code": "0000320",
-                "system": "http://obofoundry.org/sepio/",
-                "display": "functional region"
+                "id": "RATID033",
+                "type": "RegionAnnotationType",
+                "label": "functional region"
               }
-            ]
+            ],
+            "description": "This region is the catalytic (kinase) domain."
           },
           {
             "id": "RegAll380",
             "type": "RegionAlleles",
-            "description": "This region is the catalytic (kinase) domain.",
             "region": {
               "id": "Loc379",
               "type": "SequenceLocation",
               "referenceSequence": {
-                "id": "RefSeq002",
+                "id": "RefSeq288",
                 "type": "ReferenceSequence",
-                "accession": {
-                  "id": "NP_005219.2"
-                }
+                "accession": "NP_005219.2",
+                "producedBy": "RefSeq287"
               },
               "start": 704,
               "stop": 1016
@@ -79,22 +89,17 @@
               {
                 "id": "CtxAll126",
                 "type": "ContextualAllele",
-                "relatedCanonicalAllele": {
-                  "id": "CanAll120",
-                  "type": "CanonicalAllele",
-                  "preferredCtxAllele": "CtxAll126",
-                  "identifier": "http://reg.genome.network/allele/CA126726"
-                },
+                "producedBy": "CtxAll028",
+                "relatedCanonicalAllele": "CanAll120",
                 "alleleName": "NP_005219.2:p.Thr790Met"
               }
             ],
             "outcome": {
-              "id": "SEPIO-CG:99020",
-              "type": "Coding",
-              "code": "99020",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "included"
-            }
+              "id": "RegAID225",
+              "type": "RegionAllelesOutcome",
+              "label": "included"
+            },
+            "description": "This region is the catalytic (kinase) domain."
           }
         ]
       }
@@ -109,20 +114,13 @@
         },
         "contributionDate": "6/6/16 8:12 AM",
         "contributionRole": {
-          "id": "CC317",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
-    ]
+    ],
+    "description": "Variant is located within the kinase domain (where multiple other pathogenic variants are located)"
   },
   "searchTags": "cser",
   "index": 1,

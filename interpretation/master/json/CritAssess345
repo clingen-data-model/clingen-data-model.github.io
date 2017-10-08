@@ -2,25 +2,31 @@
   "id": "CritAssess345",
   "type": "CriterionAssessment",
   "criterion": {
-    "id": "BP3",
+    "id": "Crit326",
     "type": "Criterion",
+    "label": "BP3",
     "description": "In-frame deletions/insertions in a repetitive region without a known function",
     "defaultStrength": {
-      "id": "CG-evidence-strength:bp"
+      "id": "ELSID140",
+      "type": "EvidenceLineStrength",
+      "label": "Benign Supporting"
     }
   },
   "variant": {
     "id": "CanAll100",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll106",
-    "identifier": "http://reg.genome.network/allele/CA148212"
+    "preferredCtxAllele": {
+      "id": "CtxAll106",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll100",
+      "alleleName": "NM_001271208.1(NEB):c.169_183delCTGGCACAGCCAGCA"
+    }
   },
   "outcome": {
-    "id": "SEPIO:0000223",
-    "type": "Coding",
-    "code": "0000223",
-    "system": "http://obofoundry.org/sepio/",
-    "display": "Met"
+    "id": "CEID074",
+    "type": "CriterionEvaluation",
+    "label": "Met"
   },
   "evidenceLine": [
     {
@@ -30,70 +36,59 @@
         {
           "id": "ExclRegTyp220",
           "type": "ExcludedRegionType",
-          "description": "region does not have a known function.",
           "region": {
             "id": "Loc390",
             "type": "SequenceLocation",
             "referenceSequence": {
-              "id": "RefSeq008",
+              "id": "RefSeq294",
               "type": "ReferenceSequence",
-              "accession": {
-                "id": "NM_001271208.1"
-              }
+              "accession": "NM_001271208.1"
             },
             "start": 154,
             "stop": 183
           },
           "annotation": [
             {
-              "id": "SEPIO:0000320",
-              "type": "Coding",
-              "code": "0000320",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "functional region"
+              "id": "RATID033",
+              "type": "RegionAnnotationType",
+              "label": "functional region"
             }
-          ]
+          ],
+          "description": "region does not have a known function."
         },
         {
           "id": "RegTyp221",
           "type": "RegionType",
-          "description": "region is repeating.",
           "region": {
             "id": "Loc390",
             "type": "SequenceLocation",
             "referenceSequence": {
-              "id": "RefSeq008",
+              "id": "RefSeq294",
               "type": "ReferenceSequence",
-              "accession": {
-                "id": "NM_001271208.1"
-              }
+              "accession": "NM_001271208.1"
             },
             "start": 154,
             "stop": 183
           },
           "annotation": [
             {
-              "id": "SO:0000657",
-              "type": "Coding",
-              "code": "0000657",
-              "system": "http://sequenceontology.org/",
-              "display": "repeat region "
+              "id": "RATID035",
+              "type": "RegionAnnotationType",
+              "label": "repeat region "
             }
-          ]
+          ],
+          "description": "region is repeating."
         },
         {
           "id": "RegAll391",
           "type": "RegionAlleles",
-          "description": "region is repeating but does not have a known function.",
           "region": {
             "id": "Loc390",
             "type": "SequenceLocation",
             "referenceSequence": {
-              "id": "RefSeq008",
+              "id": "RefSeq294",
               "type": "ReferenceSequence",
-              "accession": {
-                "id": "NM_001271208.1"
-              }
+              "accession": "NM_001271208.1"
             },
             "start": 154,
             "stop": 183
@@ -102,48 +97,31 @@
             {
               "id": "CtxAll106",
               "type": "ContextualAllele",
-              "relatedCanonicalAllele": {
-                "id": "CanAll100",
-                "type": "CanonicalAllele",
-                "preferredCtxAllele": "CtxAll106",
-                "identifier": "http://reg.genome.network/allele/CA148212"
-              },
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll100",
               "alleleName": "NM_001271208.1(NEB):c.169_183delCTGGCACAGCCAGCA"
             }
           ],
           "outcome": {
-            "id": "SEPIO-CG:99020",
-            "type": "Coding",
-            "code": "99020",
-            "system": "http://obofoundry.org/sepio/clingen",
-            "display": "included"
-          }
+            "id": "RegAID225",
+            "type": "RegionAllelesOutcome",
+            "label": "included"
+          },
+          "description": "region is repeating but does not have a known function."
         },
         {
           "id": "MolCon223",
           "type": "MolecularConsequence",
           "consequence": {
-            "id": "CC161",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SO:0001825",
-                "type": "Coding",
-                "code": "0001825",
-                "system": "http://sequenceontology.org/",
-                "display": "conservative Inframe Deletion"
-              }
-            ]
+            "id": "MCTID019",
+            "type": "MolecularConsequenceType",
+            "label": "conservative Inframe Deletion"
           },
           "contextualAllele": {
             "id": "CtxAll106",
             "type": "ContextualAllele",
-            "relatedCanonicalAllele": {
-              "id": "CanAll100",
-              "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll106",
-              "identifier": "http://reg.genome.network/allele/CA148212"
-            },
+            "producedBy": null,
+            "relatedCanonicalAllele": "CanAll100",
             "alleleName": "NM_001271208.1(NEB):c.169_183delCTGGCACAGCCAGCA"
           }
         },
@@ -153,20 +131,14 @@
           "contextualAllele": {
             "id": "CtxAll099",
             "type": "ContextualAllele",
-            "relatedCanonicalAllele": {
-              "id": "CanAll093",
-              "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll099",
-              "identifier": "http://reg.genome.network/allele/CA256496"
-            },
+            "producedBy": null,
+            "relatedCanonicalAllele": "CanAll093",
             "alleleName": "NM_133378.4(TTN): c.2926T>C"
           },
           "annotation": {
-            "id": "SEPIO-CG:99015",
-            "type": "Coding",
-            "code": "99015",
-            "system": "http://obofoundry.org/sepio/clingen",
-            "display": "No"
+            "id": "NullAID224",
+            "type": "NullAllele",
+            "label": "No"
           }
         }
       ]
@@ -182,17 +154,9 @@
       },
       "contributionDate": "9/15/16 8:12 AM",
       "contributionRole": {
-        "id": "CC391",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     }
   ]

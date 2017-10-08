@@ -5,18 +5,27 @@
     "id": "CritAssess283",
     "type": "CriterionAssessment",
     "criterion": {
-      "id": "PS2",
+      "id": "Crit305",
       "type": "Criterion",
+      "label": "PS2",
       "description": "De novo (both maternity and paternity confirmed) in a patient with the disease and no family history",
       "defaultStrength": {
-        "id": "CG-evidence-strength:ps"
-      }
+        "id": "ELSID145",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Strong"
+      },
+      "comments": "MYH7 is adding specificity to this rule with\na. No family history = parents have had ECHO and ECG\nb. Only paternity confirmation required"
     },
     "variant": {
       "id": "CanAll016",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll019",
-      "identifier": "http://reg.genome.network/allele/CA354186"
+      "preferredCtxAllele": {
+        "id": "CtxAll019",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll016",
+        "alleleName": "NM_000833.4 (GRIN2A):c.4375A>G"
+      }
     },
     "condition": [
       {
@@ -26,11 +35,9 @@
       }
     ],
     "outcome": {
-      "id": "SEPIO:0000223",
-      "type": "Coding",
-      "code": "0000223",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Met"
+      "id": "CEID074",
+      "type": "CriterionEvaluation",
+      "label": "Met"
     },
     "phenotypePositiveAlleleNegative": 0,
     "contribution": [
@@ -43,17 +50,9 @@
         },
         "contributionDate": "6/3/16 10:25 AM",
         "contributionRole": {
-          "id": "CC307",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
     ]

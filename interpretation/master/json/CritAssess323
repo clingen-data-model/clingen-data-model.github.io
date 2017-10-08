@@ -2,25 +2,32 @@
   "id": "CritAssess323",
   "type": "CriterionAssessment",
   "criterion": {
-    "id": "BA1",
+    "id": "Crit319",
     "type": "Criterion",
+    "label": "BA1",
     "description": "Allele frequency is >5% in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
     "defaultStrength": {
-      "id": "CG-evidence-strength:ba"
-    }
+      "id": "ELSID138",
+      "type": "EvidenceLineStrength",
+      "label": "Benign Stand Alone"
+    },
+    "comments": "Several groups have lowered the BA1 threshold (e.g. PTEN-1%). Also the sequence variant interpretation group is working on a modified version of this guideline including the minimum # of alleles that need to be examined and the population stratification effects, if any."
   },
   "variant": {
     "id": "CanAll075",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll081",
-    "identifier": "http://reg.genome.network/allele/CA090891"
+    "preferredCtxAllele": {
+      "id": "CtxAll081",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll075",
+      "alleleName": "NM_000057.2 (BLM):c.2603C>T"
+    }
   },
   "outcome": {
-    "id": "SEPIO:0000223",
-    "type": "Coding",
-    "code": "0000223",
-    "system": "http://obofoundry.org/sepio/",
-    "display": "Met"
+    "id": "CEID074",
+    "type": "CriterionEvaluation",
+    "label": "Met"
   },
   "evidenceLine": [
     {
@@ -31,36 +38,25 @@
           "id": "AllFreq153",
           "type": "AlleleFrequency",
           "ascertainment": {
-            "id": "CC034",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SEPIO:0000332",
-                "type": "Coding",
-                "code": "0000332",
-                "system": "http://obofoundry.org/sepio/",
-                "display": "ExAc ascertainment method"
-              }
-            ]
+            "id": "AsctTID203",
+            "type": "AscertainmentType",
+            "label": "ExAc ascertainment method"
           },
           "population": {
-            "id": "CC105",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "CG-population-type:combined",
-                "type": "Coding",
-                "code": "combined",
-                "system": "http://clinicalgenome.org/datamodel/population-type/",
-                "display": "Combined"
-              }
-            ]
+            "id": "PTID093",
+            "type": "PopulationType",
+            "label": "Combined"
           },
           "allele": {
             "id": "CanAll075",
             "type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll081",
-            "identifier": "http://reg.genome.network/allele/CA090891"
+            "preferredCtxAllele": {
+              "id": "CtxAll081",
+              "type": "ContextualAllele",
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll075",
+              "alleleName": "NM_000057.2 (BLM):c.2603C>T"
+            }
           },
           "alleleCount": 6732,
           "alleleNumber": 120402,
@@ -80,17 +76,9 @@
       },
       "contributionDate": "8/29/16 7:00 PM",
       "contributionRole": {
-        "id": "CC357",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     }
   ]

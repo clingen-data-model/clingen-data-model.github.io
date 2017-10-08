@@ -4,27 +4,33 @@
   "informationId": {
     "id": "CritAssess295",
     "type": "CriterionAssessment",
-    "description": "while the variant is absent from exac, mean coverage (11X) is insufficient to be sure that variant was fully assayed.",
     "criterion": {
-      "id": "PM2",
+      "id": "Crit309",
       "type": "Criterion",
+      "label": "PM2",
       "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
       "defaultStrength": {
-        "id": "CG-evidence-strength:pm"
-      }
+        "id": "ELSID143",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Moderate"
+      },
+      "comments": "Some groups are allowing to rule to be used if even not 100% absent\nFor instance, Cardio has allowed PM2 to be used if MAF is <0.05% with 95% CI if\nCI lower is ~0.00% (at 2 decimal places) AND CI upper is below 0.05%\n Caveat: Population data for insertions/deletions may be poorly called by next-generation sequencing"
     },
     "variant": {
       "id": "CanAll034",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll038",
-      "identifier": "http://reg.genome.network/allele/CA273141"
+      "preferredCtxAllele": {
+        "id": "CtxAll038",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll034",
+        "alleleName": "NM_001399.4(EDA): c.676C>T"
+      }
     },
     "outcome": {
-      "id": "SEPIO:0000224",
-      "type": "Coding",
-      "code": "0000224",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Not Met"
+      "id": "CEID075",
+      "type": "CriterionEvaluation",
+      "label": "Not Met"
     },
     "evidenceLine": [
       {
@@ -35,36 +41,25 @@
             "id": "AllFreq054",
             "type": "AlleleFrequency",
             "ascertainment": {
-              "id": "CC031",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "SEPIO:0000332",
-                  "type": "Coding",
-                  "code": "0000332",
-                  "system": "http://obofoundry.org/sepio/",
-                  "display": "ExAc ascertainment method"
-                }
-              ]
+              "id": "AsctTID203",
+              "type": "AscertainmentType",
+              "label": "ExAc ascertainment method"
             },
             "population": {
-              "id": "CC041",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "CG-population-type:combined",
-                  "type": "Coding",
-                  "code": "combined",
-                  "system": "http://clinicalgenome.org/datamodel/population-type/",
-                  "display": "Combined"
-                }
-              ]
+              "id": "PTID093",
+              "type": "PopulationType",
+              "label": "Combined"
             },
             "allele": {
               "id": "CanAll034",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll038",
-              "identifier": "http://reg.genome.network/allele/CA273141"
+              "preferredCtxAllele": {
+                "id": "CtxAll038",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll034",
+                "alleleName": "NM_001399.4(EDA): c.676C>T"
+              }
             },
             "alleleCount": 0,
             "alleleNumber": 0,
@@ -84,20 +79,13 @@
         },
         "contributionDate": "6/6/16 11:28 AM",
         "contributionRole": {
-          "id": "CC323",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
-    ]
+    ],
+    "description": "while the variant is absent from exac, mean coverage (11X) is insufficient to be sure that variant was fully assayed."
   },
   "index": 3,
   "author": "Steven Harrison",

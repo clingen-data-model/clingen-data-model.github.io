@@ -154,7 +154,7 @@
             </tr>
             <tr>
                 <td>primaryZygosity</td>
-                <td>Coding</td>
+                <td>AllelicState</td>
                 <td>0..1</td>
                 <td>Zygosity of the primary allele in the individual</td>
                 <td>???</td>
@@ -168,14 +168,14 @@
             </tr>
             <tr>
                 <td>secondaryZygosity</td>
-                <td>Coding</td>
+                <td>AllelicState</td>
                 <td>0..1</td>
                 <td>Zygosity of the secondary allele in the individual</td>
                 <td>???</td>
             </tr>
             <tr>
                 <td>phase</td>
-                <td>Coding</td>
+                <td>Phase</td>
                 <td>0..1</td>
                 <td>Phase of the primary and secondary individual</td>
                 <td>SEPIO:0000197</td>
@@ -244,65 +244,77 @@
               <p>Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband.</p>
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv004">Indiv004</a></p>
+              <p><a href="../details/details.html#Indiv336">Indiv336</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll035">CanAll035</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
+              <p><a href="../details/details.html#ASID041">ASID041</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll036">CanAll036</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
+              <p><a href="../details/details.html#ASID041">ASID041</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000132">GENO:0000132</a></p>
+              <p><a href="../details/details.html#PHZID037">PHZID037</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll058"><pre><code>{
   "id": "IndAll058",
   "type": "IndividualAllele",
-  "description": "Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband.",
   "individual": {
-    "id": "Indiv004",
+    "id": "Indiv336",
     "type": "Individual",
     "description": "individual #004"
   },
   "primaryAllele": {
     "id": "CanAll035",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll039",
-    "identifier": "http://reg.genome.network/allele/CA090919"
+    "preferredCtxAllele": {
+      "id": "CtxAll039",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll035",
+      "alleleName": "NM_001369.2(DNAH5):c.7468_7488del",
+      "produces": [
+        {
+          "id": "CtxAll044",
+          "type": "ContextualAllele",
+          "producedBy": "CtxAll039",
+          "relatedCanonicalAllele": "CanAll040",
+          "alleleName": "NP_001360.1:p.Trp2490_Leu2496del"
+        }
+      ]
+    }
   },
   "secondaryAllele": {
     "id": "CanAll036",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll040",
-    "identifier": "http://reg.genome.network/allele/CA273615"
+    "preferredCtxAllele": {
+      "id": "CtxAll040",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll036",
+      "alleleName": "NM_001369.2(DNAH5):c.9449delG"
+    }
   },
   "primaryZygosity": {
-    "id": "GENO:0000135",
-    "type": "Coding",
-    "code": "0000135",
-    "system": "http://obofoundry.org/geno/",
-    "display": "heterozygous"
+    "id": "ASID041",
+    "type": "AllelicState",
+    "label": "heterozygous"
   },
   "secondaryZygosity": {
-    "id": "GENO:0000135",
-    "type": "Coding",
-    "code": "0000135",
-    "system": "http://obofoundry.org/geno/",
-    "display": "heterozygous"
+    "id": "ASID041",
+    "type": "AllelicState",
+    "label": "heterozygous"
   },
   "phase": {
-    "id": "GENO:0000132",
-    "type": "Coding",
-    "code": "0000132",
-    "system": "http://obofoundry.org/geno/",
-    "display": "in trans"
+    "id": "PHZID037",
+    "type": "Phase",
+    "label": "in trans"
   },
   "contribution": [
     {
@@ -314,23 +326,16 @@
       },
       "contributionDate": "5/31/16 9:15 AM",
       "contributionRole": {
-        "id": "CC386",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000156",
-            "type": "Coding",
-            "code": "0000156",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "curator role"
-          }
-        ]
+        "id": "CRID194",
+        "type": "ContributoryRole",
+        "label": "curator role"
       }
     }
   ],
   "source": [
     "http://partners.org/ppm/lmm/gi/case/123"
-  ]
+  ],
+  "description": "Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband."
 }
           </code></pre></div></td>
           -->
@@ -342,66 +347,70 @@
               <p>Based on the NGS data, we are able to determine that c.298G>A and c.411+1G>A are in trans as no NGS reads carry both variants.</p>
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv005">Indiv005</a></p>
+              <p><a href="../details/details.html#Indiv337">Indiv337</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll037">CanAll037</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
+              <p><a href="../details/details.html#ASID041">ASID041</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll038">CanAll038</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
+              <p><a href="../details/details.html#ASID041">ASID041</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000132">GENO:0000132</a></p>
+              <p><a href="../details/details.html#PHZID037">PHZID037</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll062"><pre><code>{
   "id": "IndAll062",
   "type": "IndividualAllele",
-  "description": "Based on the NGS data, we are able to determine that c.298G>A and c.411+1G>A are in trans as no NGS reads carry both variants.",
   "individual": {
-    "id": "Indiv005",
+    "id": "Indiv337",
     "type": "Individual",
     "description": "individual #005"
   },
   "primaryAllele": {
     "id": "CanAll037",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll041",
-    "identifier": "http://reg.genome.network/allele/CA176145"
+    "preferredCtxAllele": {
+      "id": "CtxAll041",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll037",
+      "alleleName": "NM_133261.2(GIPC3):c.298G>A"
+    }
   },
   "secondaryAllele": {
     "id": "CanAll038",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll042",
-    "identifier": "http://reg.genome.network/allele/CA501223"
+    "preferredCtxAllele": {
+      "id": "CtxAll042",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll038",
+      "alleleName": "NM_133261.2(GIPC3):c.411+1G>A"
+    }
   },
   "primaryZygosity": {
-    "id": "GENO:0000135",
-    "type": "Coding",
-    "code": "0000135",
-    "system": "http://obofoundry.org/geno/",
-    "display": "heterozygous"
+    "id": "ASID041",
+    "type": "AllelicState",
+    "label": "heterozygous"
   },
   "secondaryZygosity": {
-    "id": "GENO:0000135",
-    "type": "Coding",
-    "code": "0000135",
-    "system": "http://obofoundry.org/geno/",
-    "display": "heterozygous"
+    "id": "ASID041",
+    "type": "AllelicState",
+    "label": "heterozygous"
   },
   "phase": {
-    "id": "GENO:0000132",
-    "type": "Coding",
-    "code": "0000132",
-    "system": "http://obofoundry.org/geno/",
-    "display": "in trans"
-  }
+    "id": "PHZID037",
+    "type": "Phase",
+    "label": "in trans"
+  },
+  "description": "Based on the NGS data, we are able to determine that c.298G>A and c.411+1G>A are in trans as no NGS reads carry both variants."
 }
           </code></pre></div></td>
           -->
@@ -413,13 +422,13 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv006">Indiv006</a></p>
+              <p><a href="../details/details.html#Indiv338">Indiv338</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll039">CanAll039</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000136">GENO:0000136</a></p>
+              <p><a href="../details/details.html#ASID043">ASID043</a></p>
          </td>
           <td>
               
@@ -435,22 +444,25 @@
   "id": "IndAll065",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv006",
+    "id": "Indiv338",
     "type": "Individual",
     "description": "individual #006"
   },
   "primaryAllele": {
     "id": "CanAll039",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll043",
-    "identifier": "http://reg.genome.network/allele/CA090904"
+    "preferredCtxAllele": {
+      "id": "CtxAll043",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll039",
+      "alleleName": "NM_000391.3(TTP1):c.1678_1679delCT"
+    }
   },
   "primaryZygosity": {
-    "id": "GENO:0000136",
-    "type": "Coding",
-    "code": "0000136",
-    "system": "http://obofoundry.org/geno/",
-    "display": "homozygous"
+    "id": "ASID043",
+    "type": "AllelicState",
+    "label": "homozygous"
   }
 }
           </code></pre></div></td>
@@ -463,13 +475,13 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv013">Indiv013</a></p>
+              <p><a href="../details/details.html#Indiv345">Indiv345</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll081">CanAll081</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
+              <p><a href="../details/details.html#ASID041">ASID041</a></p>
          </td>
           <td>
               
@@ -485,22 +497,25 @@
   "id": "IndAll172",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv013",
+    "id": "Indiv345",
     "type": "Individual",
     "description": "individual #013"
   },
   "primaryAllele": {
     "id": "CanAll081",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll087",
-    "identifier": "http://reg.genome.network/allele/CA090918"
+    "preferredCtxAllele": {
+      "id": "CtxAll087",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll081",
+      "alleleName": "NM_001197104.1(KMT2A):c.6572G>A"
+    }
   },
   "primaryZygosity": {
-    "id": "GENO:0000135",
-    "type": "Coding",
-    "code": "0000135",
-    "system": "http://obofoundry.org/geno/",
-    "display": "heterozygous"
+    "id": "ASID041",
+    "type": "AllelicState",
+    "label": "heterozygous"
   }
 }
           </code></pre></div></td>
@@ -513,13 +528,13 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv014">Indiv014</a></p>
+              <p><a href="../details/details.html#Indiv346">Indiv346</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll081">CanAll081</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000136">GENO:0000136</a></p>
+              <p><a href="../details/details.html#ASID043">ASID043</a></p>
          </td>
           <td>
               
@@ -535,22 +550,25 @@
   "id": "IndAll173",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv014",
+    "id": "Indiv346",
     "type": "Individual",
     "description": "individual #014"
   },
   "primaryAllele": {
     "id": "CanAll081",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll087",
-    "identifier": "http://reg.genome.network/allele/CA090918"
+    "preferredCtxAllele": {
+      "id": "CtxAll087",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll081",
+      "alleleName": "NM_001197104.1(KMT2A):c.6572G>A"
+    }
   },
   "primaryZygosity": {
-    "id": "GENO:0000136",
-    "type": "Coding",
-    "code": "0000136",
-    "system": "http://obofoundry.org/geno/",
-    "display": "homozygous"
+    "id": "ASID043",
+    "type": "AllelicState",
+    "label": "homozygous"
   }
 }
           </code></pre></div></td>
@@ -563,13 +581,13 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv015">Indiv015</a></p>
+              <p><a href="../details/details.html#Indiv347">Indiv347</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
+              <p><a href="../details/details.html#ASID041">ASID041</a></p>
          </td>
           <td>
               
@@ -585,22 +603,25 @@
   "id": "IndAll178",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv015",
+    "id": "Indiv347",
     "type": "Individual",
     "description": "individual #015"
   },
   "primaryAllele": {
     "id": "CanAll082",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll088",
-    "identifier": "http://reg.genome.network/allele/CA008351"
+    "preferredCtxAllele": {
+      "id": "CtxAll088",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll082",
+      "alleleName": "NM_000038.5(APC ):c.3386T>C"
+    }
   },
   "primaryZygosity": {
-    "id": "GENO:0000135",
-    "type": "Coding",
-    "code": "0000135",
-    "system": "http://obofoundry.org/geno/",
-    "display": "heterozygous"
+    "id": "ASID041",
+    "type": "AllelicState",
+    "label": "heterozygous"
   }
 }
           </code></pre></div></td>
@@ -613,13 +634,13 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv016">Indiv016</a></p>
+              <p><a href="../details/details.html#Indiv348">Indiv348</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
+              <p><a href="../details/details.html#ASID041">ASID041</a></p>
          </td>
           <td>
               
@@ -635,22 +656,25 @@
   "id": "IndAll179",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv016",
+    "id": "Indiv348",
     "type": "Individual",
     "description": "individual #016"
   },
   "primaryAllele": {
     "id": "CanAll082",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll088",
-    "identifier": "http://reg.genome.network/allele/CA008351"
+    "preferredCtxAllele": {
+      "id": "CtxAll088",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll082",
+      "alleleName": "NM_000038.5(APC ):c.3386T>C"
+    }
   },
   "primaryZygosity": {
-    "id": "GENO:0000135",
-    "type": "Coding",
-    "code": "0000135",
-    "system": "http://obofoundry.org/geno/",
-    "display": "heterozygous"
+    "id": "ASID041",
+    "type": "AllelicState",
+    "label": "heterozygous"
   }
 }
           </code></pre></div></td>
@@ -663,13 +687,13 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv017">Indiv017</a></p>
+              <p><a href="../details/details.html#Indiv349">Indiv349</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
+              <p><a href="../details/details.html#ASID041">ASID041</a></p>
          </td>
           <td>
               
@@ -685,22 +709,25 @@
   "id": "IndAll180",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv017",
+    "id": "Indiv349",
     "type": "Individual",
     "description": "individual #017"
   },
   "primaryAllele": {
     "id": "CanAll082",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll088",
-    "identifier": "http://reg.genome.network/allele/CA008351"
+    "preferredCtxAllele": {
+      "id": "CtxAll088",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll082",
+      "alleleName": "NM_000038.5(APC ):c.3386T>C"
+    }
   },
   "primaryZygosity": {
-    "id": "GENO:0000135",
-    "type": "Coding",
-    "code": "0000135",
-    "system": "http://obofoundry.org/geno/",
-    "display": "heterozygous"
+    "id": "ASID041",
+    "type": "AllelicState",
+    "label": "heterozygous"
   }
 }
           </code></pre></div></td>
@@ -713,13 +740,13 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv018">Indiv018</a></p>
+              <p><a href="../details/details.html#Indiv350">Indiv350</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
+              <p><a href="../details/details.html#ASID041">ASID041</a></p>
          </td>
           <td>
               
@@ -735,22 +762,25 @@
   "id": "IndAll181",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv018",
+    "id": "Indiv350",
     "type": "Individual",
     "description": "individual #018"
   },
   "primaryAllele": {
     "id": "CanAll082",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll088",
-    "identifier": "http://reg.genome.network/allele/CA008351"
+    "preferredCtxAllele": {
+      "id": "CtxAll088",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll082",
+      "alleleName": "NM_000038.5(APC ):c.3386T>C"
+    }
   },
   "primaryZygosity": {
-    "id": "GENO:0000135",
-    "type": "Coding",
-    "code": "0000135",
-    "system": "http://obofoundry.org/geno/",
-    "display": "heterozygous"
+    "id": "ASID041",
+    "type": "AllelicState",
+    "label": "heterozygous"
   }
 }
           </code></pre></div></td>
@@ -763,13 +793,13 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv019">Indiv019</a></p>
+              <p><a href="../details/details.html#Indiv351">Indiv351</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll083">CanAll083</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
+              <p><a href="../details/details.html#ASID041">ASID041</a></p>
          </td>
           <td>
               
@@ -785,22 +815,25 @@
   "id": "IndAll188",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv019",
+    "id": "Indiv351",
     "type": "Individual",
     "description": "individual #019"
   },
   "primaryAllele": {
     "id": "CanAll083",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll089",
-    "identifier": "http://reg.genome.network/allele/CA013604"
+    "preferredCtxAllele": {
+      "id": "CtxAll089",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll083",
+      "alleleName": "NM_000138.4(FBN1 ):c.2956G>A"
+    }
   },
   "primaryZygosity": {
-    "id": "GENO:0000135",
-    "type": "Coding",
-    "code": "0000135",
-    "system": "http://obofoundry.org/geno/",
-    "display": "heterozygous"
+    "id": "ASID041",
+    "type": "AllelicState",
+    "label": "heterozygous"
   }
 }
           </code></pre></div></td>
@@ -813,13 +846,13 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv020">Indiv020</a></p>
+              <p><a href="../details/details.html#Indiv352">Indiv352</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll083">CanAll083</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
+              <p><a href="../details/details.html#ASID041">ASID041</a></p>
          </td>
           <td>
               
@@ -835,22 +868,25 @@
   "id": "IndAll189",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv020",
+    "id": "Indiv352",
     "type": "Individual",
     "description": "individual #020"
   },
   "primaryAllele": {
     "id": "CanAll083",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll089",
-    "identifier": "http://reg.genome.network/allele/CA013604"
+    "preferredCtxAllele": {
+      "id": "CtxAll089",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll083",
+      "alleleName": "NM_000138.4(FBN1 ):c.2956G>A"
+    }
   },
   "primaryZygosity": {
-    "id": "GENO:0000135",
-    "type": "Coding",
-    "code": "0000135",
-    "system": "http://obofoundry.org/geno/",
-    "display": "heterozygous"
+    "id": "ASID041",
+    "type": "AllelicState",
+    "label": "heterozygous"
   }
 }
           </code></pre></div></td>
@@ -863,7 +899,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv021">Indiv021</a></p>
+              <p><a href="../details/details.html#Indiv353">Indiv353</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll094">CanAll094</a></p>
@@ -878,35 +914,43 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000131">GENO:0000131</a></p>
+              <p><a href="../details/details.html#PHZID036">PHZID036</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll206"><pre><code>{
   "id": "IndAll206",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv021",
+    "id": "Indiv353",
     "type": "Individual",
     "description": "individual #021"
   },
   "primaryAllele": {
     "id": "CanAll094",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll100",
-    "identifier": "http://reg.genome.network/allele/CA143572"
+    "preferredCtxAllele": {
+      "id": "CtxAll100",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll094",
+      "alleleName": "NM_206933.2 (USH2A): c.6721C>T (p.Pro2241Ser)"
+    }
   },
   "secondaryAllele": {
     "id": "CanAll095",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll101",
-    "identifier": "http://reg.genome.network/allele/CA252233"
+    "preferredCtxAllele": {
+      "id": "CtxAll101",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll095",
+      "alleleName": "NM_206933.2(USH2A):c.2276G>T"
+    }
   },
   "phase": {
-    "id": "GENO:0000131",
-    "type": "Coding",
-    "code": "0000131",
-    "system": "http://obofoundry.org/geno/",
-    "display": "in cis"
+    "id": "PHZID036",
+    "type": "Phase",
+    "label": "in cis"
   }
 }
           </code></pre></div></td>
@@ -919,7 +963,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv022">Indiv022</a></p>
+              <p><a href="../details/details.html#Indiv354">Indiv354</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll094">CanAll094</a></p>
@@ -934,35 +978,43 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000131">GENO:0000131</a></p>
+              <p><a href="../details/details.html#PHZID036">PHZID036</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll207"><pre><code>{
   "id": "IndAll207",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv022",
+    "id": "Indiv354",
     "type": "Individual",
     "description": "individual #022"
   },
   "primaryAllele": {
     "id": "CanAll094",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll100",
-    "identifier": "http://reg.genome.network/allele/CA143572"
+    "preferredCtxAllele": {
+      "id": "CtxAll100",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll094",
+      "alleleName": "NM_206933.2 (USH2A): c.6721C>T (p.Pro2241Ser)"
+    }
   },
   "secondaryAllele": {
     "id": "CanAll095",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll101",
-    "identifier": "http://reg.genome.network/allele/CA252233"
+    "preferredCtxAllele": {
+      "id": "CtxAll101",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll095",
+      "alleleName": "NM_206933.2(USH2A):c.2276G>T"
+    }
   },
   "phase": {
-    "id": "GENO:0000131",
-    "type": "Coding",
-    "code": "0000131",
-    "system": "http://obofoundry.org/geno/",
-    "display": "in cis"
+    "id": "PHZID036",
+    "type": "Phase",
+    "label": "in cis"
   }
 }
           </code></pre></div></td>
@@ -975,7 +1027,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv023">Indiv023</a></p>
+              <p><a href="../details/details.html#Indiv355">Indiv355</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll096">CanAll096</a></p>
@@ -990,35 +1042,43 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000131">GENO:0000131</a></p>
+              <p><a href="../details/details.html#PHZID036">PHZID036</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll211"><pre><code>{
   "id": "IndAll211",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv023",
+    "id": "Indiv355",
     "type": "Individual",
     "description": "individual #023"
   },
   "primaryAllele": {
     "id": "CanAll096",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll102",
-    "identifier": "http://reg.genome.network/allele/CA182840"
+    "preferredCtxAllele": {
+      "id": "CtxAll102",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll096",
+      "alleleName": "NM_000492.3(CFTR): c.2002C>T"
+    }
   },
   "secondaryAllele": {
     "id": "CanAll097",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll103",
-    "identifier": "http://reg.genome.network/allele/CA182839"
+    "preferredCtxAllele": {
+      "id": "CtxAll103",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll097",
+      "alleleName": "NP_000483.3:p.Gly576Ala"
+    }
   },
   "phase": {
-    "id": "GENO:0000131",
-    "type": "Coding",
-    "code": "0000131",
-    "system": "http://obofoundry.org/geno/",
-    "display": "in cis"
+    "id": "PHZID036",
+    "type": "Phase",
+    "label": "in cis"
   }
 }
           </code></pre></div></td>
@@ -1031,7 +1091,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv024">Indiv024</a></p>
+              <p><a href="../details/details.html#Indiv356">Indiv356</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll098">CanAll098</a></p>
@@ -1046,35 +1106,43 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000132">GENO:0000132</a></p>
+              <p><a href="../details/details.html#PHZID037">PHZID037</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll214"><pre><code>{
   "id": "IndAll214",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv024",
+    "id": "Indiv356",
     "type": "Individual",
     "description": "individual #024"
   },
   "primaryAllele": {
     "id": "CanAll098",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll104",
-    "identifier": "http://reg.genome.network/allele/CA501235"
+    "preferredCtxAllele": {
+      "id": "CtxAll104",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll098",
+      "alleleName": "NM_000257.2(MYH7): c.2559G>A"
+    }
   },
   "secondaryAllele": {
     "id": "CanAll099",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll105",
-    "identifier": "http://reg.genome.network/allele/CA501236"
+    "preferredCtxAllele": {
+      "id": "CtxAll105",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll099",
+      "alleleName": "NM_000257.2(MYH7): c.2537A>G"
+    }
   },
   "phase": {
-    "id": "GENO:0000132",
-    "type": "Coding",
-    "code": "0000132",
-    "system": "http://obofoundry.org/geno/",
-    "display": "in trans"
+    "id": "PHZID037",
+    "type": "Phase",
+    "label": "in trans"
   }
 }
           </code></pre></div></td>
@@ -1087,7 +1155,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv025">Indiv025</a></p>
+              <p><a href="../details/details.html#Indiv357">Indiv357</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll106">CanAll106</a></p>
@@ -1109,21 +1177,31 @@
   "id": "IndAll241",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv025",
+    "id": "Indiv357",
     "type": "Individual",
     "description": "individual #025"
   },
   "primaryAllele": {
     "id": "CanAll106",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll112",
-    "identifier": "http://reg.genome.network/allele/CA012381"
+    "preferredCtxAllele": {
+      "id": "CtxAll112",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll106",
+      "alleleName": "NM_000256.3(MYBPC3): c.2497G>A"
+    }
   },
   "secondaryAllele": {
     "id": "CanAll107",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll113",
-    "identifier": "http://reg.genome.network/allele/CA005304"
+    "preferredCtxAllele": {
+      "id": "CtxAll113",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll107",
+      "alleleName": "NM_000364.3(TNNT2):c.878G>A"
+    }
   }
 }
           </code></pre></div></td>
@@ -1136,7 +1214,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv026">Indiv026</a></p>
+              <p><a href="../details/details.html#Indiv358">Indiv358</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll108">CanAll108</a></p>
@@ -1158,15 +1236,20 @@
   "id": "IndAll244",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv026",
+    "id": "Indiv358",
     "type": "Individual",
     "description": "individual #026"
   },
   "primaryAllele": {
     "id": "CanAll108",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll114",
-    "identifier": "http://reg.genome.network/allele/CA137502"
+    "preferredCtxAllele": {
+      "id": "CtxAll114",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll108",
+      "alleleName": "NM_022124.5(CDH23):c.5660C>T"
+    }
   }
 }
           </code></pre></div></td>
@@ -1179,64 +1262,68 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv026">Indiv026</a></p>
+              <p><a href="../details/details.html#Indiv358">Indiv358</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll109">CanAll109</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
+              <p><a href="../details/details.html#ASID041">ASID041</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll110">CanAll110</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000135">GENO:0000135</a></p>
+              <p><a href="../details/details.html#ASID041">ASID041</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000132">GENO:0000132</a></p>
+              <p><a href="../details/details.html#PHZID037">PHZID037</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll245"><pre><code>{
   "id": "IndAll245",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv026",
+    "id": "Indiv358",
     "type": "Individual",
     "description": "individual #026"
   },
   "primaryAllele": {
     "id": "CanAll109",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll115",
-    "identifier": "http://reg.genome.network/allele/CA172240"
+    "preferredCtxAllele": {
+      "id": "CtxAll115",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll109",
+      "alleleName": "NM_004004.5(GJB2):c.71G>A"
+    }
   },
   "secondaryAllele": {
     "id": "CanAll110",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll116",
-    "identifier": "http://reg.genome.network/allele/CA274460"
+    "preferredCtxAllele": {
+      "id": "CtxAll116",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll110",
+      "alleleName": "NM_004004.5(GJB2):c.230G>A"
+    }
   },
   "primaryZygosity": {
-    "id": "GENO:0000135",
-    "type": "Coding",
-    "code": "0000135",
-    "system": "http://obofoundry.org/geno/",
-    "display": "heterozygous"
+    "id": "ASID041",
+    "type": "AllelicState",
+    "label": "heterozygous"
   },
   "secondaryZygosity": {
-    "id": "GENO:0000135",
-    "type": "Coding",
-    "code": "0000135",
-    "system": "http://obofoundry.org/geno/",
-    "display": "heterozygous"
+    "id": "ASID041",
+    "type": "AllelicState",
+    "label": "heterozygous"
   },
   "phase": {
-    "id": "GENO:0000132",
-    "type": "Coding",
-    "code": "0000132",
-    "system": "http://obofoundry.org/geno/",
-    "display": "in trans"
+    "id": "PHZID037",
+    "type": "Phase",
+    "label": "in trans"
   }
 }
           </code></pre></div></td>
@@ -1249,7 +1336,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv027">Indiv027</a></p>
+              <p><a href="../details/details.html#Indiv359">Indiv359</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll108">CanAll108</a></p>
@@ -1261,7 +1348,7 @@
               <p><a href="../details/details.html#CanAll111">CanAll111</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000136">GENO:0000136</a></p>
+              <p><a href="../details/details.html#ASID043">ASID043</a></p>
          </td>
           <td>
               
@@ -1271,28 +1358,36 @@
   "id": "IndAll249",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv027",
+    "id": "Indiv359",
     "type": "Individual",
     "description": "individual #027"
   },
   "primaryAllele": {
     "id": "CanAll108",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll114",
-    "identifier": "http://reg.genome.network/allele/CA137502"
+    "preferredCtxAllele": {
+      "id": "CtxAll114",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll108",
+      "alleleName": "NM_022124.5(CDH23):c.5660C>T"
+    }
   },
   "secondaryAllele": {
     "id": "CanAll111",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll117",
-    "identifier": "http://reg.genome.network/allele/CA277980"
+    "preferredCtxAllele": {
+      "id": "CtxAll117",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll111",
+      "alleleName": "NM_015404.3(WHRN):c.643delG"
+    }
   },
   "secondaryZygosity": {
-    "id": "GENO:0000136",
-    "type": "Coding",
-    "code": "0000136",
-    "system": "http://obofoundry.org/geno/",
-    "display": "homozygous"
+    "id": "ASID043",
+    "type": "AllelicState",
+    "label": "homozygous"
   }
 }
           </code></pre></div></td>
@@ -1305,7 +1400,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv028">Indiv028</a></p>
+              <p><a href="../details/details.html#Indiv360">Indiv360</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll112">CanAll112</a></p>
@@ -1327,21 +1422,31 @@
   "id": "IndAll253",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv028",
+    "id": "Indiv360",
     "type": "Individual",
     "description": "individual #028"
   },
   "primaryAllele": {
     "id": "CanAll112",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll118",
-    "identifier": "http://reg.genome.network/allele/CA204551"
+    "preferredCtxAllele": {
+      "id": "CtxAll118",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll112",
+      "alleleName": "NM_001844.4(COL2A1):c.4316C>T"
+    }
   },
   "secondaryAllele": {
     "id": "CanAll113",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll119",
-    "identifier": "http://reg.genome.network/allele/CA254703"
+    "preferredCtxAllele": {
+      "id": "CtxAll119",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll113",
+      "alleleName": "NM_000095.2(COMP):c.1042T>C"
+    }
   }
 }
           </code></pre></div></td>
@@ -1354,7 +1459,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv029">Indiv029</a></p>
+              <p><a href="../details/details.html#Indiv361">Indiv361</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll092">CanAll092</a></p>
@@ -1369,35 +1474,43 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000132">GENO:0000132</a></p>
+              <p><a href="../details/details.html#PHZID037">PHZID037</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll366"><pre><code>{
   "id": "IndAll366",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv029",
+    "id": "Indiv361",
     "type": "Individual",
     "description": "individual #029"
   },
   "primaryAllele": {
     "id": "CanAll092",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll098",
-    "identifier": "http://reg.genome.network/allele/CA090950"
+    "preferredCtxAllele": {
+      "id": "CtxAll098",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll092",
+      "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
+    }
   },
   "secondaryAllele": {
     "id": "CanAll122",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll128",
-    "identifier": "http://reg.genome.network/allele/CA253304"
+    "preferredCtxAllele": {
+      "id": "CtxAll128",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll122",
+      "alleleName": "NM_000441.1(SLC26A4): c.626G>T"
+    }
   },
   "phase": {
-    "id": "GENO:0000132",
-    "type": "Coding",
-    "code": "0000132",
-    "system": "http://obofoundry.org/geno/",
-    "display": "in trans"
+    "id": "PHZID037",
+    "type": "Phase",
+    "label": "in trans"
   }
 }
           </code></pre></div></td>
@@ -1410,7 +1523,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv029">Indiv029</a></p>
+              <p><a href="../details/details.html#Indiv361">Indiv361</a></p>
          </td>
           <td>
               <p><a href="../details/details.html#CanAll092">CanAll092</a></p>
@@ -1425,35 +1538,43 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#GENO:0000132">GENO:0000132</a></p>
+              <p><a href="../details/details.html#PHZID037">PHZID037</a></p>
          </td>
           <!--
           <td><div class="example_view" id="IndAll367"><pre><code>{
   "id": "IndAll367",
   "type": "IndividualAllele",
   "individual": {
-    "id": "Indiv029",
+    "id": "Indiv361",
     "type": "Individual",
     "description": "individual #029"
   },
   "primaryAllele": {
     "id": "CanAll092",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll098",
-    "identifier": "http://reg.genome.network/allele/CA090950"
+    "preferredCtxAllele": {
+      "id": "CtxAll098",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll092",
+      "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
+    }
   },
   "secondaryAllele": {
     "id": "CanAll123",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll129",
-    "identifier": "http://reg.genome.network/allele/CA273665"
+    "preferredCtxAllele": {
+      "id": "CtxAll129",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll123",
+      "alleleName": "NM_000441.1(SLC26A4): c.1707+6T>C"
+    }
   },
   "phase": {
-    "id": "GENO:0000132",
-    "type": "Coding",
-    "code": "0000132",
-    "system": "http://obofoundry.org/geno/",
-    "display": "in trans"
+    "id": "PHZID037",
+    "type": "Phase",
+    "label": "in trans"
   }
 }
           </code></pre></div></td>

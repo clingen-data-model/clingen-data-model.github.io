@@ -6,25 +6,31 @@
       "id": "CritAssess359",
       "type": "CriterionAssessment",
       "criterion": {
-        "id": "BP7",
+        "id": "Crit330",
         "type": "Criterion",
+        "label": "BP7",
         "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
         "defaultStrength": {
-          "id": "CG-evidence-strength:bp"
+          "id": "ELSID140",
+          "type": "EvidenceLineStrength",
+          "label": "Benign Supporting"
         }
       },
       "variant": {
         "id": "CanAll118",
         "type": "CanonicalAllele",
-        "preferredCtxAllele": "CtxAll124",
-        "identifier": "http://reg.genome.network/allele/CA013536"
+        "preferredCtxAllele": {
+          "id": "CtxAll124",
+          "type": "ContextualAllele",
+          "producedBy": null,
+          "relatedCanonicalAllele": "CanAll118",
+          "alleleName": "NM_000257.2(MYH7):c.327C>T"
+        }
       },
       "outcome": {
-        "id": "SEPIO:0000223",
-        "type": "Coding",
-        "code": "0000223",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "Met"
+        "id": "CEID074",
+        "type": "CriterionEvaluation",
+        "label": "Met"
       },
       "evidenceLine": [
         {
@@ -34,34 +40,29 @@
             {
               "id": "InSilicoPred262",
               "type": "InSilicoPrediction",
-              "description": "Provenance would show that this comes from Alamut",
               "transcript": {
-                "id": "RefSeq011",
+                "id": "RefSeq297",
                 "type": "ReferenceSequence",
-                "accession": {
-                  "id": "NM_000257.2"
-                }
+                "accession": "NM_000257.2"
               },
               "canonicalAllele": {
                 "id": "CanAll118",
                 "type": "CanonicalAllele",
-                "preferredCtxAllele": "CtxAll124",
-                "identifier": "http://reg.genome.network/allele/CA013536"
+                "preferredCtxAllele": {
+                  "id": "CtxAll124",
+                  "type": "ContextualAllele",
+                  "producedBy": null,
+                  "relatedCanonicalAllele": "CanAll118",
+                  "alleleName": "NM_000257.2(MYH7):c.327C>T"
+                }
               },
               "predictionType": {
-                "id": "CC189",
-                "type": "CodeableConcept",
-                "coding": [
-                  {
-                    "id": "SEPIO:0000323",
-                    "type": "Coding",
-                    "code": "0000323",
-                    "system": "http://obofoundry.org/sepio/",
-                    "display": "splicing prediction"
-                  }
-                ]
+                "id": "PredTID073",
+                "type": "PredictionType",
+                "label": "splicing prediction"
               },
-              "categoricalPrediction": "no impact"
+              "categoricalPrediction": "no impact",
+              "description": "Provenance would show that this comes from Alamut"
             },
             {
               "id": "Conserv263",
@@ -69,15 +70,18 @@
               "allele": {
                 "id": "CanAll118",
                 "type": "CanonicalAllele",
-                "preferredCtxAllele": "CtxAll124",
-                "identifier": "http://reg.genome.network/allele/CA013536"
+                "preferredCtxAllele": {
+                  "id": "CtxAll124",
+                  "type": "ContextualAllele",
+                  "producedBy": null,
+                  "relatedCanonicalAllele": "CanAll118",
+                  "alleleName": "NM_000257.2(MYH7):c.327C>T"
+                }
               },
               "outcome": {
-                "id": "SEPIO-CG:99004",
-                "type": "Coding",
-                "code": "99004",
-                "system": "http://obofoundry.org/sepio/clingen",
-                "display": "not conserved"
+                "id": "ConsrvID213",
+                "type": "Conservation",
+                "label": "not conserved"
               },
               "algorithm": "phyloP",
               "score": -0.76
@@ -88,15 +92,18 @@
               "allele": {
                 "id": "CanAll118",
                 "type": "CanonicalAllele",
-                "preferredCtxAllele": "CtxAll124",
-                "identifier": "http://reg.genome.network/allele/CA013536"
+                "preferredCtxAllele": {
+                  "id": "CtxAll124",
+                  "type": "ContextualAllele",
+                  "producedBy": null,
+                  "relatedCanonicalAllele": "CanAll118",
+                  "alleleName": "NM_000257.2(MYH7):c.327C>T"
+                }
               },
               "outcome": {
-                "id": "SEPIO-CG:99004",
-                "type": "Coding",
-                "code": "99004",
-                "system": "http://obofoundry.org/sepio/clingen",
-                "display": "not conserved"
+                "id": "ConsrvID213",
+                "type": "Conservation",
+                "label": "not conserved"
               },
               "algorithm": "PhastCons",
               "score": 0.63
@@ -105,27 +112,15 @@
               "id": "MolCon265",
               "type": "MolecularConsequence",
               "consequence": {
-                "id": "CC190",
-                "type": "CodeableConcept",
-                "coding": [
-                  {
-                    "id": "SO:0001819",
-                    "type": "Coding",
-                    "code": "0001819",
-                    "system": "http://sequenceontology.org/",
-                    "display": "synonymous variant"
-                  }
-                ]
+                "id": "MCTID016",
+                "type": "MolecularConsequenceType",
+                "label": "synonymous variant"
               },
               "contextualAllele": {
                 "id": "CtxAll124",
                 "type": "ContextualAllele",
-                "relatedCanonicalAllele": {
-                  "id": "CanAll118",
-                  "type": "CanonicalAllele",
-                  "preferredCtxAllele": "CtxAll124",
-                  "identifier": "http://reg.genome.network/allele/CA013536"
-                },
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll118",
                 "alleleName": "NM_000257.2(MYH7):c.327C>T"
               }
             }
@@ -142,34 +137,18 @@
           },
           "contributionDate": "10/10/16 8:05 AM",
           "contributionRole": {
-            "id": "CC405",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SEPIO:0000154",
-                "type": "Coding",
-                "code": "0000154",
-                "system": "http://obofoundry.org/sepio/",
-                "display": "assessor role"
-              }
-            ]
+            "id": "CRID193",
+            "type": "ContributoryRole",
+            "label": "assessor role"
           }
         }
       ]
     }
   ],
   "evidenceStrength": {
-    "id": "CC448",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000327",
-        "type": "Coding",
-        "code": "0000327",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "Benign Supporting"
-      }
-    ]
+    "id": "ELSID140",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Supporting"
   },
   "contribution": [
     {
@@ -181,17 +160,9 @@
       },
       "contributionDate": "10/10/16 8:05 AM",
       "contributionRole": {
-        "id": "CC432",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     }
   ]

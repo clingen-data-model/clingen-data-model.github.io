@@ -4,27 +4,42 @@
   "informationId": {
     "id": "CritAssess301",
     "type": "CriterionAssessment",
-    "description": "This 15bp duplication variant results in an expansion of a 20 residue polyalanine tract to a 25 residue polyalanine tract.",
     "criterion": {
-      "id": "PM4",
+      "id": "Crit311",
       "type": "Criterion",
+      "label": "PM4",
       "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
       "defaultStrength": {
-        "id": "CG-evidence-strength:pm"
-      }
+        "id": "ELSID143",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Moderate"
+      },
+      "comments": "Need to ensure that variant is not located within a repeat region\n\nThis rule is also (likely) applicable for frameshift variants that result in extension of the protein as opposed to truncation (similar to stop loss)."
     },
     "variant": {
       "id": "CanAll043",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll047",
-      "identifier": "http://reg.genome.network/allele/CA501224"
+      "preferredCtxAllele": {
+        "id": "CtxAll047",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll043",
+        "alleleName": "NM_003924.3(PHOX2B):c.753_767dup",
+        "produces": [
+          {
+            "id": "CtxAll048",
+            "type": "ContextualAllele",
+            "producedBy": "CtxAll047",
+            "relatedCanonicalAllele": "CanAll044",
+            "alleleName": "NP_003915.2:p.Ala260_Gly261insAlaAlaAlaAlaAla"
+          }
+        ]
+      }
     },
     "outcome": {
-      "id": "SEPIO:0000224",
-      "type": "Coding",
-      "code": "0000224",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Not Met"
+      "id": "CEID075",
+      "type": "CriterionEvaluation",
+      "label": "Not Met"
     },
     "evidenceLine": [
       {
@@ -37,54 +52,38 @@
             "contextualAllele": {
               "id": "CtxAll048",
               "type": "ContextualAllele",
-              "relatedCanonicalAllele": {
-                "id": "CanAll044",
-                "type": "CanonicalAllele",
-                "preferredCtxAllele": "CtxAll048",
-                "identifier": "http://reg.genome.network/allele/CA501225"
-              },
+              "producedBy": "CtxAll047",
+              "relatedCanonicalAllele": "CanAll044",
               "alleleName": "NP_003915.2:p.Ala260_Gly261insAlaAlaAlaAlaAla"
             },
             "consequence": {
-              "id": "CC060",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "SO:0001823",
-                  "type": "Coding",
-                  "code": "0001823",
-                  "system": "http://sequenceontology.org/",
-                  "display": "conservative Inframe Insertion"
-                }
-              ]
+              "id": "MCTID017",
+              "type": "MolecularConsequenceType",
+              "label": "conservative Inframe Insertion"
             }
           },
           {
             "id": "RegTyp077",
             "type": "RegionType",
-            "description": "NP_003915.2[241..260] is repeating.",
             "region": {
               "id": "Loc387",
               "type": "SequenceLocation",
               "referenceSequence": {
-                "id": "RefSeq007",
+                "id": "RefSeq293",
                 "type": "ReferenceSequence",
-                "accession": {
-                  "id": "NP_003915.2"
-                }
+                "accession": "NP_003915.2"
               },
               "start": 241,
               "stop": 260
             },
             "annotation": [
               {
-                "id": "SO:0000657",
-                "type": "Coding",
-                "code": "0000657",
-                "system": "http://sequenceontology.org/",
-                "display": "repeat region "
+                "id": "RATID035",
+                "type": "RegionAnnotationType",
+                "label": "repeat region "
               }
-            ]
+            ],
+            "description": "NP_003915.2[241..260] is repeating."
           }
         ]
       }
@@ -99,20 +98,13 @@
         },
         "contributionDate": "6/12/16 9:32 AM",
         "contributionRole": {
-          "id": "CC329",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
-    ]
+    ],
+    "description": "This 15bp duplication variant results in an expansion of a 20 residue polyalanine tract to a 25 residue polyalanine tract."
   },
   "index": 3,
   "author": "Tasha Strande",

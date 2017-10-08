@@ -4,12 +4,25 @@
   "informationId": {
     "id": "VarInterp274",
     "type": "VariantInterpretation",
-    "description": "The Trp2490_Leu2496del variant in DNAH5 leads to an in-frame deletion of 7 amino acids. This variant has been reported together with a second DNAH5 variant (Met2083Ile) in one individual with PCD and situs inversus (Berg 2011). In addition, this variant has been identified in trans configuration with a disease-causing variant in one affected proband (LMM unpublished data). Data from large population studies is insufficient to determine whether this variant is present in the general population. In summary, this variant is likely pathogenic, though additional studies are required to fully establish its clinical significance.",
     "variant": {
       "id": "CanAll035",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll039",
-      "identifier": "http://reg.genome.network/allele/CA090919"
+      "preferredCtxAllele": {
+        "id": "CtxAll039",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll035",
+        "alleleName": "NM_001369.2(DNAH5):c.7468_7488del",
+        "produces": [
+          {
+            "id": "CtxAll044",
+            "type": "ContextualAllele",
+            "producedBy": "CtxAll039",
+            "relatedCanonicalAllele": "CanAll040",
+            "alleleName": "NP_001360.1:p.Trp2490_Leu2496del"
+          }
+        ]
+      }
     },
     "condition": [
       {
@@ -17,37 +30,31 @@
         "type": "GeneticCondition",
         "disease": [
           {
-            "id": "Orphanet:244",
-            "type": "Coding",
-            "code": "244",
-            "system": "http://www.orpha.net/",
-            "display": "Primary ciliary dyskenisia"
+            "id": "DisID163",
+            "type": "Disease",
+            "label": "Primary ciliary dyskenisia"
           }
         ],
         "modeOfInheritance": {
-          "id": "HP:0000007",
-          "type": "Coding",
-          "code": "0000007",
-          "system": "http://human-phenotype-ontology.github.io/",
-          "display": "Autosomal Recessive"
+          "id": "MOIID052",
+          "type": "ModeOfInheritance",
+          "label": "Autosomal Recessive"
         }
       }
     ],
     "outcome": {
-      "id": "LN:LA26332-9",
-      "type": "Coding",
-      "code": "LA26332-9",
-      "system": "http://loinc.org/",
-      "display": "Likely Pathogenic"
+      "id": "SIGID028",
+      "type": "Significance",
+      "label": "Likely Pathogenic"
     },
     "assertionMethod": {
-      "id": "AssertMeth001",
+      "id": "AssertMeth331",
       "type": "AssertionMethod",
       "description": "ACMG ISV guidelines 2015",
       "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
       "version": "1.0",
       "scoringAlgorithm": {
-        "id": "ScorAlg01",
+        "id": "ScorAlg332",
         "type": "ScoringAlgorithm",
         "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance."
       }
@@ -60,27 +67,42 @@
           {
             "id": "CritAssess305",
             "type": "CriterionAssessment",
-            "description": "while the variant is absent from exac, however\n1) very low coverage across this region (~5X) and usually 20X is used as a cut-off to say “absent”\n2) variant is 21 nt deletion - databases may not be able to call a variant of that size (I rarely see an indel of this size in ExAC).",
             "criterion": {
-              "id": "PM2",
+              "id": "Crit309",
               "type": "Criterion",
+              "label": "PM2",
               "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
               "defaultStrength": {
-                "id": "CG-evidence-strength:pm"
-              }
+                "id": "ELSID143",
+                "type": "EvidenceLineStrength",
+                "label": "Pathogenic Moderate"
+              },
+              "comments": "Some groups are allowing to rule to be used if even not 100% absent\nFor instance, Cardio has allowed PM2 to be used if MAF is <0.05% with 95% CI if\nCI lower is ~0.00% (at 2 decimal places) AND CI upper is below 0.05%\n Caveat: Population data for insertions/deletions may be poorly called by next-generation sequencing"
             },
             "variant": {
               "id": "CanAll035",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll039",
-              "identifier": "http://reg.genome.network/allele/CA090919"
+              "preferredCtxAllele": {
+                "id": "CtxAll039",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll035",
+                "alleleName": "NM_001369.2(DNAH5):c.7468_7488del",
+                "produces": [
+                  {
+                    "id": "CtxAll044",
+                    "type": "ContextualAllele",
+                    "producedBy": "CtxAll039",
+                    "relatedCanonicalAllele": "CanAll040",
+                    "alleleName": "NP_001360.1:p.Trp2490_Leu2496del"
+                  }
+                ]
+              }
             },
             "outcome": {
-              "id": "SEPIO:0000224",
-              "type": "Coding",
-              "code": "0000224",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "Not Met"
+              "id": "CEID075",
+              "type": "CriterionEvaluation",
+              "label": "Not Met"
             },
             "evidenceLine": [
               {
@@ -91,36 +113,34 @@
                     "id": "AllFreq082",
                     "type": "AlleleFrequency",
                     "ascertainment": {
-                      "id": "CC032",
-                      "type": "CodeableConcept",
-                      "coding": [
-                        {
-                          "id": "SEPIO:0000332",
-                          "type": "Coding",
-                          "code": "0000332",
-                          "system": "http://obofoundry.org/sepio/",
-                          "display": "ExAc ascertainment method"
-                        }
-                      ]
+                      "id": "AsctTID203",
+                      "type": "AscertainmentType",
+                      "label": "ExAc ascertainment method"
                     },
                     "population": {
-                      "id": "CC067",
-                      "type": "CodeableConcept",
-                      "coding": [
-                        {
-                          "id": "CG-population-type:combined",
-                          "type": "Coding",
-                          "code": "combined",
-                          "system": "http://clinicalgenome.org/datamodel/population-type/",
-                          "display": "Combined"
-                        }
-                      ]
+                      "id": "PTID093",
+                      "type": "PopulationType",
+                      "label": "Combined"
                     },
                     "allele": {
                       "id": "CanAll035",
                       "type": "CanonicalAllele",
-                      "preferredCtxAllele": "CtxAll039",
-                      "identifier": "http://reg.genome.network/allele/CA090919"
+                      "preferredCtxAllele": {
+                        "id": "CtxAll039",
+                        "type": "ContextualAllele",
+                        "producedBy": null,
+                        "relatedCanonicalAllele": "CanAll035",
+                        "alleleName": "NM_001369.2(DNAH5):c.7468_7488del",
+                        "produces": [
+                          {
+                            "id": "CtxAll044",
+                            "type": "ContextualAllele",
+                            "producedBy": "CtxAll039",
+                            "relatedCanonicalAllele": "CanAll040",
+                            "alleleName": "NP_001360.1:p.Trp2490_Leu2496del"
+                          }
+                        ]
+                      }
                     },
                     "alleleCount": 0,
                     "alleleFrequency": 0.0,
@@ -135,17 +155,9 @@
                         },
                         "contributionDate": "6/1/16 2:15 PM",
                         "contributionRole": {
-                          "id": "CC390",
-                          "type": "CodeableConcept",
-                          "coding": [
-                            {
-                              "id": "SEPIO:0000156",
-                              "type": "Coding",
-                              "code": "0000156",
-                              "system": "http://obofoundry.org/sepio/",
-                              "display": "curator role"
-                            }
-                          ]
+                          "id": "CRID194",
+                          "type": "ContributoryRole",
+                          "label": "curator role"
                         }
                       }
                     ],
@@ -166,17 +178,9 @@
                 },
                 "contributionDate": "7/1/16 10:53 AM",
                 "contributionRole": {
-                  "id": "CC333",
-                  "type": "CodeableConcept",
-                  "coding": [
-                    {
-                      "id": "SEPIO:0000154",
-                      "type": "Coding",
-                      "code": "0000154",
-                      "system": "http://obofoundry.org/sepio/",
-                      "display": "assessor role"
-                    }
-                  ]
+                  "id": "CRID193",
+                  "type": "ContributoryRole",
+                  "label": "assessor role"
                 }
               },
               {
@@ -188,34 +192,19 @@
                 },
                 "contributionDate": "7/1/16 10:53 AM",
                 "contributionRole": {
-                  "id": "CC334",
-                  "type": "CodeableConcept",
-                  "coding": [
-                    {
-                      "id": "SEPIO:0000154",
-                      "type": "Coding",
-                      "code": "0000154",
-                      "system": "http://obofoundry.org/sepio/",
-                      "display": "assessor role"
-                    }
-                  ]
+                  "id": "CRID193",
+                  "type": "ContributoryRole",
+                  "label": "assessor role"
                 }
               }
-            ]
+            ],
+            "description": "while the variant is absent from exac, however\n1) very low coverage across this region (~5X) and usually 20X is used as a cut-off to say “absent”\n2) variant is 21 nt deletion - databases may not be able to call a variant of that size (I rarely see an indel of this size in ExAC)."
           }
         ],
         "evidenceStrength": {
-          "id": "CC441",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000218",
-              "type": "Coding",
-              "code": "0000218",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "None"
-            }
-          ]
+          "id": "ELSID142",
+          "type": "EvidenceLineStrength",
+          "label": "None"
         },
         "contribution": [
           {
@@ -227,17 +216,9 @@
             },
             "contributionDate": "7/1/16 10:53 AM",
             "contributionRole": {
-              "id": "CC424",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "SEPIO:0000154",
-                  "type": "Coding",
-                  "code": "0000154",
-                  "system": "http://obofoundry.org/sepio/",
-                  "display": "assessor role"
-                }
-              ]
+              "id": "CRID193",
+              "type": "ContributoryRole",
+              "label": "assessor role"
             }
           },
           {
@@ -249,17 +230,9 @@
             },
             "contributionDate": "7/1/16 10:53 AM",
             "contributionRole": {
-              "id": "CC425",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "SEPIO:0000154",
-                  "type": "Coding",
-                  "code": "0000154",
-                  "system": "http://obofoundry.org/sepio/",
-                  "display": "assessor role"
-                }
-              ]
+              "id": "CRID193",
+              "type": "ContributoryRole",
+              "label": "assessor role"
             }
           }
         ]
@@ -272,18 +245,36 @@
             "id": "CritAssess296",
             "type": "CriterionAssessment",
             "criterion": {
-              "id": "PM3",
+              "id": "Crit310",
               "type": "Criterion",
+              "label": "PM3",
               "description": "For recessive disorders, detected in trans with a pathogenic variant",
               "defaultStrength": {
-                "id": "CG-evidence-strength:pm"
-              }
+                "id": "ELSID143",
+                "type": "EvidenceLineStrength",
+                "label": "Pathogenic Moderate"
+              },
+              "comments": "CSER - Laboratories discussed when to modify the strength of PM3, the variant is seen in trans with a pathogenic variant for recessive disorders. Published literature may not always explicitly state the phase of variants found in affected individuals which raises a challenge for invoking PM3.\nWhen phase has not been established, some felt that PM3 could be invoked as supporting evidence. Also, if the variant is seen in trans with a pathogenic variant in more than one individual it was felt that PM3 can be upgraded to strong. However, sites did not agree on how many additional observations were necessary to call the evidence strong (2 vs. 3) but concluded that such guidance would be useful.\n \nLMM - INCREASES IN STRENGTH IF VARIANT SEEN IN MULTIPLE COMPOUND HETS WITH DIFFERENT LIKELY PATHOGENIC/PATHOGENIC VARIANTS"
             },
             "variant": {
               "id": "CanAll035",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll039",
-              "identifier": "http://reg.genome.network/allele/CA090919"
+              "preferredCtxAllele": {
+                "id": "CtxAll039",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll035",
+                "alleleName": "NM_001369.2(DNAH5):c.7468_7488del",
+                "produces": [
+                  {
+                    "id": "CtxAll044",
+                    "type": "ContextualAllele",
+                    "producedBy": "CtxAll039",
+                    "relatedCanonicalAllele": "CanAll040",
+                    "alleleName": "NP_001360.1:p.Trp2490_Leu2496del"
+                  }
+                ]
+              }
             },
             "condition": [
               {
@@ -291,28 +282,22 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "Orphanet:244",
-                    "type": "Coding",
-                    "code": "244",
-                    "system": "http://www.orpha.net/",
-                    "display": "Primary ciliary dyskenisia"
+                    "id": "DisID163",
+                    "type": "Disease",
+                    "label": "Primary ciliary dyskenisia"
                   }
                 ],
                 "modeOfInheritance": {
-                  "id": "HP:0000007",
-                  "type": "Coding",
-                  "code": "0000007",
-                  "system": "http://human-phenotype-ontology.github.io/",
-                  "display": "Autosomal Recessive"
+                  "id": "MOIID052",
+                  "type": "ModeOfInheritance",
+                  "label": "Autosomal Recessive"
                 }
               }
             ],
             "outcome": {
-              "id": "SEPIO:0000223",
-              "type": "Coding",
-              "code": "0000223",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "Met"
+              "id": "CEID074",
+              "type": "CriterionEvaluation",
+              "label": "Met"
             },
             "evidenceLine": [
               {
@@ -323,7 +308,7 @@
                     "id": "IndCond056",
                     "type": "IndividualCondition",
                     "individual": {
-                      "id": "Indiv004",
+                      "id": "Indiv336",
                       "type": "Individual",
                       "description": "individual #004"
                     },
@@ -334,37 +319,29 @@
                         "name": "PCD autosomal recessive w/ outer dynein arm (ODA) defects",
                         "disease": [
                           {
-                            "id": "Orphanet:244",
-                            "type": "Coding",
-                            "code": "244",
-                            "system": "http://www.orpha.net/",
-                            "display": "Primary ciliary dyskenisia"
+                            "id": "DisID163",
+                            "type": "Disease",
+                            "label": "Primary ciliary dyskenisia"
                           }
                         ],
                         "modeOfInheritance": {
-                          "id": "HP:0000007",
-                          "type": "Coding",
-                          "code": "0000007",
-                          "system": "http://human-phenotype-ontology.github.io/",
-                          "display": "Autosomal Recessive"
+                          "id": "MOIID052",
+                          "type": "ModeOfInheritance",
+                          "label": "Autosomal Recessive"
                         },
                         "phenotype": [
                           {
-                            "id": "HP:0200106",
-                            "type": "Coding",
-                            "code": "0200106",
-                            "system": "http://human-phenotype-ontology.github.io/",
-                            "display": "Absent/shortened dynein arms"
+                            "id": "PhenID191",
+                            "type": "Phenotype",
+                            "label": "Absent/shortened dynein arms"
                           }
                         ]
                       }
                     ],
                     "individualHasCondition": {
-                      "id": "SEPIO-CG:99009",
-                      "type": "Coding",
-                      "code": "99009",
-                      "system": "http://obofoundry.org/sepio/clingen",
-                      "display": "affected"
+                      "id": "CondStID218",
+                      "type": "ConditionStatus",
+                      "label": "affected"
                     },
                     "contribution": [
                       {
@@ -376,17 +353,9 @@
                         },
                         "contributionDate": "5/31/16 8:46 AM",
                         "contributionRole": {
-                          "id": "CC385",
-                          "type": "CodeableConcept",
-                          "coding": [
-                            {
-                              "id": "SEPIO:0000156",
-                              "type": "Coding",
-                              "code": "0000156",
-                              "system": "http://obofoundry.org/sepio/",
-                              "display": "curator role"
-                            }
-                          ]
+                          "id": "CRID194",
+                          "type": "ContributoryRole",
+                          "label": "curator role"
                         }
                       }
                     ],
@@ -400,8 +369,13 @@
                     "variant": {
                       "id": "CanAll036",
                       "type": "CanonicalAllele",
-                      "preferredCtxAllele": "CtxAll040",
-                      "identifier": "http://reg.genome.network/allele/CA273615"
+                      "preferredCtxAllele": {
+                        "id": "CtxAll040",
+                        "type": "ContextualAllele",
+                        "producedBy": null,
+                        "relatedCanonicalAllele": "CanAll036",
+                        "alleleName": "NM_001369.2(DNAH5):c.9449delG"
+                      }
                     },
                     "condition": [
                       {
@@ -409,28 +383,22 @@
                         "type": "GeneticCondition",
                         "disease": [
                           {
-                            "id": "Orphanet:244",
-                            "type": "Coding",
-                            "code": "244",
-                            "system": "http://www.orpha.net/",
-                            "display": "Primary ciliary dyskenisia"
+                            "id": "DisID163",
+                            "type": "Disease",
+                            "label": "Primary ciliary dyskenisia"
                           }
                         ],
                         "modeOfInheritance": {
-                          "id": "HP:0000007",
-                          "type": "Coding",
-                          "code": "0000007",
-                          "system": "http://human-phenotype-ontology.github.io/",
-                          "display": "Autosomal Recessive"
+                          "id": "MOIID052",
+                          "type": "ModeOfInheritance",
+                          "label": "Autosomal Recessive"
                         }
                       }
                     ],
                     "outcome": {
-                      "id": "LN:LA6668-3",
-                      "type": "Coding",
-                      "code": "LA6668-3",
-                      "system": "http://loinc.org/",
-                      "display": "Pathogenic"
+                      "id": "SIGID031",
+                      "type": "Significance",
+                      "label": "Pathogenic"
                     },
                     "contribution": [
                       {
@@ -442,17 +410,9 @@
                         },
                         "contributionDate": "5/31/16 11:01 AM",
                         "contributionRole": {
-                          "id": "CC387",
-                          "type": "CodeableConcept",
-                          "coding": [
-                            {
-                              "id": "SEPIO:0000331",
-                              "type": "Coding",
-                              "code": "0000331",
-                              "system": "http://obofoundry.org/sepio/",
-                              "display": "interpreter role"
-                            }
-                          ]
+                          "id": "CRID196",
+                          "type": "ContributoryRole",
+                          "label": "interpreter role"
                         }
                       }
                     ],
@@ -463,44 +423,56 @@
                   {
                     "id": "IndAll058",
                     "type": "IndividualAllele",
-                    "description": "Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband.",
                     "individual": {
-                      "id": "Indiv004",
+                      "id": "Indiv336",
                       "type": "Individual",
                       "description": "individual #004"
                     },
                     "primaryAllele": {
                       "id": "CanAll035",
                       "type": "CanonicalAllele",
-                      "preferredCtxAllele": "CtxAll039",
-                      "identifier": "http://reg.genome.network/allele/CA090919"
+                      "preferredCtxAllele": {
+                        "id": "CtxAll039",
+                        "type": "ContextualAllele",
+                        "producedBy": null,
+                        "relatedCanonicalAllele": "CanAll035",
+                        "alleleName": "NM_001369.2(DNAH5):c.7468_7488del",
+                        "produces": [
+                          {
+                            "id": "CtxAll044",
+                            "type": "ContextualAllele",
+                            "producedBy": "CtxAll039",
+                            "relatedCanonicalAllele": "CanAll040",
+                            "alleleName": "NP_001360.1:p.Trp2490_Leu2496del"
+                          }
+                        ]
+                      }
                     },
                     "secondaryAllele": {
                       "id": "CanAll036",
                       "type": "CanonicalAllele",
-                      "preferredCtxAllele": "CtxAll040",
-                      "identifier": "http://reg.genome.network/allele/CA273615"
+                      "preferredCtxAllele": {
+                        "id": "CtxAll040",
+                        "type": "ContextualAllele",
+                        "producedBy": null,
+                        "relatedCanonicalAllele": "CanAll036",
+                        "alleleName": "NM_001369.2(DNAH5):c.9449delG"
+                      }
                     },
                     "primaryZygosity": {
-                      "id": "GENO:0000135",
-                      "type": "Coding",
-                      "code": "0000135",
-                      "system": "http://obofoundry.org/geno/",
-                      "display": "heterozygous"
+                      "id": "ASID041",
+                      "type": "AllelicState",
+                      "label": "heterozygous"
                     },
                     "secondaryZygosity": {
-                      "id": "GENO:0000135",
-                      "type": "Coding",
-                      "code": "0000135",
-                      "system": "http://obofoundry.org/geno/",
-                      "display": "heterozygous"
+                      "id": "ASID041",
+                      "type": "AllelicState",
+                      "label": "heterozygous"
                     },
                     "phase": {
-                      "id": "GENO:0000132",
-                      "type": "Coding",
-                      "code": "0000132",
-                      "system": "http://obofoundry.org/geno/",
-                      "display": "in trans"
+                      "id": "PHZID037",
+                      "type": "Phase",
+                      "label": "in trans"
                     },
                     "contribution": [
                       {
@@ -512,23 +484,16 @@
                         },
                         "contributionDate": "5/31/16 9:15 AM",
                         "contributionRole": {
-                          "id": "CC386",
-                          "type": "CodeableConcept",
-                          "coding": [
-                            {
-                              "id": "SEPIO:0000156",
-                              "type": "Coding",
-                              "code": "0000156",
-                              "system": "http://obofoundry.org/sepio/",
-                              "display": "curator role"
-                            }
-                          ]
+                          "id": "CRID194",
+                          "type": "ContributoryRole",
+                          "label": "curator role"
                         }
                       }
                     ],
                     "source": [
                       "http://partners.org/ppm/lmm/gi/case/123"
-                    ]
+                    ],
+                    "description": "Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband."
                   }
                 ]
               }
@@ -543,34 +508,18 @@
                 },
                 "contributionDate": "6/2/16 8:01 AM",
                 "contributionRole": {
-                  "id": "CC324",
-                  "type": "CodeableConcept",
-                  "coding": [
-                    {
-                      "id": "SEPIO:0000154",
-                      "type": "Coding",
-                      "code": "0000154",
-                      "system": "http://obofoundry.org/sepio/",
-                      "display": "assessor role"
-                    }
-                  ]
+                  "id": "CRID193",
+                  "type": "ContributoryRole",
+                  "label": "assessor role"
                 }
               }
             ]
           }
         ],
         "evidenceStrength": {
-          "id": "CC442",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000216",
-              "type": "Coding",
-              "code": "0000216",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "Pathogenic Moderate"
-            }
-          ]
+          "id": "ELSID143",
+          "type": "EvidenceLineStrength",
+          "label": "Pathogenic Moderate"
         },
         "contribution": [
           {
@@ -582,17 +531,9 @@
             },
             "contributionDate": "6/2/16 8:01 AM",
             "contributionRole": {
-              "id": "CC426",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "SEPIO:0000154",
-                  "type": "Coding",
-                  "code": "0000154",
-                  "system": "http://obofoundry.org/sepio/",
-                  "display": "assessor role"
-                }
-              ]
+              "id": "CRID193",
+              "type": "ContributoryRole",
+              "label": "assessor role"
             }
           }
         ]
@@ -604,27 +545,42 @@
           {
             "id": "CritAssess299",
             "type": "CriterionAssessment",
-            "description": "leads to an in-frame deletion of 7 amino acids (not repeat region).",
             "criterion": {
-              "id": "PM4",
+              "id": "Crit311",
               "type": "Criterion",
+              "label": "PM4",
               "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
               "defaultStrength": {
-                "id": "CG-evidence-strength:pm"
-              }
+                "id": "ELSID143",
+                "type": "EvidenceLineStrength",
+                "label": "Pathogenic Moderate"
+              },
+              "comments": "Need to ensure that variant is not located within a repeat region\n\nThis rule is also (likely) applicable for frameshift variants that result in extension of the protein as opposed to truncation (similar to stop loss)."
             },
             "variant": {
               "id": "CanAll035",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll039",
-              "identifier": "http://reg.genome.network/allele/CA090919"
+              "preferredCtxAllele": {
+                "id": "CtxAll039",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll035",
+                "alleleName": "NM_001369.2(DNAH5):c.7468_7488del",
+                "produces": [
+                  {
+                    "id": "CtxAll044",
+                    "type": "ContextualAllele",
+                    "producedBy": "CtxAll039",
+                    "relatedCanonicalAllele": "CanAll040",
+                    "alleleName": "NP_001360.1:p.Trp2490_Leu2496del"
+                  }
+                ]
+              }
             },
             "outcome": {
-              "id": "SEPIO:0000223",
-              "type": "Coding",
-              "code": "0000223",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "Met"
+              "id": "CEID074",
+              "type": "CriterionEvaluation",
+              "label": "Met"
             },
             "evidenceLine": [
               {
@@ -637,26 +593,14 @@
                     "contextualAllele": {
                       "id": "CtxAll044",
                       "type": "ContextualAllele",
-                      "relatedCanonicalAllele": {
-                        "id": "CanAll040",
-                        "type": "CanonicalAllele",
-                        "preferredCtxAllele": "CtxAll044",
-                        "identifier": "http://reg.genome.network/allele/CA273136"
-                      },
+                      "producedBy": "CtxAll039",
+                      "relatedCanonicalAllele": "CanAll040",
                       "alleleName": "NP_001360.1:p.Trp2490_Leu2496del"
                     },
                     "consequence": {
-                      "id": "CC054",
-                      "type": "CodeableConcept",
-                      "coding": [
-                        {
-                          "id": "SO:0001825",
-                          "type": "Coding",
-                          "code": "0001825",
-                          "system": "http://sequenceontology.org/",
-                          "display": "conservative Inframe Deletion"
-                        }
-                      ]
+                      "id": "MCTID019",
+                      "type": "MolecularConsequenceType",
+                      "label": "conservative Inframe Deletion"
                     },
                     "contribution": [
                       {
@@ -668,17 +612,9 @@
                         },
                         "contributionDate": "6/1/16 2:03 PM",
                         "contributionRole": {
-                          "id": "CC388",
-                          "type": "CodeableConcept",
-                          "coding": [
-                            {
-                              "id": "SEPIO:0000156",
-                              "type": "Coding",
-                              "code": "0000156",
-                              "system": "http://obofoundry.org/sepio/",
-                              "display": "curator role"
-                            }
-                          ]
+                          "id": "CRID194",
+                          "type": "ContributoryRole",
+                          "label": "curator role"
                         }
                       }
                     ],
@@ -689,27 +625,22 @@
                   {
                     "id": "ExclRegTyp069",
                     "type": "ExcludedRegionType",
-                    "description": "This is not a repreating region.",
                     "region": {
                       "id": "Loc385",
                       "type": "SequenceLocation",
                       "referenceSequence": {
-                        "id": "RefSeq005",
+                        "id": "RefSeq291",
                         "type": "ReferenceSequence",
-                        "accession": {
-                          "id": "NP_001360.1"
-                        }
+                        "accession": "NP_001360.1"
                       },
                       "start": 2490,
                       "stop": 2496
                     },
                     "annotation": [
                       {
-                        "id": "SO:0000657",
-                        "type": "Coding",
-                        "code": "0000657",
-                        "system": "http://sequenceontology.org/",
-                        "display": "repeat region "
+                        "id": "RATID035",
+                        "type": "RegionAnnotationType",
+                        "label": "repeat region "
                       }
                     ],
                     "contribution": [
@@ -722,23 +653,16 @@
                         },
                         "contributionDate": "6/1/16 2:10 PM",
                         "contributionRole": {
-                          "id": "CC389",
-                          "type": "CodeableConcept",
-                          "coding": [
-                            {
-                              "id": "SEPIO:0000156",
-                              "type": "Coding",
-                              "code": "0000156",
-                              "system": "http://obofoundry.org/sepio/",
-                              "display": "curator role"
-                            }
-                          ]
+                          "id": "CRID194",
+                          "type": "ContributoryRole",
+                          "label": "curator role"
                         }
                       }
                     ],
                     "source": [
                       "https://pcpgm.partners.org/lmm/alamut"
-                    ]
+                    ],
+                    "description": "This is not a repreating region."
                   }
                 ]
               }
@@ -753,34 +677,19 @@
                 },
                 "contributionDate": "6/12/16 7:30 AM",
                 "contributionRole": {
-                  "id": "CC327",
-                  "type": "CodeableConcept",
-                  "coding": [
-                    {
-                      "id": "SEPIO:0000154",
-                      "type": "Coding",
-                      "code": "0000154",
-                      "system": "http://obofoundry.org/sepio/",
-                      "display": "assessor role"
-                    }
-                  ]
+                  "id": "CRID193",
+                  "type": "ContributoryRole",
+                  "label": "assessor role"
                 }
               }
-            ]
+            ],
+            "description": "leads to an in-frame deletion of 7 amino acids (not repeat region)."
           }
         ],
         "evidenceStrength": {
-          "id": "CC443",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000216",
-              "type": "Coding",
-              "code": "0000216",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "Pathogenic Moderate"
-            }
-          ]
+          "id": "ELSID143",
+          "type": "EvidenceLineStrength",
+          "label": "Pathogenic Moderate"
         },
         "contribution": [
           {
@@ -792,17 +701,9 @@
             },
             "contributionDate": "6/12/16 7:30 AM",
             "contributionRole": {
-              "id": "CC427",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "SEPIO:0000154",
-                  "type": "Coding",
-                  "code": "0000154",
-                  "system": "http://obofoundry.org/sepio/",
-                  "display": "assessor role"
-                }
-              ]
+              "id": "CRID193",
+              "type": "ContributoryRole",
+              "label": "assessor role"
             }
           }
         ]
@@ -818,20 +719,13 @@
         },
         "contributionDate": "6/26/2015 12:03 PM",
         "contributionRole": {
-          "id": "CC335",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000331",
-              "type": "Coding",
-              "code": "0000331",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "interpreter role"
-            }
-          ]
+          "id": "CRID196",
+          "type": "ContributoryRole",
+          "label": "interpreter role"
         }
       }
-    ]
+    ],
+    "description": "The Trp2490_Leu2496del variant in DNAH5 leads to an in-frame deletion of 7 amino acids. This variant has been reported together with a second DNAH5 variant (Met2083Ile) in one individual with PCD and situs inversus (Berg 2011). In addition, this variant has been identified in trans configuration with a disease-causing variant in one affected proband (LMM unpublished data). Data from large population studies is insufficient to determine whether this variant is present in the general population. In summary, this variant is likely pathogenic, though additional studies are required to fully establish its clinical significance."
   },
   "index": 1,
   "author": "Marina DiStefano",

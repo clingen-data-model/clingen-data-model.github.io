@@ -4,27 +4,33 @@
   "informationId": {
     "id": "CritAssess291",
     "type": "CriterionAssessment",
-    "description": "Variant is located in exon 15, which the RASopathy group has decided is an established functional domain for BRAF",
     "criterion": {
-      "id": "PM1",
+      "id": "Crit308",
       "type": "Criterion",
+      "label": "PM1",
       "description": "Located in a mutational hot spot and/or critical and well-established functional domain (e.g., active site of an enzyme) without benign variation",
       "defaultStrength": {
-        "id": "CG-evidence-strength:pm"
-      }
+        "id": "ELSID143",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Moderate"
+      },
+      "comments": "Suggested that this rule is NOT appropriate for LOF variants.\nAlso, note that when the region of interest is a “well-established functional domain” then it’s not necessary to show through evidence that it is intolerant of benign missense variants.  However, when a mutational hotspot is being defined, then showing it does not have benign missense variants is important."
     },
     "variant": {
       "id": "CanAll026",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll029",
-      "identifier": "http://reg.genome.network/allele/CA123651"
+      "preferredCtxAllele": {
+        "id": "CtxAll029",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll026",
+        "alleleName": "NM_004333.4(BRAF):c.1789C>G"
+      }
     },
     "outcome": {
-      "id": "SEPIO:0000223",
-      "type": "Coding",
-      "code": "0000223",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Met"
+      "id": "CEID074",
+      "type": "CriterionEvaluation",
+      "label": "Met"
     },
     "evidenceLine": [
       {
@@ -34,43 +40,36 @@
           {
             "id": "RegTyp043",
             "type": "RegionType",
-            "description": "This region is exon 15 in the transcript, and codes the serine-threonine-protein kinase catalytic domain.",
             "region": {
               "id": "Loc381",
               "type": "SequenceLocation",
               "referenceSequence": {
-                "id": "RefSeq003",
+                "id": "RefSeq289",
                 "type": "ReferenceSequence",
-                "accession": {
-                  "id": "NM_004333.4"
-                }
+                "accession": "NM_004333.4"
               },
               "start": 1803,
               "stop": 1921
             },
             "annotation": [
               {
-                "id": "SEPIO:0000320",
-                "type": "Coding",
-                "code": "0000320",
-                "system": "http://obofoundry.org/sepio/",
-                "display": "functional region"
+                "id": "RATID033",
+                "type": "RegionAnnotationType",
+                "label": "functional region"
               }
-            ]
+            ],
+            "description": "This region is exon 15 in the transcript, and codes the serine-threonine-protein kinase catalytic domain."
           },
           {
             "id": "RegAll382",
             "type": "RegionAlleles",
-            "description": "This region is exon 15 in the transcript, and codes the serine-threonine-protein kinase catalytic domain.",
             "region": {
               "id": "Loc381",
               "type": "SequenceLocation",
               "referenceSequence": {
-                "id": "RefSeq003",
+                "id": "RefSeq289",
                 "type": "ReferenceSequence",
-                "accession": {
-                  "id": "NM_004333.4"
-                }
+                "accession": "NM_004333.4"
               },
               "start": 1803,
               "stop": 1921
@@ -79,22 +78,17 @@
               {
                 "id": "CtxAll029",
                 "type": "ContextualAllele",
-                "relatedCanonicalAllele": {
-                  "id": "CanAll026",
-                  "type": "CanonicalAllele",
-                  "preferredCtxAllele": "CtxAll029",
-                  "identifier": "http://reg.genome.network/allele/CA123651"
-                },
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll026",
                 "alleleName": "NM_004333.4(BRAF):c.1789C>G"
               }
             ],
             "outcome": {
-              "id": "SEPIO-CG:99020",
-              "type": "Coding",
-              "code": "99020",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "included"
-            }
+              "id": "RegAID225",
+              "type": "RegionAllelesOutcome",
+              "label": "included"
+            },
+            "description": "This region is exon 15 in the transcript, and codes the serine-threonine-protein kinase catalytic domain."
           }
         ]
       }
@@ -109,17 +103,9 @@
         },
         "contributionDate": "6/6/16 10:53 AM",
         "contributionRole": {
-          "id": "CC318",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       },
       {
@@ -131,20 +117,13 @@
         },
         "contributionDate": "6/6/16 10:53 AM",
         "contributionRole": {
-          "id": "CC319",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
-    ]
+    ],
+    "description": "Variant is located in exon 15, which the RASopathy group has decided is an established functional domain for BRAF"
   },
   "index": 2,
   "author": "Steven Harrison",

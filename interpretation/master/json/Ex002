@@ -5,18 +5,27 @@
     "id": "CritAssess276",
     "type": "CriterionAssessment",
     "criterion": {
-      "id": "PVS1",
+      "id": "Crit303",
       "type": "Criterion",
+      "label": "PVS1",
       "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
       "defaultStrength": {
-        "id": "CG-evidence-strength:pvs"
-      }
+        "id": "ELSID146",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Very Strong"
+      },
+      "comments": "The two main concerns for applying this rule is:\na. Is LOF an established disease mechanism?\nb. Is LOF actually occurring?"
     },
     "variant": {
       "id": "CanAll002",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll002",
-      "identifier": "http://reg.genome.network/allele/CA090898"
+      "preferredCtxAllele": {
+        "id": "CtxAll002",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll002",
+        "alleleName": "NM_000059.3(BRCA2):c.7762_7764delinsTT"
+      }
     },
     "condition": [
       {
@@ -25,28 +34,22 @@
         "name": "Breast Ovarian Cancer, Autosomal Dominant",
         "disease": [
           {
-            "id": "MESH:D061325",
-            "type": "Coding",
-            "code": "D061325",
-            "system": "https://meshb.nlm.nih.gov/",
-            "display": "hereditary breast ovarian cancer"
+            "id": "DisID148",
+            "type": "Disease",
+            "label": "hereditary breast ovarian cancer"
           }
         ],
         "modeOfInheritance": {
-          "id": "HP:0000006",
-          "type": "Coding",
-          "code": "0000006",
-          "system": "http://human-phenotype-ontology.github.io/",
-          "display": "Autosomal Dominant"
+          "id": "MOIID051",
+          "type": "ModeOfInheritance",
+          "label": "Autosomal Dominant"
         }
       }
     ],
     "outcome": {
-      "id": "SEPIO:0000223",
-      "type": "Coding",
-      "code": "0000223",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Met"
+      "id": "CEID074",
+      "type": "CriterionEvaluation",
+      "label": "Met"
     },
     "evidenceLine": [
       {
@@ -56,31 +59,19 @@
           {
             "id": "MolCon003",
             "type": "MolecularConsequence",
-            "description": "LOF is predicted to occur as variant is >55bp from penultimate exon",
             "contextualAllele": {
               "id": "CtxAll002",
               "type": "ContextualAllele",
-              "relatedCanonicalAllele": {
-                "id": "CanAll002",
-                "type": "CanonicalAllele",
-                "preferredCtxAllele": "CtxAll002",
-                "identifier": "http://reg.genome.network/allele/CA090898"
-              },
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll002",
               "alleleName": "NM_000059.3(BRCA2):c.7762_7764delinsTT"
             },
             "consequence": {
-              "id": "CC004",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "SO:0001589",
-                  "type": "Coding",
-                  "code": "0001589",
-                  "system": "http://sequenceontology.org/",
-                  "display": "frameshift variant"
-                }
-              ]
-            }
+              "id": "MCTID014",
+              "type": "MolecularConsequenceType",
+              "label": "frameshift variant"
+            },
+            "description": "LOF is predicted to occur as variant is >55bp from penultimate exon"
           },
           {
             "id": "Null397",
@@ -88,43 +79,33 @@
             "contextualAllele": {
               "id": "CtxAll002",
               "type": "ContextualAllele",
-              "relatedCanonicalAllele": {
-                "id": "CanAll002",
-                "type": "CanonicalAllele",
-                "preferredCtxAllele": "CtxAll002",
-                "identifier": "http://reg.genome.network/allele/CA090898"
-              },
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll002",
               "alleleName": "NM_000059.3(BRCA2):c.7762_7764delinsTT"
             },
             "annotation": {
-              "id": "SO:0002054",
-              "type": "Coding",
-              "code": "0002054",
-              "system": "http://sequenceontology.org/",
-              "display": "loss of function variant"
+              "id": "MTID071",
+              "type": "MechanismType",
+              "label": "loss of function variant"
             }
           },
           {
             "id": "CondMech004",
             "type": "ConditionMechanism",
-            "description": "This is so well-known that it does not require a citation.",
             "mechanism": {
-              "id": "SO:0002054",
-              "type": "Coding",
-              "code": "0002054",
-              "system": "http://sequenceontology.org/",
-              "display": "loss of function variant"
+              "id": "MTID071",
+              "type": "MechanismType",
+              "label": "loss of function variant"
             },
             "mechanismConfidence": {
-              "id": "SEPIO:0000269",
-              "type": "Coding",
-              "code": "0000269",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "established"
+              "id": "CMSID134",
+              "type": "ConditionMechanismStrength",
+              "label": "established"
             },
             "gene": {
-              "id": "hgnc:BRCA2",
-              "type": "Gene"
+              "id": "G228",
+              "type": "Gene",
+              "geneSymbol": "BRCA2"
             },
             "condition": {
               "id": "GenCond001",
@@ -132,21 +113,18 @@
               "name": "Breast Ovarian Cancer, Autosomal Dominant",
               "disease": [
                 {
-                  "id": "MESH:D061325",
-                  "type": "Coding",
-                  "code": "D061325",
-                  "system": "https://meshb.nlm.nih.gov/",
-                  "display": "hereditary breast ovarian cancer"
+                  "id": "DisID148",
+                  "type": "Disease",
+                  "label": "hereditary breast ovarian cancer"
                 }
               ],
               "modeOfInheritance": {
-                "id": "HP:0000006",
-                "type": "Coding",
-                "code": "0000006",
-                "system": "http://human-phenotype-ontology.github.io/",
-                "display": "Autosomal Dominant"
+                "id": "MOIID051",
+                "type": "ModeOfInheritance",
+                "label": "Autosomal Dominant"
               }
-            }
+            },
+            "description": "This is so well-known that it does not require a citation."
           }
         ]
       }
@@ -161,17 +139,9 @@
         },
         "contributionDate": "6/2/16 12:15 PM",
         "contributionRole": {
-          "id": "CC299",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
     ]

@@ -1,27 +1,42 @@
 {
   "id": "CritAssess286",
   "type": "CriterionAssessment",
-  "description": "The RASopathy group considers MEK and ERK activation assays as well validated.",
   "criterion": {
-    "id": "PS3",
+    "id": "Crit306",
     "type": "Criterion",
+    "label": "PS3",
     "description": "Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product",
     "defaultStrength": {
-      "id": "CG-evidence-strength:ps"
-    }
+      "id": "ELSID145",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Strong"
+    },
+    "comments": "This particular rule will probably be downgraded often, given that there are not many “Functional studies that have been validated and shown to be reproducible and robust in a clinical diagnostic laboratory setting”"
   },
   "variant": {
     "id": "CanAll020",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll023",
-    "identifier": "http://reg.genome.network/allele/CA220161"
+    "preferredCtxAllele": {
+      "id": "CtxAll023",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll020",
+      "alleleName": "NM_004333.4(BRAF):c.1787G>T",
+      "produces": [
+        {
+          "id": "CtxAll024",
+          "type": "ContextualAllele",
+          "producedBy": "CtxAll023",
+          "relatedCanonicalAllele": "CanAll021",
+          "alleleName": "NP_004324.2:p.Gly596Val"
+        }
+      ]
+    }
   },
   "outcome": {
-    "id": "SEPIO:0000223",
-    "type": "Coding",
-    "code": "0000223",
-    "system": "http://obofoundry.org/sepio/",
-    "display": "Met"
+    "id": "CEID074",
+    "type": "CriterionEvaluation",
+    "label": "Met"
   },
   "evidenceLine": [
     {
@@ -33,32 +48,21 @@
           "type": "AlleleFunctionalImpact",
           "resultDescription": "abnormal/deceased MEK activtation.",
           "assayType": {
-            "id": "CC020",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "OBI:XXXXXX1",
-                "type": "Coding",
-                "code": "XXXXXX1",
-                "system": "http://purl.obolibrary.org/obo/OBI_",
-                "display": "Activation Assay"
-              }
-            ]
+            "id": "AFITID076",
+            "type": "AlleleFunctionalImpactType",
+            "label": "Activation Assay"
           },
           "contextualAllele": {
             "id": "CtxAll024",
             "type": "ContextualAllele",
-            "relatedCanonicalAllele": {
-              "id": "CanAll021",
-              "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll024",
-              "identifier": "http://reg.genome.network/allele/CA093846"
-            },
+            "producedBy": "CtxAll023",
+            "relatedCanonicalAllele": "CanAll021",
             "alleleName": "NP_004324.2:p.Gly596Val"
           },
           "gene": {
-            "id": "hgnc:MEK",
-            "type": "Gene"
+            "id": "G240",
+            "type": "Gene",
+            "geneSymbol": "MEK"
           }
         }
       ]
@@ -72,32 +76,21 @@
           "type": "AlleleFunctionalImpact",
           "resultDescription": "abnormal/deceased ERK activtation.",
           "assayType": {
-            "id": "CC021",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "OBI:XXXXXX1",
-                "type": "Coding",
-                "code": "XXXXXX1",
-                "system": "http://purl.obolibrary.org/obo/OBI_",
-                "display": "Activation Assay"
-              }
-            ]
+            "id": "AFITID076",
+            "type": "AlleleFunctionalImpactType",
+            "label": "Activation Assay"
           },
           "contextualAllele": {
             "id": "CtxAll024",
             "type": "ContextualAllele",
-            "relatedCanonicalAllele": {
-              "id": "CanAll021",
-              "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll024",
-              "identifier": "http://reg.genome.network/allele/CA093846"
-            },
+            "producedBy": "CtxAll023",
+            "relatedCanonicalAllele": "CanAll021",
             "alleleName": "NP_004324.2:p.Gly596Val"
           },
           "gene": {
-            "id": "hgnc:ERK",
-            "type": "Gene"
+            "id": "G241",
+            "type": "Gene",
+            "geneSymbol": "ERK"
           }
         }
       ]
@@ -113,17 +106,9 @@
       },
       "contributionDate": "6/4/16 7:12 AM",
       "contributionRole": {
-        "id": "CC312",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     },
     {
@@ -135,18 +120,11 @@
       },
       "contributionDate": "6/4/16 7:12 AM",
       "contributionRole": {
-        "id": "CC313",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     }
-  ]
+  ],
+  "description": "The RASopathy group considers MEK and ERK activation assays as well validated."
 }

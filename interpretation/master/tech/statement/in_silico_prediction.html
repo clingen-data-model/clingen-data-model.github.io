@@ -154,7 +154,7 @@
             </tr>
             <tr>
                 <td>predictionType</td>
-                <td>CodeableConcept</td>
+                <td>PredictionType</td>
                 <td>1..1</td>
                 <td>The type of prediction being made</td>
                 <td>SEPIO:0000255</td>
@@ -247,10 +247,10 @@
               <p><a href="../details/details.html#CanAll118">CanAll118</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq011">RefSeq011</a></p>
+              <p><a href="../details/details.html#RefSeq297">RefSeq297</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC056">CC056</a></p>
+              <p><a href="../details/details.html#PredTID073">PredTID073</a></p>
          </td>
           <td>
               
@@ -265,34 +265,29 @@
           <td><div class="example_view" id="InSilicoPred068"><pre><code>{
   "id": "InSilicoPred068",
   "type": "InSilicoPrediction",
-  "description": "Provenance would show that this comes from Alamut",
   "transcript": {
-    "id": "RefSeq011",
+    "id": "RefSeq297",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000257.2"
-    }
+    "accession": "NM_000257.2"
   },
   "canonicalAllele": {
     "id": "CanAll118",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll124",
-    "identifier": "http://reg.genome.network/allele/CA013536"
+    "preferredCtxAllele": {
+      "id": "CtxAll124",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll118",
+      "alleleName": "NM_000257.2(MYH7):c.327C>T"
+    }
   },
   "predictionType": {
-    "id": "CC056",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000323",
-        "type": "Coding",
-        "code": "0000323",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "splicing prediction"
-      }
-    ]
+    "id": "PredTID073",
+    "type": "PredictionType",
+    "label": "splicing prediction"
   },
-  "categoricalPrediction": "no impact"
+  "categoricalPrediction": "no impact",
+  "description": "Provenance would show that this comes from Alamut"
 }
           </code></pre></div></td>
           -->
@@ -307,10 +302,10 @@
               <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq001">RefSeq001</a></p>
+              <p><a href="../details/details.html#RefSeq287">RefSeq287</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC074">CC074</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -326,30 +321,33 @@
   "id": "InSilicoPred120",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq001",
+    "id": "RefSeq287",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_005228.3"
-    }
+    "accession": "NM_005228.3",
+    "produces": [
+      {
+        "id": "RefSeq288",
+        "type": "ReferenceSequence",
+        "accession": "NP_005219.2",
+        "producedBy": "RefSeq287"
+      }
+    ]
   },
   "canonicalAllele": {
     "id": "CanAll067",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll071",
-    "identifier": "http://reg.genome.network/allele/CA090928"
+    "preferredCtxAllele": {
+      "id": "CtxAll071",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll067",
+      "alleleName": "NM_005228.3(EGFR):c.2369C>T"
+    }
   },
   "predictionType": {
-    "id": "CC074",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "SIFT",
   "categoricalPrediction": "Damaging"
@@ -367,10 +365,10 @@
               <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq001">RefSeq001</a></p>
+              <p><a href="../details/details.html#RefSeq287">RefSeq287</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC075">CC075</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -386,30 +384,33 @@
   "id": "InSilicoPred121",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq001",
+    "id": "RefSeq287",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_005228.3"
-    }
+    "accession": "NM_005228.3",
+    "produces": [
+      {
+        "id": "RefSeq288",
+        "type": "ReferenceSequence",
+        "accession": "NP_005219.2",
+        "producedBy": "RefSeq287"
+      }
+    ]
   },
   "canonicalAllele": {
     "id": "CanAll067",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll071",
-    "identifier": "http://reg.genome.network/allele/CA090928"
+    "preferredCtxAllele": {
+      "id": "CtxAll071",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll067",
+      "alleleName": "NM_005228.3(EGFR):c.2369C>T"
+    }
   },
   "predictionType": {
-    "id": "CC075",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "Polyphen",
   "categoricalPrediction": "Probably damaging"
@@ -427,10 +428,10 @@
               <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq001">RefSeq001</a></p>
+              <p><a href="../details/details.html#RefSeq287">RefSeq287</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC076">CC076</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -446,30 +447,33 @@
   "id": "InSilicoPred122",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq001",
+    "id": "RefSeq287",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_005228.3"
-    }
+    "accession": "NM_005228.3",
+    "produces": [
+      {
+        "id": "RefSeq288",
+        "type": "ReferenceSequence",
+        "accession": "NP_005219.2",
+        "producedBy": "RefSeq287"
+      }
+    ]
   },
   "canonicalAllele": {
     "id": "CanAll067",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll071",
-    "identifier": "http://reg.genome.network/allele/CA090928"
+    "preferredCtxAllele": {
+      "id": "CtxAll071",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll067",
+      "alleleName": "NM_005228.3(EGFR):c.2369C>T"
+    }
   },
   "predictionType": {
-    "id": "CC076",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "FATHMM",
   "categoricalPrediction": "Tolerated"
@@ -487,10 +491,10 @@
               <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq001">RefSeq001</a></p>
+              <p><a href="../details/details.html#RefSeq287">RefSeq287</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC077">CC077</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -506,30 +510,33 @@
   "id": "InSilicoPred123",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq001",
+    "id": "RefSeq287",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_005228.3"
-    }
+    "accession": "NM_005228.3",
+    "produces": [
+      {
+        "id": "RefSeq288",
+        "type": "ReferenceSequence",
+        "accession": "NP_005219.2",
+        "producedBy": "RefSeq287"
+      }
+    ]
   },
   "canonicalAllele": {
     "id": "CanAll067",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll071",
-    "identifier": "http://reg.genome.network/allele/CA090928"
+    "preferredCtxAllele": {
+      "id": "CtxAll071",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll067",
+      "alleleName": "NM_005228.3(EGFR):c.2369C>T"
+    }
   },
   "predictionType": {
-    "id": "CC077",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "LRT",
   "categoricalPrediction": "Damaging"
@@ -547,10 +554,10 @@
               <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq001">RefSeq001</a></p>
+              <p><a href="../details/details.html#RefSeq287">RefSeq287</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC078">CC078</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -566,30 +573,33 @@
   "id": "InSilicoPred124",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq001",
+    "id": "RefSeq287",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_005228.3"
-    }
+    "accession": "NM_005228.3",
+    "produces": [
+      {
+        "id": "RefSeq288",
+        "type": "ReferenceSequence",
+        "accession": "NP_005219.2",
+        "producedBy": "RefSeq287"
+      }
+    ]
   },
   "canonicalAllele": {
     "id": "CanAll067",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll071",
-    "identifier": "http://reg.genome.network/allele/CA090928"
+    "preferredCtxAllele": {
+      "id": "CtxAll071",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll067",
+      "alleleName": "NM_005228.3(EGFR):c.2369C>T"
+    }
   },
   "predictionType": {
-    "id": "CC078",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "MetaSVM",
   "categoricalPrediction": "Tolerated"
@@ -607,10 +617,10 @@
               <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq001">RefSeq001</a></p>
+              <p><a href="../details/details.html#RefSeq287">RefSeq287</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC079">CC079</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -626,30 +636,33 @@
   "id": "InSilicoPred125",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq001",
+    "id": "RefSeq287",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_005228.3"
-    }
+    "accession": "NM_005228.3",
+    "produces": [
+      {
+        "id": "RefSeq288",
+        "type": "ReferenceSequence",
+        "accession": "NP_005219.2",
+        "producedBy": "RefSeq287"
+      }
+    ]
   },
   "canonicalAllele": {
     "id": "CanAll067",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll071",
-    "identifier": "http://reg.genome.network/allele/CA090928"
+    "preferredCtxAllele": {
+      "id": "CtxAll071",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll067",
+      "alleleName": "NM_005228.3(EGFR):c.2369C>T"
+    }
   },
   "predictionType": {
-    "id": "CC079",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "Mutation assessor",
   "categoricalPrediction": "Tolerated"
@@ -667,10 +680,10 @@
               <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq001">RefSeq001</a></p>
+              <p><a href="../details/details.html#RefSeq287">RefSeq287</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC080">CC080</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -686,30 +699,33 @@
   "id": "InSilicoPred126",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq001",
+    "id": "RefSeq287",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_005228.3"
-    }
+    "accession": "NM_005228.3",
+    "produces": [
+      {
+        "id": "RefSeq288",
+        "type": "ReferenceSequence",
+        "accession": "NP_005219.2",
+        "producedBy": "RefSeq287"
+      }
+    ]
   },
   "canonicalAllele": {
     "id": "CanAll067",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll071",
-    "identifier": "http://reg.genome.network/allele/CA090928"
+    "preferredCtxAllele": {
+      "id": "CtxAll071",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll067",
+      "alleleName": "NM_005228.3(EGFR):c.2369C>T"
+    }
   },
   "predictionType": {
-    "id": "CC080",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "Mutation taster",
   "categoricalPrediction": "Disease-causing"
@@ -727,10 +743,10 @@
               <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq001">RefSeq001</a></p>
+              <p><a href="../details/details.html#RefSeq287">RefSeq287</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC081">CC081</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -746,30 +762,33 @@
   "id": "InSilicoPred127",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq001",
+    "id": "RefSeq287",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_005228.3"
-    }
+    "accession": "NM_005228.3",
+    "produces": [
+      {
+        "id": "RefSeq288",
+        "type": "ReferenceSequence",
+        "accession": "NP_005219.2",
+        "producedBy": "RefSeq287"
+      }
+    ]
   },
   "canonicalAllele": {
     "id": "CanAll067",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll071",
-    "identifier": "http://reg.genome.network/allele/CA090928"
+    "preferredCtxAllele": {
+      "id": "CtxAll071",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll067",
+      "alleleName": "NM_005228.3(EGFR):c.2369C>T"
+    }
   },
   "predictionType": {
-    "id": "CC081",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "Provean",
   "categoricalPrediction": "Damaging"
@@ -787,10 +806,10 @@
               <p><a href="../details/details.html#CanAll067">CanAll067</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq001">RefSeq001</a></p>
+              <p><a href="../details/details.html#RefSeq287">RefSeq287</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC082">CC082</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -806,30 +825,33 @@
   "id": "InSilicoPred128",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq001",
+    "id": "RefSeq287",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_005228.3"
-    }
+    "accession": "NM_005228.3",
+    "produces": [
+      {
+        "id": "RefSeq288",
+        "type": "ReferenceSequence",
+        "accession": "NP_005219.2",
+        "producedBy": "RefSeq287"
+      }
+    ]
   },
   "canonicalAllele": {
     "id": "CanAll067",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll071",
-    "identifier": "http://reg.genome.network/allele/CA090928"
+    "preferredCtxAllele": {
+      "id": "CtxAll071",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll067",
+      "alleleName": "NM_005228.3(EGFR):c.2369C>T"
+    }
   },
   "predictionType": {
-    "id": "CC082",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "Condel",
   "categoricalPrediction": "deleterious"
@@ -847,10 +869,10 @@
               <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq012">RefSeq012</a></p>
+              <p><a href="../details/details.html#RefSeq298">RefSeq298</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC083">CC083</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -866,30 +888,25 @@
   "id": "InSilicoPred129",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq012",
+    "id": "RefSeq298",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "ENST00000566221.5"
-    }
+    "accession": "ENST00000566221.5"
   },
   "canonicalAllele": {
     "id": "CanAll068",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll072",
-    "identifier": "http://reg.genome.network/allele/CA090884"
+    "preferredCtxAllele": {
+      "id": "CtxAll072",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll068",
+      "alleleName": "NM_003119.3(SPG7):c.1529C>T"
+    }
   },
   "predictionType": {
-    "id": "CC083",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "SIFT",
   "categoricalPrediction": "deleterious"
@@ -907,10 +924,10 @@
               <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq012">RefSeq012</a></p>
+              <p><a href="../details/details.html#RefSeq298">RefSeq298</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC084">CC084</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -926,30 +943,25 @@
   "id": "InSilicoPred130",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq012",
+    "id": "RefSeq298",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "ENST00000566221.5"
-    }
+    "accession": "ENST00000566221.5"
   },
   "canonicalAllele": {
     "id": "CanAll068",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll072",
-    "identifier": "http://reg.genome.network/allele/CA090884"
+    "preferredCtxAllele": {
+      "id": "CtxAll072",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll068",
+      "alleleName": "NM_003119.3(SPG7):c.1529C>T"
+    }
   },
   "predictionType": {
-    "id": "CC084",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "Polyphen",
   "categoricalPrediction": "Probably damaging"
@@ -967,10 +979,10 @@
               <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq012">RefSeq012</a></p>
+              <p><a href="../details/details.html#RefSeq298">RefSeq298</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC085">CC085</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -986,30 +998,25 @@
   "id": "InSilicoPred131",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq012",
+    "id": "RefSeq298",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "ENST00000566221.5"
-    }
+    "accession": "ENST00000566221.5"
   },
   "canonicalAllele": {
     "id": "CanAll068",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll072",
-    "identifier": "http://reg.genome.network/allele/CA090884"
+    "preferredCtxAllele": {
+      "id": "CtxAll072",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll068",
+      "alleleName": "NM_003119.3(SPG7):c.1529C>T"
+    }
   },
   "predictionType": {
-    "id": "CC085",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "FATHMM",
   "categoricalPrediction": "Damaging"
@@ -1027,10 +1034,10 @@
               <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq012">RefSeq012</a></p>
+              <p><a href="../details/details.html#RefSeq298">RefSeq298</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC086">CC086</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -1046,30 +1053,25 @@
   "id": "InSilicoPred132",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq012",
+    "id": "RefSeq298",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "ENST00000566221.5"
-    }
+    "accession": "ENST00000566221.5"
   },
   "canonicalAllele": {
     "id": "CanAll068",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll072",
-    "identifier": "http://reg.genome.network/allele/CA090884"
+    "preferredCtxAllele": {
+      "id": "CtxAll072",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll068",
+      "alleleName": "NM_003119.3(SPG7):c.1529C>T"
+    }
   },
   "predictionType": {
-    "id": "CC086",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "LRT",
   "categoricalPrediction": "Damaging"
@@ -1087,10 +1089,10 @@
               <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq012">RefSeq012</a></p>
+              <p><a href="../details/details.html#RefSeq298">RefSeq298</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC087">CC087</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -1106,30 +1108,25 @@
   "id": "InSilicoPred133",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq012",
+    "id": "RefSeq298",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "ENST00000566221.5"
-    }
+    "accession": "ENST00000566221.5"
   },
   "canonicalAllele": {
     "id": "CanAll068",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll072",
-    "identifier": "http://reg.genome.network/allele/CA090884"
+    "preferredCtxAllele": {
+      "id": "CtxAll072",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll068",
+      "alleleName": "NM_003119.3(SPG7):c.1529C>T"
+    }
   },
   "predictionType": {
-    "id": "CC087",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "MetaSVM",
   "categoricalPrediction": "Tolerated"
@@ -1147,10 +1144,10 @@
               <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq012">RefSeq012</a></p>
+              <p><a href="../details/details.html#RefSeq298">RefSeq298</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC088">CC088</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -1166,30 +1163,25 @@
   "id": "InSilicoPred134",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq012",
+    "id": "RefSeq298",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "ENST00000566221.5"
-    }
+    "accession": "ENST00000566221.5"
   },
   "canonicalAllele": {
     "id": "CanAll068",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll072",
-    "identifier": "http://reg.genome.network/allele/CA090884"
+    "preferredCtxAllele": {
+      "id": "CtxAll072",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll068",
+      "alleleName": "NM_003119.3(SPG7):c.1529C>T"
+    }
   },
   "predictionType": {
-    "id": "CC088",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "Mutation assessor",
   "categoricalPrediction": "Medium functional impact"
@@ -1207,10 +1199,10 @@
               <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq012">RefSeq012</a></p>
+              <p><a href="../details/details.html#RefSeq298">RefSeq298</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC089">CC089</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -1226,30 +1218,25 @@
   "id": "InSilicoPred135",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq012",
+    "id": "RefSeq298",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "ENST00000566221.5"
-    }
+    "accession": "ENST00000566221.5"
   },
   "canonicalAllele": {
     "id": "CanAll068",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll072",
-    "identifier": "http://reg.genome.network/allele/CA090884"
+    "preferredCtxAllele": {
+      "id": "CtxAll072",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll068",
+      "alleleName": "NM_003119.3(SPG7):c.1529C>T"
+    }
   },
   "predictionType": {
-    "id": "CC089",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "Mutation taster",
   "categoricalPrediction": "Disease-causing"
@@ -1267,10 +1254,10 @@
               <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq012">RefSeq012</a></p>
+              <p><a href="../details/details.html#RefSeq298">RefSeq298</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC090">CC090</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -1286,30 +1273,25 @@
   "id": "InSilicoPred136",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq012",
+    "id": "RefSeq298",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "ENST00000566221.5"
-    }
+    "accession": "ENST00000566221.5"
   },
   "canonicalAllele": {
     "id": "CanAll068",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll072",
-    "identifier": "http://reg.genome.network/allele/CA090884"
+    "preferredCtxAllele": {
+      "id": "CtxAll072",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll068",
+      "alleleName": "NM_003119.3(SPG7):c.1529C>T"
+    }
   },
   "predictionType": {
-    "id": "CC090",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "Provean",
   "categoricalPrediction": "Damaging"
@@ -1327,10 +1309,10 @@
               <p><a href="../details/details.html#CanAll068">CanAll068</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq012">RefSeq012</a></p>
+              <p><a href="../details/details.html#RefSeq298">RefSeq298</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC091">CC091</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -1346,30 +1328,25 @@
   "id": "InSilicoPred137",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq012",
+    "id": "RefSeq298",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "ENST00000566221.5"
-    }
+    "accession": "ENST00000566221.5"
   },
   "canonicalAllele": {
     "id": "CanAll068",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll072",
-    "identifier": "http://reg.genome.network/allele/CA090884"
+    "preferredCtxAllele": {
+      "id": "CtxAll072",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll068",
+      "alleleName": "NM_003119.3(SPG7):c.1529C>T"
+    }
   },
   "predictionType": {
-    "id": "CC091",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "Condel",
   "categoricalPrediction": "deleterious"
@@ -1387,10 +1364,10 @@
               <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
+              <p><a href="../details/details.html#RefSeq299">RefSeq299</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC092">CC092</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -1406,30 +1383,25 @@
   "id": "InSilicoPred138",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq013",
+    "id": "RefSeq299",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000363.4"
-    }
+    "accession": "NM_000363.4"
   },
   "canonicalAllele": {
     "id": "CanAll069",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll075",
-    "identifier": "http://reg.genome.network/allele/CA022019"
+    "preferredCtxAllele": {
+      "id": "CtxAll075",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll069",
+      "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+    }
   },
   "predictionType": {
-    "id": "CC092",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "SIFT",
   "categoricalPrediction": "Tolerated"
@@ -1447,10 +1419,10 @@
               <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
+              <p><a href="../details/details.html#RefSeq299">RefSeq299</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC093">CC093</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -1466,30 +1438,25 @@
   "id": "InSilicoPred139",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq013",
+    "id": "RefSeq299",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000363.4"
-    }
+    "accession": "NM_000363.4"
   },
   "canonicalAllele": {
     "id": "CanAll069",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll075",
-    "identifier": "http://reg.genome.network/allele/CA022019"
+    "preferredCtxAllele": {
+      "id": "CtxAll075",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll069",
+      "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+    }
   },
   "predictionType": {
-    "id": "CC093",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "Polyphen2",
   "categoricalPrediction": "benign"
@@ -1507,10 +1474,10 @@
               <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
+              <p><a href="../details/details.html#RefSeq299">RefSeq299</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC094">CC094</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -1526,30 +1493,25 @@
   "id": "InSilicoPred140",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq013",
+    "id": "RefSeq299",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000363.4"
-    }
+    "accession": "NM_000363.4"
   },
   "canonicalAllele": {
     "id": "CanAll069",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll075",
-    "identifier": "http://reg.genome.network/allele/CA022019"
+    "preferredCtxAllele": {
+      "id": "CtxAll075",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll069",
+      "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+    }
   },
   "predictionType": {
-    "id": "CC094",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "AlignGVGD",
   "categoricalPrediction": "C0 (benign)"
@@ -1567,10 +1529,10 @@
               <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
+              <p><a href="../details/details.html#RefSeq299">RefSeq299</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC095">CC095</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -1586,30 +1548,25 @@
   "id": "InSilicoPred141",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq013",
+    "id": "RefSeq299",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000363.4"
-    }
+    "accession": "NM_000363.4"
   },
   "canonicalAllele": {
     "id": "CanAll069",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll075",
-    "identifier": "http://reg.genome.network/allele/CA022019"
+    "preferredCtxAllele": {
+      "id": "CtxAll075",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll069",
+      "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+    }
   },
   "predictionType": {
-    "id": "CC095",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "MAPP",
   "categoricalPrediction": "good (benign)"
@@ -1627,10 +1584,10 @@
               <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
+              <p><a href="../details/details.html#RefSeq299">RefSeq299</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC096">CC096</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -1646,30 +1603,25 @@
   "id": "InSilicoPred142",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq013",
+    "id": "RefSeq299",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000363.4"
-    }
+    "accession": "NM_000363.4"
   },
   "canonicalAllele": {
     "id": "CanAll069",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll075",
-    "identifier": "http://reg.genome.network/allele/CA022019"
+    "preferredCtxAllele": {
+      "id": "CtxAll075",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll069",
+      "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+    }
   },
   "predictionType": {
-    "id": "CC096",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "MutationTaster",
   "categoricalPrediction": "disease-causing"
@@ -1687,10 +1639,10 @@
               <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
+              <p><a href="../details/details.html#RefSeq299">RefSeq299</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC097">CC097</a></p>
+              <p><a href="../details/details.html#PredTID073">PredTID073</a></p>
          </td>
           <td>
               
@@ -1706,30 +1658,25 @@
   "id": "InSilicoPred143",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq013",
+    "id": "RefSeq299",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000363.4"
-    }
+    "accession": "NM_000363.4"
   },
   "canonicalAllele": {
     "id": "CanAll069",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll075",
-    "identifier": "http://reg.genome.network/allele/CA022019"
+    "preferredCtxAllele": {
+      "id": "CtxAll075",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll069",
+      "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+    }
   },
   "predictionType": {
-    "id": "CC097",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000323",
-        "type": "Coding",
-        "code": "0000323",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "splicing prediction"
-      }
-    ]
+    "id": "PredTID073",
+    "type": "PredictionType",
+    "label": "splicing prediction"
   },
   "algorithm": "SSF",
   "categoricalPrediction": 71.53
@@ -1747,10 +1694,10 @@
               <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
+              <p><a href="../details/details.html#RefSeq299">RefSeq299</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC098">CC098</a></p>
+              <p><a href="../details/details.html#PredTID073">PredTID073</a></p>
          </td>
           <td>
               
@@ -1766,30 +1713,25 @@
   "id": "InSilicoPred144",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq013",
+    "id": "RefSeq299",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000363.4"
-    }
+    "accession": "NM_000363.4"
   },
   "canonicalAllele": {
     "id": "CanAll069",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll075",
-    "identifier": "http://reg.genome.network/allele/CA022019"
+    "preferredCtxAllele": {
+      "id": "CtxAll075",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll069",
+      "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+    }
   },
   "predictionType": {
-    "id": "CC098",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000323",
-        "type": "Coding",
-        "code": "0000323",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "splicing prediction"
-      }
-    ]
+    "id": "PredTID073",
+    "type": "PredictionType",
+    "label": "splicing prediction"
   },
   "algorithm": "MaxEnt",
   "categoricalPrediction": 7.39
@@ -1807,10 +1749,10 @@
               <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
+              <p><a href="../details/details.html#RefSeq299">RefSeq299</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC099">CC099</a></p>
+              <p><a href="../details/details.html#PredTID073">PredTID073</a></p>
          </td>
           <td>
               
@@ -1826,30 +1768,25 @@
   "id": "InSilicoPred145",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq013",
+    "id": "RefSeq299",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000363.4"
-    }
+    "accession": "NM_000363.4"
   },
   "canonicalAllele": {
     "id": "CanAll069",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll075",
-    "identifier": "http://reg.genome.network/allele/CA022019"
+    "preferredCtxAllele": {
+      "id": "CtxAll075",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll069",
+      "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+    }
   },
   "predictionType": {
-    "id": "CC099",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000323",
-        "type": "Coding",
-        "code": "0000323",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "splicing prediction"
-      }
-    ]
+    "id": "PredTID073",
+    "type": "PredictionType",
+    "label": "splicing prediction"
   },
   "algorithm": "NNSPLICE",
   "categoricalPrediction": 0.87
@@ -1867,10 +1804,10 @@
               <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
+              <p><a href="../details/details.html#RefSeq299">RefSeq299</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC100">CC100</a></p>
+              <p><a href="../details/details.html#PredTID073">PredTID073</a></p>
          </td>
           <td>
               
@@ -1886,30 +1823,25 @@
   "id": "InSilicoPred146",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq013",
+    "id": "RefSeq299",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000363.4"
-    }
+    "accession": "NM_000363.4"
   },
   "canonicalAllele": {
     "id": "CanAll069",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll075",
-    "identifier": "http://reg.genome.network/allele/CA022019"
+    "preferredCtxAllele": {
+      "id": "CtxAll075",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll069",
+      "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+    }
   },
   "predictionType": {
-    "id": "CC100",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000323",
-        "type": "Coding",
-        "code": "0000323",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "splicing prediction"
-      }
-    ]
+    "id": "PredTID073",
+    "type": "PredictionType",
+    "label": "splicing prediction"
   },
   "algorithm": "GeneSplicer",
   "categoricalPrediction": 7.75
@@ -1927,10 +1859,10 @@
               <p><a href="../details/details.html#CanAll069">CanAll069</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq013">RefSeq013</a></p>
+              <p><a href="../details/details.html#RefSeq299">RefSeq299</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC101">CC101</a></p>
+              <p><a href="../details/details.html#PredTID073">PredTID073</a></p>
          </td>
           <td>
               
@@ -1946,30 +1878,25 @@
   "id": "InSilicoPred147",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq013",
+    "id": "RefSeq299",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000363.4"
-    }
+    "accession": "NM_000363.4"
   },
   "canonicalAllele": {
     "id": "CanAll069",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll075",
-    "identifier": "http://reg.genome.network/allele/CA022019"
+    "preferredCtxAllele": {
+      "id": "CtxAll075",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll069",
+      "alleleName": "NM_000363.4(TNNI3):c.592C>G"
+    }
   },
   "predictionType": {
-    "id": "CC101",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000323",
-        "type": "Coding",
-        "code": "0000323",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "splicing prediction"
-      }
-    ]
+    "id": "PredTID073",
+    "type": "PredictionType",
+    "label": "splicing prediction"
   },
   "algorithm": "HSF",
   "categoricalPrediction": 81.75
@@ -1987,10 +1914,10 @@
               <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq014">RefSeq014</a></p>
+              <p><a href="../details/details.html#RefSeq300">RefSeq300</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC166">CC166</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -2006,30 +1933,25 @@
   "id": "InSilicoPred232",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq014",
+    "id": "RefSeq300",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000059.3"
-    }
+    "accession": "NM_000059.3"
   },
   "canonicalAllele": {
     "id": "CanAll103",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll109",
-    "identifier": "http://reg.genome.network/allele/CA020822"
+    "preferredCtxAllele": {
+      "id": "CtxAll109",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll103",
+      "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
+    }
   },
   "predictionType": {
-    "id": "CC166",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "SIFT",
   "categoricalPrediction": "Benign"
@@ -2047,10 +1969,10 @@
               <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq014">RefSeq014</a></p>
+              <p><a href="../details/details.html#RefSeq300">RefSeq300</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC167">CC167</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -2066,30 +1988,25 @@
   "id": "InSilicoPred233",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq014",
+    "id": "RefSeq300",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000059.3"
-    }
+    "accession": "NM_000059.3"
   },
   "canonicalAllele": {
     "id": "CanAll103",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll109",
-    "identifier": "http://reg.genome.network/allele/CA020822"
+    "preferredCtxAllele": {
+      "id": "CtxAll109",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll103",
+      "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
+    }
   },
   "predictionType": {
-    "id": "CC167",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "Polyphen",
   "categoricalPrediction": "Possibly damaging"
@@ -2107,10 +2024,10 @@
               <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq014">RefSeq014</a></p>
+              <p><a href="../details/details.html#RefSeq300">RefSeq300</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC168">CC168</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -2126,30 +2043,25 @@
   "id": "InSilicoPred234",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq014",
+    "id": "RefSeq300",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000059.3"
-    }
+    "accession": "NM_000059.3"
   },
   "canonicalAllele": {
     "id": "CanAll103",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll109",
-    "identifier": "http://reg.genome.network/allele/CA020822"
+    "preferredCtxAllele": {
+      "id": "CtxAll109",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll103",
+      "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
+    }
   },
   "predictionType": {
-    "id": "CC168",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "FATHMM",
   "categoricalPrediction": "Benign"
@@ -2167,10 +2079,10 @@
               <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq014">RefSeq014</a></p>
+              <p><a href="../details/details.html#RefSeq300">RefSeq300</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC169">CC169</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -2186,30 +2098,25 @@
   "id": "InSilicoPred235",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq014",
+    "id": "RefSeq300",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000059.3"
-    }
+    "accession": "NM_000059.3"
   },
   "canonicalAllele": {
     "id": "CanAll103",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll109",
-    "identifier": "http://reg.genome.network/allele/CA020822"
+    "preferredCtxAllele": {
+      "id": "CtxAll109",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll103",
+      "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
+    }
   },
   "predictionType": {
-    "id": "CC169",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "LRT",
   "categoricalPrediction": "Benign"
@@ -2227,10 +2134,10 @@
               <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq014">RefSeq014</a></p>
+              <p><a href="../details/details.html#RefSeq300">RefSeq300</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC170">CC170</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -2246,30 +2153,25 @@
   "id": "InSilicoPred236",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq014",
+    "id": "RefSeq300",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000059.3"
-    }
+    "accession": "NM_000059.3"
   },
   "canonicalAllele": {
     "id": "CanAll103",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll109",
-    "identifier": "http://reg.genome.network/allele/CA020822"
+    "preferredCtxAllele": {
+      "id": "CtxAll109",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll103",
+      "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
+    }
   },
   "predictionType": {
-    "id": "CC170",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "MetaSVM",
   "categoricalPrediction": "Benign"
@@ -2287,10 +2189,10 @@
               <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq014">RefSeq014</a></p>
+              <p><a href="../details/details.html#RefSeq300">RefSeq300</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC171">CC171</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -2306,30 +2208,25 @@
   "id": "InSilicoPred237",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq014",
+    "id": "RefSeq300",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000059.3"
-    }
+    "accession": "NM_000059.3"
   },
   "canonicalAllele": {
     "id": "CanAll103",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll109",
-    "identifier": "http://reg.genome.network/allele/CA020822"
+    "preferredCtxAllele": {
+      "id": "CtxAll109",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll103",
+      "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
+    }
   },
   "predictionType": {
-    "id": "CC171",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "Mutation assessor",
   "categoricalPrediction": "Benign"
@@ -2347,10 +2244,10 @@
               <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq014">RefSeq014</a></p>
+              <p><a href="../details/details.html#RefSeq300">RefSeq300</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC172">CC172</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -2366,30 +2263,25 @@
   "id": "InSilicoPred238",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq014",
+    "id": "RefSeq300",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000059.3"
-    }
+    "accession": "NM_000059.3"
   },
   "canonicalAllele": {
     "id": "CanAll103",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll109",
-    "identifier": "http://reg.genome.network/allele/CA020822"
+    "preferredCtxAllele": {
+      "id": "CtxAll109",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll103",
+      "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
+    }
   },
   "predictionType": {
-    "id": "CC172",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "Mutation taster",
   "categoricalPrediction": "Benign"
@@ -2407,10 +2299,10 @@
               <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq014">RefSeq014</a></p>
+              <p><a href="../details/details.html#RefSeq300">RefSeq300</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC173">CC173</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -2426,30 +2318,25 @@
   "id": "InSilicoPred239",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq014",
+    "id": "RefSeq300",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000059.3"
-    }
+    "accession": "NM_000059.3"
   },
   "canonicalAllele": {
     "id": "CanAll103",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll109",
-    "identifier": "http://reg.genome.network/allele/CA020822"
+    "preferredCtxAllele": {
+      "id": "CtxAll109",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll103",
+      "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
+    }
   },
   "predictionType": {
-    "id": "CC173",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "Provean",
   "categoricalPrediction": "Benign"
@@ -2467,10 +2354,10 @@
               <p><a href="../details/details.html#CanAll103">CanAll103</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq014">RefSeq014</a></p>
+              <p><a href="../details/details.html#RefSeq300">RefSeq300</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC174">CC174</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -2486,30 +2373,25 @@
   "id": "InSilicoPred240",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq014",
+    "id": "RefSeq300",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000059.3"
-    }
+    "accession": "NM_000059.3"
   },
   "canonicalAllele": {
     "id": "CanAll103",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll109",
-    "identifier": "http://reg.genome.network/allele/CA020822"
+    "preferredCtxAllele": {
+      "id": "CtxAll109",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll103",
+      "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
+    }
   },
   "predictionType": {
-    "id": "CC174",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "algorithm": "Condel",
   "categoricalPrediction": "deleterious"
@@ -2527,10 +2409,10 @@
               <p><a href="../details/details.html#CanAll117">CanAll117</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq015">RefSeq015</a></p>
+              <p><a href="../details/details.html#RefSeq301">RefSeq301</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC187">CC187</a></p>
+              <p><a href="../details/details.html#PredTID073">PredTID073</a></p>
          </td>
           <td>
               
@@ -2546,30 +2428,25 @@
   "id": "InSilicoPred258",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq015",
+    "id": "RefSeq301",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_138691.2"
-    }
+    "accession": "NM_138691.2"
   },
   "canonicalAllele": {
     "id": "CanAll117",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll123",
-    "identifier": "http://reg.genome.network/allele/CA501232"
+    "preferredCtxAllele": {
+      "id": "CtxAll123",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll117",
+      "alleleName": "NM_138691.2 (TMC1): c.684C>T"
+    }
   },
   "predictionType": {
-    "id": "CC187",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000323",
-        "type": "Coding",
-        "code": "0000323",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "splicing prediction"
-      }
-    ]
+    "id": "PredTID073",
+    "type": "PredictionType",
+    "label": "splicing prediction"
   },
   "categoricalPrediction": "no impact"
 }
@@ -2586,10 +2463,10 @@
               <p><a href="../details/details.html#CanAll118">CanAll118</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq011">RefSeq011</a></p>
+              <p><a href="../details/details.html#RefSeq297">RefSeq297</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC189">CC189</a></p>
+              <p><a href="../details/details.html#PredTID073">PredTID073</a></p>
          </td>
           <td>
               
@@ -2604,34 +2481,29 @@
           <td><div class="example_view" id="InSilicoPred262"><pre><code>{
   "id": "InSilicoPred262",
   "type": "InSilicoPrediction",
-  "description": "Provenance would show that this comes from Alamut",
   "transcript": {
-    "id": "RefSeq011",
+    "id": "RefSeq297",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_000257.2"
-    }
+    "accession": "NM_000257.2"
   },
   "canonicalAllele": {
     "id": "CanAll118",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll124",
-    "identifier": "http://reg.genome.network/allele/CA013536"
+    "preferredCtxAllele": {
+      "id": "CtxAll124",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll118",
+      "alleleName": "NM_000257.2(MYH7):c.327C>T"
+    }
   },
   "predictionType": {
-    "id": "CC189",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000323",
-        "type": "Coding",
-        "code": "0000323",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "splicing prediction"
-      }
-    ]
+    "id": "PredTID073",
+    "type": "PredictionType",
+    "label": "splicing prediction"
   },
-  "categoricalPrediction": "no impact"
+  "categoricalPrediction": "no impact",
+  "description": "Provenance would show that this comes from Alamut"
 }
           </code></pre></div></td>
           -->
@@ -2646,10 +2518,10 @@
               <p><a href="../details/details.html#CanAll119">CanAll119</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RefSeq016">RefSeq016</a></p>
+              <p><a href="../details/details.html#RefSeq302">RefSeq302</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC191">CC191</a></p>
+              <p><a href="../details/details.html#PredTID073">PredTID073</a></p>
          </td>
           <td>
               
@@ -2665,30 +2537,25 @@
   "id": "InSilicoPred266",
   "type": "InSilicoPrediction",
   "transcript": {
-    "id": "RefSeq016",
+    "id": "RefSeq302",
     "type": "ReferenceSequence",
-    "accession": {
-      "id": "NM_002880.3"
-    }
+    "accession": "NM_002880.3"
   },
   "canonicalAllele": {
     "id": "CanAll119",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll125",
-    "identifier": "http://reg.genome.network/allele/CA177682"
+    "preferredCtxAllele": {
+      "id": "CtxAll125",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll119",
+      "alleleName": "NM_002880.3(RAF1):c.321T>C"
+    }
   },
   "predictionType": {
-    "id": "CC191",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000323",
-        "type": "Coding",
-        "code": "0000323",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "splicing prediction"
-      }
-    ]
+    "id": "PredTID073",
+    "type": "PredictionType",
+    "label": "splicing prediction"
   },
   "categoricalPrediction": "no impact"
 }
@@ -2708,7 +2575,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#CC282">CC282</a></p>
+              <p><a href="../details/details.html#PredTID072">PredTID072</a></p>
          </td>
           <td>
               
@@ -2726,26 +2593,14 @@
   "canonicalAllele": {
     "id": "CtxAll111",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": {
-      "id": "CanAll105",
-      "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll111",
-      "identifier": "http://reg.genome.network/allele/CA501237"
-    },
+    "producedBy": null,
+    "relatedCanonicalAllele": "CanAll105",
     "alleleName": "NM_133379.3(TTN) : c.15283T>C"
   },
   "predictionType": {
-    "id": "CC282",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000322",
-        "type": "Coding",
-        "code": "0000322",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "missense effect"
-      }
-    ]
+    "id": "PredTID072",
+    "type": "PredictionType",
+    "label": "missense effect"
   },
   "categoricalPrediction": "ProbablyDamaging",
   "algorithm": "Polyphen-2 HumDiv"

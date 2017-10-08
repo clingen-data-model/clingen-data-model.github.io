@@ -5,25 +5,41 @@
     "id": "CritAssess376",
     "type": "CriterionAssessment",
     "criterion": {
-      "id": "PM2",
+      "id": "Crit309",
       "type": "Criterion",
+      "label": "PM2",
       "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
       "defaultStrength": {
-        "id": "CG-evidence-strength:pm"
-      }
+        "id": "ELSID143",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Moderate"
+      },
+      "comments": "Some groups are allowing to rule to be used if even not 100% absent\nFor instance, Cardio has allowed PM2 to be used if MAF is <0.05% with 95% CI if\nCI lower is ~0.00% (at 2 decimal places) AND CI upper is below 0.05%\n Caveat: Population data for insertions/deletions may be poorly called by next-generation sequencing"
     },
     "variant": {
       "id": "CanAll125",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll131",
-      "identifier": "http://reg.genome.network/allele/CA280055"
+      "preferredCtxAllele": {
+        "id": "CtxAll131",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll125",
+        "alleleName": "NM_004333.4(BRAF):c.1447A>C (p.Lys483Gln)",
+        "produces": [
+          {
+            "id": "CtxAll132",
+            "type": "ContextualAllele",
+            "producedBy": "CtxAll131",
+            "relatedCanonicalAllele": "CanAll126",
+            "alleleName": "NP_004324.2:p.Lys483Gln"
+          }
+        ]
+      }
     },
     "outcome": {
-      "id": "SEPIO:0000223",
-      "type": "Coding",
-      "code": "0000223",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Met"
+      "id": "CEID074",
+      "type": "CriterionEvaluation",
+      "label": "Met"
     },
     "evidenceLine": [
       {
@@ -34,36 +50,34 @@
             "id": "AllFreq101",
             "type": "AlleleFrequency",
             "ascertainment": {
-              "id": "CC033",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "SEPIO:0000332",
-                  "type": "Coding",
-                  "code": "0000332",
-                  "system": "http://obofoundry.org/sepio/",
-                  "display": "ExAc ascertainment method"
-                }
-              ]
+              "id": "AsctTID203",
+              "type": "AscertainmentType",
+              "label": "ExAc ascertainment method"
             },
             "population": {
-              "id": "CC068",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "CG-population-type:combined",
-                  "type": "Coding",
-                  "code": "combined",
-                  "system": "http://clinicalgenome.org/datamodel/population-type/",
-                  "display": "Combined"
-                }
-              ]
+              "id": "PTID093",
+              "type": "PopulationType",
+              "label": "Combined"
             },
             "allele": {
               "id": "CanAll125",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll131",
-              "identifier": "http://reg.genome.network/allele/CA280055"
+              "preferredCtxAllele": {
+                "id": "CtxAll131",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll125",
+                "alleleName": "NM_004333.4(BRAF):c.1447A>C (p.Lys483Gln)",
+                "produces": [
+                  {
+                    "id": "CtxAll132",
+                    "type": "ContextualAllele",
+                    "producedBy": "CtxAll131",
+                    "relatedCanonicalAllele": "CanAll126",
+                    "alleleName": "NP_004324.2:p.Lys483Gln"
+                  }
+                ]
+              }
             },
             "alleleCount": 0,
             "alleleFrequency": 0.0,
@@ -82,17 +96,9 @@
         },
         "contributionDate": "6/11/2011 11:45 AM",
         "contributionRole": {
-          "id": "CC417",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
     ]

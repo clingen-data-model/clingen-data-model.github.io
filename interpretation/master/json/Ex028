@@ -4,20 +4,37 @@
   "informationId": {
     "id": "CritAssess302",
     "type": "CriterionAssessment",
-    "description": "From ClinVar: Doolan et al. (2005) (PMID:15698845) reported mutations at the same residue (R162P) in patients with HCM, supporting the functional importance of this residue in the protein. This rare R162P variant observed multiple times in is Likely Pathogenic in ClinVar with 1 star assertion.  Other variants in the same residue R162W has conflicting evidence of pathogenicity(Path by GeneDx : SCV000209174.2 and VUS by LMM:SCV000203864.2). Considered these two only as they have provided assertion criteria.",
     "criterion": {
-      "id": "PM5",
+      "id": "Crit312",
       "type": "Criterion",
+      "label": "PM5",
       "description": "Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before",
       "defaultStrength": {
-        "id": "CG-evidence-strength:pm"
-      }
+        "id": "ELSID143",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Moderate"
+      },
+      "comments": "Need to be sure that pathogenic variant exists at the residue in question. Sometimes discrepancy resolution may be required. Some thing like Variantexplorer.org may be useful.\nSometimes no assertion is provided in ClinVar ...may require curation by lit. search."
     },
     "variant": {
       "id": "CanAll045",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll049",
-      "identifier": "http://reg.genome.network/allele/CA021744"
+      "preferredCtxAllele": {
+        "id": "CtxAll049",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll045",
+        "alleleName": "NM_000363.4(TNNI3):c.485G>A",
+        "produces": [
+          {
+            "id": "CtxAll050",
+            "type": "ContextualAllele",
+            "producedBy": "CtxAll049",
+            "relatedCanonicalAllele": "CanAll046",
+            "alleleName": "NP_000354.4:p.Arg162Gln"
+          }
+        ]
+      }
     },
     "condition": [
       {
@@ -25,29 +42,23 @@
         "type": "GeneticCondition",
         "disease": [
           {
-            "id": "Orphanet:217569",
-            "type": "Coding",
-            "code": "217569",
-            "system": "http://www.orpha.net/",
-            "display": "hypertrophic cardiomyopathy"
+            "id": "DisID160",
+            "type": "Disease",
+            "label": "hypertrophic cardiomyopathy"
           }
         ],
         "modeOfInheritance": {
-          "id": "HP:0000006",
-          "type": "Coding",
-          "code": "0000006",
-          "system": "http://human-phenotype-ontology.github.io/",
-          "display": "Autosomal Dominant"
+          "id": "MOIID051",
+          "type": "ModeOfInheritance",
+          "label": "Autosomal Dominant"
         },
         "name": "Primary familial hypertrophic cardiomyopathy, Autosomal Dominant"
       }
     ],
     "outcome": {
-      "id": "SEPIO:0000223",
-      "type": "Coding",
-      "code": "0000223",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Met"
+      "id": "CEID074",
+      "type": "CriterionEvaluation",
+      "label": "Met"
     },
     "evidenceLine": [
       {
@@ -60,8 +71,22 @@
             "variant": {
               "id": "CanAll047",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll051",
-              "identifier": "http://reg.genome.network/allele/CA021749"
+              "preferredCtxAllele": {
+                "id": "CtxAll051",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll047",
+                "alleleName": "NM_000363.4(TNNI3):c.485G>C",
+                "produces": [
+                  {
+                    "id": "CtxAll052",
+                    "type": "ContextualAllele",
+                    "producedBy": "CtxAll050",
+                    "relatedCanonicalAllele": "CanAll048",
+                    "alleleName": "NP_000354.4:p.Arg162Pro"
+                  }
+                ]
+              }
             },
             "condition": [
               {
@@ -69,29 +94,23 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "Orphanet:217569",
-                    "type": "Coding",
-                    "code": "217569",
-                    "system": "http://www.orpha.net/",
-                    "display": "hypertrophic cardiomyopathy"
+                    "id": "DisID160",
+                    "type": "Disease",
+                    "label": "hypertrophic cardiomyopathy"
                   }
                 ],
                 "modeOfInheritance": {
-                  "id": "HP:0000006",
-                  "type": "Coding",
-                  "code": "0000006",
-                  "system": "http://human-phenotype-ontology.github.io/",
-                  "display": "Autosomal Dominant"
+                  "id": "MOIID051",
+                  "type": "ModeOfInheritance",
+                  "label": "Autosomal Dominant"
                 },
                 "name": "Primary familial hypertrophic cardiomyopathy, Autosomal Dominant"
               }
             ],
             "outcome": {
-              "id": "LN:LA26332-9",
-              "type": "Coding",
-              "code": "LA26332-9",
-              "system": "http://loinc.org/",
-              "display": "Likely Pathogenic"
+              "id": "SIGID028",
+              "type": "Significance",
+              "label": "Likely Pathogenic"
             },
             "contribution": [
               {
@@ -103,17 +122,9 @@
                 },
                 "contributionDate": "6/1/2014 9:02 AM",
                 "contributionRole": {
-                  "id": "CC422",
-                  "type": "CodeableConcept",
-                  "coding": [
-                    {
-                      "id": "SEPIO:0000331",
-                      "type": "Coding",
-                      "code": "0000331",
-                      "system": "http://obofoundry.org/sepio/",
-                      "display": "interpreter role"
-                    }
-                  ]
+                  "id": "CRID196",
+                  "type": "ContributoryRole",
+                  "label": "interpreter role"
                 }
               }
             ],
@@ -133,8 +144,22 @@
             "variant": {
               "id": "CanAll049",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll053",
-              "identifier": "http://reg.genome.network/allele/CA021738"
+              "preferredCtxAllele": {
+                "id": "CtxAll053",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll049",
+                "alleleName": "NM_000363.4(TNNI3):c.484C>T",
+                "produces": [
+                  {
+                    "id": "CtxAll054",
+                    "type": "ContextualAllele",
+                    "producedBy": "CtxAll053",
+                    "relatedCanonicalAllele": "CanAll050",
+                    "alleleName": "NP_000354.4:p.Arg162Trp"
+                  }
+                ]
+              }
             },
             "condition": [
               {
@@ -142,29 +167,23 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "Orphanet:217569",
-                    "type": "Coding",
-                    "code": "217569",
-                    "system": "http://www.orpha.net/",
-                    "display": "hypertrophic cardiomyopathy"
+                    "id": "DisID160",
+                    "type": "Disease",
+                    "label": "hypertrophic cardiomyopathy"
                   }
                 ],
                 "modeOfInheritance": {
-                  "id": "HP:0000006",
-                  "type": "Coding",
-                  "code": "0000006",
-                  "system": "http://human-phenotype-ontology.github.io/",
-                  "display": "Autosomal Dominant"
+                  "id": "MOIID051",
+                  "type": "ModeOfInheritance",
+                  "label": "Autosomal Dominant"
                 },
                 "name": "Primary familial hypertrophic cardiomyopathy, Autosomal Dominant"
               }
             ],
             "outcome": {
-              "id": "LN:LA6668-3",
-              "type": "Coding",
-              "code": "LA6668-3",
-              "system": "http://loinc.org/",
-              "display": "Pathogenic"
+              "id": "SIGID031",
+              "type": "Significance",
+              "label": "Pathogenic"
             },
             "contribution": [
               {
@@ -176,17 +195,9 @@
                 },
                 "contributionDate": "6/20/2016 11:12 AM",
                 "contributionRole": {
-                  "id": "CC423",
-                  "type": "CodeableConcept",
-                  "coding": [
-                    {
-                      "id": "SEPIO:0000331",
-                      "type": "Coding",
-                      "code": "0000331",
-                      "system": "http://obofoundry.org/sepio/",
-                      "display": "interpreter role"
-                    }
-                  ]
+                  "id": "CRID196",
+                  "type": "ContributoryRole",
+                  "label": "interpreter role"
                 }
               }
             ],
@@ -203,19 +214,30 @@
           {
             "id": "VarInterp042",
             "type": "VariantInterpretation",
-            "description": "Uncertain Sig(not specified) NM_000363.4(TNNI3):c.484C>T (p.Arg162Trp)",
             "variant": {
               "id": "CanAll049",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll053",
-              "identifier": "http://reg.genome.network/allele/CA021738"
+              "preferredCtxAllele": {
+                "id": "CtxAll053",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll049",
+                "alleleName": "NM_000363.4(TNNI3):c.484C>T",
+                "produces": [
+                  {
+                    "id": "CtxAll054",
+                    "type": "ContextualAllele",
+                    "producedBy": "CtxAll053",
+                    "relatedCanonicalAllele": "CanAll050",
+                    "alleleName": "NP_000354.4:p.Arg162Trp"
+                  }
+                ]
+              }
             },
             "outcome": {
-              "id": "LN:LA26333-7",
-              "type": "Coding",
-              "code": "LA26333-7",
-              "system": "http://loinc.org/",
-              "display": "Uncertain Signficance"
+              "id": "SIGID029",
+              "type": "Significance",
+              "label": "Uncertain Signficance"
             },
             "contribution": [
               {
@@ -227,23 +249,16 @@
                 },
                 "contributionDate": "7/13/16 8:46 AM",
                 "contributionRole": {
-                  "id": "CC336",
-                  "type": "CodeableConcept",
-                  "coding": [
-                    {
-                      "id": "SEPIO:0000331",
-                      "type": "Coding",
-                      "code": "0000331",
-                      "system": "http://obofoundry.org/sepio/",
-                      "display": "interpreter role"
-                    }
-                  ]
+                  "id": "CRID196",
+                  "type": "ContributoryRole",
+                  "label": "interpreter role"
                 }
               }
             ],
             "source": [
               "https://www.ncbi.nlm.nih.gov/clinvar/SCV000190642.1"
-            ]
+            ],
+            "description": "Uncertain Sig(not specified) NM_000363.4(TNNI3):c.484C>T (p.Arg162Trp)"
           }
         ]
       }
@@ -258,20 +273,13 @@
         },
         "contributionDate": "6/12/16 10:48 AM",
         "contributionRole": {
-          "id": "CC330",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
-    ]
+    ],
+    "description": "From ClinVar: Doolan et al. (2005) (PMID:15698845) reported mutations at the same residue (R162P) in patients with HCM, supporting the functional importance of this residue in the protein. This rare R162P variant observed multiple times in is Likely Pathogenic in ClinVar with 1 star assertion.  Other variants in the same residue R162W has conflicting evidence of pathogenicity(Path by GeneDx : SCV000209174.2 and VUS by LMM:SCV000203864.2). Considered these two only as they have provided assertion criteria."
   },
   "searchTags": "cser",
   "index": 1,

@@ -150,14 +150,14 @@
             </tr>
             <tr>
                 <td>population</td>
-                <td>CodeableConcept</td>
+                <td>PopulationType</td>
                 <td>0..1</td>
                 <td>Ancestry of population or group over which the frequency was measured</td>
                 <td>SEPIO:0000277</td>
             </tr>
             <tr>
                 <td>ascertainment</td>
-                <td>CodeableConcept</td>
+                <td>AscertainmentType</td>
                 <td>0..1</td>
                 <td>The criteria applied to create the dataset in which the frequency was measured</td>
                 <td>SEPIO:0000255</td>
@@ -293,7 +293,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#CC009">CC009</a></p>
+              <p><a href="../details/details.html#AsctTID203">AsctTID203</a></p>
          </td>
           <td>
               
@@ -324,23 +324,20 @@
   "id": "AllFreq028",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC009",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000332",
-        "type": "Coding",
-        "code": "0000332",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "ExAc ascertainment method"
-      }
-    ]
+    "id": "AsctTID203",
+    "type": "AscertainmentType",
+    "label": "ExAc ascertainment method"
   },
   "allele": {
     "id": "CanAll022",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll025",
-    "identifier": "http://reg.genome.network/allele/CA253316"
+    "preferredCtxAllele": {
+      "id": "CtxAll025",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll022",
+      "alleleName": "NM_000441.1(SLC26A4):c.1003T>C"
+    }
   },
   "alleleCount": 105,
   "alleleNumber": 121336
@@ -361,7 +358,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#CC010">CC010</a></p>
+              <p><a href="../details/details.html#AsctTID206">AsctTID206</a></p>
          </td>
           <td>
               
@@ -392,15 +389,26 @@
   "id": "AllFreq029",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC010",
-    "type": "CodeableConcept",
-    "text": "Across all published data (and LMM data) with hearing loss."
+    "id": "AsctTID206",
+    "type": "AscertainmentType",
+    "synonym": [
+      {
+        "id": "Synm001",
+        "type": "Synonym",
+        "description": "Across all published data (and LMM data) with hearing loss."
+      }
+    ]
   },
   "allele": {
     "id": "CanAll022",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll025",
-    "identifier": "http://reg.genome.network/allele/CA253316"
+    "preferredCtxAllele": {
+      "id": "CtxAll025",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll022",
+      "alleleName": "NM_000441.1(SLC26A4):c.1003T>C"
+    }
   },
   "alleleCount": 32,
   "alleleNumber": 4076
@@ -421,7 +429,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#CC011">CC011</a></p>
+              <p><a href="../details/details.html#AsctTID203">AsctTID203</a></p>
          </td>
           <td>
               
@@ -452,23 +460,20 @@
   "id": "AllFreq031",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC011",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000332",
-        "type": "Coding",
-        "code": "0000332",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "ExAc ascertainment method"
-      }
-    ]
+    "id": "AsctTID203",
+    "type": "AscertainmentType",
+    "label": "ExAc ascertainment method"
   },
   "allele": {
     "id": "CanAll023",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll026",
-    "identifier": "http://reg.genome.network/allele/CA024311"
+    "preferredCtxAllele": {
+      "id": "CtxAll026",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll023",
+      "alleleName": "NM_000540.2 (RYR1):c.1840C>T"
+    }
   },
   "alleleCount": 9,
   "alleleNumber": 66740
@@ -519,13 +524,18 @@
           <td><div class="example_view" id="AllFreq032"><pre><code>{
   "id": "AllFreq032",
   "type": "AlleleFrequency",
-  "description": "This allele is thought to account for between 2% and 10% of patients with Malignant hyperthermia.",
   "allele": {
     "id": "CanAll023",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll026",
-    "identifier": "http://reg.genome.network/allele/CA024311"
-  }
+    "preferredCtxAllele": {
+      "id": "CtxAll026",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll023",
+      "alleleName": "NM_000540.2 (RYR1):c.1840C>T"
+    }
+  },
+  "description": "This allele is thought to account for between 2% and 10% of patients with Malignant hyperthermia."
 }
           </code></pre></div></td>
           -->
@@ -540,10 +550,10 @@
               <p><a href="../details/details.html#CanAll024">CanAll024</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC022">CC022</a></p>
+              <p><a href="../details/details.html#PTID090">PTID090</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC012">CC012</a></p>
+              <p><a href="../details/details.html#AsctTID207">AsctTID207</a></p>
          </td>
           <td>
               
@@ -574,15 +584,26 @@
   "id": "AllFreq034",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC012",
-    "type": "CodeableConcept",
-    "text": "Case group is composed of cases from six cohorts from the GENIUS T2D consortium.  Case status is defined per-cohort."
+    "id": "AsctTID207",
+    "type": "AscertainmentType",
+    "synonym": [
+      {
+        "id": "Synm002",
+        "type": "Synonym",
+        "description": "Case group is composed of cases from six cohorts from the GENIUS T2D consortium.  Case status is defined per-cohort."
+      }
+    ]
   },
   "allele": {
     "id": "CanAll024",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll027",
-    "identifier": "http://reg.genome.network/allele/CA123287"
+    "preferredCtxAllele": {
+      "id": "CtxAll027",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll024",
+      "alleleName": "NM_006208.2(ENPP1):c.517A>C"
+    }
   },
   "alleleCount": 1198,
   "alleleNumber": 7344,
@@ -590,17 +611,9 @@
   "homozygousAlleleIndividualCount": 113,
   "heterozygousAlleleIndividualCount": 972,
   "population": {
-    "id": "CC022",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "BROAD-population-type:nfe",
-        "type": "Coding",
-        "code": "nfe",
-        "system": "http://broadinstitute.org/populations/",
-        "display": "Non-Finnish European"
-      }
-    ]
+    "id": "PTID090",
+    "type": "PopulationType",
+    "label": "Non-Finnish European"
   }
 }
           </code></pre></div></td>
@@ -616,10 +629,10 @@
               <p><a href="../details/details.html#CanAll024">CanAll024</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC023">CC023</a></p>
+              <p><a href="../details/details.html#PTID090">PTID090</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC013">CC013</a></p>
+              <p><a href="../details/details.html#AsctTID208">AsctTID208</a></p>
          </td>
           <td>
               
@@ -650,15 +663,26 @@
   "id": "AllFreq035",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC013",
-    "type": "CodeableConcept",
-    "text": "Controls group is composed of controls from six cohorts from the GENIUS T2D consortium.  Controls status is defined per-cohort."
+    "id": "AsctTID208",
+    "type": "AscertainmentType",
+    "synonym": [
+      {
+        "id": "Synm003",
+        "type": "Synonym",
+        "description": "Controls group is composed of controls from six cohorts from the GENIUS T2D consortium.  Controls status is defined per-cohort."
+      }
+    ]
   },
   "allele": {
     "id": "CanAll024",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll027",
-    "identifier": "http://reg.genome.network/allele/CA123287"
+    "preferredCtxAllele": {
+      "id": "CtxAll027",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll024",
+      "alleleName": "NM_006208.2(ENPP1):c.517A>C"
+    }
   },
   "alleleCount": 936,
   "alleleNumber": 5870,
@@ -666,17 +690,9 @@
   "homozygousAlleleIndividualCount": 77,
   "heterozygousAlleleIndividualCount": 782,
   "population": {
-    "id": "CC023",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "BROAD-population-type:nfe",
-        "type": "Coding",
-        "code": "nfe",
-        "system": "http://broadinstitute.org/populations/",
-        "display": "Non-Finnish European"
-      }
-    ]
+    "id": "PTID090",
+    "type": "PopulationType",
+    "label": "Non-Finnish European"
   }
 }
           </code></pre></div></td>
@@ -692,10 +708,10 @@
               <p><a href="../details/details.html#CanAll118">CanAll118</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC024">CC024</a></p>
+              <p><a href="../details/details.html#PTID092">PTID092</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC014">CC014</a></p>
+              <p><a href="../details/details.html#AsctTID203">AsctTID203</a></p>
          </td>
           <td>
               <p>0.02</p>
@@ -726,39 +742,28 @@
   "id": "AllFreq037",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC014",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000332",
-        "type": "Coding",
-        "code": "0000332",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "ExAc ascertainment method"
-      }
-    ]
+    "id": "AsctTID203",
+    "type": "AscertainmentType",
+    "label": "ExAc ascertainment method"
   },
   "allele": {
     "id": "CanAll118",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll124",
-    "identifier": "http://reg.genome.network/allele/CA013536"
+    "preferredCtxAllele": {
+      "id": "CtxAll124",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll118",
+      "alleleName": "NM_000257.2(MYH7):c.327C>T"
+    }
   },
   "alleleCount": 31,
   "alleleNumber": 16512,
   "alleleFrequency": 0.02,
   "population": {
-    "id": "CC024",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "BROAD-population-type:sas",
-        "type": "Coding",
-        "code": "sas",
-        "system": "http://broadinstitute.org/populations/",
-        "display": "South Asian"
-      }
-    ]
+    "id": "PTID092",
+    "type": "PopulationType",
+    "label": "South Asian"
   }
 }
           </code></pre></div></td>
@@ -774,10 +779,10 @@
               <p><a href="../details/details.html#CanAll092">CanAll092</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC025">CC025</a></p>
+              <p><a href="../details/details.html#PTID085">PTID085</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC027">CC027</a></p>
+              <p><a href="../details/details.html#AsctTID203">AsctTID203</a></p>
          </td>
           <td>
               <p>0.02</p>
@@ -808,39 +813,28 @@
   "id": "AllFreq038",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC027",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000332",
-        "type": "Coding",
-        "code": "0000332",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "ExAc ascertainment method"
-      }
-    ]
+    "id": "AsctTID203",
+    "type": "AscertainmentType",
+    "label": "ExAc ascertainment method"
   },
   "allele": {
     "id": "CanAll092",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll098",
-    "identifier": "http://reg.genome.network/allele/CA090950"
+    "preferredCtxAllele": {
+      "id": "CtxAll098",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll092",
+      "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
+    }
   },
   "alleleCount": 27,
   "alleleNumber": 1384,
   "alleleFrequency": 0.02,
   "population": {
-    "id": "CC025",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "BROAD-population-type:afr",
-        "type": "Coding",
-        "code": "afr",
-        "system": "http://broadinstitute.org/populations/",
-        "display": "African/African American"
-      }
-    ]
+    "id": "PTID085",
+    "type": "PopulationType",
+    "label": "African/African American"
   }
 }
           </code></pre></div></td>
@@ -856,10 +850,10 @@
               <p><a href="../details/details.html#CanAll032">CanAll032</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC038">CC038</a></p>
+              <p><a href="../details/details.html#PTID090">PTID090</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC028">CC028</a></p>
+              <p><a href="../details/details.html#AsctTID203">AsctTID203</a></p>
          </td>
           <td>
               <p>1.499e-05</p>
@@ -890,36 +884,25 @@
   "id": "AllFreq051",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC028",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000332",
-        "type": "Coding",
-        "code": "0000332",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "ExAc ascertainment method"
-      }
-    ]
+    "id": "AsctTID203",
+    "type": "AscertainmentType",
+    "label": "ExAc ascertainment method"
   },
   "population": {
-    "id": "CC038",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "BROAD-population-type:nfe",
-        "type": "Coding",
-        "code": "nfe",
-        "system": "http://broadinstitute.org/populations/",
-        "display": "Non-Finnish European"
-      }
-    ]
+    "id": "PTID090",
+    "type": "PopulationType",
+    "label": "Non-Finnish European"
   },
   "allele": {
     "id": "CanAll032",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll035",
-    "identifier": "http://reg.genome.network/allele/CA011797"
+    "preferredCtxAllele": {
+      "id": "CtxAll035",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll032",
+      "alleleName": "NM_000257.2(MYH7):c.5135G>A"
+    }
   },
   "alleleCount": 66706,
   "alleleNumber": 1,
@@ -939,10 +922,10 @@
               <p><a href="../details/details.html#CanAll032">CanAll032</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC039">CC039</a></p>
+              <p><a href="../details/details.html#PTID093">PTID093</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC029">CC029</a></p>
+              <p><a href="../details/details.html#AsctTID203">AsctTID203</a></p>
          </td>
           <td>
               <p>8.24e-06</p>
@@ -973,36 +956,25 @@
   "id": "AllFreq052",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC029",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000332",
-        "type": "Coding",
-        "code": "0000332",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "ExAc ascertainment method"
-      }
-    ]
+    "id": "AsctTID203",
+    "type": "AscertainmentType",
+    "label": "ExAc ascertainment method"
   },
   "population": {
-    "id": "CC039",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "CG-population-type:combined",
-        "type": "Coding",
-        "code": "combined",
-        "system": "http://clinicalgenome.org/datamodel/population-type/",
-        "display": "Combined"
-      }
-    ]
+    "id": "PTID093",
+    "type": "PopulationType",
+    "label": "Combined"
   },
   "allele": {
     "id": "CanAll032",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll035",
-    "identifier": "http://reg.genome.network/allele/CA011797"
+    "preferredCtxAllele": {
+      "id": "CtxAll035",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll032",
+      "alleleName": "NM_000257.2(MYH7):c.5135G>A"
+    }
   },
   "alleleCount": 121366,
   "alleleNumber": 1,
@@ -1022,10 +994,10 @@
               <p><a href="../details/details.html#CanAll033">CanAll033</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC040">CC040</a></p>
+              <p><a href="../details/details.html#PTID089">PTID089</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC030">CC030</a></p>
+              <p><a href="../details/details.html#AsctTID203">AsctTID203</a></p>
          </td>
           <td>
               <p>0.07771</p>
@@ -1056,36 +1028,25 @@
   "id": "AllFreq053",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC030",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000332",
-        "type": "Coding",
-        "code": "0000332",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "ExAc ascertainment method"
-      }
-    ]
+    "id": "AsctTID203",
+    "type": "AscertainmentType",
+    "label": "ExAc ascertainment method"
   },
   "population": {
-    "id": "CC040",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "BROAD-population-type:fin",
-        "type": "Coding",
-        "code": "fin",
-        "system": "http://broadinstitute.org/populations/",
-        "display": "Finnish"
-      }
-    ]
+    "id": "PTID089",
+    "type": "PopulationType",
+    "label": "Finnish"
   },
   "allele": {
     "id": "CanAll033",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll037",
-    "identifier": "http://reg.genome.network/allele/CA011797"
+    "preferredCtxAllele": {
+      "id": "CtxAll037",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll033",
+      "alleleName": "NM_001128425.1(MUTYH):c.64G>A (p.Val22Met)"
+    }
   },
   "alleleCount": 6614,
   "alleleNumber": 514,
@@ -1106,10 +1067,10 @@
               <p><a href="../details/details.html#CanAll034">CanAll034</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC041">CC041</a></p>
+              <p><a href="../details/details.html#PTID093">PTID093</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC031">CC031</a></p>
+              <p><a href="../details/details.html#AsctTID203">AsctTID203</a></p>
          </td>
           <td>
               <p>0.0</p>
@@ -1140,36 +1101,25 @@
   "id": "AllFreq054",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC031",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000332",
-        "type": "Coding",
-        "code": "0000332",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "ExAc ascertainment method"
-      }
-    ]
+    "id": "AsctTID203",
+    "type": "AscertainmentType",
+    "label": "ExAc ascertainment method"
   },
   "population": {
-    "id": "CC041",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "CG-population-type:combined",
-        "type": "Coding",
-        "code": "combined",
-        "system": "http://clinicalgenome.org/datamodel/population-type/",
-        "display": "Combined"
-      }
-    ]
+    "id": "PTID093",
+    "type": "PopulationType",
+    "label": "Combined"
   },
   "allele": {
     "id": "CanAll034",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll038",
-    "identifier": "http://reg.genome.network/allele/CA273141"
+    "preferredCtxAllele": {
+      "id": "CtxAll038",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll034",
+      "alleleName": "NM_001399.4(EDA): c.676C>T"
+    }
   },
   "alleleCount": 0,
   "alleleNumber": 0,
@@ -1189,10 +1139,10 @@
               <p><a href="../details/details.html#CanAll035">CanAll035</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC067">CC067</a></p>
+              <p><a href="../details/details.html#PTID093">PTID093</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC032">CC032</a></p>
+              <p><a href="../details/details.html#AsctTID203">AsctTID203</a></p>
          </td>
           <td>
               <p>0.0</p>
@@ -1223,36 +1173,34 @@
   "id": "AllFreq082",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC032",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000332",
-        "type": "Coding",
-        "code": "0000332",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "ExAc ascertainment method"
-      }
-    ]
+    "id": "AsctTID203",
+    "type": "AscertainmentType",
+    "label": "ExAc ascertainment method"
   },
   "population": {
-    "id": "CC067",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "CG-population-type:combined",
-        "type": "Coding",
-        "code": "combined",
-        "system": "http://clinicalgenome.org/datamodel/population-type/",
-        "display": "Combined"
-      }
-    ]
+    "id": "PTID093",
+    "type": "PopulationType",
+    "label": "Combined"
   },
   "allele": {
     "id": "CanAll035",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll039",
-    "identifier": "http://reg.genome.network/allele/CA090919"
+    "preferredCtxAllele": {
+      "id": "CtxAll039",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll035",
+      "alleleName": "NM_001369.2(DNAH5):c.7468_7488del",
+      "produces": [
+        {
+          "id": "CtxAll044",
+          "type": "ContextualAllele",
+          "producedBy": "CtxAll039",
+          "relatedCanonicalAllele": "CanAll040",
+          "alleleName": "NP_001360.1:p.Trp2490_Leu2496del"
+        }
+      ]
+    }
   },
   "alleleCount": 0,
   "alleleFrequency": 0.0,
@@ -1267,17 +1215,9 @@
       },
       "contributionDate": "6/1/16 2:15 PM",
       "contributionRole": {
-        "id": "CC390",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000156",
-            "type": "Coding",
-            "code": "0000156",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "curator role"
-          }
-        ]
+        "id": "CRID194",
+        "type": "ContributoryRole",
+        "label": "curator role"
       }
     }
   ],
@@ -1298,10 +1238,10 @@
               <p><a href="../details/details.html#CanAll125">CanAll125</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC068">CC068</a></p>
+              <p><a href="../details/details.html#PTID093">PTID093</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC033">CC033</a></p>
+              <p><a href="../details/details.html#AsctTID203">AsctTID203</a></p>
          </td>
           <td>
               <p>0.0</p>
@@ -1332,36 +1272,34 @@
   "id": "AllFreq101",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC033",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000332",
-        "type": "Coding",
-        "code": "0000332",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "ExAc ascertainment method"
-      }
-    ]
+    "id": "AsctTID203",
+    "type": "AscertainmentType",
+    "label": "ExAc ascertainment method"
   },
   "population": {
-    "id": "CC068",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "CG-population-type:combined",
-        "type": "Coding",
-        "code": "combined",
-        "system": "http://clinicalgenome.org/datamodel/population-type/",
-        "display": "Combined"
-      }
-    ]
+    "id": "PTID093",
+    "type": "PopulationType",
+    "label": "Combined"
   },
   "allele": {
     "id": "CanAll125",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll131",
-    "identifier": "http://reg.genome.network/allele/CA280055"
+    "preferredCtxAllele": {
+      "id": "CtxAll131",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll125",
+      "alleleName": "NM_004333.4(BRAF):c.1447A>C (p.Lys483Gln)",
+      "produces": [
+        {
+          "id": "CtxAll132",
+          "type": "ContextualAllele",
+          "producedBy": "CtxAll131",
+          "relatedCanonicalAllele": "CanAll126",
+          "alleleName": "NP_004324.2:p.Lys483Gln"
+        }
+      ]
+    }
   },
   "alleleCount": 0,
   "alleleFrequency": 0.0,
@@ -1380,10 +1318,10 @@
               <p><a href="../details/details.html#CanAll075">CanAll075</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC105">CC105</a></p>
+              <p><a href="../details/details.html#PTID093">PTID093</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC034">CC034</a></p>
+              <p><a href="../details/details.html#AsctTID203">AsctTID203</a></p>
          </td>
           <td>
               <p>0.05591</p>
@@ -1414,36 +1352,25 @@
   "id": "AllFreq153",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC034",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000332",
-        "type": "Coding",
-        "code": "0000332",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "ExAc ascertainment method"
-      }
-    ]
+    "id": "AsctTID203",
+    "type": "AscertainmentType",
+    "label": "ExAc ascertainment method"
   },
   "population": {
-    "id": "CC105",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "CG-population-type:combined",
-        "type": "Coding",
-        "code": "combined",
-        "system": "http://clinicalgenome.org/datamodel/population-type/",
-        "display": "Combined"
-      }
-    ]
+    "id": "PTID093",
+    "type": "PopulationType",
+    "label": "Combined"
   },
   "allele": {
     "id": "CanAll075",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll081",
-    "identifier": "http://reg.genome.network/allele/CA090891"
+    "preferredCtxAllele": {
+      "id": "CtxAll081",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll075",
+      "alleleName": "NM_000057.2 (BLM):c.2603C>T"
+    }
   },
   "alleleCount": 6732,
   "alleleNumber": 120402,
@@ -1463,10 +1390,10 @@
               <p><a href="../details/details.html#CanAll076">CanAll076</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC106">CC106</a></p>
+              <p><a href="../details/details.html#PTID093">PTID093</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC035">CC035</a></p>
+              <p><a href="../details/details.html#AsctTID203">AsctTID203</a></p>
          </td>
           <td>
               <p>0.04538</p>
@@ -1497,36 +1424,25 @@
   "id": "AllFreq154",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC035",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000332",
-        "type": "Coding",
-        "code": "0000332",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "ExAc ascertainment method"
-      }
-    ]
+    "id": "AsctTID203",
+    "type": "AscertainmentType",
+    "label": "ExAc ascertainment method"
   },
   "population": {
-    "id": "CC106",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "CG-population-type:combined",
-        "type": "Coding",
-        "code": "combined",
-        "system": "http://clinicalgenome.org/datamodel/population-type/",
-        "display": "Combined"
-      }
-    ]
+    "id": "PTID093",
+    "type": "PopulationType",
+    "label": "Combined"
   },
   "allele": {
     "id": "CanAll076",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll082",
-    "identifier": "http://reg.genome.network/allele/CA134997"
+    "preferredCtxAllele": {
+      "id": "CtxAll082",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll076",
+      "alleleName": "NM_004004.5(GJB2):c.79G>A"
+    }
   },
   "alleleCount": 5507,
   "alleleNumber": 121350,
@@ -1546,10 +1462,10 @@
               <p><a href="../details/details.html#CanAll076">CanAll076</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC107">CC107</a></p>
+              <p><a href="../details/details.html#PTID088">PTID088</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC036">CC036</a></p>
+              <p><a href="../details/details.html#AsctTID203">AsctTID203</a></p>
          </td>
           <td>
               <p>0.2917</p>
@@ -1580,36 +1496,25 @@
   "id": "AllFreq155",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC036",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000332",
-        "type": "Coding",
-        "code": "0000332",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "ExAc ascertainment method"
-      }
-    ]
+    "id": "AsctTID203",
+    "type": "AscertainmentType",
+    "label": "ExAc ascertainment method"
   },
   "population": {
-    "id": "CC107",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "BROAD-population-type:eas",
-        "type": "Coding",
-        "code": "eas",
-        "system": "http://broadinstitute.org/populations/",
-        "display": "East Asian"
-      }
-    ]
+    "id": "PTID088",
+    "type": "PopulationType",
+    "label": "East Asian"
   },
   "allele": {
     "id": "CanAll076",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll082",
-    "identifier": "http://reg.genome.network/allele/CA134997"
+    "preferredCtxAllele": {
+      "id": "CtxAll082",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll076",
+      "alleleName": "NM_004004.5(GJB2):c.79G>A"
+    }
   },
   "alleleCount": 2518,
   "alleleNumber": 8632,
@@ -1629,10 +1534,10 @@
               <p><a href="../details/details.html#CanAll077">CanAll077</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC109">CC109</a></p>
+              <p><a href="../details/details.html#PTID093">PTID093</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC037">CC037</a></p>
+              <p><a href="../details/details.html#AsctTID203">AsctTID203</a></p>
          </td>
           <td>
               <p>0.0001158</p>
@@ -1663,36 +1568,25 @@
   "id": "AllFreq157",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC037",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000332",
-        "type": "Coding",
-        "code": "0000332",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "ExAc ascertainment method"
-      }
-    ]
+    "id": "AsctTID203",
+    "type": "AscertainmentType",
+    "label": "ExAc ascertainment method"
   },
   "population": {
-    "id": "CC109",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "CG-population-type:combined",
-        "type": "Coding",
-        "code": "combined",
-        "system": "http://clinicalgenome.org/datamodel/population-type/",
-        "display": "Combined"
-      }
-    ]
+    "id": "PTID093",
+    "type": "PopulationType",
+    "label": "Combined"
   },
   "allele": {
     "id": "CanAll077",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll083",
-    "identifier": "http://reg.genome.network/allele/CA501229"
+    "preferredCtxAllele": {
+      "id": "CtxAll083",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll077",
+      "alleleName": "NM_023036.4(DNAI2):c.1304G>A"
+    }
   },
   "alleleCount": 14,
   "alleleNumber": 121100,
@@ -1712,10 +1606,10 @@
               <p><a href="../details/details.html#CanAll078">CanAll078</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC110">CC110</a></p>
+              <p><a href="../details/details.html#PTID093">PTID093</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC042">CC042</a></p>
+              <p><a href="../details/details.html#AsctTID203">AsctTID203</a></p>
          </td>
           <td>
               <p>0.0007</p>
@@ -1746,36 +1640,25 @@
   "id": "AllFreq158",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC042",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000332",
-        "type": "Coding",
-        "code": "0000332",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "ExAc ascertainment method"
-      }
-    ]
+    "id": "AsctTID203",
+    "type": "AscertainmentType",
+    "label": "ExAc ascertainment method"
   },
   "population": {
-    "id": "CC110",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "CG-population-type:combined",
-        "type": "Coding",
-        "code": "combined",
-        "system": "http://clinicalgenome.org/datamodel/population-type/",
-        "display": "Combined"
-      }
-    ]
+    "id": "PTID093",
+    "type": "PopulationType",
+    "label": "Combined"
   },
   "allele": {
     "id": "CanAll078",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll084",
-    "identifier": "http://reg.genome.network/allele/CA017597"
+    "preferredCtxAllele": {
+      "id": "CtxAll084",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll078",
+      "alleleName": "NM_000138.4(FBN1):c.8176C>T"
+    }
   },
   "alleleCount": 89,
   "alleleNumber": 121410,
@@ -1795,10 +1678,10 @@
               <p><a href="../details/details.html#CanAll079">CanAll079</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC114">CC114</a></p>
+              <p><a href="../details/details.html#PTID093">PTID093</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC043">CC043</a></p>
+              <p><a href="../details/details.html#AsctTID203">AsctTID203</a></p>
          </td>
           <td>
               <p>0.00625</p>
@@ -1829,36 +1712,25 @@
   "id": "AllFreq162",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC043",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000332",
-        "type": "Coding",
-        "code": "0000332",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "ExAc ascertainment method"
-      }
-    ]
+    "id": "AsctTID203",
+    "type": "AscertainmentType",
+    "label": "ExAc ascertainment method"
   },
   "population": {
-    "id": "CC114",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "CG-population-type:combined",
-        "type": "Coding",
-        "code": "combined",
-        "system": "http://clinicalgenome.org/datamodel/population-type/",
-        "display": "Combined"
-      }
-    ]
+    "id": "PTID093",
+    "type": "PopulationType",
+    "label": "Combined"
   },
   "allele": {
     "id": "CanAll079",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll085",
-    "identifier": "http://reg.genome.network/allele/CA090926"
+    "preferredCtxAllele": {
+      "id": "CtxAll085",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll079",
+      "alleleName": "NM_004541.3(NDUFA1):c.94G>C"
+    }
   },
   "alleleCount": 545,
   "alleleNumber": 87696,
@@ -1879,10 +1751,10 @@
               <p><a href="../details/details.html#CanAll080">CanAll080</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC119">CC119</a></p>
+              <p><a href="../details/details.html#PTID093">PTID093</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC044">CC044</a></p>
+              <p><a href="../details/details.html#AsctTID203">AsctTID203</a></p>
          </td>
           <td>
               <p>2.4e-05</p>
@@ -1913,36 +1785,25 @@
   "id": "AllFreq166",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC044",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000332",
-        "type": "Coding",
-        "code": "0000332",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "ExAc ascertainment method"
-      }
-    ]
+    "id": "AsctTID203",
+    "type": "AscertainmentType",
+    "label": "ExAc ascertainment method"
   },
   "population": {
-    "id": "CC119",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "CG-population-type:combined",
-        "type": "Coding",
-        "code": "combined",
-        "system": "http://clinicalgenome.org/datamodel/population-type/",
-        "display": "Combined"
-      }
-    ]
+    "id": "PTID093",
+    "type": "PopulationType",
+    "label": "Combined"
   },
   "allele": {
     "id": "CanAll080",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll086",
-    "identifier": "http://reg.genome.network/allele/CA501230"
+    "preferredCtxAllele": {
+      "id": "CtxAll086",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll080",
+      "alleleName": "NM_000414.3(HSD17B4):c.56C>G"
+    }
   },
   "alleleCount": 3,
   "alleleNumber": 120870,
@@ -1961,10 +1822,10 @@
               <p><a href="../details/details.html#CanAll121">CanAll121</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC289">CC289</a></p>
+              <p><a href="../details/details.html#PTID090">PTID090</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CC045">CC045</a></p>
+              <p><a href="../details/details.html#AsctTID203">AsctTID203</a></p>
          </td>
           <td>
               <p>1.5e-05</p>
@@ -1995,36 +1856,25 @@
   "id": "AllFreq370",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CC045",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "SEPIO:0000332",
-        "type": "Coding",
-        "code": "0000332",
-        "system": "http://obofoundry.org/sepio/",
-        "display": "ExAc ascertainment method"
-      }
-    ]
+    "id": "AsctTID203",
+    "type": "AscertainmentType",
+    "label": "ExAc ascertainment method"
   },
   "population": {
-    "id": "CC289",
-    "type": "CodeableConcept",
-    "coding": [
-      {
-        "id": "BROAD-population-type:nfe",
-        "type": "Coding",
-        "code": "nfe",
-        "system": "http://broadinstitute.org/populations/",
-        "display": "Non-Finnish European"
-      }
-    ]
+    "id": "PTID090",
+    "type": "PopulationType",
+    "label": "Non-Finnish European"
   },
   "allele": {
     "id": "CanAll121",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll127",
-    "identifier": "http://reg.genome.network/allele/CA022880"
+    "preferredCtxAllele": {
+      "id": "CtxAll127",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll121",
+      "alleleName": "NM_024422.3(DSC2): c.631-2A>G (p.?)"
+    }
   },
   "alleleCount": 1,
   "alleleNumber": 66564,

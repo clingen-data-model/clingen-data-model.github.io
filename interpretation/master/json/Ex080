@@ -5,18 +5,26 @@
     "id": "CritAssess357",
     "type": "CriterionAssessment",
     "criterion": {
-      "id": "BP6",
+      "id": "Crit329",
       "type": "Criterion",
+      "label": "BP6",
       "description": "Reputable source recently reports variant as benign, but the evidence is not available to the laboratory to perform an independent evaluation",
       "defaultStrength": {
-        "id": "CG-evidence-strength:bp"
+        "id": "ELSID140",
+        "type": "EvidenceLineStrength",
+        "label": "Benign Supporting"
       }
     },
     "variant": {
       "id": "CanAll116",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll122",
-      "identifier": "http://reg.genome.network/allele/CA113946"
+      "preferredCtxAllele": {
+        "id": "CtxAll122",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll116",
+        "alleleName": "NM_000274.3(OAT):c.1311G>C"
+      }
     },
     "condition": [
       {
@@ -24,21 +32,17 @@
         "type": "GeneticCondition",
         "disease": [
           {
-            "id": "Orphanet:414",
-            "type": "Coding",
-            "code": "414",
-            "system": "http://www.orpha.net/",
-            "display": "Gyrate atrophy of choroid and retina"
+            "id": "DisID171",
+            "type": "Disease",
+            "label": "Gyrate atrophy of choroid and retina"
           }
         ]
       }
     ],
     "outcome": {
-      "id": "SEPIO:0000224",
-      "type": "Coding",
-      "code": "0000224",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Not Met"
+      "id": "CEID075",
+      "type": "CriterionEvaluation",
+      "label": "Not Met"
     },
     "evidenceLine": [
       {
@@ -48,12 +52,16 @@
           {
             "id": "VarInterp257",
             "type": "VariantInterpretation",
-            "description": "classified by OMIM",
             "variant": {
               "id": "CanAll116",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll122",
-              "identifier": "http://reg.genome.network/allele/CA113946"
+              "preferredCtxAllele": {
+                "id": "CtxAll122",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll116",
+                "alleleName": "NM_000274.3(OAT):c.1311G>C"
+              }
             },
             "condition": [
               {
@@ -61,22 +69,19 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "Orphanet:414",
-                    "type": "Coding",
-                    "code": "414",
-                    "system": "http://www.orpha.net/",
-                    "display": "Gyrate atrophy of choroid and retina"
+                    "id": "DisID171",
+                    "type": "Disease",
+                    "label": "Gyrate atrophy of choroid and retina"
                   }
                 ]
               }
             ],
             "outcome": {
-              "id": "LN:LA6675-8",
-              "type": "Coding",
-              "code": "LA6675-8",
-              "system": "http://loinc.org/",
-              "display": "Benign"
-            }
+              "id": "SIGID032",
+              "type": "Significance",
+              "label": "Benign"
+            },
+            "description": "classified by OMIM"
           }
         ]
       }
@@ -91,17 +96,9 @@
         },
         "contributionDate": "10/10/16 8:03 AM",
         "contributionRole": {
-          "id": "CC403",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
     ]

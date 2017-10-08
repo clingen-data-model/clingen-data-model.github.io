@@ -4,20 +4,27 @@
   "informationId": {
     "id": "CritAssess354",
     "type": "CriterionAssessment",
-    "description": "Variants in COL2A1 are associated with dominant spondyloepiphyseal dysplasia congenita (a primary bone dysplasia). CA112 was identified in a  proband with CA113, which is pathogenic for another primary bone dysplasia, dominant Pseudoachondroplasia. However, this does not provide supporting evidence for CA112 being benign because the combination of a COL2A1 and COMP variant are known to produce a more severe phenotype, Pseudoachondroplastic spondyloepiphyseal dysplasia syndrome, which is the phenotype of the proband.  Because the combination of alleles may produce a qualitatively different phenotype, the bone dysplasia caused by the COMP variant does not provide evidence that the COL2A1 variant is benign for any bone dysplasias in general.\n",
     "criterion": {
-      "id": "BP5",
+      "id": "Crit328",
       "type": "Criterion",
+      "label": "BP5",
       "description": "Variant found in a case with an alternate molecular basis for disease",
       "defaultStrength": {
-        "id": "CG-evidence-strength:bp"
+        "id": "ELSID140",
+        "type": "EvidenceLineStrength",
+        "label": "Benign Supporting"
       }
     },
     "variant": {
       "id": "CanAll112",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll118",
-      "identifier": "http://reg.genome.network/allele/CA204551"
+      "preferredCtxAllele": {
+        "id": "CtxAll118",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll112",
+        "alleleName": "NM_001844.4(COL2A1):c.4316C>T"
+      }
     },
     "condition": [
       {
@@ -25,21 +32,17 @@
         "type": "GeneticCondition",
         "disease": [
           {
-            "id": "Orphanet:364526",
-            "type": "Coding",
-            "code": "364526",
-            "system": "http://www.orpha.net/",
-            "display": "Primary bone dysplasia"
+            "id": "DisID170",
+            "type": "Disease",
+            "label": "Primary bone dysplasia"
           }
         ]
       }
     ],
     "outcome": {
-      "id": "SEPIO:0000224",
-      "type": "Coding",
-      "code": "0000224",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Not Met"
+      "id": "CEID075",
+      "type": "CriterionEvaluation",
+      "label": "Not Met"
     },
     "evidenceLine": [
       {
@@ -50,7 +53,7 @@
             "id": "IndCond252",
             "type": "IndividualCondition",
             "individual": {
-              "id": "Indiv028",
+              "id": "Indiv360",
               "type": "Individual",
               "description": "individual #028"
             },
@@ -60,43 +63,49 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "Orphanet:750",
-                    "type": "Coding",
-                    "code": "750",
-                    "system": "http://www.orpha.net/",
-                    "display": "pseudoachondroplasia"
+                    "id": "DisID179",
+                    "type": "Disease",
+                    "label": "pseudoachondroplasia"
                   }
                 ],
                 "name": "Pseudoachondroplastic spondyloepiphyseal dysplasia"
               }
             ],
             "individualHasCondition": {
-              "id": "SEPIO-CG:99009",
-              "type": "Coding",
-              "code": "99009",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "affected"
+              "id": "CondStID218",
+              "type": "ConditionStatus",
+              "label": "affected"
             }
           },
           {
             "id": "IndAll253",
             "type": "IndividualAllele",
             "individual": {
-              "id": "Indiv028",
+              "id": "Indiv360",
               "type": "Individual",
               "description": "individual #028"
             },
             "primaryAllele": {
               "id": "CanAll112",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll118",
-              "identifier": "http://reg.genome.network/allele/CA204551"
+              "preferredCtxAllele": {
+                "id": "CtxAll118",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll112",
+                "alleleName": "NM_001844.4(COL2A1):c.4316C>T"
+              }
             },
             "secondaryAllele": {
               "id": "CanAll113",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll119",
-              "identifier": "http://reg.genome.network/allele/CA254703"
+              "preferredCtxAllele": {
+                "id": "CtxAll119",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll113",
+                "alleleName": "NM_000095.2(COMP):c.1042T>C"
+              }
             }
           },
           {
@@ -105,8 +114,13 @@
             "variant": {
               "id": "CanAll113",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll119",
-              "identifier": "http://reg.genome.network/allele/CA254703"
+              "preferredCtxAllele": {
+                "id": "CtxAll119",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll113",
+                "alleleName": "NM_000095.2(COMP):c.1042T>C"
+              }
             },
             "condition": [
               {
@@ -114,32 +128,32 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "Orphanet:750",
-                    "type": "Coding",
-                    "code": "750",
-                    "system": "http://www.orpha.net/",
-                    "display": "pseudoachondroplasia"
+                    "id": "DisID179",
+                    "type": "Disease",
+                    "label": "pseudoachondroplasia"
                   }
                 ]
               }
             ],
             "outcome": {
-              "id": "LN:LA6668-3",
-              "type": "Coding",
-              "code": "LA6668-3",
-              "system": "http://loinc.org/",
-              "display": "Pathogenic"
+              "id": "SIGID031",
+              "type": "Significance",
+              "label": "Pathogenic"
             }
           },
           {
             "id": "VarInterp270",
             "type": "VariantInterpretation",
-            "description": "Pseudoachondroplastic spondyloepiphyseal dysplasia syndrome is caused by a combination of a pathogenic variant in COL2A1 and another in COMP.   So CA113 may be involved, but is not the sole cause.",
             "variant": {
               "id": "CanAll113",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll119",
-              "identifier": "http://reg.genome.network/allele/CA254703"
+              "preferredCtxAllele": {
+                "id": "CtxAll119",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll113",
+                "alleleName": "NM_000095.2(COMP):c.1042T>C"
+              }
             },
             "condition": [
               {
@@ -147,23 +161,20 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "Orphanet:750",
-                    "type": "Coding",
-                    "code": "750",
-                    "system": "http://www.orpha.net/",
-                    "display": "pseudoachondroplasia"
+                    "id": "DisID179",
+                    "type": "Disease",
+                    "label": "pseudoachondroplasia"
                   }
                 ],
                 "name": "Pseudoachondroplastic spondyloepiphyseal dysplasia"
               }
             ],
             "outcome": {
-              "id": "LN:LA26333-7",
-              "type": "Coding",
-              "code": "LA26333-7",
-              "system": "http://loinc.org/",
-              "display": "Uncertain Signficance"
-            }
+              "id": "SIGID029",
+              "type": "Significance",
+              "label": "Uncertain Signficance"
+            },
+            "description": "Pseudoachondroplastic spondyloepiphyseal dysplasia syndrome is caused by a combination of a pathogenic variant in COL2A1 and another in COMP.   So CA113 may be involved, but is not the sole cause."
           }
         ]
       }
@@ -178,20 +189,13 @@
         },
         "contributionDate": "10/6/16 9:09 AM",
         "contributionRole": {
-          "id": "CC400",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
-    ]
+    ],
+    "description": "Variants in COL2A1 are associated with dominant spondyloepiphyseal dysplasia congenita (a primary bone dysplasia). CA112 was identified in a  proband with CA113, which is pathogenic for another primary bone dysplasia, dominant Pseudoachondroplasia. However, this does not provide supporting evidence for CA112 being benign because the combination of a COL2A1 and COMP variant are known to produce a more severe phenotype, Pseudoachondroplastic spondyloepiphyseal dysplasia syndrome, which is the phenotype of the proband.  Because the combination of alleles may produce a qualitatively different phenotype, the bone dysplasia caused by the COMP variant does not provide evidence that the COL2A1 variant is benign for any bone dysplasias in general.\n"
   },
   "index": 3,
   "author": "#N/A",

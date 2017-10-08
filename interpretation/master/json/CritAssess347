@@ -2,25 +2,31 @@
   "id": "CritAssess347",
   "type": "CriterionAssessment",
   "criterion": {
-    "id": "BP3",
+    "id": "Crit326",
     "type": "Criterion",
+    "label": "BP3",
     "description": "In-frame deletions/insertions in a repetitive region without a known function",
     "defaultStrength": {
-      "id": "CG-evidence-strength:bp"
+      "id": "ELSID140",
+      "type": "EvidenceLineStrength",
+      "label": "Benign Supporting"
     }
   },
   "variant": {
     "id": "CanAll102",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll108",
-    "identifier": "http://reg.genome.network/allele/CA184168"
+    "preferredCtxAllele": {
+      "id": "CtxAll108",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll102",
+      "alleleName": "NM_147196.2(TMIE):c.391_393dupAAG"
+    }
   },
   "outcome": {
-    "id": "SEPIO:0000223",
-    "type": "Coding",
-    "code": "0000223",
-    "system": "http://obofoundry.org/sepio/",
-    "display": "Met"
+    "id": "CEID074",
+    "type": "CriterionEvaluation",
+    "label": "Met"
   },
   "evidenceLine": [
     {
@@ -34,22 +40,18 @@
             "id": "Loc394",
             "type": "SequenceLocation",
             "referenceSequence": {
-              "id": "RefSeq010",
+              "id": "RefSeq296",
               "type": "ReferenceSequence",
-              "accession": {
-                "id": "NM_147196.2"
-              }
+              "accession": "NM_147196.2"
             },
             "start": 522,
             "stop": 548
           },
           "annotation": [
             {
-              "id": "SO:0000657",
-              "type": "Coding",
-              "code": "0000657",
-              "system": "http://sequenceontology.org/",
-              "display": "repeat region "
+              "id": "RATID035",
+              "type": "RegionAnnotationType",
+              "label": "repeat region "
             }
           ]
         },
@@ -60,11 +62,9 @@
             "id": "Loc394",
             "type": "SequenceLocation",
             "referenceSequence": {
-              "id": "RefSeq010",
+              "id": "RefSeq296",
               "type": "ReferenceSequence",
-              "accession": {
-                "id": "NM_147196.2"
-              }
+              "accession": "NM_147196.2"
             },
             "start": 522,
             "stop": 548
@@ -73,48 +73,30 @@
             {
               "id": "CtxAll108",
               "type": "ContextualAllele",
-              "relatedCanonicalAllele": {
-                "id": "CanAll102",
-                "type": "CanonicalAllele",
-                "preferredCtxAllele": "CtxAll108",
-                "identifier": "http://reg.genome.network/allele/CA184168"
-              },
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll102",
               "alleleName": "NM_147196.2(TMIE):c.391_393dupAAG"
             }
           ],
           "outcome": {
-            "id": "SEPIO-CG:99020",
-            "type": "Coding",
-            "code": "99020",
-            "system": "http://obofoundry.org/sepio/clingen",
-            "display": "included"
+            "id": "RegAID225",
+            "type": "RegionAllelesOutcome",
+            "label": "included"
           }
         },
         {
           "id": "MolCon231",
           "type": "MolecularConsequence",
           "consequence": {
-            "id": "CC165",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SO:0001823",
-                "type": "Coding",
-                "code": "0001823",
-                "system": "http://sequenceontology.org/",
-                "display": "conservative Inframe Insertion"
-              }
-            ]
+            "id": "MCTID017",
+            "type": "MolecularConsequenceType",
+            "label": "conservative Inframe Insertion"
           },
           "contextualAllele": {
             "id": "CtxAll108",
             "type": "ContextualAllele",
-            "relatedCanonicalAllele": {
-              "id": "CanAll102",
-              "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll108",
-              "identifier": "http://reg.genome.network/allele/CA184168"
-            },
+            "producedBy": null,
+            "relatedCanonicalAllele": "CanAll102",
             "alleleName": "NM_147196.2(TMIE):c.391_393dupAAG"
           }
         }
@@ -131,17 +113,9 @@
       },
       "contributionDate": "9/15/16 10:40 AM",
       "contributionRole": {
-        "id": "CC393",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     }
   ]

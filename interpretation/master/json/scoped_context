@@ -17,8 +17,16 @@
       }
     },
     "MolecularConsequence": {
-      "@id": "cg:MolecularConsequence",
+      "@id": "SEPIO:0000229",
       "@context": {
+        "contextualAllele": {
+          "@id": "SEPIO:0000275",
+          "@type": "@id"
+        },
+        "consequence": {
+          "@id": "SEPIO:0000197",
+          "@type": "@id"
+        }
       }
     },
     "ConditionMechanism": {
@@ -45,8 +53,6 @@
     "Criterion": {
       "@id": "SEPIO:0000192",
       "@context": {
-        "label": "RDFS:label",
-        "description": "DC:description",
         "defaultStrength": {
           "@id": "SEPIO:0000196",
           "@type": "@id"
@@ -71,7 +77,15 @@
           "@type": "@id"
         },
         "alleleName": "RDFS:label",
-        "legacyNames": "IAO:0000118"
+        "legacyNames": "IAO:0000118",
+        "produces": {
+          "@id": "RO:0003000",
+          "@type": "@id"
+        },
+        "producedBy": {
+          "@id": "RO:0003001",
+          "@type": "@id"
+        }
       }
     },
     "Gene": {
@@ -81,16 +95,8 @@
       }
     },
     "NullAllele": {
-      "@id": "SEPIO:0000274",
+      "@id": "cg:NullAllele",
       "@context": {
-        "contextualAllele": {
-          "@id": "SEPIO:0000275",
-          "@type": "@id"
-        },
-        "annotation": {
-          "@id": "SEPIO:0000197",
-          "@type": "@id"
-        }
       }
     },
     "CriterionAssessment": {
@@ -352,12 +358,8 @@
       }
     },
     "ReferenceSequence": {
-      "@id": "GENO:0000017",
+      "@id": "cg:ReferenceSequence",
       "@context": {
-        "accession": {
-          "@id": "cg:accession",
-          "@type": "@id"
-        }
       }
     },
     "IndividualAllele": {
@@ -445,23 +447,40 @@
         }
       }
     },
-    "CodeableConcept": {
-      "@id": "cg:CodeableConcept",
+    "Synonym": {
+      "@id": "cg:Synonym",
       "@context": {
-        "text": "cg:text",
-        "coding": {
-          "@id": "cg:coding",
+        "label": "RDFS:label",
+        "description": "DC:description",
+        "synonymType": {
+          "@id": "IAO:0000102",
+          "@type": "@id"
+        },
+        "contribution": {
+          "@id": "SEPIO:0000159",
+          "@type": "@id"
+        },
+        "comments": "cg:comments"
+      }
+    },
+    "DomainEntity": {
+      "@id": "cg:DomainEntity",
+      "@context": {
+        "description": "cg:description",
+        "label": "cg:label",
+        "synonym": {
+          "@id": "cg:synonym",
           "@type": "@id"
         }
       }
     },
-    "CodeSystem": {
-      "@id": "cg:CodeSystem",
+    "IdentiferSystem": {
+      "@id": "cg:IdentiferSystem",
       "@context": {
       }
     },
-    "Coding": {
-      "@id": "cg:Coding",
+    "IdentiferSystemConcept": {
+      "@id": "cg:IdentiferSystemConcept",
       "@context": {
         "code": "cg:code",
         "system": "cg:system",
@@ -469,20 +488,8 @@
       }
     },
     "BenignMissenseVariationRate": {
-      "@id": "SEPIO:0000246",
+      "@id": "cg:BenignMissenseVariationRate",
       "@context": {
-        "region": {
-          "@id": "SEPIO:0000279",
-          "@type": "@id"
-        },
-        "gene": {
-          "@id": "SEPIO:0000278",
-          "@type": "@id"
-        },
-        "value": {
-          "@id": "SEPIO:0000197",
-          "@type": "@id"
-        }
       }
     },
     "Family": {
@@ -635,16 +642,13 @@
     "ValueSet": {
       "@id": "cg:ValueSet",
       "@context": {
-        "includesCoding": {
-          "@id": "cg:includesCoding",
-          "@type": "@id"
-        },
+        "includesConcept": "cg:includesConcept",
         "name": "cg:name",
         "description": "cg:description"
       }
     },
-    "ValueSetCoding": {
-      "@id": "cg:ValueSetCoding",
+    "ValueSetConcept": {
+      "@id": "cg:ValueSetConcept",
       "@context": {
       }
     },
@@ -666,8 +670,133 @@
         }
       }
     },
-    "Mechanism": {
-      "@id": "cg:Mechanism",
+    "MolecularConsequenceType": {
+      "@id": "cg:MolecularConsequenceType",
+      "@context": {
+      }
+    },
+    "Significance": {
+      "@id": "cg:Significance",
+      "@context": {
+      }
+    },
+    "RegionAnnotationType": {
+      "@id": "cg:RegionAnnotationType",
+      "@context": {
+      }
+    },
+    "Phase": {
+      "@id": "cg:Phase",
+      "@context": {
+      }
+    },
+    "AllelicState": {
+      "@id": "cg:AllelicState",
+      "@context": {
+      }
+    },
+    "ModeOfInheritance": {
+      "@id": "cg:ModeOfInheritance",
+      "@context": {
+      }
+    },
+    "ReferenceSequenceRelatedType": {
+      "@id": "cg:ReferenceSequenceRelatedType",
+      "@context": {
+      }
+    },
+    "MechanismType": {
+      "@id": "cg:MechanismType",
+      "@context": {
+      }
+    },
+    "PredictionType": {
+      "@id": "cg:PredictionType",
+      "@context": {
+      }
+    },
+    "CriterionEvaluation": {
+      "@id": "cg:CriterionEvaluation",
+      "@context": {
+      }
+    },
+    "AlleleFunctionalImpactType": {
+      "@id": "cg:AlleleFunctionalImpactType",
+      "@context": {
+      }
+    },
+    "PopulationType": {
+      "@id": "cg:PopulationType",
+      "@context": {
+      }
+    },
+    "PenetranceType": {
+      "@id": "cg:PenetranceType",
+      "@context": {
+      }
+    },
+    "ConditionMechanismStrength": {
+      "@id": "cg:ConditionMechanismStrength",
+      "@context": {
+      }
+    },
+    "EvidenceLineStrength": {
+      "@id": "cg:EvidenceLineStrength",
+      "@context": {
+      }
+    },
+    "Disease": {
+      "@id": "cg:Disease",
+      "@context": {
+      }
+    },
+    "Phenotype": {
+      "@id": "cg:Phenotype",
+      "@context": {
+      }
+    },
+    "ContributoryRole": {
+      "@id": "cg:ContributoryRole",
+      "@context": {
+      }
+    },
+    "AlleleInheritanceType": {
+      "@id": "cg:AlleleInheritanceType",
+      "@context": {
+      }
+    },
+    "AscertainmentType": {
+      "@id": "cg:AscertainmentType",
+      "@context": {
+      }
+    },
+    "LocusSpecificityType": {
+      "@id": "cg:LocusSpecificityType",
+      "@context": {
+      }
+    },
+    "Conservation": {
+      "@id": "cg:Conservation",
+      "@context": {
+      }
+    },
+    "ParentalConfirmation": {
+      "@id": "cg:ParentalConfirmation",
+      "@context": {
+      }
+    },
+    "ConditionStatus": {
+      "@id": "cg:ConditionStatus",
+      "@context": {
+      }
+    },
+    "InconsistentSegregationObserved": {
+      "@id": "cg:InconsistentSegregationObserved",
+      "@context": {
+      }
+    },
+    "RegionAllelesOutcome": {
+      "@id": "cg:RegionAllelesOutcome",
       "@context": {
       }
     }

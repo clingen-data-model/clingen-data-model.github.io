@@ -4,27 +4,33 @@
   "informationId": {
     "id": "CritAssess373",
     "type": "CriterionAssessment",
-    "description": "This is a synonymous variant with little conservation and no predicted impact on splicing. Conservation and splicing algorithm values are listed below.",
     "criterion": {
-      "id": "BP4",
+      "id": "Crit327",
       "type": "Criterion",
+      "label": "BP4",
       "description": "Multiple lines of computational evidence suggest no impact on gene or gene product (conservation, evolutionary, splicing impact, etc.)",
       "defaultStrength": {
-        "id": "CG-evidence-strength:bp"
-      }
+        "id": "ELSID140",
+        "type": "EvidenceLineStrength",
+        "label": "Benign Supporting"
+      },
+      "comments": "same issues as PP3."
     },
     "variant": {
       "id": "CanAll118",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll124",
-      "identifier": "http://reg.genome.network/allele/CA013536"
+      "preferredCtxAllele": {
+        "id": "CtxAll124",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll118",
+        "alleleName": "NM_000257.2(MYH7):c.327C>T"
+      }
     },
     "outcome": {
-      "id": "SEPIO:0000223",
-      "type": "Coding",
-      "code": "0000223",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Met"
+      "id": "CEID074",
+      "type": "CriterionEvaluation",
+      "label": "Met"
     },
     "evidenceLine": [
       {
@@ -34,34 +40,29 @@
           {
             "id": "InSilicoPred068",
             "type": "InSilicoPrediction",
-            "description": "Provenance would show that this comes from Alamut",
             "transcript": {
-              "id": "RefSeq011",
+              "id": "RefSeq297",
               "type": "ReferenceSequence",
-              "accession": {
-                "id": "NM_000257.2"
-              }
+              "accession": "NM_000257.2"
             },
             "canonicalAllele": {
               "id": "CanAll118",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll124",
-              "identifier": "http://reg.genome.network/allele/CA013536"
+              "preferredCtxAllele": {
+                "id": "CtxAll124",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll118",
+                "alleleName": "NM_000257.2(MYH7):c.327C>T"
+              }
             },
             "predictionType": {
-              "id": "CC056",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "SEPIO:0000323",
-                  "type": "Coding",
-                  "code": "0000323",
-                  "system": "http://obofoundry.org/sepio/",
-                  "display": "splicing prediction"
-                }
-              ]
+              "id": "PredTID073",
+              "type": "PredictionType",
+              "label": "splicing prediction"
             },
-            "categoricalPrediction": "no impact"
+            "categoricalPrediction": "no impact",
+            "description": "Provenance would show that this comes from Alamut"
           },
           {
             "id": "Conserv071",
@@ -69,15 +70,18 @@
             "allele": {
               "id": "CanAll118",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll124",
-              "identifier": "http://reg.genome.network/allele/CA013536"
+              "preferredCtxAllele": {
+                "id": "CtxAll124",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll118",
+                "alleleName": "NM_000257.2(MYH7):c.327C>T"
+              }
             },
             "outcome": {
-              "id": "SEPIO-CG:99004",
-              "type": "Coding",
-              "code": "99004",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "not conserved"
+              "id": "ConsrvID213",
+              "type": "Conservation",
+              "label": "not conserved"
             },
             "algorithm": "phyloP",
             "score": -0.76
@@ -88,15 +92,18 @@
             "allele": {
               "id": "CanAll118",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll124",
-              "identifier": "http://reg.genome.network/allele/CA013536"
+              "preferredCtxAllele": {
+                "id": "CtxAll124",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll118",
+                "alleleName": "NM_000257.2(MYH7):c.327C>T"
+              }
             },
             "outcome": {
-              "id": "SEPIO-CG:99004",
-              "type": "Coding",
-              "code": "99004",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "not conserved"
+              "id": "ConsrvID213",
+              "type": "Conservation",
+              "label": "not conserved"
             },
             "algorithm": "PhastCons",
             "score": 0.63
@@ -105,27 +112,15 @@
             "id": "MolCon075",
             "type": "MolecularConsequence",
             "consequence": {
-              "id": "CC061",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "SO:0001819",
-                  "type": "Coding",
-                  "code": "0001819",
-                  "system": "http://sequenceontology.org/",
-                  "display": "synonymous variant"
-                }
-              ]
+              "id": "MCTID016",
+              "type": "MolecularConsequenceType",
+              "label": "synonymous variant"
             },
             "contextualAllele": {
               "id": "CtxAll124",
               "type": "ContextualAllele",
-              "relatedCanonicalAllele": {
-                "id": "CanAll118",
-                "type": "CanonicalAllele",
-                "preferredCtxAllele": "CtxAll124",
-                "identifier": "http://reg.genome.network/allele/CA013536"
-              },
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll118",
               "alleleName": "NM_000257.2(MYH7):c.327C>T"
             }
           },
@@ -135,20 +130,14 @@
             "contextualAllele": {
               "id": "CtxAll127",
               "type": "ContextualAllele",
-              "relatedCanonicalAllele": {
-                "id": "CanAll121",
-                "type": "CanonicalAllele",
-                "preferredCtxAllele": "CtxAll127",
-                "identifier": "http://reg.genome.network/allele/CA022880"
-              },
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll121",
               "alleleName": "NM_024422.3(DSC2): c.631-2A>G (p.?)"
             },
             "annotation": {
-              "id": "SO:0002054",
-              "type": "Coding",
-              "code": "0002054",
-              "system": "http://sequenceontology.org/",
-              "display": "loss of function variant"
+              "id": "MTID071",
+              "type": "MechanismType",
+              "label": "loss of function variant"
             }
           }
         ]
@@ -164,20 +153,13 @@
         },
         "contributionDate": "03/08/2017 10:02 AM",
         "contributionRole": {
-          "id": "CC412",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
-    ]
+    ],
+    "description": "This is a synonymous variant with little conservation and no predicted impact on splicing. Conservation and splicing algorithm values are listed below."
   },
   "index": 3,
   "author": "Marina DiStefano",

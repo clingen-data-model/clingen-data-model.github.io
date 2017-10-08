@@ -4,27 +4,32 @@
   "informationId": {
     "id": "CritAssess360",
     "type": "CriterionAssessment",
-    "description": "This variant is a silent variant that does not result in an amino acid change. It is not very conserved and splicing tools suggest no change. However, BP7 does not apply because the variant is located in the first base of exon 4 of RAF1, which is part of the 3’ splice region of the exon. For that reason, we can’t fully trust computational tools. Functional assays would have to confirm that this variant truly does not alter splicing.",
     "criterion": {
-      "id": "BP7",
+      "id": "Crit330",
       "type": "Criterion",
+      "label": "BP7",
       "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
       "defaultStrength": {
-        "id": "CG-evidence-strength:bp"
+        "id": "ELSID140",
+        "type": "EvidenceLineStrength",
+        "label": "Benign Supporting"
       }
     },
     "variant": {
       "id": "CanAll119",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll125",
-      "identifier": "http://reg.genome.network/allele/CA177682"
+      "preferredCtxAllele": {
+        "id": "CtxAll125",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll119",
+        "alleleName": "NM_002880.3(RAF1):c.321T>C"
+      }
     },
     "outcome": {
-      "id": "SEPIO:0000224",
-      "type": "Coding",
-      "code": "0000224",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Not Met"
+      "id": "CEID075",
+      "type": "CriterionEvaluation",
+      "label": "Not Met"
     },
     "evidenceLine": [
       {
@@ -35,30 +40,25 @@
             "id": "InSilicoPred266",
             "type": "InSilicoPrediction",
             "transcript": {
-              "id": "RefSeq016",
+              "id": "RefSeq302",
               "type": "ReferenceSequence",
-              "accession": {
-                "id": "NM_002880.3"
-              }
+              "accession": "NM_002880.3"
             },
             "canonicalAllele": {
               "id": "CanAll119",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll125",
-              "identifier": "http://reg.genome.network/allele/CA177682"
+              "preferredCtxAllele": {
+                "id": "CtxAll125",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll119",
+                "alleleName": "NM_002880.3(RAF1):c.321T>C"
+              }
             },
             "predictionType": {
-              "id": "CC191",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "SEPIO:0000323",
-                  "type": "Coding",
-                  "code": "0000323",
-                  "system": "http://obofoundry.org/sepio/",
-                  "display": "splicing prediction"
-                }
-              ]
+              "id": "PredTID073",
+              "type": "PredictionType",
+              "label": "splicing prediction"
             },
             "categoricalPrediction": "no impact"
           },
@@ -68,15 +68,18 @@
             "allele": {
               "id": "CanAll119",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll125",
-              "identifier": "http://reg.genome.network/allele/CA177682"
+              "preferredCtxAllele": {
+                "id": "CtxAll125",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll119",
+                "alleleName": "NM_002880.3(RAF1):c.321T>C"
+              }
             },
             "outcome": {
-              "id": "SEPIO-CG:99004",
-              "type": "Coding",
-              "code": "99004",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "not conserved"
+              "id": "ConsrvID213",
+              "type": "Conservation",
+              "label": "not conserved"
             },
             "algorithm": "phyloP",
             "score": 0.45
@@ -87,15 +90,18 @@
             "allele": {
               "id": "CanAll119",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll125",
-              "identifier": "http://reg.genome.network/allele/CA177682"
+              "preferredCtxAllele": {
+                "id": "CtxAll125",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll119",
+                "alleleName": "NM_002880.3(RAF1):c.321T>C"
+              }
             },
             "outcome": {
-              "id": "SEPIO-CG:99004",
-              "type": "Coding",
-              "code": "99004",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "not conserved"
+              "id": "ConsrvID213",
+              "type": "Conservation",
+              "label": "not conserved"
             },
             "algorithm": "PhastCons",
             "score": 1.0
@@ -104,27 +110,15 @@
             "id": "MolCon269",
             "type": "MolecularConsequence",
             "consequence": {
-              "id": "CC192",
-              "type": "CodeableConcept",
-              "coding": [
-                {
-                  "id": "SO:0001819",
-                  "type": "Coding",
-                  "code": "0001819",
-                  "system": "http://sequenceontology.org/",
-                  "display": "synonymous variant"
-                }
-              ]
+              "id": "MCTID016",
+              "type": "MolecularConsequenceType",
+              "label": "synonymous variant"
             },
             "contextualAllele": {
               "id": "CtxAll125",
               "type": "ContextualAllele",
-              "relatedCanonicalAllele": {
-                "id": "CanAll119",
-                "type": "CanonicalAllele",
-                "preferredCtxAllele": "CtxAll125",
-                "identifier": "http://reg.genome.network/allele/CA177682"
-              },
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll119",
               "alleleName": "NM_002880.3(RAF1):c.321T>C"
             }
           }
@@ -141,20 +135,13 @@
         },
         "contributionDate": "10/10/16 8:06 AM",
         "contributionRole": {
-          "id": "CC406",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
-    ]
+    ],
+    "description": "This variant is a silent variant that does not result in an amino acid change. It is not very conserved and splicing tools suggest no change. However, BP7 does not apply because the variant is located in the first base of exon 4 of RAF1, which is part of the 3’ splice region of the exon. For that reason, we can’t fully trust computational tools. Functional assays would have to confirm that this variant truly does not alter splicing."
   },
   "index": 3,
   "author": "#N/A",

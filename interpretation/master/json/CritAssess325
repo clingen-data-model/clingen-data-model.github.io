@@ -1,20 +1,28 @@
 {
   "id": "CritAssess325",
   "type": "CriterionAssessment",
-  "description": "Although this variant has been seen in the general population, its frequency is low enough to be consistent with a recessive carrier frequency.",
   "criterion": {
-    "id": "PM2",
+    "id": "Crit309",
     "type": "Criterion",
+    "label": "PM2",
     "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
     "defaultStrength": {
-      "id": "CG-evidence-strength:pm"
-    }
+      "id": "ELSID143",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Moderate"
+    },
+    "comments": "Some groups are allowing to rule to be used if even not 100% absent\nFor instance, Cardio has allowed PM2 to be used if MAF is <0.05% with 95% CI if\nCI lower is ~0.00% (at 2 decimal places) AND CI upper is below 0.05%\n Caveat: Population data for insertions/deletions may be poorly called by next-generation sequencing"
   },
   "variant": {
     "id": "CanAll077",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll083",
-    "identifier": "http://reg.genome.network/allele/CA501229"
+    "preferredCtxAllele": {
+      "id": "CtxAll083",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll077",
+      "alleleName": "NM_023036.4(DNAI2):c.1304G>A"
+    }
   },
   "condition": [
     {
@@ -22,28 +30,22 @@
       "type": "GeneticCondition",
       "disease": [
         {
-          "id": "Orphanet:244",
-          "type": "Coding",
-          "code": "244",
-          "system": "http://www.orpha.net/",
-          "display": "Primary ciliary dyskenisia"
+          "id": "DisID163",
+          "type": "Disease",
+          "label": "Primary ciliary dyskenisia"
         }
       ],
       "modeOfInheritance": {
-        "id": "HP:0000007",
-        "type": "Coding",
-        "code": "0000007",
-        "system": "http://human-phenotype-ontology.github.io/",
-        "display": "Autosomal Recessive"
+        "id": "MOIID052",
+        "type": "ModeOfInheritance",
+        "label": "Autosomal Recessive"
       }
     }
   ],
   "outcome": {
-    "id": "SEPIO:0000223",
-    "type": "Coding",
-    "code": "0000223",
-    "system": "http://obofoundry.org/sepio/",
-    "display": "Met"
+    "id": "CEID074",
+    "type": "CriterionEvaluation",
+    "label": "Met"
   },
   "evidenceLine": [
     {
@@ -54,36 +56,25 @@
           "id": "AllFreq157",
           "type": "AlleleFrequency",
           "ascertainment": {
-            "id": "CC037",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "SEPIO:0000332",
-                "type": "Coding",
-                "code": "0000332",
-                "system": "http://obofoundry.org/sepio/",
-                "display": "ExAc ascertainment method"
-              }
-            ]
+            "id": "AsctTID203",
+            "type": "AscertainmentType",
+            "label": "ExAc ascertainment method"
           },
           "population": {
-            "id": "CC109",
-            "type": "CodeableConcept",
-            "coding": [
-              {
-                "id": "CG-population-type:combined",
-                "type": "Coding",
-                "code": "combined",
-                "system": "http://clinicalgenome.org/datamodel/population-type/",
-                "display": "Combined"
-              }
-            ]
+            "id": "PTID093",
+            "type": "PopulationType",
+            "label": "Combined"
           },
           "allele": {
             "id": "CanAll077",
             "type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll083",
-            "identifier": "http://reg.genome.network/allele/CA501229"
+            "preferredCtxAllele": {
+              "id": "CtxAll083",
+              "type": "ContextualAllele",
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll077",
+              "alleleName": "NM_023036.4(DNAI2):c.1304G>A"
+            }
           },
           "alleleCount": 14,
           "alleleNumber": 121100,
@@ -103,18 +94,11 @@
       },
       "contributionDate": "8/29/16 9:00 PM",
       "contributionRole": {
-        "id": "CC359",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     }
-  ]
+  ],
+  "description": "Although this variant has been seen in the general population, its frequency is low enough to be consistent with a recessive carrier frequency."
 }

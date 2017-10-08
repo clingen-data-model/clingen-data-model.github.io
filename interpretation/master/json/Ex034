@@ -4,20 +4,27 @@
   "informationId": {
     "id": "CritAssess308",
     "type": "CriterionAssessment",
-    "description": "3 unrelated probands with CFC were found to carry c.1741A>G variant. There is no family history of CFC in any family and all three sets of parents were confirmed to not have the variant. Since there was no mention of parental confirmation, PS2 cannot be used but PM6 is applicable. However, since there are 3 de novo observations, many groups (including Noonan and MYH7) would allow PM6 to be upgraded to Strong (PM6_S)",
     "criterion": {
-      "id": "PM6",
+      "id": "Crit313",
       "type": "Criterion",
+      "label": "PM6",
       "description": "Assumed de novo, but without confirmation of paternity and maternity",
       "defaultStrength": {
-        "id": "CG-evidence-strength:pm"
+        "id": "ELSID143",
+        "type": "EvidenceLineStrength",
+        "label": "Pathogenic Moderate"
       }
     },
     "variant": {
       "id": "CanAll061",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": "CtxAll065",
-      "identifier": "http://reg.genome.network/allele/CA279976"
+      "preferredCtxAllele": {
+        "id": "CtxAll065",
+        "type": "ContextualAllele",
+        "producedBy": null,
+        "relatedCanonicalAllele": "CanAll061",
+        "alleleName": "NM_004333.4(BRAF):c.1741A>G"
+      }
     },
     "condition": [
       {
@@ -25,21 +32,17 @@
         "type": "GeneticCondition",
         "disease": [
           {
-            "id": "Orphanet:1340",
-            "type": "Coding",
-            "code": "1340",
-            "system": "http://www.orpha.net/",
-            "display": "cardiofaciocutaneous syndrome"
+            "id": "DisID156",
+            "type": "Disease",
+            "label": "cardiofaciocutaneous syndrome"
           }
         ]
       }
     ],
     "outcome": {
-      "id": "SEPIO:0000223",
-      "type": "Coding",
-      "code": "0000223",
-      "system": "http://obofoundry.org/sepio/",
-      "display": "Met"
+      "id": "CEID074",
+      "type": "CriterionEvaluation",
+      "label": "Met"
     },
     "evidenceLine": [
       {
@@ -50,7 +53,7 @@
             "id": "IndCond092",
             "type": "IndividualCondition",
             "individual": {
-              "id": "Indiv010",
+              "id": "Indiv342",
               "type": "Individual",
               "description": "individual #010"
             },
@@ -60,28 +63,24 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "Orphanet:1340",
-                    "type": "Coding",
-                    "code": "1340",
-                    "system": "http://www.orpha.net/",
-                    "display": "cardiofaciocutaneous syndrome"
+                    "id": "DisID156",
+                    "type": "Disease",
+                    "label": "cardiofaciocutaneous syndrome"
                   }
                 ]
               }
             ],
             "individualHasCondition": {
-              "id": "SEPIO-CG:99009",
-              "type": "Coding",
-              "code": "99009",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "affected"
+              "id": "CondStID218",
+              "type": "ConditionStatus",
+              "label": "affected"
             }
           },
           {
             "id": "FamCond093",
             "type": "FamilyCondition",
             "proband": {
-              "id": "Indiv010",
+              "id": "Indiv342",
               "type": "Individual",
               "description": "individual #010"
             },
@@ -91,21 +90,17 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "Orphanet:1340",
-                    "type": "Coding",
-                    "code": "1340",
-                    "system": "http://www.orpha.net/",
-                    "display": "cardiofaciocutaneous syndrome"
+                    "id": "DisID156",
+                    "type": "Disease",
+                    "label": "cardiofaciocutaneous syndrome"
                   }
                 ]
               }
             ],
             "familyHasCondition": {
-              "id": "SEPIO-CG:99010",
-              "type": "Coding",
-              "code": "99010",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "unaffected"
+              "id": "CondStID219",
+              "type": "ConditionStatus",
+              "label": "unaffected"
             }
           },
           {
@@ -114,28 +109,29 @@
             "canonicalAllele": {
               "id": "CanAll061",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll065",
-              "identifier": "http://reg.genome.network/allele/CA279976"
+              "preferredCtxAllele": {
+                "id": "CtxAll065",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll061",
+                "alleleName": "NM_004333.4(BRAF):c.1741A>G"
+              }
             },
             "individual": {
-              "id": "Indiv010",
+              "id": "Indiv342",
               "type": "Individual",
               "description": "individual #010"
             },
             "parentalConfirmation": {
-              "id": "SEPIO-CG:99008",
-              "type": "Coding",
-              "code": "99008",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "no parental confirmation"
+              "id": "PCID217",
+              "type": "ParentalConfirmation",
+              "label": "no parental confirmation"
             },
             "alleleInheritance": [
               {
-                "id": "GENO:0000880",
-                "type": "Coding",
-                "code": "0000880",
-                "system": "http://obofoundry.org/geno/",
-                "display": "de novo"
+                "id": "AITID197",
+                "type": "AlleleInheritanceType",
+                "label": "de novo"
               }
             ]
           }
@@ -149,7 +145,7 @@
             "id": "IndCond095",
             "type": "IndividualCondition",
             "individual": {
-              "id": "Indiv011",
+              "id": "Indiv343",
               "type": "Individual",
               "description": "individual #011"
             },
@@ -159,28 +155,24 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "Orphanet:1340",
-                    "type": "Coding",
-                    "code": "1340",
-                    "system": "http://www.orpha.net/",
-                    "display": "cardiofaciocutaneous syndrome"
+                    "id": "DisID156",
+                    "type": "Disease",
+                    "label": "cardiofaciocutaneous syndrome"
                   }
                 ]
               }
             ],
             "individualHasCondition": {
-              "id": "SEPIO-CG:99009",
-              "type": "Coding",
-              "code": "99009",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "affected"
+              "id": "CondStID218",
+              "type": "ConditionStatus",
+              "label": "affected"
             }
           },
           {
             "id": "FamCond096",
             "type": "FamilyCondition",
             "proband": {
-              "id": "Indiv011",
+              "id": "Indiv343",
               "type": "Individual",
               "description": "individual #011"
             },
@@ -190,21 +182,17 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "Orphanet:1340",
-                    "type": "Coding",
-                    "code": "1340",
-                    "system": "http://www.orpha.net/",
-                    "display": "cardiofaciocutaneous syndrome"
+                    "id": "DisID156",
+                    "type": "Disease",
+                    "label": "cardiofaciocutaneous syndrome"
                   }
                 ]
               }
             ],
             "familyHasCondition": {
-              "id": "SEPIO-CG:99010",
-              "type": "Coding",
-              "code": "99010",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "unaffected"
+              "id": "CondStID219",
+              "type": "ConditionStatus",
+              "label": "unaffected"
             }
           },
           {
@@ -213,28 +201,29 @@
             "canonicalAllele": {
               "id": "CanAll061",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll065",
-              "identifier": "http://reg.genome.network/allele/CA279976"
+              "preferredCtxAllele": {
+                "id": "CtxAll065",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll061",
+                "alleleName": "NM_004333.4(BRAF):c.1741A>G"
+              }
             },
             "individual": {
-              "id": "Indiv011",
+              "id": "Indiv343",
               "type": "Individual",
               "description": "individual #011"
             },
             "parentalConfirmation": {
-              "id": "SEPIO-CG:99008",
-              "type": "Coding",
-              "code": "99008",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "no parental confirmation"
+              "id": "PCID217",
+              "type": "ParentalConfirmation",
+              "label": "no parental confirmation"
             },
             "alleleInheritance": [
               {
-                "id": "GENO:0000880",
-                "type": "Coding",
-                "code": "0000880",
-                "system": "http://obofoundry.org/geno/",
-                "display": "de novo"
+                "id": "AITID197",
+                "type": "AlleleInheritanceType",
+                "label": "de novo"
               }
             ]
           }
@@ -248,7 +237,7 @@
             "id": "IndCond098",
             "type": "IndividualCondition",
             "individual": {
-              "id": "Indiv012",
+              "id": "Indiv344",
               "type": "Individual",
               "description": "individual #012"
             },
@@ -258,28 +247,24 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "Orphanet:1340",
-                    "type": "Coding",
-                    "code": "1340",
-                    "system": "http://www.orpha.net/",
-                    "display": "cardiofaciocutaneous syndrome"
+                    "id": "DisID156",
+                    "type": "Disease",
+                    "label": "cardiofaciocutaneous syndrome"
                   }
                 ]
               }
             ],
             "individualHasCondition": {
-              "id": "SEPIO-CG:99009",
-              "type": "Coding",
-              "code": "99009",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "affected"
+              "id": "CondStID218",
+              "type": "ConditionStatus",
+              "label": "affected"
             }
           },
           {
             "id": "FamCond099",
             "type": "FamilyCondition",
             "proband": {
-              "id": "Indiv012",
+              "id": "Indiv344",
               "type": "Individual",
               "description": "individual #012"
             },
@@ -289,21 +274,17 @@
                 "type": "GeneticCondition",
                 "disease": [
                   {
-                    "id": "Orphanet:1340",
-                    "type": "Coding",
-                    "code": "1340",
-                    "system": "http://www.orpha.net/",
-                    "display": "cardiofaciocutaneous syndrome"
+                    "id": "DisID156",
+                    "type": "Disease",
+                    "label": "cardiofaciocutaneous syndrome"
                   }
                 ]
               }
             ],
             "familyHasCondition": {
-              "id": "SEPIO-CG:99010",
-              "type": "Coding",
-              "code": "99010",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "unaffected"
+              "id": "CondStID219",
+              "type": "ConditionStatus",
+              "label": "unaffected"
             }
           },
           {
@@ -312,28 +293,29 @@
             "canonicalAllele": {
               "id": "CanAll061",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": "CtxAll065",
-              "identifier": "http://reg.genome.network/allele/CA279976"
+              "preferredCtxAllele": {
+                "id": "CtxAll065",
+                "type": "ContextualAllele",
+                "producedBy": null,
+                "relatedCanonicalAllele": "CanAll061",
+                "alleleName": "NM_004333.4(BRAF):c.1741A>G"
+              }
             },
             "individual": {
-              "id": "Indiv012",
+              "id": "Indiv344",
               "type": "Individual",
               "description": "individual #012"
             },
             "parentalConfirmation": {
-              "id": "SEPIO-CG:99008",
-              "type": "Coding",
-              "code": "99008",
-              "system": "http://obofoundry.org/sepio/clingen",
-              "display": "no parental confirmation"
+              "id": "PCID217",
+              "type": "ParentalConfirmation",
+              "label": "no parental confirmation"
             },
             "alleleInheritance": [
               {
-                "id": "GENO:0000880",
-                "type": "Coding",
-                "code": "0000880",
-                "system": "http://obofoundry.org/geno/",
-                "display": "de novo"
+                "id": "AITID197",
+                "type": "AlleleInheritanceType",
+                "label": "de novo"
               }
             ]
           }
@@ -350,20 +332,13 @@
         },
         "contributionDate": "7/20/16 8:02 AM",
         "contributionRole": {
-          "id": "CC340",
-          "type": "CodeableConcept",
-          "coding": [
-            {
-              "id": "SEPIO:0000154",
-              "type": "Coding",
-              "code": "0000154",
-              "system": "http://obofoundry.org/sepio/",
-              "display": "assessor role"
-            }
-          ]
+          "id": "CRID193",
+          "type": "ContributoryRole",
+          "label": "assessor role"
         }
       }
-    ]
+    ],
+    "description": "3 unrelated probands with CFC were found to carry c.1741A>G variant. There is no family history of CFC in any family and all three sets of parents were confirmed to not have the variant. Since there was no mention of parental confirmation, PS2 cannot be used but PM6 is applicable. However, since there are 3 de novo observations, many groups (including Noonan and MYH7) would allow PM6 to be upgraded to Strong (PM6_S)"
   },
   "index": 3,
   "author": "Steven Harrison",

@@ -1,20 +1,37 @@
 {
   "id": "CritAssess378",
   "type": "CriterionAssessment",
-  "description": "Another variant at the same residue (Lys483Asn) was identified as a de novo variant in an individual with features of a Noonan spectrum disorder (LMM unpublished data). The other variant: NM_004333.4(BRAF):c.1449A>C (p.Lys483Asn) is classified as likely pathogenic by LMM for Rasopathy.",
   "criterion": {
-    "id": "PM5",
+    "id": "Crit312",
     "type": "Criterion",
+    "label": "PM5",
     "description": "Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before",
     "defaultStrength": {
-      "id": "CG-evidence-strength:pm"
-    }
+      "id": "ELSID143",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Moderate"
+    },
+    "comments": "Need to be sure that pathogenic variant exists at the residue in question. Sometimes discrepancy resolution may be required. Some thing like Variantexplorer.org may be useful.\nSometimes no assertion is provided in ClinVar ...may require curation by lit. search."
   },
   "variant": {
     "id": "CanAll125",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll131",
-    "identifier": "http://reg.genome.network/allele/CA280055"
+    "preferredCtxAllele": {
+      "id": "CtxAll131",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll125",
+      "alleleName": "NM_004333.4(BRAF):c.1447A>C (p.Lys483Gln)",
+      "produces": [
+        {
+          "id": "CtxAll132",
+          "type": "ContextualAllele",
+          "producedBy": "CtxAll131",
+          "relatedCanonicalAllele": "CanAll126",
+          "alleleName": "NP_004324.2:p.Lys483Gln"
+        }
+      ]
+    }
   },
   "condition": [
     {
@@ -22,22 +39,18 @@
       "type": "GeneticCondition",
       "disease": [
         {
-          "id": "Orphanet:98733",
-          "type": "Coding",
-          "code": "98733",
-          "system": "http://www.orpha.net/",
-          "display": "Noonan syndrome and Noonan-related syndrome"
+          "id": "DisID185",
+          "type": "Disease",
+          "label": "Noonan syndrome and noonan-related syndrom"
         }
       ],
       "name": "Rasopathy"
     }
   ],
   "outcome": {
-    "id": "SEPIO:0000223",
-    "type": "Coding",
-    "code": "0000223",
-    "system": "http://obofoundry.org/sepio/",
-    "display": "Met"
+    "id": "CEID074",
+    "type": "CriterionEvaluation",
+    "label": "Met"
   },
   "evidenceLine": [
     {
@@ -47,12 +60,25 @@
         {
           "id": "VarInterp060",
           "type": "VariantInterpretation",
-          "description": "The Lys483Asn variant in BRAF has not been previously reported in the literature, but has been identified as a de novo variant in one proband in our laboratory. In addition, this residue is highly conserved across evolutionarily distinct species and computational analyses (PolyPhen2, SIFT, AlignGVGD) predict that this variant will impact the normal function of BRAF. It should be noted that the sensitivity and specificity of these computational programs has not been determined by our laboratory. Therefore, this variant is likely to be pathogenic.",
           "variant": {
             "id": "CanAll127",
             "type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll133",
-            "identifier": "http://reg.genome.network/allele/CA273507"
+            "preferredCtxAllele": {
+              "id": "CtxAll133",
+              "type": "ContextualAllele",
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll127",
+              "alleleName": "NM_004333.4(BRAF):c.1449A>C",
+              "produces": [
+                {
+                  "id": "CtxAll134",
+                  "type": "ContextualAllele",
+                  "producedBy": "CtxAll133",
+                  "relatedCanonicalAllele": "CanAll128",
+                  "alleleName": "NP_004324.2:p.Lys483Asn"
+                }
+              ]
+            }
           },
           "condition": [
             {
@@ -60,22 +86,18 @@
               "type": "GeneticCondition",
               "disease": [
                 {
-                  "id": "Orphanet:98733",
-                  "type": "Coding",
-                  "code": "98733",
-                  "system": "http://www.orpha.net/",
-                  "display": "Noonan syndrome and Noonan-related syndrome"
+                  "id": "DisID185",
+                  "type": "Disease",
+                  "label": "Noonan syndrome and noonan-related syndrom"
                 }
               ],
               "name": "Rasopathy"
             }
           ],
           "outcome": {
-            "id": "LN:LA26332-9",
-            "type": "Coding",
-            "code": "LA26332-9",
-            "system": "http://loinc.org/",
-            "display": "Likely Pathogenic"
+            "id": "SIGID028",
+            "type": "Significance",
+            "label": "Likely Pathogenic"
           },
           "contribution": [
             {
@@ -87,20 +109,13 @@
               },
               "contributionDate": "6/12/2011 9:00 AM",
               "contributionRole": {
-                "id": "CC420",
-                "type": "CodeableConcept",
-                "coding": [
-                  {
-                    "id": "SEPIO:0000331",
-                    "type": "Coding",
-                    "code": "0000331",
-                    "system": "http://obofoundry.org/sepio/",
-                    "display": "interpreter role"
-                  }
-                ]
+                "id": "CRID196",
+                "type": "ContributoryRole",
+                "label": "interpreter role"
               }
             }
-          ]
+          ],
+          "description": "The Lys483Asn variant in BRAF has not been previously reported in the literature, but has been identified as a de novo variant in one proband in our laboratory. In addition, this residue is highly conserved across evolutionarily distinct species and computational analyses (PolyPhen2, SIFT, AlignGVGD) predict that this variant will impact the normal function of BRAF. It should be noted that the sensitivity and specificity of these computational programs has not been determined by our laboratory. Therefore, this variant is likely to be pathogenic."
         }
       ]
     }
@@ -115,18 +130,11 @@
       },
       "contributionDate": "6/10/2011 1:45 PM",
       "contributionRole": {
-        "id": "CC419",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     }
-  ]
+  ],
+  "description": "Another variant at the same residue (Lys483Asn) was identified as a de novo variant in an individual with features of a Noonan spectrum disorder (LMM unpublished data). The other variant: NM_004333.4(BRAF):c.1449A>C (p.Lys483Asn) is classified as likely pathogenic by LMM for Rasopathy."
 }

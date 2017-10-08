@@ -1,20 +1,28 @@
 {
   "id": "CritAssess298",
   "type": "CriterionAssessment",
-  "description": "Application of PM3 is incorrect as the variant in trans is know known to be pathogenic (it is the same variant).",
   "criterion": {
-    "id": "PM3",
+    "id": "Crit310",
     "type": "Criterion",
+    "label": "PM3",
     "description": "For recessive disorders, detected in trans with a pathogenic variant",
     "defaultStrength": {
-      "id": "CG-evidence-strength:pm"
-    }
+      "id": "ELSID143",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Moderate"
+    },
+    "comments": "CSER - Laboratories discussed when to modify the strength of PM3, the variant is seen in trans with a pathogenic variant for recessive disorders. Published literature may not always explicitly state the phase of variants found in affected individuals which raises a challenge for invoking PM3.\nWhen phase has not been established, some felt that PM3 could be invoked as supporting evidence. Also, if the variant is seen in trans with a pathogenic variant in more than one individual it was felt that PM3 can be upgraded to strong. However, sites did not agree on how many additional observations were necessary to call the evidence strong (2 vs. 3) but concluded that such guidance would be useful.\n \nLMM - INCREASES IN STRENGTH IF VARIANT SEEN IN MULTIPLE COMPOUND HETS WITH DIFFERENT LIKELY PATHOGENIC/PATHOGENIC VARIANTS"
   },
   "variant": {
     "id": "CanAll039",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": "CtxAll043",
-    "identifier": "http://reg.genome.network/allele/CA090904"
+    "preferredCtxAllele": {
+      "id": "CtxAll043",
+      "type": "ContextualAllele",
+      "producedBy": null,
+      "relatedCanonicalAllele": "CanAll039",
+      "alleleName": "NM_000391.3(TTP1):c.1678_1679delCT"
+    }
   },
   "condition": [
     {
@@ -22,32 +30,27 @@
       "type": "GeneticCondition",
       "disease": [
         {
-          "id": "Orphanet:216",
-          "type": "Coding",
-          "code": "216",
-          "system": "http://www.orpha.net/",
-          "display": "neuronal ceroid lipofuscinosis"
+          "id": "DisID159",
+          "type": "Disease",
+          "label": "neuronal ceroid lipofuscinosis"
         }
       ],
       "modeOfInheritance": {
-        "id": "HP:0000007",
-        "type": "Coding",
-        "code": "0000007",
-        "system": "http://human-phenotype-ontology.github.io/",
-        "display": "Autosomal Recessive"
+        "id": "MOIID052",
+        "type": "ModeOfInheritance",
+        "label": "Autosomal Recessive"
       },
       "gene": {
-        "id": "hgnc:TTP1",
-        "type": "Gene"
+        "id": "G251",
+        "type": "Gene",
+        "geneSymbol": "TTP1"
       }
     }
   ],
   "outcome": {
-    "id": "SEPIO:0000224",
-    "type": "Coding",
-    "code": "0000224",
-    "system": "http://obofoundry.org/sepio/",
-    "display": "Not Met"
+    "id": "CEID075",
+    "type": "CriterionEvaluation",
+    "label": "Not Met"
   },
   "evidenceLine": [
     {
@@ -58,7 +61,7 @@
           "id": "IndCond064",
           "type": "IndividualCondition",
           "individual": {
-            "id": "Indiv006",
+            "id": "Indiv338",
             "type": "Individual",
             "description": "individual #006"
           },
@@ -68,54 +71,52 @@
               "type": "GeneticCondition",
               "disease": [
                 {
-                  "id": "Orphanet:216",
-                  "type": "Coding",
-                  "code": "216",
-                  "system": "http://www.orpha.net/",
-                  "display": "neuronal ceroid lipofuscinosis"
+                  "id": "DisID159",
+                  "type": "Disease",
+                  "label": "neuronal ceroid lipofuscinosis"
                 }
               ],
               "modeOfInheritance": {
-                "id": "HP:0000007",
-                "type": "Coding",
-                "code": "0000007",
-                "system": "http://human-phenotype-ontology.github.io/",
-                "display": "Autosomal Recessive"
+                "id": "MOIID052",
+                "type": "ModeOfInheritance",
+                "label": "Autosomal Recessive"
               },
               "gene": {
-                "id": "hgnc:TTP1",
-                "type": "Gene"
+                "id": "G251",
+                "type": "Gene",
+                "geneSymbol": "TTP1"
               }
             }
           ],
           "individualHasCondition": {
-            "id": "SEPIO-CG:99009",
-            "type": "Coding",
-            "code": "99009",
-            "system": "http://obofoundry.org/sepio/clingen",
-            "display": "affected"
+            "id": "CondStID218",
+            "type": "ConditionStatus",
+            "label": "affected"
           }
         },
         {
           "id": "IndAll065",
           "type": "IndividualAllele",
           "individual": {
-            "id": "Indiv006",
+            "id": "Indiv338",
             "type": "Individual",
             "description": "individual #006"
           },
           "primaryAllele": {
             "id": "CanAll039",
             "type": "CanonicalAllele",
-            "preferredCtxAllele": "CtxAll043",
-            "identifier": "http://reg.genome.network/allele/CA090904"
+            "preferredCtxAllele": {
+              "id": "CtxAll043",
+              "type": "ContextualAllele",
+              "producedBy": null,
+              "relatedCanonicalAllele": "CanAll039",
+              "alleleName": "NM_000391.3(TTP1):c.1678_1679delCT"
+            }
           },
           "primaryZygosity": {
-            "id": "GENO:0000136",
-            "type": "Coding",
-            "code": "0000136",
-            "system": "http://obofoundry.org/geno/",
-            "display": "homozygous"
+            "id": "ASID043",
+            "type": "AllelicState",
+            "label": "homozygous"
           }
         }
       ]
@@ -131,18 +132,11 @@
       },
       "contributionDate": "6/10/16 9:15 AM",
       "contributionRole": {
-        "id": "CC326",
-        "type": "CodeableConcept",
-        "coding": [
-          {
-            "id": "SEPIO:0000154",
-            "type": "Coding",
-            "code": "0000154",
-            "system": "http://obofoundry.org/sepio/",
-            "display": "assessor role"
-          }
-        ]
+        "id": "CRID193",
+        "type": "ContributoryRole",
+        "label": "assessor role"
       }
     }
-  ]
+  ],
+  "description": "Application of PM3 is incorrect as the variant in trans is know known to be pathogenic (it is the same variant)."
 }
