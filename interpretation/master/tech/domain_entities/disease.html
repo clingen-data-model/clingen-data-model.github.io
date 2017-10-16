@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Data Model
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../stylesheets/brand2.css" rel="stylesheet" /><link href="../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+    
+      <div class="container-fluid hero-background">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="../../images/clingen-doc-logo.png" />
+</a>            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+                    <li class="allele" >
+                      <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span> Allele Model</a></li>
+                    </li>
+                    <li class="interpretation" >
+                      <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span> Interpretation Model</a></li>
+                    </li>
+                <li>
+                    <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+          </div>
+    
+
+
+    
+        <div class="row">
+          <div class="col-sm-12">
+              <h1 class="header">Disease</h1>
+              <ol class="breadcrumb bg-none margin-none">
+                <li><a href="../../">Interpretation Model</a></li>
+<li><a href="../">Technical Reference and Examples</a></li>
+<li><a href="./">Domain Entities</a></li>
+
+              </ol>
+                <STRONG>
+                  <div></div>
+                      <i>Descended from DomainEntity</i>
+                </STRONG>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
+          <article>
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    
+
+
+    <!-- image here if available -->
+
+
+
+    <h2>Inherited Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Inherited From</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>description</td>
+                    <td>String</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>label</td>
+                    <td>String</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>A freeform text (preferred) representation used by the authoring system to identify a concept.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>synonym</td>
+                    <td>Synonym</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td>Codings thtat identify the concept. If more than one then the codings are typically considered equivalent. (FHIR offers additional attributes to qualify the codings further if needed) </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>description</th>
+        <th>label</th>
+        <th>synonym</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="../details/details.html#DisID147">DisID147</a></p> (genetic disease)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>genetic disease</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID147"><pre><code>{
+  "id": "DisID147",
+  "type": "Disease",
+  "label": "genetic disease"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID148">DisID148</a></p> (hereditary breast ovarian cancer)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>hereditary breast ovarian cancer</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID148"><pre><code>{
+  "id": "DisID148",
+  "type": "Disease",
+  "label": "hereditary breast ovarian cancer"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID149">DisID149</a></p> (Breast Cancer)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Breast Cancer</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID149"><pre><code>{
+  "id": "DisID149",
+  "type": "Disease",
+  "label": "Breast Cancer"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID150">DisID150</a></p> (Hypercholesterolemia, Familial)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Hypercholesterolemia, Familial</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID150"><pre><code>{
+  "id": "DisID150",
+  "type": "Disease",
+  "label": "Hypercholesterolemia, Familial"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID151">DisID151</a></p> (myofibrillar myopathy 1)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>myofibrillar myopathy 1</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID151"><pre><code>{
+  "id": "DisID151",
+  "type": "Disease",
+  "label": "myofibrillar myopathy 1"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID152">DisID152</a></p> (noonan syndrome 3)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>noonan syndrome 3</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID152"><pre><code>{
+  "id": "DisID152",
+  "type": "Disease",
+  "label": "noonan syndrome 3"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID153">DisID153</a></p> (Breast-Ovarian Cancer, Familial, Susceptibility To, 2)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Breast-Ovarian Cancer, Familial, Susceptibility To, 2</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID153"><pre><code>{
+  "id": "DisID153",
+  "type": "Disease",
+  "label": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID154">DisID154</a></p> (Myopathy, Distal, type 4)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Myopathy, Distal, type 4</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID154"><pre><code>{
+  "id": "DisID154",
+  "type": "Disease",
+  "label": "Myopathy, Distal, type 4"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID155">DisID155</a></p> (Birt-Hogg-Dube Syndrome)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Birt-Hogg-Dube Syndrome</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID155"><pre><code>{
+  "id": "DisID155",
+  "type": "Disease",
+  "label": "Birt-Hogg-Dube Syndrome"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID156">DisID156</a></p> (cardiofaciocutaneous syndrome)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>cardiofaciocutaneous syndrome</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID156"><pre><code>{
+  "id": "DisID156",
+  "type": "Disease",
+  "label": "cardiofaciocutaneous syndrome"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID157">DisID157</a></p> (hereditary breast and ovarian cancer syndrome)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>hereditary breast and ovarian cancer syndrome</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID157"><pre><code>{
+  "id": "DisID157",
+  "type": "Disease",
+  "label": "hereditary breast and ovarian cancer syndrome"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID158">DisID158</a></p> (cardiomyopathy)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>cardiomyopathy</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID158"><pre><code>{
+  "id": "DisID158",
+  "type": "Disease",
+  "label": "cardiomyopathy"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID159">DisID159</a></p> (neuronal ceroid lipofuscinosis)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>neuronal ceroid lipofuscinosis</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID159"><pre><code>{
+  "id": "DisID159",
+  "type": "Disease",
+  "label": "neuronal ceroid lipofuscinosis"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID160">DisID160</a></p> (hypertrophic cardiomyopathy)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>hypertrophic cardiomyopathy</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID160"><pre><code>{
+  "id": "DisID160",
+  "type": "Disease",
+  "label": "hypertrophic cardiomyopathy"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID162">DisID162</a></p> (dilated cardiomyopathy)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>dilated cardiomyopathy</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID162"><pre><code>{
+  "id": "DisID162",
+  "type": "Disease",
+  "label": "dilated cardiomyopathy"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID163">DisID163</a></p> (Primary ciliary dyskenisia)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Primary ciliary dyskenisia</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID163"><pre><code>{
+  "id": "DisID163",
+  "type": "Disease",
+  "label": "Primary ciliary dyskenisia"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID164">DisID164</a></p> (arrhythmogenic right ventricular cardiomyopathy)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>arrhythmogenic right ventricular cardiomyopathy</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID164"><pre><code>{
+  "id": "DisID164",
+  "type": "Disease",
+  "label": "arrhythmogenic right ventricular cardiomyopathy"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID165">DisID165</a></p> (Mitochondrial complex 1 deficiency)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Mitochondrial complex 1 deficiency</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID165"><pre><code>{
+  "id": "DisID165",
+  "type": "Disease",
+  "label": "Mitochondrial complex 1 deficiency"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID166">DisID166</a></p> (Perrault Syndrome)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Perrault Syndrome</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID166"><pre><code>{
+  "id": "DisID166",
+  "type": "Disease",
+  "label": "Perrault Syndrome"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID167">DisID167</a></p> (costello syndrome)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>costello syndrome</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID167"><pre><code>{
+  "id": "DisID167",
+  "type": "Disease",
+  "label": "costello syndrome"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID168">DisID168</a></p> (Wiedemann-Steiner syndrome)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Wiedemann-Steiner syndrome</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID168"><pre><code>{
+  "id": "DisID168",
+  "type": "Disease",
+  "label": "Wiedemann-Steiner syndrome"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID169">DisID169</a></p> (Fabry disease)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Fabry disease</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID169"><pre><code>{
+  "id": "DisID169",
+  "type": "Disease",
+  "label": "Fabry disease"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID170">DisID170</a></p> (Primary bone dysplasia)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Primary bone dysplasia</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID170"><pre><code>{
+  "id": "DisID170",
+  "type": "Disease",
+  "label": "Primary bone dysplasia"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID171">DisID171</a></p> (Gyrate atrophy of choroid and retina)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Gyrate atrophy of choroid and retina</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID171"><pre><code>{
+  "id": "DisID171",
+  "type": "Disease",
+  "label": "Gyrate atrophy of choroid and retina"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID172">DisID172</a></p> (Malignant hyperthermia)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Malignant hyperthermia</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID172"><pre><code>{
+  "id": "DisID172",
+  "type": "Disease",
+  "label": "Malignant hyperthermia"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID173">DisID173</a></p> (Marfan Syndrome)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Marfan Syndrome</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID173"><pre><code>{
+  "id": "DisID173",
+  "type": "Disease",
+  "label": "Marfan Syndrome"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID174">DisID174</a></p> (Cystic Fibrosis)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Cystic Fibrosis</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID174"><pre><code>{
+  "id": "DisID174",
+  "type": "Disease",
+  "label": "Cystic Fibrosis"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID175">DisID175</a></p> (noonan syndrome)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>noonan syndrome</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID175"><pre><code>{
+  "id": "DisID175",
+  "type": "Disease",
+  "label": "noonan syndrome"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID176">DisID176</a></p> (Ornithine carbamoyltransferase deficiency)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Ornithine carbamoyltransferase deficiency</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID176"><pre><code>{
+  "id": "DisID176",
+  "type": "Disease",
+  "label": "Ornithine carbamoyltransferase deficiency"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID177">DisID177</a></p> (Pendred syndrome)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Pendred syndrome</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID177"><pre><code>{
+  "id": "DisID177",
+  "type": "Disease",
+  "label": "Pendred syndrome"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID178">DisID178</a></p> (Familial Adenomatous Polyposis)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Familial Adenomatous Polyposis</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID178"><pre><code>{
+  "id": "DisID178",
+  "type": "Disease",
+  "label": "Familial Adenomatous Polyposis"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID179">DisID179</a></p> (pseudoachondroplasia)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>pseudoachondroplasia</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID179"><pre><code>{
+  "id": "DisID179",
+  "type": "Disease",
+  "label": "pseudoachondroplasia"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID180">DisID180</a></p> (hereditary hemorrhagic telangiectasia)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>hereditary hemorrhagic telangiectasia</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID180"><pre><code>{
+  "id": "DisID180",
+  "type": "Disease",
+  "label": "hereditary hemorrhagic telangiectasia"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID181">DisID181</a></p> (Retinitis Pigmentosa)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Retinitis Pigmentosa</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID181"><pre><code>{
+  "id": "DisID181",
+  "type": "Disease",
+  "label": "Retinitis Pigmentosa"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID182">DisID182</a></p> (Fanconi Anemia)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Fanconi Anemia</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID182"><pre><code>{
+  "id": "DisID182",
+  "type": "Disease",
+  "label": "Fanconi Anemia"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID183">DisID183</a></p> (nonsyndromic deafness)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>nonsyndromic deafness</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID183"><pre><code>{
+  "id": "DisID183",
+  "type": "Disease",
+  "label": "nonsyndromic deafness"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID184">DisID184</a></p> (Usher syndrome)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Usher syndrome</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID184"><pre><code>{
+  "id": "DisID184",
+  "type": "Disease",
+  "label": "Usher syndrome"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#DisID185">DisID185</a></p> (Noonan syndrome and noonan-related syndrom)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Noonan syndrome and noonan-related syndrom</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="DisID185"><pre><code>{
+  "id": "DisID185",
+  "type": "Disease",
+  "label": "Noonan syndrome and noonan-related syndrom"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="list-group sidenav">
+            <ul class="list-unstyled">
+              <li class="list-group-item">
+                <h5><a href="../../">Interpretation Overview</a></h5>
+              </li>
+              <li class='list-group-item'><h5><a href="../../user/">User Guide</a></h5></li>
+              <li class="list-group-item"><h5><a href="../">Technical Reference</a></h5><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="/tech/domain evidence/">Domain Evidence</a></li><li class="active"><a href="./">Domain Entities</a></li><ul class='list-unstyled'><li><a href="alleleInheritance_type">AlleleInheritanceType</a></li><li><a href="allele_functional_impact_type.html">AlleleFunctionalImpactType</a></li><li><a href="allelic_state.html">AllelicState</a></li><li><a href="ascertainment_type.html">AscertainmentType</a></li><li><a href="assertion_method.html">AssertionMethod</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="condition_mechanism_strength.html">ConditionMechanismStrength</a></li><li><a href="condition_status.html">ConditionStatus</a></li><li><a href="conservation.html">Conservation</a></li><li><a href="contributory_role.html">ContributoryRole</a></li><li><a href="criterion_evaluation.html">CriterionEvaluation</a></li><li class="active"><a href="disease.html">Disease</a></li><li><a href="evidence_line_strength.html">EvidenceLineStrength</a></li><li><a href="family.html">Family</a></li><li><a href="gene.html">Gene</a></li><li><a href="inconsistent_segregation_observed">InconsistentSegregationObserved</a></li><li><a href="individual.html">Individual</a></li><li><a href="locus_specificity_type.html">LocusSpecificityType</a></li><li><a href="mechanism_type.html">MechanismType</a></li><li><a href="mode_of_inheritance.html">ModeOfInheritance</a></li><li><a href="molecular_consequence.html">MolecularConsequenceType</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="parental_confirmation.html">ParentalConfirmation</a></li><li><a href="penetrance_type.html">PenetranceType</a></li><li><a href="phase.html">Phase</a></li><li><a href="phenotype.html">Phenotype</a></li><li><a href="population_type.html">PopulationType</a></li><li><a href="prediction_type.html">PredictionType</a></li><li><a href="reference_sequence.html">ReferenceSequence</a></li><li><a href="reference_sequence_relatedtype.html">ReferenceSequenceRelatedType</a></li><li><a href="region_alleles_outcome.html">RegionAllelesOutcome</a></li><li><a href="region_annotation_type.html">RegionAnnotationType</a></li><li><a href="scoring_algorithm.html">ScoringAlgorithm</a></li><li><a href="significance.html">Significance</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul></li>
+              <!-- Old style.  We might still need the model here? -->
+              <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="container  background-trans padding-top-xl">
+      <div class="row">
+        <hr />
+        <div class="col-md-col-sm-12 text-center"> 
+          © 2017 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../javascripts/jquery.js"></script><script src="../../javascripts/bootstrap.js"></script><script src="../../javascripts/jquery.jsonview.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>

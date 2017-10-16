@@ -346,20 +346,6 @@
         "valueSetName": "",
         "precedence": 1.0,
         "fullyQualifiedName": "CanonicalAllele.preferredCtxAllele"
-      },
-      {
-        "id": "A136",
-        "entityId": "E05",
-        "name": "identifier",
-        "dataType": "String",
-        "cardinality": "1..1",
-        "defaultValue": "null",
-        "iri": "DC:identifier",
-        "iri-label": "identifier",
-        "cg-label": "identifier",
-        "valueSetName": "",
-        "precedence": 2.0,
-        "fullyQualifiedName": "CanonicalAllele.identifier"
       }
     ]
   },
@@ -507,10 +493,55 @@
   "E08": {
     "id": "E08",
     "name": "NullAllele",
+    "parentType": "E01",
     "link": "Null",
     "iri": "SEPIO:0000274",
     "description": "A statement that asserts whether an allele causes commplete loss of function of a gene or gene  product. ",
     "attributes": [
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "description",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "iri": "DC:description",
+        "iri-label": "description",
+        "cg-label": "description",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Statement.description"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "iri": "SEPIO:0000159",
+        "iri-label": "qualified_contribution",
+        "cg-label": "contribution",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Statement.contribution"
+      },
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "String",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "isReference": "yes",
+        "iri": "DC:source",
+        "iri-label": "source",
+        "cg-label": "source",
+        "precedence": 92.0,
+        "fullyQualifiedName": "Statement.source"
+      },
       {
         "id": "A077",
         "entityId": "E08",
@@ -1615,10 +1646,55 @@
   "E22": {
     "id": "E22",
     "name": "SequenceLocation",
+    "parentType": "E01",
     "link": "Loc",
     "iri": "GENO:0000815",
     "description": "The location of a sequence feature as specified by  the coordinates of its starting and ending residues relative to some reference sequence.",
     "attributes": [
+      {
+        "id": "A120",
+        "entityId": "E01",
+        "name": "description",
+        "dataType": "String",
+        "cardinality": "0..1",
+        "defaultValue": "null",
+        "iri": "DC:description",
+        "iri-label": "description",
+        "cg-label": "description",
+        "valueSetName": "",
+        "precedence": 90.0,
+        "description": "A human-readable description of the entity",
+        "fullyQualifiedName": "Statement.description"
+      },
+      {
+        "id": "A119",
+        "entityId": "E01",
+        "name": "contribution",
+        "dataType": "Contribution",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "iri": "SEPIO:0000159",
+        "iri-label": "qualified_contribution",
+        "cg-label": "contribution",
+        "valueSetName": "",
+        "precedence": 91.0,
+        "description": "The contributions (agent, time and role) made to this entity",
+        "fullyQualifiedName": "Statement.contribution"
+      },
+      {
+        "id": "A127",
+        "entityId": "E01",
+        "name": "source",
+        "dataType": "String",
+        "cardinality": "0..*",
+        "defaultValue": "null",
+        "isReference": "yes",
+        "iri": "DC:source",
+        "iri-label": "source",
+        "cg-label": "source",
+        "precedence": 92.0,
+        "fullyQualifiedName": "Statement.source"
+      },
       {
         "id": "A052",
         "entityId": "E22",
@@ -2722,8 +2798,8 @@
   },
   "E39": {
     "id": "E39",
-    "name": "Synonym",
-    "link": "Synm",
+    "name": "UserLabel",
+    "link": "UseLab",
     "iri": "",
     "description": "LB: shared pattern from HPO Layperson synonym approach\nhttps://github.com/obophenotype/human-phenotype-ontology/wiki/Layperson-synonym-annotation",
     "attributes": [
@@ -2737,7 +2813,7 @@
         "iri-label": "",
         "cg-label": "",
         "precedence": 1.0,
-        "fullyQualifiedName": "Synonym.label"
+        "fullyQualifiedName": "UserLabel.label"
       },
       {
         "id": "A134",
@@ -2749,22 +2825,7 @@
         "iri-label": "",
         "cg-label": "",
         "precedence": 2.0,
-        "fullyQualifiedName": "Synonym.description"
-      },
-      {
-        "id": "A129",
-        "entityId": "E39",
-        "name": "synonymType",
-        "dataType": "SynonymType",
-        "cardinality": "0..1",
-        "iri": "IAO:0000102",
-        "iri-label": "",
-        "cg-label": "",
-        "valueSetId": "VS034",
-        "restrictByValueSet": "Yes",
-        "valueSetName": "SynonymType",
-        "precedence": 3.0,
-        "fullyQualifiedName": "Synonym.synonymType"
+        "fullyQualifiedName": "UserLabel.description"
       },
       {
         "id": "A131",
@@ -2777,7 +2838,7 @@
         "iri-label": "",
         "cg-label": "",
         "precedence": 4.0,
-        "fullyQualifiedName": "Synonym.contribution"
+        "fullyQualifiedName": "UserLabel.contribution"
       },
       {
         "id": "A150",
@@ -2787,7 +2848,7 @@
         "cardinality": "0..1",
         "defaultValue": "null",
         "precedence": 5.0,
-        "fullyQualifiedName": "Synonym.comments"
+        "fullyQualifiedName": "UserLabel.comments"
       }
     ]
   },
@@ -3453,9 +3514,9 @@
         "name": "modeOfInheritance",
         "dataType": "ModeOfInheritance",
         "cardinality": "0..1",
-        "iri": "???",
-        "iri-label": "mode of inheritance",
-        "cg-label": "modeOfInheritance",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
         "valueSetId": "VS007",
         "restrictByValueSet": "Yes",
         "valueSetName": "ModeOfInheritance",
@@ -3654,7 +3715,7 @@
         "cardinality": "1..1",
         "defaultValue": "null",
         "iri": "SEPIO:0000255",
-        "iri-label": "has_supporting_method?",
+        "iri-label": "has_supporting_method",
         "cg-label": "predictionType",
         "valueSetId": "VS010",
         "restrictByValueSet": "No",
@@ -3795,7 +3856,7 @@
         "id": "A102",
         "entityId": "E48",
         "name": "specificity",
-        "dataType": "Specificity",
+        "dataType": "LocusSpecificityType",
         "cardinality": "1..1",
         "defaultValue": "null",
         "iri": "SEPIO:0000197",
