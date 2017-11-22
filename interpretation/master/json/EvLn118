@@ -11,7 +11,7 @@
         "label": "BP4",
         "description": "Multiple lines of computational evidence suggest no impact on gene or gene product (conservation, evolutionary, splicing impact, etc.)",
         "defaultStrength": {
-          "id": "ELSID140",
+          "id": "EvLnStrgID140",
           "type": "EvidenceLineStrength",
           "label": "Benign Supporting"
         },
@@ -28,7 +28,7 @@
         }
       },
       "outcome": {
-        "id": "CEID074",
+        "id": "CritEvalID074",
         "type": "CriterionEvaluation",
         "label": "Met"
       },
@@ -38,8 +38,8 @@
           "type": "EvidenceLine",
           "evidenceItem": [
             {
-              "id": "InSilicoPred068",
-              "type": "InSilicoPrediction",
+              "id": "CatInSilicoPred068",
+              "type": "CategoricalInSilicoPrediction",
               "transcript": {
                 "id": "RefSeq297",
                 "type": "ReferenceSequence",
@@ -56,37 +56,18 @@
                 }
               },
               "predictionType": {
-                "id": "PredTID073",
-                "type": "PredictionType",
+                "id": "PredID073",
+                "type": "Prediction",
                 "label": "splicing prediction"
               },
-              "categoricalPrediction": "no impact",
+              "prediction": "no impact",
               "description": "Provenance would show that this comes from Alamut"
             },
             {
-              "id": "Conserv071",
-              "type": "AlleleConservation",
-              "allele": {
-                "id": "CanAll118",
-                "type": "CanonicalAllele",
-                "preferredCtxAllele": {
-                  "id": "CtxAll124",
-                  "type": "ContextualAllele",
-                  "relatedCanonicalAllele": "CanAll118",
-                  "alleleName": "NM_000257.2(MYH7):c.327C>T"
-                }
-              },
-              "outcome": {
-                "id": "ConsrvID213",
-                "type": "Conservation",
-                "label": "not conserved"
-              },
-              "algorithm": "phyloP",
-              "score": -0.76
+              "id": "Conserv071"
             },
             {
               "id": "Conserv072",
-              "type": "AlleleConservation",
               "allele": {
                 "id": "CanAll118",
                 "type": "CanonicalAllele",
@@ -97,20 +78,21 @@
                   "alleleName": "NM_000257.2(MYH7):c.327C>T"
                 }
               },
-              "outcome": {
-                "id": "ConsrvID213",
+              "conservationType": {
+                "id": "ConsrvID212",
                 "type": "Conservation",
-                "label": "not conserved"
+                "label": "conserved region"
               },
+              "qualifier": "NOT",
               "algorithm": "PhastCons",
               "score": 0.63
             },
             {
               "id": "MolCon075",
-              "type": "MolecularConsequence",
+              "type": "AlleleMolecularConsequence",
               "consequence": {
-                "id": "MCTID016",
-                "type": "MolecularConsequenceType",
+                "id": "MolConID016",
+                "type": "MolecularConsequence",
                 "label": "synonymous variant"
               },
               "contextualAllele": {
@@ -130,9 +112,9 @@
                 "alleleName": "NM_024422.3(DSC2): c.631-2A>G (p.?)"
               },
               "annotation": {
-                "id": "MTID071",
-                "type": "MechanismType",
-                "label": "loss of function variant"
+                "id": "NullAllOutID223",
+                "type": "NullAlleleOutcome",
+                "label": "null mutation"
               }
             }
           ]
@@ -148,7 +130,7 @@
           },
           "contributionDate": "03/08/2017 10:02 AM",
           "contributionRole": {
-            "id": "CRID193",
+            "id": "ContribRoleID193",
             "type": "ContributoryRole",
             "label": "assessor role"
           }
@@ -158,7 +140,7 @@
     }
   ],
   "evidenceStrength": {
-    "id": "ELSID140",
+    "id": "EvLnStrgID140",
     "type": "EvidenceLineStrength",
     "label": "Benign Supporting"
   },
@@ -172,7 +154,7 @@
       },
       "contributionDate": "03/08/2017 10:02 AM",
       "contributionRole": {
-        "id": "CRID193",
+        "id": "ContribRoleID193",
         "type": "ContributoryRole",
         "label": "assessor role"
       }

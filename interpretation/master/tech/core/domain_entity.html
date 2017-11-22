@@ -74,9 +74,12 @@
 <li><a href="./">Core</a></li>
 
               </ol>
-                <blockquote><p>Abstract model for all former codings and codeableconcepts.  This entity provides an id to any entity type needed and provides the label and exactSynonym atttributes for versatility</p>
+                <blockquote><p>Parent class for all concepts that may fit the following uses: 
+- referenced in a ValueSet
+- provide for an optional UserLabel in lieu of the registered id label
+- define a novel concept with only a UserLabel for a given subclass</p>
                 <STRONG>
-                  <div></div>
+                  <div>SEPIO-CG:03000</div>
                 </STRONG>
                 </blockquote>
           </div>
@@ -110,23 +113,23 @@
             <tbody>
             <tr>
                 <td>description</td>
-                <td>String</td>
+                <td>string</td>
                 <td>0..1</td>
                 <td></td>
                 <td></td>
             </tr>
             <tr>
                 <td>label</td>
-                <td>String</td>
+                <td>string</td>
                 <td>0..1</td>
                 <td>A freeform text (preferred) representation used by the authoring system to identify a concept.</td>
                 <td></td>
             </tr>
             <tr>
-                <td>synonym</td>
-                <td>Synonym</td>
-                <td>0..*</td>
-                <td>Codings thtat identify the concept. If more than one then the codings are typically considered equivalent. (FHIR offers additional attributes to qualify the codings further if needed) </td>
+                <td>userLabel</td>
+                <td>UserLabel</td>
+                <td>0..1</td>
+                <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
                 <td></td>
             </tr>
             </tbody>

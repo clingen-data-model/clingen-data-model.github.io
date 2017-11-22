@@ -67,7 +67,7 @@
     
         <div class="row">
           <div class="col-sm-12">
-              <h1 class="header">IndividualAllele</h1>
+              <h1 class="header">IndividualGenotype</h1>
               <ol class="breadcrumb bg-none margin-none">
                 <li><a href="../../">Interpretation Model</a></li>
 <li><a href="../">Technical Reference and Examples</a></li>
@@ -119,39 +119,11 @@
                 <td>SEPIO:0000280</td>
             </tr>
             <tr>
-                <td>primaryAllele</td>
-                <td>CanonicalAllele</td>
-                <td>0..1</td>
-                <td>One allele that the person has</td>
+                <td>genotype</td>
+                <td>Genotype</td>
+                <td>1..*</td>
+                <td>Genotype the individual has</td>
                 <td></td>
-            </tr>
-            <tr>
-                <td>primaryZygosity</td>
-                <td>AllelicState</td>
-                <td>0..1</td>
-                <td>Zygosity of the primary allele in the individual</td>
-                <td>???</td>
-            </tr>
-            <tr>
-                <td>secondaryAllele</td>
-                <td>CanonicalAllele</td>
-                <td>0..1</td>
-                <td>A second allele that the person has</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>secondaryZygosity</td>
-                <td>AllelicState</td>
-                <td>0..1</td>
-                <td>Zygosity of the secondary allele in the individual</td>
-                <td>???</td>
-            </tr>
-            <tr>
-                <td>phase</td>
-                <td>Phase</td>
-                <td>0..1</td>
-                <td>Phase of the primary and secondary individual</td>
-                <td>SEPIO:0000197</td>
             </tr>
             </tbody>
         </table>
@@ -172,8 +144,24 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>qualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                    <td>??</td>
+                </tr>
+                <tr>
+                    <td>assertionQualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>NOT </td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>description</td>
-                    <td>String</td>
+                    <td>string</td>
                     <td>0..1</td>
                     <td></td>
                     <td>A human-readable description of the entity</td>
@@ -189,7 +177,7 @@
                 </tr>
                 <tr>
                     <td>source</td>
-                    <td>String</td>
+                    <td>string</td>
                     <td>0..*</td>
                     <td></td>
                     <td></td>
@@ -202,17 +190,21 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
+        <th>qualifier</th>
+        <th>assertionQualifier</th>
         <th>description</th>
         <th>individual</th>
-        <th>primaryAllele</th>
-        <th>primaryZygosity</th>
-        <th>secondaryAllele</th>
-        <th>secondaryZygosity</th>
-        <th>phase</th>
+        <th>genotype</th>
       </tr></thead>
       <tbody>
         <tr>
-          <td><p><a href="../details/details.html#IndAll058">IndAll058</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno058">IndGeno058</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               <p>Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband.</p>
          </td>
@@ -220,73 +212,66 @@
               <p><a href="../details/details.html#Indiv336">Indiv336</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll035">CanAll035</a></p>
-         </td>
-          <td>
-              <p><a href="../details/details.html#ASID041">ASID041</a></p> (heterozygous)
-         </td>
-          <td>
-              <p><a href="../details/details.html#CanAll036">CanAll036</a></p>
-         </td>
-          <td>
-              <p><a href="../details/details.html#ASID041">ASID041</a></p> (heterozygous)
-         </td>
-          <td>
-              <p><a href="../details/details.html#PHZID037">PHZID037</a></p> (in trans)
+              <p><a href="../details/details.html#Geno378">Geno378</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll058"><pre><code>{
-  "id": "IndAll058",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno058"><pre><code>{
+  "id": "IndGeno058",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv336",
     "type": "Individual",
     "description": "individual #004"
   },
-  "primaryAllele": {
-    "id": "CanAll035",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll039",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll035",
-      "alleleName": "NM_001369.2(DNAH5):c.7468_7488del",
-      "produces": [
+  "genotype": [
+    {
+      "id": "Geno378",
+      "type": "Genotype",
+      "haplotype": [
         {
-          "id": "CtxAll044",
-          "type": "ContextualAllele",
-          "relatedCanonicalAllele": "CanAll040",
-          "alleleName": "NP_001360.1:p.Trp2490_Leu2496del",
-          "producedBy": "CtxAll039"
+          "id": "Haplo376",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll035",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll039",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll035",
+                "alleleName": "NM_001369.2(DNAH5):c.7468_7488del",
+                "produces": [
+                  {
+                    "id": "CtxAll044",
+                    "type": "ContextualAllele",
+                    "relatedCanonicalAllele": "CanAll040",
+                    "alleleName": "NP_001360.1:p.Trp2490_Leu2496del",
+                    "producedBy": "CtxAll039"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "Haplo377",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll036",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll040",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll036",
+                "alleleName": "NM_001369.2(DNAH5):c.9449delG"
+              }
+            }
+          ]
         }
       ]
     }
-  },
-  "secondaryAllele": {
-    "id": "CanAll036",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll040",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll036",
-      "alleleName": "NM_001369.2(DNAH5):c.9449delG"
-    }
-  },
-  "primaryZygosity": {
-    "id": "ASID041",
-    "type": "AllelicState",
-    "label": "heterozygous"
-  },
-  "secondaryZygosity": {
-    "id": "ASID041",
-    "type": "AllelicState",
-    "label": "heterozygous"
-  },
-  "phase": {
-    "id": "PHZID037",
-    "type": "Phase",
-    "label": "in trans"
-  },
+  ],
   "contribution": [
     {
       "type": "Contribution",
@@ -297,7 +282,7 @@
       },
       "contributionDate": "5/31/16 9:15 AM",
       "contributionRole": {
-        "id": "CRID194",
+        "id": "ContribRoleID194",
         "type": "ContributoryRole",
         "label": "curator role"
       }
@@ -313,7 +298,13 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll062">IndAll062</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno062">IndGeno062</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               <p>Based on the NGS data, we are able to determine that c.298G>A and c.411+1G>A are in trans as no NGS reads carry both variants.</p>
          </td>
@@ -321,64 +312,57 @@
               <p><a href="../details/details.html#Indiv337">Indiv337</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll037">CanAll037</a></p>
-         </td>
-          <td>
-              <p><a href="../details/details.html#ASID041">ASID041</a></p> (heterozygous)
-         </td>
-          <td>
-              <p><a href="../details/details.html#CanAll038">CanAll038</a></p>
-         </td>
-          <td>
-              <p><a href="../details/details.html#ASID041">ASID041</a></p> (heterozygous)
-         </td>
-          <td>
-              <p><a href="../details/details.html#PHZID037">PHZID037</a></p> (in trans)
+              <p><a href="../details/details.html#Geno381">Geno381</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll062"><pre><code>{
-  "id": "IndAll062",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno062"><pre><code>{
+  "id": "IndGeno062",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv337",
     "type": "Individual",
     "description": "individual #005"
   },
-  "primaryAllele": {
-    "id": "CanAll037",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll041",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll037",
-      "alleleName": "NM_133261.2(GIPC3):c.298G>A"
+  "genotype": [
+    {
+      "id": "Geno381",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo379",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll037",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll041",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll037",
+                "alleleName": "NM_133261.2(GIPC3):c.298G>A"
+              }
+            }
+          ]
+        },
+        {
+          "id": "Haplo380",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll038",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll042",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll038",
+                "alleleName": "NM_133261.2(GIPC3):c.411+1G>A"
+              }
+            }
+          ]
+        }
+      ]
     }
-  },
-  "secondaryAllele": {
-    "id": "CanAll038",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll042",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll038",
-      "alleleName": "NM_133261.2(GIPC3):c.411+1G>A"
-    }
-  },
-  "primaryZygosity": {
-    "id": "ASID041",
-    "type": "AllelicState",
-    "label": "heterozygous"
-  },
-  "secondaryZygosity": {
-    "id": "ASID041",
-    "type": "AllelicState",
-    "label": "heterozygous"
-  },
-  "phase": {
-    "id": "PHZID037",
-    "type": "Phase",
-    "label": "in trans"
-  },
+  ],
   "description": "Based on the NGS data, we are able to determine that c.298G>A and c.411+1G>A are in trans as no NGS reads carry both variants."
 }
           </code></pre></div></td>
@@ -386,7 +370,13 @@
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll065">IndAll065</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno065">IndGeno065</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -394,51 +384,59 @@
               <p><a href="../details/details.html#Indiv338">Indiv338</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll039">CanAll039</a></p>
-         </td>
-          <td>
-              <p><a href="../details/details.html#ASID043">ASID043</a></p> (homozygous)
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
+              <p><a href="../details/details.html#Geno383">Geno383</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll065"><pre><code>{
-  "id": "IndAll065",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno065"><pre><code>{
+  "id": "IndGeno065",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv338",
     "type": "Individual",
     "description": "individual #006"
   },
-  "primaryAllele": {
-    "id": "CanAll039",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll043",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll039",
-      "alleleName": "NM_000391.3(TTP1):c.1678_1679delCT"
+  "genotype": [
+    {
+      "id": "Geno383",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo382",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll039",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll043",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll039",
+                "alleleName": "NM_000391.3(TTP1):c.1678_1679delCT"
+              }
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "AllStateID043",
+        "type": "AllelicState",
+        "label": "homozygous"
+      }
     }
-  },
-  "primaryZygosity": {
-    "id": "ASID043",
-    "type": "AllelicState",
-    "label": "homozygous"
-  }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll172">IndAll172</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno172">IndGeno172</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -446,51 +444,59 @@
               <p><a href="../details/details.html#Indiv345">Indiv345</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll081">CanAll081</a></p>
-         </td>
-          <td>
-              <p><a href="../details/details.html#ASID041">ASID041</a></p> (heterozygous)
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
+              <p><a href="../details/details.html#Geno385">Geno385</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll172"><pre><code>{
-  "id": "IndAll172",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno172"><pre><code>{
+  "id": "IndGeno172",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv345",
     "type": "Individual",
     "description": "individual #013"
   },
-  "primaryAllele": {
-    "id": "CanAll081",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll087",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll081",
-      "alleleName": "NM_001197104.1(KMT2A):c.6572G>A"
+  "genotype": [
+    {
+      "id": "Geno385",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo384",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll081",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll087",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll081",
+                "alleleName": "NM_001197104.1(KMT2A):c.6572G>A"
+              }
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "AllStateID041",
+        "type": "AllelicState",
+        "label": "heterozygous"
+      }
     }
-  },
-  "primaryZygosity": {
-    "id": "ASID041",
-    "type": "AllelicState",
-    "label": "heterozygous"
-  }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll173">IndAll173</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno173">IndGeno173</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -498,51 +504,59 @@
               <p><a href="../details/details.html#Indiv346">Indiv346</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll081">CanAll081</a></p>
-         </td>
-          <td>
-              <p><a href="../details/details.html#ASID043">ASID043</a></p> (homozygous)
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
+              <p><a href="../details/details.html#Geno387">Geno387</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll173"><pre><code>{
-  "id": "IndAll173",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno173"><pre><code>{
+  "id": "IndGeno173",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv346",
     "type": "Individual",
     "description": "individual #014"
   },
-  "primaryAllele": {
-    "id": "CanAll081",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll087",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll081",
-      "alleleName": "NM_001197104.1(KMT2A):c.6572G>A"
+  "genotype": [
+    {
+      "id": "Geno387",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo386",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll081",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll087",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll081",
+                "alleleName": "NM_001197104.1(KMT2A):c.6572G>A"
+              }
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "AllStateID043",
+        "type": "AllelicState",
+        "label": "homozygous"
+      }
     }
-  },
-  "primaryZygosity": {
-    "id": "ASID043",
-    "type": "AllelicState",
-    "label": "homozygous"
-  }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll178">IndAll178</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno178">IndGeno178</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -550,51 +564,59 @@
               <p><a href="../details/details.html#Indiv347">Indiv347</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
-         </td>
-          <td>
-              <p><a href="../details/details.html#ASID041">ASID041</a></p> (heterozygous)
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
+              <p><a href="../details/details.html#Geno389">Geno389</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll178"><pre><code>{
-  "id": "IndAll178",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno178"><pre><code>{
+  "id": "IndGeno178",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv347",
     "type": "Individual",
     "description": "individual #015"
   },
-  "primaryAllele": {
-    "id": "CanAll082",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll088",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll082",
-      "alleleName": "NM_000038.5(APC ):c.3386T>C"
+  "genotype": [
+    {
+      "id": "Geno389",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo388",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll082",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll088",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll082",
+                "alleleName": "NM_000038.5(APC ):c.3386T>C"
+              }
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "AllStateID041",
+        "type": "AllelicState",
+        "label": "heterozygous"
+      }
     }
-  },
-  "primaryZygosity": {
-    "id": "ASID041",
-    "type": "AllelicState",
-    "label": "heterozygous"
-  }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll179">IndAll179</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno179">IndGeno179</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -602,51 +624,59 @@
               <p><a href="../details/details.html#Indiv348">Indiv348</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
-         </td>
-          <td>
-              <p><a href="../details/details.html#ASID041">ASID041</a></p> (heterozygous)
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
+              <p><a href="../details/details.html#Geno391">Geno391</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll179"><pre><code>{
-  "id": "IndAll179",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno179"><pre><code>{
+  "id": "IndGeno179",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv348",
     "type": "Individual",
     "description": "individual #016"
   },
-  "primaryAllele": {
-    "id": "CanAll082",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll088",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll082",
-      "alleleName": "NM_000038.5(APC ):c.3386T>C"
+  "genotype": [
+    {
+      "id": "Geno391",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo390",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll082",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll088",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll082",
+                "alleleName": "NM_000038.5(APC ):c.3386T>C"
+              }
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "AllStateID041",
+        "type": "AllelicState",
+        "label": "heterozygous"
+      }
     }
-  },
-  "primaryZygosity": {
-    "id": "ASID041",
-    "type": "AllelicState",
-    "label": "heterozygous"
-  }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll180">IndAll180</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno180">IndGeno180</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -654,51 +684,59 @@
               <p><a href="../details/details.html#Indiv349">Indiv349</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
-         </td>
-          <td>
-              <p><a href="../details/details.html#ASID041">ASID041</a></p> (heterozygous)
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
+              <p><a href="../details/details.html#Geno393">Geno393</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll180"><pre><code>{
-  "id": "IndAll180",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno180"><pre><code>{
+  "id": "IndGeno180",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv349",
     "type": "Individual",
     "description": "individual #017"
   },
-  "primaryAllele": {
-    "id": "CanAll082",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll088",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll082",
-      "alleleName": "NM_000038.5(APC ):c.3386T>C"
+  "genotype": [
+    {
+      "id": "Geno393",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo392",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll082",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll088",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll082",
+                "alleleName": "NM_000038.5(APC ):c.3386T>C"
+              }
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "AllStateID041",
+        "type": "AllelicState",
+        "label": "heterozygous"
+      }
     }
-  },
-  "primaryZygosity": {
-    "id": "ASID041",
-    "type": "AllelicState",
-    "label": "heterozygous"
-  }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll181">IndAll181</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno181">IndGeno181</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -706,51 +744,59 @@
               <p><a href="../details/details.html#Indiv350">Indiv350</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
-         </td>
-          <td>
-              <p><a href="../details/details.html#ASID041">ASID041</a></p> (heterozygous)
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
+              <p><a href="../details/details.html#Geno395">Geno395</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll181"><pre><code>{
-  "id": "IndAll181",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno181"><pre><code>{
+  "id": "IndGeno181",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv350",
     "type": "Individual",
     "description": "individual #018"
   },
-  "primaryAllele": {
-    "id": "CanAll082",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll088",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll082",
-      "alleleName": "NM_000038.5(APC ):c.3386T>C"
+  "genotype": [
+    {
+      "id": "Geno395",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo394",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll082",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll088",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll082",
+                "alleleName": "NM_000038.5(APC ):c.3386T>C"
+              }
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "AllStateID041",
+        "type": "AllelicState",
+        "label": "heterozygous"
+      }
     }
-  },
-  "primaryZygosity": {
-    "id": "ASID041",
-    "type": "AllelicState",
-    "label": "heterozygous"
-  }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll188">IndAll188</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno188">IndGeno188</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -758,51 +804,59 @@
               <p><a href="../details/details.html#Indiv351">Indiv351</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll083">CanAll083</a></p>
-         </td>
-          <td>
-              <p><a href="../details/details.html#ASID041">ASID041</a></p> (heterozygous)
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
+              <p><a href="../details/details.html#Geno397">Geno397</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll188"><pre><code>{
-  "id": "IndAll188",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno188"><pre><code>{
+  "id": "IndGeno188",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv351",
     "type": "Individual",
     "description": "individual #019"
   },
-  "primaryAllele": {
-    "id": "CanAll083",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll089",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll083",
-      "alleleName": "NM_000138.4(FBN1 ):c.2956G>A"
+  "genotype": [
+    {
+      "id": "Geno397",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo396",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll083",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll089",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll083",
+                "alleleName": "NM_000138.4(FBN1 ):c.2956G>A"
+              }
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "AllStateID041",
+        "type": "AllelicState",
+        "label": "heterozygous"
+      }
     }
-  },
-  "primaryZygosity": {
-    "id": "ASID041",
-    "type": "AllelicState",
-    "label": "heterozygous"
-  }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll189">IndAll189</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno189">IndGeno189</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -810,51 +864,59 @@
               <p><a href="../details/details.html#Indiv352">Indiv352</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll083">CanAll083</a></p>
-         </td>
-          <td>
-              <p><a href="../details/details.html#ASID041">ASID041</a></p> (heterozygous)
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
+              <p><a href="../details/details.html#Geno399">Geno399</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll189"><pre><code>{
-  "id": "IndAll189",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno189"><pre><code>{
+  "id": "IndGeno189",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv352",
     "type": "Individual",
     "description": "individual #020"
   },
-  "primaryAllele": {
-    "id": "CanAll083",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll089",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll083",
-      "alleleName": "NM_000138.4(FBN1 ):c.2956G>A"
+  "genotype": [
+    {
+      "id": "Geno399",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo398",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll083",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll089",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll083",
+                "alleleName": "NM_000138.4(FBN1 ):c.2956G>A"
+              }
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "AllStateID041",
+        "type": "AllelicState",
+        "label": "heterozygous"
+      }
     }
-  },
-  "primaryZygosity": {
-    "id": "ASID041",
-    "type": "AllelicState",
-    "label": "heterozygous"
-  }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll206">IndAll206</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno206">IndGeno206</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -862,61 +924,64 @@
               <p><a href="../details/details.html#Indiv353">Indiv353</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll094">CanAll094</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../details/details.html#CanAll095">CanAll095</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../details/details.html#PHZID036">PHZID036</a></p> (in cis)
+              <p><a href="../details/details.html#Geno401">Geno401</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll206"><pre><code>{
-  "id": "IndAll206",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno206"><pre><code>{
+  "id": "IndGeno206",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv353",
     "type": "Individual",
     "description": "individual #021"
   },
-  "primaryAllele": {
-    "id": "CanAll094",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll100",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll094",
-      "alleleName": "NM_206933.2 (USH2A): c.6721C>T (p.Pro2241Ser)"
+  "genotype": [
+    {
+      "id": "Geno401",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo400",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll094",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll100",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll094",
+                "alleleName": "NM_206933.2 (USH2A): c.6721C>T (p.Pro2241Ser)"
+              }
+            },
+            {
+              "id": "CanAll095",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll101",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll095",
+                "alleleName": "NM_206933.2(USH2A):c.2276G>T"
+              }
+            }
+          ]
+        }
+      ]
     }
-  },
-  "secondaryAllele": {
-    "id": "CanAll095",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll101",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll095",
-      "alleleName": "NM_206933.2(USH2A):c.2276G>T"
-    }
-  },
-  "phase": {
-    "id": "PHZID036",
-    "type": "Phase",
-    "label": "in cis"
-  }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll207">IndAll207</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno207">IndGeno207</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -924,61 +989,64 @@
               <p><a href="../details/details.html#Indiv354">Indiv354</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll094">CanAll094</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../details/details.html#CanAll095">CanAll095</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../details/details.html#PHZID036">PHZID036</a></p> (in cis)
+              <p><a href="../details/details.html#Geno403">Geno403</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll207"><pre><code>{
-  "id": "IndAll207",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno207"><pre><code>{
+  "id": "IndGeno207",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv354",
     "type": "Individual",
     "description": "individual #022"
   },
-  "primaryAllele": {
-    "id": "CanAll094",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll100",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll094",
-      "alleleName": "NM_206933.2 (USH2A): c.6721C>T (p.Pro2241Ser)"
+  "genotype": [
+    {
+      "id": "Geno403",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo402",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll094",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll100",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll094",
+                "alleleName": "NM_206933.2 (USH2A): c.6721C>T (p.Pro2241Ser)"
+              }
+            },
+            {
+              "id": "CanAll095",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll101",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll095",
+                "alleleName": "NM_206933.2(USH2A):c.2276G>T"
+              }
+            }
+          ]
+        }
+      ]
     }
-  },
-  "secondaryAllele": {
-    "id": "CanAll095",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll101",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll095",
-      "alleleName": "NM_206933.2(USH2A):c.2276G>T"
-    }
-  },
-  "phase": {
-    "id": "PHZID036",
-    "type": "Phase",
-    "label": "in cis"
-  }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll211">IndAll211</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno211">IndGeno211</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -986,61 +1054,64 @@
               <p><a href="../details/details.html#Indiv355">Indiv355</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll096">CanAll096</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../details/details.html#CanAll097">CanAll097</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../details/details.html#PHZID036">PHZID036</a></p> (in cis)
+              <p><a href="../details/details.html#Geno405">Geno405</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll211"><pre><code>{
-  "id": "IndAll211",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno211"><pre><code>{
+  "id": "IndGeno211",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv355",
     "type": "Individual",
     "description": "individual #023"
   },
-  "primaryAllele": {
-    "id": "CanAll096",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll102",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll096",
-      "alleleName": "NM_000492.3(CFTR): c.2002C>T"
+  "genotype": [
+    {
+      "id": "Geno405",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo404",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll096",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll102",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll096",
+                "alleleName": "NM_000492.3(CFTR): c.2002C>T"
+              }
+            },
+            {
+              "id": "CanAll097",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll103",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll097",
+                "alleleName": "NP_000483.3:p.Gly576Ala"
+              }
+            }
+          ]
+        }
+      ]
     }
-  },
-  "secondaryAllele": {
-    "id": "CanAll097",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll103",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll097",
-      "alleleName": "NP_000483.3:p.Gly576Ala"
-    }
-  },
-  "phase": {
-    "id": "PHZID036",
-    "type": "Phase",
-    "label": "in cis"
-  }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll214">IndAll214</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno214">IndGeno214</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1048,61 +1119,70 @@
               <p><a href="../details/details.html#Indiv356">Indiv356</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll098">CanAll098</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../details/details.html#CanAll099">CanAll099</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../details/details.html#PHZID037">PHZID037</a></p> (in trans)
+              <p><a href="../details/details.html#Geno408">Geno408</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll214"><pre><code>{
-  "id": "IndAll214",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno214"><pre><code>{
+  "id": "IndGeno214",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv356",
     "type": "Individual",
     "description": "individual #024"
   },
-  "primaryAllele": {
-    "id": "CanAll098",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll104",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll098",
-      "alleleName": "NM_000257.2(MYH7): c.2559G>A"
+  "genotype": [
+    {
+      "id": "Geno408",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo406",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll098",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll104",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll098",
+                "alleleName": "NM_000257.2(MYH7): c.2559G>A"
+              }
+            }
+          ]
+        },
+        {
+          "id": "Haplo407",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll099",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll105",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll099",
+                "alleleName": "NM_000257.2(MYH7): c.2537A>G"
+              }
+            }
+          ]
+        }
+      ]
     }
-  },
-  "secondaryAllele": {
-    "id": "CanAll099",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll105",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll099",
-      "alleleName": "NM_000257.2(MYH7): c.2537A>G"
-    }
-  },
-  "phase": {
-    "id": "PHZID037",
-    "type": "Phase",
-    "label": "in trans"
-  }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll241">IndAll241</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno241">IndGeno241</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1110,56 +1190,76 @@
               <p><a href="../details/details.html#Indiv357">Indiv357</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll106">CanAll106</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../details/details.html#CanAll107">CanAll107</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
+              <p><a href="../details/details.html#Geno410">Geno410</a></p><p><a href="../details/details.html#Geno412">Geno412</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll241"><pre><code>{
-  "id": "IndAll241",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno241"><pre><code>{
+  "id": "IndGeno241",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv357",
     "type": "Individual",
     "description": "individual #025"
   },
-  "primaryAllele": {
-    "id": "CanAll106",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll112",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll106",
-      "alleleName": "NM_000256.3(MYBPC3): c.2497G>A"
+  "genotype": [
+    {
+      "id": "Geno410",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo409",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll106",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll112",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll106",
+                "alleleName": "NM_000256.3(MYBPC3): c.2497G>A"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Geno412",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo411",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll107",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll113",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll107",
+                "alleleName": "NM_000364.3(TNNT2):c.878G>A"
+              }
+            }
+          ]
+        }
+      ]
     }
-  },
-  "secondaryAllele": {
-    "id": "CanAll107",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll113",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll107",
-      "alleleName": "NM_000364.3(TNNT2):c.878G>A"
-    }
-  }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll244">IndAll244</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno244">IndGeno244</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1167,118 +1267,92 @@
               <p><a href="../details/details.html#Indiv358">Indiv358</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll108">CanAll108</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
+              <p><a href="../details/details.html#Geno414">Geno414</a></p><p><a href="../details/details.html#Geno417">Geno417</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll244"><pre><code>{
-  "id": "IndAll244",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno244"><pre><code>{
+  "id": "IndGeno244",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv358",
     "type": "Individual",
     "description": "individual #026"
   },
-  "primaryAllele": {
-    "id": "CanAll108",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll114",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll108",
-      "alleleName": "NM_022124.5(CDH23):c.5660C>T"
+  "genotype": [
+    {
+      "id": "Geno414",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo413",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll108",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll114",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll108",
+                "alleleName": "NM_022124.5(CDH23):c.5660C>T"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Geno417",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo415",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll109",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll115",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll109",
+                "alleleName": "NM_004004.5(GJB2):c.71G>A"
+              }
+            }
+          ]
+        },
+        {
+          "id": "Haplo416",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll110",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll116",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll110",
+                "alleleName": "NM_004004.5(GJB2):c.230G>A"
+              }
+            }
+          ]
+        }
+      ]
     }
-  }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll245">IndAll245</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno249">IndGeno249</a></p></td>
           <td>
               
          </td>
           <td>
-              <p><a href="../details/details.html#Indiv358">Indiv358</a></p>
+              
          </td>
-          <td>
-              <p><a href="../details/details.html#CanAll109">CanAll109</a></p>
-         </td>
-          <td>
-              <p><a href="../details/details.html#ASID041">ASID041</a></p> (heterozygous)
-         </td>
-          <td>
-              <p><a href="../details/details.html#CanAll110">CanAll110</a></p>
-         </td>
-          <td>
-              <p><a href="../details/details.html#ASID041">ASID041</a></p> (heterozygous)
-         </td>
-          <td>
-              <p><a href="../details/details.html#PHZID037">PHZID037</a></p> (in trans)
-         </td>
-          <!--
-          <td><div class="example_view" id="IndAll245"><pre><code>{
-  "id": "IndAll245",
-  "type": "IndividualAllele",
-  "individual": {
-    "id": "Indiv358",
-    "type": "Individual",
-    "description": "individual #026"
-  },
-  "primaryAllele": {
-    "id": "CanAll109",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll115",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll109",
-      "alleleName": "NM_004004.5(GJB2):c.71G>A"
-    }
-  },
-  "secondaryAllele": {
-    "id": "CanAll110",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll116",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll110",
-      "alleleName": "NM_004004.5(GJB2):c.230G>A"
-    }
-  },
-  "primaryZygosity": {
-    "id": "ASID041",
-    "type": "AllelicState",
-    "label": "heterozygous"
-  },
-  "secondaryZygosity": {
-    "id": "ASID041",
-    "type": "AllelicState",
-    "label": "heterozygous"
-  },
-  "phase": {
-    "id": "PHZID037",
-    "type": "Phase",
-    "label": "in trans"
-  }
-}
-          </code></pre></div></td>
-          -->
-        </tr>
-
-        <tr>
-          <td><p><a href="../details/details.html#IndAll249">IndAll249</a></p></td>
           <td>
               
          </td>
@@ -1286,61 +1360,81 @@
               <p><a href="../details/details.html#Indiv359">Indiv359</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll108">CanAll108</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../details/details.html#CanAll111">CanAll111</a></p>
-         </td>
-          <td>
-              <p><a href="../details/details.html#ASID043">ASID043</a></p> (homozygous)
-         </td>
-          <td>
-              
+              <p><a href="../details/details.html#Geno419">Geno419</a></p><p><a href="../details/details.html#Geno421">Geno421</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll249"><pre><code>{
-  "id": "IndAll249",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno249"><pre><code>{
+  "id": "IndGeno249",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv359",
     "type": "Individual",
     "description": "individual #027"
   },
-  "primaryAllele": {
-    "id": "CanAll108",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll114",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll108",
-      "alleleName": "NM_022124.5(CDH23):c.5660C>T"
+  "genotype": [
+    {
+      "id": "Geno419",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo418",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll108",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll114",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll108",
+                "alleleName": "NM_022124.5(CDH23):c.5660C>T"
+              }
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "AllStateID043",
+        "type": "AllelicState",
+        "label": "homozygous"
+      }
+    },
+    {
+      "id": "Geno421",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo420",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll111",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll117",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll111",
+                "alleleName": "NM_015404.3(WHRN):c.643delG"
+              }
+            }
+          ]
+        }
+      ]
     }
-  },
-  "secondaryAllele": {
-    "id": "CanAll111",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll117",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll111",
-      "alleleName": "NM_015404.3(WHRN):c.643delG"
-    }
-  },
-  "secondaryZygosity": {
-    "id": "ASID043",
-    "type": "AllelicState",
-    "label": "homozygous"
-  }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll253">IndAll253</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno253">IndGeno253</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1348,56 +1442,76 @@
               <p><a href="../details/details.html#Indiv360">Indiv360</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll112">CanAll112</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../details/details.html#CanAll113">CanAll113</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
+              <p><a href="../details/details.html#Geno423">Geno423</a></p><p><a href="../details/details.html#Geno425">Geno425</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll253"><pre><code>{
-  "id": "IndAll253",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno253"><pre><code>{
+  "id": "IndGeno253",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv360",
     "type": "Individual",
     "description": "individual #028"
   },
-  "primaryAllele": {
-    "id": "CanAll112",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll118",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll112",
-      "alleleName": "NM_001844.4(COL2A1):c.4316C>T"
+  "genotype": [
+    {
+      "id": "Geno423",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo422",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll112",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll118",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll112",
+                "alleleName": "NM_001844.4(COL2A1):c.4316C>T"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Geno425",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo424",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll113",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll119",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll113",
+                "alleleName": "NM_000095.2(COMP):c.1042T>C"
+              }
+            }
+          ]
+        }
+      ]
     }
-  },
-  "secondaryAllele": {
-    "id": "CanAll113",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll119",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll113",
-      "alleleName": "NM_000095.2(COMP):c.1042T>C"
-    }
-  }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#IndAll366">IndAll366</a></p></td>
+          <td><p><a href="../details/details.html#IndGeno366">IndGeno366</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1405,116 +1519,95 @@
               <p><a href="../details/details.html#Indiv361">Indiv361</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#CanAll092">CanAll092</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../details/details.html#CanAll122">CanAll122</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../details/details.html#PHZID037">PHZID037</a></p> (in trans)
+              <p><a href="../details/details.html#Geno428">Geno428</a></p><p><a href="../details/details.html#Geno431">Geno431</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="IndAll366"><pre><code>{
-  "id": "IndAll366",
-  "type": "IndividualAllele",
+          <td><div class="example_view" id="IndGeno366"><pre><code>{
+  "id": "IndGeno366",
+  "type": "IndividualGenotype",
   "individual": {
     "id": "Indiv361",
     "type": "Individual",
     "description": "individual #029"
   },
-  "primaryAllele": {
-    "id": "CanAll092",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll098",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll092",
-      "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
+  "genotype": [
+    {
+      "id": "Geno428",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo426",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll092",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll098",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll092",
+                "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "Haplo427",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll122",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll128",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll122",
+                "alleleName": "NM_000441.1(SLC26A4): c.626G>T"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Geno431",
+      "type": "Genotype",
+      "haplotype": [
+        {
+          "id": "Haplo429",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll092",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll098",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll092",
+                "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "Haplo430",
+          "type": "Haplotype",
+          "allele": [
+            {
+              "id": "CanAll123",
+              "type": "CanonicalAllele",
+              "preferredCtxAllele": {
+                "id": "CtxAll129",
+                "type": "ContextualAllele",
+                "relatedCanonicalAllele": "CanAll123",
+                "alleleName": "NM_000441.1(SLC26A4): c.1707+6T>C"
+              }
+            }
+          ]
+        }
+      ]
     }
-  },
-  "secondaryAllele": {
-    "id": "CanAll122",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll128",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll122",
-      "alleleName": "NM_000441.1(SLC26A4): c.626G>T"
-    }
-  },
-  "phase": {
-    "id": "PHZID037",
-    "type": "Phase",
-    "label": "in trans"
-  }
-}
-          </code></pre></div></td>
-          -->
-        </tr>
-
-        <tr>
-          <td><p><a href="../details/details.html#IndAll367">IndAll367</a></p></td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../details/details.html#Indiv361">Indiv361</a></p>
-         </td>
-          <td>
-              <p><a href="../details/details.html#CanAll092">CanAll092</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../details/details.html#CanAll123">CanAll123</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../details/details.html#PHZID037">PHZID037</a></p> (in trans)
-         </td>
-          <!--
-          <td><div class="example_view" id="IndAll367"><pre><code>{
-  "id": "IndAll367",
-  "type": "IndividualAllele",
-  "individual": {
-    "id": "Indiv361",
-    "type": "Individual",
-    "description": "individual #029"
-  },
-  "primaryAllele": {
-    "id": "CanAll092",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll098",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll092",
-      "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
-    }
-  },
-  "secondaryAllele": {
-    "id": "CanAll123",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CtxAll129",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll123",
-      "alleleName": "NM_000441.1(SLC26A4): c.1707+6T>C"
-    }
-  },
-  "phase": {
-    "id": "PHZID037",
-    "type": "Phase",
-    "label": "in trans"
-  }
+  ]
 }
           </code></pre></div></td>
           -->
@@ -1561,7 +1654,7 @@ window.addEventListener('load', function () {
                 <h5><a href="../../">Interpretation Overview</a></h5>
               </li>
               <li class='list-group-item'><h5><a href="../../user/">User Guide</a></h5></li>
-              <li class="list-group-item"><h5><a href="../">Technical Reference</a></h5><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Domain Evidence</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li><a href="allele_conservation.html">AlleleConservation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="excluded_region_type.html">ExcludedRegionType</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li class="active"><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li><a href="region_type.html">RegionType</a></li><li><a href="sequence_location.html">SequenceLocation</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul></li>
+              <li class="list-group-item"><h5><a href="../">Technical Reference</a></h5><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Domain Evidence</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li><a href="allele_conservation.html">CategoricalAlleleConservation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">CategoricalInSilicoPrediction</a></li><li class="active"><a href="individual_allele.html">IndividualGenotype</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="molecular_consequence.html">AlleleMolecularConsequence</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li><a href="region_type.html">RegionType</a></li><li><a href="sequence_location.html">SequenceLocation</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul></li>
               <!-- Old style.  We might still need the model here? -->
               <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
             </ul>

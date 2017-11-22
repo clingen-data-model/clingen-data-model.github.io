@@ -120,7 +120,7 @@
             </tr>
             <tr>
                 <td>annotation</td>
-                <td>RegionAnnotationType</td>
+                <td>RegionAnnotation</td>
                 <td>0..*</td>
                 <td></td>
                 <td>SEPIO:0000197</td>
@@ -144,8 +144,24 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>qualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                    <td>??</td>
+                </tr>
+                <tr>
+                    <td>assertionQualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>NOT </td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>description</td>
-                    <td>String</td>
+                    <td>string</td>
                     <td>0..1</td>
                     <td></td>
                     <td>A human-readable description of the entity</td>
@@ -161,7 +177,7 @@
                 </tr>
                 <tr>
                     <td>source</td>
-                    <td>String</td>
+                    <td>string</td>
                     <td>0..*</td>
                     <td></td>
                     <td></td>
@@ -174,6 +190,8 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
+        <th>qualifier</th>
+        <th>assertionQualifier</th>
         <th>description</th>
         <th>region</th>
         <th>annotation</th>
@@ -182,13 +200,19 @@
         <tr>
           <td><p><a href="../details/details.html#RegTyp040">RegTyp040</a></p></td>
           <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
               <p>This region is the catalytic (kinase) domain.</p>
          </td>
           <td>
               <p><a href="../details/details.html#Loc379">Loc379</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RATID033">RATID033</a></p> (functional region)
+              <p><a href="../details/details.html#RegAnnID033">RegAnnID033</a></p> (functional region)
          </td>
           <!--
           <td><div class="example_view" id="RegTyp040"><pre><code>{
@@ -208,8 +232,8 @@
   },
   "annotation": [
     {
-      "id": "RATID033",
-      "type": "RegionAnnotationType",
+      "id": "RegAnnID033",
+      "type": "RegionAnnotation",
       "label": "functional region"
     }
   ],
@@ -222,13 +246,19 @@
         <tr>
           <td><p><a href="../details/details.html#RegTyp043">RegTyp043</a></p></td>
           <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
               <p>This region is exon 15 in the transcript, and codes the serine-threonine-protein kinase catalytic domain.</p>
          </td>
           <td>
               <p><a href="../details/details.html#Loc381">Loc381</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RATID033">RATID033</a></p> (functional region)
+              <p><a href="../details/details.html#RegAnnID033">RegAnnID033</a></p> (functional region)
          </td>
           <!--
           <td><div class="example_view" id="RegTyp043"><pre><code>{
@@ -247,8 +277,8 @@
   },
   "annotation": [
     {
-      "id": "RATID033",
-      "type": "RegionAnnotationType",
+      "id": "RegAnnID033",
+      "type": "RegionAnnotation",
       "label": "functional region"
     }
   ],
@@ -261,13 +291,19 @@
         <tr>
           <td><p><a href="../details/details.html#RegTyp046">RegTyp046</a></p></td>
           <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
               <p>Region(NM_0001692[996..1012]) is a mutational hotspot.</p>
          </td>
           <td>
               <p><a href="../details/details.html#Loc383">Loc383</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RATID034">RATID034</a></p> (mutational hotspot)
+              <p><a href="../details/details.html#RegAnnID034">RegAnnID034</a></p> (mutational hotspot)
          </td>
           <!--
           <td><div class="example_view" id="RegTyp046"><pre><code>{
@@ -286,8 +322,8 @@
   },
   "annotation": [
     {
-      "id": "RATID034",
-      "type": "RegionAnnotationType",
+      "id": "RegAnnID034",
+      "type": "RegionAnnotation",
       "label": "mutational hotspot"
     }
   ],
@@ -298,7 +334,124 @@
         </tr>
 
         <tr>
+          <td><p><a href="../details/details.html#RegTyp069">RegTyp069</a></p></td>
+          <td>
+              <p>NOT</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>This is not a repreating region.</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Loc385">Loc385</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#RegAnnID035">RegAnnID035</a></p> (repeat region )
+         </td>
+          <!--
+          <td><div class="example_view" id="RegTyp069"><pre><code>{
+  "id": "RegTyp069",
+  "type": "RegionType",
+  "region": {
+    "id": "Loc385",
+    "type": "SequenceLocation",
+    "referenceSequence": {
+      "id": "RefSeq291",
+      "type": "ReferenceSequence",
+      "accession": "NP_001360.1"
+    },
+    "start": 2490,
+    "stop": 2496
+  },
+  "annotation": [
+    {
+      "id": "RegAnnID035",
+      "type": "RegionAnnotation",
+      "label": "repeat region "
+    }
+  ],
+  "qualifier": "NOT",
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "Agent007",
+        "type": "Agent",
+        "label": "Stefan DiMarino"
+      },
+      "contributionDate": "6/1/16 2:10 PM",
+      "contributionRole": {
+        "id": "ContribRoleID194",
+        "type": "ContributoryRole",
+        "label": "curator role"
+      }
+    }
+  ],
+  "source": [
+    "https://pcpgm.partners.org/lmm/alamut"
+  ],
+  "description": "This is not a repreating region."
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#RegTyp073">RegTyp073</a></p></td>
+          <td>
+              <p>NOT</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>NP_056375.2[35..43] is not repeating.</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Loc386">Loc386</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#RegAnnID035">RegAnnID035</a></p> (repeat region )
+         </td>
+          <!--
+          <td><div class="example_view" id="RegTyp073"><pre><code>{
+  "id": "RegTyp073",
+  "type": "RegionType",
+  "region": {
+    "id": "Loc386",
+    "type": "SequenceLocation",
+    "referenceSequence": {
+      "id": "RefSeq292",
+      "type": "ReferenceSequence",
+      "accession": "NP_056375.2"
+    },
+    "start": 35,
+    "stop": 43
+  },
+  "annotation": [
+    {
+      "id": "RegAnnID035",
+      "type": "RegionAnnotation",
+      "label": "repeat region "
+    }
+  ],
+  "qualifier": "NOT",
+  "description": "NP_056375.2[35..43] is not repeating."
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
           <td><p><a href="../details/details.html#RegTyp077">RegTyp077</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               <p>NP_003915.2[241..260] is repeating.</p>
          </td>
@@ -306,7 +459,7 @@
               <p><a href="../details/details.html#Loc387">Loc387</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RATID035">RATID035</a></p> (repeat region )
+              <p><a href="../details/details.html#RegAnnID035">RegAnnID035</a></p> (repeat region )
          </td>
           <!--
           <td><div class="example_view" id="RegTyp077"><pre><code>{
@@ -325,8 +478,8 @@
   },
   "annotation": [
     {
-      "id": "RATID035",
-      "type": "RegionAnnotationType",
+      "id": "RegAnnID035",
+      "type": "RegionAnnotation",
       "label": "repeat region "
     }
   ],
@@ -337,7 +490,59 @@
         </tr>
 
         <tr>
+          <td><p><a href="../details/details.html#RegTyp220">RegTyp220</a></p></td>
+          <td>
+              <p>NOT</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>region does not have a known function.</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Loc390">Loc390</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#RegAnnID033">RegAnnID033</a></p> (functional region)
+         </td>
+          <!--
+          <td><div class="example_view" id="RegTyp220"><pre><code>{
+  "id": "RegTyp220",
+  "type": "RegionType",
+  "region": {
+    "id": "Loc390",
+    "type": "SequenceLocation",
+    "referenceSequence": {
+      "id": "RefSeq294",
+      "type": "ReferenceSequence",
+      "accession": "NM_001271208.1"
+    },
+    "start": 154,
+    "stop": 183
+  },
+  "annotation": [
+    {
+      "id": "RegAnnID033",
+      "type": "RegionAnnotation",
+      "label": "functional region"
+    }
+  ],
+  "qualifier": "NOT",
+  "description": "region does not have a known function."
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
           <td><p><a href="../details/details.html#RegTyp221">RegTyp221</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               <p>region is repeating.</p>
          </td>
@@ -345,7 +550,7 @@
               <p><a href="../details/details.html#Loc390">Loc390</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RATID035">RATID035</a></p> (repeat region )
+              <p><a href="../details/details.html#RegAnnID035">RegAnnID035</a></p> (repeat region )
          </td>
           <!--
           <td><div class="example_view" id="RegTyp221"><pre><code>{
@@ -364,8 +569,8 @@
   },
   "annotation": [
     {
-      "id": "RATID035",
-      "type": "RegionAnnotationType",
+      "id": "RegAnnID035",
+      "type": "RegionAnnotation",
       "label": "repeat region "
     }
   ],
@@ -378,13 +583,19 @@
         <tr>
           <td><p><a href="../details/details.html#RegTyp225">RegTyp225</a></p></td>
           <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
               <p>The I-Band is a large region of repetitive Igg domains. </p>
          </td>
           <td>
               <p><a href="../details/details.html#Loc392">Loc392</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RATID035">RATID035</a></p> (repeat region )
+              <p><a href="../details/details.html#RegAnnID035">RegAnnID035</a></p> (repeat region )
          </td>
           <!--
           <td><div class="example_view" id="RegTyp225"><pre><code>{
@@ -403,8 +614,8 @@
   },
   "annotation": [
     {
-      "id": "RATID035",
-      "type": "RegionAnnotationType",
+      "id": "RegAnnID035",
+      "type": "RegionAnnotation",
       "label": "repeat region "
     }
   ],
@@ -420,10 +631,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
               <p><a href="../details/details.html#Loc394">Loc394</a></p>
          </td>
           <td>
-              <p><a href="../details/details.html#RATID035">RATID035</a></p> (repeat region )
+              <p><a href="../details/details.html#RegAnnID035">RegAnnID035</a></p> (repeat region )
          </td>
           <!--
           <td><div class="example_view" id="RegTyp229"><pre><code>{
@@ -442,8 +659,8 @@
   },
   "annotation": [
     {
-      "id": "RATID035",
-      "type": "RegionAnnotationType",
+      "id": "RegAnnID035",
+      "type": "RegionAnnotation",
       "label": "repeat region "
     }
   ]
@@ -493,7 +710,7 @@ window.addEventListener('load', function () {
                 <h5><a href="../../">Interpretation Overview</a></h5>
               </li>
               <li class='list-group-item'><h5><a href="../../user/">User Guide</a></h5></li>
-              <li class="list-group-item"><h5><a href="../">Technical Reference</a></h5><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Domain Evidence</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li><a href="allele_conservation.html">AlleleConservation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="excluded_region_type.html">ExcludedRegionType</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li class="active"><a href="region_type.html">RegionType</a></li><li><a href="sequence_location.html">SequenceLocation</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul></li>
+              <li class="list-group-item"><h5><a href="../">Technical Reference</a></h5><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Domain Evidence</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li><a href="allele_conservation.html">CategoricalAlleleConservation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">CategoricalInSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualGenotype</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="molecular_consequence.html">AlleleMolecularConsequence</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li class="active"><a href="region_type.html">RegionType</a></li><li><a href="sequence_location.html">SequenceLocation</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul></li>
               <!-- Old style.  We might still need the model here? -->
               <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
             </ul>

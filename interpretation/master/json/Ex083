@@ -10,7 +10,7 @@
       "label": "BP7",
       "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
       "defaultStrength": {
-        "id": "ELSID140",
+        "id": "EvLnStrgID140",
         "type": "EvidenceLineStrength",
         "label": "Benign Supporting"
       }
@@ -26,7 +26,7 @@
       }
     },
     "outcome": {
-      "id": "CEID075",
+      "id": "CritEvalID075",
       "type": "CriterionEvaluation",
       "label": "Not Met"
     },
@@ -36,8 +36,8 @@
         "type": "EvidenceLine",
         "evidenceItem": [
           {
-            "id": "InSilicoPred266",
-            "type": "InSilicoPrediction",
+            "id": "CatInSilicoPred266",
+            "type": "CategoricalInSilicoPrediction",
             "transcript": {
               "id": "RefSeq302",
               "type": "ReferenceSequence",
@@ -54,15 +54,14 @@
               }
             },
             "predictionType": {
-              "id": "PredTID073",
-              "type": "PredictionType",
+              "id": "PredID073",
+              "type": "Prediction",
               "label": "splicing prediction"
             },
-            "categoricalPrediction": "no impact"
+            "prediction": "no impact"
           },
           {
             "id": "Conserv267",
-            "type": "AlleleConservation",
             "allele": {
               "id": "CanAll119",
               "type": "CanonicalAllele",
@@ -73,17 +72,17 @@
                 "alleleName": "NM_002880.3(RAF1):c.321T>C"
               }
             },
-            "outcome": {
-              "id": "ConsrvID213",
+            "conservationType": {
+              "id": "ConsrvID212",
               "type": "Conservation",
-              "label": "not conserved"
+              "label": "conserved region"
             },
+            "qualifier": "NOT",
             "algorithm": "phyloP",
             "score": 0.45
           },
           {
             "id": "Conserv268",
-            "type": "AlleleConservation",
             "allele": {
               "id": "CanAll119",
               "type": "CanonicalAllele",
@@ -94,20 +93,21 @@
                 "alleleName": "NM_002880.3(RAF1):c.321T>C"
               }
             },
-            "outcome": {
-              "id": "ConsrvID213",
+            "conservationType": {
+              "id": "ConsrvID212",
               "type": "Conservation",
-              "label": "not conserved"
+              "label": "conserved region"
             },
+            "qualifier": "NOT",
             "algorithm": "PhastCons",
             "score": 1.0
           },
           {
             "id": "MolCon269",
-            "type": "MolecularConsequence",
+            "type": "AlleleMolecularConsequence",
             "consequence": {
-              "id": "MCTID016",
-              "type": "MolecularConsequenceType",
+              "id": "MolConID016",
+              "type": "MolecularConsequence",
               "label": "synonymous variant"
             },
             "contextualAllele": {
@@ -130,7 +130,7 @@
         },
         "contributionDate": "10/10/16 8:06 AM",
         "contributionRole": {
-          "id": "CRID193",
+          "id": "ContribRoleID193",
           "type": "ContributoryRole",
           "label": "assessor role"
         }

@@ -67,7 +67,7 @@
     
         <div class="row">
           <div class="col-sm-12">
-              <h1 class="header">ExcludedRegionType</h1>
+              <h1 class="header">Haplotype</h1>
               <ol class="breadcrumb bg-none margin-none">
                 <li><a href="../../">Interpretation Model</a></li>
 <li><a href="../">Technical Reference and Examples</a></li>
@@ -75,10 +75,6 @@
 
               </ol>
                 <blockquote><p></p>
-                <STRONG>
-                  <div></div>
-                      <i>Descended from Statement</i>
-                </STRONG>
                 </blockquote>
           </div>
         </div>
@@ -112,18 +108,11 @@
             </thead>
             <tbody>
             <tr>
-                <td>region</td>
-                <td>SequenceLocation</td>
-                <td>1..1</td>
-                <td>Region</td>
-                <td>SEPIO:0000279</td>
-            </tr>
-            <tr>
-                <td>annotation</td>
-                <td>RegionAnnotationType</td>
-                <td>0..*</td>
+                <td>allele</td>
+                <td>CanonicalAllele</td>
+                <td>1..*</td>
                 <td></td>
-                <td>SEPIO:0000197</td>
+                <td></td>
             </tr>
             </tbody>
         </table>
@@ -145,27 +134,27 @@
             <tbody>
                 <tr>
                     <td>description</td>
-                    <td>String</td>
+                    <td>string</td>
                     <td>0..1</td>
                     <td></td>
-                    <td>A human-readable description of the entity</td>
-                    <td>DC:description</td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
-                    <td>contribution</td>
-                    <td>Contribution</td>
-                    <td>0..*</td>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
                     <td></td>
-                    <td>The contributions (agent, time and role) made to this entity</td>
-                    <td>SEPIO:0000159</td>
+                    <td>A freeform text (preferred) representation used by the authoring system to identify a concept.</td>
+                    <td></td>
                 </tr>
                 <tr>
-                    <td>source</td>
-                    <td>String</td>
-                    <td>0..*</td>
+                    <td>userLabel</td>
+                    <td>UserLabel</td>
+                    <td>0..1</td>
                     <td></td>
+                    <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
                     <td></td>
-                    <td>DC:source</td>
                 </tr>
             </tbody>
         </table>
@@ -175,141 +164,1130 @@
       <thead><tr>
         <th>ID</th>
         <th>description</th>
-        <th>region</th>
-        <th>annotation</th>
+        <th>label</th>
+        <th>userLabel</th>
+        <th>allele</th>
       </tr></thead>
       <tbody>
         <tr>
-          <td><p><a href="../details/details.html#ExclRegTyp069">ExclRegTyp069</a></p></td>
+          <td><p><a href="../details/details.html#Haplo376">Haplo376</a></p></td>
           <td>
-              <p>This is not a repreating region.</p>
+              
          </td>
           <td>
-              <p><a href="../details/details.html#Loc385">Loc385</a></p>
+              
          </td>
           <td>
-              <p><a href="../details/details.html#RATID035">RATID035</a></p> (repeat region )
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll035">CanAll035</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="ExclRegTyp069"><pre><code>{
-  "id": "ExclRegTyp069",
-  "type": "ExcludedRegionType",
-  "region": {
-    "id": "Loc385",
-    "type": "SequenceLocation",
-    "referenceSequence": {
-      "id": "RefSeq291",
-      "type": "ReferenceSequence",
-      "accession": "NP_001360.1"
-    },
-    "start": 2490,
-    "stop": 2496
-  },
-  "annotation": [
+          <td><div class="example_view" id="Haplo376"><pre><code>{
+  "id": "Haplo376",
+  "type": "Haplotype",
+  "allele": [
     {
-      "id": "RATID035",
-      "type": "RegionAnnotationType",
-      "label": "repeat region "
-    }
-  ],
-  "contribution": [
-    {
-      "type": "Contribution",
-      "agent": {
-        "id": "Agent007",
-        "type": "Agent",
-        "label": "Stefan DiMarino"
-      },
-      "contributionDate": "6/1/16 2:10 PM",
-      "contributionRole": {
-        "id": "CRID194",
-        "type": "ContributoryRole",
-        "label": "curator role"
+      "id": "CanAll035",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll039",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll035",
+        "alleleName": "NM_001369.2(DNAH5):c.7468_7488del",
+        "produces": [
+          {
+            "id": "CtxAll044",
+            "type": "ContextualAllele",
+            "relatedCanonicalAllele": "CanAll040",
+            "alleleName": "NP_001360.1:p.Trp2490_Leu2496del",
+            "producedBy": "CtxAll039"
+          }
+        ]
       }
     }
-  ],
-  "source": [
-    "https://pcpgm.partners.org/lmm/alamut"
-  ],
-  "description": "This is not a repreating region."
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#ExclRegTyp073">ExclRegTyp073</a></p></td>
+          <td><p><a href="../details/details.html#Haplo377">Haplo377</a></p></td>
           <td>
-              <p>NP_056375.2[35..43] is not repeating.</p>
+              
          </td>
           <td>
-              <p><a href="../details/details.html#Loc386">Loc386</a></p>
+              
          </td>
           <td>
-              <p><a href="../details/details.html#RATID035">RATID035</a></p> (repeat region )
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll036">CanAll036</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="ExclRegTyp073"><pre><code>{
-  "id": "ExclRegTyp073",
-  "type": "ExcludedRegionType",
-  "region": {
-    "id": "Loc386",
-    "type": "SequenceLocation",
-    "referenceSequence": {
-      "id": "RefSeq292",
-      "type": "ReferenceSequence",
-      "accession": "NP_056375.2"
-    },
-    "start": 35,
-    "stop": 43
-  },
-  "annotation": [
+          <td><div class="example_view" id="Haplo377"><pre><code>{
+  "id": "Haplo377",
+  "type": "Haplotype",
+  "allele": [
     {
-      "id": "RATID035",
-      "type": "RegionAnnotationType",
-      "label": "repeat region "
+      "id": "CanAll036",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll040",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll036",
+        "alleleName": "NM_001369.2(DNAH5):c.9449delG"
+      }
     }
-  ],
-  "description": "NP_056375.2[35..43] is not repeating."
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#ExclRegTyp220">ExclRegTyp220</a></p></td>
+          <td><p><a href="../details/details.html#Haplo379">Haplo379</a></p></td>
           <td>
-              <p>region does not have a known function.</p>
+              
          </td>
           <td>
-              <p><a href="../details/details.html#Loc390">Loc390</a></p>
+              
          </td>
           <td>
-              <p><a href="../details/details.html#RATID033">RATID033</a></p> (functional region)
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll037">CanAll037</a></p>
          </td>
           <!--
-          <td><div class="example_view" id="ExclRegTyp220"><pre><code>{
-  "id": "ExclRegTyp220",
-  "type": "ExcludedRegionType",
-  "region": {
-    "id": "Loc390",
-    "type": "SequenceLocation",
-    "referenceSequence": {
-      "id": "RefSeq294",
-      "type": "ReferenceSequence",
-      "accession": "NM_001271208.1"
-    },
-    "start": 154,
-    "stop": 183
-  },
-  "annotation": [
+          <td><div class="example_view" id="Haplo379"><pre><code>{
+  "id": "Haplo379",
+  "type": "Haplotype",
+  "allele": [
     {
-      "id": "RATID033",
-      "type": "RegionAnnotationType",
-      "label": "functional region"
+      "id": "CanAll037",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll041",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll037",
+        "alleleName": "NM_133261.2(GIPC3):c.298G>A"
+      }
     }
-  ],
-  "description": "region does not have a known function."
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo380">Haplo380</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll038">CanAll038</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo380"><pre><code>{
+  "id": "Haplo380",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll038",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll042",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll038",
+        "alleleName": "NM_133261.2(GIPC3):c.411+1G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo382">Haplo382</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll039">CanAll039</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo382"><pre><code>{
+  "id": "Haplo382",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll039",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll043",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll039",
+        "alleleName": "NM_000391.3(TTP1):c.1678_1679delCT"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo384">Haplo384</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll081">CanAll081</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo384"><pre><code>{
+  "id": "Haplo384",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll081",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll087",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll081",
+        "alleleName": "NM_001197104.1(KMT2A):c.6572G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo386">Haplo386</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll081">CanAll081</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo386"><pre><code>{
+  "id": "Haplo386",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll081",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll087",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll081",
+        "alleleName": "NM_001197104.1(KMT2A):c.6572G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo388">Haplo388</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo388"><pre><code>{
+  "id": "Haplo388",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll082",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll088",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll082",
+        "alleleName": "NM_000038.5(APC ):c.3386T>C"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo390">Haplo390</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo390"><pre><code>{
+  "id": "Haplo390",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll082",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll088",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll082",
+        "alleleName": "NM_000038.5(APC ):c.3386T>C"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo392">Haplo392</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo392"><pre><code>{
+  "id": "Haplo392",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll082",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll088",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll082",
+        "alleleName": "NM_000038.5(APC ):c.3386T>C"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo394">Haplo394</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll082">CanAll082</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo394"><pre><code>{
+  "id": "Haplo394",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll082",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll088",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll082",
+        "alleleName": "NM_000038.5(APC ):c.3386T>C"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo396">Haplo396</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll083">CanAll083</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo396"><pre><code>{
+  "id": "Haplo396",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll083",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll089",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll083",
+        "alleleName": "NM_000138.4(FBN1 ):c.2956G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo398">Haplo398</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll083">CanAll083</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo398"><pre><code>{
+  "id": "Haplo398",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll083",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll089",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll083",
+        "alleleName": "NM_000138.4(FBN1 ):c.2956G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo400">Haplo400</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll094">CanAll094</a></p><p><a href="../details/details.html#CanAll095">CanAll095</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo400"><pre><code>{
+  "id": "Haplo400",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll094",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll100",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll094",
+        "alleleName": "NM_206933.2 (USH2A): c.6721C>T (p.Pro2241Ser)"
+      }
+    },
+    {
+      "id": "CanAll095",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll101",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll095",
+        "alleleName": "NM_206933.2(USH2A):c.2276G>T"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo402">Haplo402</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll094">CanAll094</a></p><p><a href="../details/details.html#CanAll095">CanAll095</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo402"><pre><code>{
+  "id": "Haplo402",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll094",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll100",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll094",
+        "alleleName": "NM_206933.2 (USH2A): c.6721C>T (p.Pro2241Ser)"
+      }
+    },
+    {
+      "id": "CanAll095",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll101",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll095",
+        "alleleName": "NM_206933.2(USH2A):c.2276G>T"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo404">Haplo404</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll096">CanAll096</a></p><p><a href="../details/details.html#CanAll097">CanAll097</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo404"><pre><code>{
+  "id": "Haplo404",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll096",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll102",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll096",
+        "alleleName": "NM_000492.3(CFTR): c.2002C>T"
+      }
+    },
+    {
+      "id": "CanAll097",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll103",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll097",
+        "alleleName": "NP_000483.3:p.Gly576Ala"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo406">Haplo406</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll098">CanAll098</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo406"><pre><code>{
+  "id": "Haplo406",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll098",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll104",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll098",
+        "alleleName": "NM_000257.2(MYH7): c.2559G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo407">Haplo407</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll099">CanAll099</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo407"><pre><code>{
+  "id": "Haplo407",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll099",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll105",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll099",
+        "alleleName": "NM_000257.2(MYH7): c.2537A>G"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo409">Haplo409</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll106">CanAll106</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo409"><pre><code>{
+  "id": "Haplo409",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll106",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll112",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll106",
+        "alleleName": "NM_000256.3(MYBPC3): c.2497G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo411">Haplo411</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll107">CanAll107</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo411"><pre><code>{
+  "id": "Haplo411",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll107",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll113",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll107",
+        "alleleName": "NM_000364.3(TNNT2):c.878G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo413">Haplo413</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll108">CanAll108</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo413"><pre><code>{
+  "id": "Haplo413",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll108",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll114",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll108",
+        "alleleName": "NM_022124.5(CDH23):c.5660C>T"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo415">Haplo415</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll109">CanAll109</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo415"><pre><code>{
+  "id": "Haplo415",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll109",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll115",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll109",
+        "alleleName": "NM_004004.5(GJB2):c.71G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo416">Haplo416</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll110">CanAll110</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo416"><pre><code>{
+  "id": "Haplo416",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll110",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll116",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll110",
+        "alleleName": "NM_004004.5(GJB2):c.230G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo418">Haplo418</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll108">CanAll108</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo418"><pre><code>{
+  "id": "Haplo418",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll108",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll114",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll108",
+        "alleleName": "NM_022124.5(CDH23):c.5660C>T"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo420">Haplo420</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll111">CanAll111</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo420"><pre><code>{
+  "id": "Haplo420",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll111",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll117",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll111",
+        "alleleName": "NM_015404.3(WHRN):c.643delG"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo422">Haplo422</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll112">CanAll112</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo422"><pre><code>{
+  "id": "Haplo422",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll112",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll118",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll112",
+        "alleleName": "NM_001844.4(COL2A1):c.4316C>T"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo424">Haplo424</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll113">CanAll113</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo424"><pre><code>{
+  "id": "Haplo424",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll113",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll119",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll113",
+        "alleleName": "NM_000095.2(COMP):c.1042T>C"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo426">Haplo426</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll092">CanAll092</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo426"><pre><code>{
+  "id": "Haplo426",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll092",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll098",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll092",
+        "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo427">Haplo427</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll122">CanAll122</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo427"><pre><code>{
+  "id": "Haplo427",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll122",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll128",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll122",
+        "alleleName": "NM_000441.1(SLC26A4): c.626G>T"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo429">Haplo429</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll092">CanAll092</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo429"><pre><code>{
+  "id": "Haplo429",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll092",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll098",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll092",
+        "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#Haplo430">Haplo430</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#CanAll123">CanAll123</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="Haplo430"><pre><code>{
+  "id": "Haplo430",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CanAll123",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CtxAll129",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll123",
+        "alleleName": "NM_000441.1(SLC26A4): c.1707+6T>C"
+      }
+    }
+  ]
 }
           </code></pre></div></td>
           -->
@@ -356,7 +1334,7 @@ window.addEventListener('load', function () {
                 <h5><a href="../../">Interpretation Overview</a></h5>
               </li>
               <li class='list-group-item'><h5><a href="../../user/">User Guide</a></h5></li>
-              <li class="list-group-item"><h5><a href="../">Technical Reference</a></h5><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Domain Evidence</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li><a href="allele_conservation.html">AlleleConservation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="excluded_region_type.html">ExcludedRegionType</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li><a href="region_type.html">RegionType</a></li><li><a href="sequence_location.html">SequenceLocation</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul></li>
+              <li class="list-group-item"><h5><a href="../">Technical Reference</a></h5><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Domain Evidence</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li><a href="allele_conservation.html">CategoricalAlleleConservation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li class="active"><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">CategoricalInSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualGenotype</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="molecular_consequence.html">AlleleMolecularConsequence</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li><a href="region_type.html">RegionType</a></li><li><a href="sequence_location.html">SequenceLocation</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul></li>
               <!-- Old style.  We might still need the model here? -->
               <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
             </ul>

@@ -138,56 +138,56 @@
             </tr>
             <tr>
                 <td>phenotypePositiveAllelePositive</td>
-                <td>int</td>
+                <td>integer</td>
                 <td>0..1</td>
                 <td>Number of (non-proband) individuals with both the condition and the allele</td>
                 <td>SEPIO:0000292</td>
             </tr>
             <tr>
                 <td>phenotypePositiveAlleleNegative</td>
-                <td>int</td>
+                <td>integer</td>
                 <td>0..1</td>
                 <td>Number of (non-proband) individuals with the condition and without the allele</td>
                 <td>SEPIO:0000290</td>
             </tr>
             <tr>
                 <td>phenotypeNegativeAllelePositive</td>
-                <td>int</td>
+                <td>integer</td>
                 <td>0..1</td>
                 <td>Number of (non-proband) individuals without the condition and with the allele</td>
                 <td>SEPIO:0000291</td>
             </tr>
             <tr>
                 <td>phenotypeNegativeAlleleNegative</td>
-                <td>int</td>
+                <td>integer</td>
                 <td>0..1</td>
                 <td>The number of non-proband family members that have neither the allele nor the phenotype</td>
                 <td>SEPIO:0000289</td>
             </tr>
             <tr>
                 <td>pedigree</td>
-                <td>String</td>
+                <td>string</td>
                 <td>0..*</td>
                 <td>Detailed information about the family structure, affected status, and genotypes in pedigree/linkage format.</td>
                 <td>SEPIO:0000318</td>
             </tr>
             <tr>
                 <td>columns</td>
-                <td>String</td>
+                <td>string</td>
                 <td>0..*</td>
                 <td>Column names for the pedigree data element</td>
                 <td>SEPIO:0000316</td>
             </tr>
             <tr>
                 <td>genotypeValues</td>
-                <td>String</td>
+                <td>string</td>
                 <td>0..*</td>
                 <td>Map describing how genotypes are represented in the pedigree</td>
                 <td>SEPIO:0000317</td>
             </tr>
             <tr>
                 <td>affectedValues</td>
-                <td>String</td>
+                <td>string</td>
                 <td>0..*</td>
                 <td>Map describing how affected status is represented in the pedigree</td>
                 <td>SEPIO:0000313</td>
@@ -201,7 +201,7 @@
             </tr>
             <tr>
                 <td>inconsistentSegregationCount</td>
-                <td>int</td>
+                <td>integer</td>
                 <td>0..1</td>
                 <td></td>
                 <td>SEPIO:0000315</td>
@@ -225,8 +225,24 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>qualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                    <td>??</td>
+                </tr>
+                <tr>
+                    <td>assertionQualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>NOT </td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>description</td>
-                    <td>String</td>
+                    <td>string</td>
                     <td>0..1</td>
                     <td></td>
                     <td>A human-readable description of the entity</td>
@@ -242,7 +258,7 @@
                 </tr>
                 <tr>
                     <td>source</td>
-                    <td>String</td>
+                    <td>string</td>
                     <td>0..*</td>
                     <td></td>
                     <td></td>
@@ -255,6 +271,8 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
+        <th>qualifier</th>
+        <th>assertionQualifier</th>
         <th>description</th>
         <th>canonicalAllele</th>
         <th>condition</th>
@@ -273,6 +291,12 @@
       <tbody>
         <tr>
           <td><p><a href="../details/details.html#FamSeg076">FamSeg076</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -310,7 +334,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#ISegObsID220">ISegObsID220</a></p> (present)
+              <p><a href="../details/details.html#InconSegObsID220">InconSegObsID220</a></p> (present)
          </td>
           <td>
               
@@ -330,7 +354,7 @@
       }
     ],
     "modeOfInheritance": {
-      "id": "MOIID051",
+      "id": "ModeOfInhID051",
       "type": "ModeOfInheritance",
       "label": "Autosomal Dominant"
     }
@@ -354,7 +378,7 @@
   "phenotypeNegativeAllelePositive": 2,
   "phenotypePositiveAlleleNegative": 0,
   "inconsistentSegregationsObserved": {
-    "id": "ISegObsID220",
+    "id": "InconSegObsID220",
     "type": "InconsistentSegregationObserved",
     "label": "present"
   }
@@ -365,6 +389,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#FamSeg103">FamSeg103</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               <p>identified in 1 individual with HCM. Segregation analysis determined 5 other members of the family also carried this variant. However, only 3 of those family members had HCM (aged 48-75). The 2 other family members were young and asymptomatic. So from this paper, only count 3 segregations. The two apparently refuting segregations can be ignored due to the age-dependent penetrance of HCM.</p>
          </td>
@@ -422,7 +452,7 @@
       }
     ],
     "modeOfInheritance": {
-      "id": "MOIID051",
+      "id": "ModeOfInhID051",
       "type": "ModeOfInheritance",
       "label": "Autosomal Dominant"
     }
@@ -455,7 +485,7 @@
       },
       "contributionDate": "9/13/16",
       "contributionRole": {
-        "id": "CRID194",
+        "id": "ContribRoleID194",
         "type": "ContributoryRole",
         "label": "curator role"
       }
@@ -472,6 +502,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#FamSeg104">FamSeg104</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               <p>In LMM internal family, c.1351+1G>A was identified in 1 individual with HCM. Variant also found in individual’s sister - who also had clinical dx of HCM.</p>
          </td>
@@ -529,7 +565,7 @@
       }
     ],
     "modeOfInheritance": {
-      "id": "MOIID051",
+      "id": "ModeOfInhID051",
       "type": "ModeOfInheritance",
       "label": "Autosomal Dominant"
     }
@@ -560,7 +596,7 @@
       },
       "contributionDate": "9/13/16",
       "contributionRole": {
-        "id": "CRID194",
+        "id": "ContribRoleID194",
         "type": "ContributoryRole",
         "label": "curator role"
       }
@@ -577,6 +613,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#FamSeg107">FamSeg107</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               <p>proband and 5 affected family members all homozygous for NM_206933.2(USH2A):c.1000C>G (p.Arg334Gly).</p>
          </td>
@@ -634,7 +676,7 @@
       }
     ],
     "modeOfInheritance": {
-      "id": "MOIID052",
+      "id": "ModeOfInhID052",
       "type": "ModeOfInheritance",
       "label": "Autosomal Recessive"
     }
@@ -663,6 +705,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#FamSeg108">FamSeg108</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               <p>c.1000C>T identified in het state in 1 individual with Usher. Individual compound het with Gly1840Val USH2A variant - confirmed in trans. Gly1840Val called Pathogenic. Individual has 3 affected sibs all of whom are compound het with 1000C>T & Gly1840Val. One additional sib only carried 1000C>T and is unaffected.</p>
          </td>
@@ -720,7 +768,7 @@
       }
     ],
     "modeOfInheritance": {
-      "id": "MOIID052",
+      "id": "ModeOfInhID052",
       "type": "ModeOfInheritance",
       "label": "Autosomal Recessive"
     }
@@ -748,6 +796,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#FamSeg111">FamSeg111</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -806,7 +860,7 @@
       }
     ],
     "modeOfInheritance": {
-      "id": "MOIID051",
+      "id": "ModeOfInhID051",
       "type": "ModeOfInheritance",
       "label": "Autosomal Dominant"
     }
@@ -834,6 +888,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#FamSeg113">FamSeg113</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -896,7 +956,7 @@
       }
     ],
     "modeOfInheritance": {
-      "id": "MOIID051",
+      "id": "ModeOfInhID051",
       "type": "ModeOfInheritance",
       "label": "Autosomal Dominant"
     }
@@ -937,6 +997,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#FamSeg114">FamSeg114</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1013,7 +1079,7 @@
       }
     ],
     "modeOfInheritance": {
-      "id": "MOIID051",
+      "id": "ModeOfInhID051",
       "type": "ModeOfInheritance",
       "label": "Autosomal Dominant"
     }
@@ -1055,6 +1121,12 @@
         <tr>
           <td><p><a href="../details/details.html#FamSeg196">FamSeg196</a></p></td>
           <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
               <p>observed in one case diagnosed with Familial Hypercholesterolemia, characterized by elevated LDLC levels. Two siblings of the proband also have elevated LDLC levels but neither carry the 313+2T>C variant.</p>
          </td>
           <td>
@@ -1091,7 +1163,7 @@
               
          </td>
           <td>
-              <p><a href="../details/details.html#ISegObsID220">ISegObsID220</a></p> (present)
+              <p><a href="../details/details.html#InconSegObsID220">InconSegObsID220</a></p> (present)
          </td>
           <td>
               
@@ -1111,7 +1183,7 @@
       }
     ],
     "modeOfInheritance": {
-      "id": "MOIID051",
+      "id": "ModeOfInhID051",
       "type": "ModeOfInheritance",
       "label": "Autosomal Dominant"
     }
@@ -1134,7 +1206,7 @@
   "phenotypePositiveAllelePositive": 0,
   "phenotypePositiveAlleleNegative": 2,
   "inconsistentSegregationsObserved": {
-    "id": "ISegObsID220",
+    "id": "InconSegObsID220",
     "type": "InconsistentSegregationObserved",
     "label": "present"
   },
@@ -1146,6 +1218,12 @@
 
         <tr>
           <td><p><a href="../details/details.html#FamSeg197">FamSeg197</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               <p>The individual with HCM but without the allele is likely a phenocopy explained
 by environmental factors (obese, alcohol)</p>
@@ -1184,7 +1262,7 @@ by environmental factors (obese, alcohol)</p>
               
          </td>
           <td>
-              <p><a href="../details/details.html#ISegObsID220">ISegObsID220</a></p> (present)
+              <p><a href="../details/details.html#InconSegObsID220">InconSegObsID220</a></p> (present)
          </td>
           <td>
               
@@ -1204,7 +1282,7 @@ by environmental factors (obese, alcohol)</p>
       }
     ],
     "modeOfInheritance": {
-      "id": "MOIID051",
+      "id": "ModeOfInhID051",
       "type": "ModeOfInheritance",
       "label": "Autosomal Dominant"
     }
@@ -1227,7 +1305,7 @@ by environmental factors (obese, alcohol)</p>
   "phenotypePositiveAllelePositive": 3,
   "phenotypePositiveAlleleNegative": 1,
   "inconsistentSegregationsObserved": {
-    "id": "ISegObsID220",
+    "id": "InconSegObsID220",
     "type": "InconsistentSegregationObserved",
     "label": "present"
   },
@@ -1239,6 +1317,12 @@ by environmental factors (obese, alcohol)</p>
 
         <tr>
           <td><p><a href="../details/details.html#FamSeg271">FamSeg271</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1276,7 +1360,7 @@ by environmental factors (obese, alcohol)</p>
               
          </td>
           <td>
-              <p><a href="../details/details.html#ISegObsID220">ISegObsID220</a></p> (present)
+              <p><a href="../details/details.html#InconSegObsID220">InconSegObsID220</a></p> (present)
          </td>
           <td>
               
@@ -1296,7 +1380,7 @@ by environmental factors (obese, alcohol)</p>
       }
     ],
     "modeOfInheritance": {
-      "id": "MOIID051",
+      "id": "ModeOfInhID051",
       "type": "ModeOfInheritance",
       "label": "Autosomal Dominant"
     }
@@ -1319,7 +1403,7 @@ by environmental factors (obese, alcohol)</p>
   "phenotypePositiveAllelePositive": 0,
   "phenotypePositiveAlleleNegative": 2,
   "inconsistentSegregationsObserved": {
-    "id": "ISegObsID220",
+    "id": "InconSegObsID220",
     "type": "InconsistentSegregationObserved",
     "label": "present"
   }
@@ -1369,7 +1453,7 @@ window.addEventListener('load', function () {
                 <h5><a href="../../">Interpretation Overview</a></h5>
               </li>
               <li class='list-group-item'><h5><a href="../../user/">User Guide</a></h5></li>
-              <li class="list-group-item"><h5><a href="../">Technical Reference</a></h5><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Domain Evidence</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li><a href="allele_conservation.html">AlleleConservation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="excluded_region_type.html">ExcludedRegionType</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li class="active"><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualAllele</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="molecular_consequence.html">MolecularConsequence</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li><a href="region_type.html">RegionType</a></li><li><a href="sequence_location.html">SequenceLocation</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul></li>
+              <li class="list-group-item"><h5><a href="../">Technical Reference</a></h5><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Domain Evidence</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li><a href="allele_conservation.html">CategoricalAlleleConservation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li class="active"><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">CategoricalInSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualGenotype</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="molecular_consequence.html">AlleleMolecularConsequence</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li><a href="region_type.html">RegionType</a></li><li><a href="sequence_location.html">SequenceLocation</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul></li>
               <!-- Old style.  We might still need the model here? -->
               <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
             </ul>
