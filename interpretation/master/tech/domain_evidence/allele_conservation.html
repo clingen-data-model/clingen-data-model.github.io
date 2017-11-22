@@ -67,7 +67,7 @@
     
         <div class="row">
           <div class="col-sm-12">
-              <h1 class="header">CategoricalAlleleConservation</h1>
+              <h1 class="header">AlleleConservation</h1>
               <ol class="breadcrumb bg-none margin-none">
                 <li><a href="../../">Interpretation Model</a></li>
 <li><a href="../">Technical Reference and Examples</a></li>
@@ -116,7 +116,7 @@
             <tr>
                 <td>allele</td>
                 <td>CanonicalAllele</td>
-                <td>0..1</td>
+                <td>1..1</td>
                 <td>The allele for which conservation values are given</td>
                 <td>SEPIO:0000275</td>
             </tr>
@@ -161,12 +161,12 @@
                     <td>??</td>
                 </tr>
                 <tr>
-                    <td>assertionQualifier</td>
-                    <td>string</td>
-                    <td>0..1</td>
+                    <td>evidenceLine</td>
+                    <td>EvidenceLine</td>
+                    <td>0..*</td>
                     <td></td>
-                    <td>NOT </td>
-                    <td></td>
+                    <td>supporting evidence</td>
+                    <td>SEPIO:0000006</td>
                 </tr>
                 <tr>
                     <td>description</td>
@@ -200,7 +200,7 @@
       <thead><tr>
         <th>ID</th>
         <th>qualifier</th>
-        <th>assertionQualifier</th>
+        <th>evidenceLine</th>
         <th>description</th>
         <th>allele</th>
         <th>conservationType</th>
@@ -208,12 +208,12 @@
       </tr></thead>
       <tbody>
         <tr>
-          <td><p><a href="../details/details.html#CatAllConserv071">CatAllConserv071</a></p></td>
+          <td><p><a href="../details/details.html#AllConserv071">AllConserv071</a></p></td>
           <td>
               <p>NOT</p>
          </td>
           <td>
-              
+              <p><a href="../details/details.html#EvLn133">EvLn133</a></p>
          </td>
           <td>
               
@@ -228,9 +228,9 @@
               <p>phyloP</p>
          </td>
           <!--
-          <td><div class="example_view" id="CatAllConserv071"><pre><code>{
-  "id": "CatAllConserv071",
-  "type": "CategoricalAlleleConservation",
+          <td><div class="example_view" id="AllConserv071"><pre><code>{
+  "id": "AllConserv071",
+  "type": "AlleleConservation",
   "allele": {
     "id": "CanAll118",
     "type": "CanonicalAllele",
@@ -247,210 +247,561 @@
     "label": "conserved region"
   },
   "qualifier": "NOT",
-  "algorithm": "phyloP"
+  "algorithm": "phyloP",
+  "evidenceLine": [
+    {
+      "id": "EvLn133",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "AllConservScore116",
+          "type": "AlleleConservationScore",
+          "allele": {
+            "id": "CanAll118",
+            "type": "CanonicalAllele",
+            "preferredCtxAllele": {
+              "id": "CtxAll124",
+              "type": "ContextualAllele",
+              "relatedCanonicalAllele": "CanAll118",
+              "alleleName": "NM_000257.2(MYH7):c.327C>T"
+            }
+          },
+          "conservationType": {
+            "id": "ConsrvID212",
+            "type": "Conservation",
+            "label": "conserved region"
+          },
+          "algorithm": "phyloP",
+          "score": -0.76
+        }
+      ]
+    }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#CatAllConserv072">CatAllConserv072</a></p></td>
+          <td><p><a href="../details/details.html#AllConserv072">AllConserv072</a></p></td>
           <td>
-              
+              <p>NOT</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#EvLn134">EvLn134</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll118">CanAll118</a></p>
          </td>
           <td>
-              
+              <p><a href="../details/details.html#ConsrvID212">ConsrvID212</a></p> (conserved region)
          </td>
           <td>
-              
-         </td>
-          <td>
-              
+              <p>PhastCons</p>
          </td>
           <!--
-          <td><div class="example_view" id="CatAllConserv072"><pre><code>{
-  "id": "CatAllConserv072",
-  "type": "CategoricalAlleleConservation"
+          <td><div class="example_view" id="AllConserv072"><pre><code>{
+  "id": "AllConserv072",
+  "type": "AlleleConservation",
+  "allele": {
+    "id": "CanAll118",
+    "type": "CanonicalAllele",
+    "preferredCtxAllele": {
+      "id": "CtxAll124",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll118",
+      "alleleName": "NM_000257.2(MYH7):c.327C>T"
+    }
+  },
+  "conservationType": {
+    "id": "ConsrvID212",
+    "type": "Conservation",
+    "label": "conserved region"
+  },
+  "qualifier": "NOT",
+  "algorithm": "PhastCons",
+  "evidenceLine": [
+    {
+      "id": "EvLn134",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "AllConservScore171",
+          "type": "AlleleConservationScore",
+          "allele": {
+            "id": "CanAll118",
+            "type": "CanonicalAllele",
+            "preferredCtxAllele": {
+              "id": "CtxAll124",
+              "type": "ContextualAllele",
+              "relatedCanonicalAllele": "CanAll118",
+              "alleleName": "NM_000257.2(MYH7):c.327C>T"
+            }
+          },
+          "conservationType": {
+            "id": "ConsrvID212",
+            "type": "Conservation",
+            "label": "conserved region"
+          },
+          "algorithm": "PhastCons",
+          "score": 0.63
+        }
+      ]
+    }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#CatAllConserv259">CatAllConserv259</a></p></td>
+          <td><p><a href="../details/details.html#AllConserv259">AllConserv259</a></p></td>
           <td>
-              
+              <p>NOT</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#EvLn135">EvLn135</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll117">CanAll117</a></p>
          </td>
           <td>
-              
+              <p><a href="../details/details.html#ConsrvID212">ConsrvID212</a></p> (conserved region)
          </td>
           <td>
-              
-         </td>
-          <td>
-              
+              <p>phyloP</p>
          </td>
           <!--
-          <td><div class="example_view" id="CatAllConserv259"><pre><code>{
-  "id": "CatAllConserv259",
-  "type": "CategoricalAlleleConservation"
+          <td><div class="example_view" id="AllConserv259"><pre><code>{
+  "id": "AllConserv259",
+  "type": "AlleleConservation",
+  "allele": {
+    "id": "CanAll117",
+    "type": "CanonicalAllele",
+    "preferredCtxAllele": {
+      "id": "CtxAll123",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll117",
+      "alleleName": "NM_138691.2 (TMC1): c.684C>T"
+    }
+  },
+  "conservationType": {
+    "id": "ConsrvID212",
+    "type": "Conservation",
+    "label": "conserved region"
+  },
+  "qualifier": "NOT",
+  "algorithm": "phyloP",
+  "evidenceLine": [
+    {
+      "id": "EvLn135",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "AllConservScore245",
+          "type": "AlleleConservationScore",
+          "allele": {
+            "id": "CanAll117",
+            "type": "CanonicalAllele",
+            "preferredCtxAllele": {
+              "id": "CtxAll123",
+              "type": "ContextualAllele",
+              "relatedCanonicalAllele": "CanAll117",
+              "alleleName": "NM_138691.2 (TMC1): c.684C>T"
+            }
+          },
+          "conservationType": {
+            "id": "ConsrvID212",
+            "type": "Conservation",
+            "label": "conserved region"
+          },
+          "algorithm": "phyloP",
+          "score": -2.297
+        }
+      ]
+    }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#CatAllConserv260">CatAllConserv260</a></p></td>
+          <td><p><a href="../details/details.html#AllConserv260">AllConserv260</a></p></td>
           <td>
-              
+              <p>NOT</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#EvLn136">EvLn136</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll117">CanAll117</a></p>
          </td>
           <td>
-              
+              <p><a href="../details/details.html#ConsrvID212">ConsrvID212</a></p> (conserved region)
          </td>
           <td>
-              
-         </td>
-          <td>
-              
+              <p>PhastCons</p>
          </td>
           <!--
-          <td><div class="example_view" id="CatAllConserv260"><pre><code>{
-  "id": "CatAllConserv260",
-  "type": "CategoricalAlleleConservation"
+          <td><div class="example_view" id="AllConserv260"><pre><code>{
+  "id": "AllConserv260",
+  "type": "AlleleConservation",
+  "allele": {
+    "id": "CanAll117",
+    "type": "CanonicalAllele",
+    "preferredCtxAllele": {
+      "id": "CtxAll123",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll117",
+      "alleleName": "NM_138691.2 (TMC1): c.684C>T"
+    }
+  },
+  "conservationType": {
+    "id": "ConsrvID212",
+    "type": "Conservation",
+    "label": "conserved region"
+  },
+  "qualifier": "NOT",
+  "algorithm": "PhastCons",
+  "evidenceLine": [
+    {
+      "id": "EvLn136",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "AllConservScore228",
+          "type": "AlleleConservationScore",
+          "allele": {
+            "id": "CanAll117",
+            "type": "CanonicalAllele",
+            "preferredCtxAllele": {
+              "id": "CtxAll123",
+              "type": "ContextualAllele",
+              "relatedCanonicalAllele": "CanAll117",
+              "alleleName": "NM_138691.2 (TMC1): c.684C>T"
+            }
+          },
+          "conservationType": {
+            "id": "ConsrvID212",
+            "type": "Conservation",
+            "label": "conserved region"
+          },
+          "algorithm": "PhastCons",
+          "score": 0.039
+        }
+      ]
+    }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#CatAllConserv263">CatAllConserv263</a></p></td>
+          <td><p><a href="../details/details.html#AllConserv263">AllConserv263</a></p></td>
           <td>
-              
+              <p>NOT</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#EvLn137">EvLn137</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll118">CanAll118</a></p>
          </td>
           <td>
-              
+              <p><a href="../details/details.html#ConsrvID212">ConsrvID212</a></p> (conserved region)
          </td>
           <td>
-              
-         </td>
-          <td>
-              
+              <p>phyloP</p>
          </td>
           <!--
-          <td><div class="example_view" id="CatAllConserv263"><pre><code>{
-  "id": "CatAllConserv263",
-  "type": "CategoricalAlleleConservation"
+          <td><div class="example_view" id="AllConserv263"><pre><code>{
+  "id": "AllConserv263",
+  "type": "AlleleConservation",
+  "allele": {
+    "id": "CanAll118",
+    "type": "CanonicalAllele",
+    "preferredCtxAllele": {
+      "id": "CtxAll124",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll118",
+      "alleleName": "NM_000257.2(MYH7):c.327C>T"
+    }
+  },
+  "conservationType": {
+    "id": "ConsrvID212",
+    "type": "Conservation",
+    "label": "conserved region"
+  },
+  "qualifier": "NOT",
+  "algorithm": "phyloP",
+  "evidenceLine": [
+    {
+      "id": "EvLn137",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "AllConservScore230",
+          "type": "AlleleConservationScore",
+          "allele": {
+            "id": "CanAll118",
+            "type": "CanonicalAllele",
+            "preferredCtxAllele": {
+              "id": "CtxAll124",
+              "type": "ContextualAllele",
+              "relatedCanonicalAllele": "CanAll118",
+              "alleleName": "NM_000257.2(MYH7):c.327C>T"
+            }
+          },
+          "conservationType": {
+            "id": "ConsrvID212",
+            "type": "Conservation",
+            "label": "conserved region"
+          },
+          "algorithm": "phyloP",
+          "score": -0.76
+        }
+      ]
+    }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#CatAllConserv264">CatAllConserv264</a></p></td>
+          <td><p><a href="../details/details.html#AllConserv264">AllConserv264</a></p></td>
           <td>
-              
+              <p>NOT</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#EvLn138">EvLn138</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll118">CanAll118</a></p>
          </td>
           <td>
-              
+              <p><a href="../details/details.html#ConsrvID212">ConsrvID212</a></p> (conserved region)
          </td>
           <td>
-              
-         </td>
-          <td>
-              
+              <p>PhastCons</p>
          </td>
           <!--
-          <td><div class="example_view" id="CatAllConserv264"><pre><code>{
-  "id": "CatAllConserv264",
-  "type": "CategoricalAlleleConservation"
+          <td><div class="example_view" id="AllConserv264"><pre><code>{
+  "id": "AllConserv264",
+  "type": "AlleleConservation",
+  "allele": {
+    "id": "CanAll118",
+    "type": "CanonicalAllele",
+    "preferredCtxAllele": {
+      "id": "CtxAll124",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll118",
+      "alleleName": "NM_000257.2(MYH7):c.327C>T"
+    }
+  },
+  "conservationType": {
+    "id": "ConsrvID212",
+    "type": "Conservation",
+    "label": "conserved region"
+  },
+  "qualifier": "NOT",
+  "algorithm": "PhastCons",
+  "evidenceLine": [
+    {
+      "id": "EvLn138",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "AllConservScore226",
+          "type": "AlleleConservationScore",
+          "allele": {
+            "id": "CanAll118",
+            "type": "CanonicalAllele",
+            "preferredCtxAllele": {
+              "id": "CtxAll124",
+              "type": "ContextualAllele",
+              "relatedCanonicalAllele": "CanAll118",
+              "alleleName": "NM_000257.2(MYH7):c.327C>T"
+            }
+          },
+          "conservationType": {
+            "id": "ConsrvID212",
+            "type": "Conservation",
+            "label": "conserved region"
+          },
+          "algorithm": "PhastCons",
+          "score": 0.63
+        }
+      ]
+    }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#CatAllConserv267">CatAllConserv267</a></p></td>
+          <td><p><a href="../details/details.html#AllConserv267">AllConserv267</a></p></td>
           <td>
-              
+              <p>NOT</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#EvLn139">EvLn139</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll119">CanAll119</a></p>
          </td>
           <td>
-              
+              <p><a href="../details/details.html#ConsrvID212">ConsrvID212</a></p> (conserved region)
          </td>
           <td>
-              
-         </td>
-          <td>
-              
+              <p>phyloP</p>
          </td>
           <!--
-          <td><div class="example_view" id="CatAllConserv267"><pre><code>{
-  "id": "CatAllConserv267",
-  "type": "CategoricalAlleleConservation"
+          <td><div class="example_view" id="AllConserv267"><pre><code>{
+  "id": "AllConserv267",
+  "type": "AlleleConservation",
+  "allele": {
+    "id": "CanAll119",
+    "type": "CanonicalAllele",
+    "preferredCtxAllele": {
+      "id": "CtxAll125",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll119",
+      "alleleName": "NM_002880.3(RAF1):c.321T>C"
+    }
+  },
+  "conservationType": {
+    "id": "ConsrvID212",
+    "type": "Conservation",
+    "label": "conserved region"
+  },
+  "qualifier": "NOT",
+  "algorithm": "phyloP",
+  "evidenceLine": [
+    {
+      "id": "EvLn139",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "AllConservScore222",
+          "type": "AlleleConservationScore",
+          "allele": {
+            "id": "CanAll119",
+            "type": "CanonicalAllele",
+            "preferredCtxAllele": {
+              "id": "CtxAll125",
+              "type": "ContextualAllele",
+              "relatedCanonicalAllele": "CanAll119",
+              "alleleName": "NM_002880.3(RAF1):c.321T>C"
+            }
+          },
+          "conservationType": {
+            "id": "ConsrvID212",
+            "type": "Conservation",
+            "label": "conserved region"
+          },
+          "algorithm": "phyloP",
+          "score": 0.45
+        }
+      ]
+    }
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../details/details.html#CatAllConserv268">CatAllConserv268</a></p></td>
+          <td><p><a href="../details/details.html#AllConserv268">AllConserv268</a></p></td>
           <td>
-              
+              <p>NOT</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#EvLn140">EvLn140</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              
+              <p><a href="../details/details.html#CanAll119">CanAll119</a></p>
          </td>
           <td>
-              
+              <p><a href="../details/details.html#ConsrvID212">ConsrvID212</a></p> (conserved region)
          </td>
           <td>
-              
-         </td>
-          <td>
-              
+              <p>PhastCons</p>
          </td>
           <!--
-          <td><div class="example_view" id="CatAllConserv268"><pre><code>{
-  "id": "CatAllConserv268",
-  "type": "CategoricalAlleleConservation"
+          <td><div class="example_view" id="AllConserv268"><pre><code>{
+  "id": "AllConserv268",
+  "type": "AlleleConservation",
+  "allele": {
+    "id": "CanAll119",
+    "type": "CanonicalAllele",
+    "preferredCtxAllele": {
+      "id": "CtxAll125",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll119",
+      "alleleName": "NM_002880.3(RAF1):c.321T>C"
+    }
+  },
+  "conservationType": {
+    "id": "ConsrvID212",
+    "type": "Conservation",
+    "label": "conserved region"
+  },
+  "qualifier": "NOT",
+  "algorithm": "PhastCons",
+  "evidenceLine": [
+    {
+      "id": "EvLn140",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "AllConservScore224",
+          "type": "AlleleConservationScore",
+          "allele": {
+            "id": "CanAll119",
+            "type": "CanonicalAllele",
+            "preferredCtxAllele": {
+              "id": "CtxAll125",
+              "type": "ContextualAllele",
+              "relatedCanonicalAllele": "CanAll119",
+              "alleleName": "NM_002880.3(RAF1):c.321T>C"
+            }
+          },
+          "conservationType": {
+            "id": "ConsrvID212",
+            "type": "Conservation",
+            "label": "conserved region"
+          },
+          "algorithm": "PhastCons",
+          "score": 1.0
+        }
+      ]
+    }
+  ]
 }
           </code></pre></div></td>
           -->
@@ -497,7 +848,7 @@ window.addEventListener('load', function () {
                 <h5><a href="../../">Interpretation Overview</a></h5>
               </li>
               <li class='list-group-item'><h5><a href="../../user/">User Guide</a></h5></li>
-              <li class="list-group-item"><h5><a href="../">Technical Reference</a></h5><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Domain Evidence</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li class="active"><a href="allele_conservation.html">CategoricalAlleleConservation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">CategoricalInSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualGenotype</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="molecular_consequence.html">AlleleMolecularConsequence</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li><a href="region_type.html">RegionType</a></li><li><a href="sequence_location.html">SequenceLocation</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul></li>
+              <li class="list-group-item"><h5><a href="../">Technical Reference</a></h5><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Domain Evidence</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li class="active"><a href="allele_conservation.html">AlleleConservation</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="individual_allele.html">IndividualGenotype</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="molecular_consequence.html">AlleleMolecularConsequence</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li><a href="region_type.html">RegionType</a></li><li><a href="sequence_location.html">SequenceLocation</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul></li>
               <!-- Old style.  We might still need the model here? -->
               <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
             </ul>
