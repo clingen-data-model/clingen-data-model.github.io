@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Data Model
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../stylesheets/brand2.css" rel="stylesheet" /><link href="../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+    
+      <div class="container-fluid hero-background">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="../../images/clingen-doc-logo.png" />
+</a>            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+                    <li class="allele" >
+                      <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span> Allele Model</a></li>
+                    </li>
+                    <li class="interpretation" >
+                      <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span> Interpretation Model</a></li>
+                    </li>
+                <li>
+                    <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+          </div>
+    
+
+
+    
+        <div class="row">
+          <div class="col-sm-12">
+              <h1 class="header">RegionAlleles</h1>
+              <ol class="breadcrumb bg-none margin-none">
+                <li><a href="../../">Interpretation Model</a></li>
+<li><a href="../">Technical Reference and Examples</a></li>
+<li><a href="./">Evidence Item</a></li>
+
+              </ol>
+                <blockquote><p>A statement about whether a region of genomic sequence overlaps one or more particular alleles.</p>
+                <STRONG>
+                  <div>SEPIO:0000244</div>
+                      <i>Descended from Statement</i>
+                </STRONG>
+                </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
+          <article>
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>Given a SequenceRegion and an Allele, the physical overlap of these entities is implicit.  That is, it is derivable whether or not the Allele overlaps or lies within the SequenceRegion.  This type allows for an explicit statement of overlap or lack thereof.</p>
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>region</td>
+                <td>SequenceLocation</td>
+                <td>1..1</td>
+                <td>Region within which alleles are being measured</td>
+                <td>SEPIO:0000279</td>
+            </tr>
+            <tr>
+                <td>allele</td>
+                <td>ContextualAllele</td>
+                <td>0..*</td>
+                <td>Alleles that are being explicited assessed as either included or excluded from the region.</td>
+                <td>SEPIO:0000275</td>
+            </tr>
+            <tr>
+                <td>outcome</td>
+                <td>RegionAllelesOutcome</td>
+                <td>1..1</td>
+                <td>Assessed outcome of specified alleles as either included or excluded.</td>
+                <td>SEPIO:0000197</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    <h2>Inherited Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Inherited From</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>qualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                    <td>??</td>
+                </tr>
+                <tr>
+                    <td>evidenceLine</td>
+                    <td>EvidenceLine</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td>supporting evidence</td>
+                    <td>SEPIO:0000006</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>A human-readable description of the entity</td>
+                    <td>DC:description</td>
+                </tr>
+                <tr>
+                    <td>contribution</td>
+                    <td>Contribution</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td>The contributions (agent, time and role) made to this entity</td>
+                    <td>SEPIO:0000159</td>
+                </tr>
+                <tr>
+                    <td>source</td>
+                    <td>string</td>
+                    <td>0..*</td>
+                    <td></td>
+                    <td></td>
+                    <td>DC:source</td>
+                </tr>
+            </tbody>
+        </table>
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>qualifier</th>
+        <th>evidenceLine</th>
+        <th>description</th>
+        <th>region</th>
+        <th>allele</th>
+        <th>outcome</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="../details/details.html#RegAll380">RegAll380</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>This region is the catalytic (kinase) domain.</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Loc379">Loc379</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#CtxAll126">CtxAll126</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#RegAllOutID225">RegAllOutID225</a></p> (overlaps region)
+         </td>
+          <!--
+          <td><div class="example_view" id="RegAll380"><pre><code>{
+  "id": "RegAll380",
+  "type": "RegionAlleles",
+  "region": {
+    "id": "Loc379",
+    "type": "SequenceLocation",
+    "referenceSequence": {
+      "id": "RefSeq288",
+      "type": "ReferenceSequence",
+      "accession": "NP_005219.2",
+      "producedBy": "RefSeq287"
+    },
+    "start": 704,
+    "stop": 1016
+  },
+  "allele": [
+    {
+      "id": "CtxAll126",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll120",
+      "alleleName": "NP_005219.2:p.Thr790Met",
+      "producedBy": "CtxAll028"
+    }
+  ],
+  "outcome": {
+    "id": "RegAllOutID225",
+    "type": "RegionAllelesOutcome",
+    "label": "overlaps region"
+  },
+  "description": "This region is the catalytic (kinase) domain."
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#RegAll382">RegAll382</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>This region is exon 15 in the transcript, and codes the serine-threonine-protein kinase catalytic domain.</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Loc381">Loc381</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#CtxAll029">CtxAll029</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#RegAllOutID225">RegAllOutID225</a></p> (overlaps region)
+         </td>
+          <!--
+          <td><div class="example_view" id="RegAll382"><pre><code>{
+  "id": "RegAll382",
+  "type": "RegionAlleles",
+  "region": {
+    "id": "Loc381",
+    "type": "SequenceLocation",
+    "referenceSequence": {
+      "id": "RefSeq289",
+      "type": "ReferenceSequence",
+      "accession": "NM_004333.4"
+    },
+    "start": 1803,
+    "stop": 1921
+  },
+  "allele": [
+    {
+      "id": "CtxAll029",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll026",
+      "alleleName": "NM_004333.4(BRAF):c.1789C>G"
+    }
+  ],
+  "outcome": {
+    "id": "RegAllOutID225",
+    "type": "RegionAllelesOutcome",
+    "label": "overlaps region"
+  },
+  "description": "This region is exon 15 in the transcript, and codes the serine-threonine-protein kinase catalytic domain."
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#RegAll384">RegAll384</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>The region contains the following pathogenic variants: c.886A>G, c.890C>T, c.899T>C, & c.902G>A.</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Loc383">Loc383</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#CtxAll031">CtxAll031</a></p><p><a href="../details/details.html#CtxAll032">CtxAll032</a></p><p><a href="../details/details.html#CtxAll033">CtxAll033</a></p><p><a href="../details/details.html#CtxAll034">CtxAll034</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#RegAllOutID225">RegAllOutID225</a></p> (overlaps region)
+         </td>
+          <!--
+          <td><div class="example_view" id="RegAll384"><pre><code>{
+  "id": "RegAll384",
+  "type": "RegionAlleles",
+  "region": {
+    "id": "Loc383",
+    "type": "SequenceLocation",
+    "referenceSequence": {
+      "id": "RefSeq290",
+      "type": "ReferenceSequence",
+      "accession": "NM_000169.2"
+    },
+    "start": 996,
+    "stop": 1012
+  },
+  "allele": [
+    {
+      "id": "CtxAll031",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll028",
+      "alleleName": "NM_000169.2(GLA): c.886A>G"
+    },
+    {
+      "id": "CtxAll032",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll029",
+      "alleleName": "NM_000169.2(GLA):c.890C>T"
+    },
+    {
+      "id": "CtxAll033",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll030",
+      "alleleName": "NM_000169.2(GLA):c.899T>C"
+    },
+    {
+      "id": "CtxAll034",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll031",
+      "alleleName": "NM_000169.2(GLA):c.902G>A"
+    }
+  ],
+  "outcome": {
+    "id": "RegAllOutID225",
+    "type": "RegionAllelesOutcome",
+    "label": "overlaps region"
+  },
+  "description": "The region contains the following pathogenic variants: c.886A>G, c.890C>T, c.899T>C, & c.902G>A."
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#RegAll391">RegAll391</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>region is repeating but does not have a known function.</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Loc390">Loc390</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#CtxAll106">CtxAll106</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#RegAllOutID225">RegAllOutID225</a></p> (overlaps region)
+         </td>
+          <!--
+          <td><div class="example_view" id="RegAll391"><pre><code>{
+  "id": "RegAll391",
+  "type": "RegionAlleles",
+  "region": {
+    "id": "Loc390",
+    "type": "SequenceLocation",
+    "referenceSequence": {
+      "id": "RefSeq294",
+      "type": "ReferenceSequence",
+      "accession": "NM_001271208.1"
+    },
+    "start": 154,
+    "stop": 183
+  },
+  "allele": [
+    {
+      "id": "CtxAll106",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll100",
+      "alleleName": "NM_001271208.1(NEB):c.169_183delCTGGCACAGCCAGCA"
+    }
+  ],
+  "outcome": {
+    "id": "RegAllOutID225",
+    "type": "RegionAllelesOutcome",
+    "label": "overlaps region"
+  },
+  "description": "region is repeating but does not have a known function."
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#RegAll393">RegAll393</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Allele NM_133378.4 (TTN): c.26752_26761delACGGCAGAGC is contained by this region.</p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#Loc392">Loc392</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#CtxAll107">CtxAll107</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#RegAllOutID225">RegAllOutID225</a></p> (overlaps region)
+         </td>
+          <!--
+          <td><div class="example_view" id="RegAll393"><pre><code>{
+  "id": "RegAll393",
+  "type": "RegionAlleles",
+  "region": {
+    "id": "Loc392",
+    "type": "SequenceLocation",
+    "referenceSequence": {
+      "id": "RefSeq295",
+      "type": "ReferenceSequence",
+      "accession": "NM_133378.4"
+    },
+    "start": 6509,
+    "stop": 39262
+  },
+  "allele": [
+    {
+      "id": "CtxAll107",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll101",
+      "alleleName": "NM_133378.4 (TTN): c.26752_26761delACGGCAGAGC"
+    }
+  ],
+  "outcome": {
+    "id": "RegAllOutID225",
+    "type": "RegionAllelesOutcome",
+    "label": "overlaps region"
+  },
+  "description": "Allele NM_133378.4 (TTN): c.26752_26761delACGGCAGAGC is contained by this region."
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../details/details.html#RegAll395">RegAll395</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../details/details.html#Loc394">Loc394</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#CtxAll108">CtxAll108</a></p>
+         </td>
+          <td>
+              <p><a href="../details/details.html#RegAllOutID225">RegAllOutID225</a></p> (overlaps region)
+         </td>
+          <!--
+          <td><div class="example_view" id="RegAll395"><pre><code>{
+  "id": "RegAll395",
+  "type": "RegionAlleles",
+  "region": {
+    "id": "Loc394",
+    "type": "SequenceLocation",
+    "referenceSequence": {
+      "id": "RefSeq296",
+      "type": "ReferenceSequence",
+      "accession": "NM_147196.2"
+    },
+    "start": 522,
+    "stop": 548
+  },
+  "allele": [
+    {
+      "id": "CtxAll108",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll102",
+      "alleleName": "NM_147196.2(TMIE):c.391_393dupAAG"
+    }
+  ],
+  "outcome": {
+    "id": "RegAllOutID225",
+    "type": "RegionAllelesOutcome",
+    "label": "overlaps region"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="list-group sidenav">
+            <ul class="list-unstyled">
+              <li class="list-group-item">
+                <h5><a href="../../">Interpretation Overview</a></h5>
+              </li>
+              <li class='list-group-item'><h5><a href="../../user/">User Guide</a></h5></li>
+              <li class="list-group-item"><h5><a href="../">Technical Reference</a></h5><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Evidence Item</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li><a href="allele_conservation.html">AlleleConservation</a></li><li><a href="allele_conservation_score.html">AlleleConservationScore</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="allele_molecular_consequence.html">AlleleMolecularConsequence</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="in_silico_prediction_score.html">InSilicoPredictionScore</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="individual_genotype.html">IndividualGenotype</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="null_allele.html">NullAllele</a></li><li class="active"><a href="region_alleles.html">RegionAlleles</a></li><li><a href="region_type.html">RegionType</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul></li>
+              <!-- Old style.  We might still need the model here? -->
+              <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="container  background-trans padding-top-xl">
+      <div class="row">
+        <hr />
+        <div class="col-md-col-sm-12 text-center"> 
+          © 2017 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../javascripts/jquery.js"></script><script src="../../javascripts/bootstrap.js"></script><script src="../../javascripts/jquery.jsonview.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>

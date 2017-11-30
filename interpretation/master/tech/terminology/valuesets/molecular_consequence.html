@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Data Model
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../../stylesheets/brand2.css" rel="stylesheet" /><link href="../../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+    
+      <div class="container-fluid hero-background">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="../../../images/clingen-doc-logo.png" />
+</a>            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+                    <li class="allele" >
+                      <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span> Allele Model</a></li>
+                    </li>
+                    <li class="interpretation" >
+                      <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span> Interpretation Model</a></li>
+                    </li>
+                <li>
+                    <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+          </div>
+    
+
+
+    
+        <div class="row">
+          <div class="col-sm-12">
+              <h1 class="header">MolecularConsequence</h1>
+              <ol class="breadcrumb bg-none margin-none">
+                
+              </ol>
+                <blockquote><p></p>
+                <STRONG>
+                  <div>SEPIO-CG:55102</div>
+                      <i>Descended from DomainEntity</i>
+                </STRONG>
+                </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
+          <article>
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2 id="scope-and-usage">Scope and Usage:</h2>
+
+<p>An allele can be classified by the effect that it has on the gene product.  For instance, an allele may create a stop codon or modify an amino acid.  These effects are considered as a consequence; terms for these consequences have been compiled in the Sequence Ontology.</p>
+
+
+    <!-- image here if available -->
+
+
+
+    <h2>Inherited Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Inherited From</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>A freeform text (preferred) representation used by the authoring system to identify a concept.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>userLabel</td>
+                    <td>UserLabel</td>
+                    <td>0..1</td>
+                    <td></td>
+                    <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>description</th>
+        <th>label</th>
+        <th>userLabel</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID001">MolConID001</a></p> (deletion)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>deletion</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID001"><pre><code>{
+  "id": "MolConID001",
+  "type": "MolecularConsequence",
+  "label": "deletion"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID002">MolConID002</a></p> (interior intron)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>interior intron</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID002"><pre><code>{
+  "id": "MolConID002",
+  "type": "MolecularConsequence",
+  "label": "interior intron"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID003">MolConID003</a></p> (translocation)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>translocation</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID003"><pre><code>{
+  "id": "MolConID003",
+  "type": "MolecularConsequence",
+  "label": "translocation"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID004">MolConID004</a></p> (three prime UTR)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>three prime UTR</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID004"><pre><code>{
+  "id": "MolConID004",
+  "type": "MolecularConsequence",
+  "label": "three prime UTR"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID005">MolConID005</a></p> (five prime UTR)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>five prime UTR</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID005"><pre><code>{
+  "id": "MolConID005",
+  "type": "MolecularConsequence",
+  "label": "five prime UTR"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID006">MolConID006</a></p> (pseudogenic exon)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>pseudogenic exon</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID006"><pre><code>{
+  "id": "MolConID006",
+  "type": "MolecularConsequence",
+  "label": "pseudogenic exon"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID007">MolConID007</a></p> (insertion)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>insertion</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID007"><pre><code>{
+  "id": "MolConID007",
+  "type": "MolecularConsequence",
+  "label": "insertion"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID008">MolConID008</a></p> (copy number variation)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>copy number variation</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID008"><pre><code>{
+  "id": "MolConID008",
+  "type": "MolecularConsequence",
+  "label": "copy number variation"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID009">MolConID009</a></p> (splicing variant)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>splicing variant</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID009"><pre><code>{
+  "id": "MolConID009",
+  "type": "MolecularConsequence",
+  "label": "splicing variant"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID010">MolConID010</a></p> (stop lost)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>stop lost</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID010"><pre><code>{
+  "id": "MolConID010",
+  "type": "MolecularConsequence",
+  "label": "stop lost"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID011">MolConID011</a></p> (missense variant)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>missense variant</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID011"><pre><code>{
+  "id": "MolConID011",
+  "type": "MolecularConsequence",
+  "label": "missense variant"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID012">MolConID012</a></p> (non conservative missense variant)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>non conservative missense variant</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID012"><pre><code>{
+  "id": "MolConID012",
+  "type": "MolecularConsequence",
+  "label": "non conservative missense variant"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID013">MolConID013</a></p> (stop gained)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>stop gained</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID013"><pre><code>{
+  "id": "MolConID013",
+  "type": "MolecularConsequence",
+  "label": "stop gained"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID014">MolConID014</a></p> (frameshift variant)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>frameshift variant</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID014"><pre><code>{
+  "id": "MolConID014",
+  "type": "MolecularConsequence",
+  "label": "frameshift variant"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID015">MolConID015</a></p> (splice-site variant)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>splice-site variant</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID015"><pre><code>{
+  "id": "MolConID015",
+  "type": "MolecularConsequence",
+  "label": "splice-site variant"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID016">MolConID016</a></p> (synonymous variant)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>synonymous variant</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID016"><pre><code>{
+  "id": "MolConID016",
+  "type": "MolecularConsequence",
+  "label": "synonymous variant"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID017">MolConID017</a></p> (conservative Inframe Insertion)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>conservative Inframe Insertion</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID017"><pre><code>{
+  "id": "MolConID017",
+  "type": "MolecularConsequence",
+  "label": "conservative Inframe Insertion"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID018">MolConID018</a></p> (disruptive inframe insertion)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>disruptive inframe insertion</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID018"><pre><code>{
+  "id": "MolConID018",
+  "type": "MolecularConsequence",
+  "label": "disruptive inframe insertion"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID019">MolConID019</a></p> (conservative Inframe Deletion)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>conservative Inframe Deletion</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID019"><pre><code>{
+  "id": "MolConID019",
+  "type": "MolecularConsequence",
+  "label": "conservative Inframe Deletion"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID020">MolConID020</a></p> (disruptive inframe deletion)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>disruptive inframe deletion</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID020"><pre><code>{
+  "id": "MolConID020",
+  "type": "MolecularConsequence",
+  "label": "disruptive inframe deletion"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID021">MolConID021</a></p> (frameshift elongation)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>frameshift elongation</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID021"><pre><code>{
+  "id": "MolConID021",
+  "type": "MolecularConsequence",
+  "label": "frameshift elongation"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID022">MolConID022</a></p> (MNV)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>MNV</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID022"><pre><code>{
+  "id": "MolConID022",
+  "type": "MolecularConsequence",
+  "label": "MNV"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID023">MolConID023</a></p> (start lost)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>start lost</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID023"><pre><code>{
+  "id": "MolConID023",
+  "type": "MolecularConsequence",
+  "label": "start lost"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID024">MolConID024</a></p> (no sequence alteration)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>no sequence alteration</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID024"><pre><code>{
+  "id": "MolConID024",
+  "type": "MolecularConsequence",
+  "label": "no sequence alteration"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID025">MolConID025</a></p> (substitution)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>substitution</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID025"><pre><code>{
+  "id": "MolConID025",
+  "type": "MolecularConsequence",
+  "label": "substitution"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID026">MolConID026</a></p> (indel)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>indel</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID026"><pre><code>{
+  "id": "MolConID026",
+  "type": "MolecularConsequence",
+  "label": "indel"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#MolConID027">MolConID027</a></p> (inversion)</td>
+          <td>
+              
+         </td>
+          <td>
+              <p>inversion</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="MolConID027"><pre><code>{
+  "id": "MolConID027",
+  "type": "MolecularConsequence",
+  "label": "inversion"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="list-group sidenav">
+            <ul class="list-unstyled">
+              <li class="list-group-item">
+                <h5><a href="../../../">Interpretation Overview</a></h5>
+              </li>
+              <li class='list-group-item'><h5><a href="../../../user/">User Guide</a></h5></li>
+              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li><a href="../../core/">Core</a></li><li><a href="../../domain_entities/">Domain Entities</a></li><li><a href="../../evidence_items/">Evidence Item</a></li><li><a href="../../provenance/">Provenance</a></li><li class="active"><a href="../">Terminology</a></li><ul class='list-unstyled'><li><a href="../identifier_system.html">IdentifierSystem</a></li><li><a href="../value_set.html">ValueSet</a></li></ul></ul></li>
+              <!-- Old style.  We might still need the model here? -->
+              <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="container  background-trans padding-top-xl">
+      <div class="row">
+        <hr />
+        <div class="col-md-col-sm-12 text-center"> 
+          © 2017 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../../javascripts/jquery.js"></script><script src="../../../javascripts/bootstrap.js"></script><script src="../../../javascripts/jquery.jsonview.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>
