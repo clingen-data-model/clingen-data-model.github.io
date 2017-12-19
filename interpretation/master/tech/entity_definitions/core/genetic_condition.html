@@ -1,0 +1,2797 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Data Model
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../../stylesheets/brand2.css" rel="stylesheet" /><link href="../../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+    
+      <div class="container-fluid hero-background">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="../../../images/clingen-doc-logo.png" />
+</a>            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+                    <li class="allele" >
+                      <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span> Allele Model</a></li>
+                    </li>
+                    <li class="interpretation" >
+                      <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span> Interpretation Model</a></li>
+                    </li>
+                <li>
+                    <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+          </div>
+    
+
+
+    
+        <div class="row">
+          <div class="col-sm-12">
+              <h1 class="header">GeneticCondition</h1>
+              <ol class="breadcrumb bg-none margin-none">
+                <li><a href="../../../">Interpretation Model</a></li>
+<li><a href="../../">Technical Reference</a></li>
+<li><a href="../">Entity Definitions</a></li>
+<li><a href="./">Core</a></li>
+
+              </ol>
+                <blockquote><p>A disease, or a set of one or more co-occurring phenotypes, typically controlled by a single locus with a defined inheritance pattern.</p>
+                <STRONG>
+                  <div>SEPIO:0000219</div>
+                </STRONG>
+                </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
+          <article>
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>Clinical geneticists use a variety of methods and systems to define the conditions for which a variant is being interpreted.  In some systems, such as OMIM, the gene is an integral part of the definition of the condition; if a different gene is involved, then the condition is considered to be different.   Other systems include higher-level descriptions where a disease is defined phenotypically, and may result from variants affecting many different genes.  Similar situations hold for mode of inheritance, which may be part of the disease definition in some systems, and not in others.  Furthermore, ontologies may contain terms in which all of these situations occur.  Finally, a condition may not have a previous entry in any nosology, and may only be defined by a given patient with a rare collection of phenotypes.</p>
+
+<p>Rather than enforce one particular view of genetic disease, which would necessarily exclude many popular terminology sets, the ClinGen model treats GeneticCondition in a general way.   The GeneticCondition class, about which VariantInterpretations are written, include a large number of optional items that can be used to define conditions in a flexible way.  For instance, if a single disease from a terminology is used, the GeneticCondition may only have a single disease attribute set.  In the case of a non-predefined disease, a collection of phenotypes may be used.  The two may be combined to indicate a subset of a disease in which other phenotypes additionally occur.</p>
+
+<p>Use of Gene or Mode of Inheritance implies that he used attribute is part of the definition of the condition, not merely an association.  That is, if a Gene is specified, then this GeneticCondition is only the form of a given disease that is caused by the dysfunction of that gene.</p>
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>name</td>
+                <td>string</td>
+                <td>0..1</td>
+                <td>Name of the GeneticCondition</td>
+                <td>RDFS:label</td>
+            </tr>
+            <tr>
+                <td>disease</td>
+                <td>Disease</td>
+                <td>0..*</td>
+                <td>The diseases that define the Genetic Condition</td>
+                <td>BFO:0000051</td>
+            </tr>
+            <tr>
+                <td>phenotype</td>
+                <td>Phenotype</td>
+                <td>0..*</td>
+                <td>Phenotypes used to define a particular GeneticCondition</td>
+                <td>BFO:0000051</td>
+            </tr>
+            <tr>
+                <td>modeOfInheritance</td>
+                <td>ModeOfInheritance</td>
+                <td>0..1</td>
+                <td>The manner in which a genetic condition is inherited</td>
+                <td>RO:0000091</td>
+            </tr>
+            <tr>
+                <td>gene</td>
+                <td>Gene</td>
+                <td>0..1</td>
+                <td>The gene used to define a particular GeneticCondition</td>
+                <td>RO:0000057</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>name</th>
+        <th>disease</th>
+        <th>phenotype</th>
+        <th>modeOfInheritance</th>
+        <th>gene</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond001">CG-EX:GenCond001</a></p></td>
+          <td>
+              <p>Breast Ovarian Cancer, Autosomal Dominant</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#MESH:D061325">MESH:D061325</a></p> (hereditary breast ovarian cancer)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond001"><pre><code>{
+  "id": "CG-EX:GenCond001",
+  "type": "GeneticCondition",
+  "name": "Breast Ovarian Cancer, Autosomal Dominant",
+  "disease": [
+    {
+      "id": "MESH:D061325",
+      "type": "Disease",
+      "label": "hereditary breast ovarian cancer"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond002">CG-EX:GenCond002</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:217604">Orphanet:217604</a></p> (dilated cardiomyopathy)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond002"><pre><code>{
+  "id": "CG-EX:GenCond002",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217604",
+      "type": "Disease",
+      "label": "dilated cardiomyopathy"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond003">CG-EX:GenCond003</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:648">Orphanet:648</a></p> (noonan syndrome)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond003"><pre><code>{
+  "id": "CG-EX:GenCond003",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:648",
+      "type": "Disease",
+      "label": "noonan syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond004">CG-EX:GenCond004</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:244">Orphanet:244</a></p> (Primary ciliary dyskenisia)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond004"><pre><code>{
+  "id": "CG-EX:GenCond004",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:244",
+      "type": "Disease",
+      "label": "Primary ciliary dyskenisia"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond005">CG-EX:GenCond005</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:3071">Orphanet:3071</a></p> (costello syndrome)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond005"><pre><code>{
+  "id": "CG-EX:GenCond005",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:3071",
+      "type": "Disease",
+      "label": "costello syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond006">CG-EX:GenCond006</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#OMIM:609942">OMIM:609942</a></p> (noonan syndrome 3)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond006"><pre><code>{
+  "id": "CG-EX:GenCond006",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "OMIM:609942",
+      "type": "Disease",
+      "label": "noonan syndrome 3"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond007">CG-EX:GenCond007</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:167848">Orphanet:167848</a></p> (cardiomyopathy)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond007"><pre><code>{
+  "id": "CG-EX:GenCond007",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:167848",
+      "type": "Disease",
+      "label": "cardiomyopathy"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond008">CG-EX:GenCond008</a></p></td>
+          <td>
+              <p>desmin related myopathy</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#OMIM:601419">OMIM:601419</a></p> (myofibrillar myopathy 1)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond008"><pre><code>{
+  "id": "CG-EX:GenCond008",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "OMIM:601419",
+      "type": "Disease",
+      "label": "myofibrillar myopathy 1"
+    }
+  ],
+  "name": "desmin related myopathy"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond009">CG-EX:GenCond009</a></p></td>
+          <td>
+              <p>Epilepsy with Mental Retardation</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond009"><pre><code>{
+  "id": "CG-EX:GenCond009",
+  "type": "GeneticCondition",
+  "name": "Epilepsy with Mental Retardation"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond010">CG-EX:GenCond010</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:87884">Orphanet:87884</a></p> (nonsyndromic deafness)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000007">HP:0000007</a></p> (Autosomal Recessive)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HGNC:18183">HGNC:18183</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond010"><pre><code>{
+  "id": "CG-EX:GenCond010",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:87884",
+      "type": "Disease",
+      "label": "nonsyndromic deafness"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Recessive"
+  },
+  "gene": {
+    "id": "HGNC:18183",
+    "type": "Gene",
+    "geneSymbol": "GIPC3"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond011">CG-EX:GenCond011</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:423">Orphanet:423</a></p> (Malignant hyperthermia)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond011"><pre><code>{
+  "id": "CG-EX:GenCond011",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:423",
+      "type": "Disease",
+      "label": "Malignant hyperthermia"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond012">CG-EX:GenCond012</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0011014">HP:0011014</a></p> (Abnormal Glucose Homeostasis)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond012"><pre><code>{
+  "id": "CG-EX:GenCond012",
+  "type": "GeneticCondition",
+  "phenotype": [
+    {
+      "id": "HP:0011014",
+      "type": "Phenotype",
+      "label": "Abnormal Glucose Homeostasis"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond013">CG-EX:GenCond013</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:324">Orphanet:324</a></p> (Fabry disease)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0001419">HP:0001419</a></p> (X linked recessive inheritance)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond013"><pre><code>{
+  "id": "CG-EX:GenCond013",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:324",
+      "type": "Disease",
+      "label": "Fabry disease"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0001419",
+    "type": "ModeOfInheritance",
+    "label": "X linked recessive inheritance"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond014">CG-EX:GenCond014</a></p></td>
+          <td>
+              <p>PCD autosomal recessive w/ outer dynein arm (ODA) defects</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:244">Orphanet:244</a></p> (Primary ciliary dyskenisia)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0200106">HP:0200106</a></p> (Absent/shortened dynein arms)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000007">HP:0000007</a></p> (Autosomal Recessive)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond014"><pre><code>{
+  "id": "CG-EX:GenCond014",
+  "type": "GeneticCondition",
+  "name": "PCD autosomal recessive w/ outer dynein arm (ODA) defects",
+  "disease": [
+    {
+      "id": "Orphanet:244",
+      "type": "Disease",
+      "label": "Primary ciliary dyskenisia"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Recessive"
+  },
+  "phenotype": [
+    {
+      "id": "HP:0200106",
+      "type": "Phenotype",
+      "label": "Absent/shortened dynein arms"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond015">CG-EX:GenCond015</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:216">Orphanet:216</a></p> (neuronal ceroid lipofuscinosis)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000007">HP:0000007</a></p> (Autosomal Recessive)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HGNC:12404">HGNC:12404</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond015"><pre><code>{
+  "id": "CG-EX:GenCond015",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:216",
+      "type": "Disease",
+      "label": "neuronal ceroid lipofuscinosis"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Recessive"
+  },
+  "gene": {
+    "id": "HGNC:12404",
+    "type": "Gene",
+    "geneSymbol": "TTP1"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond016">CG-EX:GenCond016</a></p></td>
+          <td>
+              <p>Primary familial hypertrophic cardiomyopathy, Autosomal Dominant</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:217569">Orphanet:217569</a></p> (hypertrophic cardiomyopathy)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond016"><pre><code>{
+  "id": "CG-EX:GenCond016",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217569",
+      "type": "Disease",
+      "label": "hypertrophic cardiomyopathy"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  },
+  "name": "Primary familial hypertrophic cardiomyopathy, Autosomal Dominant"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond017">CG-EX:GenCond017</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:664">Orphanet:664</a></p> (Ornithine carbamoyltransferase deficiency)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond017"><pre><code>{
+  "id": "CG-EX:GenCond017",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:664",
+      "type": "Disease",
+      "label": "Ornithine carbamoyltransferase deficiency"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond018">CG-EX:GenCond018</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:122">Orphanet:122</a></p> (Birt-Hogg-Dube Syndrome)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond018"><pre><code>{
+  "id": "CG-EX:GenCond018",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:122",
+      "type": "Disease",
+      "label": "Birt-Hogg-Dube Syndrome"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond019">CG-EX:GenCond019</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:1340">Orphanet:1340</a></p> (cardiofaciocutaneous syndrome)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond019"><pre><code>{
+  "id": "CG-EX:GenCond019",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:1340",
+      "type": "Disease",
+      "label": "cardiofaciocutaneous syndrome"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond020">CG-EX:GenCond020</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:217569">Orphanet:217569</a></p> (hypertrophic cardiomyopathy)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond020"><pre><code>{
+  "id": "CG-EX:GenCond020",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217569",
+      "type": "Disease",
+      "label": "hypertrophic cardiomyopathy"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond021">CG-EX:GenCond021</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:886">Orphanet:886</a></p> (Usher syndrome)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000007">HP:0000007</a></p> (Autosomal Recessive)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond021"><pre><code>{
+  "id": "CG-EX:GenCond021",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:886",
+      "type": "Disease",
+      "label": "Usher syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Recessive"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond022">CG-EX:GenCond022</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:774">Orphanet:774</a></p> (hereditary hemorrhagic telangiectasia)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond022"><pre><code>{
+  "id": "CG-EX:GenCond022",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:774",
+      "type": "Disease",
+      "label": "hereditary hemorrhagic telangiectasia"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond023">CG-EX:GenCond023</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#OMIM:612555">OMIM:612555</a></p> (Breast-Ovarian Cancer, Familial, Susceptibility To, 2)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond023"><pre><code>{
+  "id": "CG-EX:GenCond023",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "OMIM:612555",
+      "type": "Disease",
+      "label": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond024">CG-EX:GenCond024</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#OMIM:614065">OMIM:614065</a></p> (Myopathy, Distal, type 4)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond024"><pre><code>{
+  "id": "CG-EX:GenCond024",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "OMIM:614065",
+      "type": "Disease",
+      "label": "Myopathy, Distal, type 4"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond025">CG-EX:GenCond025</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:586">Orphanet:586</a></p> (Cystic Fibrosis)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000007">HP:0000007</a></p> (Autosomal Recessive)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond025"><pre><code>{
+  "id": "CG-EX:GenCond025",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:586",
+      "type": "Disease",
+      "label": "Cystic Fibrosis"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Recessive"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond026">CG-EX:GenCond026</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:558">Orphanet:558</a></p> (Marfan Syndrome)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond026"><pre><code>{
+  "id": "CG-EX:GenCond026",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:558",
+      "type": "Disease",
+      "label": "Marfan Syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond027">CG-EX:GenCond027</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:2609">Orphanet:2609</a></p> (Mitochondrial complex 1 deficiency)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0001423">HP:0001423</a></p> (X-linked dominant inheritance)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond027"><pre><code>{
+  "id": "CG-EX:GenCond027",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:2609",
+      "type": "Disease",
+      "label": "Mitochondrial complex 1 deficiency"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0001423",
+    "type": "ModeOfInheritance",
+    "label": "X-linked dominant inheritance"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond028">CG-EX:GenCond028</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:2855">Orphanet:2855</a></p> (Perrault Syndrome)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000007">HP:0000007</a></p> (Autosomal Recessive)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond028"><pre><code>{
+  "id": "CG-EX:GenCond028",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:2855",
+      "type": "Disease",
+      "label": "Perrault Syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Recessive"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond029">CG-EX:GenCond029</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:319182">Orphanet:319182</a></p> (Wiedemann-Steiner syndrome)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond029"><pre><code>{
+  "id": "CG-EX:GenCond029",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:319182",
+      "type": "Disease",
+      "label": "Wiedemann-Steiner syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond030">CG-EX:GenCond030</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:733">Orphanet:733</a></p> (Familial Adenomatous Polyposis)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond030"><pre><code>{
+  "id": "CG-EX:GenCond030",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:733",
+      "type": "Disease",
+      "label": "Familial Adenomatous Polyposis"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond035">CG-EX:GenCond035</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#OMIM:143890">OMIM:143890</a></p> (Hypercholesterolemia, Familial)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond035"><pre><code>{
+  "id": "CG-EX:GenCond035",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "OMIM:143890",
+      "type": "Disease",
+      "label": "Hypercholesterolemia, Familial"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond036">CG-EX:GenCond036</a></p></td>
+          <td>
+              <p>hereditary breast and ovarian cancer</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:145">Orphanet:145</a></p> (hereditary breast and ovarian cancer syndrome)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond036"><pre><code>{
+  "id": "CG-EX:GenCond036",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:145",
+      "type": "Disease",
+      "label": "hereditary breast and ovarian cancer syndrome"
+    }
+  ],
+  "name": "hereditary breast and ovarian cancer"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond037">CG-EX:GenCond037</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:84">Orphanet:84</a></p> (Fanconi Anemia)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond037"><pre><code>{
+  "id": "CG-EX:GenCond037",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:84",
+      "type": "Disease",
+      "label": "Fanconi Anemia"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond038">CG-EX:GenCond038</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:791">Orphanet:791</a></p> (Retinitis Pigmentosa)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond038"><pre><code>{
+  "id": "CG-EX:GenCond038",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:791",
+      "type": "Disease",
+      "label": "Retinitis Pigmentosa"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond039">CG-EX:GenCond039</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0012873">HP:0012873</a></p> (Absent vas deferens)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond039"><pre><code>{
+  "id": "CG-EX:GenCond039",
+  "type": "GeneticCondition",
+  "phenotype": [
+    {
+      "id": "HP:0012873",
+      "type": "Phenotype",
+      "label": "Absent vas deferens"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond040">CG-EX:GenCond040</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:364526">Orphanet:364526</a></p> (Primary bone dysplasia)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond040"><pre><code>{
+  "id": "CG-EX:GenCond040",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:364526",
+      "type": "Disease",
+      "label": "Primary bone dysplasia"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond041">CG-EX:GenCond041</a></p></td>
+          <td>
+              <p>Pseudoachondroplastic spondyloepiphyseal dysplasia</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:750">Orphanet:750</a></p> (pseudoachondroplasia)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond041"><pre><code>{
+  "id": "CG-EX:GenCond041",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:750",
+      "type": "Disease",
+      "label": "pseudoachondroplasia"
+    }
+  ],
+  "name": "Pseudoachondroplastic spondyloepiphyseal dysplasia"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond042">CG-EX:GenCond042</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:750">Orphanet:750</a></p> (pseudoachondroplasia)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond042"><pre><code>{
+  "id": "CG-EX:GenCond042",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:750",
+      "type": "Disease",
+      "label": "pseudoachondroplasia"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond043">CG-EX:GenCond043</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#OMIM:612555">OMIM:612555</a></p> (Breast-Ovarian Cancer, Familial, Susceptibility To, 2)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond043"><pre><code>{
+  "id": "CG-EX:GenCond043",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "OMIM:612555",
+      "type": "Disease",
+      "label": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond044">CG-EX:GenCond044</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:414">Orphanet:414</a></p> (Gyrate atrophy of choroid and retina)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond044"><pre><code>{
+  "id": "CG-EX:GenCond044",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:414",
+      "type": "Disease",
+      "label": "Gyrate atrophy of choroid and retina"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond045">CG-EX:GenCond045</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:244">Orphanet:244</a></p> (Primary ciliary dyskenisia)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000007">HP:0000007</a></p> (Autosomal Recessive)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond045"><pre><code>{
+  "id": "CG-EX:GenCond045",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:244",
+      "type": "Disease",
+      "label": "Primary ciliary dyskenisia"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Recessive"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond046">CG-EX:GenCond046</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:247">Orphanet:247</a></p> (arrhythmogenic right ventricular cardiomyopathy)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond046"><pre><code>{
+  "id": "CG-EX:GenCond046",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:247",
+      "type": "Disease",
+      "label": "arrhythmogenic right ventricular cardiomyopathy"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond047">CG-EX:GenCond047</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:217604">Orphanet:217604</a></p> (dilated cardiomyopathy)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond047"><pre><code>{
+  "id": "CG-EX:GenCond047",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217604",
+      "type": "Disease",
+      "label": "dilated cardiomyopathy"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond048">CG-EX:GenCond048</a></p></td>
+          <td>
+              <p>Hearing Loss</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:87884">Orphanet:87884</a></p> (nonsyndromic deafness)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond048"><pre><code>{
+  "id": "CG-EX:GenCond048",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:87884",
+      "type": "Disease",
+      "label": "nonsyndromic deafness"
+    }
+  ],
+  "name": "Hearing Loss"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond049">CG-EX:GenCond049</a></p></td>
+          <td>
+              <p>Rasopathy</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:98733">Orphanet:98733</a></p> (Noonan syndrome and noonan-related syndrom)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond049"><pre><code>{
+  "id": "CG-EX:GenCond049",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:98733",
+      "type": "Disease",
+      "label": "Noonan syndrome and noonan-related syndrom"
+    }
+  ],
+  "name": "Rasopathy"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond050">CG-EX:GenCond050</a></p></td>
+          <td>
+              <p>Breast Ovarian Cancer, Autosomal Dominant</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#MESH:D061325">MESH:D061325</a></p> (hereditary breast ovarian cancer)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond050"><pre><code>{
+  "id": "CG-EX:GenCond050",
+  "type": "GeneticCondition",
+  "name": "Breast Ovarian Cancer, Autosomal Dominant",
+  "disease": [
+    {
+      "id": "MESH:D061325",
+      "type": "Disease",
+      "label": "hereditary breast ovarian cancer"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond051">CG-EX:GenCond051</a></p></td>
+          <td>
+              <p>Breast Ovarian Cancer, Autosomal Dominant</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#MESH:D061325">MESH:D061325</a></p> (hereditary breast ovarian cancer)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond051"><pre><code>{
+  "id": "CG-EX:GenCond051",
+  "type": "GeneticCondition",
+  "name": "Breast Ovarian Cancer, Autosomal Dominant",
+  "disease": [
+    {
+      "id": "MESH:D061325",
+      "type": "Disease",
+      "label": "hereditary breast ovarian cancer"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond052">CG-EX:GenCond052</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:217604">Orphanet:217604</a></p> (dilated cardiomyopathy)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond052"><pre><code>{
+  "id": "CG-EX:GenCond052",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217604",
+      "type": "Disease",
+      "label": "dilated cardiomyopathy"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond053">CG-EX:GenCond053</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:217604">Orphanet:217604</a></p> (dilated cardiomyopathy)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond053"><pre><code>{
+  "id": "CG-EX:GenCond053",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217604",
+      "type": "Disease",
+      "label": "dilated cardiomyopathy"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond054">CG-EX:GenCond054</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:247">Orphanet:247</a></p> (arrhythmogenic right ventricular cardiomyopathy)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond054"><pre><code>{
+  "id": "CG-EX:GenCond054",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:247",
+      "type": "Disease",
+      "label": "arrhythmogenic right ventricular cardiomyopathy"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond055">CG-EX:GenCond055</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:648">Orphanet:648</a></p> (noonan syndrome)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond055"><pre><code>{
+  "id": "CG-EX:GenCond055",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:648",
+      "type": "Disease",
+      "label": "noonan syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond056">CG-EX:GenCond056</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:648">Orphanet:648</a></p> (noonan syndrome)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond056"><pre><code>{
+  "id": "CG-EX:GenCond056",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:648",
+      "type": "Disease",
+      "label": "noonan syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond057">CG-EX:GenCond057</a></p></td>
+          <td>
+              <p>Hearing Loss</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:87884">Orphanet:87884</a></p> (nonsyndromic deafness)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond057"><pre><code>{
+  "id": "CG-EX:GenCond057",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:87884",
+      "type": "Disease",
+      "label": "nonsyndromic deafness"
+    }
+  ],
+  "name": "Hearing Loss"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond058">CG-EX:GenCond058</a></p></td>
+          <td>
+              <p>Hearing Loss</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:87884">Orphanet:87884</a></p> (nonsyndromic deafness)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond058"><pre><code>{
+  "id": "CG-EX:GenCond058",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:87884",
+      "type": "Disease",
+      "label": "nonsyndromic deafness"
+    }
+  ],
+  "name": "Hearing Loss"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond059">CG-EX:GenCond059</a></p></td>
+          <td>
+              <p>Hearing Loss, Autosomal Recessive</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:87884">Orphanet:87884</a></p> (nonsyndromic deafness)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000007">HP:0000007</a></p> (Autosomal Recessive)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond059"><pre><code>{
+  "id": "CG-EX:GenCond059",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:87884",
+      "type": "Disease",
+      "label": "nonsyndromic deafness"
+    }
+  ],
+  "name": "Hearing Loss, Autosomal Recessive",
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Recessive"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond060">CG-EX:GenCond060</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:87884">Orphanet:87884</a></p> (nonsyndromic deafness)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond060"><pre><code>{
+  "id": "CG-EX:GenCond060",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:87884",
+      "type": "Disease",
+      "label": "nonsyndromic deafness"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond061">CG-EX:GenCond061</a></p></td>
+          <td>
+              <p>Hearing Loss, Autosomal Recessive</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:87884">Orphanet:87884</a></p> (nonsyndromic deafness)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000007">HP:0000007</a></p> (Autosomal Recessive)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond061"><pre><code>{
+  "id": "CG-EX:GenCond061",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:87884",
+      "type": "Disease",
+      "label": "nonsyndromic deafness"
+    }
+  ],
+  "name": "Hearing Loss, Autosomal Recessive",
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Recessive"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond062">CG-EX:GenCond062</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:244">Orphanet:244</a></p> (Primary ciliary dyskenisia)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000007">HP:0000007</a></p> (Autosomal Recessive)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond062"><pre><code>{
+  "id": "CG-EX:GenCond062",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:244",
+      "type": "Disease",
+      "label": "Primary ciliary dyskenisia"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Recessive"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond063">CG-EX:GenCond063</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:244">Orphanet:244</a></p> (Primary ciliary dyskenisia)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000007">HP:0000007</a></p> (Autosomal Recessive)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond063"><pre><code>{
+  "id": "CG-EX:GenCond063",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:244",
+      "type": "Disease",
+      "label": "Primary ciliary dyskenisia"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Recessive"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond064">CG-EX:GenCond064</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:217569">Orphanet:217569</a></p> (hypertrophic cardiomyopathy)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond064"><pre><code>{
+  "id": "CG-EX:GenCond064",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217569",
+      "type": "Disease",
+      "label": "hypertrophic cardiomyopathy"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond065">CG-EX:GenCond065</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:217569">Orphanet:217569</a></p> (hypertrophic cardiomyopathy)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond065"><pre><code>{
+  "id": "CG-EX:GenCond065",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217569",
+      "type": "Disease",
+      "label": "hypertrophic cardiomyopathy"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond066">CG-EX:GenCond066</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:217569">Orphanet:217569</a></p> (hypertrophic cardiomyopathy)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond066"><pre><code>{
+  "id": "CG-EX:GenCond066",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217569",
+      "type": "Disease",
+      "label": "hypertrophic cardiomyopathy"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond067">CG-EX:GenCond067</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:217569">Orphanet:217569</a></p> (hypertrophic cardiomyopathy)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond067"><pre><code>{
+  "id": "CG-EX:GenCond067",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:217569",
+      "type": "Disease",
+      "label": "hypertrophic cardiomyopathy"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond068">CG-EX:GenCond068</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:1340">Orphanet:1340</a></p> (cardiofaciocutaneous syndrome)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond068"><pre><code>{
+  "id": "CG-EX:GenCond068",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:1340",
+      "type": "Disease",
+      "label": "cardiofaciocutaneous syndrome"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond069">CG-EX:GenCond069</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:1340">Orphanet:1340</a></p> (cardiofaciocutaneous syndrome)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond069"><pre><code>{
+  "id": "CG-EX:GenCond069",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:1340",
+      "type": "Disease",
+      "label": "cardiofaciocutaneous syndrome"
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond070">CG-EX:GenCond070</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:1340">Orphanet:1340</a></p> (cardiofaciocutaneous syndrome)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond070"><pre><code>{
+  "id": "CG-EX:GenCond070",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:1340",
+      "type": "Disease",
+      "label": "cardiofaciocutaneous syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond071">CG-EX:GenCond071</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:886">Orphanet:886</a></p> (Usher syndrome)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000007">HP:0000007</a></p> (Autosomal Recessive)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond071"><pre><code>{
+  "id": "CG-EX:GenCond071",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:886",
+      "type": "Disease",
+      "label": "Usher syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000007",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Recessive"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond072">CG-EX:GenCond072</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:558">Orphanet:558</a></p> (Marfan Syndrome)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond072"><pre><code>{
+  "id": "CG-EX:GenCond072",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:558",
+      "type": "Disease",
+      "label": "Marfan Syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond073">CG-EX:GenCond073</a></p></td>
+          <td>
+              <p>hereditary breast and ovarian cancer</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:145">Orphanet:145</a></p> (hereditary breast and ovarian cancer syndrome)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond073"><pre><code>{
+  "id": "CG-EX:GenCond073",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:145",
+      "type": "Disease",
+      "label": "hereditary breast and ovarian cancer syndrome"
+    }
+  ],
+  "name": "hereditary breast and ovarian cancer"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond074">CG-EX:GenCond074</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:247">Orphanet:247</a></p> (arrhythmogenic right ventricular cardiomyopathy)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond074"><pre><code>{
+  "id": "CG-EX:GenCond074",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:247",
+      "type": "Disease",
+      "label": "arrhythmogenic right ventricular cardiomyopathy"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CG-EX:GenCond075">CG-EX:GenCond075</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#Orphanet:648">Orphanet:648</a></p> (noonan syndrome)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CG-EX:GenCond075"><pre><code>{
+  "id": "CG-EX:GenCond075",
+  "type": "GeneticCondition",
+  "disease": [
+    {
+      "id": "Orphanet:648",
+      "type": "Disease",
+      "label": "noonan syndrome"
+    }
+  ],
+  "modeOfInheritance": {
+    "id": "HP:0000006",
+    "type": "ModeOfInheritance",
+    "label": "Autosomal Dominant"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="list-group sidenav">
+            <ul class="list-unstyled">
+              <li class="list-group-item">
+                <h5><a href="../../../">Interpretation Overview</a></h5>
+              </li>
+              <li class='list-group-item'><h5><a href="../../../user/">User Guide</a></h5></li>
+              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../">Entity Definitions</a></li><ul class='list-unstyled'><li class="active"><a href="./">Core</a></li><ul class='list-unstyled'><li><a href="criterion_assessment.html">CriterionAssessment</a></li><li><a href="domain_entity.html">DomainEntity</a></li><li><a href="evidence_line.html">EvidenceLine</a></li><li class="active"><a href="genetic_condition.html">GeneticCondition</a></li><li><a href="statement.html">Statement</a></li><li><a href="variant_interpretation.html">VariantInterpretation</a></li></ul><li><a href="../domain_entities/">Domain Entities</a></li><li><a href="../evidence_items/">Evidence Item</a></li><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul><li><a href="../../json_schema.html">JSON Schema</a></li></ul></li>
+              <!-- Old style.  We might still need the model here? -->
+              <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="container  background-trans padding-top-xl">
+      <div class="row">
+        <hr />
+        <div class="col-md-col-sm-12 text-center"> 
+          © 2017 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../../javascripts/jquery.js"></script><script src="../../../javascripts/bootstrap.js"></script><script src="../../../javascripts/jquery.jsonview.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>

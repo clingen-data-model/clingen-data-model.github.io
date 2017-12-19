@@ -1,0 +1,109 @@
+{
+  "id": "CG-EX:CritAssess275",
+  "type": "CriterionAssessment",
+  "criterion": {
+    "id": "SEPIO-CG:99022",
+    "type": "Criterion",
+    "label": "PVS1",
+    "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
+    "defaultStrength": {
+      "id": "SEPIO:0000220",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Very Strong"
+    },
+    "comments": "The two main concerns for applying this rule is:\na. Is LOF an established disease mechanism?\nb. Is LOF actually occurring?"
+  },
+  "variant": {
+    "id": "CAR:CA090943",
+    "type": "CanonicalAllele",
+    "preferredCtxAllele": {
+      "id": "CG-EX:CtxAll001",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll001",
+      "alleleName": "NM_031844.2(HNRNPU):c.2304_2305del (p.Gly769Glufs*83)"
+    }
+  },
+  "outcome": {
+    "id": "SEPIO:0000224",
+    "type": "CriterionEvaluation",
+    "label": "Not Met"
+  },
+  "evidenceLine": [
+    {
+      "id": "CG-EX:EvLn001",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CG-EX:MolCon001",
+          "type": "AlleleMolecularConsequence",
+          "contextualAllele": {
+            "id": "CG-EX:CtxAll001",
+            "type": "ContextualAllele",
+            "relatedCanonicalAllele": "CanAll001",
+            "alleleName": "NM_031844.2(HNRNPU):c.2304_2305del (p.Gly769Glufs*83)"
+          },
+          "consequence": {
+            "id": "SO:0001589",
+            "type": "MolecularConsequence",
+            "label": "frameshift variant"
+          },
+          "description": "Protein ends at p.826 and this frameshift would create stop at p.852 (769+83) thus NMD would not occur. Instead an elongated protein"
+        },
+        {
+          "id": "CG-EX:Null396",
+          "type": "NullAllele",
+          "contextualAllele": {
+            "id": "CG-EX:CtxAll001",
+            "type": "ContextualAllele",
+            "relatedCanonicalAllele": "CanAll001",
+            "alleleName": "NM_031844.2(HNRNPU):c.2304_2305del (p.Gly769Glufs*83)"
+          },
+          "annotation": {
+            "id": "SO:0002055",
+            "type": "NullAlleleOutcome",
+            "label": "null mutation"
+          },
+          "qualifier": "NOT"
+        },
+        {
+          "id": "CG-EX:CondMech002",
+          "type": "ConditionMechanism",
+          "mechanism": {
+            "id": "SO:0002054",
+            "type": "Mechanism",
+            "label": "loss of function variant"
+          },
+          "mechanismConfidence": {
+            "id": "SEPIO:0000269",
+            "type": "ConditionMechanismStrength",
+            "label": "established"
+          },
+          "gene": {
+            "id": "HGNC:5048",
+            "type": "Gene",
+            "geneSymbol": "HNRNPU"
+          },
+          "description": "HNRNPU is not associated with any conditions, and therefore LOF is not an established mechanism of any condition for this gene."
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CG-EX:Agent001",
+        "type": "Agent",
+        "label": "Harry Stevenson"
+      },
+      "contributionDate": "6/1/16 10:10 AM",
+      "contributionRole": {
+        "id": "SEPIO:0000154",
+        "type": "ContributoryRole",
+        "label": "assessor role"
+      }
+    }
+  ],
+  "description": "Variant is not LOF and LOF is not a known mechanism of disease associated with this gene for any condition.",
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

@@ -1,0 +1,118 @@
+{
+  "id": "CG-EX:CritAssess336",
+  "type": "CriterionAssessment",
+  "criterion": {
+    "id": "SEPIO-CG:99042",
+    "type": "Criterion",
+    "label": "BS4",
+    "description": "Lack of segregation in affected members of a family",
+    "defaultStrength": {
+      "id": "SEPIO:0000328",
+      "type": "EvidenceLineStrength",
+      "label": "Benign Strong"
+    },
+    "comments": "This rule is for “lack of segregation” meaning phenotype positive / genotype negative (and not pheno neg / geno pos). Also need to be careful of phenocopies. Also need rules for how many cases are needed in use this rule"
+  },
+  "variant": {
+    "id": "CAR:CA010777",
+    "type": "CanonicalAllele",
+    "preferredCtxAllele": {
+      "id": "CG-EX:CtxAll095",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll089",
+      "alleleName": "NM_000256.3(MYBPC3):c.1624+4A>T"
+    }
+  },
+  "condition": [
+    {
+      "id": "CG-EX:GenCond065",
+      "type": "GeneticCondition",
+      "disease": [
+        {
+          "id": "Orphanet:217569",
+          "type": "Disease",
+          "label": "hypertrophic cardiomyopathy"
+        }
+      ],
+      "modeOfInheritance": {
+        "id": "HP:0000006",
+        "type": "ModeOfInheritance",
+        "label": "Autosomal Dominant"
+      }
+    }
+  ],
+  "outcome": {
+    "id": "SEPIO:0000224",
+    "type": "CriterionEvaluation",
+    "label": "Not Met"
+  },
+  "evidenceLine": [
+    {
+      "id": "CG-EX:EvLn080",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CG-EX:FamSeg197",
+          "type": "FamilySegregation",
+          "condition": {
+            "id": "CG-EX:GenCond065",
+            "type": "GeneticCondition",
+            "disease": [
+              {
+                "id": "Orphanet:217569",
+                "type": "Disease",
+                "label": "hypertrophic cardiomyopathy"
+              }
+            ],
+            "modeOfInheritance": {
+              "id": "HP:0000006",
+              "type": "ModeOfInheritance",
+              "label": "Autosomal Dominant"
+            }
+          },
+          "canonicalAllele": {
+            "id": "CAR:CA010777",
+            "type": "CanonicalAllele",
+            "preferredCtxAllele": {
+              "id": "CG-EX:CtxAll095",
+              "type": "ContextualAllele",
+              "relatedCanonicalAllele": "CanAll089",
+              "alleleName": "NM_000256.3(MYBPC3):c.1624+4A>T"
+            }
+          },
+          "family": {
+            "id": "_b8508",
+            "type": "Family",
+            "description": "Family #009"
+          },
+          "phenotypePositiveAllelePositive": 3,
+          "phenotypePositiveAlleleNegative": 1,
+          "inconsistentSegregationsObserved": {
+            "id": "SEPIO-CG:99011",
+            "type": "InconsistentSegregationObserved",
+            "label": "present"
+          },
+          "description": "The individual with HCM but without the allele is likely a phenocopy explained\nby environmental factors (obese, alcohol)"
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CG-EX:Agent001",
+        "type": "Agent",
+        "label": "Harry Stevenson"
+      },
+      "contributionDate": "9/5/16 10:51 AM",
+      "contributionRole": {
+        "id": "SEPIO:0000154",
+        "type": "ContributoryRole",
+        "label": "assessor role"
+      }
+    }
+  ],
+  "description": "The inconsistent segregation data is reasonably explainable as a phenocopy, and therefore does not provide evidence for the benignity of this allele.",
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

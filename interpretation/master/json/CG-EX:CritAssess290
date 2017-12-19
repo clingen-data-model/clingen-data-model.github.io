@@ -1,0 +1,121 @@
+{
+  "id": "CG-EX:CritAssess290",
+  "type": "CriterionAssessment",
+  "criterion": {
+    "id": "SEPIO-CG:99027",
+    "type": "Criterion",
+    "label": "PM1",
+    "description": "Located in a mutational hot spot and/or critical and well-established functional domain (e.g., active site of an enzyme) without benign variation",
+    "defaultStrength": {
+      "id": "SEPIO:0000216",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Moderate"
+    },
+    "comments": "Suggested that this rule is NOT appropriate for LOF variants.\nAlso, note that when the region of interest is a “well-established functional domain” then it’s not necessary to show through evidence that it is intolerant of benign missense variants.  However, when a mutational hotspot is being defined, then showing it does not have benign missense variants is important."
+  },
+  "variant": {
+    "id": "CAR:CA090928",
+    "type": "CanonicalAllele",
+    "preferredCtxAllele": {
+      "id": "CG-EX:CtxAll028",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll025",
+      "alleleName": "NM_005228.3(EGFR):c.2369C>T",
+      "produces": [
+        {
+          "id": "CG-EX:CtxAll126",
+          "type": "ContextualAllele",
+          "relatedCanonicalAllele": "CanAll120",
+          "alleleName": "NP_005219.2:p.Thr790Met",
+          "producedBy": "CtxAll028"
+        }
+      ]
+    }
+  },
+  "outcome": {
+    "id": "SEPIO:0000223",
+    "type": "CriterionEvaluation",
+    "label": "Met"
+  },
+  "evidenceLine": [
+    {
+      "id": "CG-EX:EvLn022",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CG-EX:RegTyp040",
+          "type": "RegionType",
+          "region": {
+            "id": "_b4456",
+            "type": "SequenceLocation",
+            "referenceSequence": {
+              "id": "REFSEQ:NP_005219.2",
+              "type": "ReferenceSequence",
+              "accession": "NP_005219.2",
+              "producedBy": "RefSeq287"
+            },
+            "start": 704,
+            "stop": 1016
+          },
+          "annotation": [
+            {
+              "id": "SEPIO:0000320",
+              "type": "RegionAnnotation",
+              "label": "functional region"
+            }
+          ],
+          "description": "This region is the catalytic (kinase) domain."
+        },
+        {
+          "id": "CG-EX:RegAll380",
+          "type": "RegionAlleles",
+          "region": {
+            "id": "_b4456",
+            "type": "SequenceLocation",
+            "referenceSequence": {
+              "id": "REFSEQ:NP_005219.2",
+              "type": "ReferenceSequence",
+              "accession": "NP_005219.2",
+              "producedBy": "RefSeq287"
+            },
+            "start": 704,
+            "stop": 1016
+          },
+          "allele": [
+            {
+              "id": "CG-EX:CtxAll126",
+              "type": "ContextualAllele",
+              "relatedCanonicalAllele": "CanAll120",
+              "alleleName": "NP_005219.2:p.Thr790Met",
+              "producedBy": "CtxAll028"
+            }
+          ],
+          "outcome": {
+            "id": "RO:0002656",
+            "type": "RegionAllelesOutcome",
+            "label": "overlaps region"
+          },
+          "description": "This region is the catalytic (kinase) domain."
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CG-EX:Agent003",
+        "type": "Agent",
+        "label": "Sasha Rande"
+      },
+      "contributionDate": "6/6/16 8:12 AM",
+      "contributionRole": {
+        "id": "SEPIO:0000154",
+        "type": "ContributoryRole",
+        "label": "assessor role"
+      }
+    }
+  ],
+  "description": "Variant is located within the kinase domain (where multiple other pathogenic variants are located)",
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

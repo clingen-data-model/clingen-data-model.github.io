@@ -1,0 +1,143 @@
+{
+  "id": "CG-EX:CritAssess340",
+  "type": "CriterionAssessment",
+  "criterion": {
+    "id": "SEPIO-CG:99043",
+    "type": "Criterion",
+    "label": "BP1",
+    "description": "Missense variant in a gene for which primarily truncating variants are known to cause disease",
+    "defaultStrength": {
+      "id": "SEPIO:0000327",
+      "type": "EvidenceLineStrength",
+      "label": "Benign Supporting"
+    },
+    "comments": "Is there any guidance on the proportion of pathogenic variants that are LOF to apply this rule?  99%? 90%? 75%?"
+  },
+  "variant": {
+    "id": "CAR:CA090950",
+    "type": "CanonicalAllele",
+    "preferredCtxAllele": {
+      "id": "CG-EX:CtxAll098",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll092",
+      "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
+    }
+  },
+  "condition": [
+    {
+      "id": "CG-EX:GenCond059",
+      "type": "GeneticCondition",
+      "disease": [
+        {
+          "id": "Orphanet:87884",
+          "type": "Disease",
+          "label": "nonsyndromic deafness"
+        }
+      ],
+      "name": "Hearing Loss, Autosomal Recessive",
+      "modeOfInheritance": {
+        "id": "HP:0000007",
+        "type": "ModeOfInheritance",
+        "label": "Autosomal Recessive"
+      }
+    }
+  ],
+  "outcome": {
+    "id": "SEPIO:0000223",
+    "type": "CriterionEvaluation",
+    "label": "Met"
+  },
+  "evidenceLine": [
+    {
+      "id": "CG-EX:EvLn083",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CG-EX:MolCon201",
+          "type": "AlleleMolecularConsequence",
+          "contextualAllele": {
+            "id": "CG-EX:CtxAll098",
+            "type": "ContextualAllele",
+            "relatedCanonicalAllele": "CanAll092",
+            "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
+          },
+          "consequence": {
+            "id": "SO:0001583",
+            "type": "MolecularConsequence",
+            "label": "missense variant"
+          }
+        },
+        {
+          "id": "CG-EX:Null406",
+          "type": "NullAllele",
+          "contextualAllele": {
+            "id": "CG-EX:CtxAll097",
+            "type": "ContextualAllele",
+            "relatedCanonicalAllele": "CanAll091",
+            "alleleName": "NM_000059.3(BRCA2) :c.4779A>C"
+          },
+          "annotation": {
+            "id": "SO:0002055",
+            "type": "NullAlleleOutcome",
+            "label": "null mutation"
+          }
+        },
+        {
+          "id": "CG-EX:CondMech202",
+          "type": "ConditionMechanism",
+          "mechanism": {
+            "id": "SO:0002054",
+            "type": "Mechanism",
+            "label": "loss of function variant"
+          },
+          "mechanismConfidence": {
+            "id": "SEPIO:0000270",
+            "type": "ConditionMechanismStrength",
+            "label": "primary"
+          },
+          "gene": {
+            "id": "HGNC:26521",
+            "type": "Gene",
+            "geneSymbol": "LOXHD1"
+          },
+          "condition": {
+            "id": "CG-EX:GenCond059",
+            "type": "GeneticCondition",
+            "disease": [
+              {
+                "id": "Orphanet:87884",
+                "type": "Disease",
+                "label": "nonsyndromic deafness"
+              }
+            ],
+            "name": "Hearing Loss, Autosomal Recessive",
+            "modeOfInheritance": {
+              "id": "HP:0000007",
+              "type": "ModeOfInheritance",
+              "label": "Autosomal Recessive"
+            }
+          },
+          "description": "shown in both humans and mouse models"
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CG-EX:Agent007",
+        "type": "Agent",
+        "label": "Stefan DiMarino"
+      },
+      "contributionDate": "9/6/16 10:00 AM",
+      "contributionRole": {
+        "id": "SEPIO:0000154",
+        "type": "ContributoryRole",
+        "label": "assessor role"
+      }
+    }
+  ],
+  "description": "Homozygous truncating variants in LOXHD1 are associated with autosomal recessive hearing loss. This was demonstrated by both identification in human patients and a mouse model. (I used the OMIM entry as a source, but you could also directly use the papers.)",
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

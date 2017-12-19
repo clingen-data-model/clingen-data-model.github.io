@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Data Model
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../../stylesheets/brand2.css" rel="stylesheet" /><link href="../../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+    
+      <div class="container-fluid hero-background">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="../../../images/clingen-doc-logo.png" />
+</a>            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+                    <li class="allele" >
+                      <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span> Allele Model</a></li>
+                    </li>
+                    <li class="interpretation" >
+                      <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span> Interpretation Model</a></li>
+                    </li>
+                <li>
+                    <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+          </div>
+    
+
+
+    
+        <div class="row">
+          <div class="col-sm-12">
+              <h1 class="header">Haplotype</h1>
+              <ol class="breadcrumb bg-none margin-none">
+                <li><a href="../../../">Interpretation Model</a></li>
+<li><a href="../../">Technical Reference</a></li>
+<li><a href="../">Entity Definitions</a></li>
+<li><a href="./">Evidence Item</a></li>
+
+              </ol>
+                <blockquote><p>A set of alleles on the same molecule (i.e. in cis)</p>
+                </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
+          <article>
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>RegionType makes a statement categorizing a SequenceRegion, i.e. that a particular SequenceRegion has a particular property such as a function.  ExcludedRegionType is the negation of such a statement, stating that the given SequenceRegion explictly does not have the given property.</p>
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>allele</td>
+                <td>CanonicalAllele</td>
+                <td>1..*</td>
+                <td>Individual Alleles that constitute the haplotype</td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    <h2>Inherited Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A freetext description of the entity</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A freeform text (preferred) representation used by the authoring system to identify a concept.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>userLabel</td>
+                    <td>UserLabel</td>
+                    <td>0..1</td>
+                    <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>description</th>
+        <th>label</th>
+        <th>userLabel</th>
+        <th>allele</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="../../details/details.html#_b4400">_b4400</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA090919">CAR:CA090919</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4400"><pre><code>{
+  "id": "_b4400",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA090919",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll039",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll035",
+        "alleleName": "NM_001369.2(DNAH5):c.7468_7488del",
+        "produces": [
+          {
+            "id": "CG-EX:CtxAll044",
+            "type": "ContextualAllele",
+            "relatedCanonicalAllele": "CanAll040",
+            "alleleName": "NP_001360.1:p.Trp2490_Leu2496del",
+            "producedBy": "CtxAll039"
+          }
+        ]
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4401">_b4401</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA273615">CAR:CA273615</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4401"><pre><code>{
+  "id": "_b4401",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA273615",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll040",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll036",
+        "alleleName": "NM_001369.2(DNAH5):c.9449delG"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4403">_b4403</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA176145">CAR:CA176145</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4403"><pre><code>{
+  "id": "_b4403",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA176145",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll041",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll037",
+        "alleleName": "NM_133261.2(GIPC3):c.298G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4404">_b4404</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA501223">CAR:CA501223</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4404"><pre><code>{
+  "id": "_b4404",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA501223",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll042",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll038",
+        "alleleName": "NM_133261.2(GIPC3):c.411+1G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4406">_b4406</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA090904">CAR:CA090904</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4406"><pre><code>{
+  "id": "_b4406",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA090904",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll043",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll039",
+        "alleleName": "NM_000391.3(TTP1):c.1678_1679delCT"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4408">_b4408</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA090918">CAR:CA090918</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4408"><pre><code>{
+  "id": "_b4408",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA090918",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll087",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll081",
+        "alleleName": "NM_001197104.1(KMT2A):c.6572G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4410">_b4410</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA090918">CAR:CA090918</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4410"><pre><code>{
+  "id": "_b4410",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA090918",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll087",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll081",
+        "alleleName": "NM_001197104.1(KMT2A):c.6572G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4412">_b4412</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA008351">CAR:CA008351</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4412"><pre><code>{
+  "id": "_b4412",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA008351",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll088",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll082",
+        "alleleName": "NM_000038.5(APC ):c.3386T>C"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4414">_b4414</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA008351">CAR:CA008351</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4414"><pre><code>{
+  "id": "_b4414",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA008351",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll088",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll082",
+        "alleleName": "NM_000038.5(APC ):c.3386T>C"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4416">_b4416</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA008351">CAR:CA008351</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4416"><pre><code>{
+  "id": "_b4416",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA008351",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll088",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll082",
+        "alleleName": "NM_000038.5(APC ):c.3386T>C"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4418">_b4418</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA008351">CAR:CA008351</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4418"><pre><code>{
+  "id": "_b4418",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA008351",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll088",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll082",
+        "alleleName": "NM_000038.5(APC ):c.3386T>C"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4420">_b4420</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA013604">CAR:CA013604</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4420"><pre><code>{
+  "id": "_b4420",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA013604",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll089",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll083",
+        "alleleName": "NM_000138.4(FBN1 ):c.2956G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4422">_b4422</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA013604">CAR:CA013604</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4422"><pre><code>{
+  "id": "_b4422",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA013604",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll089",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll083",
+        "alleleName": "NM_000138.4(FBN1 ):c.2956G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4424">_b4424</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA143572">CAR:CA143572</a></p><p><a href="../../details/details.html#CAR:CA252233">CAR:CA252233</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4424"><pre><code>{
+  "id": "_b4424",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA143572",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll100",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll094",
+        "alleleName": "NM_206933.2 (USH2A): c.6721C>T (p.Pro2241Ser)"
+      }
+    },
+    {
+      "id": "CAR:CA252233",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll101",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll095",
+        "alleleName": "NM_206933.2(USH2A):c.2276G>T"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4426">_b4426</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA143572">CAR:CA143572</a></p><p><a href="../../details/details.html#CAR:CA252233">CAR:CA252233</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4426"><pre><code>{
+  "id": "_b4426",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA143572",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll100",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll094",
+        "alleleName": "NM_206933.2 (USH2A): c.6721C>T (p.Pro2241Ser)"
+      }
+    },
+    {
+      "id": "CAR:CA252233",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll101",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll095",
+        "alleleName": "NM_206933.2(USH2A):c.2276G>T"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4428">_b4428</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA182840">CAR:CA182840</a></p><p><a href="../../details/details.html#CAR:CA182839">CAR:CA182839</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4428"><pre><code>{
+  "id": "_b4428",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA182840",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll102",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll096",
+        "alleleName": "NM_000492.3(CFTR): c.2002C>T"
+      }
+    },
+    {
+      "id": "CAR:CA182839",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll103",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll097",
+        "alleleName": "NP_000483.3:p.Gly576Ala"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4430">_b4430</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA501235">CAR:CA501235</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4430"><pre><code>{
+  "id": "_b4430",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA501235",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll104",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll098",
+        "alleleName": "NM_000257.2(MYH7): c.2559G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4431">_b4431</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA501236">CAR:CA501236</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4431"><pre><code>{
+  "id": "_b4431",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA501236",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll105",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll099",
+        "alleleName": "NM_000257.2(MYH7): c.2537A>G"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4433">_b4433</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA012381">CAR:CA012381</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4433"><pre><code>{
+  "id": "_b4433",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA012381",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll112",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll106",
+        "alleleName": "NM_000256.3(MYBPC3): c.2497G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4435">_b4435</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA005304">CAR:CA005304</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4435"><pre><code>{
+  "id": "_b4435",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA005304",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll113",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll107",
+        "alleleName": "NM_000364.3(TNNT2):c.878G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4437">_b4437</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA137502">CAR:CA137502</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4437"><pre><code>{
+  "id": "_b4437",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA137502",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll114",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll108",
+        "alleleName": "NM_022124.5(CDH23):c.5660C>T"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4439">_b4439</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA172240">CAR:CA172240</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4439"><pre><code>{
+  "id": "_b4439",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA172240",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll115",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll109",
+        "alleleName": "NM_004004.5(GJB2):c.71G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4440">_b4440</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA274460">CAR:CA274460</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4440"><pre><code>{
+  "id": "_b4440",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA274460",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll116",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll110",
+        "alleleName": "NM_004004.5(GJB2):c.230G>A"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4442">_b4442</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA137502">CAR:CA137502</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4442"><pre><code>{
+  "id": "_b4442",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA137502",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll114",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll108",
+        "alleleName": "NM_022124.5(CDH23):c.5660C>T"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4444">_b4444</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA277980">CAR:CA277980</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4444"><pre><code>{
+  "id": "_b4444",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA277980",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll117",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll111",
+        "alleleName": "NM_015404.3(WHRN):c.643delG"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4446">_b4446</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA204551">CAR:CA204551</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4446"><pre><code>{
+  "id": "_b4446",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA204551",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll118",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll112",
+        "alleleName": "NM_001844.4(COL2A1):c.4316C>T"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4448">_b4448</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA254703">CAR:CA254703</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4448"><pre><code>{
+  "id": "_b4448",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA254703",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll119",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll113",
+        "alleleName": "NM_000095.2(COMP):c.1042T>C"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4450">_b4450</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA090950">CAR:CA090950</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4450"><pre><code>{
+  "id": "_b4450",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA090950",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll098",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll092",
+        "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4451">_b4451</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA253304">CAR:CA253304</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4451"><pre><code>{
+  "id": "_b4451",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA253304",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll128",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll122",
+        "alleleName": "NM_000441.1(SLC26A4): c.626G>T"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4453">_b4453</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA090950">CAR:CA090950</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4453"><pre><code>{
+  "id": "_b4453",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA090950",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll098",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll092",
+        "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#_b4454">_b4454</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA273665">CAR:CA273665</a></p>
+         </td>
+          <!--
+          <td><div class="example_view" id="_b4454"><pre><code>{
+  "id": "_b4454",
+  "type": "Haplotype",
+  "allele": [
+    {
+      "id": "CAR:CA273665",
+      "type": "CanonicalAllele",
+      "preferredCtxAllele": {
+        "id": "CG-EX:CtxAll129",
+        "type": "ContextualAllele",
+        "relatedCanonicalAllele": "CanAll123",
+        "alleleName": "NM_000441.1(SLC26A4): c.1707+6T>C"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="list-group sidenav">
+            <ul class="list-unstyled">
+              <li class="list-group-item">
+                <h5><a href="../../../">Interpretation Overview</a></h5>
+              </li>
+              <li class='list-group-item'><h5><a href="../../../user/">User Guide</a></h5></li>
+              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../">Entity Definitions</a></li><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Evidence Item</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li><a href="allele_conservation.html">AlleleConservation</a></li><li><a href="allele_conservation_score.html">AlleleConservationScore</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="allele_molecular_consequence.html">AlleleMolecularConsequence</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li class="active"><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="in_silico_prediction_score.html">InSilicoPredictionScore</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="individual_genotype.html">IndividualGenotype</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li><a href="region_type.html">RegionType</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul><li><a href="../../json_schema.html">JSON Schema</a></li></ul></li>
+              <!-- Old style.  We might still need the model here? -->
+              <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="container  background-trans padding-top-xl">
+      <div class="row">
+        <hr />
+        <div class="col-md-col-sm-12 text-center"> 
+          © 2017 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../../javascripts/jquery.js"></script><script src="../../../javascripts/bootstrap.js"></script><script src="../../../javascripts/jquery.jsonview.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>

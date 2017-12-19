@@ -1,0 +1,106 @@
+{
+  "id": "CG-EX:CritAssess300",
+  "type": "CriterionAssessment",
+  "criterion": {
+    "id": "SEPIO-CG:99030",
+    "type": "Criterion",
+    "label": "PM4",
+    "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
+    "defaultStrength": {
+      "id": "SEPIO:0000216",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Moderate"
+    },
+    "comments": "Need to ensure that variant is not located within a repeat region\n\nThis rule is also (likely) applicable for frameshift variants that result in extension of the protein as opposed to truncation (similar to stop loss)."
+  },
+  "variant": {
+    "id": "CAR:CA090938",
+    "type": "CanonicalAllele",
+    "preferredCtxAllele": {
+      "id": "CG-EX:CtxAll045",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll041",
+      "alleleName": "NM_015560.2(OPA1):c.113_130del18",
+      "produces": [
+        {
+          "id": "CG-EX:CtxAll046",
+          "type": "ContextualAllele",
+          "relatedCanonicalAllele": "CanAll042",
+          "alleleName": "NP_056375.2:p.Arg38_Ser43del",
+          "producedBy": "CtxAll045"
+        }
+      ]
+    }
+  },
+  "outcome": {
+    "id": "SEPIO:0000223",
+    "type": "CriterionEvaluation",
+    "label": "Met"
+  },
+  "evidenceLine": [
+    {
+      "id": "CG-EX:EvLn033",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CG-EX:MolCon070",
+          "type": "AlleleMolecularConsequence",
+          "contextualAllele": {
+            "id": "CG-EX:CtxAll046",
+            "type": "ContextualAllele",
+            "relatedCanonicalAllele": "CanAll042",
+            "alleleName": "NP_056375.2:p.Arg38_Ser43del",
+            "producedBy": "CtxAll045"
+          },
+          "consequence": {
+            "id": "SO:0001825",
+            "type": "MolecularConsequence",
+            "label": "conservative Inframe Deletion"
+          }
+        },
+        {
+          "id": "CG-EX:RegTyp073",
+          "type": "RegionType",
+          "region": {
+            "id": "_b4460",
+            "type": "SequenceLocation",
+            "referenceSequence": {
+              "id": "REFSEQ:NP_056375.2",
+              "type": "ReferenceSequence",
+              "accession": "NP_056375.2"
+            },
+            "start": 35,
+            "stop": 43
+          },
+          "annotation": [
+            {
+              "id": "SO:0000657",
+              "type": "RegionAnnotation",
+              "label": "repeat region "
+            }
+          ],
+          "qualifier": "NOT",
+          "description": "NP_056375.2[35..43] is not repeating."
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CG-EX:Agent003",
+        "type": "Agent",
+        "label": "Sasha Rande"
+      },
+      "contributionDate": "6/12/16 8:31 AM",
+      "contributionRole": {
+        "id": "SEPIO:0000154",
+        "type": "ContributoryRole",
+        "label": "assessor role"
+      }
+    }
+  ],
+  "description": "leads to an in-frame deletion of 5 amino acids (not repeat region).",
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

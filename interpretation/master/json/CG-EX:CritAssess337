@@ -1,0 +1,117 @@
+{
+  "id": "CG-EX:CritAssess337",
+  "type": "CriterionAssessment",
+  "criterion": {
+    "id": "SEPIO-CG:99042",
+    "type": "Criterion",
+    "label": "BS4",
+    "description": "Lack of segregation in affected members of a family",
+    "defaultStrength": {
+      "id": "SEPIO:0000328",
+      "type": "EvidenceLineStrength",
+      "label": "Benign Strong"
+    },
+    "comments": "This rule is for “lack of segregation” meaning phenotype positive / genotype negative (and not pheno neg / geno pos). Also need to be careful of phenocopies. Also need rules for how many cases are needed in use this rule"
+  },
+  "variant": {
+    "id": "CAR:CA133141",
+    "type": "CanonicalAllele",
+    "preferredCtxAllele": {
+      "id": "CG-EX:CtxAll096",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll090",
+      "alleleName": "NM_001103.3(ACTN2):c.1484C>T (p.Thr495Met)"
+    }
+  },
+  "condition": [
+    {
+      "id": "CG-EX:GenCond066",
+      "type": "GeneticCondition",
+      "disease": [
+        {
+          "id": "Orphanet:217569",
+          "type": "Disease",
+          "label": "hypertrophic cardiomyopathy"
+        }
+      ],
+      "modeOfInheritance": {
+        "id": "HP:0000006",
+        "type": "ModeOfInheritance",
+        "label": "Autosomal Dominant"
+      }
+    }
+  ],
+  "outcome": {
+    "id": "SEPIO:0000223",
+    "type": "CriterionEvaluation",
+    "label": "Met"
+  },
+  "evidenceLine": [
+    {
+      "id": "CG-EX:EvLn104",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CG-EX:FamSeg271",
+          "type": "FamilySegregation",
+          "condition": {
+            "id": "CG-EX:GenCond066",
+            "type": "GeneticCondition",
+            "disease": [
+              {
+                "id": "Orphanet:217569",
+                "type": "Disease",
+                "label": "hypertrophic cardiomyopathy"
+              }
+            ],
+            "modeOfInheritance": {
+              "id": "HP:0000006",
+              "type": "ModeOfInheritance",
+              "label": "Autosomal Dominant"
+            }
+          },
+          "canonicalAllele": {
+            "id": "CAR:CA133141",
+            "type": "CanonicalAllele",
+            "preferredCtxAllele": {
+              "id": "CG-EX:CtxAll096",
+              "type": "ContextualAllele",
+              "relatedCanonicalAllele": "CanAll090",
+              "alleleName": "NM_001103.3(ACTN2):c.1484C>T (p.Thr495Met)"
+            }
+          },
+          "family": {
+            "id": "_b8509",
+            "type": "Family",
+            "description": "Family #010"
+          },
+          "phenotypePositiveAllelePositive": 0,
+          "phenotypePositiveAlleleNegative": 2,
+          "inconsistentSegregationsObserved": {
+            "id": "SEPIO-CG:99011",
+            "type": "InconsistentSegregationObserved",
+            "label": "present"
+          }
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CG-EX:Agent001",
+        "type": "Agent",
+        "label": "Harry Stevenson"
+      },
+      "contributionDate": "9/5/16 11:00 AM",
+      "contributionRole": {
+        "id": "SEPIO:0000154",
+        "type": "ContributoryRole",
+        "label": "assessor role"
+      }
+    }
+  ],
+  "description": "In a family tested by the LMM, the c.1484C>T variant was identified in a proband with clinical diagnosis of HCM. This proband has two relatives that also have clinical diagnosis of HCM however never relative carries the c.1484C>T variant.",
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

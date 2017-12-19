@@ -1,0 +1,121 @@
+{
+  "id": "CG-EX:CritAssess279",
+  "type": "CriterionAssessment",
+  "criterion": {
+    "id": "SEPIO-CG:99023",
+    "type": "Criterion",
+    "label": "PS1",
+    "description": "Same amino acid change as a previously established pathogenic variant regardless of nucleotide change",
+    "defaultStrength": {
+      "id": "SEPIO:0000330",
+      "type": "EvidenceLineStrength",
+      "label": "Pathogenic Strong"
+    },
+    "comments": "Beware of changes that impact splicing rather than at the amino acid/protein level\nFrom CSER paper: One site erroneously used this to apply prior publication of the same exact variant while this rule, as described in more depth on the ACMG/AMP guideline, only applies when the established pathogenic variant has a different nucleotide change than the variant being interpreted."
+  },
+  "variant": {
+    "id": "CAR:CA501220",
+    "type": "CanonicalAllele",
+    "preferredCtxAllele": {
+      "id": "CG-EX:CtxAll008",
+      "type": "ContextualAllele",
+      "relatedCanonicalAllele": "CanAll007",
+      "alleleName": "NM_001369.2(DNAH5):c.6249G>C (p.Met2083Ile)",
+      "produces": [
+        {
+          "id": "CG-EX:CtxAll010",
+          "type": "ContextualAllele",
+          "relatedCanonicalAllele": "CanAll009",
+          "alleleName": "NP_001360.1:p.Met2083Ile",
+          "producedBy": "CtxAll009"
+        }
+      ]
+    }
+  },
+  "condition": [
+    {
+      "id": "CG-EX:GenCond004",
+      "type": "GeneticCondition",
+      "disease": [
+        {
+          "id": "Orphanet:244",
+          "type": "Disease",
+          "label": "Primary ciliary dyskenisia"
+        }
+      ]
+    }
+  ],
+  "outcome": {
+    "id": "SEPIO:0000224",
+    "type": "CriterionEvaluation",
+    "label": "Not Met"
+  },
+  "evidenceLine": [
+    {
+      "id": "CG-EX:EvLn006",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CG-EX:VarInterp009",
+          "type": "VariantInterpretation",
+          "variant": {
+            "id": "CAR:CA501221",
+            "type": "CanonicalAllele",
+            "preferredCtxAllele": {
+              "id": "CG-EX:CtxAll009",
+              "type": "ContextualAllele",
+              "relatedCanonicalAllele": "CanAll008",
+              "alleleName": "NM_001369.2(DNAH5):c.6249G>A (p.Met2083Ile)",
+              "produces": [
+                {
+                  "id": "CG-EX:CtxAll010",
+                  "type": "ContextualAllele",
+                  "relatedCanonicalAllele": "CanAll009",
+                  "alleleName": "NP_001360.1:p.Met2083Ile",
+                  "producedBy": "CtxAll009"
+                }
+              ]
+            }
+          },
+          "condition": [
+            {
+              "id": "CG-EX:GenCond004",
+              "type": "GeneticCondition",
+              "disease": [
+                {
+                  "id": "Orphanet:244",
+                  "type": "Disease",
+                  "label": "Primary ciliary dyskenisia"
+                }
+              ]
+            }
+          ],
+          "outcome": {
+            "id": "LN:LA6668-3",
+            "type": "Significance",
+            "label": "Pathogenic"
+          },
+          "description": "NM_001369.2:c.6249G>A Pathogenic for PCD"
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CG-EX:Agent001",
+        "type": "Agent",
+        "label": "Harry Stevenson"
+      },
+      "contributionDate": "6/2/16 4:22 PM",
+      "contributionRole": {
+        "id": "SEPIO:0000154",
+        "type": "ContributoryRole",
+        "label": "assessor role"
+      }
+    }
+  ],
+  "description": "The assessed variant produces the same amino acid change (p.Met2083Ile) as known pathogenic variant c.6249G>A.  But that change is pathogenic because it has been shown to disrupt splicing and create a premature stop codon. Prediction tools do not suggest c.6249G>C disrupts splicing.",
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

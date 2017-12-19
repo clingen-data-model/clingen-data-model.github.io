@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Data Model
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../../../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../../../stylesheets/brand2.css" rel="stylesheet" /><link href="../../../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+    
+      <div class="container-fluid hero-background">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="../../../../images/clingen-doc-logo.png" />
+</a>            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+                    <li class="allele" >
+                      <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span> Allele Model</a></li>
+                    </li>
+                    <li class="interpretation" >
+                      <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span> Interpretation Model</a></li>
+                    </li>
+                <li>
+                    <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+          </div>
+    
+
+
+    
+        <div class="row">
+          <div class="col-sm-12">
+              <h1 class="header">Criterion</h1>
+              <ol class="breadcrumb bg-none margin-none">
+                
+              </ol>
+                <blockquote><p>A specification that describes how to interpret the direction and strength of evidence provided by a specific type of information, as relevant to the pathogenicity or benignancy of a genetic variant.
+
+A specification that describes how to interpret the direction and strength of evidence provided by a specific type of information for the pathogenicity or benignancy of a genetic variant.</p>
+                <STRONG>
+                  <div>SEPIO:0000192</div>
+                      <i>Descended from DomainEntity</i>
+                </STRONG>
+                </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
+          <article>
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2 id="scope-and-usage">Scope and Usage</h2>
+
+<p>In the ACMG Variant Pathogenicity guideline, data is assessed by the application of a prescribed set of criteria.  These criteria describe standard arguments that can be made about the pathogenicity of a variant.</p>
+
+<p>For instance, a variant with a common frequency in a population is unlikely to be causal for a serious rare condition.  This inference is captured in a Criterion.  In the ACMG framework, this particular criterion has the identifier BA1.  In this version of the model, instances of Criteria correspond exactly to the criteria of the ACMG Variant Pathogenicity guideline.</p>
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>defaultStrength</td>
+                <td>EvidenceLineStrength</td>
+                <td>0..1</td>
+                <td></td>
+                <td>SEPIO:0000196</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    <h2>Inherited Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A freetext description of the entity</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A freeform text (preferred) representation used by the authoring system to identify a concept.</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>userLabel</td>
+                    <td>UserLabel</td>
+                    <td>0..1</td>
+                    <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>description</th>
+        <th>label</th>
+        <th>userLabel</th>
+        <th>defaultStrength</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99022">SEPIO-CG:99022</a></p> (PVS1)</td>
+          <td>
+              <p>null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease</p>
+         </td>
+          <td>
+              <p>PVS1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000220">SEPIO:0000220</a></p> (Pathogenic Very Strong)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99022"><pre><code>{
+  "id": "SEPIO-CG:99022",
+  "type": "Criterion",
+  "label": "PVS1",
+  "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
+  "defaultStrength": {
+    "id": "SEPIO:0000220",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Very Strong"
+  },
+  "comments": "The two main concerns for applying this rule is:\na. Is LOF an established disease mechanism?\nb. Is LOF actually occurring?"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99023">SEPIO-CG:99023</a></p> (PS1)</td>
+          <td>
+              <p>Same amino acid change as a previously established pathogenic variant regardless of nucleotide change</p>
+         </td>
+          <td>
+              <p>PS1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000330">SEPIO:0000330</a></p> (Pathogenic Strong)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99023"><pre><code>{
+  "id": "SEPIO-CG:99023",
+  "type": "Criterion",
+  "label": "PS1",
+  "description": "Same amino acid change as a previously established pathogenic variant regardless of nucleotide change",
+  "defaultStrength": {
+    "id": "SEPIO:0000330",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Strong"
+  },
+  "comments": "Beware of changes that impact splicing rather than at the amino acid/protein level\nFrom CSER paper: One site erroneously used this to apply prior publication of the same exact variant while this rule, as described in more depth on the ACMG/AMP guideline, only applies when the established pathogenic variant has a different nucleotide change than the variant being interpreted."
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99024">SEPIO-CG:99024</a></p> (PS2)</td>
+          <td>
+              <p>De novo (both maternity and paternity confirmed) in a patient with the disease and no family history</p>
+         </td>
+          <td>
+              <p>PS2</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000330">SEPIO:0000330</a></p> (Pathogenic Strong)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99024"><pre><code>{
+  "id": "SEPIO-CG:99024",
+  "type": "Criterion",
+  "label": "PS2",
+  "description": "De novo (both maternity and paternity confirmed) in a patient with the disease and no family history",
+  "defaultStrength": {
+    "id": "SEPIO:0000330",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Strong"
+  },
+  "comments": "MYH7 is adding specificity to this rule with\na. No family history = parents have had ECHO and ECG\nb. Only paternity confirmation required"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99025">SEPIO-CG:99025</a></p> (PS3)</td>
+          <td>
+              <p>Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product</p>
+         </td>
+          <td>
+              <p>PS3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000330">SEPIO:0000330</a></p> (Pathogenic Strong)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99025"><pre><code>{
+  "id": "SEPIO-CG:99025",
+  "type": "Criterion",
+  "label": "PS3",
+  "description": "Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product",
+  "defaultStrength": {
+    "id": "SEPIO:0000330",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Strong"
+  },
+  "comments": "This particular rule will probably be downgraded often, given that there are not many “Functional studies that have been validated and shown to be reproducible and robust in a clinical diagnostic laboratory setting”"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99026">SEPIO-CG:99026</a></p> (PS4)</td>
+          <td>
+              <p>The prevalence of the variant in affected individuals is significantly increased compared with the prevalence in controls</p>
+         </td>
+          <td>
+              <p>PS4</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000330">SEPIO:0000330</a></p> (Pathogenic Strong)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99026"><pre><code>{
+  "id": "SEPIO-CG:99026",
+  "type": "Criterion",
+  "label": "PS4",
+  "description": "The prevalence of the variant in affected individuals is significantly increased compared with the prevalence in controls",
+  "defaultStrength": {
+    "id": "SEPIO:0000330",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Strong"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99027">SEPIO-CG:99027</a></p> (PM1)</td>
+          <td>
+              <p>Located in a mutational hot spot and/or critical and well-established functional domain (e.g., active site of an enzyme) without benign variation</p>
+         </td>
+          <td>
+              <p>PM1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000216">SEPIO:0000216</a></p> (Pathogenic Moderate)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99027"><pre><code>{
+  "id": "SEPIO-CG:99027",
+  "type": "Criterion",
+  "label": "PM1",
+  "description": "Located in a mutational hot spot and/or critical and well-established functional domain (e.g., active site of an enzyme) without benign variation",
+  "defaultStrength": {
+    "id": "SEPIO:0000216",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Moderate"
+  },
+  "comments": "Suggested that this rule is NOT appropriate for LOF variants.\nAlso, note that when the region of interest is a “well-established functional domain” then it’s not necessary to show through evidence that it is intolerant of benign missense variants.  However, when a mutational hotspot is being defined, then showing it does not have benign missense variants is important."
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99028">SEPIO-CG:99028</a></p> (PM2)</td>
+          <td>
+              <p>Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium</p>
+         </td>
+          <td>
+              <p>PM2</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000216">SEPIO:0000216</a></p> (Pathogenic Moderate)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99028"><pre><code>{
+  "id": "SEPIO-CG:99028",
+  "type": "Criterion",
+  "label": "PM2",
+  "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
+  "defaultStrength": {
+    "id": "SEPIO:0000216",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Moderate"
+  },
+  "comments": "Some groups are allowing to rule to be used if even not 100% absent\nFor instance, Cardio has allowed PM2 to be used if MAF is <0.05% with 95% CI if\nCI lower is ~0.00% (at 2 decimal places) AND CI upper is below 0.05%\n Caveat: Population data for insertions/deletions may be poorly called by next-generation sequencing"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99029">SEPIO-CG:99029</a></p> (PM3)</td>
+          <td>
+              <p>For recessive disorders, detected in trans with a pathogenic variant</p>
+         </td>
+          <td>
+              <p>PM3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000216">SEPIO:0000216</a></p> (Pathogenic Moderate)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99029"><pre><code>{
+  "id": "SEPIO-CG:99029",
+  "type": "Criterion",
+  "label": "PM3",
+  "description": "For recessive disorders, detected in trans with a pathogenic variant",
+  "defaultStrength": {
+    "id": "SEPIO:0000216",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Moderate"
+  },
+  "comments": "CSER - Laboratories discussed when to modify the strength of PM3, the variant is seen in trans with a pathogenic variant for recessive disorders. Published literature may not always explicitly state the phase of variants found in affected individuals which raises a challenge for invoking PM3.\nWhen phase has not been established, some felt that PM3 could be invoked as supporting evidence. Also, if the variant is seen in trans with a pathogenic variant in more than one individual it was felt that PM3 can be upgraded to strong. However, sites did not agree on how many additional observations were necessary to call the evidence strong (2 vs. 3) but concluded that such guidance would be useful.\n \nLMM - INCREASES IN STRENGTH IF VARIANT SEEN IN MULTIPLE COMPOUND HETS WITH DIFFERENT LIKELY PATHOGENIC/PATHOGENIC VARIANTS"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99030">SEPIO-CG:99030</a></p> (PM4)</td>
+          <td>
+              <p>Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants</p>
+         </td>
+          <td>
+              <p>PM4</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000216">SEPIO:0000216</a></p> (Pathogenic Moderate)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99030"><pre><code>{
+  "id": "SEPIO-CG:99030",
+  "type": "Criterion",
+  "label": "PM4",
+  "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
+  "defaultStrength": {
+    "id": "SEPIO:0000216",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Moderate"
+  },
+  "comments": "Need to ensure that variant is not located within a repeat region\n\nThis rule is also (likely) applicable for frameshift variants that result in extension of the protein as opposed to truncation (similar to stop loss)."
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99031">SEPIO-CG:99031</a></p> (PM5)</td>
+          <td>
+              <p>Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before</p>
+         </td>
+          <td>
+              <p>PM5</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000216">SEPIO:0000216</a></p> (Pathogenic Moderate)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99031"><pre><code>{
+  "id": "SEPIO-CG:99031",
+  "type": "Criterion",
+  "label": "PM5",
+  "description": "Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before",
+  "defaultStrength": {
+    "id": "SEPIO:0000216",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Moderate"
+  },
+  "comments": "Need to be sure that pathogenic variant exists at the residue in question. Sometimes discrepancy resolution may be required. Some thing like Variantexplorer.org may be useful.\nSometimes no assertion is provided in ClinVar ...may require curation by lit. search."
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99032">SEPIO-CG:99032</a></p> (PM6)</td>
+          <td>
+              <p>Assumed de novo, but without confirmation of paternity and maternity</p>
+         </td>
+          <td>
+              <p>PM6</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000216">SEPIO:0000216</a></p> (Pathogenic Moderate)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99032"><pre><code>{
+  "id": "SEPIO-CG:99032",
+  "type": "Criterion",
+  "label": "PM6",
+  "description": "Assumed de novo, but without confirmation of paternity and maternity",
+  "defaultStrength": {
+    "id": "SEPIO:0000216",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Moderate"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99033">SEPIO-CG:99033</a></p> (PP1)</td>
+          <td>
+              <p>Cosegregation with disease in multiple affected family members in a gene definitively known to cause the disease</p>
+         </td>
+          <td>
+              <p>PP1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000329">SEPIO:0000329</a></p> (Pathogenic Supporting)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99033"><pre><code>{
+  "id": "SEPIO-CG:99033",
+  "type": "Criterion",
+  "label": "PP1",
+  "description": "Cosegregation with disease in multiple affected family members in a gene definitively known to cause the disease",
+  "defaultStrength": {
+    "id": "SEPIO:0000329",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Supporting"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99034">SEPIO-CG:99034</a></p> (PP2)</td>
+          <td>
+              <p>Missense variant in a gene that has a low rate of benign missense variation and in which missense variants are a common mechanism of disease</p>
+         </td>
+          <td>
+              <p>PP2</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000329">SEPIO:0000329</a></p> (Pathogenic Supporting)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99034"><pre><code>{
+  "id": "SEPIO-CG:99034",
+  "type": "Criterion",
+  "label": "PP2",
+  "description": "Missense variant in a gene that has a low rate of benign missense variation and in which missense variants are a common mechanism of disease",
+  "defaultStrength": {
+    "id": "SEPIO:0000329",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Supporting"
+  },
+  "comments": "Seems no one has established firm rules for when this rule is applicable so not sure how great any examples will be\nAgree with the lack of firm rules. Seems like one criteria may be observed missense variants over 5% allele frequency in ExAC. If this seems reasonable then I could generate a couple of examples."
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99035">SEPIO-CG:99035</a></p> (PP3)</td>
+          <td>
+              <p>Multiple lines of computational evidence support a deleterious effect on the gene or gene product (conservation, evolutionary, splicing impact, etc.)</p>
+         </td>
+          <td>
+              <p>PP3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000329">SEPIO:0000329</a></p> (Pathogenic Supporting)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99035"><pre><code>{
+  "id": "SEPIO-CG:99035",
+  "type": "Criterion",
+  "label": "PP3",
+  "description": "Multiple lines of computational evidence support a deleterious effect on the gene or gene product (conservation, evolutionary, splicing impact, etc.)",
+  "defaultStrength": {
+    "id": "SEPIO:0000329",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Supporting"
+  },
+  "comments": "Don’t know if there is a definition of “multiple” . If >1 then the algorithms chosen are at the discretion of the curator/lab.  There is a difference between lines of evidence and number of implementations."
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99036">SEPIO-CG:99036</a></p> (PP4)</td>
+          <td>
+              <p>Patient’s phenotype or family history is highly specific for a disease with a single genetic etiology</p>
+         </td>
+          <td>
+              <p>PP4</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000329">SEPIO:0000329</a></p> (Pathogenic Supporting)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99036"><pre><code>{
+  "id": "SEPIO-CG:99036",
+  "type": "Criterion",
+  "label": "PP4",
+  "description": "Patient’s phenotype or family history is highly specific for a disease with a single genetic etiology",
+  "defaultStrength": {
+    "id": "SEPIO:0000329",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Supporting"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99037">SEPIO-CG:99037</a></p> (PP5)</td>
+          <td>
+              <p>Reputable source recently reports variant as pathogenic, but the evidence is not available to the laboratory to perform an independent evaluation</p>
+         </td>
+          <td>
+              <p>PP5</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000329">SEPIO:0000329</a></p> (Pathogenic Supporting)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99037"><pre><code>{
+  "id": "SEPIO-CG:99037",
+  "type": "Criterion",
+  "label": "PP5",
+  "description": "Reputable source recently reports variant as pathogenic, but the evidence is not available to the laboratory to perform an independent evaluation",
+  "defaultStrength": {
+    "id": "SEPIO:0000329",
+    "type": "EvidenceLineStrength",
+    "label": "Pathogenic Supporting"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99038">SEPIO-CG:99038</a></p> (BA1)</td>
+          <td>
+              <p>Allele frequency is >5% in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium</p>
+         </td>
+          <td>
+              <p>BA1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000325">SEPIO:0000325</a></p> (Benign Stand Alone)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99038"><pre><code>{
+  "id": "SEPIO-CG:99038",
+  "type": "Criterion",
+  "label": "BA1",
+  "description": "Allele frequency is >5% in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
+  "defaultStrength": {
+    "id": "SEPIO:0000325",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Stand Alone"
+  },
+  "comments": "Several groups have lowered the BA1 threshold (e.g. PTEN-1%). Also the sequence variant interpretation group is working on a modified version of this guideline including the minimum # of alleles that need to be examined and the population stratification effects, if any."
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99039">SEPIO-CG:99039</a></p> (BS1)</td>
+          <td>
+              <p>Allele frequency is greater than expected for disorder</p>
+         </td>
+          <td>
+              <p>BS1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000328">SEPIO:0000328</a></p> (Benign Strong)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99039"><pre><code>{
+  "id": "SEPIO-CG:99039",
+  "type": "Criterion",
+  "label": "BS1",
+  "description": "Allele frequency is greater than expected for disorder",
+  "defaultStrength": {
+    "id": "SEPIO:0000328",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Strong"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99040">SEPIO-CG:99040</a></p> (BS2)</td>
+          <td>
+              <p>Observed in a healthy adult individual for a recessive (homozygous), dominant (heterozygous), or X-linked (hemizygous) disorder, with full penetrance expected at an early age</p>
+         </td>
+          <td>
+              <p>BS2</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000328">SEPIO:0000328</a></p> (Benign Strong)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99040"><pre><code>{
+  "id": "SEPIO-CG:99040",
+  "type": "Criterion",
+  "label": "BS2",
+  "defaultStrength": {
+    "id": "SEPIO:0000328",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Strong"
+  },
+  "description": "Observed in a healthy adult individual for a recessive (homozygous), dominant (heterozygous), or X-linked (hemizygous) disorder, with full penetrance expected at an early age",
+  "comments": "This rule should not be used for diseases with reduced penetrance or late/variable age of  onset (such as certain cardiomyopathies)."
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99041">SEPIO-CG:99041</a></p> (BS3)</td>
+          <td>
+              <p>Well-established in vitro or in vivo functional studies show no damaging effect on protein function or splicing</p>
+         </td>
+          <td>
+              <p>BS3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000328">SEPIO:0000328</a></p> (Benign Strong)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99041"><pre><code>{
+  "id": "SEPIO-CG:99041",
+  "type": "Criterion",
+  "label": "BS3",
+  "description": "Well-established in vitro or in vivo functional studies show no damaging effect on protein function or splicing",
+  "defaultStrength": {
+    "id": "SEPIO:0000328",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Strong"
+  },
+  "comments": "\nThis will all depend on what is “established”, which could end up being defined by the different clinical domain working groups.\n"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99042">SEPIO-CG:99042</a></p> (BS4)</td>
+          <td>
+              <p>Lack of segregation in affected members of a family</p>
+         </td>
+          <td>
+              <p>BS4</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000328">SEPIO:0000328</a></p> (Benign Strong)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99042"><pre><code>{
+  "id": "SEPIO-CG:99042",
+  "type": "Criterion",
+  "label": "BS4",
+  "description": "Lack of segregation in affected members of a family",
+  "defaultStrength": {
+    "id": "SEPIO:0000328",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Strong"
+  },
+  "comments": "This rule is for “lack of segregation” meaning phenotype positive / genotype negative (and not pheno neg / geno pos). Also need to be careful of phenocopies. Also need rules for how many cases are needed in use this rule"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99043">SEPIO-CG:99043</a></p> (BP1)</td>
+          <td>
+              <p>Missense variant in a gene for which primarily truncating variants are known to cause disease</p>
+         </td>
+          <td>
+              <p>BP1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000327">SEPIO:0000327</a></p> (Benign Supporting)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99043"><pre><code>{
+  "id": "SEPIO-CG:99043",
+  "type": "Criterion",
+  "label": "BP1",
+  "description": "Missense variant in a gene for which primarily truncating variants are known to cause disease",
+  "defaultStrength": {
+    "id": "SEPIO:0000327",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Supporting"
+  },
+  "comments": "Is there any guidance on the proportion of pathogenic variants that are LOF to apply this rule?  99%? 90%? 75%?"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99044">SEPIO-CG:99044</a></p> (BP2)</td>
+          <td>
+              <p>Observed in trans with a pathogenic variant for a fully penetrant dominant gene/disorder or observed in cis with a pathogenic variant in any inheritance pattern</p>
+         </td>
+          <td>
+              <p>BP2</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000327">SEPIO:0000327</a></p> (Benign Supporting)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99044"><pre><code>{
+  "id": "SEPIO-CG:99044",
+  "type": "Criterion",
+  "label": "BP2",
+  "description": "Observed in trans with a pathogenic variant for a fully penetrant dominant gene/disorder or observed in cis with a pathogenic variant in any inheritance pattern",
+  "defaultStrength": {
+    "id": "SEPIO:0000327",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Supporting"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99045">SEPIO-CG:99045</a></p> (BP3)</td>
+          <td>
+              <p>In-frame deletions/insertions in a repetitive region without a known function</p>
+         </td>
+          <td>
+              <p>BP3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000327">SEPIO:0000327</a></p> (Benign Supporting)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99045"><pre><code>{
+  "id": "SEPIO-CG:99045",
+  "type": "Criterion",
+  "label": "BP3",
+  "description": "In-frame deletions/insertions in a repetitive region without a known function",
+  "defaultStrength": {
+    "id": "SEPIO:0000327",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Supporting"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99046">SEPIO-CG:99046</a></p> (BP4)</td>
+          <td>
+              <p>Multiple lines of computational evidence suggest no impact on gene or gene product (conservation, evolutionary, splicing impact, etc.)</p>
+         </td>
+          <td>
+              <p>BP4</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000327">SEPIO:0000327</a></p> (Benign Supporting)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99046"><pre><code>{
+  "id": "SEPIO-CG:99046",
+  "type": "Criterion",
+  "label": "BP4",
+  "description": "Multiple lines of computational evidence suggest no impact on gene or gene product (conservation, evolutionary, splicing impact, etc.)",
+  "defaultStrength": {
+    "id": "SEPIO:0000327",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Supporting"
+  },
+  "comments": "same issues as PP3."
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99047">SEPIO-CG:99047</a></p> (BP5)</td>
+          <td>
+              <p>Variant found in a case with an alternate molecular basis for disease</p>
+         </td>
+          <td>
+              <p>BP5</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000327">SEPIO:0000327</a></p> (Benign Supporting)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99047"><pre><code>{
+  "id": "SEPIO-CG:99047",
+  "type": "Criterion",
+  "label": "BP5",
+  "description": "Variant found in a case with an alternate molecular basis for disease",
+  "defaultStrength": {
+    "id": "SEPIO:0000327",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Supporting"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99048">SEPIO-CG:99048</a></p> (BP6)</td>
+          <td>
+              <p>Reputable source recently reports variant as benign, but the evidence is not available to the laboratory to perform an independent evaluation</p>
+         </td>
+          <td>
+              <p>BP6</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000327">SEPIO:0000327</a></p> (Benign Supporting)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99048"><pre><code>{
+  "id": "SEPIO-CG:99048",
+  "type": "Criterion",
+  "label": "BP6",
+  "description": "Reputable source recently reports variant as benign, but the evidence is not available to the laboratory to perform an independent evaluation",
+  "defaultStrength": {
+    "id": "SEPIO:0000327",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Supporting"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../../details/details.html#SEPIO-CG:99049">SEPIO-CG:99049</a></p> (BP7)</td>
+          <td>
+              <p>A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved</p>
+         </td>
+          <td>
+              <p>BP7</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../../details/details.html#SEPIO:0000327">SEPIO:0000327</a></p> (Benign Supporting)
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:99049"><pre><code>{
+  "id": "SEPIO-CG:99049",
+  "type": "Criterion",
+  "label": "BP7",
+  "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
+  "defaultStrength": {
+    "id": "SEPIO:0000327",
+    "type": "EvidenceLineStrength",
+    "label": "Benign Supporting"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="list-group sidenav">
+            <ul class="list-unstyled">
+              <li class="list-group-item">
+                <h5><a href="../../../../">Interpretation Overview</a></h5>
+              </li>
+              <li class='list-group-item'><h5><a href="../../../../user/">User Guide</a></h5></li>
+              <li class="list-group-item"><h5><a href="../../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../../">Entity Definitions</a></li><ul class='list-unstyled'><li><a href="../../core/">Core</a></li><li><a href="../../domain_entities/">Domain Entities</a></li><li><a href="../../evidence_items/">Evidence Item</a></li><li><a href="../../provenance/">Provenance</a></li><li class="active"><a href="../">Terminology</a></li><ul class='list-unstyled'><li><a href="../identifier_system.html">IdentifierSystem</a></li><li><a href="../user_label.html">UserLabel</a></li><li><a href="../value_set.html">ValueSet</a></li></ul></ul><li><a href="../../../json_schema.html">JSON Schema</a></li></ul></li>
+              <!-- Old style.  We might still need the model here? -->
+              <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="container  background-trans padding-top-xl">
+      <div class="row">
+        <hr />
+        <div class="col-md-col-sm-12 text-center"> 
+          © 2017 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../../../javascripts/jquery.js"></script><script src="../../../../javascripts/bootstrap.js"></script><script src="../../../../javascripts/jquery.jsonview.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>
