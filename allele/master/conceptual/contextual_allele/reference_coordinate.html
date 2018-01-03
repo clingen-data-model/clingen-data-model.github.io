@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
 
-    <link href="../../stylesheets/bootstrap-50fb3239.css" rel="stylesheet" /><link href="../../stylesheets/bootstrap-theme-87f7e926.css" rel="stylesheet" /><link href="../../stylesheets/brand2-264fd7eb.css" rel="stylesheet" /><link href="../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+    <link href="../../stylesheets/bootstrap-fb6be331.css" rel="stylesheet" /><link href="../../stylesheets/bootstrap-theme-87f7e926.css" rel="stylesheet" /><link href="../../stylesheets/brand2-d4d69bbf.css" rel="stylesheet" /><link href="../../stylesheets/jquery.jsonview-c709ce8f.css" rel="stylesheet" />
 
       <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -73,7 +73,7 @@
 <li><a href="reference_coordinate.html">ReferenceCoordinate</a></li>
 
               </ol>
-                <blockquote><p>ReferenceCoordinate defines a location with respect to a <a href="../reference_sequence/index.html">ReferenceSequence</a>.</p>
+                <blockquote><p>ReferenceCoordinate defines a location with respect to a <a href="/conceptual/reference_sequence/index.html">ReferenceSequence</a>.</p>
                 </blockquote>
           </div>
         </div>
@@ -83,24 +83,20 @@
       <div class="row">
             <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
       <article>
-        <h1>ReferenceCoordinate</h1>
-        <hr class='col-sm-12' />
            <h2 id="synonyms">Synonyms</h2>
 <p>Locus</p>
 
 <h2 id="scope-and-usage">Scope and Usage</h2>
 
-<p>A contiguous genetic change between individuals may be described as a difference in alleles at a given location.  That location, here called an ReferenceCoordinate, is described in relation to a particular <a href="./">ReferenceSequence</a>, which provides the coordinate frame for determining position.</p>
+<p>A contiguous genetic change between individuals may be described as a difference in alleles at a given location.  That location, here called an ReferenceCoordinate, is described in relation to a particular <a href="../reference_sequence/">ReferenceSequence</a>, which provides the coordinate frame for determining position.</p>
 
-<p>A <a href="contextual_allele.html">ContextualAllele</a> is defined with respect to an ReferenceCoordinate by further specifying the allele that occurs at this coordinate, where the allele may be the same as or different than the allele that occurs in the reference sequence.</p>
+<p>A <a href="./">ContextualAllele</a> is defined with respect to an ReferenceCoordinate by further specifying the allele that occurs at this coordinate, where the allele may be the same as or different than the allele that occurs in the reference sequence.</p>
 
-<p>There exist numerous schemes for the coding of coordinates (see below for choices).  In this allele model, coordinates are defined using a zero-based interval scheme.   The interval scheme numbers the intervals between elements of the sequence, with the first base occurring after the interval numbered 0.  In this scheme, the sequence elements bounded the start and end intervals constitute the coordinate.  The end position is therefore always computable as start + length of the reference allele. See <a href="../../discussion/coordinate_numbering.html">this discussion</a> for further details on coordinate numbering.</p>
+<p>There exist numerous schemes for the coding of coordinates (see below for choices).  In this allele model, coordinates are defined using a zero-based interval scheme.   The interval scheme numbers the intervals between elements of the sequence, with the first base occurring after the interval numbered 0.  In this scheme, the sequence elements bounded the start and end intervals constitute the coordinate.  The end position is therefore always computable as start + length of the reference allele. See <a href="../../discussion/">this discussion</a> for further details on coordinate numbering.</p>
 
 <p>ReferenceCoordinate represents the coordinate of a region on a ReferenceSequence; the start and end of that region are each represented by an instance of the <a href="position.html">Position</a> class, which will point to a specific interval between consecutive bases.</p>
 
 <p>The ReferenceCoordinate is an abstract class.  Instances of ReferenceCoordinate must be either a <a href="genomic_reference_coordinate.html">GenomicReferenceCoordinate</a>, a <a href="transcript_reference_coordinate.html">TranscriptReferenceCoordinate</a>, or an <a href="amino_acid_reference_coordinate.html">AminoAcidReferenceCoordinate</a>.</p>
-
-<h2 id="exclusions-and-limitations">Exclusions and Limitations</h2>
 
 <h2 id="attributes">Attributes</h2>
 
@@ -131,7 +127,7 @@
   </tbody>
 </table>
 
-<p>identifier: ReferenceCoordinates may be assigned identifiers by databases such as dbSNP.   Multiple agencies may apply different identifiers over different time periods to refer to the same identifier. The identifier may be shared across different ReferenceCoordinates, for instance those that are all grouped together under the same <a href="canonical_allele.html">CanonicalAllele</a></p>
+<p>identifier: ReferenceCoordinates may be assigned identifiers by databases such as dbSNP.   Multiple agencies may apply different identifiers over different time periods to refer to the same identifier. The identifier may be shared across different ReferenceCoordinates, for instance those that are all grouped together under the same <a href="../canonical_allele/">CanonicalAllele</a></p>
 
 <p>start: The position of the beginning (in the 5-prime sense) of the region specified by this Reference Coordinate.</p>
 

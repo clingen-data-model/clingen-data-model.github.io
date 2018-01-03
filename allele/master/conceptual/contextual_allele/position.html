@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
 
-    <link href="../../stylesheets/bootstrap-50fb3239.css" rel="stylesheet" /><link href="../../stylesheets/bootstrap-theme-87f7e926.css" rel="stylesheet" /><link href="../../stylesheets/brand2-264fd7eb.css" rel="stylesheet" /><link href="../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+    <link href="../../stylesheets/bootstrap-fb6be331.css" rel="stylesheet" /><link href="../../stylesheets/bootstrap-theme-87f7e926.css" rel="stylesheet" /><link href="../../stylesheets/brand2-d4d69bbf.css" rel="stylesheet" /><link href="../../stylesheets/jquery.jsonview-c709ce8f.css" rel="stylesheet" />
 
       <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -73,7 +73,7 @@
 <li><a href="position.html">Position</a></li>
 
               </ol>
-                <blockquote><p>Position defines one end of a <a href="../reference_coordinate.html">ReferenceCoordinate</a>.</p>
+                <blockquote><p>Position defines one end of a <a href="reference_coordinate.html">ReferenceCoordinate</a>.</p>
                 </blockquote>
           </div>
         </div>
@@ -83,13 +83,11 @@
       <div class="row">
             <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
       <article>
-        <h1>Position</h1>
-        <hr class='col-sm-12' />
            <h2 id="scope-and-usage">Scope and Usage</h2>
 
 <p>ReferenceCoordinate(reference_coordinate.html) represents the coordinate of a region on a ReferenceSequence; the start and end of that region are each represented by a Position, which will point to a specific interval between consecutive bases.</p>
 
-<p>Position is an abstract class with two subclasses: <a href="internal_position.html">InternalPosition</a>, and <a href="external_position">ExternalPosition</a>.   InternalPosition is the most common, used when the Position is within the ReferenceSequence.  ExternalPosition is used only when the position is with respect to the ReferenceSequence but is not actually part of the ReferenceSequence.  This situation occurs when a position lies within an intron, but the position is defined with respect to a TranscriptReferenceSequence.   ExternalPosition can only be used in conjuction with TranscriptReferenceSequence.</p>
+<p>Position is an abstract class with two subclasses: <a href="internal_position.html">InternalPosition</a>, and <a href="external_position.html">ExternalPosition</a>.   InternalPosition is the most common, used when the Position is within the ReferenceSequence.  ExternalPosition is used only when the position is with respect to the ReferenceSequence but is not actually part of the ReferenceSequence.  This situation occurs when a position lies within an intron, but the position is defined with respect to a TranscriptReferenceSequence.   ExternalPosition can only be used in conjuction with TranscriptReferenceSequence.</p>
 
 <p>If the ReferenceCoordinate that owns a Position is a GenomicReferenceCoordinate, or an AminoAcidReferenceCoordinate, the Position must be an instance of InternalPosition.  If the ReferenceCoordinate that owns a Position is a TranscriptReferenceCoordinate, the Position may be either an InternalPosition or an ExternalPosition.  It is possible that a TranscriptReferenceCoordinate may contain one InternalPosition and one ExternalPosition, if the coordinate covers an intron/exon boundary.</p>
 
@@ -112,7 +110,7 @@
   </tbody>
 </table>
 
-<p>index: The 0-based index of the inter-base interval pointed to by this position.  See <a href="../../discussion/coordinate_numbering.html">this discussion</a> for further details on coordinate numbering.</p>
+<p>index: The 0-based index of the inter-base interval pointed to by this position.  See <a href="../../discussion/">this discussion</a> for further details on coordinate numbering.</p>
 
 <h2 id="related-entities">Related Entities</h2>
 <p>Subclasses InternalPosition and ExternalPosition.</p>
