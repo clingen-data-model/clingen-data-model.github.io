@@ -82,7 +82,7 @@
       <div class="row">
             <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
       <article>
-        <p>A specific allele may have multiple representations, both because of the variety of reference sequences to which the allele can be mapped and because not all alleles can be uniquely mapped to a given sequence. The <a href="/conceptual/canonical_allele">CanonicalAllele</a> concept is meant to provide a representation that can aggregate these representations for the purpose of recognizing common entities on which assertions can be made.</p>
+        <p>A specific allele may have multiple representations, both because of the variety of reference sequences to which the allele can be mapped and because not all alleles can be uniquely mapped to a given sequence. The <a href="../conceptual/canonical_allele/">CanonicalAllele</a> concept is meant to provide a representation that can aggregate these representations for the purpose of recognizing common entities on which assertions can be made.</p>
 
 <h2 id="types-of-alleles-that-that-can-be-mapped-to-one-canonicalallele">Types of alleles that that can be mapped to one CanonicalAllele</h2>
 
@@ -92,13 +92,13 @@
 
 <p>The problem of multiple representations of the same entity is compounded by the fact that none of these representations may be chosen as stable: any one of the reference sequences may be updated in the future, tying any preferred representation to an obsolete reference sequence.</p>
 
-<p>Transcripts are not necessarily uniquely mapped to a reference genome. A canonicalizer should specify what source of transcript mappings are used (for example, NCBI, UCSC, or <a href="https://bitbucket.org/biocommons/uta">UTA</a>).</p>
+<p>Transcripts are not necessarily uniquely mapped to a reference genome. A canonicalizer should specify what source of transcript mappings are used (for example, NCBI, UCSC, or <a target="other" href="https://github.com/biocommons/uta">UTA</a>).</p>
 
 <h3 id="different-spellings-of-the-same-allele">Different "spellings" of the same allele</h3>
 
 <p>Multiple representations of an allele are often produced when tandem repeats occur in the genome. For instance, if a region with three contiguous T bases is replaced with only 2 T bases, differing tools have several ways to represent the change (for instance, the removal of each of the three bases independently could all be reported, and would often be seen as different alleles, though they are indistinguishable, and should be aggregated together).</p>
 
-<p>Current approaches to this problem include the normalization code in <a href="https://github.com/amplab/smash">SMaSH</a> and <a href="https://github.com/atks/vt">vt</a> (the latter further described <a href="http://genome.sph.umich.edu/wiki/Variant_Normalization">here</a>).</p>
+<p>Current approaches to this problem include the normalization code in <a target="other" href="https://github.com/amplab/smash">SMaSH</a> and <a target="other" href="https://github.com/atks/vt">vt</a> (the latter further described <a target="other" href="http://genome.sph.umich.edu/wiki/Variant_Normalization">here</a>).</p>
 
 <p>It is important to note that the convention in many genome seqencing/VCF tools is to "left-align" variants, e.g. shift them to the lowest possible genomic coordinate. The recommendations of HGVS for transcript/protein coordinates, on the other hand is to represent variants to the most 3' or carboxy-proximal position relative to the <em>transcript</em> or predicted amino acid sequence.</p>
 
