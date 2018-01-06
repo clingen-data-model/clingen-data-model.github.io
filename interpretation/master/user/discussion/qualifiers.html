@@ -9,7 +9,7 @@
     <link rel="icon" href="#######">
 
     <title>
-      Discussion
+      Statement Qualifiers
     </title>
 
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
@@ -67,15 +67,14 @@
     
         <div class="row">
           <div class="col-sm-12">
-              <h1 class="header">Discussion</h1>
+              <h1 class="header">Statement Qualifiers</h1>
               <ol class="breadcrumb bg-none margin-none">
                 <li><a href="../../">Interpretation Model</a></li>
 <li><a href="../">User Guide</a></li>
 <li><a href="./">Discussion</a></li>
+<li><a href="qualifiers.html">Statement Qualifiers</a></li>
 
               </ol>
-                <blockquote><p>Finer points on the use of the interpretation model</p>
-                </blockquote>
           </div>
         </div>
       </div>
@@ -84,7 +83,11 @@
       <div class="row">
         <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
           <article>
-            <p>The technical guide describes in detail the entities and properties that define the interpretation model. This discussion section provides some background on the choices made in authoring the model as well as high-level tips on the use of the interpretation model.</p>
+            <h2 id="statements-and-negations">Statements and Negations</h2>
+
+<p>Evidence for interpretations are typically positive assertions.  That is, a Statement is saying that something is true - an allele lies within a certain region, or an individual has a particular condition.  In some cases, it is useful to make assertions that something is false - the alleles does not overlap the region, or the individual does not have a condition.</p>
+
+<p>The particular implementation of negation is based on two principles.  First, we wanted a common method for negating any statement.  This is aided by the fact that all of our evidence statements derive from the common Statement class. Second, we wanted our method to produce good idiomatic RDF.  For these reasons, Statement has a qualifier property.  If a statement has this property and the value is the string "NOT", then the statement is negated.</p>
 
           </article>
         </div>
@@ -94,12 +97,7 @@
               <li class="list-group-item">
                 <h5><a href="../../">Interpretation Overview</a></h5>
               </li>
-              <li class="list-group-item"><h5><a href="../">User Guide</a></h5><ul class='list-unstyled'><li class="active"><a href="./">Discussion</a></li><ul class='list-unstyled'><li><a href="alleles.html">Alleles, Haplotypes, and Genotypes</a></li>
-<li><a href="condition.html">Genetic Condition</a></li>
-<li><a href="domain_entity.html">DomainEntities and ValueSets</a></li>
-<li><a href="json.html">JSON-LD</a></li>
-<li><a href="qualifiers.html">Statement Qualifiers</a></li>
-</ul><li><a href="../examples.html">Examples</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../release_notes.html">Release Notes</a></li><li><a href="../sepio.html">SEPIO</a></li></ul></li>
+              <li class="list-group-item"><h5><a href="../">User Guide</a></h5><ul class='list-unstyled'><li class="active"><a href="./">Discussion</a></li><ul class='list-unstyled'><li><a href="alleles.html">Alleles, Haplotypes, and Genotypes</a></li><li><a href="condition.html">Genetic Condition</a></li><li><a href="domain_entity.html">DomainEntities and ValueSets</a></li><li><a href="json.html">JSON-LD</a></li><li class="active"><a href="qualifiers.html">Statement Qualifiers</a></li></ul><li><a href="../examples.html">Examples</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../release_notes.html">Release Notes</a></li><li><a href="../sepio.html">SEPIO</a></li></ul></li>
               <li class='list-group-item'><h5><a href="../../tech/">Technical Reference</a></h5></li>
               <!-- Old style.  We might still need the model here? -->
               <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->

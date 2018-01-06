@@ -9,7 +9,7 @@
     <link rel="icon" href="#######">
 
     <title>
-      Discussion
+      Genetic Condition
     </title>
 
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
@@ -67,15 +67,14 @@
     
         <div class="row">
           <div class="col-sm-12">
-              <h1 class="header">Discussion</h1>
+              <h1 class="header">Genetic Condition</h1>
               <ol class="breadcrumb bg-none margin-none">
                 <li><a href="../../">Interpretation Model</a></li>
 <li><a href="../">User Guide</a></li>
 <li><a href="./">Discussion</a></li>
+<li><a href="condition.html">Genetic Condition</a></li>
 
               </ol>
-                <blockquote><p>Finer points on the use of the interpretation model</p>
-                </blockquote>
           </div>
         </div>
       </div>
@@ -84,7 +83,28 @@
       <div class="row">
         <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
           <article>
-            <p>The technical guide describes in detail the entities and properties that define the interpretation model. This discussion section provides some background on the choices made in authoring the model as well as high-level tips on the use of the interpretation model.</p>
+            <h2 id="introduction">Introduction</h2>
+
+<p>Clinical geneticists use a variety of methods and systems to define the conditions for which a variant is being interpreted.  In some systems, such as OMIM, the gene is an integral part of the definition of the condition; if a different gene is involved, then the condition is considered to be different.   Other systems include higher-level descriptions where a disease is defined phenotypically, and may result from variants affecting many different genes.  Similar situations hold for mode of inheritance, which may be part of the disease definition in some systems, and not in others.  Furthermore, ontologies may contain terms in which all of these situations occur.  Finally, a condition may not have a previous entry in any nosology, and may only be defined by a given patient with a rare collection of phenotypes.</p>
+
+<h2 id="disease-phenotype-and-geneticcondition">Disease, Phenotype, and GeneticCondition</h2>
+
+<p>Rather than enforce one particular view of genetic disease, which would necessarily exclude many popular terminology sets, the ClinGen model provides numerous options for describing conditions.  Specifically, the model includes classes for both Disease and Phenotype, which are DomainEntities corresponding to terms from externally managed vocabularies such as MONDO for diseases or HPO for phenotypes.</p>
+
+<p>To allow for the wide variety of condition definitions described in the introduction, we introduce the GeneticCondition class as the structure used in VariantInterpretations.  That is, a GeneticCondition is the entity for which a variant can be described as being benign or pathogenic.  GeneticConditions include a large number of optional items that can be used to define conditions in a flexible way.  For instance, if a single disease from a terminology is used, the GeneticCondition may only have a single disease attribute set.  In the case of a non-predefined disease, a collection of phenotypes may be used.  The two may even be combined to indicate a subset of a disease in which other phenotypes additionally occur.</p>
+
+<h2 id="conditions-for-benign-variants">Conditions for Benign Variants</h2>
+
+<p>What should be used as the condition for benign variants?  Some users see benign variants as fully benign - a benign variant is one that does not cause any genetic condition.  However, this is not always the most descriptive interpretation.  We distinguish two cases:</p>
+
+<ol>
+  <li>
+    <p>The evidence examined indicates that the variant is benign for any sufficiently rare, penetrant condition.  This is often the case if the variant has a high population frequency.  In this case, the ACMG Guidelines would allow a stand-alone benign interpretation of the variant for any condition to which the guidelines are applicable, and a GeneticCondition does not need to be included on the VariantInterpretation.</p>
+  </li>
+  <li>
+    <p>The evidence examined is specific to a particular condition. For instance, if the frequency of the condition is much lower than the frequency of the allele, then there is strong reason to believe that the variant is benign, but only for the condition with that frequency.  In this case, the evidence only supports a benign call for a particular condition, and the condition must be included as an element in the VariantInterpretation.</p>
+  </li>
+</ol>
 
           </article>
         </div>
@@ -94,12 +114,7 @@
               <li class="list-group-item">
                 <h5><a href="../../">Interpretation Overview</a></h5>
               </li>
-              <li class="list-group-item"><h5><a href="../">User Guide</a></h5><ul class='list-unstyled'><li class="active"><a href="./">Discussion</a></li><ul class='list-unstyled'><li><a href="alleles.html">Alleles, Haplotypes, and Genotypes</a></li>
-<li><a href="condition.html">Genetic Condition</a></li>
-<li><a href="domain_entity.html">DomainEntities and ValueSets</a></li>
-<li><a href="json.html">JSON-LD</a></li>
-<li><a href="qualifiers.html">Statement Qualifiers</a></li>
-</ul><li><a href="../examples.html">Examples</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../release_notes.html">Release Notes</a></li><li><a href="../sepio.html">SEPIO</a></li></ul></li>
+              <li class="list-group-item"><h5><a href="../">User Guide</a></h5><ul class='list-unstyled'><li class="active"><a href="./">Discussion</a></li><ul class='list-unstyled'><li><a href="alleles.html">Alleles, Haplotypes, and Genotypes</a></li><li class="active"><a href="condition.html">Genetic Condition</a></li><li><a href="domain_entity.html">DomainEntities and ValueSets</a></li><li><a href="json.html">JSON-LD</a></li><li><a href="qualifiers.html">Statement Qualifiers</a></li></ul><li><a href="../examples.html">Examples</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../release_notes.html">Release Notes</a></li><li><a href="../sepio.html">SEPIO</a></li></ul></li>
               <li class='list-group-item'><h5><a href="../../tech/">Technical Reference</a></h5></li>
               <!-- Old style.  We might still need the model here? -->
               <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->

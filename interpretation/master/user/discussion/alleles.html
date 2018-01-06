@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      Alleles, Haplotypes, and Genotypes
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../../stylesheets/brand2.css" rel="stylesheet" /><link href="../../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+    
+      <div class="container-fluid hero-background">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="../../images/clingen-doc-logo.png" />
+</a>            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+                    <li class="allele" >
+                      <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span> Allele Model</a></li>
+                    </li>
+                    <li class="interpretation" >
+                      <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span> Interpretation Model</a></li>
+                    </li>
+                <li>
+                    <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+          </div>
+    
+
+
+    
+        <div class="row">
+          <div class="col-sm-12">
+              <h1 class="header">Alleles, Haplotypes, and Genotypes</h1>
+              <ol class="breadcrumb bg-none margin-none">
+                <li><a href="../../">Interpretation Model</a></li>
+<li><a href="../">User Guide</a></li>
+<li><a href="./">Discussion</a></li>
+<li><a href="alleles.html">Alleles, Haplotypes, and Genotypes</a></li>
+
+              </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
+          <article>
+            <h2 id="introduction">Introduction</h2>
+
+<p>Genetic variation is the fundamental concept of genetic medicine; pathogenicity interpretations are interpretations about the health effects of sequence variants.  Therefore, an interpretation format must be able to represent genetic variation.  This page discusses the kinds of genetic variation to be included, the difficulties in representation, different models for representing variation, and the suggested use of these models in the interpretation model, and plans for the future.</p>
+
+<h2 id="types-of-genetic-variation">Types of Genetic Variation</h2>
+
+<p>The wide spectrum of human genetic variation is usually divided into large structural variants and smaller sequence variants.  In both cases, variation is described as differences from a particular reference sequence such as a chromosome or transcript sequence.  Sequence variants, such as SNPs or small indels, are the type of variation to which the AMCG Variant Pathogenicity guidelines can be applied.  A particular example of variation at a single location is also called an Allele.</p>
+
+<p>Because humans are diploid, two alleles in an individual may appear on the same chromosome (in <em>cis</em>), or on different chromosomes (in <em>trans</em>).  Alleles that occur in <em>cis</em> form a Haplotype.  Alleles (or Haplotypes) in <em>trans</em> form Genotypes.</p>
+
+<h2 id="normalization-and-canonicalization">Normalization and Canonicalization</h2>
+
+<p>One of the most insidious difficulties encountered in dealing with genomic variation is the fact that a single genomic variant can be described in multiple ways.</p>
+
+<p>As a simple illustration, suppose that in a reference sequence is a run of 3 A's.  In an individual, only 2 A's appear.  This could variously be described as:</p>
+
+<p>1) A deletion of the first A
+2) A deletion of the second A
+3) A deletion of the third A
+4) A substitution of AAA with AA</p>
+
+<p>We define the process of choosing a single representation of variation against a single reference as normalization.</p>
+
+<p>A related, and still more complicated problem is that a real physical variant can be described as a variation with respect to multiple reference sequences.  For instance, a genomic variant may be defined with respect to many different versions of the genome, or with respect to one of potentially many overlapping transcript, or by the effect that the change has on an amino acid sequence.</p>
+
+<p>We define the process of recognizing the same entities in this myriad of representations as canonicalization.  Normalization, recognition of the same entity from different representations against a single reference sequence, is a subset of canonicalization, which recognizes the entity across one or more reference sequences.</p>
+
+<h2 id="variation-models-and-their-use">Variation Models and their Use</h2>
+
+<p>The <a href="http://datamodel.clinicalgenome.org/allele/master/index.html">ClinGen Allele Model</a> is the primary way to represent alleles in the ClinGen Interpretation Model.   Full explanation of this model is outside the scope of this documentation, but can be found at the link above.  Briefly, the AlleleModel differentiates between ContextualAlleles, which are defined with respect to a particular reference sequence, and CanonicalAlleles, which are a collection of ContextualAlleles that are different representations of the same physical variant across any reference sequences.</p>
+
+<p>The ClinGen Allele Model implements Haplotypes as another form of CanonicalAllele that is constructed from a set of CanonicalAlleles in <em>cis</em>.  However, the ClinGen Allele Model does not provide structures for handling Genotypes, or Alleles in <em>trans</em>.</p>
+
+<p>After the completion of the ClinGen Allele Model, the Global Alliance for Genomic Health (GA4GH) <a href="https://github.com/ga4gh/vmc">Variation Modeling Collaboration</a> (VMC) implemented and released a variant model, focused on the representation of a variants against a single reference sequence.  The VMC model includes structures for Alleles, Haplotypes, and Genotypes, as well as guidance on their use to enable normalized variants.  The VMC model at present does not consider the recognition of variants across different reference sequences (i.e. canonicalization).</p>
+
+<p>Most alleles in the ClinGen Interpretation Model are represented as CanonicalAlleles.  The benefit of using CanonicalAlleles is that interpretations can be easily be compared across different reference sequences, for instance as new versions of the human genome are released.  This implies that users for the Interpretation Model will have a method to canonicalize their variants, i.e. to recognize the same variant across different reference sequences and give them the same identifier.  One implementation of such a canonicalizer, and the one used in the ClinGen project is the <a href="http://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/landing">Baylor Allele Registry</a>.  The Allele Registry can be queried with HGVS expressions, and returns CanonicalAlleles, as well as the corresponding ContextualAlleles.</p>
+
+<p>For the application of certain ACMG Pathogenicity guidelines, it is important to describe alleles as occurring in <em>cis</em> or in <em>trans</em>.  Haplotypes (i.e. <em>cis</em> alleles) are represented as ClinGen Complex CanonicalAlleles.  Genotypes are represented using a VMC-inspired Genotype structure.</p>
+
+<h2 id="plans-for-the-future">Plans for the Future</h2>
+
+<p>The VMC model incorporates many of the insights derived from work on the ClinGen Allele Model.  As a model with obvious merits, and one endorsed by the GA4GH, we anticipate widespread adoption of the VMC model. Over the coming months, the VMC will be adding notions of equivalence, a more granular version of the ClinGen model's canonicalization.  As this work proceeds, we anticipate transitioning from the ClinGen Allele Model, to the similar but more widely supported VMC model.</p>
+
+
+          </article>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="list-group sidenav">
+            <ul class="list-unstyled">
+              <li class="list-group-item">
+                <h5><a href="../../">Interpretation Overview</a></h5>
+              </li>
+              <li class="list-group-item"><h5><a href="../">User Guide</a></h5><ul class='list-unstyled'><li class="active"><a href="./">Discussion</a></li><ul class='list-unstyled'><li class="active"><a href="alleles.html">Alleles, Haplotypes, and Genotypes</a></li><li><a href="condition.html">Genetic Condition</a></li><li><a href="domain_entity.html">DomainEntities and ValueSets</a></li><li><a href="json.html">JSON-LD</a></li><li><a href="qualifiers.html">Statement Qualifiers</a></li></ul><li><a href="../examples.html">Examples</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../release_notes.html">Release Notes</a></li><li><a href="../sepio.html">SEPIO</a></li></ul></li>
+              <li class='list-group-item'><h5><a href="../../tech/">Technical Reference</a></h5></li>
+              <!-- Old style.  We might still need the model here? -->
+              <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="container  background-trans padding-top-xl">
+      <div class="row">
+        <hr />
+        <div class="col-md-col-sm-12 text-center"> 
+          © 2017 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../javascripts/jquery.js"></script><script src="../../javascripts/bootstrap.js"></script><script src="../../javascripts/jquery.jsonview.js"></script><script src="../../javascripts/all.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>
