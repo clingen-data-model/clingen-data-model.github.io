@@ -114,28 +114,28 @@
                 <td>string</td>
                 <td>0..1</td>
                 <td>Freetext name of a ValueSet</td>
-                <td>RDFS:label</td>
+                <td></td>
             </tr>
             <tr>
                 <td>description</td>
                 <td>string</td>
                 <td>0..1</td>
                 <td>Freetext description of a ValueSet</td>
-                <td>DC:description</td>
+                <td></td>
             </tr>
             <tr>
                 <td>conceptListExtensibility</td>
                 <td>ValueSetConceptListExtensibility</td>
                 <td>1..1</td>
                 <td>The type of valueset is either extendsible or fixed, which determines whether or not the list of concepts defined for the value set can be extended or not when bound to specific attributes.</td>
-                <td></td>
+                <td>DC:identifier</td>
             </tr>
             <tr>
                 <td>sourceIdentifierSystems</td>
                 <td>IdentifierSystem</td>
                 <td>1..*</td>
                 <td></td>
-                <td></td>
+                <td>DC:description</td>
             </tr>
             <tr>
                 <td>concept</td>
@@ -149,7 +149,7 @@
                 <td>string</td>
                 <td>1..1</td>
                 <td></td>
-                <td></td>
+                <td>DC:description</td>
             </tr>
             </tbody>
         </table>
@@ -181,7 +181,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02101">SEPIO-CG:02101</a></p> (fixed)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p><p><a href="../../details/details.html#IdSys002">IdSys002</a></p>
+              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)<p><a href="../../details/details.html#IdSys002">IdSys002</a></p> (LOINC)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:02101">SEPIO-CG:02101</a></p> (fixed)<p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
@@ -197,11 +197,18 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys024",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "ClinGen extensions to SEPIO",
+      "prefix": "SEPIO-CG",
+      "iri": "http://obofoundry.org/sepio/clingen"
     },
     {
       "id": "IdSys002",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "LOINC",
+      "prefix": "LN",
+      "oid": "2.16.840.1.113883.6.1",
+      "iri": "http://loinc.org/"
     }
   ],
   "description": "Concepts to categorize the degree of extensibility of a given value set.",
@@ -240,7 +247,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys007">IdSys007</a></p>
+              <p><a href="../../details/details.html#IdSys007">IdSys007</a></p> (SequenceOntology)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0000159">SO:0000159</a></p> (deletion)<p><a href="../../details/details.html#SO:0000191">SO:0000191</a></p> (interior intron)<p><a href="../../details/details.html#SO:0000199">SO:0000199</a></p> (translocation)<p><a href="../../details/details.html#SO:0000203">SO:0000203</a></p> (three prime UTR)<p><a href="../../details/details.html#SO:0000204">SO:0000204</a></p> (five prime UTR)<p><a href="../../details/details.html#SO:0000507">SO:0000507</a></p> (pseudogenic exon)<p><a href="../../details/details.html#SO:0000667">SO:0000667</a></p> (insertion)<p><a href="../../details/details.html#SO:0001019">SO:0001019</a></p> (copy number variation)<p><a href="../../details/details.html#SO:0001568">SO:0001568</a></p> (splicing variant)<p><a href="../../details/details.html#SO:0001578">SO:0001578</a></p> (stop lost)<p><a href="../../details/details.html#SO:0001583">SO:0001583</a></p> (missense variant)<p><a href="../../details/details.html#SO:0001586">SO:0001586</a></p> (non conservative missense variant)<p><a href="../../details/details.html#SO:0001587">SO:0001587</a></p> (stop gained)<p><a href="../../details/details.html#SO:0001589">SO:0001589</a></p> (frameshift variant)<p><a href="../../details/details.html#SO:0001629">SO:0001629</a></p> (splice-site variant)<p><a href="../../details/details.html#SO:0001819">SO:0001819</a></p> (synonymous variant)<p><a href="../../details/details.html#SO:0001823">SO:0001823</a></p> (conservative Inframe Insertion)<p><a href="../../details/details.html#SO:0001824">SO:0001824</a></p> (disruptive inframe insertion)<p><a href="../../details/details.html#SO:0001825">SO:0001825</a></p> (conservative Inframe Deletion)<p><a href="../../details/details.html#SO:0001826">SO:0001826</a></p> (disruptive inframe deletion)<p><a href="../../details/details.html#SO:0001909">SO:0001909</a></p> (frameshift elongation)<p><a href="../../details/details.html#SO:0002007">SO:0002007</a></p> (MNV)<p><a href="../../details/details.html#SO:0002012">SO:0002012</a></p> (start lost)<p><a href="../../details/details.html#SO:0002073">SO:0002073</a></p> (no sequence alteration)<p><a href="../../details/details.html#SO:1000002">SO:1000002</a></p> (substitution)<p><a href="../../details/details.html#SO:10000032">SO:10000032</a></p> (indel)<p><a href="../../details/details.html#SO:1000036">SO:1000036</a></p> (inversion)
@@ -256,7 +263,10 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys007",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "SequenceOntology",
+      "prefix": "SO",
+      "iri": "http://sequenceontology.org/"
     }
   ],
   "description": "List of molecular consequence classifications.",
@@ -420,7 +430,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02101">SEPIO-CG:02101</a></p> (fixed)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys002">IdSys002</a></p>
+              <p><a href="../../details/details.html#IdSys002">IdSys002</a></p> (LOINC)
          </td>
           <td>
               <p><a href="../../details/details.html#LN:LA26332-9">LN:LA26332-9</a></p> (Likely Pathogenic)<p><a href="../../details/details.html#LN:LA26333-7">LN:LA26333-7</a></p> (Uncertain Signficance)<p><a href="../../details/details.html#LN:LA26334-5">LN:LA26334-5</a></p> (Likely Benign)<p><a href="../../details/details.html#LN:LA6668-3">LN:LA6668-3</a></p> (Pathogenic)<p><a href="../../details/details.html#LN:LA6675-8">LN:LA6675-8</a></p> (Benign)
@@ -442,7 +452,11 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys002",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "LOINC",
+      "prefix": "LN",
+      "oid": "2.16.840.1.113883.6.1",
+      "iri": "http://loinc.org/"
     }
   ],
   "conceptType": "Significance",
@@ -490,7 +504,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys007">IdSys007</a></p><p><a href="../../details/details.html#IdSys023">IdSys023</a></p>
+              <p><a href="../../details/details.html#IdSys007">IdSys007</a></p> (SequenceOntology)<p><a href="../../details/details.html#IdSys023">IdSys023</a></p> (Scientific Evidence Provenance Information Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000320">SEPIO:0000320</a></p> (functional region)<p><a href="../../details/details.html#SEPIO:0000321">SEPIO:0000321</a></p> (mutational hotspot)<p><a href="../../details/details.html#SO:0000657">SO:0000657</a></p> (repeat region )
@@ -512,11 +526,17 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys007",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "SequenceOntology",
+      "prefix": "SO",
+      "iri": "http://sequenceontology.org/"
     },
     {
       "id": "IdSys023",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "Scientific Evidence Provenance Information Ontology",
+      "prefix": "SEPIO",
+      "iri": "http://obofoundry.org/sepio/"
     }
   ],
   "conceptType": "RegionAnnotation",
@@ -554,7 +574,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys022">IdSys022</a></p>
+              <p><a href="../../details/details.html#IdSys022">IdSys022</a></p> (GENO)
          </td>
           <td>
               <p><a href="../../details/details.html#GENO:0000131">GENO:0000131</a></p> (in cis)<p><a href="../../details/details.html#GENO:0000132">GENO:0000132</a></p> (in trans)
@@ -576,7 +596,10 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys022",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "GENO",
+      "prefix": "GENO",
+      "iri": "http://obofoundry.org/geno/"
     }
   ],
   "conceptType": "Phase",
@@ -609,7 +632,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys022">IdSys022</a></p>
+              <p><a href="../../details/details.html#IdSys022">IdSys022</a></p> (GENO)
          </td>
           <td>
               <p><a href="../../details/details.html#GENO:0000137">GENO:0000137</a></p> (unspecified zygosity)<p><a href="../../details/details.html#GENO:0000134">GENO:0000134</a></p> (hemizygous)<p><a href="../../details/details.html#GENO:0000603">GENO:0000603</a></p> (heteroplasmic)<p><a href="../../details/details.html#GENO:0000135">GENO:0000135</a></p> (heterozygous)<p><a href="../../details/details.html#GENO:0000602">GENO:0000602</a></p> (homoplasmic)<p><a href="../../details/details.html#GENO:0000136">GENO:0000136</a></p> (homozygous)<p><a href="../../details/details.html#GENO:0000882">GENO:0000882</a></p> (somatic)
@@ -631,7 +654,10 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys022",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "GENO",
+      "prefix": "GENO",
+      "iri": "http://obofoundry.org/geno/"
     }
   ],
   "conceptType": "AllelicState",
@@ -689,7 +715,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys016">IdSys016</a></p><p><a href="../../details/details.html#IdSys022">IdSys022</a></p>
+              <p><a href="../../details/details.html#IdSys016">IdSys016</a></p> (HumanPhenotypeOntology)<p><a href="../../details/details.html#IdSys022">IdSys022</a></p> (GENO)
          </td>
           <td>
               <p><a href="../../details/details.html#HP:0001423">HP:0001423</a></p> (X-linked dominant inheritance)<p><a href="../../details/details.html#GENO:0000143">GENO:0000143</a></p> (Codominant)<p><a href="../../details/details.html#GENO:0000892">GENO:0000892</a></p> (Heteroplasmic mitochondrial inheritance)<p><a href="../../details/details.html#GENO:0000893">GENO:0000893</a></p> (Homoplasmic mitochondrial inheritance)<p><a href="../../details/details.html#HP:0031362">HP:0031362</a></p> (Sex-limited autosomal recessive inheritance)<p><a href="../../details/details.html#GENO:0000889">GENO:0000889</a></p> (unknown inheritance)<p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)<p><a href="../../details/details.html#HP:0000007">HP:0000007</a></p> (Autosomal Recessive)<p><a href="../../details/details.html#HP:0001417">HP:0001417</a></p> (X linked inheritance)<p><a href="../../details/details.html#HP:0001419">HP:0001419</a></p> (X linked recessive inheritance)<p><a href="../../details/details.html#HP:0001426">HP:0001426</a></p> (Multifactorial inheritance)<p><a href="../../details/details.html#HP:0001427">HP:0001427</a></p> (Mitochondrial inheritance)<p><a href="../../details/details.html#HP:0001428">HP:0001428</a></p> (Somatic mutation)<p><a href="../../details/details.html#HP:0001450">HP:0001450</a></p> (Y linked inheritance)<p><a href="../../details/details.html#HP:0001470">HP:0001470</a></p> (Sex-limited autosomal dominant)<p><a href="../../details/details.html#HP:0003743">HP:0003743</a></p> (genetic anticipation)<p><a href="../../details/details.html#HP:0003745">HP:0003745</a></p> (Sporadic)<p><a href="../../details/details.html#HP:0010983">HP:0010983</a></p> (Oligogenic)<p><a href="../../details/details.html#HP:0012274">HP:0012274</a></p> (Autosomal dominant inheritance with paternal imprinting)<p><a href="../../details/details.html#HP:0012275">HP:0012275</a></p> (Autosomal dominant inheritance with maternal imprinting)<p><a href="../../details/details.html#HP:0025352">HP:0025352</a></p> (autosomal dominant germline de novo mutation)
@@ -711,11 +737,17 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys016",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "HumanPhenotypeOntology",
+      "prefix": "HP",
+      "iri": "http://human-phenotype-ontology.github.io/"
     },
     {
       "id": "IdSys022",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "GENO",
+      "prefix": "GENO",
+      "iri": "http://obofoundry.org/geno/"
     }
   ],
   "conceptType": "ModeOfInheritance",
@@ -843,7 +875,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys007">IdSys007</a></p>
+              <p><a href="../../details/details.html#IdSys007">IdSys007</a></p> (SequenceOntology)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001583">SO:0001583</a></p> (missense variant)<p><a href="../../details/details.html#SO:0002054">SO:0002054</a></p> (loss of function variant)
@@ -865,7 +897,10 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys007",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "SequenceOntology",
+      "prefix": "SO",
+      "iri": "http://sequenceontology.org/"
     }
   ],
   "conceptType": "Mechanism",
@@ -898,7 +933,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p>
+              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p> (Scientific Evidence Provenance Information Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000322">SEPIO:0000322</a></p> (missense effect)<p><a href="../../details/details.html#SEPIO:0000323">SEPIO:0000323</a></p> (splicing prediction)
@@ -920,7 +955,10 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys023",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "Scientific Evidence Provenance Information Ontology",
+      "prefix": "SEPIO",
+      "iri": "http://obofoundry.org/sepio/"
     }
   ],
   "conceptType": "Prediction",
@@ -953,7 +991,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p>
+              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p> (Scientific Evidence Provenance Information Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000223">SEPIO:0000223</a></p> (Met)<p><a href="../../details/details.html#SEPIO:0000224">SEPIO:0000224</a></p> (Not Met)
@@ -975,7 +1013,10 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys023",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "Scientific Evidence Provenance Information Ontology",
+      "prefix": "SEPIO",
+      "iri": "http://obofoundry.org/sepio/"
     }
   ],
   "conceptType": "CriterionEvaluation",
@@ -1008,7 +1049,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys025">IdSys025</a></p>
+              <p><a href="../../details/details.html#IdSys025">IdSys025</a></p> (OBI)
          </td>
           <td>
               <p><a href="../../details/details.html#OBI:XXXXXX1">OBI:XXXXXX1</a></p> (Activation Assay)<p><a href="../../details/details.html#OBI:XXXXXX2">OBI:XXXXXX2</a></p> (ATPase assay)<p><a href="../../details/details.html#OBI:0001146">OBI:0001146</a></p> (Binding assay)<p><a href="../../details/details.html#OBI:0002165">OBI:0002165</a></p> (cellular localization)<p><a href="../../details/details.html#OBI:XXXXXX3">OBI:XXXXXX3</a></p> (Elk1 pohsphorylation via luciferase assay)<p><a href="../../details/details.html#OBI:XXXXXX4">OBI:XXXXXX4</a></p> (iodide efflux)<p><a href="../../details/details.html#OBI:XXXXXX5">OBI:XXXXXX5</a></p> (motility assay)<p><a href="../../details/details.html#OBI:XXXXXX6">OBI:XXXXXX6</a></p> (neurite outgrowth)<p><a href="../../details/details.html#OBI:XXXXXX7">OBI:XXXXXX7</a></p> (Yeast complementation assay)
@@ -1030,7 +1071,10 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys025",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "OBI",
+      "prefix": "OBI",
+      "iri": "http://purl.obolibrary.org/obo/OBI_"
     }
   ],
   "conceptType": "AlleleFunctionalAssayMethod",
@@ -1098,7 +1142,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys027">IdSys027</a></p>
+              <p><a href="../../details/details.html#IdSys027">IdSys027</a></p> (NCI Thesarus)
          </td>
           <td>
               <p><a href="../../details/details.html#BROAD-population-type:afr">BROAD-population-type:afr</a></p> (African/African American)<p><a href="../../details/details.html#BROAD-population-type:amr">BROAD-population-type:amr</a></p> (Latino)<p><a href="../../details/details.html#BROAD-population-type:asj">BROAD-population-type:asj</a></p> (Ashkenazi Jewish)<p><a href="../../details/details.html#BROAD-population-type:eas">BROAD-population-type:eas</a></p> (East Asian)<p><a href="../../details/details.html#BROAD-population-type:fin">BROAD-population-type:fin</a></p> (Finnish)<p><a href="../../details/details.html#BROAD-population-type:nfe">BROAD-population-type:nfe</a></p> (Non-Finnish European)<p><a href="../../details/details.html#BROAD-population-type:oth">BROAD-population-type:oth</a></p> (Other)<p><a href="../../details/details.html#BROAD-population-type:sas">BROAD-population-type:sas</a></p> (South Asian)<p><a href="../../details/details.html#SEPIO-CG:98001">SEPIO-CG:98001</a></p> (Combined)<p><a href="../../details/details.html#SEPIO-CG:98002">SEPIO-CG:98002</a></p> (Overall)<p><a href="../../details/details.html#ESP-population-type:EA">ESP-population-type:EA</a></p> (European-American)<p><a href="../../details/details.html#ESP-population-type:AA">ESP-population-type:AA</a></p> (African-American)<p><a href="../../details/details.html#IGSR-population-type:acb">IGSR-population-type:acb</a></p> (African Caribbeans in Barbados)<p><a href="../../details/details.html#IGSR-population-type:afr">IGSR-population-type:afr</a></p> (African)<p><a href="../../details/details.html#IGSR-population-type:amr">IGSR-population-type:amr</a></p> (Ad Mixed American)<p><a href="../../details/details.html#IGSR-population-type:asw">IGSR-population-type:asw</a></p> (Americans of African Ancestry in SW USA)<p><a href="../../details/details.html#IGSR-population-type:beb">IGSR-population-type:beb</a></p> (Bengali from Bangladesh)<p><a href="../../details/details.html#IGSR-population-type:cdx">IGSR-population-type:cdx</a></p> (Chinese Dai in Xishuangbanna, China)<p><a href="../../details/details.html#IGSR-population-type:ceu">IGSR-population-type:ceu</a></p> (Utah Residents (CEPH) with Northern and Western European Ancestry)<p><a href="../../details/details.html#IGSR-population-type:chb">IGSR-population-type:chb</a></p> (Han Chinese in Bejing, China)<p><a href="../../details/details.html#IGSR-population-type:chs">IGSR-population-type:chs</a></p> (Southern Han Chinese)<p><a href="../../details/details.html#IGSR-population-type:clm">IGSR-population-type:clm</a></p> (Colombians from Medellin, Colombia)<p><a href="../../details/details.html#IGSR-population-type:eas">IGSR-population-type:eas</a></p> (East Asian)<p><a href="../../details/details.html#IGSR-population-type:esn">IGSR-population-type:esn</a></p> (Esan in Nigeria)<p><a href="../../details/details.html#IGSR-population-type:eur">IGSR-population-type:eur</a></p> (European)<p><a href="../../details/details.html#IGSR-population-type:fin">IGSR-population-type:fin</a></p> (Finnish in Finland)<p><a href="../../details/details.html#IGSR-population-type:gbr">IGSR-population-type:gbr</a></p> (British in England and Scotland)<p><a href="../../details/details.html#IGSR-population-type:gih">IGSR-population-type:gih</a></p> (Gujarati Indian from Houston, Texas)<p><a href="../../details/details.html#IGSR-population-type:gwd">IGSR-population-type:gwd</a></p> (Gambian in Western Divisions in the Gambia)<p><a href="../../details/details.html#IGSR-population-type:ibs">IGSR-population-type:ibs</a></p> (Iberian Population in Spain)<p><a href="../../details/details.html#IGSR-population-type:itu">IGSR-population-type:itu</a></p> (Indian Telugu from the UK)<p><a href="../../details/details.html#IGSR-population-type:jpt">IGSR-population-type:jpt</a></p> (Japanese in Tokyo, Japan)<p><a href="../../details/details.html#IGSR-population-type:khv">IGSR-population-type:khv</a></p> (Kinh in Ho Chi Minh City, Vietnam)<p><a href="../../details/details.html#IGSR-population-type:lwk">IGSR-population-type:lwk</a></p> (Luhya in Webuye, Kenya)<p><a href="../../details/details.html#IGSR-population-type:msl">IGSR-population-type:msl</a></p> (Mende in Sierra Leone)<p><a href="../../details/details.html#IGSR-population-type:mxl">IGSR-population-type:mxl</a></p> (Mexican Ancestry from Los Angeles USA)<p><a href="../../details/details.html#IGSR-population-type:pel">IGSR-population-type:pel</a></p> (Peruvians from Lima, Peru)<p><a href="../../details/details.html#IGSR-population-type:pjl">IGSR-population-type:pjl</a></p> (Punjabi from Lahore, Pakistan)<p><a href="../../details/details.html#IGSR-population-type:pur">IGSR-population-type:pur</a></p> (Puerto Ricans from Puerto Rico)<p><a href="../../details/details.html#IGSR-population-type:sas">IGSR-population-type:sas</a></p> (South Asian)<p><a href="../../details/details.html#IGSR-population-type:stu">IGSR-population-type:stu</a></p> (Sri Lankan Tamil from the UK)<p><a href="../../details/details.html#IGSR-population-type:tsi">IGSR-population-type:tsi</a></p> (Toscani in Italia)<p><a href="../../details/details.html#IGSR-population-type:yri">IGSR-population-type:yri</a></p> (Yoruba in Ibadan, Nigeria)
@@ -1120,7 +1164,10 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys027",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "NCI Thesarus",
+      "prefix": "NCIT",
+      "iri": "http://purl.bioontology.org/ontology/NCIT"
     }
   ],
   "conceptType": "Population",
@@ -1358,7 +1405,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p>
+              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p> (Scientific Evidence Provenance Information Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000265">SEPIO:0000265</a></p> (High)<p><a href="../../details/details.html#SEPIO:0000266">SEPIO:0000266</a></p> (Low)
@@ -1380,7 +1427,10 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys023",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "Scientific Evidence Provenance Information Ontology",
+      "prefix": "SEPIO",
+      "iri": "http://obofoundry.org/sepio/"
     }
   ],
   "conceptType": "BenignMissenseVariationRateOutcome",
@@ -1413,7 +1463,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys016">IdSys016</a></p>
+              <p><a href="../../details/details.html#IdSys016">IdSys016</a></p> (HumanPhenotypeOntology)
          </td>
           <td>
               <p><a href="../../details/details.html#HP:000XXX1">HP:000XXX1</a></p> (Complete)<p><a href="../../details/details.html#HP:000XXX2">HP:000XXX2</a></p> (High)<p><a href="../../details/details.html#HP:0003829">HP:0003829</a></p> (Incomplete)
@@ -1435,7 +1485,10 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys016",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "HumanPhenotypeOntology",
+      "prefix": "HP",
+      "iri": "http://human-phenotype-ontology.github.io/"
     }
   ],
   "conceptType": "Penetrance",
@@ -1473,7 +1526,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p>
+              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p> (Scientific Evidence Provenance Information Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000268">SEPIO:0000268</a></p> (common)<p><a href="../../details/details.html#SEPIO:0000269">SEPIO:0000269</a></p> (established)<p><a href="../../details/details.html#SEPIO:0000270">SEPIO:0000270</a></p> (primary)<p><a href="../../details/details.html#SEPIO:0000271">SEPIO:0000271</a></p> (suggested)<p><a href="../../details/details.html#SEPIO:0000272">SEPIO:0000272</a></p> (unknown)
@@ -1495,7 +1548,10 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys023",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "Scientific Evidence Provenance Information Ontology",
+      "prefix": "SEPIO",
+      "iri": "http://obofoundry.org/sepio/"
     }
   ],
   "conceptType": "ConditionMechanismStrength",
@@ -1543,7 +1599,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02101">SEPIO-CG:02101</a></p> (fixed)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p>
+              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p> (Scientific Evidence Provenance Information Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000325">SEPIO:0000325</a></p> (Benign Stand Alone)<p><a href="../../details/details.html#SEPIO:0000326">SEPIO:0000326</a></p> (Benign Moderate)<p><a href="../../details/details.html#SEPIO:0000327">SEPIO:0000327</a></p> (Benign Supporting)<p><a href="../../details/details.html#SEPIO:0000328">SEPIO:0000328</a></p> (Benign Strong)<p><a href="../../details/details.html#SEPIO:0000218">SEPIO:0000218</a></p> (None)<p><a href="../../details/details.html#SEPIO:0000216">SEPIO:0000216</a></p> (Pathogenic Moderate)<p><a href="../../details/details.html#SEPIO:0000329">SEPIO:0000329</a></p> (Pathogenic Supporting)<p><a href="../../details/details.html#SEPIO:0000330">SEPIO:0000330</a></p> (Pathogenic Strong)<p><a href="../../details/details.html#SEPIO:0000220">SEPIO:0000220</a></p> (Pathogenic Very Strong)
@@ -1565,7 +1621,10 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys023",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "Scientific Evidence Provenance Information Ontology",
+      "prefix": "SEPIO",
+      "iri": "http://obofoundry.org/sepio/"
     }
   ],
   "conceptType": "EvidenceLineStrength",
@@ -1633,7 +1692,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys019">IdSys019</a></p><p><a href="../../details/details.html#IdSys011">IdSys011</a></p><p><a href="../../details/details.html#IdSys013">IdSys013</a></p><p><a href="../../details/details.html#IdSys020">IdSys020</a></p>
+              <p><a href="../../details/details.html#IdSys019">IdSys019</a></p> (Disease Ontology)<p><a href="../../details/details.html#IdSys011">IdSys011</a></p> (OMIM)<p><a href="../../details/details.html#IdSys013">IdSys013</a></p> (Orphanet)<p><a href="../../details/details.html#IdSys020">IdSys020</a></p> (MeSH)
          </td>
           <td>
               <p><a href="../../details/details.html#DOID:630">DOID:630</a></p> (genetic disease)<p><a href="../../details/details.html#MESH:D061325">MESH:D061325</a></p> (hereditary breast ovarian cancer)<p><a href="../../details/details.html#OMIM:114480">OMIM:114480</a></p> (Breast Cancer)<p><a href="../../details/details.html#OMIM:143890">OMIM:143890</a></p> (Hypercholesterolemia, Familial)<p><a href="../../details/details.html#OMIM:601419">OMIM:601419</a></p> (myofibrillar myopathy 1)<p><a href="../../details/details.html#OMIM:609942">OMIM:609942</a></p> (noonan syndrome 3)<p><a href="../../details/details.html#OMIM:612555">OMIM:612555</a></p> (Breast-Ovarian Cancer, Familial, Susceptibility To, 2)<p><a href="../../details/details.html#OMIM:614065">OMIM:614065</a></p> (Myopathy, Distal, type 4)<p><a href="../../details/details.html#Orphanet:1340">Orphanet:1340</a></p> (cardiofaciocutaneous syndrome)<p><a href="../../details/details.html#Orphanet:145">Orphanet:145</a></p> (hereditary breast and ovarian cancer syndrome)<p><a href="../../details/details.html#Orphanet:167848">Orphanet:167848</a></p> (cardiomyopathy)<p><a href="../../details/details.html#Orphanet:216">Orphanet:216</a></p> (neuronal ceroid lipofuscinosis)<p><a href="../../details/details.html#Orphanet:217569">Orphanet:217569</a></p> (hypertrophic cardiomyopathy)<p><a href="../../details/details.html#Orphanet:217604">Orphanet:217604</a></p> (dilated cardiomyopathy)<p><a href="../../details/details.html#Orphanet:244">Orphanet:244</a></p> (Primary ciliary dyskenisia)<p><a href="../../details/details.html#Orphanet:247">Orphanet:247</a></p> (arrhythmogenic right ventricular cardiomyopathy)<p><a href="../../details/details.html#Orphanet:2609">Orphanet:2609</a></p> (Mitochondrial complex 1 deficiency)<p><a href="../../details/details.html#Orphanet:2855">Orphanet:2855</a></p> (Perrault Syndrome)<p><a href="../../details/details.html#Orphanet:3071">Orphanet:3071</a></p> (costello syndrome)<p><a href="../../details/details.html#Orphanet:319182">Orphanet:319182</a></p> (Wiedemann-Steiner syndrome)<p><a href="../../details/details.html#Orphanet:324">Orphanet:324</a></p> (Fabry disease)<p><a href="../../details/details.html#Orphanet:364526">Orphanet:364526</a></p> (Primary bone dysplasia)<p><a href="../../details/details.html#Orphanet:414">Orphanet:414</a></p> (Gyrate atrophy of choroid and retina)<p><a href="../../details/details.html#Orphanet:423">Orphanet:423</a></p> (Malignant hyperthermia)<p><a href="../../details/details.html#Orphanet:558">Orphanet:558</a></p> (Marfan Syndrome)<p><a href="../../details/details.html#Orphanet:586">Orphanet:586</a></p> (Cystic Fibrosis)<p><a href="../../details/details.html#Orphanet:648">Orphanet:648</a></p> (noonan syndrome)<p><a href="../../details/details.html#Orphanet:664">Orphanet:664</a></p> (Ornithine carbamoyltransferase deficiency)<p><a href="../../details/details.html#Orphanet:705">Orphanet:705</a></p> (Pendred syndrome)<p><a href="../../details/details.html#Orphanet:733">Orphanet:733</a></p> (Familial Adenomatous Polyposis)<p><a href="../../details/details.html#Orphanet:750">Orphanet:750</a></p> (pseudoachondroplasia)<p><a href="../../details/details.html#Orphanet:774">Orphanet:774</a></p> (hereditary hemorrhagic telangiectasia)<p><a href="../../details/details.html#Orphanet:791">Orphanet:791</a></p> (Retinitis Pigmentosa)<p><a href="../../details/details.html#Orphanet:84">Orphanet:84</a></p> (Fanconi Anemia)<p><a href="../../details/details.html#Orphanet:87884">Orphanet:87884</a></p> (nonsyndromic deafness)<p><a href="../../details/details.html#Orphanet:886">Orphanet:886</a></p> (Usher syndrome)<p><a href="../../details/details.html#Orphanet:98733">Orphanet:98733</a></p> (Noonan syndrome and noonan-related syndrom)
@@ -1655,19 +1714,32 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys019",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "Disease Ontology",
+      "prefix": "DOID",
+      "iri": "http://disease-ontology.org/"
     },
     {
       "id": "IdSys011",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "OMIM",
+      "prefix": "OMIM",
+      "oid": "2.16.840.1.113883.6.174",
+      "iri": "http://www.omim.org/"
     },
     {
       "id": "IdSys013",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "Orphanet",
+      "prefix": "Orphanet",
+      "iri": "http://www.orpha.net/"
     },
     {
       "id": "IdSys020",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "MeSH",
+      "prefix": "MESH",
+      "iri": "https://meshb.nlm.nih.gov/"
     }
   ],
   "conceptType": "Disease",
@@ -1875,7 +1947,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys016">IdSys016</a></p>
+              <p><a href="../../details/details.html#IdSys016">IdSys016</a></p> (HumanPhenotypeOntology)
          </td>
           <td>
               <p><a href="../../details/details.html#HP:0000256">HP:0000256</a></p> (macrocephaly)<p><a href="../../details/details.html#HP:0000957">HP:0000957</a></p> (café au lait macules (CALMs))<p><a href="../../details/details.html#HP:0000997">HP:0000997</a></p> (axillary freckling)<p><a href="../../details/details.html#HP:0011014">HP:0011014</a></p> (Abnormal Glucose Homeostasis)<p><a href="../../details/details.html#HP:0012873">HP:0012873</a></p> (Absent vas deferens)<p><a href="../../details/details.html#HP:0200106">HP:0200106</a></p> (Absent/shortened dynein arms)
@@ -1897,7 +1969,10 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys016",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "HumanPhenotypeOntology",
+      "prefix": "HP",
+      "iri": "http://human-phenotype-ontology.github.io/"
     }
   ],
   "conceptType": "Phenotype",
@@ -1950,7 +2025,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys004">IdSys004</a></p><p><a href="../../details/details.html#IdSys006">IdSys006</a></p>
+              <p><a href="../../details/details.html#IdSys004">IdSys004</a></p> (RefSeq)<p><a href="../../details/details.html#IdSys006">IdSys006</a></p> (Ensembl)
          </td>
           <td>
               <p><a href="../../details/details.html#REFSEQ:NM_005228.3">REFSEQ:NM_005228.3</a></p><p><a href="../../details/details.html#REFSEQ:NP_005219.2">REFSEQ:NP_005219.2</a></p><p><a href="../../details/details.html#REFSEQ:NM_004333.4">REFSEQ:NM_004333.4</a></p><p><a href="../../details/details.html#REFSEQ:NM_000169.2">REFSEQ:NM_000169.2</a></p><p><a href="../../details/details.html#REFSEQ:NP_001360.1">REFSEQ:NP_001360.1</a></p><p><a href="../../details/details.html#REFSEQ:NP_056375.2">REFSEQ:NP_056375.2</a></p><p><a href="../../details/details.html#REFSEQ:NP_003915.2">REFSEQ:NP_003915.2</a></p><p><a href="../../details/details.html#REFSEQ:NM_001271208.1">REFSEQ:NM_001271208.1</a></p><p><a href="../../details/details.html#REFSEQ:NM_133378.4">REFSEQ:NM_133378.4</a></p><p><a href="../../details/details.html#REFSEQ:NM_147196.2">REFSEQ:NM_147196.2</a></p><p><a href="../../details/details.html#REFSEQ:NM_000257.2">REFSEQ:NM_000257.2</a></p><p><a href="../../details/details.html#ENSEMBL:ENST00000566221.5">ENSEMBL:ENST00000566221.5</a></p><p><a href="../../details/details.html#REFSEQ:NM_000363.4">REFSEQ:NM_000363.4</a></p><p><a href="../../details/details.html#REFSEQ:NM_000059.3">REFSEQ:NM_000059.3</a></p><p><a href="../../details/details.html#REFSEQ:NM_138691.2">REFSEQ:NM_138691.2</a></p><p><a href="../../details/details.html#REFSEQ:NM_002880.3">REFSEQ:NM_002880.3</a></p>
@@ -1972,11 +2047,18 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys004",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "RefSeq",
+      "prefix": "REFSEQ",
+      "oid": "2.16.840.1.113883.6.280",
+      "iri": "http://www.ncbi.nlm.nih.gov/nuccore/"
     },
     {
       "id": "IdSys006",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "Ensembl",
+      "prefix": "ENSEMBL",
+      "iri": "http://www.ensembl.org/"
     }
   ],
   "conceptType": "ReferenceSequence",
@@ -2088,7 +2170,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p>
+              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p> (Scientific Evidence Provenance Information Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)<p><a href="../../details/details.html#SEPIO:0000156">SEPIO:0000156</a></p> (curator role)<p><a href="../../details/details.html#SEPIO:0000155">SEPIO:0000155</a></p> (approver role)<p><a href="../../details/details.html#SEPIO:0000331">SEPIO:0000331</a></p> (interpreter role)
@@ -2110,7 +2192,10 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys023",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "Scientific Evidence Provenance Information Ontology",
+      "prefix": "SEPIO",
+      "iri": "http://obofoundry.org/sepio/"
     }
   ],
   "conceptType": "ContributoryRole",
@@ -2153,7 +2238,7 @@
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys022">IdSys022</a></p>
+              <p><a href="../../details/details.html#IdSys022">IdSys022</a></p> (GENO)
          </td>
           <td>
               <p><a href="../../details/details.html#GENO:0000880">GENO:0000880</a></p> (de novo)<p><a href="../../details/details.html#GENO:0000878">GENO:0000878</a></p> (maternally inherited)<p><a href="../../details/details.html#GENO:0000879">GENO:0000879</a></p> (paternally inherited)<p><a href="../../details/details.html#GENO:0000881">GENO:0000881</a></p> (Unknown)<p><a href="../../details/details.html#GENO:0000888">GENO:0000888</a></p> (parentally inherited)
@@ -2175,7 +2260,10 @@
   "sourceIdentifierSystems": [
     {
       "id": "IdSys022",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "GENO",
+      "prefix": "GENO",
+      "iri": "http://obofoundry.org/geno/"
     }
   ],
   "conceptType": "AlleleInheritance",
@@ -2224,7 +2312,7 @@ It may be either because there are lots of ways that a cohort might be generated
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p>
+              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p> (Scientific Evidence Provenance Information Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000262">SEPIO:0000262</a></p> (1000 Genomes ascertainment method)<p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)<p><a href="../../details/details.html#SEPIO:0000333">SEPIO:0000333</a></p> (ESP ascertainment method)<p><a href="../../details/details.html#SEPIO:0000334">SEPIO:0000334</a></p> (gnomAD ascertainment method)
@@ -2246,7 +2334,10 @@ It may be either because there are lots of ways that a cohort might be generated
   "sourceIdentifierSystems": [
     {
       "id": "IdSys023",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "Scientific Evidence Provenance Information Ontology",
+      "prefix": "SEPIO",
+      "iri": "http://obofoundry.org/sepio/"
     }
   ],
   "conceptType": "Ascertainment",
@@ -2289,7 +2380,7 @@ It may be either because there are lots of ways that a cohort might be generated
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p><p><a href="../../details/details.html#IdSys024">IdSys024</a></p>
+              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p> (Scientific Evidence Provenance Information Ontology)<p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000273">SEPIO:0000273</a></p> (low)<p><a href="../../details/details.html#SEPIO-CG:99001">SEPIO-CG:99001</a></p> (high)<p><a href="../../details/details.html#SEPIO-CG:99002">SEPIO-CG:99002</a></p> (complete)
@@ -2311,11 +2402,17 @@ It may be either because there are lots of ways that a cohort might be generated
   "sourceIdentifierSystems": [
     {
       "id": "IdSys023",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "Scientific Evidence Provenance Information Ontology",
+      "prefix": "SEPIO",
+      "iri": "http://obofoundry.org/sepio/"
     },
     {
       "id": "IdSys024",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "ClinGen extensions to SEPIO",
+      "prefix": "SEPIO-CG",
+      "iri": "http://obofoundry.org/sepio/clingen"
     }
   ],
   "conceptType": "LocusSpecificity",
@@ -2353,7 +2450,7 @@ It may be either because there are lots of ways that a cohort might be generated
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p>
+              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0000330">SO:0000330</a></p> (conserved region)
@@ -2375,7 +2472,10 @@ It may be either because there are lots of ways that a cohort might be generated
   "sourceIdentifierSystems": [
     {
       "id": "IdSys024",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "ClinGen extensions to SEPIO",
+      "prefix": "SEPIO-CG",
+      "iri": "http://obofoundry.org/sepio/clingen"
     }
   ],
   "conceptType": "Consertation",
@@ -2403,7 +2503,7 @@ It may be either because there are lots of ways that a cohort might be generated
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p>
+              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99005">SEPIO-CG:99005</a></p> (maternal confirmation)<p><a href="../../details/details.html#SEPIO-CG:99006">SEPIO-CG:99006</a></p> (paternal confirmation)<p><a href="../../details/details.html#SEPIO-CG:99007">SEPIO-CG:99007</a></p> (maternal and paternal confirmation)<p><a href="../../details/details.html#SEPIO-CG:99008">SEPIO-CG:99008</a></p> (no parental confirmation)
@@ -2425,7 +2525,10 @@ It may be either because there are lots of ways that a cohort might be generated
   "sourceIdentifierSystems": [
     {
       "id": "IdSys024",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "ClinGen extensions to SEPIO",
+      "prefix": "SEPIO-CG",
+      "iri": "http://obofoundry.org/sepio/clingen"
     }
   ],
   "conceptType": "ParentalConfirmation",
@@ -2468,7 +2571,7 @@ It may be either because there are lots of ways that a cohort might be generated
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p>
+              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p> (affected)<p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
@@ -2490,7 +2593,10 @@ It may be either because there are lots of ways that a cohort might be generated
   "sourceIdentifierSystems": [
     {
       "id": "IdSys024",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "ClinGen extensions to SEPIO",
+      "prefix": "SEPIO-CG",
+      "iri": "http://obofoundry.org/sepio/clingen"
     }
   ],
   "conceptType": "ConditionStatus",
@@ -2523,7 +2629,7 @@ It may be either because there are lots of ways that a cohort might be generated
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p>
+              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99011">SEPIO-CG:99011</a></p> (present)<p><a href="../../details/details.html#SEPIO-CG:99012">SEPIO-CG:99012</a></p> (absent)<p><a href="../../details/details.html#SEPIO-CG:99013">SEPIO-CG:99013</a></p> (unknown)
@@ -2545,7 +2651,10 @@ It may be either because there are lots of ways that a cohort might be generated
   "sourceIdentifierSystems": [
     {
       "id": "IdSys024",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "ClinGen extensions to SEPIO",
+      "prefix": "SEPIO-CG",
+      "iri": "http://obofoundry.org/sepio/clingen"
     }
   ],
   "conceptType": "InconsistentSegregationObserved",
@@ -2583,7 +2692,7 @@ It may be either because there are lots of ways that a cohort might be generated
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys007">IdSys007</a></p>
+              <p><a href="../../details/details.html#IdSys007">IdSys007</a></p> (SequenceOntology)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0002055">SO:0002055</a></p> (null mutation)
@@ -2605,7 +2714,10 @@ It may be either because there are lots of ways that a cohort might be generated
   "sourceIdentifierSystems": [
     {
       "id": "IdSys007",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "SequenceOntology",
+      "prefix": "SO",
+      "iri": "http://sequenceontology.org/"
     }
   ],
   "conceptType": "NullAlleleOutcome",
@@ -2633,7 +2745,7 @@ It may be either because there are lots of ways that a cohort might be generated
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p>
+              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
               <p><a href="../../details/details.html#RO:0002656">RO:0002656</a></p> (overlaps region)<p><a href="../../details/details.html#RO:00002527">RO:00002527</a></p> (does not overlap region)
@@ -2655,7 +2767,10 @@ It may be either because there are lots of ways that a cohort might be generated
   "sourceIdentifierSystems": [
     {
       "id": "IdSys024",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "ClinGen extensions to SEPIO",
+      "prefix": "SEPIO-CG",
+      "iri": "http://obofoundry.org/sepio/clingen"
     }
   ],
   "conceptType": "RegionAllelesOutcome",
@@ -2688,7 +2803,7 @@ It may be either because there are lots of ways that a cohort might be generated
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys003">IdSys003</a></p>
+              <p><a href="../../details/details.html#IdSys003">IdSys003</a></p> (hgnc)
          </td>
           <td>
               <p><a href="../../details/details.html#HGNC:5048">HGNC:5048</a></p><p><a href="../../details/details.html#HGNC:1101">HGNC:1101</a></p><p><a href="../../details/details.html#HGNC:12403">HGNC:12403</a></p><p><a href="../../details/details.html#HGNC:9644">HGNC:9644</a></p><p><a href="../../details/details.html#HGNC:2950">HGNC:2950</a></p><p><a href="../../details/details.html#HGNC:5173">HGNC:5173</a></p><p><a href="../../details/details.html#HGNC:6407">HGNC:6407</a></p><p><a href="../../details/details.html#HGNC:7577">HGNC:7577</a></p><p><a href="../../details/details.html#HGNC:2770">HGNC:2770</a></p><p><a href="../../details/details.html#HGNC:4585">HGNC:4585</a></p><p><a href="../../details/details.html#HGNC:11949">HGNC:11949</a></p><p><a href="../../details/details.html#HGNC:11237">HGNC:11237</a></p><p><a href="../../details/details.html#HGNC:1097">HGNC:1097</a></p><p><a href="../../details/details.html#HGNC:6847">HGNC:6847</a></p><p><a href="../../details/details.html#HGNC:6871">HGNC:6871</a></p><p><a href="../../details/details.html#HGNC:8818">HGNC:8818</a></p><p><a href="../../details/details.html#HGNC:10483">HGNC:10483</a></p><p><a href="../../details/details.html#HGNC:3356">HGNC:3356</a></p><p><a href="../../details/details.html#HGNC:3236">HGNC:3236</a></p><p><a href="../../details/details.html#HGNC:4296">HGNC:4296</a></p><p><a href="../../details/details.html#HGNC:7527">HGNC:7527</a></p><p><a href="../../details/details.html#HGNC:3157">HGNC:3157</a></p><p><a href="../../details/details.html#HGNC:9829">HGNC:9829</a></p><p><a href="../../details/details.html#HGNC:18183">HGNC:18183</a></p><p><a href="../../details/details.html#HGNC:12404">HGNC:12404</a></p><p><a href="../../details/details.html#HGNC:8140">HGNC:8140</a></p><p><a href="../../details/details.html#HGNC:9143">HGNC:9143</a></p><p><a href="../../details/details.html#HGNC:11947">HGNC:11947</a></p><p><a href="../../details/details.html#HGNC:8512">HGNC:8512</a></p><p><a href="../../details/details.html#HGNC:1100">HGNC:1100</a></p><p><a href="../../details/details.html#HGNC:3756">HGNC:3756</a></p><p><a href="../../details/details.html#HGNC:6840">HGNC:6840</a></p><p><a href="../../details/details.html#HGNC:12601">HGNC:12601</a></p><p><a href="../../details/details.html#HGNC:7551">HGNC:7551</a></p><p><a href="../../details/details.html#HGNC:3349">HGNC:3349</a></p><p><a href="../../details/details.html#HGNC:3756">HGNC:3756</a></p><p><a href="../../details/details.html#HGNC:1058">HGNC:1058</a></p><p><a href="../../details/details.html#HGNC:4284">HGNC:4284</a></p><p><a href="../../details/details.html#HGNC:18744">HGNC:18744</a></p><p><a href="../../details/details.html#HGNC:3603">HGNC:3603</a></p><p><a href="../../details/details.html#HGNC:7683">HGNC:7683</a></p><p><a href="../../details/details.html#HGNC:5213">HGNC:5213</a></p><p><a href="../../details/details.html#HGNC:7132">HGNC:7132</a></p><p><a href="../../details/details.html#HGNC:583">HGNC:583</a></p><p><a href="../../details/details.html#HGNC:20249">HGNC:20249</a></p><p><a href="../../details/details.html#HGNC:6547">HGNC:6547</a></p><p><a href="../../details/details.html#HGNC:164">HGNC:164</a></p><p><a href="../../details/details.html#HGNC:26521">HGNC:26521</a></p><p><a href="../../details/details.html#HGNC:1884">HGNC:1884</a></p><p><a href="../../details/details.html#HGNC:7720">HGNC:7720</a></p><p><a href="../../details/details.html#HGNC:30800">HGNC:30800</a></p><p><a href="../../details/details.html#HGNC:11187">HGNC:11187</a></p><p><a href="../../details/details.html#HGNC:13733">HGNC:13733</a></p><p><a href="../../details/details.html#HGNC:16361">HGNC:16361</a></p><p><a href="../../details/details.html#HGNC:2200">HGNC:2200</a></p><p><a href="../../details/details.html#HGNC:2227">HGNC:2227</a></p><p><a href="../../details/details.html#HGNC:8091">HGNC:8091</a></p><p><a href="../../details/details.html#HGNC:16513">HGNC:16513</a></p><p><a href="../../details/details.html#HGNC:6294">HGNC:6294</a></p><p><a href="../../details/details.html#HGNC:3036">HGNC:3036</a></p>
@@ -2710,7 +2825,11 @@ It may be either because there are lots of ways that a cohort might be generated
   "sourceIdentifierSystems": [
     {
       "id": "IdSys003",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "hgnc",
+      "prefix": "HGNC",
+      "oid": "2.16.840.1.113883.6.281",
+      "iri": "http://www.genenames.org/"
     }
   ],
   "conceptType": "Gene",
@@ -3033,7 +3152,7 @@ It may be either because there are lots of ways that a cohort might be generated
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p>
+              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99022">SEPIO-CG:99022</a></p> (PVS1)<p><a href="../../details/details.html#SEPIO-CG:99023">SEPIO-CG:99023</a></p> (PS1)<p><a href="../../details/details.html#SEPIO-CG:99024">SEPIO-CG:99024</a></p> (PS2)<p><a href="../../details/details.html#SEPIO-CG:99025">SEPIO-CG:99025</a></p> (PS3)<p><a href="../../details/details.html#SEPIO-CG:99026">SEPIO-CG:99026</a></p> (PS4)<p><a href="../../details/details.html#SEPIO-CG:99027">SEPIO-CG:99027</a></p> (PM1)<p><a href="../../details/details.html#SEPIO-CG:99028">SEPIO-CG:99028</a></p> (PM2)<p><a href="../../details/details.html#SEPIO-CG:99029">SEPIO-CG:99029</a></p> (PM3)<p><a href="../../details/details.html#SEPIO-CG:99030">SEPIO-CG:99030</a></p> (PM4)<p><a href="../../details/details.html#SEPIO-CG:99031">SEPIO-CG:99031</a></p> (PM5)<p><a href="../../details/details.html#SEPIO-CG:99032">SEPIO-CG:99032</a></p> (PM6)<p><a href="../../details/details.html#SEPIO-CG:99033">SEPIO-CG:99033</a></p> (PP1)<p><a href="../../details/details.html#SEPIO-CG:99034">SEPIO-CG:99034</a></p> (PP2)<p><a href="../../details/details.html#SEPIO-CG:99035">SEPIO-CG:99035</a></p> (PP3)<p><a href="../../details/details.html#SEPIO-CG:99036">SEPIO-CG:99036</a></p> (PP4)<p><a href="../../details/details.html#SEPIO-CG:99037">SEPIO-CG:99037</a></p> (PP5)<p><a href="../../details/details.html#SEPIO-CG:99038">SEPIO-CG:99038</a></p> (BA1)<p><a href="../../details/details.html#SEPIO-CG:99039">SEPIO-CG:99039</a></p> (BS1)<p><a href="../../details/details.html#SEPIO-CG:99040">SEPIO-CG:99040</a></p> (BS2)<p><a href="../../details/details.html#SEPIO-CG:99041">SEPIO-CG:99041</a></p> (BS3)<p><a href="../../details/details.html#SEPIO-CG:99042">SEPIO-CG:99042</a></p> (BS4)<p><a href="../../details/details.html#SEPIO-CG:99043">SEPIO-CG:99043</a></p> (BP1)<p><a href="../../details/details.html#SEPIO-CG:99044">SEPIO-CG:99044</a></p> (BP2)<p><a href="../../details/details.html#SEPIO-CG:99045">SEPIO-CG:99045</a></p> (BP3)<p><a href="../../details/details.html#SEPIO-CG:99046">SEPIO-CG:99046</a></p> (BP4)<p><a href="../../details/details.html#SEPIO-CG:99047">SEPIO-CG:99047</a></p> (BP5)<p><a href="../../details/details.html#SEPIO-CG:99048">SEPIO-CG:99048</a></p> (BP6)<p><a href="../../details/details.html#SEPIO-CG:99049">SEPIO-CG:99049</a></p> (BP7)
@@ -3055,7 +3174,10 @@ It may be either because there are lots of ways that a cohort might be generated
   "sourceIdentifierSystems": [
     {
       "id": "IdSys024",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "ClinGen extensions to SEPIO",
+      "prefix": "SEPIO-CG",
+      "iri": "http://obofoundry.org/sepio/clingen"
     }
   ],
   "conceptType": "Criterion",
@@ -3403,7 +3525,7 @@ It may be either because there are lots of ways that a cohort might be generated
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p>
+              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99200">SEPIO-CG:99200</a></p>
@@ -3425,7 +3547,10 @@ It may be either because there are lots of ways that a cohort might be generated
   "sourceIdentifierSystems": [
     {
       "id": "IdSys024",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "ClinGen extensions to SEPIO",
+      "prefix": "SEPIO-CG",
+      "iri": "http://obofoundry.org/sepio/clingen"
     }
   ],
   "conceptType": "AssertionMethod",
@@ -3460,7 +3585,7 @@ It may be either because there are lots of ways that a cohort might be generated
               <p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p>
+              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99300">SEPIO-CG:99300</a></p>
@@ -3482,7 +3607,10 @@ It may be either because there are lots of ways that a cohort might be generated
   "sourceIdentifierSystems": [
     {
       "id": "IdSys024",
-      "type": "IdentifierSystem"
+      "type": "IdentifierSystem",
+      "label": "ClinGen extensions to SEPIO",
+      "prefix": "SEPIO-CG",
+      "iri": "http://obofoundry.org/sepio/clingen"
     }
   ],
   "conceptType": "AssertionMethodAlgorithm",
