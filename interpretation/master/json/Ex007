@@ -5,16 +5,15 @@
     "id": "CG-EX:CritAssess281",
     "type": "CriterionAssessment",
     "criterion": {
-      "id": "SEPIO-CG:99024",
+      "id": "Crit305",
       "type": "Criterion",
-      "label": "PS2",
       "description": "De novo (both maternity and paternity confirmed) in a patient with the disease and no family history",
+      "comments": "MYH7 is adding specificity to this rule with\na. No family history = parents have had ECHO and ECG\nb. Only paternity confirmation required",
       "defaultStrength": {
         "id": "SEPIO:0000330",
-        "type": "EvidenceLineStrength",
         "label": "Pathogenic Strong"
       },
-      "comments": "MYH7 is adding specificity to this rule with\na. No family history = parents have had ECHO and ECG\nb. Only paternity confirmation required"
+      "label": "PS2"
     },
     "variant": {
       "id": "CAR:CA016441",
@@ -22,18 +21,17 @@
       "preferredCtxAllele": {
         "id": "CG-EX:CtxAll017",
         "type": "ContextualAllele",
-        "relatedCanonicalAllele": "CanAll014",
+        "relatedCanonicalAllele": "CAR:CA016441",
         "alleleName": "NM_000257.3(MYH7):c.5740G>A (p.Glu1914Lys)"
       }
     },
     "condition": [
       {
-        "id": "CG-EX:GenCond052",
+        "id": "GenCond052",
         "type": "GeneticCondition",
         "disease": [
           {
             "id": "Orphanet:217604",
-            "type": "Disease",
             "label": "dilated cardiomyopathy"
           }
         ]
@@ -41,7 +39,6 @@
     ],
     "outcome": {
       "id": "SEPIO:0000223",
-      "type": "CriterionEvaluation",
       "label": "Met"
     },
     "evidenceLine": [
@@ -54,17 +51,15 @@
             "type": "IndividualCondition",
             "individual": {
               "id": "CG-EX:Indiv333",
-              "type": "Individual",
-              "description": "individual #001"
+              "label": "individual #001"
             },
             "condition": [
               {
-                "id": "CG-EX:GenCond052",
+                "id": "GenCond052",
                 "type": "GeneticCondition",
                 "disease": [
                   {
                     "id": "Orphanet:217604",
-                    "type": "Disease",
                     "label": "dilated cardiomyopathy"
                   }
                 ]
@@ -72,7 +67,6 @@
             ],
             "individualHasCondition": {
               "id": "SEPIO-CG:99009",
-              "type": "ConditionStatus",
               "label": "affected"
             }
           },
@@ -81,17 +75,15 @@
             "type": "FamilyCondition",
             "proband": {
               "id": "CG-EX:Indiv333",
-              "type": "Individual",
-              "description": "individual #001"
+              "label": "individual #001"
             },
             "condition": [
               {
-                "id": "CG-EX:GenCond052",
+                "id": "GenCond052",
                 "type": "GeneticCondition",
                 "disease": [
                   {
                     "id": "Orphanet:217604",
-                    "type": "Disease",
                     "label": "dilated cardiomyopathy"
                   }
                 ]
@@ -99,7 +91,6 @@
             ],
             "familyHasCondition": {
               "id": "SEPIO-CG:99010",
-              "type": "ConditionStatus",
               "label": "unaffected"
             }
           },
@@ -112,24 +103,21 @@
               "preferredCtxAllele": {
                 "id": "CG-EX:CtxAll017",
                 "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CanAll014",
+                "relatedCanonicalAllele": "CAR:CA016441",
                 "alleleName": "NM_000257.3(MYH7):c.5740G>A (p.Glu1914Lys)"
               }
             },
             "individual": {
               "id": "CG-EX:Indiv333",
-              "type": "Individual",
-              "description": "individual #001"
+              "label": "individual #001"
             },
             "parentalConfirmation": {
               "id": "SEPIO-CG:99007",
-              "type": "ParentalConfirmation",
               "label": "maternal and paternal confirmation"
             },
             "alleleInheritance": [
               {
                 "id": "GENO:0000880",
-                "type": "AlleleInheritance",
                 "label": "de novo"
               }
             ],
@@ -149,7 +137,6 @@
         "contributionDate": "6/3/16 8:00 AM",
         "contributionRole": {
           "id": "SEPIO:0000154",
-          "type": "ContributoryRole",
           "label": "assessor role"
         }
       }

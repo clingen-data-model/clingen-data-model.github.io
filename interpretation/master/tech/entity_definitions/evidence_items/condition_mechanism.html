@@ -126,21 +126,21 @@
             </tr>
             <tr>
                 <td>gene</td>
-                <td>Gene</td>
+                <td>@id</td>
                 <td>1..1</td>
                 <td>Gene in which the given variants occur</td>
                 <td>SEPIO:0000278</td>
             </tr>
             <tr>
                 <td>mechanism</td>
-                <td>Mechanism</td>
+                <td>@id</td>
                 <td>1..1</td>
                 <td>SO term for a class of variants</td>
                 <td>SEPIO:0000197</td>
             </tr>
             <tr>
                 <td>mechanismConfidence</td>
-                <td>ConditionMechanismStrength</td>
+                <td>@id</td>
                 <td>0..1</td>
                 <td>Qualifier on the Condition/Mechanism pair</td>
                 <td>SEPIO:0000167</td>
@@ -162,6 +162,13 @@
             </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>userLabel</td>
+                    <td>UserLabel</td>
+                    <td>0..*</td>
+                    <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
+                    <td></td>
+                </tr>
                 <tr>
                     <td>qualifier</td>
                     <td>string</td>
@@ -205,6 +212,7 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
+        <th>userLabel</th>
         <th>qualifier</th>
         <th>evidenceLine</th>
         <th>description</th>
@@ -223,13 +231,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>HNRNPU is not associated with any conditions, and therefore LOF is not an established mechanism of any condition for this gene.</p>
          </td>
           <td>
               
          </td>
           <td>
-              <p><a href="../../details/details.html#HGNC:5048">HGNC:5048</a></p>
+              <p><a href="../../details/details.html#HGNC:5048">HGNC:5048</a></p> (HNRNPU)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0002054">SO:0002054</a></p> (loss of function variant)
@@ -243,18 +254,15 @@
   "type": "ConditionMechanism",
   "mechanism": {
     "id": "SO:0002054",
-    "type": "Mechanism",
     "label": "loss of function variant"
   },
   "mechanismConfidence": {
     "id": "SEPIO:0000269",
-    "type": "ConditionMechanismStrength",
     "label": "established"
   },
   "gene": {
     "id": "HGNC:5048",
-    "type": "Gene",
-    "geneSymbol": "HNRNPU"
+    "label": "HNRNPU"
   },
   "description": "HNRNPU is not associated with any conditions, and therefore LOF is not an established mechanism of any condition for this gene."
 }
@@ -271,13 +279,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>This is so well-known that it does not require a citation.</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond001">CG-EX:GenCond001</a></p>
+              <p><a href="../../details/details.html#GenCond001">GenCond001</a></p> (Breast Ovarian Cancer, Autosomal Dominant)
          </td>
           <td>
-              <p><a href="../../details/details.html#HGNC:1101">HGNC:1101</a></p>
+              <p><a href="../../details/details.html#HGNC:1101">HGNC:1101</a></p> (BRCA2)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0002054">SO:0002054</a></p> (loss of function variant)
@@ -291,35 +302,31 @@
   "type": "ConditionMechanism",
   "mechanism": {
     "id": "SO:0002054",
-    "type": "Mechanism",
     "label": "loss of function variant"
   },
   "mechanismConfidence": {
     "id": "SEPIO:0000269",
-    "type": "ConditionMechanismStrength",
     "label": "established"
   },
   "gene": {
     "id": "HGNC:1101",
-    "type": "Gene",
-    "geneSymbol": "BRCA2"
+    "label": "BRCA2"
   },
   "condition": {
-    "id": "CG-EX:GenCond001",
+    "id": "GenCond001",
     "type": "GeneticCondition",
     "name": "Breast Ovarian Cancer, Autosomal Dominant",
     "disease": [
       {
         "id": "MESH:D061325",
-        "type": "Disease",
         "label": "hereditary breast ovarian cancer"
       }
     ],
     "modeOfInheritance": {
       "id": "HP:0000006",
-      "type": "ModeOfInheritance",
       "label": "Autosomal Dominant"
-    }
+    },
+    "label": "Breast Ovarian Cancer, Autosomal Dominant"
   },
   "description": "This is so well-known that it does not require a citation."
 }
@@ -339,10 +346,13 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond047">CG-EX:GenCond047</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#HGNC:12403">HGNC:12403</a></p>
+              <p><a href="../../details/details.html#GenCond047">GenCond047</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HGNC:12403">HGNC:12403</a></p> (TTN)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0002054">SO:0002054</a></p> (loss of function variant)
@@ -356,26 +366,22 @@
   "type": "ConditionMechanism",
   "mechanism": {
     "id": "SO:0002054",
-    "type": "Mechanism",
     "label": "loss of function variant"
   },
   "mechanismConfidence": {
     "id": "SEPIO:0000269",
-    "type": "ConditionMechanismStrength",
     "label": "established"
   },
   "gene": {
     "id": "HGNC:12403",
-    "type": "Gene",
-    "geneSymbol": "TTN"
+    "label": "TTN"
   },
   "condition": {
-    "id": "CG-EX:GenCond047",
+    "id": "GenCond047",
     "type": "GeneticCondition",
     "disease": [
       {
         "id": "Orphanet:217604",
-        "type": "Disease",
         "label": "dilated cardiomyopathy"
       }
     ]
@@ -394,13 +400,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Of 178 pathogenic  alleles in ClinVar, 149 are missense.</p>
          </td>
           <td>
               
          </td>
           <td>
-              <p><a href="../../details/details.html#HGNC:7577">HGNC:7577</a></p>
+              <p><a href="../../details/details.html#HGNC:7577">HGNC:7577</a></p> (MYH7)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001583">SO:0001583</a></p> (missense variant)
@@ -414,18 +423,15 @@
   "type": "ConditionMechanism",
   "mechanism": {
     "id": "SO:0001583",
-    "type": "MolecularConsequence",
     "label": "missense variant"
   },
   "mechanismConfidence": {
     "id": "SEPIO:0000268",
-    "type": "ConditionMechanismStrength",
     "label": "common"
   },
   "gene": {
     "id": "HGNC:7577",
-    "type": "Gene",
-    "geneSymbol": "MYH7"
+    "label": "MYH7"
   },
   "description": "Of 178 pathogenic  alleles in ClinVar, 149 are missense."
 }
@@ -442,13 +448,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Taylor 2011 PMID:21810661</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond054">CG-EX:GenCond054</a></p>
+              <p><a href="../../details/details.html#GenCond054">GenCond054</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#HGNC:12403">HGNC:12403</a></p>
+              <p><a href="../../details/details.html#HGNC:12403">HGNC:12403</a></p> (TTN)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001583">SO:0001583</a></p> (missense variant)
@@ -462,26 +471,22 @@
   "type": "ConditionMechanism",
   "mechanism": {
     "id": "SO:0001583",
-    "type": "MolecularConsequence",
     "label": "missense variant"
   },
   "mechanismConfidence": {
     "id": "SEPIO:0000268",
-    "type": "ConditionMechanismStrength",
     "label": "common"
   },
   "gene": {
     "id": "HGNC:12403",
-    "type": "Gene",
-    "geneSymbol": "TTN"
+    "label": "TTN"
   },
   "condition": {
-    "id": "CG-EX:GenCond054",
+    "id": "GenCond054",
     "type": "GeneticCondition",
     "disease": [
       {
         "id": "Orphanet:247",
-        "type": "Disease",
         "label": "arrhythmogenic right ventricular cardiomyopathy"
       }
     ]
@@ -501,13 +506,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>ClinVar shows 421 variants in BRCA2 that are pathogenic for HBOC. 402 of these (~95%) are frameshift, nonsense, or splice-site variants.</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond036">CG-EX:GenCond036</a></p>
+              <p><a href="../../details/details.html#GenCond036">GenCond036</a></p> (hereditary breast and ovarian cancer)
          </td>
           <td>
-              <p><a href="../../details/details.html#HGNC:1101">HGNC:1101</a></p>
+              <p><a href="../../details/details.html#HGNC:1101">HGNC:1101</a></p> (BRCA2)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0002054">SO:0002054</a></p> (loss of function variant)
@@ -521,30 +529,27 @@
   "type": "ConditionMechanism",
   "mechanism": {
     "id": "SO:0002054",
-    "type": "Mechanism",
     "label": "loss of function variant"
   },
   "mechanismConfidence": {
     "id": "SEPIO:0000270",
-    "type": "ConditionMechanismStrength",
     "label": "primary"
   },
   "gene": {
     "id": "HGNC:1101",
-    "type": "Gene",
-    "geneSymbol": "BRCA2"
+    "label": "BRCA2"
   },
   "condition": {
-    "id": "CG-EX:GenCond036",
+    "id": "GenCond036",
     "type": "GeneticCondition",
     "disease": [
       {
         "id": "Orphanet:145",
-        "type": "Disease",
         "label": "hereditary breast and ovarian cancer syndrome"
       }
     ],
-    "name": "hereditary breast and ovarian cancer"
+    "name": "hereditary breast and ovarian cancer",
+    "label": "hereditary breast and ovarian cancer"
   },
   "description": "ClinVar shows 421 variants in BRCA2 that are pathogenic for HBOC. 402 of these (~95%) are frameshift, nonsense, or splice-site variants."
 }
@@ -561,13 +566,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>ClinVar shows 61 variants in BRCA2 that are pathogenic for Fanconi Anemia. 55 of these (~90%) are frameshift, nonsense, or splice-site variants.</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond037">CG-EX:GenCond037</a></p>
+              <p><a href="../../details/details.html#GenCond037">GenCond037</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#HGNC:1101">HGNC:1101</a></p>
+              <p><a href="../../details/details.html#HGNC:1101">HGNC:1101</a></p> (BRCA2)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0002054">SO:0002054</a></p> (loss of function variant)
@@ -581,26 +589,22 @@
   "type": "ConditionMechanism",
   "mechanism": {
     "id": "SO:0002054",
-    "type": "Mechanism",
     "label": "loss of function variant"
   },
   "mechanismConfidence": {
     "id": "SEPIO:0000270",
-    "type": "ConditionMechanismStrength",
     "label": "primary"
   },
   "gene": {
     "id": "HGNC:1101",
-    "type": "Gene",
-    "geneSymbol": "BRCA2"
+    "label": "BRCA2"
   },
   "condition": {
-    "id": "CG-EX:GenCond037",
+    "id": "GenCond037",
     "type": "GeneticCondition",
     "disease": [
       {
         "id": "Orphanet:84",
-        "type": "Disease",
         "label": "Fanconi Anemia"
       }
     ]
@@ -620,13 +624,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>shown in both humans and mouse models</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond059">CG-EX:GenCond059</a></p>
+              <p><a href="../../details/details.html#GenCond059">GenCond059</a></p> (Hearing Loss, Autosomal Recessive)
          </td>
           <td>
-              <p><a href="../../details/details.html#HGNC:26521">HGNC:26521</a></p>
+              <p><a href="../../details/details.html#HGNC:26521">HGNC:26521</a></p> (LOXHD1)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0002054">SO:0002054</a></p> (loss of function variant)
@@ -640,35 +647,31 @@
   "type": "ConditionMechanism",
   "mechanism": {
     "id": "SO:0002054",
-    "type": "Mechanism",
     "label": "loss of function variant"
   },
   "mechanismConfidence": {
     "id": "SEPIO:0000270",
-    "type": "ConditionMechanismStrength",
     "label": "primary"
   },
   "gene": {
     "id": "HGNC:26521",
-    "type": "Gene",
-    "geneSymbol": "LOXHD1"
+    "label": "LOXHD1"
   },
   "condition": {
-    "id": "CG-EX:GenCond059",
+    "id": "GenCond059",
     "type": "GeneticCondition",
     "disease": [
       {
         "id": "Orphanet:87884",
-        "type": "Disease",
         "label": "nonsyndromic deafness"
       }
     ],
     "name": "Hearing Loss, Autosomal Recessive",
     "modeOfInheritance": {
       "id": "HP:0000007",
-      "type": "ModeOfInheritance",
       "label": "Autosomal Recessive"
-    }
+    },
+    "label": "Hearing Loss, Autosomal Recessive"
   },
   "description": "shown in both humans and mouse models"
 }
@@ -688,10 +691,13 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond053">CG-EX:GenCond053</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#HGNC:12403">HGNC:12403</a></p>
+              <p><a href="../../details/details.html#GenCond053">GenCond053</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HGNC:12403">HGNC:12403</a></p> (TTN)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0002054">SO:0002054</a></p> (loss of function variant)
@@ -705,26 +711,22 @@
   "type": "ConditionMechanism",
   "mechanism": {
     "id": "SO:0002054",
-    "type": "Mechanism",
     "label": "loss of function variant"
   },
   "mechanismConfidence": {
     "id": "SEPIO:0000270",
-    "type": "ConditionMechanismStrength",
     "label": "primary"
   },
   "gene": {
     "id": "HGNC:12403",
-    "type": "Gene",
-    "geneSymbol": "TTN"
+    "label": "TTN"
   },
   "condition": {
-    "id": "CG-EX:GenCond053",
+    "id": "GenCond053",
     "type": "GeneticCondition",
     "disease": [
       {
         "id": "Orphanet:217604",
-        "type": "Disease",
         "label": "dilated cardiomyopathy"
       }
     ]
@@ -743,13 +745,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Truncating variants in TTN are associated with DCM. However, if missense variants are located in the A-band, impact the A-band, or are in a highly expressed region, they can also be associated with DCM.</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond053">CG-EX:GenCond053</a></p>
+              <p><a href="../../details/details.html#GenCond053">GenCond053</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#HGNC:12403">HGNC:12403</a></p>
+              <p><a href="../../details/details.html#HGNC:12403">HGNC:12403</a></p> (TTN)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001583">SO:0001583</a></p> (missense variant)
@@ -763,26 +768,22 @@
   "type": "ConditionMechanism",
   "mechanism": {
     "id": "SO:0001583",
-    "type": "MolecularConsequence",
     "label": "missense variant"
   },
   "mechanismConfidence": {
     "id": "SEPIO:0000269",
-    "type": "ConditionMechanismStrength",
     "label": "established"
   },
   "gene": {
     "id": "HGNC:12403",
-    "type": "Gene",
-    "geneSymbol": "TTN"
+    "label": "TTN"
   },
   "condition": {
-    "id": "CG-EX:GenCond053",
+    "id": "GenCond053",
     "type": "GeneticCondition",
     "disease": [
       {
         "id": "Orphanet:217604",
-        "type": "Disease",
         "label": "dilated cardiomyopathy"
       }
     ]
@@ -802,13 +803,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/).</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond046">CG-EX:GenCond046</a></p>
+              <p><a href="../../details/details.html#GenCond046">GenCond046</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#HGNC:3036">HGNC:3036</a></p>
+              <p><a href="../../details/details.html#HGNC:3036">HGNC:3036</a></p> (DSC2)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0002054">SO:0002054</a></p> (loss of function variant)
@@ -822,29 +826,25 @@
   "type": "ConditionMechanism",
   "mechanism": {
     "id": "SO:0002054",
-    "type": "Mechanism",
     "label": "loss of function variant"
   },
   "condition": {
-    "id": "CG-EX:GenCond046",
+    "id": "GenCond046",
     "type": "GeneticCondition",
     "disease": [
       {
         "id": "Orphanet:247",
-        "type": "Disease",
         "label": "arrhythmogenic right ventricular cardiomyopathy"
       }
     ]
   },
   "mechanismConfidence": {
     "id": "SEPIO:0000269",
-    "type": "ConditionMechanismStrength",
     "label": "established"
   },
   "gene": {
     "id": "HGNC:3036",
-    "type": "Gene",
-    "geneSymbol": "DSC2"
+    "label": "DSC2"
   },
   "description": "Splice and other loss-of-function variants in DSC2 have been reported in individuals with ARVC (http://arvcdatabase.info/)."
 }

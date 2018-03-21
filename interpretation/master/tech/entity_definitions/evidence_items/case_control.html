@@ -188,6 +188,13 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>userLabel</td>
+                    <td>UserLabel</td>
+                    <td>0..*</td>
+                    <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>qualifier</td>
                     <td>string</td>
                     <td>0..1</td>
@@ -230,6 +237,7 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
+        <th>userLabel</th>
         <th>qualifier</th>
         <th>evidenceLine</th>
         <th>description</th>
@@ -252,13 +260,16 @@
               
          </td>
           <td>
-              <p>Treating ExAC data as controls for</p>
+              
+         </td>
+          <td>
+              <p>Treating ExAC data as controls</p>
          </td>
           <td>
               <p><a href="../../details/details.html#CAR:CA253316">CAR:CA253316</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond048">CG-EX:GenCond048</a></p>
+              <p><a href="../../details/details.html#GenCond048">GenCond048</a></p> (Hearing Loss)
          </td>
           <td>
               <p><a href="../../details/details.html#CG-EX:AllFreq029">CG-EX:AllFreq029</a></p>
@@ -288,21 +299,21 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll025",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll022",
+      "relatedCanonicalAllele": "CAR:CA253316",
       "alleleName": "NM_000441.1(SLC26A4):c.1003T>C"
     }
   },
   "condition": {
-    "id": "CG-EX:GenCond048",
+    "id": "GenCond048",
     "type": "GeneticCondition",
     "disease": [
       {
         "id": "Orphanet:87884",
-        "type": "Disease",
         "label": "nonsyndromic deafness"
       }
     ],
-    "name": "Hearing Loss"
+    "name": "Hearing Loss",
+    "label": "Hearing Loss"
   },
   "oddsRatio": 9.1361,
   "confidenceLevel": 99.0,
@@ -312,13 +323,8 @@
     "id": "CG-EX:AllFreq029",
     "type": "AlleleFrequency",
     "ascertainment": {
-      "id": "CGEX-TYPE:0001",
-      "type": "Ascertainment",
-      "userLabel": {
-        "id": "CG-EX:UsrLabl002",
-        "type": "UserLabel",
-        "description": "Case group is composed of cases from six cohorts from the GENIUS T2D consortium.  Case status is defined per-cohort."
-      }
+      "id": "CG-EX:Ascrt0001",
+      "label": "LMM Hearing Loss"
     },
     "allele": {
       "id": "CAR:CA253316",
@@ -326,20 +332,30 @@
       "preferredCtxAllele": {
         "id": "CG-EX:CtxAll025",
         "type": "ContextualAllele",
-        "relatedCanonicalAllele": "CanAll022",
+        "relatedCanonicalAllele": "CAR:CA253316",
         "alleleName": "NM_000441.1(SLC26A4):c.1003T>C"
       }
     },
     "alleleCount": 32,
-    "alleleNumber": 4076
+    "alleleNumber": 4076,
+    "userLabel": [
+      {
+        "id": "CG-EX:UsrLabl001",
+        "type": "UserLabel",
+        "labelFor": {
+          "id": "CG-EX:Ascrt0001",
+          "label": "LMM Hearing Loss"
+        },
+        "description": "Across all published data (and LMM data) with hearing loss."
+      }
+    ]
   },
   "controlGroupFrequency": {
     "id": "CG-EX:AllFreq028",
     "type": "AlleleFrequency",
     "ascertainment": {
       "id": "SEPIO:0000332",
-      "type": "Ascertainment",
-      "label": "ExAc ascertainment method"
+      "label": "ExAC ascertainment method"
     },
     "allele": {
       "id": "CAR:CA253316",
@@ -347,14 +363,14 @@
       "preferredCtxAllele": {
         "id": "CG-EX:CtxAll025",
         "type": "ContextualAllele",
-        "relatedCanonicalAllele": "CanAll022",
+        "relatedCanonicalAllele": "CAR:CA253316",
         "alleleName": "NM_000441.1(SLC26A4):c.1003T>C"
       }
     },
     "alleleCount": 105,
     "alleleNumber": 121336
   },
-  "description": "Treating ExAC data as controls for"
+  "description": "Treating ExAC data as controls"
 }
           </code></pre></div></td>
           -->
@@ -369,13 +385,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Did not calculate formal odds ratio</p>
          </td>
           <td>
               <p><a href="../../details/details.html#CAR:CA024311">CAR:CA024311</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond011">CG-EX:GenCond011</a></p>
+              <p><a href="../../details/details.html#GenCond011">GenCond011</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#CG-EX:AllFreq032">CG-EX:AllFreq032</a></p>
@@ -405,23 +424,21 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll026",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll023",
+      "relatedCanonicalAllele": "CAR:CA024311",
       "alleleName": "NM_000540.2 (RYR1):c.1840C>T"
     }
   },
   "condition": {
-    "id": "CG-EX:GenCond011",
+    "id": "GenCond011",
     "type": "GeneticCondition",
     "disease": [
       {
         "id": "Orphanet:423",
-        "type": "Disease",
         "label": "Malignant hyperthermia"
       }
     ],
     "modeOfInheritance": {
       "id": "HP:0000006",
-      "type": "ModeOfInheritance",
       "label": "Autosomal Dominant"
     }
   },
@@ -434,7 +451,7 @@
       "preferredCtxAllele": {
         "id": "CG-EX:CtxAll026",
         "type": "ContextualAllele",
-        "relatedCanonicalAllele": "CanAll023",
+        "relatedCanonicalAllele": "CAR:CA024311",
         "alleleName": "NM_000540.2 (RYR1):c.1840C>T"
       }
     },
@@ -445,8 +462,7 @@
     "type": "AlleleFrequency",
     "ascertainment": {
       "id": "SEPIO:0000332",
-      "type": "Ascertainment",
-      "label": "ExAc ascertainment method"
+      "label": "ExAC ascertainment method"
     },
     "allele": {
       "id": "CAR:CA024311",
@@ -454,7 +470,7 @@
       "preferredCtxAllele": {
         "id": "CG-EX:CtxAll026",
         "type": "ContextualAllele",
-        "relatedCanonicalAllele": "CanAll023",
+        "relatedCanonicalAllele": "CAR:CA024311",
         "alleleName": "NM_000540.2 (RYR1):c.1840C>T"
       }
     },
@@ -476,13 +492,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Odds ratio is calculated by pooling samples from the six GENIUS T2D cohorts before calculation.</p>
          </td>
           <td>
               <p><a href="../../details/details.html#CAR:CA123287">CAR:CA123287</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond012">CG-EX:GenCond012</a></p>
+              <p><a href="../../details/details.html#GenCond012">GenCond012</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#CG-EX:AllFreq034">CG-EX:AllFreq034</a></p>
@@ -512,17 +531,16 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll027",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll024",
+      "relatedCanonicalAllele": "CAR:CA123287",
       "alleleName": "NM_006208.2(ENPP1):c.517A>C"
     }
   },
   "condition": {
-    "id": "CG-EX:GenCond012",
+    "id": "GenCond012",
     "type": "GeneticCondition",
     "phenotype": [
       {
         "id": "HP:0011014",
-        "type": "Phenotype",
         "label": "Abnormal Glucose Homeostasis"
       }
     ]
@@ -533,13 +551,8 @@
     "id": "CG-EX:AllFreq034",
     "type": "AlleleFrequency",
     "ascertainment": {
-      "id": "CGEX-TYPE:0002",
-      "type": "Ascertainment",
-      "userLabel": {
-        "id": "CG-EX:UsrLabl002",
-        "type": "UserLabel",
-        "description": "Case group is composed of cases from six cohorts from the GENIUS T2D consortium.  Case status is defined per-cohort."
-      }
+      "id": "CG-EX:Ascrt0002",
+      "label": "GENIUS T2D Cases"
     },
     "allele": {
       "id": "CAR:CA123287",
@@ -547,7 +560,7 @@
       "preferredCtxAllele": {
         "id": "CG-EX:CtxAll027",
         "type": "ContextualAllele",
-        "relatedCanonicalAllele": "CanAll024",
+        "relatedCanonicalAllele": "CAR:CA123287",
         "alleleName": "NM_006208.2(ENPP1):c.517A>C"
       }
     },
@@ -558,21 +571,26 @@
     "heterozygousAlleleIndividualCount": 972,
     "population": {
       "id": "BROAD-population-type:nfe",
-      "type": "Population",
       "label": "Non-Finnish European"
-    }
+    },
+    "userLabel": [
+      {
+        "id": "CG-EX:UsrLabl002",
+        "type": "UserLabel",
+        "labelFor": {
+          "id": "CG-EX:Ascrt0002",
+          "label": "GENIUS T2D Cases"
+        },
+        "description": "Case group is composed of cases from six cohorts from the GENIUS T2D consortium.  Case status is defined per-cohort."
+      }
+    ]
   },
   "controlGroupFrequency": {
     "id": "CG-EX:AllFreq035",
     "type": "AlleleFrequency",
     "ascertainment": {
-      "id": "CGEX-TYPE:0003",
-      "type": "Ascertainment",
-      "userLabel": {
-        "id": "CG-EX:UsrLabl003",
-        "type": "UserLabel",
-        "description": "Controls group is composed of controls from six cohorts from the GENIUS T2D consortium.  Controls status is defined per-cohort."
-      }
+      "id": "CG-EX:Ascrt0003",
+      "label": "GENIUS T2D Controls"
     },
     "allele": {
       "id": "CAR:CA123287",
@@ -580,7 +598,7 @@
       "preferredCtxAllele": {
         "id": "CG-EX:CtxAll027",
         "type": "ContextualAllele",
-        "relatedCanonicalAllele": "CanAll024",
+        "relatedCanonicalAllele": "CAR:CA123287",
         "alleleName": "NM_006208.2(ENPP1):c.517A>C"
       }
     },
@@ -591,9 +609,19 @@
     "heterozygousAlleleIndividualCount": 782,
     "population": {
       "id": "BROAD-population-type:nfe",
-      "type": "Population",
       "label": "Non-Finnish European"
-    }
+    },
+    "userLabel": [
+      {
+        "id": "CG-EX:UsrLabl003",
+        "type": "UserLabel",
+        "labelFor": {
+          "id": "CG-EX:Ascrt0003",
+          "label": "GENIUS T2D Controls"
+        },
+        "description": "Controls group is composed of controls from six cohorts from the GENIUS T2D consortium.  Controls status is defined per-cohort."
+      }
+    ]
   },
   "confidenceIntervalLower": 0.96,
   "confidenceIntervalUpper": 1.18,
@@ -608,7 +636,6 @@
       "contributionDate": "9/13/16",
       "contributionRole": {
         "id": "SEPIO:0000156",
-        "type": "ContributoryRole",
         "label": "curator role"
       }
     }

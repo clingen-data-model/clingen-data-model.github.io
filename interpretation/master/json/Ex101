@@ -5,16 +5,15 @@
     "id": "CG-EX:CritAssess156",
     "type": "CriterionAssessment",
     "criterion": {
-      "id": "SEPIO-CG:99034",
+      "id": "Crit315",
       "type": "Criterion",
-      "label": "PP2",
       "description": "Missense variant in a gene that has a low rate of benign missense variation and in which missense variants are a common mechanism of disease",
+      "comments": "Seems no one has established firm rules for when this rule is applicable so not sure how great any examples will be\nAgree with the lack of firm rules. Seems like one criteria may be observed missense variants over 5% allele frequency in ExAC. If this seems reasonable then I could generate a couple of examples.",
       "defaultStrength": {
         "id": "SEPIO:0000329",
-        "type": "EvidenceLineStrength",
         "label": "Pathogenic Supporting"
       },
-      "comments": "Seems no one has established firm rules for when this rule is applicable so not sure how great any examples will be\nAgree with the lack of firm rules. Seems like one criteria may be observed missense variants over 5% allele frequency in ExAC. If this seems reasonable then I could generate a couple of examples."
+      "label": "PP2"
     },
     "variant": {
       "id": "CAR:CA256496",
@@ -22,13 +21,12 @@
       "preferredCtxAllele": {
         "id": "CG-EX:CtxAll099",
         "type": "ContextualAllele",
-        "relatedCanonicalAllele": "CanAll093",
+        "relatedCanonicalAllele": "CAR:CA256496",
         "alleleName": "NM_133378.4(TTN): c.2926T>C"
       }
     },
     "outcome": {
       "id": "SEPIO:0000224",
-      "type": "CriterionEvaluation",
       "label": "Not Met"
     },
     "evidenceLine": [
@@ -41,12 +39,10 @@
             "type": "BenignMissenseVariationRate",
             "gene": {
               "id": "HGNC:12403",
-              "type": "Gene",
-              "geneSymbol": "TTN"
+              "label": "TTN"
             },
             "value": {
               "id": "SEPIO:0000265",
-              "type": "BenignMissenseVariationRateOutcome",
               "label": "High"
             },
             "description": "In LMM data alone, we have over 150 benign missense variants in TTN."
@@ -57,12 +53,11 @@
             "contextualAllele": {
               "id": "CG-EX:CtxAll099",
               "type": "ContextualAllele",
-              "relatedCanonicalAllele": "CanAll093",
+              "relatedCanonicalAllele": "CAR:CA256496",
               "alleleName": "NM_133378.4(TTN): c.2926T>C"
             },
             "consequence": {
               "id": "SO:0001583",
-              "type": "MolecularConsequence",
               "label": "missense variant"
             }
           },
@@ -71,26 +66,22 @@
             "type": "ConditionMechanism",
             "mechanism": {
               "id": "SO:0001583",
-              "type": "MolecularConsequence",
               "label": "missense variant"
             },
             "mechanismConfidence": {
               "id": "SEPIO:0000268",
-              "type": "ConditionMechanismStrength",
               "label": "common"
             },
             "gene": {
               "id": "HGNC:12403",
-              "type": "Gene",
-              "geneSymbol": "TTN"
+              "label": "TTN"
             },
             "condition": {
-              "id": "CG-EX:GenCond054",
+              "id": "GenCond054",
               "type": "GeneticCondition",
               "disease": [
                 {
                   "id": "Orphanet:247",
-                  "type": "Disease",
                   "label": "arrhythmogenic right ventricular cardiomyopathy"
                 }
               ]
@@ -111,7 +102,6 @@
         "contributionDate": "7/2/2012 8:45 AM",
         "contributionRole": {
           "id": "SEPIO:0000154",
-          "type": "ContributoryRole",
           "label": "assessor role"
         }
       }

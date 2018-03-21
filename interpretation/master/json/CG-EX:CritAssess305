@@ -2,16 +2,15 @@
   "id": "CG-EX:CritAssess305",
   "type": "CriterionAssessment",
   "criterion": {
-    "id": "SEPIO-CG:99028",
+    "id": "Crit309",
     "type": "Criterion",
-    "label": "PM2",
     "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
+    "comments": "Some groups are allowing to rule to be used if even not 100% absent\nFor instance, Cardio has allowed PM2 to be used if MAF is <0.05% with 95% CI if\nCI lower is ~0.00% (at 2 decimal places) AND CI upper is below 0.05%\n Caveat: Population data for insertions/deletions may be poorly called by next-generation sequencing",
     "defaultStrength": {
       "id": "SEPIO:0000216",
-      "type": "EvidenceLineStrength",
       "label": "Pathogenic Moderate"
     },
-    "comments": "Some groups are allowing to rule to be used if even not 100% absent\nFor instance, Cardio has allowed PM2 to be used if MAF is <0.05% with 95% CI if\nCI lower is ~0.00% (at 2 decimal places) AND CI upper is below 0.05%\n Caveat: Population data for insertions/deletions may be poorly called by next-generation sequencing"
+    "label": "PM2"
   },
   "variant": {
     "id": "CAR:CA090919",
@@ -19,22 +18,21 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll039",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll035",
+      "relatedCanonicalAllele": "CAR:CA090919",
       "alleleName": "NM_001369.2(DNAH5):c.7468_7488del",
       "produces": [
         {
           "id": "CG-EX:CtxAll044",
           "type": "ContextualAllele",
-          "relatedCanonicalAllele": "CanAll040",
+          "relatedCanonicalAllele": "CAR:CA273136",
           "alleleName": "NP_001360.1:p.Trp2490_Leu2496del",
-          "producedBy": "CtxAll039"
+          "producedBy": "CG-EX:CtxAll039"
         }
       ]
     }
   },
   "outcome": {
     "id": "SEPIO:0000224",
-    "type": "CriterionEvaluation",
     "label": "Not Met"
   },
   "evidenceLine": [
@@ -47,12 +45,10 @@
           "type": "AlleleFrequency",
           "ascertainment": {
             "id": "SEPIO:0000332",
-            "type": "Ascertainment",
-            "label": "ExAc ascertainment method"
+            "label": "ExAC ascertainment method"
           },
           "population": {
             "id": "SEPIO-CG:98001",
-            "type": "Population",
             "label": "Combined"
           },
           "allele": {
@@ -61,15 +57,15 @@
             "preferredCtxAllele": {
               "id": "CG-EX:CtxAll039",
               "type": "ContextualAllele",
-              "relatedCanonicalAllele": "CanAll035",
+              "relatedCanonicalAllele": "CAR:CA090919",
               "alleleName": "NM_001369.2(DNAH5):c.7468_7488del",
               "produces": [
                 {
                   "id": "CG-EX:CtxAll044",
                   "type": "ContextualAllele",
-                  "relatedCanonicalAllele": "CanAll040",
+                  "relatedCanonicalAllele": "CAR:CA273136",
                   "alleleName": "NP_001360.1:p.Trp2490_Leu2496del",
-                  "producedBy": "CtxAll039"
+                  "producedBy": "CG-EX:CtxAll039"
                 }
               ]
             }
@@ -88,7 +84,6 @@
               "contributionDate": "6/1/16 2:15 PM",
               "contributionRole": {
                 "id": "SEPIO:0000156",
-                "type": "ContributoryRole",
                 "label": "curator role"
               }
             }
@@ -111,7 +106,6 @@
       "contributionDate": "7/1/16 10:53 AM",
       "contributionRole": {
         "id": "SEPIO:0000154",
-        "type": "ContributoryRole",
         "label": "assessor role"
       }
     },
@@ -125,7 +119,6 @@
       "contributionDate": "7/1/16 10:53 AM",
       "contributionRole": {
         "id": "SEPIO:0000154",
-        "type": "ContributoryRole",
         "label": "assessor role"
       }
     }

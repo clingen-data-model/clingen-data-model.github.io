@@ -7,6 +7,20 @@
     "description": "An information content entity expressing a declarative sentence that is either true or false.",
     "attributes": [
       {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
+      {
         "id": "A004",
         "entityId": "E01",
         "name": "qualifier",
@@ -82,6 +96,20 @@
     "iri": "SEPIO:0000229",
     "description": "A statement about the expected effect of a variant allele at the level of genomic or transcript sequence (e.g. how it might affect splicing, truncate a gene product, etc.).",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -166,7 +194,7 @@
         "id": "A001",
         "entityId": "E02",
         "name": "consequence",
-        "dataType": "MolecularConsequence",
+        "dataType": "@id",
         "cardinality": "1..1",
         "iri": "SEPIO:0000197",
         "iri-label": "asserted_conclusion",
@@ -187,6 +215,20 @@
     "iri": "SEPIO:0000228",
     "description": "A statement about the mechanism underlying a genetic condition (e.g. if that LOF mutations in a particular gene are a known mechanism of disease).",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -270,7 +312,7 @@
         "id": "A011",
         "entityId": "E03",
         "name": "gene",
-        "dataType": "Gene",
+        "dataType": "@id",
         "cardinality": "1..1",
         "isReference": "yes",
         "iri": "SEPIO:0000278",
@@ -284,7 +326,7 @@
         "id": "A002",
         "entityId": "E03",
         "name": "mechanism",
-        "dataType": "Mechanism",
+        "dataType": "@id",
         "cardinality": "1..1",
         "isReference": "yes",
         "iri": "SEPIO:0000197",
@@ -300,7 +342,7 @@
         "id": "A003",
         "entityId": "E03",
         "name": "mechanismConfidence",
-        "dataType": "ConditionMechanismStrength",
+        "dataType": "@id",
         "cardinality": "0..1",
         "isReference": "yes",
         "iri": "SEPIO:0000167",
@@ -335,37 +377,10 @@
         "description": "A freetext description of the entity"
       },
       {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      },
-      {
         "id": "A153",
         "entityId": "E04",
         "name": "defaultStrength",
-        "dataType": "EvidenceLineStrength",
+        "dataType": "@id",
         "cardinality": "0..1",
         "iri": "SEPIO:0000196",
         "iri-label": "default_criterion_strength",
@@ -380,10 +395,23 @@
   "E05": {
     "id": "E05",
     "name": "CanonicalAllele",
+    "parentType": "E40",
     "link": "CanAll",
     "iri": "GENO:0000890",
     "description": "One of a set of coexisting sequence variants at a defined genomic locus, or a set of such variants located in cis on the same copy of the chromosome.\n",
     "attributes": [
+      {
+        "id": "A075",
+        "entityId": "E40",
+        "name": "description",
+        "dataType": "string",
+        "cardinality": "0..1",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "description": "A freetext description of the entity"
+      },
       {
         "id": "A135",
         "entityId": "E05",
@@ -401,10 +429,23 @@
   "E06": {
     "id": "E06",
     "name": "ContextualAllele",
+    "parentType": "E40",
     "link": "CtxAll",
     "iri": "GENO:0000891",
     "description": "An informational artifact that describes an allele as defined on a particular reference sequence.",
     "attributes": [
+      {
+        "id": "A075",
+        "entityId": "E40",
+        "name": "description",
+        "dataType": "string",
+        "cardinality": "0..1",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "description": "A freetext description of the entity"
+      },
       {
         "id": "A137",
         "entityId": "E06",
@@ -469,70 +510,6 @@
       }
     ]
   },
-  "E07": {
-    "id": "E07",
-    "name": "Gene",
-    "parentType": "E40",
-    "link": "G",
-    "iri": "SO:0000704",
-    "description": "From SO: A region (or regions) that includes all of the sequence elements necessary to encode a functional transcript. A gene may include regulatory regions, transcribed regions and/or other functional sequence regions.",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      },
-      {
-        "id": "A140",
-        "entityId": "E07",
-        "name": "geneSymbol",
-        "dataType": "string",
-        "cardinality": "1..1",
-        "iri": "ERO:0000574",
-        "iri-label": "has_gene_symbol",
-        "cg-label": "geneSymbol",
-        "valueSetId": "VS030",
-        "@valueSetId": "SEPIO-CG:65130",
-        "restrictByValueSet": "No",
-        "precedence": 1.0,
-        "description": "Symbol for a gene provided by a naming system"
-      }
-    ]
-  },
   "E08": {
     "id": "E08",
     "name": "NullAllele",
@@ -541,6 +518,20 @@
     "iri": "SEPIO:0000274",
     "description": "A statement that asserts whether an allele causes complete loss of function of a gene or gene  product. ",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -624,7 +615,7 @@
         "id": "A078",
         "entityId": "E08",
         "name": "annotation",
-        "dataType": "NullAlleleOutcome",
+        "dataType": "@id",
         "cardinality": "1..1",
         "iri": "SEPIO:0000197",
         "iri-label": "asserted_conclusion",
@@ -643,8 +634,22 @@
     "parentType": "E01",
     "link": "CritAssess",
     "iri": "SEPIO:0000191",
-    "description": "Preferred: An assertion of whether sufficient evidence exists to satisfy some pre-defined 'variant interpretation criterion', which defines requirements for a particular type of argument relevant to the pathogenicity of a genetic variant.\n\nAn assertion of whether sufficient evidence exists about a particular variant to satisfy some pre-defined 'variant interpretation criterion'. \n\n------\n\n(then see clarifying comments to the right)\n",
+    "description": "An assertion of whether sufficient evidence exists to satisfy some pre-defined 'variant interpretation criterion', which defines requirements for a particular type of argument relevant to the pathogenicity of a genetic variant.",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -757,7 +762,7 @@
         "id": "A116",
         "entityId": "E09",
         "name": "outcome",
-        "dataType": "CriterionEvaluation",
+        "dataType": "@id",
         "cardinality": "1..1",
         "isReference": "yes",
         "iri": "SEPIO:0000197",
@@ -809,7 +814,7 @@
         "id": "A008",
         "entityId": "E11",
         "name": "contributionRole",
-        "dataType": "ContributoryRole",
+        "dataType": "ExternalConcept",
         "cardinality": "1..1",
         "iri": "BFO:0000055",
         "iri-label": "realizes",
@@ -829,19 +834,6 @@
     "iri": "PROV:agent",
     "description": "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity (from PROV).",
     "attributes": [
-      {
-        "id": "A149",
-        "entityId": "E12",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "RDFS:label",
-        "iri-label": "label",
-        "cg-label": "label",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "Name of the agent"
-      },
       {
         "id": "A148",
         "entityId": "E12",
@@ -944,10 +936,23 @@
   "E14": {
     "id": "E14",
     "name": "GeneticCondition",
+    "parentType": "E40",
     "link": "GenCond",
     "iri": "SEPIO:0000219",
     "description": "A disease, or a set of one or more co-occurring phenotypes, typically controlled by a single locus with a defined inheritance pattern.",
     "attributes": [
+      {
+        "id": "A075",
+        "entityId": "E40",
+        "name": "description",
+        "dataType": "string",
+        "cardinality": "0..1",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "description": "A freetext description of the entity"
+      },
       {
         "id": "A157",
         "entityId": "E14",
@@ -965,7 +970,7 @@
         "id": "A158",
         "entityId": "E14",
         "name": "disease",
-        "dataType": "Disease",
+        "dataType": "@id",
         "cardinality": "0..*",
         "iri": "BFO:0000051",
         "iri-label": "has part",
@@ -980,7 +985,7 @@
         "id": "A141",
         "entityId": "E14",
         "name": "phenotype",
-        "dataType": "Phenotype",
+        "dataType": "@id",
         "cardinality": "0..*",
         "iri": "BFO:0000051",
         "iri-label": "has part",
@@ -995,7 +1000,7 @@
         "id": "A142",
         "entityId": "E14",
         "name": "modeOfInheritance",
-        "dataType": "ModeOfInheritance",
+        "dataType": "@id",
         "cardinality": "0..1",
         "isReference": "yes",
         "iri": "RO:0000091",
@@ -1011,7 +1016,7 @@
         "id": "A143",
         "entityId": "E14",
         "name": "gene",
-        "dataType": "Gene",
+        "dataType": "@id",
         "cardinality": "0..1",
         "iri": "RO:0000057",
         "iri-label": "has participant",
@@ -1019,55 +1024,6 @@
         "@valueSetId": "",
         "precedence": 5.0,
         "description": "The gene used to define a particular GeneticCondition"
-      }
-    ]
-  },
-  "E16": {
-    "id": "E16",
-    "name": "Individual",
-    "parentType": "E40",
-    "link": "Indiv",
-    "iri": "foaf:Person",
-    "description": "A human being regarded as an individual.",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
       }
     ]
   },
@@ -1079,6 +1035,20 @@
     "iri": "SEPIO:0000238",
     "description": "A statement about whether a individual is affected by or exhibits a particular condition.",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -1149,7 +1119,7 @@
         "id": "A016",
         "entityId": "E17",
         "name": "individual",
-        "dataType": "Individual",
+        "dataType": "@id",
         "cardinality": "0..1",
         "isReference": "yes",
         "iri": "SEPIO:0000280",
@@ -1176,7 +1146,7 @@
         "id": "A018",
         "entityId": "E17",
         "name": "individualHasCondition",
-        "dataType": "ConditionStatus",
+        "dataType": "@id",
         "cardinality": "0..1",
         "iri": "SEPIO:0000197",
         "iri-label": "asserted_conclusion",
@@ -1197,6 +1167,20 @@
     "iri": "SEPIO:0000239",
     "description": "A statement asserting the occurrence of a particular disease in the history of a family.",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -1267,7 +1251,7 @@
         "id": "A019",
         "entityId": "E18",
         "name": "proband",
-        "dataType": "Individual",
+        "dataType": "@id",
         "cardinality": "0..1",
         "iri": "SEPIO:0000281",
         "iri-label": "is_about_proband",
@@ -1293,7 +1277,7 @@
         "id": "A021",
         "entityId": "E18",
         "name": "familyHasCondition",
-        "dataType": "ConditionStatus",
+        "dataType": "@id",
         "cardinality": "1..1",
         "iri": "SEPIO:0000197",
         "iri-label": "asserted_conclusion",
@@ -1314,6 +1298,20 @@
     "iri": "SEPIO:0000240",
     "description": "A statement about the origin of a particular allele in an individual - i.e. whether it occurred  de novo in the individual as a result of a spontaneous mutation event, or whether it was inherited from a parent.",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -1398,7 +1396,7 @@
         "id": "A023",
         "entityId": "E19",
         "name": "individual",
-        "dataType": "Individual",
+        "dataType": "@id",
         "cardinality": "0..1",
         "iri": "SEPIO:0000280",
         "iri-label": "is_about_individual",
@@ -1411,7 +1409,7 @@
         "id": "A074",
         "entityId": "E19",
         "name": "alleleInheritance",
-        "dataType": "AlleleInheritance",
+        "dataType": "@id",
         "cardinality": "1..*",
         "isReference": "yes",
         "iri": "SEPIO:0000197",
@@ -1427,7 +1425,7 @@
         "id": "A025",
         "entityId": "E19",
         "name": "parentalConfirmation",
-        "dataType": "ParentalConfirmation",
+        "dataType": "@id",
         "cardinality": "0..1",
         "iri": "SEPIO:0000167",
         "iri-label": "assertion_confidence_level",
@@ -1447,6 +1445,20 @@
     "iri": "SEPIO:0000241",
     "description": "A statement describing a particular experimental result about the impact of an allele on gene product function (typically that of the directly affected gene).",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -1530,7 +1542,7 @@
         "id": "A029",
         "entityId": "E20",
         "name": "gene",
-        "dataType": "Gene",
+        "dataType": "@id",
         "cardinality": "0..1",
         "iri": "SEPIO:0000278",
         "iri-label": "is_about_gene",
@@ -1556,10 +1568,10 @@
         "id": "A027",
         "entityId": "E20",
         "name": "assayType",
-        "dataType": "AlleleFunctionalAssayMethod",
+        "dataType": "@id",
         "cardinality": "0..1",
         "iri": "SEPIO:0000255",
-        "iri-label": "\n\nhas_supporting_method",
+        "iri-label": "has_supporting_method",
         "cg-label": "assayType",
         "valueSetId": "VS011",
         "@valueSetId": "SEPIO-CG:65111",
@@ -1578,6 +1590,20 @@
     "iri": "SEPIO:0000242",
     "description": "A statement describing allele frequencies identified in a particular study group as a function of case-control status (i.e frequency in affected vs unaffected study groups)",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -1772,33 +1798,6 @@
         "description": "A freetext description of the entity"
       },
       {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      },
-      {
         "id": "A052",
         "entityId": "E22",
         "name": "referenceSequence",
@@ -1850,6 +1849,20 @@
     "iri": "SEPIO:0000227",
     "description": "A statement that describes the observed frequency of an allele as determined in a defined group of individuals (typically a representative sampling that serves as a proxy for some larger population of individuals).\n",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -1934,7 +1947,7 @@
         "id": "A047",
         "entityId": "E23",
         "name": "population",
-        "dataType": "Population",
+        "dataType": "@id",
         "cardinality": "0..1",
         "iri": "SEPIO:0000277",
         "iri-label": "is_about_population",
@@ -1949,7 +1962,7 @@
         "id": "A030",
         "entityId": "E23",
         "name": "ascertainment",
-        "dataType": "Ascertainment",
+        "dataType": "@id",
         "cardinality": "0..1",
         "iri": "SEPIO:0000255",
         "iri-label": "has_supporting_method",
@@ -2075,6 +2088,20 @@
     "description": "A statement that classifies a particular region of biological sequence as being of a specified type or types  (e.g. using terms from the Sequence Ontology).",
     "attributes": [
       {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
+      {
         "id": "A004",
         "entityId": "E01",
         "name": "qualifier",
@@ -2158,7 +2185,7 @@
         "id": "A057",
         "entityId": "E24",
         "name": "annotation",
-        "dataType": "RegionAnnotation",
+        "dataType": "@id",
         "cardinality": "0..*",
         "isReference": "yes",
         "iri": "SEPIO:0000197",
@@ -2180,6 +2207,20 @@
     "iri": "SEPIO:0000244",
     "description": "A statement about the positional relationship between a region of genomic sequence and one or more alleles. (i.e. whether the region overlaps or is adjacent to the allele).",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -2277,7 +2318,7 @@
         "id": "A059",
         "entityId": "E25",
         "name": "outcome",
-        "dataType": "RegionAllelesOutcome",
+        "dataType": "@id",
         "cardinality": "1..1",
         "iri": "SEPIO:0000197",
         "iri-label": "asserted_conclusion",
@@ -2309,33 +2350,6 @@
         "cg-label": "",
         "@valueSetId": "",
         "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
       },
       {
         "id": "A144",
@@ -2390,6 +2404,20 @@
     "iri": "SEPIO:0000245",
     "description": "A statement about the allelic state of one or more alleles in the genome of an individual (e.g. zygosity information, or phase relative to a second allele).",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -2460,7 +2488,7 @@
         "id": "A065",
         "entityId": "E28",
         "name": "individual",
-        "dataType": "Individual",
+        "dataType": "@id",
         "cardinality": "0..1",
         "isReference": "yes",
         "iri": "SEPIO:0000280",
@@ -2506,33 +2534,6 @@
         "description": "A freetext description of the entity"
       },
       {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      },
-      {
         "id": "A067",
         "entityId": "E29",
         "name": "allele",
@@ -2568,33 +2569,6 @@
         "description": "A freetext description of the entity"
       },
       {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      },
-      {
         "id": "A068",
         "entityId": "E30",
         "name": "haplotype",
@@ -2611,7 +2585,7 @@
         "id": "A069",
         "entityId": "E30",
         "name": "zygosity",
-        "dataType": "AllelicState",
+        "dataType": "@id",
         "cardinality": "0..1",
         "iri": "???",
         "iri-label": "asserted_outcome\n(secondary_zygosity_outcome?)",
@@ -2640,33 +2614,6 @@
         "cg-label": "",
         "@valueSetId": "",
         "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
       },
       {
         "id": "A156",
@@ -2698,7 +2645,7 @@
         "id": "A174",
         "entityId": "E32",
         "name": "scoringAlgorithm",
-        "dataType": "ScoringAlgorithm",
+        "dataType": "@id",
         "cardinality": "0..1",
         "iri": "BFO:0000051",
         "iri-label": "has part",
@@ -2711,55 +2658,6 @@
       }
     ]
   },
-  "E33": {
-    "id": "E33",
-    "name": "ScoringAlgorithm",
-    "parentType": "E40",
-    "link": "ScorAlg",
-    "iri": "SEPIO:0000224",
-    "description": "A specification for how to collectively evaluate the outcomes of one or more variant pathogenicity criterion assessments as evidence, to make an assertion about the pathogenicity of a variant.",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
   "E35": {
     "id": "E35",
     "name": "VariantInterpretation",
@@ -2768,6 +2666,20 @@
     "iri": "SEPIO:0000190",
     "description": "An assertion about the pathogenicity of a genetic sequence variant, based on evaluation of one or more lines of evidence.",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -2864,7 +2776,7 @@
         "id": "A124",
         "entityId": "E35",
         "name": "outcome",
-        "dataType": "Significance",
+        "dataType": "@id",
         "cardinality": "1..1",
         "isReference": "yes",
         "iri": "SEPIO:0000197",
@@ -2904,15 +2816,15 @@
       {
         "id": "A130",
         "entityId": "E39",
-        "name": "label",
-        "dataType": "string",
+        "name": "labelFor",
+        "dataType": "@id",
         "cardinality": "1..1",
         "iri": "",
         "iri-label": "",
         "cg-label": "",
         "@valueSetId": "",
         "precedence": 1.0,
-        "description": "User-created free text label for a concept"
+        "description": "The object to which a user-assigned label applies"
       },
       {
         "id": "A134",
@@ -2958,6 +2870,7 @@
   "E40": {
     "id": "E40",
     "name": "DomainEntity",
+    "link": "DEnt",
     "iri": "SEPIO-CG:03000",
     "description": "Parent class for all concepts that may fit the following uses: \n- referenced in a ValueSet\n- provide for an optional UserLabel in lieu of the registered id label\n- define a novel concept with only a UserLabel for a given subclass",
     "attributes": [
@@ -2972,33 +2885,6 @@
         "cg-label": "",
         "@valueSetId": "",
         "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
       }
     ]
   },
@@ -3021,45 +2907,6 @@
         "cg-label": "",
         "@valueSetId": "",
         "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      },
-      {
-        "id": "A146",
-        "entityId": "E41",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "RDFS:label",
-        "iri-label": "label",
-        "cg-label": "label",
-        "@valueSetId": "",
-        "precedence": 1.0
       },
       {
         "id": "A147",
@@ -3119,6 +2966,20 @@
     "iri": "SEPIO:0000246",
     "description": "A statement about the frequency at which missense variants in a particular region are tolerated (i.e. do not cause a pathological condition)",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -3203,7 +3064,7 @@
         "id": "A094",
         "entityId": "E43",
         "name": "gene",
-        "dataType": "Gene",
+        "dataType": "@id",
         "cardinality": "0..1",
         "isReference": "yes",
         "iri": "SEPIO:0000278",
@@ -3217,7 +3078,7 @@
         "id": "A080",
         "entityId": "E43",
         "name": "value",
-        "dataType": "BenignMissenseVariationRateOutcome",
+        "dataType": "@id",
         "cardinality": "1..1",
         "isReference": "yes",
         "iri": "SEPIO:0000197",
@@ -3231,55 +3092,6 @@
       }
     ]
   },
-  "E44": {
-    "id": "E44",
-    "name": "Family",
-    "parentType": "E40",
-    "link": "Fam",
-    "iri": "PCO:0000032",
-    "description": "A collection of organisms of the same species whose members are all either genealogically related to each other or have mated with each other.",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
   "E45": {
     "id": "E45",
     "name": "FamilySegregation",
@@ -3288,6 +3100,20 @@
     "iri": "SEPIO:0000247",
     "description": "A statement describing the observed correlation between transmission of a particular allele and a particular genetic condition, across a single family pedigree (i.e. the co-segregation of an allele and a condition as observed across a family pedigree).\n",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -3385,7 +3211,7 @@
         "id": "A083",
         "entityId": "E45",
         "name": "family",
-        "dataType": "Family",
+        "dataType": "@id",
         "cardinality": "1..1",
         "iri": "SEPIO:0000282",
         "iri-label": "is_about_family",
@@ -3502,7 +3328,7 @@
         "id": "A110",
         "entityId": "E45",
         "name": "inconsistentSegregationsObserved",
-        "dataType": "InconsistentSegregationObserved",
+        "dataType": "@id",
         "cardinality": "0..1",
         "iri": "SEPIO:0000314",
         "iri-label": "inconsistent segregations observed",
@@ -3536,6 +3362,20 @@
     "iri": "SEPIO:0000248",
     "description": "A statement describing the observed correlation between transmission of a particular allele and a particular genetic condition, across multiple family pedigrees (i.e. the co-segregation of an allele and a condition as observed across multiple family pedigrees).",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -3659,7 +3499,7 @@
         "id": "A160",
         "entityId": "E46",
         "name": "modeOfInheritance",
-        "dataType": "ModeOfInheritance",
+        "dataType": "@id",
         "cardinality": "0..1",
         "iri": "",
         "iri-label": "",
@@ -3772,6 +3612,20 @@
     "description": "A statement asserting the predicted impact of a particular allele on the function of its resulting gene product (e.g. that it is 'deleterious', 'damaging', 'tolerated', etc.). Such assertions are typically based on interpretation of the quantitative output of predictive computational algorithms.",
     "attributes": [
       {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
+      {
         "id": "A004",
         "entityId": "E01",
         "name": "qualifier",
@@ -3868,7 +3722,7 @@
         "id": "A097",
         "entityId": "E47",
         "name": "predictionType",
-        "dataType": "Prediction",
+        "dataType": "@id",
         "cardinality": "1..1",
         "iri": "SEPIO:0000255",
         "iri-label": "has_supporting_method",
@@ -3915,6 +3769,20 @@
     "iri": "SEPIO:0000250",
     "description": "A statement about the specificity with which a genetic condition is caused by variants in a particular gene or locus (i.e. whether it is the only known gene associated with the condition, or one or more other genes have been linked to the condition).",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -3998,7 +3866,7 @@
         "id": "A101",
         "entityId": "E48",
         "name": "gene",
-        "dataType": "Gene",
+        "dataType": "@id",
         "cardinality": "1..1",
         "iri": "SEPIO:0000278",
         "iri-label": "is_about_gene",
@@ -4011,7 +3879,7 @@
         "id": "A102",
         "entityId": "E48",
         "name": "specificity",
-        "dataType": "LocusSpecificity",
+        "dataType": "@id",
         "cardinality": "1..1",
         "iri": "SEPIO:0000197",
         "iri-label": "asserted_conclusion",
@@ -4032,6 +3900,20 @@
     "iri": "SEPIO:0000251",
     "description": "A statement describing the observed frequency of a condition as determined for a particular population of persons (ascertained by factors such as ethnicity, race, socio-economic  status, geographic residence, etc).",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -4115,7 +3997,7 @@
         "id": "A106",
         "entityId": "E49",
         "name": "population",
-        "dataType": "Population",
+        "dataType": "@id",
         "cardinality": "0..1",
         "iri": "SEPIO:0000277",
         "iri-label": "is_about_population",
@@ -4175,6 +4057,20 @@
     "iri": "SEPIO:0000252",
     "description": "A statement about the proportion of individuals carrying a causal allele that exhibit a particular disease or phenotype.",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -4258,7 +4154,7 @@
         "id": "A108",
         "entityId": "E50",
         "name": "penetrance",
-        "dataType": "Penetrance",
+        "dataType": "@id",
         "cardinality": "0..1",
         "iri": "SEPIO:0000197",
         "iri-label": "asserted_conclusion",
@@ -4279,6 +4175,20 @@
     "iri": "SEPIO:0000253",
     "description": "A statement asserting whether a particular allele is evolutionarily conserved.  Such assertions are typically based on interpretation of the quantitative output of computational algorithms (i.e. 'allele conservation scores').",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -4363,7 +4273,7 @@
         "id": "A112",
         "entityId": "E51",
         "name": "conservationType",
-        "dataType": "Conservation",
+        "dataType": "@id",
         "cardinality": "1..1",
         "iri": "SEPIO:0000197",
         "iri-label": "asserted_conclusion",
@@ -4395,6 +4305,20 @@
     "iri": "SEPIO:0000368",
     "description": "A statement describing a quantitative score fron an InSilico Prediction",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -4489,7 +4413,7 @@
         "id": "A183",
         "entityId": "E52",
         "name": "predictionType",
-        "dataType": "Prediction",
+        "dataType": "@id",
         "cardinality": "1..1",
         "iri": "SEPIO:0000255",
         "iri-label": "has_supporting_method",
@@ -4534,6 +4458,20 @@
     "iri": "SEPIO:0000369",
     "description": "A statement describing a quantitative score of the degree of evolutionary conservation of an allele across a defined set of taxa/species",
     "attributes": [
+      {
+        "id": "A073",
+        "entityId": "E01",
+        "name": "userLabel",
+        "dataType": "UserLabel",
+        "cardinality": "0..*",
+        "isReference": "yes",
+        "iri": "",
+        "iri-label": "",
+        "cg-label": "",
+        "@valueSetId": "",
+        "precedence": 2.0,
+        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
+      },
       {
         "id": "A004",
         "entityId": "E01",
@@ -4618,7 +4556,7 @@
         "id": "A186",
         "entityId": "E53",
         "name": "conservationType",
-        "dataType": "Conservation",
+        "dataType": "@id",
         "cardinality": "1..1",
         "iri": "SEPIO:0000197",
         "iri-label": "asserted_conclusion",
@@ -4663,19 +4601,6 @@
     "description": "A set of identifiers that can be used as the values of specific properties",
     "attributes": [
       {
-        "id": "A132",
-        "entityId": "E54",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "Freetext name of a ValueSet"
-      },
-      {
         "id": "A133",
         "entityId": "E54",
         "name": "description",
@@ -4692,7 +4617,7 @@
         "id": "A136",
         "entityId": "E54",
         "name": "conceptListExtensibility",
-        "dataType": "ValueSetConceptListExtensibility",
+        "dataType": "@id",
         "cardinality": "1..1",
         "iri": "DC:identifier",
         "iri-label": "identifier",
@@ -4747,7 +4672,7 @@
     "name": "EvidenceLine",
     "link": "EvLn",
     "iri": "SEPIO:0000002",
-    "description": "Preferred: An evidence line represents an independently meaningful argument for or against a particular proposition, that is based on the interpretation of one or more pieces of information as evidence.\n\nAn evidence line represents an agent's interpretation of one or more pieces of information as an independently meaningful argument relevant to the validity of a particular proposition\n\nAn information content entity that rerpresents an independently meaningful argument for or against a particular proposition, and that is based on the interpretation of one or more pieces of information as evidence.",
+    "description": "An evidence line represents an independent and meaningful argument for or against a particular proposition, that is based on the interpretation of one or more pieces of information as evidence.",
     "attributes": [
       {
         "id": "A177",
@@ -4766,7 +4691,7 @@
         "id": "A179",
         "entityId": "E56",
         "name": "evidenceStrength",
-        "dataType": "EvidenceLineStrength",
+        "dataType": "@id",
         "cardinality": "0..1",
         "iri": "SEPIO:0000132",
         "iri-label": "evidence_has_strength",
@@ -4802,1378 +4727,6 @@
         "@valueSetId": "",
         "precedence": 4.0,
         "description": "The contributions (agent, time and role) made to this entity"
-      }
-    ]
-  },
-  "E57": {
-    "id": "E57",
-    "name": "MolecularConsequence",
-    "parentType": "E40",
-    "link": "MolConID",
-    "iri": "SEPIO-CG:55102",
-    "description": "A classification of a genomic variant based on its effect on a transcript or its location with respect to the transcript.",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E58": {
-    "id": "E58",
-    "name": "Significance",
-    "parentType": "E40",
-    "link": "SigID",
-    "iri": "SEPIO:0000371",
-    "description": "The role that a variant plays in the causing a genetic condition.",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E59": {
-    "id": "E59",
-    "name": "RegionAnnotation",
-    "parentType": "E40",
-    "link": "RegAnnID",
-    "iri": "SEPIO:0000343",
-    "description": "A label applied to a sequence region",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E60": {
-    "id": "E60",
-    "name": "Phase",
-    "parentType": "E40",
-    "link": "PhaseID",
-    "iri": "SEPIO:0000344",
-    "description": "Value denoting whether sequence features lie on the same or different molecules",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E61": {
-    "id": "E61",
-    "name": "AllelicState",
-    "parentType": "E40",
-    "link": "AllStateID",
-    "iri": "SEPIO:0000338",
-    "description": "Describes the existence of an allele across multiple copies of a chromosome.",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E62": {
-    "id": "E62",
-    "name": "ModeOfInheritance",
-    "parentType": "E40",
-    "link": "ModeOfInhID",
-    "iri": "SEPIO-CG:55105",
-    "description": "Classifies the transmission pattern of a condition in a pedigree.",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E64": {
-    "id": "E64",
-    "name": "Mechanism",
-    "parentType": "E40",
-    "link": "MechID",
-    "iri": "SEPIO-CG:55107",
-    "description": "The particular type of allele that can lead to a condition",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E65": {
-    "id": "E65",
-    "name": "Prediction",
-    "parentType": "E40",
-    "link": "PredID",
-    "iri": "SEPIO:0000345",
-    "description": "The type of InSilico Predictor",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E66": {
-    "id": "E66",
-    "name": "CriterionEvaluation",
-    "parentType": "E40",
-    "link": "CritEvalID",
-    "iri": "SEPIO:0000347",
-    "description": "Denotes whether the collected evidence is sufficient to meet a specified criteria or not",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E67": {
-    "id": "E67",
-    "name": "AlleleFunctionalAssayMethod",
-    "parentType": "E40",
-    "link": "AFAMID",
-    "iri": "SEPIO-CG:55110",
-    "description": "The functional measurement carried out in a given assay",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E68": {
-    "id": "E68",
-    "name": "Population",
-    "parentType": "E40",
-    "link": "PopID",
-    "iri": "SEPIO-CG:55111",
-    "description": "Label for a group of individuals with a shared genetic background",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E69": {
-    "id": "E69",
-    "name": "BenignMissenseVariationRateOutcome",
-    "parentType": "E40",
-    "link": "BMVROID",
-    "iri": "SEPIO:0000349",
-    "description": "The rate of missense variation in a transcript that do not lead to a genetic condition",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E70": {
-    "id": "E70",
-    "name": "Penetrance",
-    "parentType": "E40",
-    "link": "PenetID",
-    "iri": "SEPIO-CG:55113",
-    "description": "The chance of having a particular genetic condition given the presence of a particular variant or damaged gene",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E71": {
-    "id": "E71",
-    "name": "ConditionMechanismStrength",
-    "parentType": "E40",
-    "link": "CondMechStrgID",
-    "iri": "SEPIO:0000354",
-    "description": "The strength of association between a genetic mechanism and a condition",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E72": {
-    "id": "E72",
-    "name": "EvidenceLineStrength",
-    "parentType": "E40",
-    "link": "EvLnStrgID",
-    "iri": "SEPIO:0000353",
-    "description": "Degree of support that a set of evidence lends to a subsequent statement",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E73": {
-    "id": "E73",
-    "name": "Disease",
-    "parentType": "E40",
-    "link": "DisID",
-    "iri": "SEPIO-CG:55116",
-    "description": "From MONDO: An alteration of health status resulting from a physiopathological mechanism, and having a homogeneous clinical presentation and evolution and homogeneous therapeutic possibilities.",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E74": {
-    "id": "E74",
-    "name": "Phenotype",
-    "parentType": "E40",
-    "link": "PhenID",
-    "iri": "SEPIO-CG:55117",
-    "description": "From NCIT: The assemblage of traits or outward appearance of an individual. It is the product of interactions between genes and between genes and the environment.",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E76": {
-    "id": "E76",
-    "name": "ContributoryRole",
-    "parentType": "E40",
-    "link": "ContribRoleID",
-    "iri": "SEPIO-CG:55118",
-    "description": "The role played by an agent in the creation of an artifact",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E77": {
-    "id": "E77",
-    "name": "AlleleInheritance",
-    "parentType": "E40",
-    "link": "AlleleInhID",
-    "iri": "SEPIO-CG:55119",
-    "description": "The source of an allele in an individual",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E78": {
-    "id": "E78",
-    "name": "Ascertainment",
-    "parentType": "E40",
-    "link": "AscrtID",
-    "iri": "SEPIO-CG:55120",
-    "description": "The method by which a set of people was chosen to define a group",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E79": {
-    "id": "E79",
-    "name": "LocusSpecificity",
-    "parentType": "E40",
-    "link": "LocSpecID",
-    "iri": "SEPIO:0000348",
-    "description": "The degree to which a condition implicates a specific genomic locus, such as a gene.",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E80": {
-    "id": "E80",
-    "name": "Conservation",
-    "parentType": "E40",
-    "link": "ConsrvID",
-    "iri": "SEPIO-CG:55122",
-    "description": "The degree to which an allele is preserved over evolutionary history",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E81": {
-    "id": "E81",
-    "name": "ParentalConfirmation",
-    "parentType": "E40",
-    "link": "ParenConfID",
-    "iri": "SEPIO-CG:55123",
-    "description": "Whether or not parentage has been confirmed with a genetic test",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E82": {
-    "id": "E82",
-    "name": "ConditionStatus",
-    "parentType": "E40",
-    "link": "CondStatID",
-    "iri": "SEPIO-CG:55124",
-    "description": "Whether or not an individual is affected by a specific genetic condition",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E83": {
-    "id": "E83",
-    "name": "InconsistentSegregationObserved",
-    "parentType": "E40",
-    "link": "InconSegObsID",
-    "iri": "SEPIO-CG:55125",
-    "description": "Whether or not inconsistent segretations have been observed in a pedigree",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E84": {
-    "id": "E84",
-    "name": "NullAlleleOutcome",
-    "parentType": "E40",
-    "link": "NullAllOutID",
-    "iri": "SEPIO-CG:55126",
-    "description": "Denotes whether an allele leads to a non-functional transcript",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E85": {
-    "id": "E85",
-    "name": "RegionAllelesOutcome",
-    "parentType": "E40",
-    "link": "RegAllOutID",
-    "iri": "",
-    "description": "Whether or not an allele overlaps a sequence region",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
-      }
-    ]
-  },
-  "E86": {
-    "id": "E86",
-    "name": "ValueSetConceptListExtensibility",
-    "parentType": "E40",
-    "link": "VSCLExtnsID",
-    "iri": "SEPIO:0000363",
-    "description": "Whether or not a ValueSet can be extended by users",
-    "attributes": [
-      {
-        "id": "A075",
-        "entityId": "E40",
-        "name": "description",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "description": "A freetext description of the entity"
-      },
-      {
-        "id": "A072",
-        "entityId": "E40",
-        "name": "label",
-        "dataType": "string",
-        "cardinality": "0..1",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 1.0,
-        "description": "A freeform text (preferred) representation used by the authoring system to identify a concept."
-      },
-      {
-        "id": "A073",
-        "entityId": "E40",
-        "name": "userLabel",
-        "dataType": "UserLabel",
-        "cardinality": "0..1",
-        "isReference": "yes",
-        "iri": "",
-        "iri-label": "",
-        "cg-label": "",
-        "@valueSetId": "",
-        "precedence": 2.0,
-        "description": "An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels."
       }
     ]
   }

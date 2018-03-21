@@ -123,14 +123,14 @@
             </tr>
             <tr>
                 <td>gene</td>
-                <td>Gene</td>
+                <td>@id</td>
                 <td>0..1</td>
                 <td>Gene that contains the missense variants</td>
                 <td>SEPIO:0000278</td>
             </tr>
             <tr>
                 <td>value</td>
-                <td>BenignMissenseVariationRateOutcome</td>
+                <td>@id</td>
                 <td>1..1</td>
                 <td>The rate at which Benign missense variants occur within the region</td>
                 <td>SEPIO:0000197</td>
@@ -152,6 +152,13 @@
             </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>userLabel</td>
+                    <td>UserLabel</td>
+                    <td>0..*</td>
+                    <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
+                    <td></td>
+                </tr>
                 <tr>
                     <td>qualifier</td>
                     <td>string</td>
@@ -195,6 +202,7 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
+        <th>userLabel</th>
         <th>qualifier</th>
         <th>evidenceLine</th>
         <th>description</th>
@@ -205,6 +213,9 @@
       <tbody>
         <tr>
           <td><p><a href="../../details/details.html#CG-EX:BMVR102">CG-EX:BMVR102</a></p></td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -231,7 +242,7 @@
     "id": "CG-EX:Loc434",
     "type": "SequenceLocation",
     "referenceSequence": {
-      "id": "REFSEQ:NM_000169.2",
+      "id": "RefSeq290",
       "type": "ReferenceSequence",
       "accession": "NM_000169.2"
     },
@@ -240,7 +251,6 @@
   },
   "value": {
     "id": "SEPIO:0000266",
-    "type": "BenignMissenseVariationRateOutcome",
     "label": "Low"
   },
   "description": "ClinVar shows no benign missense variants in (or near) this region.  The closest is NM_000169.2:c.8T>C"
@@ -258,13 +268,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>Based on the gene size, ExAC expects 740 missense variants to be observed, but actually observes only 420, giving a z score of 6.5, which is in the top 0.02% of genes.</p>
          </td>
           <td>
               
          </td>
           <td>
-              <p><a href="../../details/details.html#HGNC:7577">HGNC:7577</a></p>
+              <p><a href="../../details/details.html#HGNC:7577">HGNC:7577</a></p> (MYH7)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000266">SEPIO:0000266</a></p> (Low)
@@ -275,12 +288,10 @@
   "type": "BenignMissenseVariationRate",
   "gene": {
     "id": "HGNC:7577",
-    "type": "Gene",
-    "geneSymbol": "MYH7"
+    "label": "MYH7"
   },
   "value": {
     "id": "SEPIO:0000266",
-    "type": "BenignMissenseVariationRateOutcome",
     "label": "Low"
   },
   "description": "Based on the gene size, ExAC expects 740 missense variants to be observed, but actually observes only 420, giving a z score of 6.5, which is in the top 0.02% of genes."
@@ -298,13 +309,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>In LMM data alone, we have over 150 benign missense variants in TTN.</p>
          </td>
           <td>
               
          </td>
           <td>
-              <p><a href="../../details/details.html#HGNC:12403">HGNC:12403</a></p>
+              <p><a href="../../details/details.html#HGNC:12403">HGNC:12403</a></p> (TTN)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000265">SEPIO:0000265</a></p> (High)
@@ -315,12 +329,10 @@
   "type": "BenignMissenseVariationRate",
   "gene": {
     "id": "HGNC:12403",
-    "type": "Gene",
-    "geneSymbol": "TTN"
+    "label": "TTN"
   },
   "value": {
     "id": "SEPIO:0000265",
-    "type": "BenignMissenseVariationRateOutcome",
     "label": "High"
   },
   "description": "In LMM data alone, we have over 150 benign missense variants in TTN."

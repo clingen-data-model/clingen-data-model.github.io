@@ -5,16 +5,15 @@
     "id": "CG-EX:CritAssess301",
     "type": "CriterionAssessment",
     "criterion": {
-      "id": "SEPIO-CG:99030",
+      "id": "Crit311",
       "type": "Criterion",
-      "label": "PM4",
       "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
+      "comments": "Need to ensure that variant is not located within a repeat region\n\nThis rule is also (likely) applicable for frameshift variants that result in extension of the protein as opposed to truncation (similar to stop loss).",
       "defaultStrength": {
         "id": "SEPIO:0000216",
-        "type": "EvidenceLineStrength",
         "label": "Pathogenic Moderate"
       },
-      "comments": "Need to ensure that variant is not located within a repeat region\n\nThis rule is also (likely) applicable for frameshift variants that result in extension of the protein as opposed to truncation (similar to stop loss)."
+      "label": "PM4"
     },
     "variant": {
       "id": "CAR:CA501224",
@@ -22,22 +21,21 @@
       "preferredCtxAllele": {
         "id": "CG-EX:CtxAll047",
         "type": "ContextualAllele",
-        "relatedCanonicalAllele": "CanAll043",
+        "relatedCanonicalAllele": "CAR:CA501224",
         "alleleName": "NM_003924.3(PHOX2B):c.753_767dup",
         "produces": [
           {
             "id": "CG-EX:CtxAll048",
             "type": "ContextualAllele",
-            "relatedCanonicalAllele": "CanAll044",
+            "relatedCanonicalAllele": "CAR:CA501225",
             "alleleName": "NP_003915.2:p.Ala260_Gly261insAlaAlaAlaAlaAla",
-            "producedBy": "CtxAll047"
+            "producedBy": "CG-EX:CtxAll047"
           }
         ]
       }
     },
     "outcome": {
       "id": "SEPIO:0000224",
-      "type": "CriterionEvaluation",
       "label": "Not Met"
     },
     "evidenceLine": [
@@ -51,13 +49,12 @@
             "contextualAllele": {
               "id": "CG-EX:CtxAll048",
               "type": "ContextualAllele",
-              "relatedCanonicalAllele": "CanAll044",
+              "relatedCanonicalAllele": "CAR:CA501225",
               "alleleName": "NP_003915.2:p.Ala260_Gly261insAlaAlaAlaAlaAla",
-              "producedBy": "CtxAll047"
+              "producedBy": "CG-EX:CtxAll047"
             },
             "consequence": {
               "id": "SO:0001823",
-              "type": "MolecularConsequence",
               "label": "conservative Inframe Insertion"
             }
           },
@@ -68,7 +65,7 @@
               "id": "CG-EX:Loc437",
               "type": "SequenceLocation",
               "referenceSequence": {
-                "id": "REFSEQ:NP_003915.2",
+                "id": "RefSeq293",
                 "type": "ReferenceSequence",
                 "accession": "NP_003915.2"
               },
@@ -78,7 +75,6 @@
             "annotation": [
               {
                 "id": "SO:0000657",
-                "type": "RegionAnnotation",
                 "label": "repeat region "
               }
             ],
@@ -98,7 +94,6 @@
         "contributionDate": "6/12/16 9:32 AM",
         "contributionRole": {
           "id": "SEPIO:0000154",
-          "type": "ContributoryRole",
           "label": "assessor role"
         }
       }

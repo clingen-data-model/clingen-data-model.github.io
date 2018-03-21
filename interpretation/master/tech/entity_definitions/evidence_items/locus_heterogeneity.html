@@ -121,14 +121,14 @@
             </tr>
             <tr>
                 <td>gene</td>
-                <td>Gene</td>
+                <td>@id</td>
                 <td>1..1</td>
                 <td>Gene that causes the condition</td>
                 <td>SEPIO:0000278</td>
             </tr>
             <tr>
                 <td>specificity</td>
-                <td>LocusSpecificity</td>
+                <td>@id</td>
                 <td>1..1</td>
                 <td>Specificity of the Gene for the Condition</td>
                 <td>SEPIO:0000197</td>
@@ -150,6 +150,13 @@
             </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>userLabel</td>
+                    <td>UserLabel</td>
+                    <td>0..*</td>
+                    <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
+                    <td></td>
+                </tr>
                 <tr>
                     <td>qualifier</td>
                     <td>string</td>
@@ -193,6 +200,7 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
+        <th>userLabel</th>
         <th>qualifier</th>
         <th>evidenceLine</th>
         <th>description</th>
@@ -210,13 +218,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>HHT type 1 is only known to be caused by variants in ENG -</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond022">CG-EX:GenCond022</a></p>
+              <p><a href="../../details/details.html#GenCond022">GenCond022</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#HGNC:3349">HGNC:3349</a></p>
+              <p><a href="../../details/details.html#HGNC:3349">HGNC:3349</a></p> (ENG)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99002">SEPIO-CG:99002</a></p> (complete)
@@ -226,29 +237,25 @@
   "id": "CG-EX:LocHet148",
   "type": "LocusHeterogeneity",
   "condition": {
-    "id": "CG-EX:GenCond022",
+    "id": "GenCond022",
     "type": "GeneticCondition",
     "disease": [
       {
         "id": "Orphanet:774",
-        "type": "Disease",
         "label": "hereditary hemorrhagic telangiectasia"
       }
     ],
     "modeOfInheritance": {
       "id": "HP:0000006",
-      "type": "ModeOfInheritance",
       "label": "Autosomal Dominant"
     }
   },
   "gene": {
     "id": "HGNC:3349",
-    "type": "Gene",
-    "geneSymbol": "ENG"
+    "label": "ENG"
   },
   "specificity": {
     "id": "SEPIO-CG:99002",
-    "type": "LocusSpecificity",
     "label": "complete"
   },
   "description": "HHT type 1 is only known to be caused by variants in ENG -"
@@ -266,14 +273,17 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p>1.Only ~50% of HCM is genetic (can be caused by environment) 
 2. More than 10 genes can cause HCM (specifically 9 sarcomere genes)</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond064">CG-EX:GenCond064</a></p>
+              <p><a href="../../details/details.html#GenCond064">GenCond064</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#HGNC:7577">HGNC:7577</a></p>
+              <p><a href="../../details/details.html#HGNC:7577">HGNC:7577</a></p> (MYH7)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000273">SEPIO:0000273</a></p> (low)
@@ -283,24 +293,21 @@
   "id": "CG-EX:LocHet149",
   "type": "LocusHeterogeneity",
   "condition": {
-    "id": "CG-EX:GenCond064",
+    "id": "GenCond064",
     "type": "GeneticCondition",
     "disease": [
       {
         "id": "Orphanet:217569",
-        "type": "Disease",
         "label": "hypertrophic cardiomyopathy"
       }
     ]
   },
   "gene": {
     "id": "HGNC:7577",
-    "type": "Gene",
-    "geneSymbol": "MYH7"
+    "label": "MYH7"
   },
   "specificity": {
     "id": "SEPIO:0000273",
-    "type": "LocusSpecificity",
     "label": "low"
   },
   "description": "1.Only ~50% of HCM is genetic (can be caused by environment) \n2. More than 10 genes can cause HCM (specifically 9 sarcomere genes)"

@@ -5,16 +5,15 @@
     "id": "CG-EX:CritAssess335",
     "type": "CriterionAssessment",
     "criterion": {
-      "id": "SEPIO-CG:99042",
+      "id": "Crit323",
       "type": "Criterion",
-      "label": "BS4",
       "description": "Lack of segregation in affected members of a family",
+      "comments": "This rule is for “lack of segregation” meaning phenotype positive / genotype negative (and not pheno neg / geno pos). Also need to be careful of phenocopies. Also need rules for how many cases are needed in use this rule",
       "defaultStrength": {
         "id": "SEPIO:0000328",
-        "type": "EvidenceLineStrength",
         "label": "Benign Strong"
       },
-      "comments": "This rule is for “lack of segregation” meaning phenotype positive / genotype negative (and not pheno neg / geno pos). Also need to be careful of phenocopies. Also need rules for how many cases are needed in use this rule"
+      "label": "BS4"
     },
     "variant": {
       "id": "CAR:CA023690",
@@ -22,31 +21,28 @@
       "preferredCtxAllele": {
         "id": "CG-EX:CtxAll094",
         "type": "ContextualAllele",
-        "relatedCanonicalAllele": "CanAll088",
+        "relatedCanonicalAllele": "CAR:CA023690",
         "alleleName": "NM_000527.4(LDLR):c.313+2T>C"
       }
     },
     "condition": [
       {
-        "id": "CG-EX:GenCond035",
+        "id": "GenCond035",
         "type": "GeneticCondition",
         "disease": [
           {
             "id": "OMIM:143890",
-            "type": "Disease",
             "label": "Hypercholesterolemia, Familial"
           }
         ],
         "modeOfInheritance": {
           "id": "HP:0000006",
-          "type": "ModeOfInheritance",
           "label": "Autosomal Dominant"
         }
       }
     ],
     "outcome": {
       "id": "SEPIO:0000223",
-      "type": "CriterionEvaluation",
       "label": "Met"
     },
     "evidenceLine": [
@@ -58,18 +54,16 @@
             "id": "CG-EX:FamSeg196",
             "type": "FamilySegregation",
             "condition": {
-              "id": "CG-EX:GenCond035",
+              "id": "GenCond035",
               "type": "GeneticCondition",
               "disease": [
                 {
                   "id": "OMIM:143890",
-                  "type": "Disease",
                   "label": "Hypercholesterolemia, Familial"
                 }
               ],
               "modeOfInheritance": {
                 "id": "HP:0000006",
-                "type": "ModeOfInheritance",
                 "label": "Autosomal Dominant"
               }
             },
@@ -79,20 +73,18 @@
               "preferredCtxAllele": {
                 "id": "CG-EX:CtxAll094",
                 "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CanAll088",
+                "relatedCanonicalAllele": "CAR:CA023690",
                 "alleleName": "NM_000527.4(LDLR):c.313+2T>C"
               }
             },
             "family": {
               "id": "CG-EX:Fam370",
-              "type": "Family",
-              "description": "Family #008"
+              "label": "Family #008"
             },
             "phenotypePositiveAllelePositive": 0,
             "phenotypePositiveAlleleNegative": 2,
             "inconsistentSegregationsObserved": {
               "id": "SEPIO-CG:99011",
-              "type": "InconsistentSegregationObserved",
               "label": "present"
             },
             "description": "observed in one case diagnosed with Familial Hypercholesterolemia, characterized by elevated LDLC levels. Two siblings of the proband also have elevated LDLC levels but neither carry the 313+2T>C variant."
@@ -111,7 +103,6 @@
         "contributionDate": "9/5/16 9:51 AM",
         "contributionRole": {
           "id": "SEPIO:0000154",
-          "type": "ContributoryRole",
           "label": "assessor role"
         }
       }

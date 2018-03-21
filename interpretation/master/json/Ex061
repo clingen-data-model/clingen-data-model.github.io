@@ -5,16 +5,15 @@
     "id": "CG-EX:CritAssess337",
     "type": "CriterionAssessment",
     "criterion": {
-      "id": "SEPIO-CG:99042",
+      "id": "Crit323",
       "type": "Criterion",
-      "label": "BS4",
       "description": "Lack of segregation in affected members of a family",
+      "comments": "This rule is for “lack of segregation” meaning phenotype positive / genotype negative (and not pheno neg / geno pos). Also need to be careful of phenocopies. Also need rules for how many cases are needed in use this rule",
       "defaultStrength": {
         "id": "SEPIO:0000328",
-        "type": "EvidenceLineStrength",
         "label": "Benign Strong"
       },
-      "comments": "This rule is for “lack of segregation” meaning phenotype positive / genotype negative (and not pheno neg / geno pos). Also need to be careful of phenocopies. Also need rules for how many cases are needed in use this rule"
+      "label": "BS4"
     },
     "variant": {
       "id": "CAR:CA133141",
@@ -22,31 +21,28 @@
       "preferredCtxAllele": {
         "id": "CG-EX:CtxAll096",
         "type": "ContextualAllele",
-        "relatedCanonicalAllele": "CanAll090",
+        "relatedCanonicalAllele": "CAR:CA133141",
         "alleleName": "NM_001103.3(ACTN2):c.1484C>T (p.Thr495Met)"
       }
     },
     "condition": [
       {
-        "id": "CG-EX:GenCond066",
+        "id": "GenCond066",
         "type": "GeneticCondition",
         "disease": [
           {
             "id": "Orphanet:217569",
-            "type": "Disease",
             "label": "hypertrophic cardiomyopathy"
           }
         ],
         "modeOfInheritance": {
           "id": "HP:0000006",
-          "type": "ModeOfInheritance",
           "label": "Autosomal Dominant"
         }
       }
     ],
     "outcome": {
       "id": "SEPIO:0000223",
-      "type": "CriterionEvaluation",
       "label": "Met"
     },
     "evidenceLine": [
@@ -58,18 +54,16 @@
             "id": "CG-EX:FamSeg271",
             "type": "FamilySegregation",
             "condition": {
-              "id": "CG-EX:GenCond066",
+              "id": "GenCond066",
               "type": "GeneticCondition",
               "disease": [
                 {
                   "id": "Orphanet:217569",
-                  "type": "Disease",
                   "label": "hypertrophic cardiomyopathy"
                 }
               ],
               "modeOfInheritance": {
                 "id": "HP:0000006",
-                "type": "ModeOfInheritance",
                 "label": "Autosomal Dominant"
               }
             },
@@ -79,20 +73,18 @@
               "preferredCtxAllele": {
                 "id": "CG-EX:CtxAll096",
                 "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CanAll090",
+                "relatedCanonicalAllele": "CAR:CA133141",
                 "alleleName": "NM_001103.3(ACTN2):c.1484C>T (p.Thr495Met)"
               }
             },
             "family": {
               "id": "CG-EX:Fam372",
-              "type": "Family",
-              "description": "Family #010"
+              "label": "Family #010"
             },
             "phenotypePositiveAllelePositive": 0,
             "phenotypePositiveAlleleNegative": 2,
             "inconsistentSegregationsObserved": {
               "id": "SEPIO-CG:99011",
-              "type": "InconsistentSegregationObserved",
               "label": "present"
             }
           }
@@ -110,7 +102,6 @@
         "contributionDate": "9/5/16 11:00 AM",
         "contributionRole": {
           "id": "SEPIO:0000154",
-          "type": "ContributoryRole",
           "label": "assessor role"
         }
       }

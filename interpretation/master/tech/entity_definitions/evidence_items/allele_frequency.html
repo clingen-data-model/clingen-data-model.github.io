@@ -124,14 +124,14 @@
             </tr>
             <tr>
                 <td>population</td>
-                <td>Population</td>
+                <td>@id</td>
                 <td>0..1</td>
                 <td>Ancestry of population or group over which the frequency was measured</td>
                 <td>SEPIO:0000277</td>
             </tr>
             <tr>
                 <td>ascertainment</td>
-                <td>Ascertainment</td>
+                <td>@id</td>
                 <td>0..1</td>
                 <td>The criteria applied to create the dataset in which the frequency was measured</td>
                 <td>SEPIO:0000255</td>
@@ -210,6 +210,13 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>userLabel</td>
+                    <td>UserLabel</td>
+                    <td>0..*</td>
+                    <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td>qualifier</td>
                     <td>string</td>
                     <td>0..1</td>
@@ -252,6 +259,7 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
+        <th>userLabel</th>
         <th>qualifier</th>
         <th>evidenceLine</th>
         <th>description</th>
@@ -280,13 +288,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA253316">CAR:CA253316</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)
+              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)
          </td>
           <td>
               
@@ -318,8 +329,7 @@
   "type": "AlleleFrequency",
   "ascertainment": {
     "id": "SEPIO:0000332",
-    "type": "Ascertainment",
-    "label": "ExAc ascertainment method"
+    "label": "ExAC ascertainment method"
   },
   "allele": {
     "id": "CAR:CA253316",
@@ -327,7 +337,7 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll025",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll022",
+      "relatedCanonicalAllele": "CAR:CA253316",
       "alleleName": "NM_000441.1(SLC26A4):c.1003T>C"
     }
   },
@@ -340,6 +350,9 @@
 
         <tr>
           <td><p><a href="../../details/details.html#CG-EX:AllFreq029">CG-EX:AllFreq029</a></p></td>
+          <td>
+              <p><a href="../../details/details.html#CG-EX:UsrLabl001">CG-EX:UsrLabl001</a></p>
+         </td>
           <td>
               
          </td>
@@ -356,7 +369,7 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CGEX-TYPE:0001">CGEX-TYPE:0001</a></p>
+              <p><a href="../../details/details.html#CG-EX:Ascrt0001">CG-EX:Ascrt0001</a></p> (LMM Hearing Loss)
          </td>
           <td>
               
@@ -387,13 +400,8 @@
   "id": "CG-EX:AllFreq029",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CGEX-TYPE:0001",
-    "type": "Ascertainment",
-    "userLabel": {
-      "id": "CG-EX:UsrLabl002",
-      "type": "UserLabel",
-      "description": "Case group is composed of cases from six cohorts from the GENIUS T2D consortium.  Case status is defined per-cohort."
-    }
+    "id": "CG-EX:Ascrt0001",
+    "label": "LMM Hearing Loss"
   },
   "allele": {
     "id": "CAR:CA253316",
@@ -401,12 +409,23 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll025",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll022",
+      "relatedCanonicalAllele": "CAR:CA253316",
       "alleleName": "NM_000441.1(SLC26A4):c.1003T>C"
     }
   },
   "alleleCount": 32,
-  "alleleNumber": 4076
+  "alleleNumber": 4076,
+  "userLabel": [
+    {
+      "id": "CG-EX:UsrLabl001",
+      "type": "UserLabel",
+      "labelFor": {
+        "id": "CG-EX:Ascrt0001",
+        "label": "LMM Hearing Loss"
+      },
+      "description": "Across all published data (and LMM data) with hearing loss."
+    }
+  ]
 }
           </code></pre></div></td>
           -->
@@ -424,13 +443,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA024311">CAR:CA024311</a></p>
          </td>
           <td>
               
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)
+              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)
          </td>
           <td>
               
@@ -462,8 +484,7 @@
   "type": "AlleleFrequency",
   "ascertainment": {
     "id": "SEPIO:0000332",
-    "type": "Ascertainment",
-    "label": "ExAc ascertainment method"
+    "label": "ExAC ascertainment method"
   },
   "allele": {
     "id": "CAR:CA024311",
@@ -471,7 +492,7 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll026",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll023",
+      "relatedCanonicalAllele": "CAR:CA024311",
       "alleleName": "NM_000540.2 (RYR1):c.1840C>T"
     }
   },
@@ -484,6 +505,9 @@
 
         <tr>
           <td><p><a href="../../details/details.html#CG-EX:AllFreq032">CG-EX:AllFreq032</a></p></td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -536,7 +560,7 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll026",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll023",
+      "relatedCanonicalAllele": "CAR:CA024311",
       "alleleName": "NM_000540.2 (RYR1):c.1840C>T"
     }
   },
@@ -548,6 +572,9 @@
 
         <tr>
           <td><p><a href="../../details/details.html#CG-EX:AllFreq034">CG-EX:AllFreq034</a></p></td>
+          <td>
+              <p><a href="../../details/details.html#CG-EX:UsrLabl002">CG-EX:UsrLabl002</a></p>
+         </td>
           <td>
               
          </td>
@@ -564,7 +591,7 @@
               <p><a href="../../details/details.html#BROAD-population-type:nfe">BROAD-population-type:nfe</a></p> (Non-Finnish European)
          </td>
           <td>
-              <p><a href="../../details/details.html#CGEX-TYPE:0002">CGEX-TYPE:0002</a></p>
+              <p><a href="../../details/details.html#CG-EX:Ascrt0002">CG-EX:Ascrt0002</a></p> (GENIUS T2D Cases)
          </td>
           <td>
               
@@ -595,13 +622,8 @@
   "id": "CG-EX:AllFreq034",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CGEX-TYPE:0002",
-    "type": "Ascertainment",
-    "userLabel": {
-      "id": "CG-EX:UsrLabl002",
-      "type": "UserLabel",
-      "description": "Case group is composed of cases from six cohorts from the GENIUS T2D consortium.  Case status is defined per-cohort."
-    }
+    "id": "CG-EX:Ascrt0002",
+    "label": "GENIUS T2D Cases"
   },
   "allele": {
     "id": "CAR:CA123287",
@@ -609,7 +631,7 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll027",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll024",
+      "relatedCanonicalAllele": "CAR:CA123287",
       "alleleName": "NM_006208.2(ENPP1):c.517A>C"
     }
   },
@@ -620,9 +642,19 @@
   "heterozygousAlleleIndividualCount": 972,
   "population": {
     "id": "BROAD-population-type:nfe",
-    "type": "Population",
     "label": "Non-Finnish European"
-  }
+  },
+  "userLabel": [
+    {
+      "id": "CG-EX:UsrLabl002",
+      "type": "UserLabel",
+      "labelFor": {
+        "id": "CG-EX:Ascrt0002",
+        "label": "GENIUS T2D Cases"
+      },
+      "description": "Case group is composed of cases from six cohorts from the GENIUS T2D consortium.  Case status is defined per-cohort."
+    }
+  ]
 }
           </code></pre></div></td>
           -->
@@ -630,6 +662,9 @@
 
         <tr>
           <td><p><a href="../../details/details.html#CG-EX:AllFreq035">CG-EX:AllFreq035</a></p></td>
+          <td>
+              <p><a href="../../details/details.html#CG-EX:UsrLabl003">CG-EX:UsrLabl003</a></p>
+         </td>
           <td>
               
          </td>
@@ -646,7 +681,7 @@
               <p><a href="../../details/details.html#BROAD-population-type:nfe">BROAD-population-type:nfe</a></p> (Non-Finnish European)
          </td>
           <td>
-              <p><a href="../../details/details.html#CGEX-TYPE:0003">CGEX-TYPE:0003</a></p>
+              <p><a href="../../details/details.html#CG-EX:Ascrt0003">CG-EX:Ascrt0003</a></p> (GENIUS T2D Controls)
          </td>
           <td>
               
@@ -677,13 +712,8 @@
   "id": "CG-EX:AllFreq035",
   "type": "AlleleFrequency",
   "ascertainment": {
-    "id": "CGEX-TYPE:0003",
-    "type": "Ascertainment",
-    "userLabel": {
-      "id": "CG-EX:UsrLabl003",
-      "type": "UserLabel",
-      "description": "Controls group is composed of controls from six cohorts from the GENIUS T2D consortium.  Controls status is defined per-cohort."
-    }
+    "id": "CG-EX:Ascrt0003",
+    "label": "GENIUS T2D Controls"
   },
   "allele": {
     "id": "CAR:CA123287",
@@ -691,7 +721,7 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll027",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll024",
+      "relatedCanonicalAllele": "CAR:CA123287",
       "alleleName": "NM_006208.2(ENPP1):c.517A>C"
     }
   },
@@ -702,9 +732,19 @@
   "heterozygousAlleleIndividualCount": 782,
   "population": {
     "id": "BROAD-population-type:nfe",
-    "type": "Population",
     "label": "Non-Finnish European"
-  }
+  },
+  "userLabel": [
+    {
+      "id": "CG-EX:UsrLabl003",
+      "type": "UserLabel",
+      "labelFor": {
+        "id": "CG-EX:Ascrt0003",
+        "label": "GENIUS T2D Controls"
+      },
+      "description": "Controls group is composed of controls from six cohorts from the GENIUS T2D consortium.  Controls status is defined per-cohort."
+    }
+  ]
 }
           </code></pre></div></td>
           -->
@@ -722,13 +762,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA013536">CAR:CA013536</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#BROAD-population-type:sas">BROAD-population-type:sas</a></p> (South Asian)
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)
+              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)
          </td>
           <td>
               <p>0.02</p>
@@ -760,8 +803,7 @@
   "type": "AlleleFrequency",
   "ascertainment": {
     "id": "SEPIO:0000332",
-    "type": "Ascertainment",
-    "label": "ExAc ascertainment method"
+    "label": "ExAC ascertainment method"
   },
   "allele": {
     "id": "CAR:CA013536",
@@ -769,7 +811,7 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll124",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll118",
+      "relatedCanonicalAllele": "CAR:CA013536",
       "alleleName": "NM_000257.2(MYH7):c.327C>T"
     }
   },
@@ -778,7 +820,6 @@
   "alleleFrequency": 0.02,
   "population": {
     "id": "BROAD-population-type:sas",
-    "type": "Population",
     "label": "South Asian"
   }
 }
@@ -798,13 +839,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA090950">CAR:CA090950</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#BROAD-population-type:afr">BROAD-population-type:afr</a></p> (African/African American)
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)
+              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)
          </td>
           <td>
               <p>0.02</p>
@@ -836,8 +880,7 @@
   "type": "AlleleFrequency",
   "ascertainment": {
     "id": "SEPIO:0000332",
-    "type": "Ascertainment",
-    "label": "ExAc ascertainment method"
+    "label": "ExAC ascertainment method"
   },
   "allele": {
     "id": "CAR:CA090950",
@@ -845,7 +888,7 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll098",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll092",
+      "relatedCanonicalAllele": "CAR:CA090950",
       "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
     }
   },
@@ -854,7 +897,6 @@
   "alleleFrequency": 0.02,
   "population": {
     "id": "BROAD-population-type:afr",
-    "type": "Population",
     "label": "African/African American"
   }
 }
@@ -874,13 +916,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA011797">CAR:CA011797</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#BROAD-population-type:nfe">BROAD-population-type:nfe</a></p> (Non-Finnish European)
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)
+              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)
          </td>
           <td>
               <p>1.499e-05</p>
@@ -912,22 +957,20 @@
   "type": "AlleleFrequency",
   "ascertainment": {
     "id": "SEPIO:0000332",
-    "type": "Ascertainment",
-    "label": "ExAc ascertainment method"
+    "label": "ExAC ascertainment method"
   },
   "population": {
     "id": "BROAD-population-type:nfe",
-    "type": "Population",
     "label": "Non-Finnish European"
   },
   "allele": {
     "id": "CAR:CA011797",
     "type": "CanonicalAllele",
     "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll035",
+      "id": "CG-EX:CtxAll037",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll032",
-      "alleleName": "NM_000257.2(MYH7):c.5135G>A"
+      "relatedCanonicalAllele": "CAR:CA011797",
+      "alleleName": "NM_001128425.1(MUTYH):c.64G>A (p.Val22Met)"
     }
   },
   "alleleCount": 66706,
@@ -951,13 +994,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA011797">CAR:CA011797</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:98001">SEPIO-CG:98001</a></p> (Combined)
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)
+              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)
          </td>
           <td>
               <p>8.24e-06</p>
@@ -989,22 +1035,20 @@
   "type": "AlleleFrequency",
   "ascertainment": {
     "id": "SEPIO:0000332",
-    "type": "Ascertainment",
-    "label": "ExAc ascertainment method"
+    "label": "ExAC ascertainment method"
   },
   "population": {
     "id": "SEPIO-CG:98001",
-    "type": "Population",
     "label": "Combined"
   },
   "allele": {
     "id": "CAR:CA011797",
     "type": "CanonicalAllele",
     "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll035",
+      "id": "CG-EX:CtxAll037",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll032",
-      "alleleName": "NM_000257.2(MYH7):c.5135G>A"
+      "relatedCanonicalAllele": "CAR:CA011797",
+      "alleleName": "NM_001128425.1(MUTYH):c.64G>A (p.Val22Met)"
     }
   },
   "alleleCount": 121366,
@@ -1028,13 +1072,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA011797">CAR:CA011797</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#BROAD-population-type:fin">BROAD-population-type:fin</a></p> (Finnish)
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)
+              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)
          </td>
           <td>
               <p>0.07771</p>
@@ -1066,12 +1113,10 @@
   "type": "AlleleFrequency",
   "ascertainment": {
     "id": "SEPIO:0000332",
-    "type": "Ascertainment",
-    "label": "ExAc ascertainment method"
+    "label": "ExAC ascertainment method"
   },
   "population": {
     "id": "BROAD-population-type:fin",
-    "type": "Population",
     "label": "Finnish"
   },
   "allele": {
@@ -1080,7 +1125,7 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll037",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll033",
+      "relatedCanonicalAllele": "CAR:CA011797",
       "alleleName": "NM_001128425.1(MUTYH):c.64G>A (p.Val22Met)"
     }
   },
@@ -1106,13 +1151,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA273141">CAR:CA273141</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:98001">SEPIO-CG:98001</a></p> (Combined)
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)
+              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)
          </td>
           <td>
               <p>0.0</p>
@@ -1144,12 +1192,10 @@
   "type": "AlleleFrequency",
   "ascertainment": {
     "id": "SEPIO:0000332",
-    "type": "Ascertainment",
-    "label": "ExAc ascertainment method"
+    "label": "ExAC ascertainment method"
   },
   "population": {
     "id": "SEPIO-CG:98001",
-    "type": "Population",
     "label": "Combined"
   },
   "allele": {
@@ -1158,7 +1204,7 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll038",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll034",
+      "relatedCanonicalAllele": "CAR:CA273141",
       "alleleName": "NM_001399.4(EDA): c.676C>T"
     }
   },
@@ -1183,13 +1229,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA090919">CAR:CA090919</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:98001">SEPIO-CG:98001</a></p> (Combined)
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)
+              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)
          </td>
           <td>
               <p>0.0</p>
@@ -1221,12 +1270,10 @@
   "type": "AlleleFrequency",
   "ascertainment": {
     "id": "SEPIO:0000332",
-    "type": "Ascertainment",
-    "label": "ExAc ascertainment method"
+    "label": "ExAC ascertainment method"
   },
   "population": {
     "id": "SEPIO-CG:98001",
-    "type": "Population",
     "label": "Combined"
   },
   "allele": {
@@ -1235,15 +1282,15 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll039",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll035",
+      "relatedCanonicalAllele": "CAR:CA090919",
       "alleleName": "NM_001369.2(DNAH5):c.7468_7488del",
       "produces": [
         {
           "id": "CG-EX:CtxAll044",
           "type": "ContextualAllele",
-          "relatedCanonicalAllele": "CanAll040",
+          "relatedCanonicalAllele": "CAR:CA273136",
           "alleleName": "NP_001360.1:p.Trp2490_Leu2496del",
-          "producedBy": "CtxAll039"
+          "producedBy": "CG-EX:CtxAll039"
         }
       ]
     }
@@ -1262,7 +1309,6 @@
       "contributionDate": "6/1/16 2:15 PM",
       "contributionRole": {
         "id": "SEPIO:0000156",
-        "type": "ContributoryRole",
         "label": "curator role"
       }
     }
@@ -1287,13 +1333,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA280055">CAR:CA280055</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:98001">SEPIO-CG:98001</a></p> (Combined)
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)
+              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)
          </td>
           <td>
               <p>0.0</p>
@@ -1325,12 +1374,10 @@
   "type": "AlleleFrequency",
   "ascertainment": {
     "id": "SEPIO:0000332",
-    "type": "Ascertainment",
-    "label": "ExAc ascertainment method"
+    "label": "ExAC ascertainment method"
   },
   "population": {
     "id": "SEPIO-CG:98001",
-    "type": "Population",
     "label": "Combined"
   },
   "allele": {
@@ -1339,15 +1386,15 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll131",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll125",
+      "relatedCanonicalAllele": "CAR:CA280055",
       "alleleName": "NM_004333.4(BRAF):c.1447A>C (p.Lys483Gln)",
       "produces": [
         {
           "id": "CG-EX:CtxAll132",
           "type": "ContextualAllele",
-          "relatedCanonicalAllele": "CanAll126",
+          "relatedCanonicalAllele": "CAR:CA280057",
           "alleleName": "NP_004324.2:p.Lys483Gln",
-          "producedBy": "CtxAll131"
+          "producedBy": "CG-EX:CtxAll131"
         }
       ]
     }
@@ -1372,13 +1419,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA090891">CAR:CA090891</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:98001">SEPIO-CG:98001</a></p> (Combined)
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)
+              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)
          </td>
           <td>
               <p>0.05591</p>
@@ -1410,12 +1460,10 @@
   "type": "AlleleFrequency",
   "ascertainment": {
     "id": "SEPIO:0000332",
-    "type": "Ascertainment",
-    "label": "ExAc ascertainment method"
+    "label": "ExAC ascertainment method"
   },
   "population": {
     "id": "SEPIO-CG:98001",
-    "type": "Population",
     "label": "Combined"
   },
   "allele": {
@@ -1424,7 +1472,7 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll081",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll075",
+      "relatedCanonicalAllele": "CAR:CA090891",
       "alleleName": "NM_000057.2 (BLM):c.2603C>T"
     }
   },
@@ -1449,13 +1497,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA134997">CAR:CA134997</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:98001">SEPIO-CG:98001</a></p> (Combined)
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)
+              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)
          </td>
           <td>
               <p>0.04538</p>
@@ -1487,12 +1538,10 @@
   "type": "AlleleFrequency",
   "ascertainment": {
     "id": "SEPIO:0000332",
-    "type": "Ascertainment",
-    "label": "ExAc ascertainment method"
+    "label": "ExAC ascertainment method"
   },
   "population": {
     "id": "SEPIO-CG:98001",
-    "type": "Population",
     "label": "Combined"
   },
   "allele": {
@@ -1501,7 +1550,7 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll082",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll076",
+      "relatedCanonicalAllele": "CAR:CA134997",
       "alleleName": "NM_004004.5(GJB2):c.79G>A"
     }
   },
@@ -1526,13 +1575,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA134997">CAR:CA134997</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#BROAD-population-type:eas">BROAD-population-type:eas</a></p> (East Asian)
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)
+              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)
          </td>
           <td>
               <p>0.2917</p>
@@ -1564,12 +1616,10 @@
   "type": "AlleleFrequency",
   "ascertainment": {
     "id": "SEPIO:0000332",
-    "type": "Ascertainment",
-    "label": "ExAc ascertainment method"
+    "label": "ExAC ascertainment method"
   },
   "population": {
     "id": "BROAD-population-type:eas",
-    "type": "Population",
     "label": "East Asian"
   },
   "allele": {
@@ -1578,7 +1628,7 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll082",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll076",
+      "relatedCanonicalAllele": "CAR:CA134997",
       "alleleName": "NM_004004.5(GJB2):c.79G>A"
     }
   },
@@ -1603,13 +1653,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA501229">CAR:CA501229</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:98001">SEPIO-CG:98001</a></p> (Combined)
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)
+              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)
          </td>
           <td>
               <p>0.0001158</p>
@@ -1641,12 +1694,10 @@
   "type": "AlleleFrequency",
   "ascertainment": {
     "id": "SEPIO:0000332",
-    "type": "Ascertainment",
-    "label": "ExAc ascertainment method"
+    "label": "ExAC ascertainment method"
   },
   "population": {
     "id": "SEPIO-CG:98001",
-    "type": "Population",
     "label": "Combined"
   },
   "allele": {
@@ -1655,7 +1706,7 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll083",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll077",
+      "relatedCanonicalAllele": "CAR:CA501229",
       "alleleName": "NM_023036.4(DNAI2):c.1304G>A"
     }
   },
@@ -1680,13 +1731,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA017597">CAR:CA017597</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:98001">SEPIO-CG:98001</a></p> (Combined)
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)
+              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)
          </td>
           <td>
               <p>0.0007</p>
@@ -1718,12 +1772,10 @@
   "type": "AlleleFrequency",
   "ascertainment": {
     "id": "SEPIO:0000332",
-    "type": "Ascertainment",
-    "label": "ExAc ascertainment method"
+    "label": "ExAC ascertainment method"
   },
   "population": {
     "id": "SEPIO-CG:98001",
-    "type": "Population",
     "label": "Combined"
   },
   "allele": {
@@ -1732,7 +1784,7 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll084",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll078",
+      "relatedCanonicalAllele": "CAR:CA017597",
       "alleleName": "NM_000138.4(FBN1):c.8176C>T"
     }
   },
@@ -1757,13 +1809,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA090926">CAR:CA090926</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:98001">SEPIO-CG:98001</a></p> (Combined)
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)
+              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)
          </td>
           <td>
               <p>0.00625</p>
@@ -1795,12 +1850,10 @@
   "type": "AlleleFrequency",
   "ascertainment": {
     "id": "SEPIO:0000332",
-    "type": "Ascertainment",
-    "label": "ExAc ascertainment method"
+    "label": "ExAC ascertainment method"
   },
   "population": {
     "id": "SEPIO-CG:98001",
-    "type": "Population",
     "label": "Combined"
   },
   "allele": {
@@ -1809,7 +1862,7 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll085",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll079",
+      "relatedCanonicalAllele": "CAR:CA090926",
       "alleleName": "NM_004541.3(NDUFA1):c.94G>C"
     }
   },
@@ -1835,13 +1888,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA501230">CAR:CA501230</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:98001">SEPIO-CG:98001</a></p> (Combined)
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)
+              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)
          </td>
           <td>
               <p>2.4e-05</p>
@@ -1873,12 +1929,10 @@
   "type": "AlleleFrequency",
   "ascertainment": {
     "id": "SEPIO:0000332",
-    "type": "Ascertainment",
-    "label": "ExAc ascertainment method"
+    "label": "ExAC ascertainment method"
   },
   "population": {
     "id": "SEPIO-CG:98001",
-    "type": "Population",
     "label": "Combined"
   },
   "allele": {
@@ -1887,7 +1941,7 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll086",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll080",
+      "relatedCanonicalAllele": "CAR:CA501230",
       "alleleName": "NM_000414.3(HSD17B4):c.56C>G"
     }
   },
@@ -1911,13 +1965,16 @@
               
          </td>
           <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA022880">CAR:CA022880</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#BROAD-population-type:nfe">BROAD-population-type:nfe</a></p> (Non-Finnish European)
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAc ascertainment method)
+              <p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)
          </td>
           <td>
               <p>1.5e-05</p>
@@ -1949,12 +2006,10 @@
   "type": "AlleleFrequency",
   "ascertainment": {
     "id": "SEPIO:0000332",
-    "type": "Ascertainment",
-    "label": "ExAc ascertainment method"
+    "label": "ExAC ascertainment method"
   },
   "population": {
     "id": "BROAD-population-type:nfe",
-    "type": "Population",
     "label": "Non-Finnish European"
   },
   "allele": {
@@ -1963,7 +2018,7 @@
     "preferredCtxAllele": {
       "id": "CG-EX:CtxAll127",
       "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CanAll121",
+      "relatedCanonicalAllele": "CAR:CA022880",
       "alleleName": "NM_024422.3(DSC2): c.631-2A>G (p.?)"
     }
   },

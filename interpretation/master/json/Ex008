@@ -5,16 +5,15 @@
     "id": "CG-EX:CritAssess282",
     "type": "CriterionAssessment",
     "criterion": {
-      "id": "SEPIO-CG:99024",
+      "id": "Crit305",
       "type": "Criterion",
-      "label": "PS2",
       "description": "De novo (both maternity and paternity confirmed) in a patient with the disease and no family history",
+      "comments": "MYH7 is adding specificity to this rule with\na. No family history = parents have had ECHO and ECG\nb. Only paternity confirmation required",
       "defaultStrength": {
         "id": "SEPIO:0000330",
-        "type": "EvidenceLineStrength",
         "label": "Pathogenic Strong"
       },
-      "comments": "MYH7 is adding specificity to this rule with\na. No family history = parents have had ECHO and ECG\nb. Only paternity confirmation required"
+      "label": "PS2"
     },
     "variant": {
       "id": "CAR:CA257646",
@@ -22,27 +21,26 @@
       "preferredCtxAllele": {
         "id": "CG-EX:CtxAll018",
         "type": "ContextualAllele",
-        "relatedCanonicalAllele": "CanAll015",
+        "relatedCanonicalAllele": "CAR:CA257646",
         "alleleName": "NM_001927.3(DES):c.1216C>T (p.Arg406Trp)"
       }
     },
     "condition": [
       {
-        "id": "CG-EX:GenCond008",
+        "id": "GenCond008",
         "type": "GeneticCondition",
         "disease": [
           {
             "id": "OMIM:601419",
-            "type": "Disease",
             "label": "myofibrillar myopathy 1"
           }
         ],
-        "name": "desmin related myopathy"
+        "name": "desmin related myopathy",
+        "label": "desmin related myopathy"
       }
     ],
     "outcome": {
       "id": "SEPIO:0000223",
-      "type": "CriterionEvaluation",
       "label": "Met"
     },
     "evidenceLine": [
@@ -55,26 +53,24 @@
             "type": "IndividualCondition",
             "individual": {
               "id": "CG-EX:Indiv334",
-              "type": "Individual",
-              "description": "individual #002"
+              "label": "individual #002"
             },
             "condition": [
               {
-                "id": "CG-EX:GenCond008",
+                "id": "GenCond008",
                 "type": "GeneticCondition",
                 "disease": [
                   {
                     "id": "OMIM:601419",
-                    "type": "Disease",
                     "label": "myofibrillar myopathy 1"
                   }
                 ],
-                "name": "desmin related myopathy"
+                "name": "desmin related myopathy",
+                "label": "desmin related myopathy"
               }
             ],
             "individualHasCondition": {
               "id": "SEPIO-CG:99009",
-              "type": "ConditionStatus",
               "label": "affected"
             }
           },
@@ -83,26 +79,24 @@
             "type": "FamilyCondition",
             "proband": {
               "id": "CG-EX:Indiv334",
-              "type": "Individual",
-              "description": "individual #002"
+              "label": "individual #002"
             },
             "condition": [
               {
-                "id": "CG-EX:GenCond008",
+                "id": "GenCond008",
                 "type": "GeneticCondition",
                 "disease": [
                   {
                     "id": "OMIM:601419",
-                    "type": "Disease",
                     "label": "myofibrillar myopathy 1"
                   }
                 ],
-                "name": "desmin related myopathy"
+                "name": "desmin related myopathy",
+                "label": "desmin related myopathy"
               }
             ],
             "familyHasCondition": {
               "id": "SEPIO-CG:99010",
-              "type": "ConditionStatus",
               "label": "unaffected"
             }
           },
@@ -115,24 +109,21 @@
               "preferredCtxAllele": {
                 "id": "CG-EX:CtxAll018",
                 "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CanAll015",
+                "relatedCanonicalAllele": "CAR:CA257646",
                 "alleleName": "NM_001927.3(DES):c.1216C>T (p.Arg406Trp)"
               }
             },
             "individual": {
               "id": "CG-EX:Indiv334",
-              "type": "Individual",
-              "description": "individual #002"
+              "label": "individual #002"
             },
             "parentalConfirmation": {
               "id": "SEPIO-CG:99006",
-              "type": "ParentalConfirmation",
               "label": "paternal confirmation"
             },
             "alleleInheritance": [
               {
                 "id": "GENO:0000880",
-                "type": "AlleleInheritance",
                 "label": "de novo"
               }
             ],
@@ -152,7 +143,6 @@
         "contributionDate": "6/3/16 9:17 AM",
         "contributionRole": {
           "id": "SEPIO:0000154",
-          "type": "ContributoryRole",
           "label": "assessor role"
         }
       }

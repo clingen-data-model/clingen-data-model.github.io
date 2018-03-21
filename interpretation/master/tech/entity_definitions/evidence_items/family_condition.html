@@ -114,7 +114,7 @@
             <tbody>
             <tr>
                 <td>proband</td>
-                <td>Individual</td>
+                <td>@id</td>
                 <td>0..1</td>
                 <td>The person that was the original source of the condition in this family</td>
                 <td>SEPIO:0000281</td>
@@ -128,7 +128,7 @@
             </tr>
             <tr>
                 <td>familyHasCondition</td>
-                <td>ConditionStatus</td>
+                <td>@id</td>
                 <td>1..1</td>
                 <td>Whether or not this family has the stated condition</td>
                 <td>SEPIO:0000197</td>
@@ -150,6 +150,13 @@
             </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>userLabel</td>
+                    <td>UserLabel</td>
+                    <td>0..*</td>
+                    <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
+                    <td></td>
+                </tr>
                 <tr>
                     <td>qualifier</td>
                     <td>string</td>
@@ -193,6 +200,7 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
+        <th>userLabel</th>
         <th>qualifier</th>
         <th>evidenceLine</th>
         <th>description</th>
@@ -213,10 +221,13 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv333">CG-EX:Indiv333</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond052">CG-EX:GenCond052</a></p>
+              <p><a href="../../details/details.html#CG-EX:Indiv333">CG-EX:Indiv333</a></p> (individual #001)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#GenCond052">GenCond052</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
@@ -227,17 +238,15 @@
   "type": "FamilyCondition",
   "proband": {
     "id": "CG-EX:Indiv333",
-    "type": "Individual",
-    "description": "individual #001"
+    "label": "individual #001"
   },
   "condition": [
     {
-      "id": "CG-EX:GenCond052",
+      "id": "GenCond052",
       "type": "GeneticCondition",
       "disease": [
         {
           "id": "Orphanet:217604",
-          "type": "Disease",
           "label": "dilated cardiomyopathy"
         }
       ]
@@ -245,7 +254,6 @@
   ],
   "familyHasCondition": {
     "id": "SEPIO-CG:99010",
-    "type": "ConditionStatus",
     "label": "unaffected"
   }
 }
@@ -265,10 +273,13 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv334">CG-EX:Indiv334</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond008">CG-EX:GenCond008</a></p>
+              <p><a href="../../details/details.html#CG-EX:Indiv334">CG-EX:Indiv334</a></p> (individual #002)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#GenCond008">GenCond008</a></p> (desmin related myopathy)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
@@ -279,26 +290,24 @@
   "type": "FamilyCondition",
   "proband": {
     "id": "CG-EX:Indiv334",
-    "type": "Individual",
-    "description": "individual #002"
+    "label": "individual #002"
   },
   "condition": [
     {
-      "id": "CG-EX:GenCond008",
+      "id": "GenCond008",
       "type": "GeneticCondition",
       "disease": [
         {
           "id": "OMIM:601419",
-          "type": "Disease",
           "label": "myofibrillar myopathy 1"
         }
       ],
-      "name": "desmin related myopathy"
+      "name": "desmin related myopathy",
+      "label": "desmin related myopathy"
     }
   ],
   "familyHasCondition": {
     "id": "SEPIO-CG:99010",
-    "type": "ConditionStatus",
     "label": "unaffected"
   }
 }
@@ -318,10 +327,13 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv335">CG-EX:Indiv335</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond009">CG-EX:GenCond009</a></p>
+              <p><a href="../../details/details.html#CG-EX:Indiv335">CG-EX:Indiv335</a></p> (individual #003)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#GenCond009">GenCond009</a></p> (Epilepsy with Mental Retardation)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
@@ -332,19 +344,18 @@
   "type": "FamilyCondition",
   "proband": {
     "id": "CG-EX:Indiv335",
-    "type": "Individual",
-    "description": "individual #003"
+    "label": "individual #003"
   },
   "condition": [
     {
-      "id": "CG-EX:GenCond009",
+      "id": "GenCond009",
       "type": "GeneticCondition",
-      "name": "Epilepsy with Mental Retardation"
+      "name": "Epilepsy with Mental Retardation",
+      "label": "Epilepsy with Mental Retardation"
     }
   ],
   "familyHasCondition": {
     "id": "SEPIO-CG:99010",
-    "type": "ConditionStatus",
     "label": "unaffected"
   }
 }
@@ -364,10 +375,13 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv339">CG-EX:Indiv339</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond018">CG-EX:GenCond018</a></p>
+              <p><a href="../../details/details.html#CG-EX:Indiv339">CG-EX:Indiv339</a></p> (individual #007)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#GenCond018">GenCond018</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
@@ -378,17 +392,15 @@
   "type": "FamilyCondition",
   "proband": {
     "id": "CG-EX:Indiv339",
-    "type": "Individual",
-    "description": "individual #007"
+    "label": "individual #007"
   },
   "condition": [
     {
-      "id": "CG-EX:GenCond018",
+      "id": "GenCond018",
       "type": "GeneticCondition",
       "disease": [
         {
           "id": "Orphanet:122",
-          "type": "Disease",
           "label": "Birt-Hogg-Dube Syndrome"
         }
       ]
@@ -396,7 +408,6 @@
   ],
   "familyHasCondition": {
     "id": "SEPIO-CG:99010",
-    "type": "ConditionStatus",
     "label": "unaffected"
   }
 }
@@ -416,10 +427,13 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv340">CG-EX:Indiv340</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond018">CG-EX:GenCond018</a></p>
+              <p><a href="../../details/details.html#CG-EX:Indiv340">CG-EX:Indiv340</a></p> (individual #008)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#GenCond018">GenCond018</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
@@ -430,17 +444,15 @@
   "type": "FamilyCondition",
   "proband": {
     "id": "CG-EX:Indiv340",
-    "type": "Individual",
-    "description": "individual #008"
+    "label": "individual #008"
   },
   "condition": [
     {
-      "id": "CG-EX:GenCond018",
+      "id": "GenCond018",
       "type": "GeneticCondition",
       "disease": [
         {
           "id": "Orphanet:122",
-          "type": "Disease",
           "label": "Birt-Hogg-Dube Syndrome"
         }
       ]
@@ -448,7 +460,6 @@
   ],
   "familyHasCondition": {
     "id": "SEPIO-CG:99010",
-    "type": "ConditionStatus",
     "label": "unaffected"
   }
 }
@@ -468,10 +479,13 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv341">CG-EX:Indiv341</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond019">CG-EX:GenCond019</a></p>
+              <p><a href="../../details/details.html#CG-EX:Indiv341">CG-EX:Indiv341</a></p> (individual #009)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#GenCond019">GenCond019</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
@@ -482,17 +496,15 @@
   "type": "FamilyCondition",
   "proband": {
     "id": "CG-EX:Indiv341",
-    "type": "Individual",
-    "description": "individual #009"
+    "label": "individual #009"
   },
   "condition": [
     {
-      "id": "CG-EX:GenCond019",
+      "id": "GenCond019",
       "type": "GeneticCondition",
       "disease": [
         {
           "id": "Orphanet:1340",
-          "type": "Disease",
           "label": "cardiofaciocutaneous syndrome"
         }
       ]
@@ -500,7 +512,6 @@
   ],
   "familyHasCondition": {
     "id": "SEPIO-CG:99010",
-    "type": "ConditionStatus",
     "label": "unaffected"
   }
 }
@@ -520,10 +531,13 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv342">CG-EX:Indiv342</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond068">CG-EX:GenCond068</a></p>
+              <p><a href="../../details/details.html#CG-EX:Indiv342">CG-EX:Indiv342</a></p> (individual #010)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#GenCond068">GenCond068</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
@@ -534,17 +548,15 @@
   "type": "FamilyCondition",
   "proband": {
     "id": "CG-EX:Indiv342",
-    "type": "Individual",
-    "description": "individual #010"
+    "label": "individual #010"
   },
   "condition": [
     {
-      "id": "CG-EX:GenCond068",
+      "id": "GenCond068",
       "type": "GeneticCondition",
       "disease": [
         {
           "id": "Orphanet:1340",
-          "type": "Disease",
           "label": "cardiofaciocutaneous syndrome"
         }
       ]
@@ -552,7 +564,6 @@
   ],
   "familyHasCondition": {
     "id": "SEPIO-CG:99010",
-    "type": "ConditionStatus",
     "label": "unaffected"
   }
 }
@@ -572,10 +583,13 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv343">CG-EX:Indiv343</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond068">CG-EX:GenCond068</a></p>
+              <p><a href="../../details/details.html#CG-EX:Indiv343">CG-EX:Indiv343</a></p> (individual #011)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#GenCond068">GenCond068</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
@@ -586,17 +600,15 @@
   "type": "FamilyCondition",
   "proband": {
     "id": "CG-EX:Indiv343",
-    "type": "Individual",
-    "description": "individual #011"
+    "label": "individual #011"
   },
   "condition": [
     {
-      "id": "CG-EX:GenCond068",
+      "id": "GenCond068",
       "type": "GeneticCondition",
       "disease": [
         {
           "id": "Orphanet:1340",
-          "type": "Disease",
           "label": "cardiofaciocutaneous syndrome"
         }
       ]
@@ -604,7 +616,6 @@
   ],
   "familyHasCondition": {
     "id": "SEPIO-CG:99010",
-    "type": "ConditionStatus",
     "label": "unaffected"
   }
 }
@@ -624,10 +635,13 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv344">CG-EX:Indiv344</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond068">CG-EX:GenCond068</a></p>
+              <p><a href="../../details/details.html#CG-EX:Indiv344">CG-EX:Indiv344</a></p> (individual #012)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#GenCond068">GenCond068</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
@@ -638,17 +652,15 @@
   "type": "FamilyCondition",
   "proband": {
     "id": "CG-EX:Indiv344",
-    "type": "Individual",
-    "description": "individual #012"
+    "label": "individual #012"
   },
   "condition": [
     {
-      "id": "CG-EX:GenCond068",
+      "id": "GenCond068",
       "type": "GeneticCondition",
       "disease": [
         {
           "id": "Orphanet:1340",
-          "type": "Disease",
           "label": "cardiofaciocutaneous syndrome"
         }
       ]
@@ -656,7 +668,6 @@
   ],
   "familyHasCondition": {
     "id": "SEPIO-CG:99010",
-    "type": "ConditionStatus",
     "label": "unaffected"
   }
 }
@@ -676,10 +687,13 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv362">CG-EX:Indiv362</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:GenCond069">CG-EX:GenCond069</a></p>
+              <p><a href="../../details/details.html#CG-EX:Indiv362">CG-EX:Indiv362</a></p> (individual #030)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#GenCond069">GenCond069</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
@@ -690,17 +704,15 @@
   "type": "FamilyCondition",
   "proband": {
     "id": "CG-EX:Indiv362",
-    "type": "Individual",
-    "description": "individual #030"
+    "label": "individual #030"
   },
   "condition": [
     {
-      "id": "CG-EX:GenCond069",
+      "id": "GenCond069",
       "type": "GeneticCondition",
       "disease": [
         {
           "id": "Orphanet:1340",
-          "type": "Disease",
           "label": "cardiofaciocutaneous syndrome"
         }
       ]
@@ -708,7 +720,6 @@
   ],
   "familyHasCondition": {
     "id": "SEPIO-CG:99010",
-    "type": "ConditionStatus",
     "label": "unaffected"
   }
 }
