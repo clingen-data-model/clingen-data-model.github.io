@@ -1,0 +1,637 @@
+{
+  "id": "CGEX:VarInterp274",
+  "type": "VariantPathogenicityInterpretation",
+  "description": "The Trp2490_Leu2496del variant in DNAH5 leads to an in-frame deletion of 7 amino acids. This variant has been reported together with a second DNAH5 variant (Met2083Ile) in one individual with PCD and situs inversus (Berg 2011). In addition, this variant has been identified in trans configuration with a disease-causing variant in one affected proband (LMM unpublished data). Data from large population studies is insufficient to determine whether this variant is present in the general population. In summary, this variant is likely pathogenic, though additional studies are required to fully establish its clinical significance.",
+  "variant": {
+    "id": "CAR:CA090919",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll039"
+  },
+  "condition": [
+    {
+      "id": "CGEX:GenCond063",
+      "type": "GeneticCondition",
+      "disease": [
+        {
+          "id": "Orphanet:244",
+          "type": "Entity",
+          "label": "Primary ciliary dyskenisia"
+        }
+      ],
+      "inheritancePattern": {
+        "id": "HP:0000007",
+        "type": "Entity",
+        "label": "Autosomal Recessive"
+      }
+    }
+  ],
+  "statementOutcome": {
+    "id": "LOINC:LA26332-9",
+    "type": "Entity",
+    "label": "Likely Pathogenic"
+  },
+  "assertionMethod": {
+    "id": "CGEX:AssertMeth331",
+    "type": "VariantPathogenicityInterpretationGuideline",
+    "description": "ACMG ISV guidelines 2015",
+    "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
+    "version": "1.0",
+    "scoringAlgorithm": {
+      "id": "SEPIO-CG:99300"
+    }
+  },
+  "evidenceLine": [
+    {
+      "id": "CGEX:EvLn110",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:CritAssess305",
+          "type": "CriterionAssessment",
+          "description": "while the variant is absent from exac, however\n1) very low coverage across this region (~5X) and usually 20X is used as a cut-off to say “absent”\n2) variant is 21 nt deletion - databases may not be able to call a variant of that size (I rarely see an indel of this size in ExAC).",
+          "criterion": {
+            "id": "SEPIO-CG:99028",
+            "type": "VariantInterpretationCriterion",
+            "label": "PM2",
+            "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
+            "usageNotes": "Some groups are allowing to rule to be used if even not 100% absent\nFor instance, Cardio has allowed PM2 to be used if MAF is <0.05% with 95% CI if\nCI lower is ~0.00% (at 2 decimal places) AND CI upper is below 0.05%\n Caveat: Population data for insertions/deletions may be poorly called by next-generation sequencing",
+            "defaultStrength": {
+              "id": "SEPIO:0000216",
+              "type": "Entity",
+              "label": "Pathogenic Moderate"
+            }
+          },
+          "variant": {
+            "id": "CAR:CA090919",
+            "type": "CanonicalAllele",
+            "relatedContextualAllele": "CGEX:CtxAll039"
+          },
+          "statementOutcome": {
+            "id": "SEPIO:0000224",
+            "type": "Entity",
+            "label": "Not Met"
+          },
+          "evidenceLine": [
+            {
+              "id": "CGEX:EvLn040",
+              "type": "EvidenceLine",
+              "evidenceItem": [
+                {
+                  "id": "CGEX:AllFreq082",
+                  "type": "PopulationAlleleFrequencyStatement",
+                  "ascertainment": {
+                    "id": "SEPIO:0000332",
+                    "type": "Entity",
+                    "label": "ExAC ascertainment method"
+                  },
+                  "population": {
+                    "id": "SEPIO-CG:98001",
+                    "type": "Entity",
+                    "label": "Combined"
+                  },
+                  "allele": {
+                    "id": "CAR:CA090919",
+                    "type": "CanonicalAllele",
+                    "relatedContextualAllele": "CGEX:CtxAll039"
+                  },
+                  "alleleCount": 0,
+                  "alleleFrequency": 0.0,
+                  "medianCoverage": 11.0,
+                  "contribution": [
+                    {
+                      "type": "Contribution",
+                      "agent": {
+                        "id": "CGEX:Agent001",
+                        "type": "Agent",
+                        "label": "Harry Stevenson"
+                      },
+                      "contributionDate": "6/1/16 2:15 PM",
+                      "contributionRole": {
+                        "id": "SEPIO:0000156",
+                        "type": "Entity",
+                        "label": "curator role"
+                      }
+                    }
+                  ],
+                  "source": [
+                    "ftp://ftp.broadinstitute.org/pub/ExAC_release/release0.2/"
+                  ]
+                }
+              ]
+            }
+          ],
+          "contribution": [
+            {
+              "type": "Contribution",
+              "agent": {
+                "id": "CGEX:Agent001",
+                "type": "Agent",
+                "label": "Harry Stevenson"
+              },
+              "contributionDate": "7/1/16 10:53 AM",
+              "contributionRole": {
+                "id": "SEPIO:0000154",
+                "type": "Entity",
+                "label": "assessor role"
+              }
+            },
+            {
+              "type": "Contribution",
+              "agent": {
+                "id": "CGEX:Agent004",
+                "type": "Agent",
+                "label": "CSER Bakeoff Project"
+              },
+              "contributionDate": "7/1/16 10:53 AM",
+              "contributionRole": {
+                "id": "SEPIO:0000154",
+                "type": "Entity",
+                "label": "assessor role"
+              }
+            }
+          ]
+        }
+      ],
+      "evidenceStrength": {
+        "id": "SEPIO:0000218",
+        "type": "Entity",
+        "label": "None"
+      },
+      "contribution": [
+        {
+          "type": "Contribution",
+          "agent": {
+            "id": "CGEX:Agent001",
+            "type": "Agent",
+            "label": "Harry Stevenson"
+          },
+          "contributionDate": "7/1/16 10:53 AM",
+          "contributionRole": {
+            "id": "SEPIO:0000154",
+            "type": "Entity",
+            "label": "assessor role"
+          }
+        },
+        {
+          "type": "Contribution",
+          "agent": {
+            "id": "CGEX:Agent004",
+            "type": "Agent",
+            "label": "CSER Bakeoff Project"
+          },
+          "contributionDate": "7/1/16 10:53 AM",
+          "contributionRole": {
+            "id": "SEPIO:0000154",
+            "type": "Entity",
+            "label": "assessor role"
+          }
+        }
+      ]
+    },
+    {
+      "id": "CGEX:EvLn111",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:CritAssess296",
+          "type": "CriterionAssessment",
+          "criterion": {
+            "id": "SEPIO-CG:99029",
+            "type": "VariantInterpretationCriterion",
+            "label": "PM3",
+            "description": "For recessive disorders, detected in trans with a pathogenic variant",
+            "usageNotes": "CSER - Laboratories discussed when to modify the strength of PM3, the variant is seen in trans with a pathogenic variant for recessive disorders. Published literature may not always explicitly state the phase of variants found in affected individuals which raises a challenge for invoking PM3.\nWhen phase has not been established, some felt that PM3 could be invoked as supporting evidence. Also, if the variant is seen in trans with a pathogenic variant in more than one individual it was felt that PM3 can be upgraded to strong. However, sites did not agree on how many additional observations were necessary to call the evidence strong (2 vs. 3) but concluded that such guidance would be useful.\n \nLMM - INCREASES IN STRENGTH IF VARIANT SEEN IN MULTIPLE COMPOUND HETS WITH DIFFERENT LIKELY PATHOGENIC/PATHOGENIC VARIANTS",
+            "defaultStrength": {
+              "id": "SEPIO:0000216",
+              "type": "Entity",
+              "label": "Pathogenic Moderate"
+            }
+          },
+          "variant": {
+            "id": "CAR:CA090919",
+            "type": "CanonicalAllele",
+            "relatedContextualAllele": "CGEX:CtxAll039"
+          },
+          "condition": [
+            {
+              "id": "CGEX:GenCond062",
+              "type": "GeneticCondition",
+              "disease": [
+                {
+                  "id": "Orphanet:244",
+                  "type": "Entity",
+                  "label": "Primary ciliary dyskenisia"
+                }
+              ],
+              "inheritancePattern": {
+                "id": "HP:0000007",
+                "type": "Entity",
+                "label": "Autosomal Recessive"
+              }
+            }
+          ],
+          "statementOutcome": {
+            "id": "SEPIO:0000223",
+            "type": "Entity",
+            "label": "Met"
+          },
+          "evidenceLine": [
+            {
+              "id": "CGEX:EvLn029",
+              "type": "EvidenceLine",
+              "evidenceItem": [
+                {
+                  "id": "CGEX:IndCond056",
+                  "type": "IndividualConditionStatement",
+                  "individual": {
+                    "id": "CGEX:Indiv336",
+                    "type": "Entity",
+                    "label": "individual #004"
+                  },
+                  "condition": [
+                    {
+                      "id": "CGEX:GenCond014",
+                      "type": "GeneticCondition",
+                      "description": "PCD autosomal recessive w/ outer dynein arm (ODA) defects",
+                      "disease": [
+                        {
+                          "id": "Orphanet:244",
+                          "type": "Entity",
+                          "label": "Primary ciliary dyskenisia"
+                        }
+                      ],
+                      "inheritancePattern": {
+                        "id": "HP:0000007",
+                        "type": "Entity",
+                        "label": "Autosomal Recessive"
+                      },
+                      "phenotype": [
+                        {
+                          "id": "HP:0200106",
+                          "type": "Entity",
+                          "label": "Absent/shortened dynein arms"
+                        }
+                      ]
+                    }
+                  ],
+                  "statementOutcome": {
+                    "id": "SEPIO-CG:99009",
+                    "type": "Entity",
+                    "label": "affected"
+                  },
+                  "contribution": [
+                    {
+                      "type": "Contribution",
+                      "agent": {
+                        "id": "CGEX:Agent007",
+                        "type": "Agent",
+                        "label": "Stefan DiMarino"
+                      },
+                      "contributionDate": "5/31/16 8:46 AM",
+                      "contributionRole": {
+                        "id": "SEPIO:0000156",
+                        "type": "Entity",
+                        "label": "curator role"
+                      }
+                    }
+                  ],
+                  "source": [
+                    "http://partners.org/ppm/lmm/gi/case/123"
+                  ]
+                },
+                {
+                  "id": "CGEX:VarInterp057",
+                  "type": "VariantPathogenicityInterpretation",
+                  "variant": {
+                    "id": "CAR:CA273615",
+                    "type": "CanonicalAllele",
+                    "relatedContextualAllele": "CGEX:CtxAll040"
+                  },
+                  "condition": [
+                    {
+                      "id": "CGEX:GenCond062",
+                      "type": "GeneticCondition",
+                      "disease": [
+                        {
+                          "id": "Orphanet:244",
+                          "type": "Entity",
+                          "label": "Primary ciliary dyskenisia"
+                        }
+                      ],
+                      "inheritancePattern": {
+                        "id": "HP:0000007",
+                        "type": "Entity",
+                        "label": "Autosomal Recessive"
+                      }
+                    }
+                  ],
+                  "statementOutcome": {
+                    "id": "LOINC:LA6668-3",
+                    "type": "Entity",
+                    "label": "Pathogenic"
+                  },
+                  "contribution": [
+                    {
+                      "type": "Contribution",
+                      "agent": {
+                        "id": "CGEX:Agent007",
+                        "type": "Agent",
+                        "label": "Stefan DiMarino"
+                      },
+                      "contributionDate": "5/31/16 11:01 AM",
+                      "contributionRole": {
+                        "id": "SEPIO:0000331",
+                        "type": "Entity",
+                        "label": "interpreter role"
+                      }
+                    }
+                  ],
+                  "source": [
+                    "https://www.ncbi.nlm.nih.gov/clinvar/SCV000205842.3"
+                  ]
+                },
+                {
+                  "id": "CGEX:IndGeno058",
+                  "type": "IndividualGenotypeStatement",
+                  "description": "Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband.",
+                  "individual": {
+                    "id": "CGEX:Indiv336",
+                    "type": "Entity",
+                    "label": "individual #004"
+                  },
+                  "genotype": [
+                    {
+                      "id": "CGEX:Geno378",
+                      "type": "Genotype",
+                      "haplotype": [
+                        {
+                          "id": "CGEX:Haplo376",
+                          "type": "Haplotype",
+                          "allele": [
+                            {
+                              "id": "CAR:CA090919",
+                              "type": "CanonicalAllele",
+                              "relatedContextualAllele": "CGEX:CtxAll039"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "CGEX:Haplo377",
+                          "type": "Haplotype",
+                          "allele": [
+                            {
+                              "id": "CAR:CA273615",
+                              "type": "CanonicalAllele",
+                              "relatedContextualAllele": "CGEX:CtxAll040"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "contribution": [
+                    {
+                      "type": "Contribution",
+                      "agent": {
+                        "id": "CGEX:Agent001",
+                        "type": "Agent",
+                        "label": "Harry Stevenson"
+                      },
+                      "contributionDate": "5/31/16 9:15 AM",
+                      "contributionRole": {
+                        "id": "SEPIO:0000156",
+                        "type": "Entity",
+                        "label": "curator role"
+                      }
+                    }
+                  ],
+                  "source": [
+                    "http://partners.org/ppm/lmm/gi/case/123"
+                  ]
+                }
+              ]
+            }
+          ],
+          "contribution": [
+            {
+              "type": "Contribution",
+              "agent": {
+                "id": "CGEX:Agent001",
+                "type": "Agent",
+                "label": "Harry Stevenson"
+              },
+              "contributionDate": "6/2/16 8:01 AM",
+              "contributionRole": {
+                "id": "SEPIO:0000154",
+                "type": "Entity",
+                "label": "assessor role"
+              }
+            }
+          ]
+        }
+      ],
+      "evidenceStrength": {
+        "id": "SEPIO:0000216",
+        "type": "Entity",
+        "label": "Pathogenic Moderate"
+      },
+      "contribution": [
+        {
+          "type": "Contribution",
+          "agent": {
+            "id": "CGEX:Agent001",
+            "type": "Agent",
+            "label": "Harry Stevenson"
+          },
+          "contributionDate": "6/2/16 8:01 AM",
+          "contributionRole": {
+            "id": "SEPIO:0000154",
+            "type": "Entity",
+            "label": "assessor role"
+          }
+        }
+      ]
+    },
+    {
+      "id": "CGEX:EvLn112",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:CritAssess299",
+          "type": "CriterionAssessment",
+          "description": "leads to an in-frame deletion of 7 amino acids (not repeat region).",
+          "criterion": {
+            "id": "SEPIO-CG:99030",
+            "type": "VariantInterpretationCriterion",
+            "label": "PM4",
+            "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
+            "usageNotes": "Need to ensure that variant is not located within a repeat region\n\nThis rule is also (likely) applicable for frameshift variants that result in extension of the protein as opposed to truncation (similar to stop loss).",
+            "defaultStrength": {
+              "id": "SEPIO:0000216",
+              "type": "Entity",
+              "label": "Pathogenic Moderate"
+            }
+          },
+          "variant": {
+            "id": "CAR:CA090919",
+            "type": "CanonicalAllele",
+            "relatedContextualAllele": "CGEX:CtxAll039"
+          },
+          "statementOutcome": {
+            "id": "SEPIO:0000223",
+            "type": "Entity",
+            "label": "Met"
+          },
+          "evidenceLine": [
+            {
+              "id": "CGEX:EvLn032",
+              "type": "EvidenceLine",
+              "evidenceItem": [
+                {
+                  "id": "CGEX:MolCon066",
+                  "type": "AlleleMolecularConsequenceStatement",
+                  "contextualAllele": {
+                    "id": "CGEX:CtxAll044",
+                    "type": "ContextualAllele",
+                    "canonicalAllele": {
+                      "id": "CAR:CA273136",
+                      "type": "CanonicalAllele",
+                      "relatedContextualAllele": "CGEX:CtxAll044"
+                    },
+                    "alleleName": {
+                      "id": "CGEX:CtxNm9044",
+                      "type": "ContextualAlleleName",
+                      "name": "NP_001360.1:p.Trp2490_Leu2496del",
+                      "preferred": true
+                    }
+                  },
+                  "statementOutcome": {
+                    "id": "SO:0001825",
+                    "type": "Entity",
+                    "label": "conservative Inframe Deletion"
+                  },
+                  "contribution": [
+                    {
+                      "type": "Contribution",
+                      "agent": {
+                        "id": "CGEX:Agent001",
+                        "type": "Agent",
+                        "label": "Harry Stevenson"
+                      },
+                      "contributionDate": "6/1/16 2:03 PM",
+                      "contributionRole": {
+                        "id": "SEPIO:0000156",
+                        "type": "Entity",
+                        "label": "curator role"
+                      }
+                    }
+                  ],
+                  "source": [
+                    "https://geneinsight-lmm-test.partners.org"
+                  ]
+                },
+                {
+                  "id": "CGEX:RegTyp069",
+                  "type": "RegionTypeStatement",
+                  "description": "This is not a repreating region.",
+                  "region": {
+                    "id": "CGEX:Loc435",
+                    "type": "SequenceLocation",
+                    "referenceSequence": {
+                      "id": "REFSEQ:NP_001360.1",
+                      "type": "Entity",
+                      "label": "NP_001360.1"
+                    },
+                    "start": 2490,
+                    "stop": 2496
+                  },
+                  "statementOutcome": [
+                    {
+                      "id": "SO:0000657",
+                      "type": "Entity",
+                      "label": "repeat region "
+                    }
+                  ],
+                  "outcomeQualifier": "NOT",
+                  "contribution": [
+                    {
+                      "type": "Contribution",
+                      "agent": {
+                        "id": "CGEX:Agent007",
+                        "type": "Agent",
+                        "label": "Stefan DiMarino"
+                      },
+                      "contributionDate": "6/1/16 2:10 PM",
+                      "contributionRole": {
+                        "id": "SEPIO:0000156",
+                        "type": "Entity",
+                        "label": "curator role"
+                      }
+                    }
+                  ],
+                  "source": [
+                    "https://pcpgm.partners.org/lmm/alamut"
+                  ]
+                }
+              ]
+            }
+          ],
+          "contribution": [
+            {
+              "type": "Contribution",
+              "agent": {
+                "id": "CGEX:Agent003",
+                "type": "Agent",
+                "label": "Sasha Rande"
+              },
+              "contributionDate": "6/12/16 7:30 AM",
+              "contributionRole": {
+                "id": "SEPIO:0000154",
+                "type": "Entity",
+                "label": "assessor role"
+              }
+            }
+          ]
+        }
+      ],
+      "evidenceStrength": {
+        "id": "SEPIO:0000216",
+        "type": "Entity",
+        "label": "Pathogenic Moderate"
+      },
+      "contribution": [
+        {
+          "type": "Contribution",
+          "agent": {
+            "id": "CGEX:Agent003",
+            "type": "Agent",
+            "label": "Sasha Rande"
+          },
+          "contributionDate": "6/12/16 7:30 AM",
+          "contributionRole": {
+            "id": "SEPIO:0000154",
+            "type": "Entity",
+            "label": "assessor role"
+          }
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CGEX:Agent009",
+        "type": "Agent",
+        "label": "George Geneticist"
+      },
+      "contributionDate": "6/26/2015 12:03 PM",
+      "contributionRole": {
+        "id": "SEPIO:0000331",
+        "type": "Entity",
+        "label": "interpreter role"
+      }
+    }
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

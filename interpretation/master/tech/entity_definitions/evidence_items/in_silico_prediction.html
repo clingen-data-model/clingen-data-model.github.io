@@ -67,7 +67,7 @@
     
         <div class="row">
           <div class="col-sm-12">
-              <h1 class="header">InSilicoPrediction</h1>
+              <h1 class="header">InSilicoPredictionStatement</h1>
               <ol class="breadcrumb bg-none margin-none">
                 <li><a href="../../../">Interpretation Model</a></li>
 <li><a href="../../">Technical Reference</a></li>
@@ -136,7 +136,7 @@
                 <td>SEPIO:0000255</td>
             </tr>
             <tr>
-                <td>prediction</td>
+                <td>statementOutcome</td>
                 <td>string</td>
                 <td>1..1</td>
                 <td>The value of the prediction</td>
@@ -167,11 +167,32 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>userLabel</td>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A name given to the resource.</td>
+                    <td>RDFS:label</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                    <td>DC:description</td>
+                </tr>
+                <tr>
+                    <td>userLabelDictionary</td>
                     <td>UserLabel</td>
                     <td>0..*</td>
                     <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
-                    <td></td>
+                    <td>SEPIO:0000422</td>
+                </tr>
+                <tr>
+                    <td>outcomeQualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                    <td>SEPIO:0000346</td>
                 </tr>
                 <tr>
                     <td>evidenceLine</td>
@@ -179,13 +200,6 @@
                     <td>0..*</td>
                     <td>supporting evidence</td>
                     <td>SEPIO:0000006</td>
-                </tr>
-                <tr>
-                    <td>description</td>
-                    <td>string</td>
-                    <td>0..1</td>
-                    <td>A human-readable description of the entity</td>
-                    <td>DC:description</td>
                 </tr>
                 <tr>
                     <td>contribution</td>
@@ -209,26 +223,34 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
-        <th>userLabel</th>
-        <th>evidenceLine</th>
+        <th>label</th>
         <th>description</th>
+        <th>userLabelDictionary</th>
+        <th>outcomeQualifier</th>
+        <th>evidenceLine</th>
         <th>canonicalAllele</th>
         <th>transcript</th>
         <th>predictionType</th>
-        <th>prediction</th>
+        <th>statementOutcome</th>
         <th>algorithm</th>
       </tr></thead>
       <tbody>
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred068">CG-EX:InSilicoPred068</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred068">CGEX:InSilicoPred068</a></p></td>
           <td>
               
          </td>
           <td>
               <p>Provenance would show that this comes from Alamut</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
          </td>
           <td>
               <p><a href="../../details/details.html#CAR:CA013536">CAR:CA013536</a></p>
@@ -246,36 +268,97 @@
               
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred068"><pre><code>{
-  "id": "CG-EX:InSilicoPred068",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred068"><pre><code>{
+  "id": "CGEX:InSilicoPred068",
+  "type": "InSilicoPredictionStatement",
+  "description": "Provenance would show that this comes from Alamut",
   "transcript": {
     "id": "REFSEQ:NM_000257.2",
+    "type": "Entity",
     "label": "NM_000257.2"
   },
   "canonicalAllele": {
     "id": "CAR:CA013536",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll124",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA013536",
-      "alleleName": "NM_000257.2(MYH7):c.327C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll124"
   },
   "predictionType": {
     "id": "SEPIO:0000323",
+    "type": "Entity",
     "label": "splicing prediction"
   },
-  "prediction": "no impact",
-  "description": "Provenance would show that this comes from Alamut"
+  "statementOutcome": "no impact"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred120">CG-EX:InSilicoPred120</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred262">CGEX:InSilicoPred262</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Provenance would show that this comes from Alamut</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA013536">CAR:CA013536</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#REFSEQ:NM_000257.2">REFSEQ:NM_000257.2</a></p> (NM_000257.2)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#SEPIO:0000323">SEPIO:0000323</a></p> (splicing prediction)
+         </td>
+          <td>
+              <p>no impact</p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:InSilicoPred262"><pre><code>{
+  "id": "CGEX:InSilicoPred262",
+  "type": "InSilicoPredictionStatement",
+  "description": "Provenance would show that this comes from Alamut",
+  "transcript": {
+    "id": "REFSEQ:NM_000257.2",
+    "type": "Entity",
+    "label": "NM_000257.2"
+  },
+  "canonicalAllele": {
+    "id": "CAR:CA013536",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll124"
+  },
+  "predictionType": {
+    "id": "SEPIO:0000323",
+    "type": "Entity",
+    "label": "splicing prediction"
+  },
+  "statementOutcome": "no impact"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred120">CGEX:InSilicoPred120</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -301,36 +384,39 @@
               <p>SIFT</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred120"><pre><code>{
-  "id": "CG-EX:InSilicoPred120",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred120"><pre><code>{
+  "id": "CGEX:InSilicoPred120",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_005228.3",
+    "type": "Entity",
     "label": "NM_005228.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA090928",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll071",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090928",
-      "alleleName": "NM_005228.3(EGFR):c.2369C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll071"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "SIFT",
-  "prediction": "Damaging"
+  "statementOutcome": "Damaging"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred121">CG-EX:InSilicoPred121</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred121">CGEX:InSilicoPred121</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -356,36 +442,39 @@
               <p>Polyphen</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred121"><pre><code>{
-  "id": "CG-EX:InSilicoPred121",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred121"><pre><code>{
+  "id": "CGEX:InSilicoPred121",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_005228.3",
+    "type": "Entity",
     "label": "NM_005228.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA090928",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll071",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090928",
-      "alleleName": "NM_005228.3(EGFR):c.2369C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll071"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "Polyphen",
-  "prediction": "Probably damaging"
+  "statementOutcome": "Probably damaging"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred122">CG-EX:InSilicoPred122</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred122">CGEX:InSilicoPred122</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -411,36 +500,39 @@
               <p>FATHMM</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred122"><pre><code>{
-  "id": "CG-EX:InSilicoPred122",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred122"><pre><code>{
+  "id": "CGEX:InSilicoPred122",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_005228.3",
+    "type": "Entity",
     "label": "NM_005228.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA090928",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll071",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090928",
-      "alleleName": "NM_005228.3(EGFR):c.2369C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll071"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "FATHMM",
-  "prediction": "Tolerated"
+  "statementOutcome": "Tolerated"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred123">CG-EX:InSilicoPred123</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred123">CGEX:InSilicoPred123</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -466,36 +558,39 @@
               <p>LRT</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred123"><pre><code>{
-  "id": "CG-EX:InSilicoPred123",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred123"><pre><code>{
+  "id": "CGEX:InSilicoPred123",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_005228.3",
+    "type": "Entity",
     "label": "NM_005228.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA090928",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll071",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090928",
-      "alleleName": "NM_005228.3(EGFR):c.2369C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll071"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "LRT",
-  "prediction": "Damaging"
+  "statementOutcome": "Damaging"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred124">CG-EX:InSilicoPred124</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred124">CGEX:InSilicoPred124</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -521,36 +616,39 @@
               <p>MetaSVM</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred124"><pre><code>{
-  "id": "CG-EX:InSilicoPred124",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred124"><pre><code>{
+  "id": "CGEX:InSilicoPred124",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_005228.3",
+    "type": "Entity",
     "label": "NM_005228.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA090928",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll071",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090928",
-      "alleleName": "NM_005228.3(EGFR):c.2369C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll071"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "MetaSVM",
-  "prediction": "Tolerated"
+  "statementOutcome": "Tolerated"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred125">CG-EX:InSilicoPred125</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred125">CGEX:InSilicoPred125</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -576,36 +674,39 @@
               <p>Mutation assessor</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred125"><pre><code>{
-  "id": "CG-EX:InSilicoPred125",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred125"><pre><code>{
+  "id": "CGEX:InSilicoPred125",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_005228.3",
+    "type": "Entity",
     "label": "NM_005228.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA090928",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll071",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090928",
-      "alleleName": "NM_005228.3(EGFR):c.2369C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll071"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "Mutation assessor",
-  "prediction": "Tolerated"
+  "statementOutcome": "Tolerated"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred126">CG-EX:InSilicoPred126</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred126">CGEX:InSilicoPred126</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -631,36 +732,39 @@
               <p>Mutation taster</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred126"><pre><code>{
-  "id": "CG-EX:InSilicoPred126",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred126"><pre><code>{
+  "id": "CGEX:InSilicoPred126",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_005228.3",
+    "type": "Entity",
     "label": "NM_005228.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA090928",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll071",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090928",
-      "alleleName": "NM_005228.3(EGFR):c.2369C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll071"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "Mutation taster",
-  "prediction": "Disease-causing"
+  "statementOutcome": "Disease-causing"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred127">CG-EX:InSilicoPred127</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred127">CGEX:InSilicoPred127</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -686,36 +790,39 @@
               <p>Provean</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred127"><pre><code>{
-  "id": "CG-EX:InSilicoPred127",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred127"><pre><code>{
+  "id": "CGEX:InSilicoPred127",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_005228.3",
+    "type": "Entity",
     "label": "NM_005228.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA090928",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll071",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090928",
-      "alleleName": "NM_005228.3(EGFR):c.2369C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll071"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "Provean",
-  "prediction": "Damaging"
+  "statementOutcome": "Damaging"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred128">CG-EX:InSilicoPred128</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred128">CGEX:InSilicoPred128</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -741,36 +848,39 @@
               <p>Condel</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred128"><pre><code>{
-  "id": "CG-EX:InSilicoPred128",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred128"><pre><code>{
+  "id": "CGEX:InSilicoPred128",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_005228.3",
+    "type": "Entity",
     "label": "NM_005228.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA090928",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll071",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090928",
-      "alleleName": "NM_005228.3(EGFR):c.2369C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll071"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "Condel",
-  "prediction": "deleterious"
+  "statementOutcome": "deleterious"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred129">CG-EX:InSilicoPred129</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred129">CGEX:InSilicoPred129</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -796,36 +906,39 @@
               <p>SIFT</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred129"><pre><code>{
-  "id": "CG-EX:InSilicoPred129",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred129"><pre><code>{
+  "id": "CGEX:InSilicoPred129",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "ENSEMBL:ENST00000566221.5",
+    "type": "Entity",
     "label": "ENST00000566221.5"
   },
   "canonicalAllele": {
     "id": "CAR:CA090884",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll072",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090884",
-      "alleleName": "NM_003119.3(SPG7):c.1529C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll072"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "SIFT",
-  "prediction": "deleterious"
+  "statementOutcome": "deleterious"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred130">CG-EX:InSilicoPred130</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred130">CGEX:InSilicoPred130</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -851,36 +964,39 @@
               <p>Polyphen</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred130"><pre><code>{
-  "id": "CG-EX:InSilicoPred130",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred130"><pre><code>{
+  "id": "CGEX:InSilicoPred130",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "ENSEMBL:ENST00000566221.5",
+    "type": "Entity",
     "label": "ENST00000566221.5"
   },
   "canonicalAllele": {
     "id": "CAR:CA090884",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll072",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090884",
-      "alleleName": "NM_003119.3(SPG7):c.1529C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll072"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "Polyphen",
-  "prediction": "Probably damaging"
+  "statementOutcome": "Probably damaging"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred131">CG-EX:InSilicoPred131</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred131">CGEX:InSilicoPred131</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -906,36 +1022,39 @@
               <p>FATHMM</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred131"><pre><code>{
-  "id": "CG-EX:InSilicoPred131",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred131"><pre><code>{
+  "id": "CGEX:InSilicoPred131",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "ENSEMBL:ENST00000566221.5",
+    "type": "Entity",
     "label": "ENST00000566221.5"
   },
   "canonicalAllele": {
     "id": "CAR:CA090884",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll072",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090884",
-      "alleleName": "NM_003119.3(SPG7):c.1529C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll072"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "FATHMM",
-  "prediction": "Damaging"
+  "statementOutcome": "Damaging"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred132">CG-EX:InSilicoPred132</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred132">CGEX:InSilicoPred132</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -961,36 +1080,39 @@
               <p>LRT</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred132"><pre><code>{
-  "id": "CG-EX:InSilicoPred132",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred132"><pre><code>{
+  "id": "CGEX:InSilicoPred132",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "ENSEMBL:ENST00000566221.5",
+    "type": "Entity",
     "label": "ENST00000566221.5"
   },
   "canonicalAllele": {
     "id": "CAR:CA090884",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll072",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090884",
-      "alleleName": "NM_003119.3(SPG7):c.1529C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll072"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "LRT",
-  "prediction": "Damaging"
+  "statementOutcome": "Damaging"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred133">CG-EX:InSilicoPred133</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred133">CGEX:InSilicoPred133</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1016,36 +1138,39 @@
               <p>MetaSVM</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred133"><pre><code>{
-  "id": "CG-EX:InSilicoPred133",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred133"><pre><code>{
+  "id": "CGEX:InSilicoPred133",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "ENSEMBL:ENST00000566221.5",
+    "type": "Entity",
     "label": "ENST00000566221.5"
   },
   "canonicalAllele": {
     "id": "CAR:CA090884",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll072",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090884",
-      "alleleName": "NM_003119.3(SPG7):c.1529C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll072"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "MetaSVM",
-  "prediction": "Tolerated"
+  "statementOutcome": "Tolerated"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred134">CG-EX:InSilicoPred134</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred134">CGEX:InSilicoPred134</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1071,36 +1196,39 @@
               <p>Mutation assessor</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred134"><pre><code>{
-  "id": "CG-EX:InSilicoPred134",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred134"><pre><code>{
+  "id": "CGEX:InSilicoPred134",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "ENSEMBL:ENST00000566221.5",
+    "type": "Entity",
     "label": "ENST00000566221.5"
   },
   "canonicalAllele": {
     "id": "CAR:CA090884",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll072",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090884",
-      "alleleName": "NM_003119.3(SPG7):c.1529C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll072"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "Mutation assessor",
-  "prediction": "Medium functional impact"
+  "statementOutcome": "Medium functional impact"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred135">CG-EX:InSilicoPred135</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred135">CGEX:InSilicoPred135</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1126,36 +1254,39 @@
               <p>Mutation taster</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred135"><pre><code>{
-  "id": "CG-EX:InSilicoPred135",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred135"><pre><code>{
+  "id": "CGEX:InSilicoPred135",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "ENSEMBL:ENST00000566221.5",
+    "type": "Entity",
     "label": "ENST00000566221.5"
   },
   "canonicalAllele": {
     "id": "CAR:CA090884",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll072",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090884",
-      "alleleName": "NM_003119.3(SPG7):c.1529C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll072"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "Mutation taster",
-  "prediction": "Disease-causing"
+  "statementOutcome": "Disease-causing"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred136">CG-EX:InSilicoPred136</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred136">CGEX:InSilicoPred136</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1181,36 +1312,39 @@
               <p>Provean</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred136"><pre><code>{
-  "id": "CG-EX:InSilicoPred136",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred136"><pre><code>{
+  "id": "CGEX:InSilicoPred136",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "ENSEMBL:ENST00000566221.5",
+    "type": "Entity",
     "label": "ENST00000566221.5"
   },
   "canonicalAllele": {
     "id": "CAR:CA090884",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll072",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090884",
-      "alleleName": "NM_003119.3(SPG7):c.1529C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll072"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "Provean",
-  "prediction": "Damaging"
+  "statementOutcome": "Damaging"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred137">CG-EX:InSilicoPred137</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred137">CGEX:InSilicoPred137</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1236,36 +1370,39 @@
               <p>Condel</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred137"><pre><code>{
-  "id": "CG-EX:InSilicoPred137",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred137"><pre><code>{
+  "id": "CGEX:InSilicoPred137",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "ENSEMBL:ENST00000566221.5",
+    "type": "Entity",
     "label": "ENST00000566221.5"
   },
   "canonicalAllele": {
     "id": "CAR:CA090884",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll072",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090884",
-      "alleleName": "NM_003119.3(SPG7):c.1529C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll072"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "Condel",
-  "prediction": "deleterious"
+  "statementOutcome": "deleterious"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred138">CG-EX:InSilicoPred138</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred138">CGEX:InSilicoPred138</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1291,36 +1428,39 @@
               <p>SIFT</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred138"><pre><code>{
-  "id": "CG-EX:InSilicoPred138",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred138"><pre><code>{
+  "id": "CGEX:InSilicoPred138",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_000363.4",
+    "type": "Entity",
     "label": "NM_000363.4"
   },
   "canonicalAllele": {
     "id": "CAR:CA022019",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll075",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA022019",
-      "alleleName": "NM_000363.4(TNNI3):c.592C>G"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll075"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "SIFT",
-  "prediction": "Tolerated"
+  "statementOutcome": "Tolerated"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred139">CG-EX:InSilicoPred139</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred139">CGEX:InSilicoPred139</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1346,36 +1486,39 @@
               <p>Polyphen2</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred139"><pre><code>{
-  "id": "CG-EX:InSilicoPred139",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred139"><pre><code>{
+  "id": "CGEX:InSilicoPred139",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_000363.4",
+    "type": "Entity",
     "label": "NM_000363.4"
   },
   "canonicalAllele": {
     "id": "CAR:CA022019",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll075",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA022019",
-      "alleleName": "NM_000363.4(TNNI3):c.592C>G"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll075"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "Polyphen2",
-  "prediction": "benign"
+  "statementOutcome": "benign"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred140">CG-EX:InSilicoPred140</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred140">CGEX:InSilicoPred140</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1401,36 +1544,39 @@
               <p>AlignGVGD</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred140"><pre><code>{
-  "id": "CG-EX:InSilicoPred140",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred140"><pre><code>{
+  "id": "CGEX:InSilicoPred140",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_000363.4",
+    "type": "Entity",
     "label": "NM_000363.4"
   },
   "canonicalAllele": {
     "id": "CAR:CA022019",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll075",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA022019",
-      "alleleName": "NM_000363.4(TNNI3):c.592C>G"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll075"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "AlignGVGD",
-  "prediction": "C0 (benign)"
+  "statementOutcome": "C0 (benign)"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred141">CG-EX:InSilicoPred141</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred141">CGEX:InSilicoPred141</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1456,36 +1602,39 @@
               <p>MAPP</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred141"><pre><code>{
-  "id": "CG-EX:InSilicoPred141",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred141"><pre><code>{
+  "id": "CGEX:InSilicoPred141",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_000363.4",
+    "type": "Entity",
     "label": "NM_000363.4"
   },
   "canonicalAllele": {
     "id": "CAR:CA022019",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll075",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA022019",
-      "alleleName": "NM_000363.4(TNNI3):c.592C>G"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll075"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "MAPP",
-  "prediction": "good (benign)"
+  "statementOutcome": "good (benign)"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred142">CG-EX:InSilicoPred142</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred142">CGEX:InSilicoPred142</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1511,36 +1660,39 @@
               <p>MutationTaster</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred142"><pre><code>{
-  "id": "CG-EX:InSilicoPred142",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred142"><pre><code>{
+  "id": "CGEX:InSilicoPred142",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_000363.4",
+    "type": "Entity",
     "label": "NM_000363.4"
   },
   "canonicalAllele": {
     "id": "CAR:CA022019",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll075",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA022019",
-      "alleleName": "NM_000363.4(TNNI3):c.592C>G"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll075"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "MutationTaster",
-  "prediction": "disease-causing"
+  "statementOutcome": "disease-causing"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred232">CG-EX:InSilicoPred232</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred232">CGEX:InSilicoPred232</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1566,36 +1718,39 @@
               <p>SIFT</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred232"><pre><code>{
-  "id": "CG-EX:InSilicoPred232",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred232"><pre><code>{
+  "id": "CGEX:InSilicoPred232",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_000059.3",
+    "type": "Entity",
     "label": "NM_000059.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA020822",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll109",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA020822",
-      "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll109"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "SIFT",
-  "prediction": "Benign"
+  "statementOutcome": "Benign"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred233">CG-EX:InSilicoPred233</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred233">CGEX:InSilicoPred233</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1621,36 +1776,39 @@
               <p>Polyphen</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred233"><pre><code>{
-  "id": "CG-EX:InSilicoPred233",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred233"><pre><code>{
+  "id": "CGEX:InSilicoPred233",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_000059.3",
+    "type": "Entity",
     "label": "NM_000059.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA020822",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll109",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA020822",
-      "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll109"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "Polyphen",
-  "prediction": "Possibly damaging"
+  "statementOutcome": "Possibly damaging"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred234">CG-EX:InSilicoPred234</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred234">CGEX:InSilicoPred234</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1676,36 +1834,39 @@
               <p>FATHMM</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred234"><pre><code>{
-  "id": "CG-EX:InSilicoPred234",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred234"><pre><code>{
+  "id": "CGEX:InSilicoPred234",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_000059.3",
+    "type": "Entity",
     "label": "NM_000059.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA020822",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll109",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA020822",
-      "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll109"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "FATHMM",
-  "prediction": "Benign"
+  "statementOutcome": "Benign"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred235">CG-EX:InSilicoPred235</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred235">CGEX:InSilicoPred235</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1731,36 +1892,39 @@
               <p>LRT</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred235"><pre><code>{
-  "id": "CG-EX:InSilicoPred235",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred235"><pre><code>{
+  "id": "CGEX:InSilicoPred235",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_000059.3",
+    "type": "Entity",
     "label": "NM_000059.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA020822",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll109",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA020822",
-      "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll109"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "LRT",
-  "prediction": "Benign"
+  "statementOutcome": "Benign"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred236">CG-EX:InSilicoPred236</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred236">CGEX:InSilicoPred236</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1786,36 +1950,39 @@
               <p>MetaSVM</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred236"><pre><code>{
-  "id": "CG-EX:InSilicoPred236",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred236"><pre><code>{
+  "id": "CGEX:InSilicoPred236",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_000059.3",
+    "type": "Entity",
     "label": "NM_000059.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA020822",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll109",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA020822",
-      "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll109"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "MetaSVM",
-  "prediction": "Benign"
+  "statementOutcome": "Benign"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred237">CG-EX:InSilicoPred237</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred237">CGEX:InSilicoPred237</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1841,36 +2008,39 @@
               <p>Mutation assessor</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred237"><pre><code>{
-  "id": "CG-EX:InSilicoPred237",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred237"><pre><code>{
+  "id": "CGEX:InSilicoPred237",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_000059.3",
+    "type": "Entity",
     "label": "NM_000059.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA020822",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll109",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA020822",
-      "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll109"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "Mutation assessor",
-  "prediction": "Benign"
+  "statementOutcome": "Benign"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred238">CG-EX:InSilicoPred238</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred238">CGEX:InSilicoPred238</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1896,36 +2066,39 @@
               <p>Mutation taster</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred238"><pre><code>{
-  "id": "CG-EX:InSilicoPred238",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred238"><pre><code>{
+  "id": "CGEX:InSilicoPred238",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_000059.3",
+    "type": "Entity",
     "label": "NM_000059.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA020822",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll109",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA020822",
-      "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll109"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "Mutation taster",
-  "prediction": "Benign"
+  "statementOutcome": "Benign"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred239">CG-EX:InSilicoPred239</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred239">CGEX:InSilicoPred239</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -1951,36 +2124,39 @@
               <p>Provean</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred239"><pre><code>{
-  "id": "CG-EX:InSilicoPred239",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred239"><pre><code>{
+  "id": "CGEX:InSilicoPred239",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_000059.3",
+    "type": "Entity",
     "label": "NM_000059.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA020822",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll109",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA020822",
-      "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll109"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "Provean",
-  "prediction": "Benign"
+  "statementOutcome": "Benign"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred240">CG-EX:InSilicoPred240</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred240">CGEX:InSilicoPred240</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -2006,36 +2182,39 @@
               <p>Condel</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred240"><pre><code>{
-  "id": "CG-EX:InSilicoPred240",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred240"><pre><code>{
+  "id": "CGEX:InSilicoPred240",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_000059.3",
+    "type": "Entity",
     "label": "NM_000059.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA020822",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll109",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA020822",
-      "alleleName": "NM_000059.3(BRCA2):c.4779A>C"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll109"
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
   "algorithm": "Condel",
-  "prediction": "deleterious"
+  "statementOutcome": "deleterious"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred258">CG-EX:InSilicoPred258</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred258">CGEX:InSilicoPred258</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -2061,90 +2240,38 @@
               
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred258"><pre><code>{
-  "id": "CG-EX:InSilicoPred258",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred258"><pre><code>{
+  "id": "CGEX:InSilicoPred258",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_138691.2",
+    "type": "Entity",
     "label": "NM_138691.2"
   },
   "canonicalAllele": {
     "id": "CAR:CA501232",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll123",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA501232",
-      "alleleName": "NM_138691.2 (TMC1): c.684C>T"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll123"
   },
   "predictionType": {
     "id": "SEPIO:0000323",
+    "type": "Entity",
     "label": "splicing prediction"
   },
-  "prediction": "no impact"
+  "statementOutcome": "no impact"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred262">CG-EX:InSilicoPred262</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred266">CGEX:InSilicoPred266</a></p></td>
           <td>
               
          </td>
           <td>
               
          </td>
-          <td>
-              <p>Provenance would show that this comes from Alamut</p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#CAR:CA013536">CAR:CA013536</a></p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#REFSEQ:NM_000257.2">REFSEQ:NM_000257.2</a></p> (NM_000257.2)
-         </td>
-          <td>
-              <p><a href="../../details/details.html#SEPIO:0000323">SEPIO:0000323</a></p> (splicing prediction)
-         </td>
-          <td>
-              <p>no impact</p>
-         </td>
-          <td>
-              
-         </td>
-          <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred262"><pre><code>{
-  "id": "CG-EX:InSilicoPred262",
-  "type": "InSilicoPrediction",
-  "transcript": {
-    "id": "REFSEQ:NM_000257.2",
-    "label": "NM_000257.2"
-  },
-  "canonicalAllele": {
-    "id": "CAR:CA013536",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll124",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA013536",
-      "alleleName": "NM_000257.2(MYH7):c.327C>T"
-    }
-  },
-  "predictionType": {
-    "id": "SEPIO:0000323",
-    "label": "splicing prediction"
-  },
-  "prediction": "no impact",
-  "description": "Provenance would show that this comes from Alamut"
-}
-          </code></pre></div></td>
-          -->
-        </tr>
-
-        <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred266">CG-EX:InSilicoPred266</a></p></td>
           <td>
               
          </td>
@@ -2170,35 +2297,32 @@
               
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred266"><pre><code>{
-  "id": "CG-EX:InSilicoPred266",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred266"><pre><code>{
+  "id": "CGEX:InSilicoPred266",
+  "type": "InSilicoPredictionStatement",
   "transcript": {
     "id": "REFSEQ:NM_002880.3",
+    "type": "Entity",
     "label": "NM_002880.3"
   },
   "canonicalAllele": {
     "id": "CAR:CA177682",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll125",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA177682",
-      "alleleName": "NM_002880.3(RAF1):c.321T>C"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll125"
   },
   "predictionType": {
     "id": "SEPIO:0000323",
+    "type": "Entity",
     "label": "splicing prediction"
   },
-  "prediction": "no impact"
+  "statementOutcome": "no impact"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:InSilicoPred362">CG-EX:InSilicoPred362</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:InSilicoPred362">CGEX:InSilicoPred362</a></p></td>
           <td>
               
          </td>
@@ -2209,7 +2333,13 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll111">CG-EX:CtxAll111</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll111">CGEX:CtxAll111</a></p>
          </td>
           <td>
               
@@ -2224,20 +2354,30 @@
               <p>Polyphen-2 HumDiv</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:InSilicoPred362"><pre><code>{
-  "id": "CG-EX:InSilicoPred362",
-  "type": "InSilicoPrediction",
+          <td><div class="example_view" id="CGEX:InSilicoPred362"><pre><code>{
+  "id": "CGEX:InSilicoPred362",
+  "type": "InSilicoPredictionStatement",
   "canonicalAllele": {
-    "id": "CG-EX:CtxAll111",
+    "id": "CGEX:CtxAll111",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA501237",
-    "alleleName": "NM_133379.3(TTN) : c.15283T>C"
+    "canonicalAllele": {
+      "id": "CAR:CA501237",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll111"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9111",
+      "type": "ContextualAlleleName",
+      "name": "NM_133379.3(TTN) : c.15283T>C",
+      "preferred": true
+    }
   },
   "predictionType": {
     "id": "SEPIO:0000322",
+    "type": "Entity",
     "label": "missense effect"
   },
-  "prediction": "ProbablyDamaging",
+  "statementOutcome": "ProbablyDamaging",
   "algorithm": "Polyphen-2 HumDiv"
 }
           </code></pre></div></td>
@@ -2285,7 +2425,7 @@ window.addEventListener('load', function () {
                 <h5><a href="../../../">Interpretation Overview</a></h5>
               </li>
               <li class='list-group-item'><h5><a href="../../../user/">User Guide</a></h5></li>
-              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../">Entity Definitions</a></li><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Evidence Item</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li><a href="allele_conservation.html">AlleleConservation</a></li><li><a href="allele_conservation_score.html">AlleleConservationScore</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="allele_molecular_consequence.html">AlleleMolecularConsequence</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation.html">FamilySegregation</a></li><li class="active"><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="in_silico_prediction_score.html">InSilicoPredictionScore</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="individual_genotype.html">IndividualGenotype</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li><a href="region_type.html">RegionType</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul><li><a href="../../json_schema.html">JSON Schema</a></li></ul></li>
+              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../">Entity Definitions</a></li><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Evidence Item</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateCosegregationStatement</a></li><li><a href="allele_conservation.html">AlleleConservationStatement</a></li><li><a href="allele_conservation_score.html">AlleleConservationScoreStatement</a></li><li><a href="allele_frequency.html">PopulationAlleleFrequencyStatement</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpactStatement</a></li><li><a href="allele_molecular_consequence.html">AlleleMolecularConsequenceStatement</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRateStatement</a></li><li><a href="case_control.html">CaseControlAlleleFrequencyStatement</a></li><li><a href="condition_mechanism.html">ConditionMechanismStatement</a></li><li><a href="condition_penetrance.html">ConditionPenetranceStatement</a></li><li><a href="condition_prevelance.html">ConditionPrevelanceStatement</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyConditionStatement</a></li><li><a href="family_segregation.html">FamilyCosegregationStatement</a></li><li class="active"><a href="in_silico_prediction.html">InSilicoPredictionStatement</a></li><li><a href="in_silico_prediction_score.html">InSilicoPredictionScoreStatement</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritanceStatement</a></li><li><a href="individual_condition.html">IndividualConditionStatement</a></li><li><a href="individual_genotype.html">IndividualGenotypeStatement</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneityStatement</a></li><li><a href="null_allele.html">NullAlleleStatement</a></li><li><a href="region_alleles.html">RegionAllelesStatement</a></li><li><a href="region_type.html">RegionTypeStatement</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul><li><a href="../../json_schema.html">JSON Schema</a></li></ul></li>
               <!-- Old style.  We might still need the model here? -->
               <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
             </ul>

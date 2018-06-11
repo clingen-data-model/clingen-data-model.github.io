@@ -1,0 +1,93 @@
+{
+  "id": "CGEX:CritAssess279",
+  "type": "CriterionAssessment",
+  "description": "The assessed variant produces the same amino acid change (p.Met2083Ile) as known pathogenic variant c.6249G>A.  But that change is pathogenic because it has been shown to disrupt splicing and create a premature stop codon. Prediction tools do not suggest c.6249G>C disrupts splicing.",
+  "criterion": {
+    "id": "SEPIO-CG:99023",
+    "type": "VariantInterpretationCriterion",
+    "label": "PS1",
+    "description": "Same amino acid change as a previously established pathogenic variant regardless of nucleotide change",
+    "usageNotes": "Beware of changes that impact splicing rather than at the amino acid/protein level\nFrom CSER paper: One site erroneously used this to apply prior publication of the same exact variant while this rule, as described in more depth on the ACMG/AMP guideline, only applies when the established pathogenic variant has a different nucleotide change than the variant being interpreted.",
+    "defaultStrength": {
+      "id": "SEPIO:0000330",
+      "type": "Entity",
+      "label": "Pathogenic Strong"
+    }
+  },
+  "variant": {
+    "id": "CAR:CA501220",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll008"
+  },
+  "condition": [
+    {
+      "id": "CGEX:GenCond004",
+      "type": "GeneticCondition",
+      "disease": [
+        {
+          "id": "Orphanet:244",
+          "type": "Entity",
+          "label": "Primary ciliary dyskenisia"
+        }
+      ]
+    }
+  ],
+  "statementOutcome": {
+    "id": "SEPIO:0000224",
+    "type": "Entity",
+    "label": "Not Met"
+  },
+  "evidenceLine": [
+    {
+      "id": "CGEX:EvLn006",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:VarInterp009",
+          "type": "VariantPathogenicityInterpretation",
+          "description": "NM_001369.2:c.6249G>A Pathogenic for PCD",
+          "variant": {
+            "id": "CAR:CA501221",
+            "type": "CanonicalAllele",
+            "relatedContextualAllele": "CGEX:CtxAll009"
+          },
+          "condition": [
+            {
+              "id": "CGEX:GenCond004",
+              "type": "GeneticCondition",
+              "disease": [
+                {
+                  "id": "Orphanet:244",
+                  "type": "Entity",
+                  "label": "Primary ciliary dyskenisia"
+                }
+              ]
+            }
+          ],
+          "statementOutcome": {
+            "id": "LOINC:LA6668-3",
+            "type": "Entity",
+            "label": "Pathogenic"
+          }
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CGEX:Agent001",
+        "type": "Agent",
+        "label": "Harry Stevenson"
+      },
+      "contributionDate": "6/2/16 4:22 PM",
+      "contributionRole": {
+        "id": "SEPIO:0000154",
+        "type": "Entity",
+        "label": "assessor role"
+      }
+    }
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

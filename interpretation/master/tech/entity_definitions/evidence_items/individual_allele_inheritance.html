@@ -67,7 +67,7 @@
     
         <div class="row">
           <div class="col-sm-12">
-              <h1 class="header">IndividualAlleleInheritance</h1>
+              <h1 class="header">IndividualAlleleInheritanceStatement</h1>
               <ol class="breadcrumb bg-none margin-none">
                 <li><a href="../../../">Interpretation Model</a></li>
 <li><a href="../../">Technical Reference</a></li>
@@ -127,7 +127,7 @@
                 <td>SEPIO:0000280</td>
             </tr>
             <tr>
-                <td>alleleInheritance</td>
+                <td>statementOutcome</td>
                 <td>@id</td>
                 <td>1..*</td>
                 <td>Source of an allele in an individual</td>
@@ -158,11 +158,32 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>userLabel</td>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A name given to the resource.</td>
+                    <td>RDFS:label</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                    <td>DC:description</td>
+                </tr>
+                <tr>
+                    <td>userLabelDictionary</td>
                     <td>UserLabel</td>
                     <td>0..*</td>
                     <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
-                    <td></td>
+                    <td>SEPIO:0000422</td>
+                </tr>
+                <tr>
+                    <td>outcomeQualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                    <td>SEPIO:0000346</td>
                 </tr>
                 <tr>
                     <td>evidenceLine</td>
@@ -170,13 +191,6 @@
                     <td>0..*</td>
                     <td>supporting evidence</td>
                     <td>SEPIO:0000006</td>
-                </tr>
-                <tr>
-                    <td>description</td>
-                    <td>string</td>
-                    <td>0..1</td>
-                    <td>A human-readable description of the entity</td>
-                    <td>DC:description</td>
                 </tr>
                 <tr>
                     <td>contribution</td>
@@ -200,20 +214,19 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
-        <th>userLabel</th>
-        <th>evidenceLine</th>
+        <th>label</th>
         <th>description</th>
+        <th>userLabelDictionary</th>
+        <th>outcomeQualifier</th>
+        <th>evidenceLine</th>
         <th>canonicalAllele</th>
         <th>individual</th>
-        <th>alleleInheritance</th>
+        <th>statementOutcome</th>
         <th>parentalConfirmation</th>
       </tr></thead>
       <tbody>
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndAllInh014">CG-EX:IndAllInh014</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="../../details/details.html#CGEX:IndAllInh014">CGEX:IndAllInh014</a></p></td>
           <td>
               
          </td>
@@ -221,10 +234,19 @@
               <p>parentage confirmed via haplotyping.</p>
          </td>
           <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA016441">CAR:CA016441</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv333">CG-EX:Indiv333</a></p> (individual #001)
+              <p><a href="../../details/details.html#CGEX:Indiv333">CGEX:Indiv333</a></p> (individual #001)
          </td>
           <td>
               <p><a href="../../details/details.html#GENO:0000880">GENO:0000880</a></p> (de novo)
@@ -233,44 +255,39 @@
               <p><a href="../../details/details.html#SEPIO-CG:99007">SEPIO-CG:99007</a></p> (maternal and paternal confirmation)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndAllInh014"><pre><code>{
-  "id": "CG-EX:IndAllInh014",
-  "type": "IndividualAlleleInheritance",
+          <td><div class="example_view" id="CGEX:IndAllInh014"><pre><code>{
+  "id": "CGEX:IndAllInh014",
+  "type": "IndividualAlleleInheritanceStatement",
+  "description": "parentage confirmed via haplotyping.",
   "canonicalAllele": {
     "id": "CAR:CA016441",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll017",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA016441",
-      "alleleName": "NM_000257.3(MYH7):c.5740G>A (p.Glu1914Lys)"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll017"
   },
   "individual": {
-    "id": "CG-EX:Indiv333",
+    "id": "CGEX:Indiv333",
+    "type": "Entity",
     "label": "individual #001"
   },
   "parentalConfirmation": {
     "id": "SEPIO-CG:99007",
+    "type": "Entity",
     "label": "maternal and paternal confirmation"
   },
-  "alleleInheritance": [
+  "statementOutcome": [
     {
       "id": "GENO:0000880",
+      "type": "Entity",
       "label": "de novo"
     }
-  ],
-  "description": "parentage confirmed via haplotyping."
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndAllInh017">CG-EX:IndAllInh017</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="../../details/details.html#CGEX:IndAllInh017">CGEX:IndAllInh017</a></p></td>
           <td>
               
          </td>
@@ -278,10 +295,19 @@
               <p>Non-paternity was excluded by assessment with microsatellites</p>
          </td>
           <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA257646">CAR:CA257646</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv334">CG-EX:Indiv334</a></p> (individual #002)
+              <p><a href="../../details/details.html#CGEX:Indiv334">CGEX:Indiv334</a></p> (individual #002)
          </td>
           <td>
               <p><a href="../../details/details.html#GENO:0000880">GENO:0000880</a></p> (de novo)
@@ -290,44 +316,39 @@
               <p><a href="../../details/details.html#SEPIO-CG:99006">SEPIO-CG:99006</a></p> (paternal confirmation)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndAllInh017"><pre><code>{
-  "id": "CG-EX:IndAllInh017",
-  "type": "IndividualAlleleInheritance",
+          <td><div class="example_view" id="CGEX:IndAllInh017"><pre><code>{
+  "id": "CGEX:IndAllInh017",
+  "type": "IndividualAlleleInheritanceStatement",
+  "description": "Non-paternity was excluded by assessment with microsatellites",
   "canonicalAllele": {
     "id": "CAR:CA257646",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll018",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA257646",
-      "alleleName": "NM_001927.3(DES):c.1216C>T (p.Arg406Trp)"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll018"
   },
   "individual": {
-    "id": "CG-EX:Indiv334",
+    "id": "CGEX:Indiv334",
+    "type": "Entity",
     "label": "individual #002"
   },
   "parentalConfirmation": {
     "id": "SEPIO-CG:99006",
+    "type": "Entity",
     "label": "paternal confirmation"
   },
-  "alleleInheritance": [
+  "statementOutcome": [
     {
       "id": "GENO:0000880",
+      "type": "Entity",
       "label": "de novo"
     }
-  ],
-  "description": "Non-paternity was excluded by assessment with microsatellites"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndAllInh020">CG-EX:IndAllInh020</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="../../details/details.html#CGEX:IndAllInh020">CGEX:IndAllInh020</a></p></td>
           <td>
               
          </td>
@@ -335,10 +356,19 @@
               <p>Variant from trio WES, which confirmed parentage</p>
          </td>
           <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA354186">CAR:CA354186</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv335">CG-EX:Indiv335</a></p> (individual #003)
+              <p><a href="../../details/details.html#CGEX:Indiv335">CGEX:Indiv335</a></p> (individual #003)
          </td>
           <td>
               <p><a href="../../details/details.html#GENO:0000880">GENO:0000880</a></p> (de novo)
@@ -347,44 +377,39 @@
               <p><a href="../../details/details.html#SEPIO-CG:99007">SEPIO-CG:99007</a></p> (maternal and paternal confirmation)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndAllInh020"><pre><code>{
-  "id": "CG-EX:IndAllInh020",
-  "type": "IndividualAlleleInheritance",
+          <td><div class="example_view" id="CGEX:IndAllInh020"><pre><code>{
+  "id": "CGEX:IndAllInh020",
+  "type": "IndividualAlleleInheritanceStatement",
+  "description": "Variant from trio WES, which confirmed parentage",
   "canonicalAllele": {
     "id": "CAR:CA354186",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll019",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA354186",
-      "alleleName": "NM_000833.4 (GRIN2A):c.4375A>G"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll019"
   },
   "individual": {
-    "id": "CG-EX:Indiv335",
+    "id": "CGEX:Indiv335",
+    "type": "Entity",
     "label": "individual #003"
   },
   "parentalConfirmation": {
     "id": "SEPIO-CG:99007",
+    "type": "Entity",
     "label": "maternal and paternal confirmation"
   },
-  "alleleInheritance": [
+  "statementOutcome": [
     {
       "id": "GENO:0000880",
+      "type": "Entity",
       "label": "de novo"
     }
-  ],
-  "description": "Variant from trio WES, which confirmed parentage"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndAllInh087">CG-EX:IndAllInh087</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="../../details/details.html#CGEX:IndAllInh087">CGEX:IndAllInh087</a></p></td>
           <td>
               
          </td>
@@ -392,10 +417,19 @@
               <p>parentage confirmation not mentioned in the source article</p>
          </td>
           <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA090951">CAR:CA090951</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv339">CG-EX:Indiv339</a></p> (individual #007)
+              <p><a href="../../details/details.html#CGEX:Indiv339">CGEX:Indiv339</a></p> (individual #007)
          </td>
           <td>
               <p><a href="../../details/details.html#GENO:0000880">GENO:0000880</a></p> (de novo)
@@ -404,47 +438,39 @@
               <p><a href="../../details/details.html#SEPIO-CG:99008">SEPIO-CG:99008</a></p> (no parental confirmation)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndAllInh087"><pre><code>{
-  "id": "CG-EX:IndAllInh087",
-  "type": "IndividualAlleleInheritance",
+          <td><div class="example_view" id="CGEX:IndAllInh087"><pre><code>{
+  "id": "CGEX:IndAllInh087",
+  "type": "IndividualAlleleInheritanceStatement",
+  "description": "parentage confirmation not mentioned in the source article",
   "canonicalAllele": {
     "id": "CAR:CA090951",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll063",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090951",
-      "alleleName": "NM_144997.5(FLCN):c.1285dupC",
-      "legacyNames": [
-        "c.1733insC"
-      ]
-    }
+    "relatedContextualAllele": "CGEX:CtxAll063"
   },
   "individual": {
-    "id": "CG-EX:Indiv339",
+    "id": "CGEX:Indiv339",
+    "type": "Entity",
     "label": "individual #007"
   },
   "parentalConfirmation": {
     "id": "SEPIO-CG:99008",
+    "type": "Entity",
     "label": "no parental confirmation"
   },
-  "alleleInheritance": [
+  "statementOutcome": [
     {
       "id": "GENO:0000880",
+      "type": "Entity",
       "label": "de novo"
     }
-  ],
-  "description": "parentage confirmation not mentioned in the source article"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndAllInh088">CG-EX:IndAllInh088</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="../../details/details.html#CGEX:IndAllInh088">CGEX:IndAllInh088</a></p></td>
           <td>
               
          </td>
@@ -452,10 +478,19 @@
               <p>parentage confirmation not mentioned in the source article</p>
          </td>
           <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA090951">CAR:CA090951</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv340">CG-EX:Indiv340</a></p> (individual #008)
+              <p><a href="../../details/details.html#CGEX:Indiv340">CGEX:Indiv340</a></p> (individual #008)
          </td>
           <td>
               <p><a href="../../details/details.html#GENO:0000880">GENO:0000880</a></p> (de novo)
@@ -464,58 +499,59 @@
               <p><a href="../../details/details.html#SEPIO-CG:99008">SEPIO-CG:99008</a></p> (no parental confirmation)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndAllInh088"><pre><code>{
-  "id": "CG-EX:IndAllInh088",
-  "type": "IndividualAlleleInheritance",
+          <td><div class="example_view" id="CGEX:IndAllInh088"><pre><code>{
+  "id": "CGEX:IndAllInh088",
+  "type": "IndividualAlleleInheritanceStatement",
+  "description": "parentage confirmation not mentioned in the source article",
   "canonicalAllele": {
     "id": "CAR:CA090951",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll063",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA090951",
-      "alleleName": "NM_144997.5(FLCN):c.1285dupC",
-      "legacyNames": [
-        "c.1733insC"
-      ]
-    }
+    "relatedContextualAllele": "CGEX:CtxAll063"
   },
   "individual": {
-    "id": "CG-EX:Indiv340",
+    "id": "CGEX:Indiv340",
+    "type": "Entity",
     "label": "individual #008"
   },
   "parentalConfirmation": {
     "id": "SEPIO-CG:99008",
+    "type": "Entity",
     "label": "no parental confirmation"
   },
-  "alleleInheritance": [
+  "statementOutcome": [
     {
       "id": "GENO:0000880",
+      "type": "Entity",
       "label": "de novo"
     }
-  ],
-  "description": "parentage confirmation not mentioned in the source article"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndAllInh091">CG-EX:IndAllInh091</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="../../details/details.html#CGEX:IndAllInh091">CGEX:IndAllInh091</a></p></td>
           <td>
               
          </td>
           <td>
               <p>parentage confirmation not mentioned in the source article</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
          </td>
           <td>
               <p><a href="../../details/details.html#CAR:CA279966">CAR:CA279966</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv341">CG-EX:Indiv341</a></p> (individual #009)
+              <p><a href="../../details/details.html#CGEX:Indiv341">CGEX:Indiv341</a></p> (individual #009)
          </td>
           <td>
               <p><a href="../../details/details.html#GENO:0000880">GENO:0000880</a></p> (de novo)
@@ -524,41 +560,45 @@
               <p><a href="../../details/details.html#SEPIO-CG:99008">SEPIO-CG:99008</a></p> (no parental confirmation)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndAllInh091"><pre><code>{
-  "id": "CG-EX:IndAllInh091",
-  "type": "IndividualAlleleInheritance",
+          <td><div class="example_view" id="CGEX:IndAllInh091"><pre><code>{
+  "id": "CGEX:IndAllInh091",
+  "type": "IndividualAlleleInheritanceStatement",
+  "description": "parentage confirmation not mentioned in the source article",
   "canonicalAllele": {
     "id": "CAR:CA279966",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll064",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA279966",
-      "alleleName": "NM_002755.3(MAP2K1):c.158T>C"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll064"
   },
   "individual": {
-    "id": "CG-EX:Indiv341",
+    "id": "CGEX:Indiv341",
+    "type": "Entity",
     "label": "individual #009"
   },
   "parentalConfirmation": {
     "id": "SEPIO-CG:99008",
+    "type": "Entity",
     "label": "no parental confirmation"
   },
-  "alleleInheritance": [
+  "statementOutcome": [
     {
       "id": "GENO:0000880",
+      "type": "Entity",
       "label": "de novo"
     }
-  ],
-  "description": "parentage confirmation not mentioned in the source article"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndAllInh094">CG-EX:IndAllInh094</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndAllInh094">CGEX:IndAllInh094</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -572,7 +612,7 @@
               <p><a href="../../details/details.html#CAR:CA279976">CAR:CA279976</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv342">CG-EX:Indiv342</a></p> (individual #010)
+              <p><a href="../../details/details.html#CGEX:Indiv342">CGEX:Indiv342</a></p> (individual #010)
          </td>
           <td>
               <p><a href="../../details/details.html#GENO:0000880">GENO:0000880</a></p> (de novo)
@@ -581,30 +621,28 @@
               <p><a href="../../details/details.html#SEPIO-CG:99008">SEPIO-CG:99008</a></p> (no parental confirmation)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndAllInh094"><pre><code>{
-  "id": "CG-EX:IndAllInh094",
-  "type": "IndividualAlleleInheritance",
+          <td><div class="example_view" id="CGEX:IndAllInh094"><pre><code>{
+  "id": "CGEX:IndAllInh094",
+  "type": "IndividualAlleleInheritanceStatement",
   "canonicalAllele": {
     "id": "CAR:CA279976",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll065",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA279976",
-      "alleleName": "NM_004333.4(BRAF):c.1741A>G"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll065"
   },
   "individual": {
-    "id": "CG-EX:Indiv342",
+    "id": "CGEX:Indiv342",
+    "type": "Entity",
     "label": "individual #010"
   },
   "parentalConfirmation": {
     "id": "SEPIO-CG:99008",
+    "type": "Entity",
     "label": "no parental confirmation"
   },
-  "alleleInheritance": [
+  "statementOutcome": [
     {
       "id": "GENO:0000880",
+      "type": "Entity",
       "label": "de novo"
     }
   ]
@@ -614,7 +652,13 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndAllInh097">CG-EX:IndAllInh097</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndAllInh097">CGEX:IndAllInh097</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -628,7 +672,7 @@
               <p><a href="../../details/details.html#CAR:CA279976">CAR:CA279976</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv343">CG-EX:Indiv343</a></p> (individual #011)
+              <p><a href="../../details/details.html#CGEX:Indiv343">CGEX:Indiv343</a></p> (individual #011)
          </td>
           <td>
               <p><a href="../../details/details.html#GENO:0000880">GENO:0000880</a></p> (de novo)
@@ -637,30 +681,28 @@
               <p><a href="../../details/details.html#SEPIO-CG:99008">SEPIO-CG:99008</a></p> (no parental confirmation)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndAllInh097"><pre><code>{
-  "id": "CG-EX:IndAllInh097",
-  "type": "IndividualAlleleInheritance",
+          <td><div class="example_view" id="CGEX:IndAllInh097"><pre><code>{
+  "id": "CGEX:IndAllInh097",
+  "type": "IndividualAlleleInheritanceStatement",
   "canonicalAllele": {
     "id": "CAR:CA279976",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll065",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA279976",
-      "alleleName": "NM_004333.4(BRAF):c.1741A>G"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll065"
   },
   "individual": {
-    "id": "CG-EX:Indiv343",
+    "id": "CGEX:Indiv343",
+    "type": "Entity",
     "label": "individual #011"
   },
   "parentalConfirmation": {
     "id": "SEPIO-CG:99008",
+    "type": "Entity",
     "label": "no parental confirmation"
   },
-  "alleleInheritance": [
+  "statementOutcome": [
     {
       "id": "GENO:0000880",
+      "type": "Entity",
       "label": "de novo"
     }
   ]
@@ -670,7 +712,13 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndAllInh100">CG-EX:IndAllInh100</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndAllInh100">CGEX:IndAllInh100</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -684,7 +732,7 @@
               <p><a href="../../details/details.html#CAR:CA279976">CAR:CA279976</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv344">CG-EX:Indiv344</a></p> (individual #012)
+              <p><a href="../../details/details.html#CGEX:Indiv344">CGEX:Indiv344</a></p> (individual #012)
          </td>
           <td>
               <p><a href="../../details/details.html#GENO:0000880">GENO:0000880</a></p> (de novo)
@@ -693,30 +741,28 @@
               <p><a href="../../details/details.html#SEPIO-CG:99008">SEPIO-CG:99008</a></p> (no parental confirmation)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndAllInh100"><pre><code>{
-  "id": "CG-EX:IndAllInh100",
-  "type": "IndividualAlleleInheritance",
+          <td><div class="example_view" id="CGEX:IndAllInh100"><pre><code>{
+  "id": "CGEX:IndAllInh100",
+  "type": "IndividualAlleleInheritanceStatement",
   "canonicalAllele": {
     "id": "CAR:CA279976",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll065",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA279976",
-      "alleleName": "NM_004333.4(BRAF):c.1741A>G"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll065"
   },
   "individual": {
-    "id": "CG-EX:Indiv344",
+    "id": "CGEX:Indiv344",
+    "type": "Entity",
     "label": "individual #012"
   },
   "parentalConfirmation": {
     "id": "SEPIO-CG:99008",
+    "type": "Entity",
     "label": "no parental confirmation"
   },
-  "alleleInheritance": [
+  "statementOutcome": [
     {
       "id": "GENO:0000880",
+      "type": "Entity",
       "label": "de novo"
     }
   ]
@@ -726,7 +772,13 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndAllInh106">CG-EX:IndAllInh106</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndAllInh106">CGEX:IndAllInh106</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
           <td>
               
          </td>
@@ -740,7 +792,7 @@
               <p><a href="../../details/details.html#CAR:CA280055">CAR:CA280055</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv362">CG-EX:Indiv362</a></p> (individual #030)
+              <p><a href="../../details/details.html#CGEX:Indiv362">CGEX:Indiv362</a></p> (individual #030)
          </td>
           <td>
               <p><a href="../../details/details.html#GENO:0000880">GENO:0000880</a></p> (de novo)
@@ -749,39 +801,28 @@
               <p><a href="../../details/details.html#SEPIO-CG:99008">SEPIO-CG:99008</a></p> (no parental confirmation)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndAllInh106"><pre><code>{
-  "id": "CG-EX:IndAllInh106",
-  "type": "IndividualAlleleInheritance",
+          <td><div class="example_view" id="CGEX:IndAllInh106"><pre><code>{
+  "id": "CGEX:IndAllInh106",
+  "type": "IndividualAlleleInheritanceStatement",
   "canonicalAllele": {
     "id": "CAR:CA280055",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll131",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA280055",
-      "alleleName": "NM_004333.4(BRAF):c.1447A>C (p.Lys483Gln)",
-      "produces": [
-        {
-          "id": "CG-EX:CtxAll132",
-          "type": "ContextualAllele",
-          "relatedCanonicalAllele": "CAR:CA280057",
-          "alleleName": "NP_004324.2:p.Lys483Gln",
-          "producedBy": "CG-EX:CtxAll131"
-        }
-      ]
-    }
+    "relatedContextualAllele": "CGEX:CtxAll131"
   },
   "individual": {
-    "id": "CG-EX:Indiv362",
+    "id": "CGEX:Indiv362",
+    "type": "Entity",
     "label": "individual #030"
   },
   "parentalConfirmation": {
     "id": "SEPIO-CG:99008",
+    "type": "Entity",
     "label": "no parental confirmation"
   },
-  "alleleInheritance": [
+  "statementOutcome": [
     {
       "id": "GENO:0000880",
+      "type": "Entity",
       "label": "de novo"
     }
   ]
@@ -831,7 +872,7 @@ window.addEventListener('load', function () {
                 <h5><a href="../../../">Interpretation Overview</a></h5>
               </li>
               <li class='list-group-item'><h5><a href="../../../user/">User Guide</a></h5></li>
-              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../">Entity Definitions</a></li><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Evidence Item</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li><a href="allele_conservation.html">AlleleConservation</a></li><li><a href="allele_conservation_score.html">AlleleConservationScore</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="allele_molecular_consequence.html">AlleleMolecularConsequence</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="in_silico_prediction_score.html">InSilicoPredictionScore</a></li><li class="active"><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="individual_genotype.html">IndividualGenotype</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li><a href="region_type.html">RegionType</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul><li><a href="../../json_schema.html">JSON Schema</a></li></ul></li>
+              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../">Entity Definitions</a></li><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Evidence Item</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateCosegregationStatement</a></li><li><a href="allele_conservation.html">AlleleConservationStatement</a></li><li><a href="allele_conservation_score.html">AlleleConservationScoreStatement</a></li><li><a href="allele_frequency.html">PopulationAlleleFrequencyStatement</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpactStatement</a></li><li><a href="allele_molecular_consequence.html">AlleleMolecularConsequenceStatement</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRateStatement</a></li><li><a href="case_control.html">CaseControlAlleleFrequencyStatement</a></li><li><a href="condition_mechanism.html">ConditionMechanismStatement</a></li><li><a href="condition_penetrance.html">ConditionPenetranceStatement</a></li><li><a href="condition_prevelance.html">ConditionPrevelanceStatement</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyConditionStatement</a></li><li><a href="family_segregation.html">FamilyCosegregationStatement</a></li><li><a href="in_silico_prediction.html">InSilicoPredictionStatement</a></li><li><a href="in_silico_prediction_score.html">InSilicoPredictionScoreStatement</a></li><li class="active"><a href="individual_allele_inheritance.html">IndividualAlleleInheritanceStatement</a></li><li><a href="individual_condition.html">IndividualConditionStatement</a></li><li><a href="individual_genotype.html">IndividualGenotypeStatement</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneityStatement</a></li><li><a href="null_allele.html">NullAlleleStatement</a></li><li><a href="region_alleles.html">RegionAllelesStatement</a></li><li><a href="region_type.html">RegionTypeStatement</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul><li><a href="../../json_schema.html">JSON Schema</a></li></ul></li>
               <!-- Old style.  We might still need the model here? -->
               <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
             </ul>

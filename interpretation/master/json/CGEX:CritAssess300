@@ -1,0 +1,100 @@
+{
+  "id": "CGEX:CritAssess300",
+  "type": "CriterionAssessment",
+  "description": "leads to an in-frame deletion of 5 amino acids (not repeat region).",
+  "criterion": {
+    "id": "SEPIO-CG:99030",
+    "type": "VariantInterpretationCriterion",
+    "label": "PM4",
+    "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
+    "usageNotes": "Need to ensure that variant is not located within a repeat region\n\nThis rule is also (likely) applicable for frameshift variants that result in extension of the protein as opposed to truncation (similar to stop loss).",
+    "defaultStrength": {
+      "id": "SEPIO:0000216",
+      "type": "Entity",
+      "label": "Pathogenic Moderate"
+    }
+  },
+  "variant": {
+    "id": "CAR:CA090938",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll045"
+  },
+  "statementOutcome": {
+    "id": "SEPIO:0000223",
+    "type": "Entity",
+    "label": "Met"
+  },
+  "evidenceLine": [
+    {
+      "id": "CGEX:EvLn033",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:MolCon070",
+          "type": "AlleleMolecularConsequenceStatement",
+          "contextualAllele": {
+            "id": "CGEX:CtxAll046",
+            "type": "ContextualAllele",
+            "canonicalAllele": {
+              "id": "CAR:CA322149",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll046"
+            },
+            "alleleName": {
+              "id": "CGEX:CtxNm9046",
+              "type": "ContextualAlleleName",
+              "name": "NP_056375.2:p.Arg38_Ser43del",
+              "preferred": true
+            }
+          },
+          "statementOutcome": {
+            "id": "SO:0001825",
+            "type": "Entity",
+            "label": "conservative Inframe Deletion"
+          }
+        },
+        {
+          "id": "CGEX:RegTyp073",
+          "type": "RegionTypeStatement",
+          "description": "NP_056375.2[35..43] is not repeating.",
+          "region": {
+            "id": "CGEX:Loc436",
+            "type": "SequenceLocation",
+            "referenceSequence": {
+              "id": "REFSEQ:NP_056375.2",
+              "type": "Entity",
+              "label": "NP_056375.2"
+            },
+            "start": 35,
+            "stop": 43
+          },
+          "statementOutcome": [
+            {
+              "id": "SO:0000657",
+              "type": "Entity",
+              "label": "repeat region "
+            }
+          ],
+          "outcomeQualifier": "NOT"
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CGEX:Agent003",
+        "type": "Agent",
+        "label": "Sasha Rande"
+      },
+      "contributionDate": "6/12/16 8:31 AM",
+      "contributionRole": {
+        "id": "SEPIO:0000154",
+        "type": "Entity",
+        "label": "assessor role"
+      }
+    }
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

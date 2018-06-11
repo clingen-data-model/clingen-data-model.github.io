@@ -1,0 +1,121 @@
+{
+  "id": "CGEX:CritAssess275",
+  "type": "CriterionAssessment",
+  "description": "Variant is not LOF and LOF is not a known mechanism of disease associated with this gene for any condition.",
+  "criterion": {
+    "id": "SEPIO-CG:99022",
+    "type": "VariantInterpretationCriterion",
+    "label": "PVS1",
+    "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
+    "usageNotes": "The two main concerns for applying this rule is:\na. Is LOF an established disease mechanism?\nb. Is LOF actually occurring?",
+    "defaultStrength": {
+      "id": "SEPIO:0000220",
+      "type": "Entity",
+      "label": "Pathogenic Very Strong"
+    }
+  },
+  "variant": {
+    "id": "CAR:CA090943",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll001"
+  },
+  "statementOutcome": {
+    "id": "SEPIO:0000224",
+    "type": "Entity",
+    "label": "Not Met"
+  },
+  "evidenceLine": [
+    {
+      "id": "CGEX:EvLn001",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:MolCon001",
+          "type": "AlleleMolecularConsequenceStatement",
+          "description": "Protein ends at p.826 and this frameshift would create stop at p.852 (769+83) thus NMD would not occur. Instead an elongated protein",
+          "contextualAllele": {
+            "id": "CGEX:CtxAll001",
+            "type": "ContextualAllele",
+            "canonicalAllele": {
+              "id": "CAR:CA090943",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll001"
+            },
+            "alleleName": {
+              "id": "CGEX:CtxNm9001",
+              "type": "ContextualAlleleName",
+              "name": "NM_031844.2(HNRNPU):c.2304_2305del (p.Gly769Glufs*83)",
+              "preferred": true
+            }
+          },
+          "statementOutcome": {
+            "id": "SO:0001589",
+            "type": "Entity",
+            "label": "frameshift variant"
+          }
+        },
+        {
+          "id": "CGEX:Null396",
+          "type": "NullAlleleStatement",
+          "contextualAllele": {
+            "id": "CGEX:CtxAll001",
+            "type": "ContextualAllele",
+            "canonicalAllele": {
+              "id": "CAR:CA090943",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll001"
+            },
+            "alleleName": {
+              "id": "CGEX:CtxNm9001",
+              "type": "ContextualAlleleName",
+              "name": "NM_031844.2(HNRNPU):c.2304_2305del (p.Gly769Glufs*83)",
+              "preferred": true
+            }
+          },
+          "statementOutcome": {
+            "id": "SEPIO-CG:99015",
+            "type": "Entity",
+            "label": "function not lost"
+          }
+        },
+        {
+          "id": "CGEX:CondMech002",
+          "type": "ConditionMechanismStatement",
+          "description": "HNRNPU is not associated with any conditions, and therefore LOF is not an established mechanism of any condition for this gene.",
+          "statementOutcome": {
+            "id": "SO:0002054",
+            "type": "Entity",
+            "label": "loss of function variant"
+          },
+          "mechanismConfidence": {
+            "id": "SEPIO:0000269",
+            "type": "Entity",
+            "label": "established"
+          },
+          "gene": {
+            "id": "HGNC:5048",
+            "type": "Entity",
+            "label": "HNRNPU"
+          }
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CGEX:Agent001",
+        "type": "Agent",
+        "label": "Harry Stevenson"
+      },
+      "contributionDate": "6/1/16 10:10 AM",
+      "contributionRole": {
+        "id": "SEPIO:0000154",
+        "type": "Entity",
+        "label": "assessor role"
+      }
+    }
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

@@ -1,0 +1,99 @@
+{
+  "id": "CGEX:CritAssess301",
+  "type": "CriterionAssessment",
+  "description": "This 15bp duplication variant results in an expansion of a 20 residue polyalanine tract to a 25 residue polyalanine tract.",
+  "criterion": {
+    "id": "SEPIO-CG:99030",
+    "type": "VariantInterpretationCriterion",
+    "label": "PM4",
+    "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
+    "usageNotes": "Need to ensure that variant is not located within a repeat region\n\nThis rule is also (likely) applicable for frameshift variants that result in extension of the protein as opposed to truncation (similar to stop loss).",
+    "defaultStrength": {
+      "id": "SEPIO:0000216",
+      "type": "Entity",
+      "label": "Pathogenic Moderate"
+    }
+  },
+  "variant": {
+    "id": "CAR:CA501224",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll047"
+  },
+  "statementOutcome": {
+    "id": "SEPIO:0000224",
+    "type": "Entity",
+    "label": "Not Met"
+  },
+  "evidenceLine": [
+    {
+      "id": "CGEX:EvLn034",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:MolCon074",
+          "type": "AlleleMolecularConsequenceStatement",
+          "contextualAllele": {
+            "id": "CGEX:CtxAll048",
+            "type": "ContextualAllele",
+            "canonicalAllele": {
+              "id": "CAR:CA501225",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll048"
+            },
+            "alleleName": {
+              "id": "CGEX:CtxNm9048",
+              "type": "ContextualAlleleName",
+              "name": "NP_003915.2:p.Ala260_Gly261insAlaAlaAlaAlaAla",
+              "preferred": true
+            }
+          },
+          "statementOutcome": {
+            "id": "SO:0001823",
+            "type": "Entity",
+            "label": "conservative Inframe Insertion"
+          }
+        },
+        {
+          "id": "CGEX:RegTyp077",
+          "type": "RegionTypeStatement",
+          "description": "NP_003915.2[241..260] is repeating.",
+          "region": {
+            "id": "CGEX:Loc437",
+            "type": "SequenceLocation",
+            "referenceSequence": {
+              "id": "REFSEQ:NP_003915.2",
+              "type": "Entity",
+              "label": "NP_003915.2"
+            },
+            "start": 241,
+            "stop": 260
+          },
+          "statementOutcome": [
+            {
+              "id": "SO:0000657",
+              "type": "Entity",
+              "label": "repeat region "
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CGEX:Agent001",
+        "type": "Agent",
+        "label": "Harry Stevenson"
+      },
+      "contributionDate": "6/12/16 9:32 AM",
+      "contributionRole": {
+        "id": "SEPIO:0000154",
+        "type": "Entity",
+        "label": "assessor role"
+      }
+    }
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

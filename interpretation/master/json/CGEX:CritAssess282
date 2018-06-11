@@ -1,0 +1,149 @@
+{
+  "id": "CGEX:CritAssess282",
+  "type": "CriterionAssessment",
+  "description": "De novo variant occurred on haplotype inherited from the father. Maternity no explicitly confirmed - but if variant occurred on haplotype inherited from the father, then confirmation of maternity not required.",
+  "criterion": {
+    "id": "SEPIO-CG:99024",
+    "type": "VariantInterpretationCriterion",
+    "label": "PS2",
+    "description": "De novo (both maternity and paternity confirmed) in a patient with the disease and no family history",
+    "usageNotes": "MYH7 is adding specificity to this rule with\na. No family history = parents have had ECHO and ECG\nb. Only paternity confirmation required",
+    "defaultStrength": {
+      "id": "SEPIO:0000330",
+      "type": "Entity",
+      "label": "Pathogenic Strong"
+    }
+  },
+  "variant": {
+    "id": "CAR:CA257646",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll018"
+  },
+  "condition": [
+    {
+      "id": "CGEX:GenCond008",
+      "type": "GeneticCondition",
+      "description": "desmin related myopathy",
+      "disease": [
+        {
+          "id": "OMIM:601419",
+          "type": "Entity",
+          "label": "myofibrillar myopathy 1"
+        }
+      ]
+    }
+  ],
+  "statementOutcome": {
+    "id": "SEPIO:0000223",
+    "type": "Entity",
+    "label": "Met"
+  },
+  "evidenceLine": [
+    {
+      "id": "CGEX:EvLn010",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:IndCond015",
+          "type": "IndividualConditionStatement",
+          "individual": {
+            "id": "CGEX:Indiv334",
+            "type": "Entity",
+            "label": "individual #002"
+          },
+          "condition": [
+            {
+              "id": "CGEX:GenCond008",
+              "type": "GeneticCondition",
+              "description": "desmin related myopathy",
+              "disease": [
+                {
+                  "id": "OMIM:601419",
+                  "type": "Entity",
+                  "label": "myofibrillar myopathy 1"
+                }
+              ]
+            }
+          ],
+          "statementOutcome": {
+            "id": "SEPIO-CG:99009",
+            "type": "Entity",
+            "label": "affected"
+          }
+        },
+        {
+          "id": "CGEX:FamCond016",
+          "type": "FamilyConditionStatement",
+          "proband": {
+            "id": "CGEX:Indiv334",
+            "type": "Entity",
+            "label": "individual #002"
+          },
+          "condition": [
+            {
+              "id": "CGEX:GenCond008",
+              "type": "GeneticCondition",
+              "description": "desmin related myopathy",
+              "disease": [
+                {
+                  "id": "OMIM:601419",
+                  "type": "Entity",
+                  "label": "myofibrillar myopathy 1"
+                }
+              ]
+            }
+          ],
+          "statementOutcome": {
+            "id": "SEPIO-CG:99010",
+            "type": "Entity",
+            "label": "unaffected"
+          }
+        },
+        {
+          "id": "CGEX:IndAllInh017",
+          "type": "IndividualAlleleInheritanceStatement",
+          "description": "Non-paternity was excluded by assessment with microsatellites",
+          "canonicalAllele": {
+            "id": "CAR:CA257646",
+            "type": "CanonicalAllele",
+            "relatedContextualAllele": "CGEX:CtxAll018"
+          },
+          "individual": {
+            "id": "CGEX:Indiv334",
+            "type": "Entity",
+            "label": "individual #002"
+          },
+          "parentalConfirmation": {
+            "id": "SEPIO-CG:99006",
+            "type": "Entity",
+            "label": "paternal confirmation"
+          },
+          "statementOutcome": [
+            {
+              "id": "GENO:0000880",
+              "type": "Entity",
+              "label": "de novo"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CGEX:Agent001",
+        "type": "Agent",
+        "label": "Harry Stevenson"
+      },
+      "contributionDate": "6/3/16 9:17 AM",
+      "contributionRole": {
+        "id": "SEPIO:0000154",
+        "type": "Entity",
+        "label": "assessor role"
+      }
+    }
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

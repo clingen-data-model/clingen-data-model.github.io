@@ -67,7 +67,7 @@
     
         <div class="row">
           <div class="col-sm-12">
-              <h1 class="header">IndividualGenotype</h1>
+              <h1 class="header">IndividualGenotypeStatement</h1>
               <ol class="breadcrumb bg-none margin-none">
                 <li><a href="../../../">Interpretation Model</a></li>
 <li><a href="../../">Technical Reference</a></li>
@@ -124,7 +124,14 @@
                 <td>Genotype</td>
                 <td>1..*</td>
                 <td>Genotype the individual has</td>
+                <td>SEPIO:0000425</td>
+            </tr>
+            <tr>
+                <td>statementOutcome</td>
+                <td>@id</td>
+                <td>1..1</td>
                 <td></td>
+                <td>SEPIO:0000197</td>
             </tr>
             </tbody>
         </table>
@@ -144,11 +151,32 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>userLabel</td>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A name given to the resource.</td>
+                    <td>RDFS:label</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                    <td>DC:description</td>
+                </tr>
+                <tr>
+                    <td>userLabelDictionary</td>
                     <td>UserLabel</td>
                     <td>0..*</td>
                     <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
-                    <td></td>
+                    <td>SEPIO:0000422</td>
+                </tr>
+                <tr>
+                    <td>outcomeQualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                    <td>SEPIO:0000346</td>
                 </tr>
                 <tr>
                     <td>evidenceLine</td>
@@ -156,13 +184,6 @@
                     <td>0..*</td>
                     <td>supporting evidence</td>
                     <td>SEPIO:0000006</td>
-                </tr>
-                <tr>
-                    <td>description</td>
-                    <td>string</td>
-                    <td>0..1</td>
-                    <td>A human-readable description of the entity</td>
-                    <td>DC:description</td>
                 </tr>
                 <tr>
                     <td>contribution</td>
@@ -186,18 +207,18 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
-        <th>userLabel</th>
-        <th>evidenceLine</th>
+        <th>label</th>
         <th>description</th>
+        <th>userLabelDictionary</th>
+        <th>outcomeQualifier</th>
+        <th>evidenceLine</th>
         <th>individual</th>
         <th>genotype</th>
+        <th>statementOutcome</th>
       </tr></thead>
       <tbody>
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno058">CG-EX:IndGeno058</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno058">CGEX:IndGeno058</a></p></td>
           <td>
               
          </td>
@@ -205,62 +226,57 @@
               <p>Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband.</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv336">CG-EX:Indiv336</a></p> (individual #004)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno378">CG-EX:Geno378</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv336">CGEX:Indiv336</a></p> (individual #004)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno378">CGEX:Geno378</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno058"><pre><code>{
-  "id": "CG-EX:IndGeno058",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno058"><pre><code>{
+  "id": "CGEX:IndGeno058",
+  "type": "IndividualGenotypeStatement",
+  "description": "Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband.",
   "individual": {
-    "id": "CG-EX:Indiv336",
+    "id": "CGEX:Indiv336",
+    "type": "Entity",
     "label": "individual #004"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno378",
+      "id": "CGEX:Geno378",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo376",
+          "id": "CGEX:Haplo376",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA090919",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll039",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA090919",
-                "alleleName": "NM_001369.2(DNAH5):c.7468_7488del",
-                "produces": [
-                  {
-                    "id": "CG-EX:CtxAll044",
-                    "type": "ContextualAllele",
-                    "relatedCanonicalAllele": "CAR:CA273136",
-                    "alleleName": "NP_001360.1:p.Trp2490_Leu2496del",
-                    "producedBy": "CG-EX:CtxAll039"
-                  }
-                ]
-              }
+              "relatedContextualAllele": "CGEX:CtxAll039"
             }
           ]
         },
         {
-          "id": "CG-EX:Haplo377",
+          "id": "CGEX:Haplo377",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA273615",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll040",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA273615",
-                "alleleName": "NM_001369.2(DNAH5):c.9449delG"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll040"
             }
           ]
         }
@@ -271,31 +287,28 @@
     {
       "type": "Contribution",
       "agent": {
-        "id": "CG-EX:Agent001",
+        "id": "CGEX:Agent001",
         "type": "Agent",
         "label": "Harry Stevenson"
       },
       "contributionDate": "5/31/16 9:15 AM",
       "contributionRole": {
         "id": "SEPIO:0000156",
+        "type": "Entity",
         "label": "curator role"
       }
     }
   ],
   "source": [
     "http://partners.org/ppm/lmm/gi/case/123"
-  ],
-  "description": "Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband."
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno062">CG-EX:IndGeno062</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno062">CGEX:IndGeno062</a></p></td>
           <td>
               
          </td>
@@ -303,67 +316,70 @@
               <p>Based on the NGS data, we are able to determine that c.298G>A and c.411+1G>A are in trans as no NGS reads carry both variants.</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv337">CG-EX:Indiv337</a></p> (individual #005)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno381">CG-EX:Geno381</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv337">CGEX:Indiv337</a></p> (individual #005)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno381">CGEX:Geno381</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno062"><pre><code>{
-  "id": "CG-EX:IndGeno062",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno062"><pre><code>{
+  "id": "CGEX:IndGeno062",
+  "type": "IndividualGenotypeStatement",
+  "description": "Based on the NGS data, we are able to determine that c.298G>A and c.411+1G>A are in trans as no NGS reads carry both variants.",
   "individual": {
-    "id": "CG-EX:Indiv337",
+    "id": "CGEX:Indiv337",
+    "type": "Entity",
     "label": "individual #005"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno381",
+      "id": "CGEX:Geno381",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo379",
+          "id": "CGEX:Haplo379",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA176145",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll041",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA176145",
-                "alleleName": "NM_133261.2(GIPC3):c.298G>A"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll041"
             }
           ]
         },
         {
-          "id": "CG-EX:Haplo380",
+          "id": "CGEX:Haplo380",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA501223",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll042",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA501223",
-                "alleleName": "NM_133261.2(GIPC3):c.411+1G>A"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll042"
             }
           ]
         }
       ]
     }
-  ],
-  "description": "Based on the NGS data, we are able to determine that c.298G>A and c.411+1G>A are in trans as no NGS reads carry both variants."
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno065">CG-EX:IndGeno065</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno065">CGEX:IndGeno065</a></p></td>
           <td>
               
          </td>
@@ -374,43 +390,49 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv338">CG-EX:Indiv338</a></p> (individual #006)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno383">CG-EX:Geno383</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv338">CGEX:Indiv338</a></p> (individual #006)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno383">CGEX:Geno383</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno065"><pre><code>{
-  "id": "CG-EX:IndGeno065",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno065"><pre><code>{
+  "id": "CGEX:IndGeno065",
+  "type": "IndividualGenotypeStatement",
   "individual": {
-    "id": "CG-EX:Indiv338",
+    "id": "CGEX:Indiv338",
+    "type": "Entity",
     "label": "individual #006"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno383",
+      "id": "CGEX:Geno383",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo382",
+          "id": "CGEX:Haplo382",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA090904",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll043",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA090904",
-                "alleleName": "NM_000391.3(TTP1):c.1678_1679delCT"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll043"
             }
           ]
         }
       ],
       "zygosity": {
         "id": "GENO:0000136",
+        "type": "Entity",
         "label": "homozygous"
       }
     }
@@ -421,7 +443,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno172">CG-EX:IndGeno172</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno172">CGEX:IndGeno172</a></p></td>
           <td>
               
          </td>
@@ -432,43 +454,49 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv345">CG-EX:Indiv345</a></p> (individual #013)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno385">CG-EX:Geno385</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv345">CGEX:Indiv345</a></p> (individual #013)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno385">CGEX:Geno385</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno172"><pre><code>{
-  "id": "CG-EX:IndGeno172",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno172"><pre><code>{
+  "id": "CGEX:IndGeno172",
+  "type": "IndividualGenotypeStatement",
   "individual": {
-    "id": "CG-EX:Indiv345",
+    "id": "CGEX:Indiv345",
+    "type": "Entity",
     "label": "individual #013"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno385",
+      "id": "CGEX:Geno385",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo384",
+          "id": "CGEX:Haplo384",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA090918",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll087",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA090918",
-                "alleleName": "NM_001197104.1(KMT2A):c.6572G>A"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll087"
             }
           ]
         }
       ],
       "zygosity": {
         "id": "GENO:0000135",
+        "type": "Entity",
         "label": "heterozygous"
       }
     }
@@ -479,7 +507,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno173">CG-EX:IndGeno173</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno173">CGEX:IndGeno173</a></p></td>
           <td>
               
          </td>
@@ -490,43 +518,49 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv346">CG-EX:Indiv346</a></p> (individual #014)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno387">CG-EX:Geno387</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv346">CGEX:Indiv346</a></p> (individual #014)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno387">CGEX:Geno387</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno173"><pre><code>{
-  "id": "CG-EX:IndGeno173",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno173"><pre><code>{
+  "id": "CGEX:IndGeno173",
+  "type": "IndividualGenotypeStatement",
   "individual": {
-    "id": "CG-EX:Indiv346",
+    "id": "CGEX:Indiv346",
+    "type": "Entity",
     "label": "individual #014"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno387",
+      "id": "CGEX:Geno387",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo386",
+          "id": "CGEX:Haplo386",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA090918",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll087",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA090918",
-                "alleleName": "NM_001197104.1(KMT2A):c.6572G>A"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll087"
             }
           ]
         }
       ],
       "zygosity": {
         "id": "GENO:0000136",
+        "type": "Entity",
         "label": "homozygous"
       }
     }
@@ -537,7 +571,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno178">CG-EX:IndGeno178</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno178">CGEX:IndGeno178</a></p></td>
           <td>
               
          </td>
@@ -548,43 +582,49 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv347">CG-EX:Indiv347</a></p> (individual #015)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno389">CG-EX:Geno389</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv347">CGEX:Indiv347</a></p> (individual #015)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno389">CGEX:Geno389</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno178"><pre><code>{
-  "id": "CG-EX:IndGeno178",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno178"><pre><code>{
+  "id": "CGEX:IndGeno178",
+  "type": "IndividualGenotypeStatement",
   "individual": {
-    "id": "CG-EX:Indiv347",
+    "id": "CGEX:Indiv347",
+    "type": "Entity",
     "label": "individual #015"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno389",
+      "id": "CGEX:Geno389",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo388",
+          "id": "CGEX:Haplo388",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA008351",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll088",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA008351",
-                "alleleName": "NM_000038.5(APC ):c.3386T>C"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll088"
             }
           ]
         }
       ],
       "zygosity": {
         "id": "GENO:0000135",
+        "type": "Entity",
         "label": "heterozygous"
       }
     }
@@ -595,7 +635,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno179">CG-EX:IndGeno179</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno179">CGEX:IndGeno179</a></p></td>
           <td>
               
          </td>
@@ -606,43 +646,49 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv348">CG-EX:Indiv348</a></p> (individual #016)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno391">CG-EX:Geno391</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv348">CGEX:Indiv348</a></p> (individual #016)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno391">CGEX:Geno391</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno179"><pre><code>{
-  "id": "CG-EX:IndGeno179",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno179"><pre><code>{
+  "id": "CGEX:IndGeno179",
+  "type": "IndividualGenotypeStatement",
   "individual": {
-    "id": "CG-EX:Indiv348",
+    "id": "CGEX:Indiv348",
+    "type": "Entity",
     "label": "individual #016"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno391",
+      "id": "CGEX:Geno391",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo390",
+          "id": "CGEX:Haplo390",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA008351",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll088",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA008351",
-                "alleleName": "NM_000038.5(APC ):c.3386T>C"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll088"
             }
           ]
         }
       ],
       "zygosity": {
         "id": "GENO:0000135",
+        "type": "Entity",
         "label": "heterozygous"
       }
     }
@@ -653,7 +699,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno180">CG-EX:IndGeno180</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno180">CGEX:IndGeno180</a></p></td>
           <td>
               
          </td>
@@ -664,43 +710,49 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv349">CG-EX:Indiv349</a></p> (individual #017)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno393">CG-EX:Geno393</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv349">CGEX:Indiv349</a></p> (individual #017)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno393">CGEX:Geno393</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno180"><pre><code>{
-  "id": "CG-EX:IndGeno180",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno180"><pre><code>{
+  "id": "CGEX:IndGeno180",
+  "type": "IndividualGenotypeStatement",
   "individual": {
-    "id": "CG-EX:Indiv349",
+    "id": "CGEX:Indiv349",
+    "type": "Entity",
     "label": "individual #017"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno393",
+      "id": "CGEX:Geno393",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo392",
+          "id": "CGEX:Haplo392",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA008351",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll088",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA008351",
-                "alleleName": "NM_000038.5(APC ):c.3386T>C"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll088"
             }
           ]
         }
       ],
       "zygosity": {
         "id": "GENO:0000135",
+        "type": "Entity",
         "label": "heterozygous"
       }
     }
@@ -711,7 +763,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno181">CG-EX:IndGeno181</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno181">CGEX:IndGeno181</a></p></td>
           <td>
               
          </td>
@@ -722,43 +774,49 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv350">CG-EX:Indiv350</a></p> (individual #018)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno395">CG-EX:Geno395</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv350">CGEX:Indiv350</a></p> (individual #018)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno395">CGEX:Geno395</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno181"><pre><code>{
-  "id": "CG-EX:IndGeno181",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno181"><pre><code>{
+  "id": "CGEX:IndGeno181",
+  "type": "IndividualGenotypeStatement",
   "individual": {
-    "id": "CG-EX:Indiv350",
+    "id": "CGEX:Indiv350",
+    "type": "Entity",
     "label": "individual #018"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno395",
+      "id": "CGEX:Geno395",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo394",
+          "id": "CGEX:Haplo394",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA008351",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll088",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA008351",
-                "alleleName": "NM_000038.5(APC ):c.3386T>C"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll088"
             }
           ]
         }
       ],
       "zygosity": {
         "id": "GENO:0000135",
+        "type": "Entity",
         "label": "heterozygous"
       }
     }
@@ -769,7 +827,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno188">CG-EX:IndGeno188</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno188">CGEX:IndGeno188</a></p></td>
           <td>
               
          </td>
@@ -780,43 +838,49 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv351">CG-EX:Indiv351</a></p> (individual #019)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno397">CG-EX:Geno397</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv351">CGEX:Indiv351</a></p> (individual #019)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno397">CGEX:Geno397</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno188"><pre><code>{
-  "id": "CG-EX:IndGeno188",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno188"><pre><code>{
+  "id": "CGEX:IndGeno188",
+  "type": "IndividualGenotypeStatement",
   "individual": {
-    "id": "CG-EX:Indiv351",
+    "id": "CGEX:Indiv351",
+    "type": "Entity",
     "label": "individual #019"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno397",
+      "id": "CGEX:Geno397",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo396",
+          "id": "CGEX:Haplo396",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA013604",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll089",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA013604",
-                "alleleName": "NM_000138.4(FBN1 ):c.2956G>A"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll089"
             }
           ]
         }
       ],
       "zygosity": {
         "id": "GENO:0000135",
+        "type": "Entity",
         "label": "heterozygous"
       }
     }
@@ -827,7 +891,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno189">CG-EX:IndGeno189</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno189">CGEX:IndGeno189</a></p></td>
           <td>
               
          </td>
@@ -838,43 +902,49 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv352">CG-EX:Indiv352</a></p> (individual #020)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno399">CG-EX:Geno399</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv352">CGEX:Indiv352</a></p> (individual #020)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno399">CGEX:Geno399</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno189"><pre><code>{
-  "id": "CG-EX:IndGeno189",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno189"><pre><code>{
+  "id": "CGEX:IndGeno189",
+  "type": "IndividualGenotypeStatement",
   "individual": {
-    "id": "CG-EX:Indiv352",
+    "id": "CGEX:Indiv352",
+    "type": "Entity",
     "label": "individual #020"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno399",
+      "id": "CGEX:Geno399",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo398",
+          "id": "CGEX:Haplo398",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA013604",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll089",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA013604",
-                "alleleName": "NM_000138.4(FBN1 ):c.2956G>A"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll089"
             }
           ]
         }
       ],
       "zygosity": {
         "id": "GENO:0000135",
+        "type": "Entity",
         "label": "heterozygous"
       }
     }
@@ -885,7 +955,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno206">CG-EX:IndGeno206</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno206">CGEX:IndGeno206</a></p></td>
           <td>
               
          </td>
@@ -896,47 +966,47 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv353">CG-EX:Indiv353</a></p> (individual #021)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno401">CG-EX:Geno401</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv353">CGEX:Indiv353</a></p> (individual #021)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno401">CGEX:Geno401</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno206"><pre><code>{
-  "id": "CG-EX:IndGeno206",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno206"><pre><code>{
+  "id": "CGEX:IndGeno206",
+  "type": "IndividualGenotypeStatement",
   "individual": {
-    "id": "CG-EX:Indiv353",
+    "id": "CGEX:Indiv353",
+    "type": "Entity",
     "label": "individual #021"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno401",
+      "id": "CGEX:Geno401",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo400",
+          "id": "CGEX:Haplo400",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA143572",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll100",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA143572",
-                "alleleName": "NM_206933.2 (USH2A): c.6721C>T (p.Pro2241Ser)"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll100"
             },
             {
               "id": "CAR:CA252233",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll101",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA252233",
-                "alleleName": "NM_206933.2(USH2A):c.2276G>T"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll101"
             }
           ]
         }
@@ -949,7 +1019,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno207">CG-EX:IndGeno207</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno207">CGEX:IndGeno207</a></p></td>
           <td>
               
          </td>
@@ -960,47 +1030,47 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv354">CG-EX:Indiv354</a></p> (individual #022)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno403">CG-EX:Geno403</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv354">CGEX:Indiv354</a></p> (individual #022)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno403">CGEX:Geno403</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno207"><pre><code>{
-  "id": "CG-EX:IndGeno207",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno207"><pre><code>{
+  "id": "CGEX:IndGeno207",
+  "type": "IndividualGenotypeStatement",
   "individual": {
-    "id": "CG-EX:Indiv354",
+    "id": "CGEX:Indiv354",
+    "type": "Entity",
     "label": "individual #022"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno403",
+      "id": "CGEX:Geno403",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo402",
+          "id": "CGEX:Haplo402",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA143572",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll100",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA143572",
-                "alleleName": "NM_206933.2 (USH2A): c.6721C>T (p.Pro2241Ser)"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll100"
             },
             {
               "id": "CAR:CA252233",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll101",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA252233",
-                "alleleName": "NM_206933.2(USH2A):c.2276G>T"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll101"
             }
           ]
         }
@@ -1013,7 +1083,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno211">CG-EX:IndGeno211</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno211">CGEX:IndGeno211</a></p></td>
           <td>
               
          </td>
@@ -1024,47 +1094,47 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv355">CG-EX:Indiv355</a></p> (individual #023)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno405">CG-EX:Geno405</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv355">CGEX:Indiv355</a></p> (individual #023)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno405">CGEX:Geno405</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno211"><pre><code>{
-  "id": "CG-EX:IndGeno211",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno211"><pre><code>{
+  "id": "CGEX:IndGeno211",
+  "type": "IndividualGenotypeStatement",
   "individual": {
-    "id": "CG-EX:Indiv355",
+    "id": "CGEX:Indiv355",
+    "type": "Entity",
     "label": "individual #023"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno405",
+      "id": "CGEX:Geno405",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo404",
+          "id": "CGEX:Haplo404",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA182840",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll102",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA182840",
-                "alleleName": "NM_000492.3(CFTR): c.2002C>T"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll102"
             },
             {
               "id": "CAR:CA182839",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll103",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA182839",
-                "alleleName": "NP_000483.3:p.Gly576Ala"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll103"
             }
           ]
         }
@@ -1077,7 +1147,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno214">CG-EX:IndGeno214</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno214">CGEX:IndGeno214</a></p></td>
           <td>
               
          </td>
@@ -1088,53 +1158,53 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv356">CG-EX:Indiv356</a></p> (individual #024)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno408">CG-EX:Geno408</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv356">CGEX:Indiv356</a></p> (individual #024)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno408">CGEX:Geno408</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno214"><pre><code>{
-  "id": "CG-EX:IndGeno214",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno214"><pre><code>{
+  "id": "CGEX:IndGeno214",
+  "type": "IndividualGenotypeStatement",
   "individual": {
-    "id": "CG-EX:Indiv356",
+    "id": "CGEX:Indiv356",
+    "type": "Entity",
     "label": "individual #024"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno408",
+      "id": "CGEX:Geno408",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo406",
+          "id": "CGEX:Haplo406",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA501235",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll104",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA501235",
-                "alleleName": "NM_000257.2(MYH7): c.2559G>A"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll104"
             }
           ]
         },
         {
-          "id": "CG-EX:Haplo407",
+          "id": "CGEX:Haplo407",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA501236",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll105",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA501236",
-                "alleleName": "NM_000257.2(MYH7): c.2537A>G"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll105"
             }
           ]
         }
@@ -1147,7 +1217,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno241">CG-EX:IndGeno241</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno241">CGEX:IndGeno241</a></p></td>
           <td>
               
          </td>
@@ -1158,59 +1228,59 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv357">CG-EX:Indiv357</a></p> (individual #025)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno410">CG-EX:Geno410</a></p><p><a href="../../details/details.html#CG-EX:Geno412">CG-EX:Geno412</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv357">CGEX:Indiv357</a></p> (individual #025)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno410">CGEX:Geno410</a></p><p><a href="../../details/details.html#CGEX:Geno412">CGEX:Geno412</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno241"><pre><code>{
-  "id": "CG-EX:IndGeno241",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno241"><pre><code>{
+  "id": "CGEX:IndGeno241",
+  "type": "IndividualGenotypeStatement",
   "individual": {
-    "id": "CG-EX:Indiv357",
+    "id": "CGEX:Indiv357",
+    "type": "Entity",
     "label": "individual #025"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno410",
+      "id": "CGEX:Geno410",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo409",
+          "id": "CGEX:Haplo409",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA012381",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll112",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA012381",
-                "alleleName": "NM_000256.3(MYBPC3): c.2497G>A"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll112"
             }
           ]
         }
       ]
     },
     {
-      "id": "CG-EX:Geno412",
+      "id": "CGEX:Geno412",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo411",
+          "id": "CGEX:Haplo411",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA005304",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll113",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA005304",
-                "alleleName": "NM_000364.3(TNNT2):c.878G>A"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll113"
             }
           ]
         }
@@ -1223,7 +1293,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno244">CG-EX:IndGeno244</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno244">CGEX:IndGeno244</a></p></td>
           <td>
               
          </td>
@@ -1234,75 +1304,70 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv358">CG-EX:Indiv358</a></p> (individual #026)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno414">CG-EX:Geno414</a></p><p><a href="../../details/details.html#CG-EX:Geno417">CG-EX:Geno417</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv358">CGEX:Indiv358</a></p> (individual #026)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno414">CGEX:Geno414</a></p><p><a href="../../details/details.html#CGEX:Geno417">CGEX:Geno417</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno244"><pre><code>{
-  "id": "CG-EX:IndGeno244",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno244"><pre><code>{
+  "id": "CGEX:IndGeno244",
+  "type": "IndividualGenotypeStatement",
   "individual": {
-    "id": "CG-EX:Indiv358",
+    "id": "CGEX:Indiv358",
+    "type": "Entity",
     "label": "individual #026"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno414",
+      "id": "CGEX:Geno414",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo413",
+          "id": "CGEX:Haplo413",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA137502",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll114",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA137502",
-                "alleleName": "NM_022124.5(CDH23):c.5660C>T"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll114"
             }
           ]
         }
       ]
     },
     {
-      "id": "CG-EX:Geno417",
+      "id": "CGEX:Geno417",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo415",
+          "id": "CGEX:Haplo415",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA172240",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll115",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA172240",
-                "alleleName": "NM_004004.5(GJB2):c.71G>A"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll115"
             }
           ]
         },
         {
-          "id": "CG-EX:Haplo416",
+          "id": "CGEX:Haplo416",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA274460",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll116",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA274460",
-                "alleleName": "NM_004004.5(GJB2):c.230G>A"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll116"
             }
           ]
         }
@@ -1315,7 +1380,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno249">CG-EX:IndGeno249</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno249">CGEX:IndGeno249</a></p></td>
           <td>
               
          </td>
@@ -1326,63 +1391,64 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv359">CG-EX:Indiv359</a></p> (individual #027)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno419">CG-EX:Geno419</a></p><p><a href="../../details/details.html#CG-EX:Geno421">CG-EX:Geno421</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv359">CGEX:Indiv359</a></p> (individual #027)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno419">CGEX:Geno419</a></p><p><a href="../../details/details.html#CGEX:Geno421">CGEX:Geno421</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno249"><pre><code>{
-  "id": "CG-EX:IndGeno249",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno249"><pre><code>{
+  "id": "CGEX:IndGeno249",
+  "type": "IndividualGenotypeStatement",
   "individual": {
-    "id": "CG-EX:Indiv359",
+    "id": "CGEX:Indiv359",
+    "type": "Entity",
     "label": "individual #027"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno419",
+      "id": "CGEX:Geno419",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo418",
+          "id": "CGEX:Haplo418",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA137502",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll114",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA137502",
-                "alleleName": "NM_022124.5(CDH23):c.5660C>T"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll114"
             }
           ]
         }
       ],
       "zygosity": {
         "id": "GENO:0000136",
+        "type": "Entity",
         "label": "homozygous"
       }
     },
     {
-      "id": "CG-EX:Geno421",
+      "id": "CGEX:Geno421",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo420",
+          "id": "CGEX:Haplo420",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA277980",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll117",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA277980",
-                "alleleName": "NM_015404.3(WHRN):c.643delG"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll117"
             }
           ]
         }
@@ -1395,7 +1461,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno253">CG-EX:IndGeno253</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno253">CGEX:IndGeno253</a></p></td>
           <td>
               
          </td>
@@ -1406,59 +1472,59 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv360">CG-EX:Indiv360</a></p> (individual #028)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno423">CG-EX:Geno423</a></p><p><a href="../../details/details.html#CG-EX:Geno425">CG-EX:Geno425</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv360">CGEX:Indiv360</a></p> (individual #028)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno423">CGEX:Geno423</a></p><p><a href="../../details/details.html#CGEX:Geno425">CGEX:Geno425</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno253"><pre><code>{
-  "id": "CG-EX:IndGeno253",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno253"><pre><code>{
+  "id": "CGEX:IndGeno253",
+  "type": "IndividualGenotypeStatement",
   "individual": {
-    "id": "CG-EX:Indiv360",
+    "id": "CGEX:Indiv360",
+    "type": "Entity",
     "label": "individual #028"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno423",
+      "id": "CGEX:Geno423",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo422",
+          "id": "CGEX:Haplo422",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA204551",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll118",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA204551",
-                "alleleName": "NM_001844.4(COL2A1):c.4316C>T"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll118"
             }
           ]
         }
       ]
     },
     {
-      "id": "CG-EX:Geno425",
+      "id": "CGEX:Geno425",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo424",
+          "id": "CGEX:Haplo424",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA254703",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll119",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA254703",
-                "alleleName": "NM_000095.2(COMP):c.1042T>C"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll119"
             }
           ]
         }
@@ -1471,7 +1537,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:IndGeno366">CG-EX:IndGeno366</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:IndGeno366">CGEX:IndGeno366</a></p></td>
           <td>
               
          </td>
@@ -1482,91 +1548,81 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv361">CG-EX:Indiv361</a></p> (individual #029)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Geno428">CG-EX:Geno428</a></p><p><a href="../../details/details.html#CG-EX:Geno431">CG-EX:Geno431</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv361">CGEX:Indiv361</a></p> (individual #029)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Geno428">CGEX:Geno428</a></p><p><a href="../../details/details.html#CGEX:Geno431">CGEX:Geno431</a></p>
+         </td>
+          <td>
+              
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:IndGeno366"><pre><code>{
-  "id": "CG-EX:IndGeno366",
-  "type": "IndividualGenotype",
+          <td><div class="example_view" id="CGEX:IndGeno366"><pre><code>{
+  "id": "CGEX:IndGeno366",
+  "type": "IndividualGenotypeStatement",
   "individual": {
-    "id": "CG-EX:Indiv361",
+    "id": "CGEX:Indiv361",
+    "type": "Entity",
     "label": "individual #029"
   },
   "genotype": [
     {
-      "id": "CG-EX:Geno428",
+      "id": "CGEX:Geno428",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo426",
+          "id": "CGEX:Haplo426",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA090950",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll098",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA090950",
-                "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll098"
             }
           ]
         },
         {
-          "id": "CG-EX:Haplo427",
+          "id": "CGEX:Haplo427",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA253304",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll128",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA253304",
-                "alleleName": "NM_000441.1(SLC26A4): c.626G>T"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll128"
             }
           ]
         }
       ]
     },
     {
-      "id": "CG-EX:Geno431",
+      "id": "CGEX:Geno431",
       "type": "Genotype",
       "haplotype": [
         {
-          "id": "CG-EX:Haplo429",
+          "id": "CGEX:Haplo429",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA090950",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll098",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA090950",
-                "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll098"
             }
           ]
         },
         {
-          "id": "CG-EX:Haplo430",
+          "id": "CGEX:Haplo430",
           "type": "Haplotype",
           "allele": [
             {
               "id": "CAR:CA273665",
               "type": "CanonicalAllele",
-              "preferredCtxAllele": {
-                "id": "CG-EX:CtxAll129",
-                "type": "ContextualAllele",
-                "relatedCanonicalAllele": "CAR:CA273665",
-                "alleleName": "NM_000441.1(SLC26A4): c.1707+6T>C"
-              }
+              "relatedContextualAllele": "CGEX:CtxAll129"
             }
           ]
         }
@@ -1619,7 +1675,7 @@ window.addEventListener('load', function () {
                 <h5><a href="../../../">Interpretation Overview</a></h5>
               </li>
               <li class='list-group-item'><h5><a href="../../../user/">User Guide</a></h5></li>
-              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../">Entity Definitions</a></li><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Evidence Item</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li><a href="allele_conservation.html">AlleleConservation</a></li><li><a href="allele_conservation_score.html">AlleleConservationScore</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="allele_molecular_consequence.html">AlleleMolecularConsequence</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="in_silico_prediction_score.html">InSilicoPredictionScore</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li class="active"><a href="individual_genotype.html">IndividualGenotype</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li><a href="region_type.html">RegionType</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul><li><a href="../../json_schema.html">JSON Schema</a></li></ul></li>
+              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../">Entity Definitions</a></li><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Evidence Item</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateCosegregationStatement</a></li><li><a href="allele_conservation.html">AlleleConservationStatement</a></li><li><a href="allele_conservation_score.html">AlleleConservationScoreStatement</a></li><li><a href="allele_frequency.html">PopulationAlleleFrequencyStatement</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpactStatement</a></li><li><a href="allele_molecular_consequence.html">AlleleMolecularConsequenceStatement</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRateStatement</a></li><li><a href="case_control.html">CaseControlAlleleFrequencyStatement</a></li><li><a href="condition_mechanism.html">ConditionMechanismStatement</a></li><li><a href="condition_penetrance.html">ConditionPenetranceStatement</a></li><li><a href="condition_prevelance.html">ConditionPrevelanceStatement</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyConditionStatement</a></li><li><a href="family_segregation.html">FamilyCosegregationStatement</a></li><li><a href="in_silico_prediction.html">InSilicoPredictionStatement</a></li><li><a href="in_silico_prediction_score.html">InSilicoPredictionScoreStatement</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritanceStatement</a></li><li><a href="individual_condition.html">IndividualConditionStatement</a></li><li class="active"><a href="individual_genotype.html">IndividualGenotypeStatement</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneityStatement</a></li><li><a href="null_allele.html">NullAlleleStatement</a></li><li><a href="region_alleles.html">RegionAllelesStatement</a></li><li><a href="region_type.html">RegionTypeStatement</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul><li><a href="../../json_schema.html">JSON Schema</a></li></ul></li>
               <!-- Old style.  We might still need the model here? -->
               <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
             </ul>

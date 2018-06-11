@@ -78,6 +78,7 @@
                 <blockquote><p>A set of identifiers that can be used as the values of specific properties</p>
                 <STRONG>
                   <div>SEPIO-CG:02000</div>
+                      <i>Descended from Entity</i>
                 </STRONG>
                 </blockquote>
           </div>
@@ -110,114 +111,141 @@
             </thead>
             <tbody>
             <tr>
-                <td>description</td>
-                <td>string</td>
-                <td>0..1</td>
-                <td>Freetext description of a ValueSet</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>conceptListExtensibility</td>
+                <td>valueSetExtensibility</td>
                 <td>@id</td>
                 <td>1..1</td>
                 <td>The type of valueset is either extendsible or fixed, which determines whether or not the list of concepts defined for the value set can be extended or not when bound to specific attributes.</td>
-                <td>DC:identifier</td>
+                <td>SEPIO:0000362</td>
             </tr>
             <tr>
-                <td>sourceIdentifierSystems</td>
+                <td>valueSetIdentifierSystems</td>
                 <td>IdentifierSystem</td>
                 <td>1..*</td>
                 <td></td>
-                <td>DC:description</td>
+                <td>SEPIO:0000373</td>
             </tr>
             <tr>
                 <td>concept</td>
-                <td>DomainEntity</td>
+                <td>@id</td>
                 <td>0..*</td>
                 <td>An individual entry in a ValueSet</td>
-                <td></td>
+                <td>SEPIO-CG:70004</td>
             </tr>
             </tbody>
         </table>
 
 <!--
+    <h2>Inherited Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A name given to the resource.</td>
+                    <td>RDFS:label</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                    <td>DC:description</td>
+                </tr>
+            </tbody>
+        </table>
 -->
 
     <h2>Examples</h2>
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
+        <th>label</th>
         <th>description</th>
-        <th>conceptListExtensibility</th>
-        <th>sourceIdentifierSystems</th>
+        <th>valueSetExtensibility</th>
+        <th>valueSetIdentifierSystems</th>
         <th>concept</th>
       </tr></thead>
       <tbody>
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000363">SEPIO:0000363</a></p> (Value Set Extensibility)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000363">SEPIO:0000363</a></p> (Value Set Extensibility Value Set)</td>
+          <td>
+              <p>Value Set Extensibility Value Set</p>
+         </td>
           <td>
               <p>Whether or not a ValueSet can be extended by users</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000364">SEPIO:0000364</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys002">IdSys002</a></p> (LOINC)<p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
+              <p><a href="../../details/details.html#http://loinc.org/">http://loinc.org/</a></p> (LOINC)<p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio-clingen#">http://purl.obolibrary.org/obo/sepio-clingen#</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO-CG:02101">SEPIO-CG:02101</a></p> (fixed)<p><a href="../../details/details.html#SEPIO-CG:02102">SEPIO-CG:02102</a></p> (extensible)
+              <p><a href="../../details/details.html#SEPIO:0000364">SEPIO:0000364</a></p> (fixed)<p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p> (extensible)
          </td>
           <!--
           <td><div class="example_view" id="SEPIO:0000363"><pre><code>{
   "id": "SEPIO:0000363",
   "type": "ValueSet",
+  "label": "Value Set Extensibility Value Set",
   "description": "Whether or not a ValueSet can be extended by users",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000364"
-  },
   "concept": [
     {
-      "id": "SEPIO-CG:02101",
+      "id": "SEPIO:0000364",
+      "type": "Entity",
       "label": "fixed"
     },
     {
-      "id": "SEPIO-CG:02102",
+      "id": "SEPIO:0000365",
+      "type": "Entity",
       "label": "extensible"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys002",
+      "id": "http://loinc.org/",
       "type": "IdentifierSystem",
-      "oid": "2.16.840.1.113883.6.1",
-      "iri": "http://loinc.org/",
-      "prefix": "LN",
-      "label": "LOINC"
+      "label": "LOINC",
+      "prefix": "LOINC",
+      "urlPattern": "http://loinc.org/"
     },
     {
-      "id": "IdSys024",
+      "id": "http://purl.obolibrary.org/obo/sepio-clingen#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/clingen",
+      "label": "ClinGen extensions to SEPIO",
       "prefix": "SEPIO-CG",
-      "label": "ClinGen extensions to SEPIO"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO-CG_"
     }
-  ],
-  "label": "Value Set Extensibility"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000380">SEPIO:0000380</a></p> (Molecular Consequence)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000380">SEPIO:0000380</a></p> (Molecular Consequence Value Set)</td>
+          <td>
+              <p>Molecular Consequence Value Set</p>
+         </td>
           <td>
               <p>A classification of a genomic variant based on its effect on a transcript or its location with respect to the transcript.</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys007">IdSys007</a></p> (SequenceOntology)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/so#">http://purl.obolibrary.org/obo/so#</a></p> (Sequence Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0000159">SO:0000159</a></p> (deletion)<p><a href="../../details/details.html#SO:0000191">SO:0000191</a></p> (interior intron)<p><a href="../../details/details.html#SO:0000199">SO:0000199</a></p> (translocation)<p><a href="../../details/details.html#SO:0000203">SO:0000203</a></p> (three prime UTR)<p><a href="../../details/details.html#SO:0000204">SO:0000204</a></p> (five prime UTR)<p><a href="../../details/details.html#SO:0000507">SO:0000507</a></p> (pseudogenic exon)<p><a href="../../details/details.html#SO:0000667">SO:0000667</a></p> (insertion)<p><a href="../../details/details.html#SO:0001019">SO:0001019</a></p> (copy number variation)<p><a href="../../details/details.html#SO:0001568">SO:0001568</a></p> (splicing variant)<p><a href="../../details/details.html#SO:0001578">SO:0001578</a></p> (stop lost)<p><a href="../../details/details.html#SO:0001583">SO:0001583</a></p> (missense variant)<p><a href="../../details/details.html#SO:0001586">SO:0001586</a></p> (non conservative missense variant)<p><a href="../../details/details.html#SO:0001587">SO:0001587</a></p> (stop gained)<p><a href="../../details/details.html#SO:0001589">SO:0001589</a></p> (frameshift variant)<p><a href="../../details/details.html#SO:0001629">SO:0001629</a></p> (splice-site variant)<p><a href="../../details/details.html#SO:0001819">SO:0001819</a></p> (synonymous variant)<p><a href="../../details/details.html#SO:0001823">SO:0001823</a></p> (conservative Inframe Insertion)<p><a href="../../details/details.html#SO:0001824">SO:0001824</a></p> (disruptive inframe insertion)<p><a href="../../details/details.html#SO:0001825">SO:0001825</a></p> (conservative Inframe Deletion)<p><a href="../../details/details.html#SO:0001826">SO:0001826</a></p> (disruptive inframe deletion)<p><a href="../../details/details.html#SO:0001909">SO:0001909</a></p> (frameshift elongation)<p><a href="../../details/details.html#SO:0002007">SO:0002007</a></p> (MNV)<p><a href="../../details/details.html#SO:0002012">SO:0002012</a></p> (start lost)<p><a href="../../details/details.html#SO:0002073">SO:0002073</a></p> (no sequence alteration)<p><a href="../../details/details.html#SO:1000002">SO:1000002</a></p> (substitution)<p><a href="../../details/details.html#SO:10000032">SO:10000032</a></p> (indel)<p><a href="../../details/details.html#SO:1000036">SO:1000036</a></p> (inversion)
@@ -226,206 +254,237 @@
           <td><div class="example_view" id="SEPIO:0000380"><pre><code>{
   "id": "SEPIO:0000380",
   "type": "ValueSet",
+  "label": "Molecular Consequence Value Set",
   "description": "A classification of a genomic variant based on its effect on a transcript or its location with respect to the transcript.",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "SO:0000159",
+      "type": "Entity",
       "label": "deletion"
     },
     {
       "id": "SO:0000191",
+      "type": "Entity",
       "label": "interior intron"
     },
     {
       "id": "SO:0000199",
+      "type": "Entity",
       "label": "translocation"
     },
     {
       "id": "SO:0000203",
+      "type": "Entity",
       "label": "three prime UTR"
     },
     {
       "id": "SO:0000204",
+      "type": "Entity",
       "label": "five prime UTR"
     },
     {
       "id": "SO:0000507",
+      "type": "Entity",
       "label": "pseudogenic exon"
     },
     {
       "id": "SO:0000667",
+      "type": "Entity",
       "label": "insertion"
     },
     {
       "id": "SO:0001019",
+      "type": "Entity",
       "label": "copy number variation"
     },
     {
       "id": "SO:0001568",
+      "type": "Entity",
       "label": "splicing variant"
     },
     {
       "id": "SO:0001578",
+      "type": "Entity",
       "label": "stop lost"
     },
     {
       "id": "SO:0001583",
+      "type": "Entity",
       "label": "missense variant"
     },
     {
       "id": "SO:0001586",
+      "type": "Entity",
       "label": "non conservative missense variant"
     },
     {
       "id": "SO:0001587",
+      "type": "Entity",
       "label": "stop gained"
     },
     {
       "id": "SO:0001589",
+      "type": "Entity",
       "label": "frameshift variant"
     },
     {
       "id": "SO:0001629",
+      "type": "Entity",
       "label": "splice-site variant"
     },
     {
       "id": "SO:0001819",
+      "type": "Entity",
       "label": "synonymous variant"
     },
     {
       "id": "SO:0001823",
+      "type": "Entity",
       "label": "conservative Inframe Insertion"
     },
     {
       "id": "SO:0001824",
+      "type": "Entity",
       "label": "disruptive inframe insertion"
     },
     {
       "id": "SO:0001825",
+      "type": "Entity",
       "label": "conservative Inframe Deletion"
     },
     {
       "id": "SO:0001826",
+      "type": "Entity",
       "label": "disruptive inframe deletion"
     },
     {
       "id": "SO:0001909",
+      "type": "Entity",
       "label": "frameshift elongation"
     },
     {
       "id": "SO:0002007",
+      "type": "Entity",
       "label": "MNV"
     },
     {
       "id": "SO:0002012",
+      "type": "Entity",
       "label": "start lost"
     },
     {
       "id": "SO:0002073",
+      "type": "Entity",
       "label": "no sequence alteration"
     },
     {
       "id": "SO:1000002",
+      "type": "Entity",
       "label": "substitution"
     },
     {
       "id": "SO:10000032",
+      "type": "Entity",
       "label": "indel"
     },
     {
       "id": "SO:1000036",
+      "type": "Entity",
       "label": "inversion"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys007",
+      "id": "http://purl.obolibrary.org/obo/so#",
       "type": "IdentifierSystem",
-      "iri": "http://sequenceontology.org/",
+      "label": "Sequence Ontology",
       "prefix": "SO",
-      "label": "SequenceOntology"
+      "urlPattern": "http://purl.obolibrary.org/obo/SO_"
     }
-  ],
-  "label": "Molecular Consequence"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000371">SEPIO:0000371</a></p> (Clinical Significance)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000371">SEPIO:0000371</a></p> (Clinical Significance Value Set)</td>
+          <td>
+              <p>Clinical Significance Value Set</p>
+         </td>
           <td>
               <p>The role that a variant plays in the causing a genetic condition
 (see LOINC answer list https://r.details.loinc.org/AnswerList/LL4034-6.html)</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000364">SEPIO:0000364</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys002">IdSys002</a></p> (LOINC)
+              <p><a href="../../details/details.html#http://loinc.org/">http://loinc.org/</a></p> (LOINC)
          </td>
           <td>
-              <p><a href="../../details/details.html#LN:LA26332-9">LN:LA26332-9</a></p> (Likely Pathogenic)<p><a href="../../details/details.html#LN:LA26333-7">LN:LA26333-7</a></p> (Uncertain Significance)<p><a href="../../details/details.html#LN:LA26334-5">LN:LA26334-5</a></p> (Likely Benign)<p><a href="../../details/details.html#LN:LA6668-3">LN:LA6668-3</a></p> (Pathogenic)<p><a href="../../details/details.html#LN:LA6675-8">LN:LA6675-8</a></p> (Benign)
+              <p><a href="../../details/details.html#LOINC:LA26332-9">LOINC:LA26332-9</a></p> (Likely Pathogenic)<p><a href="../../details/details.html#LOINC:LA26333-7">LOINC:LA26333-7</a></p> (Uncertain Significance)<p><a href="../../details/details.html#LOINC:LA26334-5">LOINC:LA26334-5</a></p> (Likely Benign)<p><a href="../../details/details.html#LOINC:LA6668-3">LOINC:LA6668-3</a></p> (Pathogenic)<p><a href="../../details/details.html#LOINC:LA6675-8">LOINC:LA6675-8</a></p> (Benign)
          </td>
           <!--
           <td><div class="example_view" id="SEPIO:0000371"><pre><code>{
   "id": "SEPIO:0000371",
   "type": "ValueSet",
+  "label": "Clinical Significance Value Set",
   "description": "The role that a variant plays in the causing a genetic condition\n(see LOINC answer list https://r.details.loinc.org/AnswerList/LL4034-6.html)",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000364"
-  },
   "concept": [
     {
-      "id": "LN:LA26332-9",
+      "id": "LOINC:LA26332-9",
+      "type": "Entity",
       "label": "Likely Pathogenic"
     },
     {
-      "id": "LN:LA26333-7",
+      "id": "LOINC:LA26333-7",
+      "type": "Entity",
       "label": "Uncertain Significance"
     },
     {
-      "id": "LN:LA26334-5",
+      "id": "LOINC:LA26334-5",
+      "type": "Entity",
       "label": "Likely Benign"
     },
     {
-      "id": "LN:LA6668-3",
+      "id": "LOINC:LA6668-3",
+      "type": "Entity",
       "label": "Pathogenic"
     },
     {
-      "id": "LN:LA6675-8",
+      "id": "LOINC:LA6675-8",
+      "type": "Entity",
       "label": "Benign"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys002",
+      "id": "http://loinc.org/",
       "type": "IdentifierSystem",
-      "oid": "2.16.840.1.113883.6.1",
-      "iri": "http://loinc.org/",
-      "prefix": "LN",
-      "label": "LOINC"
+      "label": "LOINC",
+      "prefix": "LOINC",
+      "urlPattern": "http://loinc.org/"
     }
-  ],
-  "label": "Clinical Significance"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000343">SEPIO:0000343</a></p> (Region Annotation)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000343">SEPIO:0000343</a></p> (Region Annotation Value Set)</td>
+          <td>
+              <p>Region Annotation Value Set</p>
+         </td>
           <td>
               <p>A label applied to a sequence region</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys007">IdSys007</a></p> (SequenceOntology)<p><a href="../../details/details.html#IdSys023">IdSys023</a></p> (Scientific Evidence Provenance Information Ontology)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/so#">http://purl.obolibrary.org/obo/so#</a></p> (Sequence Ontology)<p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio#">http://purl.obolibrary.org/obo/sepio#</a></p> (Scientific Evidence Provenance Information Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0002188">SO:0002188</a></p> (functional region)<p><a href="../../details/details.html#SO:0002186">SO:0002186</a></p> (mutational hotspot)<p><a href="../../details/details.html#SO:0000657">SO:0000657</a></p> (repeat region )
@@ -434,56 +493,59 @@
           <td><div class="example_view" id="SEPIO:0000343"><pre><code>{
   "id": "SEPIO:0000343",
   "type": "ValueSet",
+  "label": "Region Annotation Value Set",
   "description": "A label applied to a sequence region",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "SO:0002188",
+      "type": "Entity",
       "label": "functional region"
     },
     {
       "id": "SO:0002186",
+      "type": "Entity",
       "label": "mutational hotspot"
     },
     {
       "id": "SO:0000657",
+      "type": "Entity",
       "label": "repeat region "
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys007",
+      "id": "http://purl.obolibrary.org/obo/so#",
       "type": "IdentifierSystem",
-      "iri": "http://sequenceontology.org/",
+      "label": "Sequence Ontology",
       "prefix": "SO",
-      "label": "SequenceOntology"
+      "urlPattern": "http://purl.obolibrary.org/obo/SO_"
     },
     {
-      "id": "IdSys023",
+      "id": "http://purl.obolibrary.org/obo/sepio#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/",
+      "label": "Scientific Evidence Provenance Information Ontology",
       "prefix": "SEPIO",
-      "label": "Scientific Evidence Provenance Information Ontology"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO_"
     }
-  ],
-  "label": "Region Annotation"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000344">SEPIO:0000344</a></p> (Allelic Phase)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000344">SEPIO:0000344</a></p> (Allelic Phase Value Set)</td>
+          <td>
+              <p>Allelic Phase Value Set</p>
+         </td>
           <td>
               <p>Value denoting whether sequence features lie on the same or different molecules</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys022">IdSys022</a></p> (GENO)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/geno#">http://purl.obolibrary.org/obo/geno#</a></p> (GENO)
          </td>
           <td>
               <p><a href="../../details/details.html#GENO:0000131">GENO:0000131</a></p> (in cis)<p><a href="../../details/details.html#GENO:0000132">GENO:0000132</a></p> (in trans)
@@ -492,46 +554,48 @@
           <td><div class="example_view" id="SEPIO:0000344"><pre><code>{
   "id": "SEPIO:0000344",
   "type": "ValueSet",
+  "label": "Allelic Phase Value Set",
   "description": "Value denoting whether sequence features lie on the same or different molecules",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "GENO:0000131",
+      "type": "Entity",
       "label": "in cis"
     },
     {
       "id": "GENO:0000132",
+      "type": "Entity",
       "label": "in trans"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys022",
+      "id": "http://purl.obolibrary.org/obo/geno#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/geno/",
+      "label": "GENO",
       "prefix": "GENO",
-      "label": "GENO"
+      "urlPattern": "http://purl.obolibrary.org/obo/GENO_"
     }
-  ],
-  "label": "Allelic Phase"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000338">SEPIO:0000338</a></p> (Allelic State)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000338">SEPIO:0000338</a></p> (Allelic State Value Set)</td>
+          <td>
+              <p>Allelic State Value Set</p>
+         </td>
           <td>
               <p>Describes the existence of an allele across multiple copies of a chromosome
 (Informed by LOINC answer list https://r.details.loinc.org/AnswerList/LL381-5.html but with additional codes for somatic mosaicism and asserted absence.)</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys022">IdSys022</a></p> (GENO)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/geno#">http://purl.obolibrary.org/obo/geno#</a></p> (GENO)
          </td>
           <td>
               <p><a href="../../details/details.html#GENO:0000134">GENO:0000134</a></p> (hemizygous)<p><a href="../../details/details.html#GENO:0000135">GENO:0000135</a></p> (heterozygous)<p><a href="../../details/details.html#GENO:0000136">GENO:0000136</a></p> (homozygous)<p><a href="../../details/details.html#GENO:0000137">GENO:0000137</a></p> (unspecified zygosity)<p><a href="../../details/details.html#GENO:0000602">GENO:0000602</a></p> (homoplasmic)<p><a href="../../details/details.html#GENO:0000603">GENO:0000603</a></p> (heteroplasmic)<p><a href="../../details/details.html#GENO:0000882">GENO:0000882</a></p> (somatic)
@@ -540,66 +604,73 @@
           <td><div class="example_view" id="SEPIO:0000338"><pre><code>{
   "id": "SEPIO:0000338",
   "type": "ValueSet",
+  "label": "Allelic State Value Set",
   "description": "Describes the existence of an allele across multiple copies of a chromosome\n(Informed by LOINC answer list https://r.details.loinc.org/AnswerList/LL381-5.html but with additional codes for somatic mosaicism and asserted absence.)",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "GENO:0000134",
+      "type": "Entity",
       "label": "hemizygous"
     },
     {
       "id": "GENO:0000135",
+      "type": "Entity",
       "label": "heterozygous"
     },
     {
       "id": "GENO:0000136",
+      "type": "Entity",
       "label": "homozygous"
     },
     {
       "id": "GENO:0000137",
+      "type": "Entity",
       "label": "unspecified zygosity"
     },
     {
       "id": "GENO:0000602",
+      "type": "Entity",
       "label": "homoplasmic"
     },
     {
       "id": "GENO:0000603",
+      "type": "Entity",
       "label": "heteroplasmic"
     },
     {
       "id": "GENO:0000882",
+      "type": "Entity",
       "label": "somatic"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys022",
+      "id": "http://purl.obolibrary.org/obo/geno#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/geno/",
+      "label": "GENO",
       "prefix": "GENO",
-      "label": "GENO"
+      "urlPattern": "http://purl.obolibrary.org/obo/GENO_"
     }
-  ],
-  "label": "Allelic State"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000416">SEPIO:0000416</a></p> (Inheritance Pattern)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000416">SEPIO:0000416</a></p> (Inheritance Pattern Value Set)</td>
+          <td>
+              <p>Inheritance Pattern Value Set</p>
+         </td>
           <td>
               <p>Classifies the transmission pattern of a condition in a pedigree.
 (see LOINC Answer List https://r.details.loinc.org/AnswerList/LL3731-8.html)</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys016">IdSys016</a></p> (HumanPhenotypeOntology)<p><a href="../../details/details.html#IdSys022">IdSys022</a></p> (GENO)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/hp#">http://purl.obolibrary.org/obo/hp#</a></p> (Human Phenotype Ontology)<p><a href="../../details/details.html#http://purl.obolibrary.org/obo/geno#">http://purl.obolibrary.org/obo/geno#</a></p> (GENO)
          </td>
           <td>
               <p><a href="../../details/details.html#GENO:0000143">GENO:0000143</a></p> (Codominant)<p><a href="../../details/details.html#GENO:0000889">GENO:0000889</a></p> (unknown inheritance)<p><a href="../../details/details.html#GENO:0000892">GENO:0000892</a></p> (Heteroplasmic mitochondrial inheritance)<p><a href="../../details/details.html#GENO:0000893">GENO:0000893</a></p> (Homoplasmic mitochondrial inheritance)<p><a href="../../details/details.html#HP:0000006">HP:0000006</a></p> (Autosomal Dominant)<p><a href="../../details/details.html#HP:0000007">HP:0000007</a></p> (Autosomal Recessive)<p><a href="../../details/details.html#HP:0001417">HP:0001417</a></p> (X linked inheritance)<p><a href="../../details/details.html#HP:0001419">HP:0001419</a></p> (X linked recessive inheritance)<p><a href="../../details/details.html#HP:0001423">HP:0001423</a></p> (X-linked dominant inheritance)<p><a href="../../details/details.html#HP:0001426">HP:0001426</a></p> (Multifactorial inheritance)<p><a href="../../details/details.html#HP:0001427">HP:0001427</a></p> (Mitochondrial inheritance)<p><a href="../../details/details.html#HP:0001428">HP:0001428</a></p> (Somatic mutation)<p><a href="../../details/details.html#HP:0001450">HP:0001450</a></p> (Y linked inheritance)<p><a href="../../details/details.html#HP:0001470">HP:0001470</a></p> (Sex-limited autosomal dominant)<p><a href="../../details/details.html#HP:0003743">HP:0003743</a></p> (genetic anticipation)<p><a href="../../details/details.html#HP:0003745">HP:0003745</a></p> (Sporadic)<p><a href="../../details/details.html#HP:0010983">HP:0010983</a></p> (Oligogenic)<p><a href="../../details/details.html#HP:0012274">HP:0012274</a></p> (Autosomal dominant inheritance with paternal imprinting)<p><a href="../../details/details.html#HP:0012275">HP:0012275</a></p> (Autosomal dominant inheritance with maternal imprinting)<p><a href="../../details/details.html#HP:0025352">HP:0025352</a></p> (autosomal dominant germline de novo mutation)<p><a href="../../details/details.html#HP:0031362">HP:0031362</a></p> (Sex-limited autosomal recessive inheritance)
@@ -608,128 +679,149 @@
           <td><div class="example_view" id="SEPIO:0000416"><pre><code>{
   "id": "SEPIO:0000416",
   "type": "ValueSet",
+  "label": "Inheritance Pattern Value Set",
   "description": "Classifies the transmission pattern of a condition in a pedigree.\n(see LOINC Answer List https://r.details.loinc.org/AnswerList/LL3731-8.html)",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "GENO:0000143",
+      "type": "Entity",
       "label": "Codominant"
     },
     {
       "id": "GENO:0000889",
+      "type": "Entity",
       "label": "unknown inheritance"
     },
     {
       "id": "GENO:0000892",
+      "type": "Entity",
       "label": "Heteroplasmic mitochondrial inheritance"
     },
     {
       "id": "GENO:0000893",
+      "type": "Entity",
       "label": "Homoplasmic mitochondrial inheritance"
     },
     {
       "id": "HP:0000006",
+      "type": "Entity",
       "label": "Autosomal Dominant"
     },
     {
       "id": "HP:0000007",
+      "type": "Entity",
       "label": "Autosomal Recessive"
     },
     {
       "id": "HP:0001417",
+      "type": "Entity",
       "label": "X linked inheritance"
     },
     {
       "id": "HP:0001419",
+      "type": "Entity",
       "label": "X linked recessive inheritance"
     },
     {
       "id": "HP:0001423",
+      "type": "Entity",
       "label": "X-linked dominant inheritance"
     },
     {
       "id": "HP:0001426",
+      "type": "Entity",
       "label": "Multifactorial inheritance"
     },
     {
       "id": "HP:0001427",
+      "type": "Entity",
       "label": "Mitochondrial inheritance"
     },
     {
       "id": "HP:0001428",
+      "type": "Entity",
       "label": "Somatic mutation"
     },
     {
       "id": "HP:0001450",
+      "type": "Entity",
       "label": "Y linked inheritance"
     },
     {
       "id": "HP:0001470",
+      "type": "Entity",
       "label": "Sex-limited autosomal dominant"
     },
     {
       "id": "HP:0003743",
+      "type": "Entity",
       "label": "genetic anticipation"
     },
     {
       "id": "HP:0003745",
+      "type": "Entity",
       "label": "Sporadic"
     },
     {
       "id": "HP:0010983",
+      "type": "Entity",
       "label": "Oligogenic"
     },
     {
       "id": "HP:0012274",
+      "type": "Entity",
       "label": "Autosomal dominant inheritance with paternal imprinting"
     },
     {
       "id": "HP:0012275",
+      "type": "Entity",
       "label": "Autosomal dominant inheritance with maternal imprinting"
     },
     {
       "id": "HP:0025352",
+      "type": "Entity",
       "label": "autosomal dominant germline de novo mutation"
     },
     {
       "id": "HP:0031362",
+      "type": "Entity",
       "label": "Sex-limited autosomal recessive inheritance"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys016",
+      "id": "http://purl.obolibrary.org/obo/hp#",
       "type": "IdentifierSystem",
-      "iri": "http://human-phenotype-ontology.github.io/",
+      "label": "Human Phenotype Ontology",
       "prefix": "HP",
-      "label": "HumanPhenotypeOntology"
+      "urlPattern": "http://purl.obolibrary.org/obo/HP_"
     },
     {
-      "id": "IdSys022",
+      "id": "http://purl.obolibrary.org/obo/geno#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/geno/",
+      "label": "GENO",
       "prefix": "GENO",
-      "label": "GENO"
+      "urlPattern": "http://purl.obolibrary.org/obo/GENO_"
     }
-  ],
-  "label": "Inheritance Pattern"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO-CG:65108">SEPIO-CG:65108</a></p> (Mechanism)</td>
+          <td><p><a href="../../details/details.html#SEPIO-CG:65108">SEPIO-CG:65108</a></p> (Condition Mechanism Value Set)</td>
+          <td>
+              <p>Condition Mechanism Value Set</p>
+         </td>
           <td>
               <p>The particular type of allele that can lead to a condition</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys007">IdSys007</a></p> (SequenceOntology)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/so#">http://purl.obolibrary.org/obo/so#</a></p> (Sequence Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001583">SO:0001583</a></p> (missense variant)<p><a href="../../details/details.html#SO:0002054">SO:0002054</a></p> (loss of function variant)
@@ -738,45 +830,47 @@
           <td><div class="example_view" id="SEPIO-CG:65108"><pre><code>{
   "id": "SEPIO-CG:65108",
   "type": "ValueSet",
+  "label": "Condition Mechanism Value Set",
   "description": "The particular type of allele that can lead to a condition",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "SO:0001583",
+      "type": "Entity",
       "label": "missense variant"
     },
     {
       "id": "SO:0002054",
+      "type": "Entity",
       "label": "loss of function variant"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys007",
+      "id": "http://purl.obolibrary.org/obo/so#",
       "type": "IdentifierSystem",
-      "iri": "http://sequenceontology.org/",
+      "label": "Sequence Ontology",
       "prefix": "SO",
-      "label": "SequenceOntology"
+      "urlPattern": "http://purl.obolibrary.org/obo/SO_"
     }
-  ],
-  "label": "Mechanism"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000345">SEPIO:0000345</a></p> (In Silico Prediction Method)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000345">SEPIO:0000345</a></p> (In Silico Prediction Method Value Set)</td>
+          <td>
+              <p>In Silico Prediction Method Value Set</p>
+         </td>
           <td>
               <p>The type of InSilico Predictor</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p> (Scientific Evidence Provenance Information Ontology)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio#">http://purl.obolibrary.org/obo/sepio#</a></p> (Scientific Evidence Provenance Information Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000322">SEPIO:0000322</a></p> (missense effect)<p><a href="../../details/details.html#SEPIO:0000323">SEPIO:0000323</a></p> (splicing prediction)
@@ -785,45 +879,47 @@
           <td><div class="example_view" id="SEPIO:0000345"><pre><code>{
   "id": "SEPIO:0000345",
   "type": "ValueSet",
+  "label": "In Silico Prediction Method Value Set",
   "description": "The type of InSilico Predictor",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "SEPIO:0000322",
+      "type": "Entity",
       "label": "missense effect"
     },
     {
       "id": "SEPIO:0000323",
+      "type": "Entity",
       "label": "splicing prediction"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys023",
+      "id": "http://purl.obolibrary.org/obo/sepio#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/",
+      "label": "Scientific Evidence Provenance Information Ontology",
       "prefix": "SEPIO",
-      "label": "Scientific Evidence Provenance Information Ontology"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO_"
     }
-  ],
-  "label": "In Silico Prediction Method"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000347">SEPIO:0000347</a></p> (Criterion Assessment Outcome)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000347">SEPIO:0000347</a></p> (Criterion Assessment Outcome Value Set)</td>
+          <td>
+              <p>Criterion Assessment Outcome Value Set</p>
+         </td>
           <td>
               <p>Denotes whether the collected evidence is sufficient to meet a specified criteria or not</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p> (Scientific Evidence Provenance Information Ontology)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio#">http://purl.obolibrary.org/obo/sepio#</a></p> (Scientific Evidence Provenance Information Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000223">SEPIO:0000223</a></p> (Met)<p><a href="../../details/details.html#SEPIO:0000224">SEPIO:0000224</a></p> (Not Met)
@@ -832,331 +928,385 @@
           <td><div class="example_view" id="SEPIO:0000347"><pre><code>{
   "id": "SEPIO:0000347",
   "type": "ValueSet",
+  "label": "Criterion Assessment Outcome Value Set",
   "description": "Denotes whether the collected evidence is sufficient to meet a specified criteria or not",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "SEPIO:0000223",
+      "type": "Entity",
       "label": "Met"
     },
     {
       "id": "SEPIO:0000224",
+      "type": "Entity",
       "label": "Not Met"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys023",
+      "id": "http://purl.obolibrary.org/obo/sepio#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/",
+      "label": "Scientific Evidence Provenance Information Ontology",
       "prefix": "SEPIO",
-      "label": "Scientific Evidence Provenance Information Ontology"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO_"
     }
-  ],
-  "label": "Criterion Assessment Outcome"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000382">SEPIO:0000382</a></p> (Functional Assay)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000382">SEPIO:0000382</a></p> (Allele Functional Assay Value Set)</td>
+          <td>
+              <p>Allele Functional Assay Value Set</p>
+         </td>
           <td>
               <p>The functional measurement carried out in a given assay</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys025">IdSys025</a></p> (OBI)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/obi#">http://purl.obolibrary.org/obo/obi#</a></p> (OBI)
          </td>
           <td>
-              <p><a href="../../details/details.html#AFAMID076">AFAMID076</a></p> (Activation Assay)<p><a href="../../details/details.html#AFAMID077">AFAMID077</a></p> (ATPase assay)<p><a href="../../details/details.html#AFAMID078">AFAMID078</a></p> (Binding assay)<p><a href="../../details/details.html#AFAMID079">AFAMID079</a></p> (cellular localization)<p><a href="../../details/details.html#AFAMID080">AFAMID080</a></p> (Elk1 pohsphorylation via luciferase assay)<p><a href="../../details/details.html#AFAMID081">AFAMID081</a></p> (iodide efflux)<p><a href="../../details/details.html#AFAMID082">AFAMID082</a></p> (motility assay)<p><a href="../../details/details.html#AFAMID083">AFAMID083</a></p> (neurite outgrowth)<p><a href="../../details/details.html#AFAMID084">AFAMID084</a></p> (Yeast complementation assay)
+              <p><a href="../../details/details.html#CGEX:AFAMID076">CGEX:AFAMID076</a></p> (Activation Assay)<p><a href="../../details/details.html#CGEX:AFAMID077">CGEX:AFAMID077</a></p> (ATPase assay)<p><a href="../../details/details.html#CGEX:AFAMID078">CGEX:AFAMID078</a></p> (Binding assay)<p><a href="../../details/details.html#CGEX:AFAMID079">CGEX:AFAMID079</a></p> (cellular localization)<p><a href="../../details/details.html#CGEX:AFAMID080">CGEX:AFAMID080</a></p> (Elk1 pohsphorylation via luciferase assay)<p><a href="../../details/details.html#CGEX:AFAMID081">CGEX:AFAMID081</a></p> (iodide efflux)<p><a href="../../details/details.html#CGEX:AFAMID082">CGEX:AFAMID082</a></p> (motility assay)<p><a href="../../details/details.html#CGEX:AFAMID083">CGEX:AFAMID083</a></p> (neurite outgrowth)<p><a href="../../details/details.html#CGEX:AFAMID084">CGEX:AFAMID084</a></p> (Yeast complementation assay)
          </td>
           <!--
           <td><div class="example_view" id="SEPIO:0000382"><pre><code>{
   "id": "SEPIO:0000382",
   "type": "ValueSet",
+  "label": "Allele Functional Assay Value Set",
   "description": "The functional measurement carried out in a given assay",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
-      "id": "AFAMID076",
+      "id": "CGEX:AFAMID076",
+      "type": "Entity",
       "label": "Activation Assay"
     },
     {
-      "id": "AFAMID077",
+      "id": "CGEX:AFAMID077",
+      "type": "Entity",
       "label": "ATPase assay"
     },
     {
-      "id": "AFAMID078",
+      "id": "CGEX:AFAMID078",
+      "type": "Entity",
       "label": "Binding assay"
     },
     {
-      "id": "AFAMID079",
+      "id": "CGEX:AFAMID079",
+      "type": "Entity",
       "label": "cellular localization"
     },
     {
-      "id": "AFAMID080",
+      "id": "CGEX:AFAMID080",
+      "type": "Entity",
       "label": "Elk1 pohsphorylation via luciferase assay"
     },
     {
-      "id": "AFAMID081",
+      "id": "CGEX:AFAMID081",
+      "type": "Entity",
       "label": "iodide efflux"
     },
     {
-      "id": "AFAMID082",
+      "id": "CGEX:AFAMID082",
+      "type": "Entity",
       "label": "motility assay"
     },
     {
-      "id": "AFAMID083",
+      "id": "CGEX:AFAMID083",
+      "type": "Entity",
       "label": "neurite outgrowth"
     },
     {
-      "id": "AFAMID084",
+      "id": "CGEX:AFAMID084",
+      "type": "Entity",
       "label": "Yeast complementation assay"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys025",
+      "id": "http://purl.obolibrary.org/obo/obi#",
       "type": "IdentifierSystem",
-      "iri": "http://purl.obolibrary.org/obo/OBI_",
+      "label": "OBI",
       "prefix": "OBI",
-      "label": "OBI"
+      "urlPattern": "http://purl.obolibrary.org/obo/OBI_"
     }
-  ],
-  "label": "Functional Assay"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO-CG:65112">SEPIO-CG:65112</a></p> (Population)</td>
+          <td><p><a href="../../details/details.html#SEPIO-CG:65112">SEPIO-CG:65112</a></p> (Population Value Set)</td>
+          <td>
+              <p>Population Value Set</p>
+         </td>
           <td>
               <p>Label for a group of individuals with a shared genetic background</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys027">IdSys027</a></p> (NCI Thesarus)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/ncit#">http://purl.obolibrary.org/obo/ncit#</a></p> (NCI Thesarus)
          </td>
           <td>
-              <p><a href="../../details/details.html#BROAD-population-type:afr">BROAD-population-type:afr</a></p> (African/African American)<p><a href="../../details/details.html#BROAD-population-type:amr">BROAD-population-type:amr</a></p> (Latino)<p><a href="../../details/details.html#BROAD-population-type:asj">BROAD-population-type:asj</a></p> (Ashkenazi Jewish)<p><a href="../../details/details.html#BROAD-population-type:eas">BROAD-population-type:eas</a></p> (East Asian)<p><a href="../../details/details.html#BROAD-population-type:fin">BROAD-population-type:fin</a></p> (Finnish)<p><a href="../../details/details.html#BROAD-population-type:nfe">BROAD-population-type:nfe</a></p> (Non-Finnish European)<p><a href="../../details/details.html#BROAD-population-type:oth">BROAD-population-type:oth</a></p> (Other)<p><a href="../../details/details.html#BROAD-population-type:sas">BROAD-population-type:sas</a></p> (South Asian)<p><a href="../../details/details.html#ESP-population-type:AA">ESP-population-type:AA</a></p> (African-American)<p><a href="../../details/details.html#ESP-population-type:EA">ESP-population-type:EA</a></p> (European-American)<p><a href="../../details/details.html#IGSR-population-type:acb">IGSR-population-type:acb</a></p> (African Caribbeans in Barbados)<p><a href="../../details/details.html#IGSR-population-type:afr">IGSR-population-type:afr</a></p> (African)<p><a href="../../details/details.html#IGSR-population-type:amr">IGSR-population-type:amr</a></p> (Ad Mixed American)<p><a href="../../details/details.html#IGSR-population-type:asw">IGSR-population-type:asw</a></p> (Americans of African Ancestry in SW USA)<p><a href="../../details/details.html#IGSR-population-type:beb">IGSR-population-type:beb</a></p> (Bengali from Bangladesh)<p><a href="../../details/details.html#IGSR-population-type:cdx">IGSR-population-type:cdx</a></p> (Chinese Dai in Xishuangbanna, China)<p><a href="../../details/details.html#IGSR-population-type:ceu">IGSR-population-type:ceu</a></p> (Utah Residents (CEPH) with Northern and Western European Ancestry)<p><a href="../../details/details.html#IGSR-population-type:chb">IGSR-population-type:chb</a></p> (Han Chinese in Bejing, China)<p><a href="../../details/details.html#IGSR-population-type:chs">IGSR-population-type:chs</a></p> (Southern Han Chinese)<p><a href="../../details/details.html#IGSR-population-type:clm">IGSR-population-type:clm</a></p> (Colombians from Medellin, Colombia)<p><a href="../../details/details.html#IGSR-population-type:eas">IGSR-population-type:eas</a></p> (East Asian)<p><a href="../../details/details.html#IGSR-population-type:esn">IGSR-population-type:esn</a></p> (Esan in Nigeria)<p><a href="../../details/details.html#IGSR-population-type:eur">IGSR-population-type:eur</a></p> (European)<p><a href="../../details/details.html#IGSR-population-type:fin">IGSR-population-type:fin</a></p> (Finnish in Finland)<p><a href="../../details/details.html#IGSR-population-type:gbr">IGSR-population-type:gbr</a></p> (British in England and Scotland)<p><a href="../../details/details.html#IGSR-population-type:gih">IGSR-population-type:gih</a></p> (Gujarati Indian from Houston, Texas)<p><a href="../../details/details.html#IGSR-population-type:gwd">IGSR-population-type:gwd</a></p> (Gambian in Western Divisions in the Gambia)<p><a href="../../details/details.html#IGSR-population-type:ibs">IGSR-population-type:ibs</a></p> (Iberian Population in Spain)<p><a href="../../details/details.html#IGSR-population-type:itu">IGSR-population-type:itu</a></p> (Indian Telugu from the UK)<p><a href="../../details/details.html#IGSR-population-type:jpt">IGSR-population-type:jpt</a></p> (Japanese in Tokyo, Japan)<p><a href="../../details/details.html#IGSR-population-type:khv">IGSR-population-type:khv</a></p> (Kinh in Ho Chi Minh City, Vietnam)<p><a href="../../details/details.html#IGSR-population-type:lwk">IGSR-population-type:lwk</a></p> (Luhya in Webuye, Kenya)<p><a href="../../details/details.html#IGSR-population-type:msl">IGSR-population-type:msl</a></p> (Mende in Sierra Leone)<p><a href="../../details/details.html#IGSR-population-type:mxl">IGSR-population-type:mxl</a></p> (Mexican Ancestry from Los Angeles USA)<p><a href="../../details/details.html#IGSR-population-type:pel">IGSR-population-type:pel</a></p> (Peruvians from Lima, Peru)<p><a href="../../details/details.html#IGSR-population-type:pjl">IGSR-population-type:pjl</a></p> (Punjabi from Lahore, Pakistan)<p><a href="../../details/details.html#IGSR-population-type:pur">IGSR-population-type:pur</a></p> (Puerto Ricans from Puerto Rico)<p><a href="../../details/details.html#IGSR-population-type:sas">IGSR-population-type:sas</a></p> (South Asian)<p><a href="../../details/details.html#IGSR-population-type:stu">IGSR-population-type:stu</a></p> (Sri Lankan Tamil from the UK)<p><a href="../../details/details.html#IGSR-population-type:tsi">IGSR-population-type:tsi</a></p> (Toscani in Italia)<p><a href="../../details/details.html#IGSR-population-type:yri">IGSR-population-type:yri</a></p> (Yoruba in Ibadan, Nigeria)<p><a href="../../details/details.html#SEPIO-CG:98001">SEPIO-CG:98001</a></p> (Combined)<p><a href="../../details/details.html#SEPIO-CG:98002">SEPIO-CG:98002</a></p> (Overall)
+              <p><a href="../../details/details.html#GNOMAD:afr">GNOMAD:afr</a></p> (African/African American)<p><a href="../../details/details.html#GNOMAD:amr">GNOMAD:amr</a></p> (Latino)<p><a href="../../details/details.html#GNOMAD:asj">GNOMAD:asj</a></p> (Ashkenazi Jewish)<p><a href="../../details/details.html#GNOMAD:eas">GNOMAD:eas</a></p> (East Asian)<p><a href="../../details/details.html#GNOMAD:fin">GNOMAD:fin</a></p> (Finnish)<p><a href="../../details/details.html#GNOMAD:nfe">GNOMAD:nfe</a></p> (Non-Finnish European)<p><a href="../../details/details.html#GNOMAD:oth">GNOMAD:oth</a></p> (Other)<p><a href="../../details/details.html#GNOMAD:sas">GNOMAD:sas</a></p> (South Asian)<p><a href="../../details/details.html#EVS:AA">EVS:AA</a></p> (African-American)<p><a href="../../details/details.html#EVS:EA">EVS:EA</a></p> (European-American)<p><a href="../../details/details.html#IGSR:acb">IGSR:acb</a></p> (African Caribbeans in Barbados)<p><a href="../../details/details.html#IGSR:afr">IGSR:afr</a></p> (African)<p><a href="../../details/details.html#IGSR:amr">IGSR:amr</a></p> (Ad Mixed American)<p><a href="../../details/details.html#IGSR:asw">IGSR:asw</a></p> (Americans of African Ancestry in SW USA)<p><a href="../../details/details.html#IGSR:beb">IGSR:beb</a></p> (Bengali from Bangladesh)<p><a href="../../details/details.html#IGSR:cdx">IGSR:cdx</a></p> (Chinese Dai in Xishuangbanna, China)<p><a href="../../details/details.html#IGSR:ceu">IGSR:ceu</a></p> (Utah Residents (CEPH) with Northern and Western European Ancestry)<p><a href="../../details/details.html#IGSR:chb">IGSR:chb</a></p> (Han Chinese in Bejing, China)<p><a href="../../details/details.html#IGSR:chs">IGSR:chs</a></p> (Southern Han Chinese)<p><a href="../../details/details.html#IGSR:clm">IGSR:clm</a></p> (Colombians from Medellin, Colombia)<p><a href="../../details/details.html#IGSR:eas">IGSR:eas</a></p> (East Asian)<p><a href="../../details/details.html#IGSR:esn">IGSR:esn</a></p> (Esan in Nigeria)<p><a href="../../details/details.html#IGSR:eur">IGSR:eur</a></p> (European)<p><a href="../../details/details.html#IGSR:fin">IGSR:fin</a></p> (Finnish in Finland)<p><a href="../../details/details.html#IGSR:gbr">IGSR:gbr</a></p> (British in England and Scotland)<p><a href="../../details/details.html#IGSR:gih">IGSR:gih</a></p> (Gujarati Indian from Houston, Texas)<p><a href="../../details/details.html#IGSR:gwd">IGSR:gwd</a></p> (Gambian in Western Divisions in the Gambia)<p><a href="../../details/details.html#IGSR:ibs">IGSR:ibs</a></p> (Iberian Population in Spain)<p><a href="../../details/details.html#IGSR:itu">IGSR:itu</a></p> (Indian Telugu from the UK)<p><a href="../../details/details.html#IGSR:jpt">IGSR:jpt</a></p> (Japanese in Tokyo, Japan)<p><a href="../../details/details.html#IGSR:khv">IGSR:khv</a></p> (Kinh in Ho Chi Minh City, Vietnam)<p><a href="../../details/details.html#IGSR:lwk">IGSR:lwk</a></p> (Luhya in Webuye, Kenya)<p><a href="../../details/details.html#IGSR:msl">IGSR:msl</a></p> (Mende in Sierra Leone)<p><a href="../../details/details.html#IGSR:mxl">IGSR:mxl</a></p> (Mexican Ancestry from Los Angeles USA)<p><a href="../../details/details.html#IGSR:pel">IGSR:pel</a></p> (Peruvians from Lima, Peru)<p><a href="../../details/details.html#IGSR:pjl">IGSR:pjl</a></p> (Punjabi from Lahore, Pakistan)<p><a href="../../details/details.html#IGSR:pur">IGSR:pur</a></p> (Puerto Ricans from Puerto Rico)<p><a href="../../details/details.html#IGSR:sas">IGSR:sas</a></p> (South Asian)<p><a href="../../details/details.html#IGSR:stu">IGSR:stu</a></p> (Sri Lankan Tamil from the UK)<p><a href="../../details/details.html#IGSR:tsi">IGSR:tsi</a></p> (Toscani in Italia)<p><a href="../../details/details.html#IGSR:yri">IGSR:yri</a></p> (Yoruba in Ibadan, Nigeria)<p><a href="../../details/details.html#SEPIO-CG:98001">SEPIO-CG:98001</a></p> (Combined)<p><a href="../../details/details.html#SEPIO-CG:98002">SEPIO-CG:98002</a></p> (Overall)
          </td>
           <!--
           <td><div class="example_view" id="SEPIO-CG:65112"><pre><code>{
   "id": "SEPIO-CG:65112",
   "type": "ValueSet",
+  "label": "Population Value Set",
   "description": "Label for a group of individuals with a shared genetic background",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
-      "id": "BROAD-population-type:afr",
+      "id": "GNOMAD:afr",
+      "type": "Entity",
       "label": "African/African American"
     },
     {
-      "id": "BROAD-population-type:amr",
+      "id": "GNOMAD:amr",
+      "type": "Entity",
       "label": "Latino"
     },
     {
-      "id": "BROAD-population-type:asj",
+      "id": "GNOMAD:asj",
+      "type": "Entity",
       "label": "Ashkenazi Jewish"
     },
     {
-      "id": "BROAD-population-type:eas",
+      "id": "GNOMAD:eas",
+      "type": "Entity",
       "label": "East Asian"
     },
     {
-      "id": "BROAD-population-type:fin",
+      "id": "GNOMAD:fin",
+      "type": "Entity",
       "label": "Finnish"
     },
     {
-      "id": "BROAD-population-type:nfe",
+      "id": "GNOMAD:nfe",
+      "type": "Entity",
       "label": "Non-Finnish European"
     },
     {
-      "id": "BROAD-population-type:oth",
+      "id": "GNOMAD:oth",
+      "type": "Entity",
       "label": "Other"
     },
     {
-      "id": "BROAD-population-type:sas",
+      "id": "GNOMAD:sas",
+      "type": "Entity",
       "label": "South Asian"
     },
     {
-      "id": "ESP-population-type:AA",
+      "id": "EVS:AA",
+      "type": "Entity",
       "label": "African-American"
     },
     {
-      "id": "ESP-population-type:EA",
+      "id": "EVS:EA",
+      "type": "Entity",
       "label": "European-American"
     },
     {
-      "id": "IGSR-population-type:acb",
+      "id": "IGSR:acb",
+      "type": "Entity",
       "label": "African Caribbeans in Barbados"
     },
     {
-      "id": "IGSR-population-type:afr",
+      "id": "IGSR:afr",
+      "type": "Entity",
       "label": "African"
     },
     {
-      "id": "IGSR-population-type:amr",
+      "id": "IGSR:amr",
+      "type": "Entity",
       "label": "Ad Mixed American"
     },
     {
-      "id": "IGSR-population-type:asw",
+      "id": "IGSR:asw",
+      "type": "Entity",
       "label": "Americans of African Ancestry in SW USA"
     },
     {
-      "id": "IGSR-population-type:beb",
+      "id": "IGSR:beb",
+      "type": "Entity",
       "label": "Bengali from Bangladesh"
     },
     {
-      "id": "IGSR-population-type:cdx",
+      "id": "IGSR:cdx",
+      "type": "Entity",
       "label": "Chinese Dai in Xishuangbanna, China"
     },
     {
-      "id": "IGSR-population-type:ceu",
+      "id": "IGSR:ceu",
+      "type": "Entity",
       "label": "Utah Residents (CEPH) with Northern and Western European Ancestry"
     },
     {
-      "id": "IGSR-population-type:chb",
+      "id": "IGSR:chb",
+      "type": "Entity",
       "label": "Han Chinese in Bejing, China"
     },
     {
-      "id": "IGSR-population-type:chs",
+      "id": "IGSR:chs",
+      "type": "Entity",
       "label": "Southern Han Chinese"
     },
     {
-      "id": "IGSR-population-type:clm",
+      "id": "IGSR:clm",
+      "type": "Entity",
       "label": "Colombians from Medellin, Colombia"
     },
     {
-      "id": "IGSR-population-type:eas",
+      "id": "IGSR:eas",
+      "type": "Entity",
       "label": "East Asian"
     },
     {
-      "id": "IGSR-population-type:esn",
+      "id": "IGSR:esn",
+      "type": "Entity",
       "label": "Esan in Nigeria"
     },
     {
-      "id": "IGSR-population-type:eur",
+      "id": "IGSR:eur",
+      "type": "Entity",
       "label": "European"
     },
     {
-      "id": "IGSR-population-type:fin",
+      "id": "IGSR:fin",
+      "type": "Entity",
       "label": "Finnish in Finland"
     },
     {
-      "id": "IGSR-population-type:gbr",
+      "id": "IGSR:gbr",
+      "type": "Entity",
       "label": "British in England and Scotland"
     },
     {
-      "id": "IGSR-population-type:gih",
+      "id": "IGSR:gih",
+      "type": "Entity",
       "label": "Gujarati Indian from Houston, Texas"
     },
     {
-      "id": "IGSR-population-type:gwd",
+      "id": "IGSR:gwd",
+      "type": "Entity",
       "label": "Gambian in Western Divisions in the Gambia"
     },
     {
-      "id": "IGSR-population-type:ibs",
+      "id": "IGSR:ibs",
+      "type": "Entity",
       "label": "Iberian Population in Spain"
     },
     {
-      "id": "IGSR-population-type:itu",
+      "id": "IGSR:itu",
+      "type": "Entity",
       "label": "Indian Telugu from the UK"
     },
     {
-      "id": "IGSR-population-type:jpt",
+      "id": "IGSR:jpt",
+      "type": "Entity",
       "label": "Japanese in Tokyo, Japan"
     },
     {
-      "id": "IGSR-population-type:khv",
+      "id": "IGSR:khv",
+      "type": "Entity",
       "label": "Kinh in Ho Chi Minh City, Vietnam"
     },
     {
-      "id": "IGSR-population-type:lwk",
+      "id": "IGSR:lwk",
+      "type": "Entity",
       "label": "Luhya in Webuye, Kenya"
     },
     {
-      "id": "IGSR-population-type:msl",
+      "id": "IGSR:msl",
+      "type": "Entity",
       "label": "Mende in Sierra Leone"
     },
     {
-      "id": "IGSR-population-type:mxl",
+      "id": "IGSR:mxl",
+      "type": "Entity",
       "label": "Mexican Ancestry from Los Angeles USA"
     },
     {
-      "id": "IGSR-population-type:pel",
+      "id": "IGSR:pel",
+      "type": "Entity",
       "label": "Peruvians from Lima, Peru"
     },
     {
-      "id": "IGSR-population-type:pjl",
+      "id": "IGSR:pjl",
+      "type": "Entity",
       "label": "Punjabi from Lahore, Pakistan"
     },
     {
-      "id": "IGSR-population-type:pur",
+      "id": "IGSR:pur",
+      "type": "Entity",
       "label": "Puerto Ricans from Puerto Rico"
     },
     {
-      "id": "IGSR-population-type:sas",
+      "id": "IGSR:sas",
+      "type": "Entity",
       "label": "South Asian"
     },
     {
-      "id": "IGSR-population-type:stu",
+      "id": "IGSR:stu",
+      "type": "Entity",
       "label": "Sri Lankan Tamil from the UK"
     },
     {
-      "id": "IGSR-population-type:tsi",
+      "id": "IGSR:tsi",
+      "type": "Entity",
       "label": "Toscani in Italia"
     },
     {
-      "id": "IGSR-population-type:yri",
+      "id": "IGSR:yri",
+      "type": "Entity",
       "label": "Yoruba in Ibadan, Nigeria"
     },
     {
       "id": "SEPIO-CG:98001",
+      "type": "Entity",
       "label": "Combined"
     },
     {
       "id": "SEPIO-CG:98002",
+      "type": "Entity",
       "label": "Overall"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys027",
+      "id": "http://purl.obolibrary.org/obo/ncit#",
       "type": "IdentifierSystem",
-      "iri": "http://purl.bioontology.org/ontology/NCIT",
+      "label": "NCI Thesarus",
       "prefix": "NCIT",
-      "label": "NCI Thesarus"
+      "urlPattern": "http://purl.obolibrary.org/obo/NCIT_"
     }
-  ],
-  "label": "Population"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000349">SEPIO:0000349</a></p> (Benign Missense Variation Rate Outcome)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000349">SEPIO:0000349</a></p> (Benign Missense Variation Rate Outcome Value Set)</td>
+          <td>
+              <p>Benign Missense Variation Rate Outcome Value Set</p>
+         </td>
           <td>
               <p>The rate of missense variation in a transcript that do not lead to a genetic condition</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p> (Scientific Evidence Provenance Information Ontology)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio#">http://purl.obolibrary.org/obo/sepio#</a></p> (Scientific Evidence Provenance Information Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000265">SEPIO:0000265</a></p> (High)<p><a href="../../details/details.html#SEPIO:0000266">SEPIO:0000266</a></p> (Low)
@@ -1165,45 +1315,47 @@
           <td><div class="example_view" id="SEPIO:0000349"><pre><code>{
   "id": "SEPIO:0000349",
   "type": "ValueSet",
+  "label": "Benign Missense Variation Rate Outcome Value Set",
   "description": "The rate of missense variation in a transcript that do not lead to a genetic condition",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "SEPIO:0000265",
+      "type": "Entity",
       "label": "High"
     },
     {
       "id": "SEPIO:0000266",
+      "type": "Entity",
       "label": "Low"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys023",
+      "id": "http://purl.obolibrary.org/obo/sepio#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/",
+      "label": "Scientific Evidence Provenance Information Ontology",
       "prefix": "SEPIO",
-      "label": "Scientific Evidence Provenance Information Ontology"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO_"
     }
-  ],
-  "label": "Benign Missense Variation Rate Outcome"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO-CG:65114">SEPIO-CG:65114</a></p> (Penetrance)</td>
+          <td><p><a href="../../details/details.html#SEPIO-CG:65114">SEPIO-CG:65114</a></p> (Condition Penetrance Value Set)</td>
+          <td>
+              <p>Condition Penetrance Value Set</p>
+         </td>
           <td>
               <p>The chance of having a particular genetic condition given the presence of a particular variant or damaged gene</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys016">IdSys016</a></p> (HumanPhenotypeOntology)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/hp#">http://purl.obolibrary.org/obo/hp#</a></p> (Human Phenotype Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#HP:0003829">HP:0003829</a></p> (Incomplete)<p><a href="../../details/details.html#HP:000XXX1">HP:000XXX1</a></p> (Complete)<p><a href="../../details/details.html#HP:000XXX2">HP:000XXX2</a></p> (High)
@@ -1212,49 +1364,52 @@
           <td><div class="example_view" id="SEPIO-CG:65114"><pre><code>{
   "id": "SEPIO-CG:65114",
   "type": "ValueSet",
+  "label": "Condition Penetrance Value Set",
   "description": "The chance of having a particular genetic condition given the presence of a particular variant or damaged gene",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "HP:0003829",
+      "type": "Entity",
       "label": "Incomplete"
     },
     {
       "id": "HP:000XXX1",
+      "type": "Entity",
       "label": "Complete"
     },
     {
       "id": "HP:000XXX2",
+      "type": "Entity",
       "label": "High"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys016",
+      "id": "http://purl.obolibrary.org/obo/hp#",
       "type": "IdentifierSystem",
-      "iri": "http://human-phenotype-ontology.github.io/",
+      "label": "Human Phenotype Ontology",
       "prefix": "HP",
-      "label": "HumanPhenotypeOntology"
+      "urlPattern": "http://purl.obolibrary.org/obo/HP_"
     }
-  ],
-  "label": "Penetrance"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000354">SEPIO:0000354</a></p> (Condition Mechanism Strength)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000354">SEPIO:0000354</a></p> (Condition Mechanism Strength Value Set)</td>
+          <td>
+              <p>Condition Mechanism Strength Value Set</p>
+         </td>
           <td>
               <p>The strength of association between a genetic mechanism and a condition</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p> (Scientific Evidence Provenance Information Ontology)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio#">http://purl.obolibrary.org/obo/sepio#</a></p> (Scientific Evidence Provenance Information Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000268">SEPIO:0000268</a></p> (common)<p><a href="../../details/details.html#SEPIO:0000269">SEPIO:0000269</a></p> (established)<p><a href="../../details/details.html#SEPIO:0000270">SEPIO:0000270</a></p> (primary)<p><a href="../../details/details.html#SEPIO:0000271">SEPIO:0000271</a></p> (suggested)<p><a href="../../details/details.html#SEPIO:0000272">SEPIO:0000272</a></p> (unknown)
@@ -1263,57 +1418,62 @@
           <td><div class="example_view" id="SEPIO:0000354"><pre><code>{
   "id": "SEPIO:0000354",
   "type": "ValueSet",
+  "label": "Condition Mechanism Strength Value Set",
   "description": "The strength of association between a genetic mechanism and a condition",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "SEPIO:0000268",
+      "type": "Entity",
       "label": "common"
     },
     {
       "id": "SEPIO:0000269",
+      "type": "Entity",
       "label": "established"
     },
     {
       "id": "SEPIO:0000270",
+      "type": "Entity",
       "label": "primary"
     },
     {
       "id": "SEPIO:0000271",
+      "type": "Entity",
       "label": "suggested"
     },
     {
       "id": "SEPIO:0000272",
+      "type": "Entity",
       "label": "unknown"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys023",
+      "id": "http://purl.obolibrary.org/obo/sepio#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/",
+      "label": "Scientific Evidence Provenance Information Ontology",
       "prefix": "SEPIO",
-      "label": "Scientific Evidence Provenance Information Ontology"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO_"
     }
-  ],
-  "label": "Condition Mechanism Strength"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000353">SEPIO:0000353</a></p> (ACMG Evidence Strength)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000353">SEPIO:0000353</a></p> (ACMG Evidence Strength Value Set)</td>
+          <td>
+              <p>ACMG Evidence Strength Value Set</p>
+         </td>
           <td>
               <p>Degree of support that a set of evidence lends to a subsequent statement</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000364">SEPIO:0000364</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p> (Scientific Evidence Provenance Information Ontology)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio#">http://purl.obolibrary.org/obo/sepio#</a></p> (Scientific Evidence Provenance Information Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000216">SEPIO:0000216</a></p> (Pathogenic Moderate)<p><a href="../../details/details.html#SEPIO:0000218">SEPIO:0000218</a></p> (None)<p><a href="../../details/details.html#SEPIO:0000220">SEPIO:0000220</a></p> (Pathogenic Very Strong)<p><a href="../../details/details.html#SEPIO:0000325">SEPIO:0000325</a></p> (Benign Stand Alone)<p><a href="../../details/details.html#SEPIO:0000326">SEPIO:0000326</a></p> (Benign Moderate)<p><a href="../../details/details.html#SEPIO:0000327">SEPIO:0000327</a></p> (Benign Supporting)<p><a href="../../details/details.html#SEPIO:0000328">SEPIO:0000328</a></p> (Benign Strong)<p><a href="../../details/details.html#SEPIO:0000329">SEPIO:0000329</a></p> (Pathogenic Supporting)<p><a href="../../details/details.html#SEPIO:0000330">SEPIO:0000330</a></p> (Pathogenic Strong)
@@ -1322,73 +1482,82 @@
           <td><div class="example_view" id="SEPIO:0000353"><pre><code>{
   "id": "SEPIO:0000353",
   "type": "ValueSet",
+  "label": "ACMG Evidence Strength Value Set",
   "description": "Degree of support that a set of evidence lends to a subsequent statement",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000364"
-  },
   "concept": [
     {
       "id": "SEPIO:0000216",
+      "type": "Entity",
       "label": "Pathogenic Moderate"
     },
     {
       "id": "SEPIO:0000218",
+      "type": "Entity",
       "label": "None"
     },
     {
       "id": "SEPIO:0000220",
+      "type": "Entity",
       "label": "Pathogenic Very Strong"
     },
     {
       "id": "SEPIO:0000325",
+      "type": "Entity",
       "label": "Benign Stand Alone"
     },
     {
       "id": "SEPIO:0000326",
+      "type": "Entity",
       "label": "Benign Moderate"
     },
     {
       "id": "SEPIO:0000327",
+      "type": "Entity",
       "label": "Benign Supporting"
     },
     {
       "id": "SEPIO:0000328",
+      "type": "Entity",
       "label": "Benign Strong"
     },
     {
       "id": "SEPIO:0000329",
+      "type": "Entity",
       "label": "Pathogenic Supporting"
     },
     {
       "id": "SEPIO:0000330",
+      "type": "Entity",
       "label": "Pathogenic Strong"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys023",
+      "id": "http://purl.obolibrary.org/obo/sepio#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/",
+      "label": "Scientific Evidence Provenance Information Ontology",
       "prefix": "SEPIO",
-      "label": "Scientific Evidence Provenance Information Ontology"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO_"
     }
-  ],
-  "label": "ACMG Evidence Strength"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000372">SEPIO:0000372</a></p> (Disease)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000372">SEPIO:0000372</a></p> (Disease Value Set)</td>
+          <td>
+              <p>Disease Value Set</p>
+         </td>
           <td>
               <p>An alteration of health status resulting from a physiopathological mechanism, and having a homogeneous clinical presentation and evolution and homogeneous therapeutic possibilities. (From MONDO)</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys011">IdSys011</a></p> (OMIM)<p><a href="../../details/details.html#IdSys013">IdSys013</a></p> (Orphanet)<p><a href="../../details/details.html#IdSys019">IdSys019</a></p> (Disease Ontology)<p><a href="../../details/details.html#IdSys020">IdSys020</a></p> (MeSH)
+              <p><a href="../../details/details.html#http://www.omim.org/">http://www.omim.org/</a></p> (OMIM)<p><a href="../../details/details.html#http://www.orpha.net/">http://www.orpha.net/</a></p> (Orphanet)<p><a href="../../details/details.html#http://purl.obolibrary.org/obo/doid#">http://purl.obolibrary.org/obo/doid#</a></p> (Disease Ontology)<p><a href="../../details/details.html#https://meshb.nlm.nih.gov/">https://meshb.nlm.nih.gov/</a></p> (MeSH)
          </td>
           <td>
               <p><a href="../../details/details.html#DOID:630">DOID:630</a></p> (genetic disease)<p><a href="../../details/details.html#MESH:D061325">MESH:D061325</a></p> (hereditary breast ovarian cancer)<p><a href="../../details/details.html#OMIM:114480">OMIM:114480</a></p> (Breast Cancer)<p><a href="../../details/details.html#OMIM:143890">OMIM:143890</a></p> (Hypercholesterolemia, Familial)<p><a href="../../details/details.html#OMIM:601419">OMIM:601419</a></p> (myofibrillar myopathy 1)<p><a href="../../details/details.html#OMIM:609942">OMIM:609942</a></p> (noonan syndrome 3)<p><a href="../../details/details.html#OMIM:612555">OMIM:612555</a></p> (Breast-Ovarian Cancer, Familial, Susceptibility To, 2)<p><a href="../../details/details.html#OMIM:614065">OMIM:614065</a></p> (Myopathy, Distal, type 4)<p><a href="../../details/details.html#Orphanet:1340">Orphanet:1340</a></p> (cardiofaciocutaneous syndrome)<p><a href="../../details/details.html#Orphanet:145">Orphanet:145</a></p> (hereditary breast and ovarian cancer syndrome)<p><a href="../../details/details.html#Orphanet:167848">Orphanet:167848</a></p> (cardiomyopathy)<p><a href="../../details/details.html#Orphanet:216">Orphanet:216</a></p> (neuronal ceroid lipofuscinosis)<p><a href="../../details/details.html#Orphanet:217569">Orphanet:217569</a></p> (hypertrophic cardiomyopathy)<p><a href="../../details/details.html#Orphanet:217604">Orphanet:217604</a></p> (dilated cardiomyopathy)<p><a href="../../details/details.html#Orphanet:244">Orphanet:244</a></p> (Primary ciliary dyskenisia)<p><a href="../../details/details.html#Orphanet:247">Orphanet:247</a></p> (arrhythmogenic right ventricular cardiomyopathy)<p><a href="../../details/details.html#Orphanet:2609">Orphanet:2609</a></p> (Mitochondrial complex 1 deficiency)<p><a href="../../details/details.html#Orphanet:2855">Orphanet:2855</a></p> (Perrault Syndrome)<p><a href="../../details/details.html#Orphanet:3071">Orphanet:3071</a></p> (costello syndrome)<p><a href="../../details/details.html#Orphanet:319182">Orphanet:319182</a></p> (Wiedemann-Steiner syndrome)<p><a href="../../details/details.html#Orphanet:324">Orphanet:324</a></p> (Fabry disease)<p><a href="../../details/details.html#Orphanet:364526">Orphanet:364526</a></p> (Primary bone dysplasia)<p><a href="../../details/details.html#Orphanet:414">Orphanet:414</a></p> (Gyrate atrophy of choroid and retina)<p><a href="../../details/details.html#Orphanet:423">Orphanet:423</a></p> (Malignant hyperthermia)<p><a href="../../details/details.html#Orphanet:558">Orphanet:558</a></p> (Marfan Syndrome)<p><a href="../../details/details.html#Orphanet:586">Orphanet:586</a></p> (Cystic Fibrosis)<p><a href="../../details/details.html#Orphanet:648">Orphanet:648</a></p> (noonan syndrome)<p><a href="../../details/details.html#Orphanet:664">Orphanet:664</a></p> (Ornithine carbamoyltransferase deficiency)<p><a href="../../details/details.html#Orphanet:705">Orphanet:705</a></p> (Pendred syndrome)<p><a href="../../details/details.html#Orphanet:733">Orphanet:733</a></p> (Familial Adenomatous Polyposis)<p><a href="../../details/details.html#Orphanet:750">Orphanet:750</a></p> (pseudoachondroplasia)<p><a href="../../details/details.html#Orphanet:774">Orphanet:774</a></p> (hereditary hemorrhagic telangiectasia)<p><a href="../../details/details.html#Orphanet:791">Orphanet:791</a></p> (Retinitis Pigmentosa)<p><a href="../../details/details.html#Orphanet:84">Orphanet:84</a></p> (Fanconi Anemia)<p><a href="../../details/details.html#Orphanet:87884">Orphanet:87884</a></p> (nonsyndromic deafness)<p><a href="../../details/details.html#Orphanet:886">Orphanet:886</a></p> (Usher syndrome)<p><a href="../../details/details.html#Orphanet:98733">Orphanet:98733</a></p> (Noonan syndrome and noonan-related syndrom)
@@ -1397,207 +1566,243 @@
           <td><div class="example_view" id="SEPIO:0000372"><pre><code>{
   "id": "SEPIO:0000372",
   "type": "ValueSet",
+  "label": "Disease Value Set",
   "description": "An alteration of health status resulting from a physiopathological mechanism, and having a homogeneous clinical presentation and evolution and homogeneous therapeutic possibilities. (From MONDO)",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "DOID:630",
+      "type": "Entity",
       "label": "genetic disease"
     },
     {
       "id": "MESH:D061325",
+      "type": "Entity",
       "label": "hereditary breast ovarian cancer"
     },
     {
       "id": "OMIM:114480",
+      "type": "Entity",
       "label": "Breast Cancer"
     },
     {
       "id": "OMIM:143890",
+      "type": "Entity",
       "label": "Hypercholesterolemia, Familial"
     },
     {
       "id": "OMIM:601419",
+      "type": "Entity",
       "label": "myofibrillar myopathy 1"
     },
     {
       "id": "OMIM:609942",
+      "type": "Entity",
       "label": "noonan syndrome 3"
     },
     {
       "id": "OMIM:612555",
+      "type": "Entity",
       "label": "Breast-Ovarian Cancer, Familial, Susceptibility To, 2"
     },
     {
       "id": "OMIM:614065",
+      "type": "Entity",
       "label": "Myopathy, Distal, type 4"
     },
     {
       "id": "Orphanet:1340",
+      "type": "Entity",
       "label": "cardiofaciocutaneous syndrome"
     },
     {
       "id": "Orphanet:145",
+      "type": "Entity",
       "label": "hereditary breast and ovarian cancer syndrome"
     },
     {
       "id": "Orphanet:167848",
+      "type": "Entity",
       "label": "cardiomyopathy"
     },
     {
       "id": "Orphanet:216",
+      "type": "Entity",
       "label": "neuronal ceroid lipofuscinosis"
     },
     {
       "id": "Orphanet:217569",
+      "type": "Entity",
       "label": "hypertrophic cardiomyopathy"
     },
     {
       "id": "Orphanet:217604",
+      "type": "Entity",
       "label": "dilated cardiomyopathy"
     },
     {
       "id": "Orphanet:244",
+      "type": "Entity",
       "label": "Primary ciliary dyskenisia"
     },
     {
       "id": "Orphanet:247",
+      "type": "Entity",
       "label": "arrhythmogenic right ventricular cardiomyopathy"
     },
     {
       "id": "Orphanet:2609",
+      "type": "Entity",
       "label": "Mitochondrial complex 1 deficiency"
     },
     {
       "id": "Orphanet:2855",
+      "type": "Entity",
       "label": "Perrault Syndrome"
     },
     {
       "id": "Orphanet:3071",
+      "type": "Entity",
       "label": "costello syndrome"
     },
     {
       "id": "Orphanet:319182",
+      "type": "Entity",
       "label": "Wiedemann-Steiner syndrome"
     },
     {
       "id": "Orphanet:324",
+      "type": "Entity",
       "label": "Fabry disease"
     },
     {
       "id": "Orphanet:364526",
+      "type": "Entity",
       "label": "Primary bone dysplasia"
     },
     {
       "id": "Orphanet:414",
+      "type": "Entity",
       "label": "Gyrate atrophy of choroid and retina"
     },
     {
       "id": "Orphanet:423",
+      "type": "Entity",
       "label": "Malignant hyperthermia"
     },
     {
       "id": "Orphanet:558",
+      "type": "Entity",
       "label": "Marfan Syndrome"
     },
     {
       "id": "Orphanet:586",
+      "type": "Entity",
       "label": "Cystic Fibrosis"
     },
     {
       "id": "Orphanet:648",
+      "type": "Entity",
       "label": "noonan syndrome"
     },
     {
       "id": "Orphanet:664",
+      "type": "Entity",
       "label": "Ornithine carbamoyltransferase deficiency"
     },
     {
       "id": "Orphanet:705",
+      "type": "Entity",
       "label": "Pendred syndrome"
     },
     {
       "id": "Orphanet:733",
+      "type": "Entity",
       "label": "Familial Adenomatous Polyposis"
     },
     {
       "id": "Orphanet:750",
+      "type": "Entity",
       "label": "pseudoachondroplasia"
     },
     {
       "id": "Orphanet:774",
+      "type": "Entity",
       "label": "hereditary hemorrhagic telangiectasia"
     },
     {
       "id": "Orphanet:791",
+      "type": "Entity",
       "label": "Retinitis Pigmentosa"
     },
     {
       "id": "Orphanet:84",
+      "type": "Entity",
       "label": "Fanconi Anemia"
     },
     {
       "id": "Orphanet:87884",
+      "type": "Entity",
       "label": "nonsyndromic deafness"
     },
     {
       "id": "Orphanet:886",
+      "type": "Entity",
       "label": "Usher syndrome"
     },
     {
       "id": "Orphanet:98733",
+      "type": "Entity",
       "label": "Noonan syndrome and noonan-related syndrom"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys011",
+      "id": "http://www.omim.org/",
       "type": "IdentifierSystem",
-      "oid": "2.16.840.1.113883.6.174",
-      "iri": "http://www.omim.org/",
+      "label": "OMIM",
       "prefix": "OMIM",
-      "label": "OMIM"
+      "urlPattern": "http://www.omim.org/"
     },
     {
-      "id": "IdSys013",
+      "id": "http://www.orpha.net/",
       "type": "IdentifierSystem",
-      "iri": "http://www.orpha.net/",
+      "label": "Orphanet",
       "prefix": "Orphanet",
-      "label": "Orphanet"
+      "urlPattern": "http://www.orpha.net/"
     },
     {
-      "id": "IdSys019",
+      "id": "http://purl.obolibrary.org/obo/doid#",
       "type": "IdentifierSystem",
-      "iri": "http://disease-ontology.org/",
+      "label": "Disease Ontology",
       "prefix": "DOID",
-      "label": "Disease Ontology"
+      "urlPattern": "http://purl.obolibrary.org/obo/DOID_"
     },
     {
-      "id": "IdSys020",
+      "id": "https://meshb.nlm.nih.gov/",
       "type": "IdentifierSystem",
-      "iri": "https://meshb.nlm.nih.gov/",
+      "label": "MeSH",
       "prefix": "MESH",
-      "label": "MeSH"
+      "urlPattern": "https://meshb.nlm.nih.gov/"
     }
-  ],
-  "label": "Disease"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000375">SEPIO:0000375</a></p> (Phenotype)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000375">SEPIO:0000375</a></p> (Phenotype Value Set)</td>
+          <td>
+              <p>Phenotype Value Set</p>
+         </td>
           <td>
               <p>The assemblage of traits or outward appearance of an individual. It is the product of interactions between genes and between genes and the environment. (From NCIT)</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys016">IdSys016</a></p> (HumanPhenotypeOntology)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/hp#">http://purl.obolibrary.org/obo/hp#</a></p> (Human Phenotype Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#HP:0000256">HP:0000256</a></p> (macrocephaly)<p><a href="../../details/details.html#HP:0000957">HP:0000957</a></p> (café au lait macules (CALMs))<p><a href="../../details/details.html#HP:0000997">HP:0000997</a></p> (axillary freckling)<p><a href="../../details/details.html#HP:0011014">HP:0011014</a></p> (Abnormal Glucose Homeostasis)<p><a href="../../details/details.html#HP:0012873">HP:0012873</a></p> (Absent vas deferens)<p><a href="../../details/details.html#HP:0200106">HP:0200106</a></p> (Absent/shortened dynein arms)
@@ -1606,61 +1811,67 @@
           <td><div class="example_view" id="SEPIO:0000375"><pre><code>{
   "id": "SEPIO:0000375",
   "type": "ValueSet",
+  "label": "Phenotype Value Set",
   "description": "The assemblage of traits or outward appearance of an individual. It is the product of interactions between genes and between genes and the environment. (From NCIT)",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "HP:0000256",
+      "type": "Entity",
       "label": "macrocephaly"
     },
     {
       "id": "HP:0000957",
+      "type": "Entity",
       "label": "café au lait macules (CALMs)"
     },
     {
       "id": "HP:0000997",
+      "type": "Entity",
       "label": "axillary freckling"
     },
     {
       "id": "HP:0011014",
+      "type": "Entity",
       "label": "Abnormal Glucose Homeostasis"
     },
     {
       "id": "HP:0012873",
+      "type": "Entity",
       "label": "Absent vas deferens"
     },
     {
       "id": "HP:0200106",
+      "type": "Entity",
       "label": "Absent/shortened dynein arms"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys016",
+      "id": "http://purl.obolibrary.org/obo/hp#",
       "type": "IdentifierSystem",
-      "iri": "http://human-phenotype-ontology.github.io/",
+      "label": "Human Phenotype Ontology",
       "prefix": "HP",
-      "label": "HumanPhenotypeOntology"
+      "urlPattern": "http://purl.obolibrary.org/obo/HP_"
     }
-  ],
-  "label": "Phenotype"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO-CG:65119">SEPIO-CG:65119</a></p> (Reference Sequence)</td>
+          <td><p><a href="../../details/details.html#SEPIO-CG:65119">SEPIO-CG:65119</a></p> (Reference Sequence Value Set)</td>
+          <td>
+              <p>Reference Sequence Value Set</p>
+         </td>
           <td>
               <p>TODO</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys004">IdSys004</a></p> (RefSeq)<p><a href="../../details/details.html#IdSys006">IdSys006</a></p> (Ensembl)
+              <p><a href="../../details/details.html#http://www.ncbi.nlm.nih.gov/nuccore/">http://www.ncbi.nlm.nih.gov/nuccore/</a></p> (RefSeq)<p><a href="../../details/details.html#http://www.ensembl.org/">http://www.ensembl.org/</a></p> (Ensembl)
          </td>
           <td>
               <p><a href="../../details/details.html#REFSEQ:NM_005228.3">REFSEQ:NM_005228.3</a></p> (NM_005228.3)<p><a href="../../details/details.html#REFSEQ:NP_005219.2">REFSEQ:NP_005219.2</a></p> (NP_005219.2)<p><a href="../../details/details.html#REFSEQ:NM_004333.4">REFSEQ:NM_004333.4</a></p> (NM_004333.4)<p><a href="../../details/details.html#REFSEQ:NM_004333.4">REFSEQ:NM_004333.4</a></p> (NM_004333.4)<p><a href="../../details/details.html#REFSEQ:NP_001360.1">REFSEQ:NP_001360.1</a></p> (NP_001360.1)<p><a href="../../details/details.html#REFSEQ:NP_056375.2">REFSEQ:NP_056375.2</a></p> (NP_056375.2)<p><a href="../../details/details.html#REFSEQ:NP_003915.2">REFSEQ:NP_003915.2</a></p> (NP_003915.2)<p><a href="../../details/details.html#REFSEQ:NM_001271208.1">REFSEQ:NM_001271208.1</a></p> (NM_001271208.1)<p><a href="../../details/details.html#REFSEQ:NM_133378.4">REFSEQ:NM_133378.4</a></p> (NM_133378.4)<p><a href="../../details/details.html#REFSEQ:NM_147196.2">REFSEQ:NM_147196.2</a></p> (NM_147196.2)<p><a href="../../details/details.html#REFSEQ:NM_000257.2">REFSEQ:NM_000257.2</a></p> (NM_000257.2)<p><a href="../../details/details.html#ENSEMBL:ENST00000566221.5">ENSEMBL:ENST00000566221.5</a></p> (ENST00000566221.5)<p><a href="../../details/details.html#REFSEQ:NM_000363.4">REFSEQ:NM_000363.4</a></p> (NM_000363.4)<p><a href="../../details/details.html#REFSEQ:NM_000059.3">REFSEQ:NM_000059.3</a></p> (NM_000059.3)<p><a href="../../details/details.html#REFSEQ:NM_138691.2">REFSEQ:NM_138691.2</a></p> (NM_138691.2)<p><a href="../../details/details.html#REFSEQ:NM_002880.3">REFSEQ:NM_002880.3</a></p> (NM_002880.3)
@@ -1669,109 +1880,124 @@
           <td><div class="example_view" id="SEPIO-CG:65119"><pre><code>{
   "id": "SEPIO-CG:65119",
   "type": "ValueSet",
+  "label": "Reference Sequence Value Set",
   "description": "TODO",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "REFSEQ:NM_005228.3",
+      "type": "Entity",
       "label": "NM_005228.3"
     },
     {
       "id": "REFSEQ:NP_005219.2",
+      "type": "Entity",
       "label": "NP_005219.2"
     },
     {
       "id": "REFSEQ:NM_004333.4",
+      "type": "Entity",
       "label": "NM_004333.4"
     },
     {
       "id": "REFSEQ:NM_004333.4",
+      "type": "Entity",
       "label": "NM_004333.4"
     },
     {
       "id": "REFSEQ:NP_001360.1",
+      "type": "Entity",
       "label": "NP_001360.1"
     },
     {
       "id": "REFSEQ:NP_056375.2",
+      "type": "Entity",
       "label": "NP_056375.2"
     },
     {
       "id": "REFSEQ:NP_003915.2",
+      "type": "Entity",
       "label": "NP_003915.2"
     },
     {
       "id": "REFSEQ:NM_001271208.1",
+      "type": "Entity",
       "label": "NM_001271208.1"
     },
     {
       "id": "REFSEQ:NM_133378.4",
+      "type": "Entity",
       "label": "NM_133378.4"
     },
     {
       "id": "REFSEQ:NM_147196.2",
+      "type": "Entity",
       "label": "NM_147196.2"
     },
     {
       "id": "REFSEQ:NM_000257.2",
+      "type": "Entity",
       "label": "NM_000257.2"
     },
     {
       "id": "ENSEMBL:ENST00000566221.5",
+      "type": "Entity",
       "label": "ENST00000566221.5"
     },
     {
       "id": "REFSEQ:NM_000363.4",
+      "type": "Entity",
       "label": "NM_000363.4"
     },
     {
       "id": "REFSEQ:NM_000059.3",
+      "type": "Entity",
       "label": "NM_000059.3"
     },
     {
       "id": "REFSEQ:NM_138691.2",
+      "type": "Entity",
       "label": "NM_138691.2"
     },
     {
       "id": "REFSEQ:NM_002880.3",
+      "type": "Entity",
       "label": "NM_002880.3"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys004",
+      "id": "http://www.ncbi.nlm.nih.gov/nuccore/",
       "type": "IdentifierSystem",
-      "oid": "2.16.840.1.113883.6.280",
-      "iri": "http://www.ncbi.nlm.nih.gov/nuccore/",
+      "label": "RefSeq",
       "prefix": "REFSEQ",
-      "label": "RefSeq"
+      "urlPattern": "http://www.ncbi.nlm.nih.gov/nuccore/"
     },
     {
-      "id": "IdSys006",
+      "id": "http://www.ensembl.org/",
       "type": "IdentifierSystem",
-      "iri": "http://www.ensembl.org/",
+      "label": "Ensembl",
       "prefix": "ENSEMBL",
-      "label": "Ensembl"
+      "urlPattern": "http://www.ensembl.org/"
     }
-  ],
-  "label": "Reference Sequence"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO-CG:65120">SEPIO-CG:65120</a></p> (Contributory Role)</td>
+          <td><p><a href="../../details/details.html#SEPIO-CG:65120">SEPIO-CG:65120</a></p> (Contributory Role Value Set)</td>
+          <td>
+              <p>Contributory Role Value Set</p>
+         </td>
           <td>
               <p>The role played by an agent in the creation of an artifact</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p> (Scientific Evidence Provenance Information Ontology)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio#">http://purl.obolibrary.org/obo/sepio#</a></p> (Scientific Evidence Provenance Information Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)<p><a href="../../details/details.html#SEPIO:0000155">SEPIO:0000155</a></p> (approver role)<p><a href="../../details/details.html#SEPIO:0000156">SEPIO:0000156</a></p> (curator role)<p><a href="../../details/details.html#SEPIO:0000331">SEPIO:0000331</a></p> (interpreter role)
@@ -1780,53 +2006,57 @@
           <td><div class="example_view" id="SEPIO-CG:65120"><pre><code>{
   "id": "SEPIO-CG:65120",
   "type": "ValueSet",
+  "label": "Contributory Role Value Set",
   "description": "The role played by an agent in the creation of an artifact",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "SEPIO:0000154",
+      "type": "Entity",
       "label": "assessor role"
     },
     {
       "id": "SEPIO:0000155",
+      "type": "Entity",
       "label": "approver role"
     },
     {
       "id": "SEPIO:0000156",
+      "type": "Entity",
       "label": "curator role"
     },
     {
       "id": "SEPIO:0000331",
+      "type": "Entity",
       "label": "interpreter role"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys023",
+      "id": "http://purl.obolibrary.org/obo/sepio#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/",
+      "label": "Scientific Evidence Provenance Information Ontology",
       "prefix": "SEPIO",
-      "label": "Scientific Evidence Provenance Information Ontology"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO_"
     }
-  ],
-  "label": "Contributory Role"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000392">SEPIO:0000392</a></p> (Allele Origin)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000392">SEPIO:0000392</a></p> (Allele Origin Value Set)</td>
+          <td>
+              <p>Allele Origin Value Set</p>
+         </td>
           <td>
               <p>The source of an allele in an individual</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys022">IdSys022</a></p> (GENO)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/geno#">http://purl.obolibrary.org/obo/geno#</a></p> (GENO)
          </td>
           <td>
               <p><a href="../../details/details.html#GENO:0000878">GENO:0000878</a></p> (maternally inherited)<p><a href="../../details/details.html#GENO:0000879">GENO:0000879</a></p> (paternally inherited)<p><a href="../../details/details.html#GENO:0000880">GENO:0000880</a></p> (de novo)<p><a href="../../details/details.html#GENO:0000881">GENO:0000881</a></p> (Unknown)<p><a href="../../details/details.html#GENO:0000888">GENO:0000888</a></p> (parentally inherited)
@@ -1835,57 +2065,62 @@
           <td><div class="example_view" id="SEPIO:0000392"><pre><code>{
   "id": "SEPIO:0000392",
   "type": "ValueSet",
+  "label": "Allele Origin Value Set",
   "description": "The source of an allele in an individual",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "GENO:0000878",
+      "type": "Entity",
       "label": "maternally inherited"
     },
     {
       "id": "GENO:0000879",
+      "type": "Entity",
       "label": "paternally inherited"
     },
     {
       "id": "GENO:0000880",
+      "type": "Entity",
       "label": "de novo"
     },
     {
       "id": "GENO:0000881",
+      "type": "Entity",
       "label": "Unknown"
     },
     {
       "id": "GENO:0000888",
+      "type": "Entity",
       "label": "parentally inherited"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys022",
+      "id": "http://purl.obolibrary.org/obo/geno#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/geno/",
+      "label": "GENO",
       "prefix": "GENO",
-      "label": "GENO"
+      "urlPattern": "http://purl.obolibrary.org/obo/GENO_"
     }
-  ],
-  "label": "Allele Origin"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000409">SEPIO:0000409</a></p> (Ascertainment Method)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000409">SEPIO:0000409</a></p> (Ascertainment Method Value Set)</td>
+          <td>
+              <p>Ascertainment Method Value Set</p>
+         </td>
           <td>
               <p>The method by which a set of people was chosen to define a group</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p> (Scientific Evidence Provenance Information Ontology)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio#">http://purl.obolibrary.org/obo/sepio#</a></p> (Scientific Evidence Provenance Information Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO:0000262">SEPIO:0000262</a></p> (1000 Genomes ascertainment method)<p><a href="../../details/details.html#SEPIO:0000332">SEPIO:0000332</a></p> (ExAC ascertainment method)<p><a href="../../details/details.html#SEPIO:0000333">SEPIO:0000333</a></p> (ESP ascertainment method)<p><a href="../../details/details.html#SEPIO:0000334">SEPIO:0000334</a></p> (gnomAD ascertainment method)
@@ -1894,53 +2129,57 @@
           <td><div class="example_view" id="SEPIO:0000409"><pre><code>{
   "id": "SEPIO:0000409",
   "type": "ValueSet",
+  "label": "Ascertainment Method Value Set",
   "description": "The method by which a set of people was chosen to define a group",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "SEPIO:0000262",
+      "type": "Entity",
       "label": "1000 Genomes ascertainment method"
     },
     {
       "id": "SEPIO:0000332",
+      "type": "Entity",
       "label": "ExAC ascertainment method"
     },
     {
       "id": "SEPIO:0000333",
+      "type": "Entity",
       "label": "ESP ascertainment method"
     },
     {
       "id": "SEPIO:0000334",
+      "type": "Entity",
       "label": "gnomAD ascertainment method"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys023",
+      "id": "http://purl.obolibrary.org/obo/sepio#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/",
+      "label": "Scientific Evidence Provenance Information Ontology",
       "prefix": "SEPIO",
-      "label": "Scientific Evidence Provenance Information Ontology"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO_"
     }
-  ],
-  "label": "Ascertainment Method"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000348">SEPIO:0000348</a></p> (Locus Specificity)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000348">SEPIO:0000348</a></p> (Locus Specificity Value Set)</td>
+          <td>
+              <p>Locus Specificity Value Set</p>
+         </td>
           <td>
               <p>The degree to which a condition implicates a specific genomic locus, such as a gene.</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys023">IdSys023</a></p> (Scientific Evidence Provenance Information Ontology)<p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio#">http://purl.obolibrary.org/obo/sepio#</a></p> (Scientific Evidence Provenance Information Ontology)<p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio-clingen#">http://purl.obolibrary.org/obo/sepio-clingen#</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99001">SEPIO-CG:99001</a></p> (high)<p><a href="../../details/details.html#SEPIO-CG:99002">SEPIO-CG:99002</a></p> (complete)<p><a href="../../details/details.html#SEPIO:0000273">SEPIO:0000273</a></p> (low)
@@ -1949,56 +2188,59 @@
           <td><div class="example_view" id="SEPIO:0000348"><pre><code>{
   "id": "SEPIO:0000348",
   "type": "ValueSet",
+  "label": "Locus Specificity Value Set",
   "description": "The degree to which a condition implicates a specific genomic locus, such as a gene.",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "SEPIO-CG:99001",
+      "type": "Entity",
       "label": "high"
     },
     {
       "id": "SEPIO-CG:99002",
+      "type": "Entity",
       "label": "complete"
     },
     {
       "id": "SEPIO:0000273",
+      "type": "Entity",
       "label": "low"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys023",
+      "id": "http://purl.obolibrary.org/obo/sepio#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/",
+      "label": "Scientific Evidence Provenance Information Ontology",
       "prefix": "SEPIO",
-      "label": "Scientific Evidence Provenance Information Ontology"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO_"
     },
     {
-      "id": "IdSys024",
+      "id": "http://purl.obolibrary.org/obo/sepio-clingen#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/clingen",
+      "label": "ClinGen extensions to SEPIO",
       "prefix": "SEPIO-CG",
-      "label": "ClinGen extensions to SEPIO"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO-CG_"
     }
-  ],
-  "label": "Locus Specificity"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO-CG:65124">SEPIO-CG:65124</a></p> (Conservation)</td>
+          <td><p><a href="../../details/details.html#SEPIO-CG:65124">SEPIO-CG:65124</a></p> (Allele Conservation Value Set)</td>
+          <td>
+              <p>Allele Conservation Value Set</p>
+         </td>
           <td>
               <p>The degree to which an allele is preserved over evolutionary history</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio-clingen#">http://purl.obolibrary.org/obo/sepio-clingen#</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0000330">SO:0000330</a></p> (conserved region)<p><a href="../../details/details.html#SEPIO-CG:99017">SEPIO-CG:99017</a></p> (not conserved region)
@@ -2007,45 +2249,47 @@
           <td><div class="example_view" id="SEPIO-CG:65124"><pre><code>{
   "id": "SEPIO-CG:65124",
   "type": "ValueSet",
+  "label": "Allele Conservation Value Set",
   "description": "The degree to which an allele is preserved over evolutionary history",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "SO:0000330",
+      "type": "Entity",
       "label": "conserved region"
     },
     {
       "id": "SEPIO-CG:99017",
+      "type": "Entity",
       "label": "not conserved region"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys024",
+      "id": "http://purl.obolibrary.org/obo/sepio-clingen#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/clingen",
+      "label": "ClinGen extensions to SEPIO",
       "prefix": "SEPIO-CG",
-      "label": "ClinGen extensions to SEPIO"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO-CG_"
     }
-  ],
-  "label": "Conservation"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO-CG:65125">SEPIO-CG:65125</a></p> (Parental Confirmation)</td>
+          <td><p><a href="../../details/details.html#SEPIO-CG:65125">SEPIO-CG:65125</a></p> (Parental Confirmation Value Set)</td>
+          <td>
+              <p>Parental Confirmation Value Set</p>
+         </td>
           <td>
               <p>Whether or not parentage has been confirmed with a genetic test</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio-clingen#">http://purl.obolibrary.org/obo/sepio-clingen#</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99005">SEPIO-CG:99005</a></p> (maternal confirmation)<p><a href="../../details/details.html#SEPIO-CG:99006">SEPIO-CG:99006</a></p> (paternal confirmation)<p><a href="../../details/details.html#SEPIO-CG:99007">SEPIO-CG:99007</a></p> (maternal and paternal confirmation)<p><a href="../../details/details.html#SEPIO-CG:99008">SEPIO-CG:99008</a></p> (no parental confirmation)
@@ -2054,53 +2298,57 @@
           <td><div class="example_view" id="SEPIO-CG:65125"><pre><code>{
   "id": "SEPIO-CG:65125",
   "type": "ValueSet",
+  "label": "Parental Confirmation Value Set",
   "description": "Whether or not parentage has been confirmed with a genetic test",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "SEPIO-CG:99005",
+      "type": "Entity",
       "label": "maternal confirmation"
     },
     {
       "id": "SEPIO-CG:99006",
+      "type": "Entity",
       "label": "paternal confirmation"
     },
     {
       "id": "SEPIO-CG:99007",
+      "type": "Entity",
       "label": "maternal and paternal confirmation"
     },
     {
       "id": "SEPIO-CG:99008",
+      "type": "Entity",
       "label": "no parental confirmation"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys024",
+      "id": "http://purl.obolibrary.org/obo/sepio-clingen#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/clingen",
+      "label": "ClinGen extensions to SEPIO",
       "prefix": "SEPIO-CG",
-      "label": "ClinGen extensions to SEPIO"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO-CG_"
     }
-  ],
-  "label": "Parental Confirmation"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO-CG:65126">SEPIO-CG:65126</a></p> (Condition Status)</td>
+          <td><p><a href="../../details/details.html#SEPIO-CG:65126">SEPIO-CG:65126</a></p> (Condition Status Value Set)</td>
+          <td>
+              <p>Condition Status Value Set</p>
+         </td>
           <td>
               <p>Whether or not an individual is affected by a specific genetic condition</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio-clingen#">http://purl.obolibrary.org/obo/sepio-clingen#</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99009">SEPIO-CG:99009</a></p> (affected)<p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
@@ -2109,45 +2357,47 @@
           <td><div class="example_view" id="SEPIO-CG:65126"><pre><code>{
   "id": "SEPIO-CG:65126",
   "type": "ValueSet",
+  "label": "Condition Status Value Set",
   "description": "Whether or not an individual is affected by a specific genetic condition",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "SEPIO-CG:99009",
+      "type": "Entity",
       "label": "affected"
     },
     {
       "id": "SEPIO-CG:99010",
+      "type": "Entity",
       "label": "unaffected"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys024",
+      "id": "http://purl.obolibrary.org/obo/sepio-clingen#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/clingen",
+      "label": "ClinGen extensions to SEPIO",
       "prefix": "SEPIO-CG",
-      "label": "ClinGen extensions to SEPIO"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO-CG_"
     }
-  ],
-  "label": "Condition Status"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO-CG:65127">SEPIO-CG:65127</a></p> (Inconsistent Segregation Observed)</td>
+          <td><p><a href="../../details/details.html#SEPIO-CG:65127">SEPIO-CG:65127</a></p> (Inconsistent Segregation Observed Value Set)</td>
+          <td>
+              <p>Inconsistent Segregation Observed Value Set</p>
+         </td>
           <td>
               <p>Whether or not inconsistent segretations have been observed in a pedigree</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio-clingen#">http://purl.obolibrary.org/obo/sepio-clingen#</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99011">SEPIO-CG:99011</a></p> (present)<p><a href="../../details/details.html#SEPIO-CG:99012">SEPIO-CG:99012</a></p> (absent)<p><a href="../../details/details.html#SEPIO-CG:99013">SEPIO-CG:99013</a></p> (unknown)
@@ -2156,49 +2406,52 @@
           <td><div class="example_view" id="SEPIO-CG:65127"><pre><code>{
   "id": "SEPIO-CG:65127",
   "type": "ValueSet",
+  "label": "Inconsistent Segregation Observed Value Set",
   "description": "Whether or not inconsistent segretations have been observed in a pedigree",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "SEPIO-CG:99011",
+      "type": "Entity",
       "label": "present"
     },
     {
       "id": "SEPIO-CG:99012",
+      "type": "Entity",
       "label": "absent"
     },
     {
       "id": "SEPIO-CG:99013",
+      "type": "Entity",
       "label": "unknown"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys024",
+      "id": "http://purl.obolibrary.org/obo/sepio-clingen#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/clingen",
+      "label": "ClinGen extensions to SEPIO",
       "prefix": "SEPIO-CG",
-      "label": "ClinGen extensions to SEPIO"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO-CG_"
     }
-  ],
-  "label": "Inconsistent Segregation Observed"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO-CG:65128">SEPIO-CG:65128</a></p> (Null Allele Outcome)</td>
+          <td><p><a href="../../details/details.html#SEPIO-CG:65128">SEPIO-CG:65128</a></p> (Null Allele Outcome Value Set)</td>
+          <td>
+              <p>Null Allele Outcome Value Set</p>
+         </td>
           <td>
               <p>Denotes whether an allele leads to a non-functional transcript</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys007">IdSys007</a></p> (SequenceOntology)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/so#">http://purl.obolibrary.org/obo/so#</a></p> (Sequence Ontology)
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0002055">SO:0002055</a></p> (null mutation)<p><a href="../../details/details.html#SEPIO-CG:99015">SEPIO-CG:99015</a></p> (function not lost)<p><a href="../../details/details.html#SEPIO-CG:99016">SEPIO-CG:99016</a></p> (function unknown)
@@ -2207,96 +2460,101 @@
           <td><div class="example_view" id="SEPIO-CG:65128"><pre><code>{
   "id": "SEPIO-CG:65128",
   "type": "ValueSet",
+  "label": "Null Allele Outcome Value Set",
   "description": "Denotes whether an allele leads to a non-functional transcript",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
       "id": "SO:0002055",
+      "type": "Entity",
       "label": "null mutation"
     },
     {
       "id": "SEPIO-CG:99015",
+      "type": "Entity",
       "label": "function not lost"
     },
     {
       "id": "SEPIO-CG:99016",
+      "type": "Entity",
       "label": "function unknown"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys007",
+      "id": "http://purl.obolibrary.org/obo/so#",
       "type": "IdentifierSystem",
-      "iri": "http://sequenceontology.org/",
+      "label": "Sequence Ontology",
       "prefix": "SO",
-      "label": "SequenceOntology"
+      "urlPattern": "http://purl.obolibrary.org/obo/SO_"
     }
-  ],
-  "label": "Null Allele Outcome"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO-CG:65129">SEPIO-CG:65129</a></p> (Region Alleles Outcome)</td>
+          <td><p><a href="../../details/details.html#SEPIO-CG:65129">SEPIO-CG:65129</a></p> (Region Alleles Outcome Value Set)</td>
+          <td>
+              <p>Region Alleles Outcome Value Set</p>
+         </td>
           <td>
               <p>Whether or not an allele overlaps a sequence region</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio-clingen#">http://purl.obolibrary.org/obo/sepio-clingen#</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
-              <p><a href="../../details/details.html#RO:00002527">RO:00002527</a></p> (does not overlap region)<p><a href="../../details/details.html#RO:0002656">RO:0002656</a></p> (overlaps region)
+              <p><a href="../../details/details.html#RO:0002527">RO:0002527</a></p> (does not overlap region)<p><a href="../../details/details.html#RO:0002656">RO:0002656</a></p> (overlaps region)
          </td>
           <!--
           <td><div class="example_view" id="SEPIO-CG:65129"><pre><code>{
   "id": "SEPIO-CG:65129",
   "type": "ValueSet",
+  "label": "Region Alleles Outcome Value Set",
   "description": "Whether or not an allele overlaps a sequence region",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
-      "id": "RO:00002527",
+      "id": "RO:0002527",
+      "type": "Entity",
       "label": "does not overlap region"
     },
     {
       "id": "RO:0002656",
+      "type": "Entity",
       "label": "overlaps region"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys024",
+      "id": "http://purl.obolibrary.org/obo/sepio-clingen#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/clingen",
+      "label": "ClinGen extensions to SEPIO",
       "prefix": "SEPIO-CG",
-      "label": "ClinGen extensions to SEPIO"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO-CG_"
     }
-  ],
-  "label": "Region Alleles Outcome"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000396">SEPIO:0000396</a></p> (Gene)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000396">SEPIO:0000396</a></p> (Gene Value Set)</td>
+          <td>
+              <p>Gene Value Set</p>
+         </td>
           <td>
               <p>TODO</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys003">IdSys003</a></p> (hgnc)
+              <p><a href="../../details/details.html#http://www.genenames.org/">http://www.genenames.org/</a></p> (HGNC)
          </td>
           <td>
               
@@ -2305,422 +2563,448 @@
           <td><div class="example_view" id="SEPIO:0000396"><pre><code>{
   "id": "SEPIO:0000396",
   "type": "ValueSet",
+  "label": "Gene Value Set",
   "description": "TODO",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys003",
+      "id": "http://www.genenames.org/",
       "type": "IdentifierSystem",
-      "oid": "2.16.840.1.113883.6.281",
-      "iri": "http://www.genenames.org/",
+      "label": "HGNC",
       "prefix": "HGNC",
-      "label": "hgnc"
+      "urlPattern": "http://www.genenames.org/"
     }
-  ],
-  "label": "Gene"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO:0000395">SEPIO:0000395</a></p> (Criterion)</td>
+          <td><p><a href="../../details/details.html#SEPIO:0000395">SEPIO:0000395</a></p> (ACMG Criterion Value Set)</td>
+          <td>
+              <p>ACMG Criterion Value Set</p>
+         </td>
           <td>
               <p>TODO</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio-clingen#">http://purl.obolibrary.org/obo/sepio-clingen#</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
-              <p><a href="../../details/details.html#Crit303">Crit303</a></p> (PVS1)<p><a href="../../details/details.html#Crit304">Crit304</a></p> (PS1)<p><a href="../../details/details.html#Crit305">Crit305</a></p> (PS2)<p><a href="../../details/details.html#Crit306">Crit306</a></p> (PS3)<p><a href="../../details/details.html#Crit307">Crit307</a></p> (PS4)<p><a href="../../details/details.html#Crit308">Crit308</a></p> (PM1)<p><a href="../../details/details.html#Crit309">Crit309</a></p> (PM2)<p><a href="../../details/details.html#Crit310">Crit310</a></p> (PM3)<p><a href="../../details/details.html#Crit311">Crit311</a></p> (PM4)<p><a href="../../details/details.html#Crit312">Crit312</a></p> (PM5)<p><a href="../../details/details.html#Crit313">Crit313</a></p> (PM6)<p><a href="../../details/details.html#Crit314">Crit314</a></p> (PP1)<p><a href="../../details/details.html#Crit315">Crit315</a></p> (PP2)<p><a href="../../details/details.html#Crit316">Crit316</a></p> (PP3)<p><a href="../../details/details.html#Crit317">Crit317</a></p> (PP4)<p><a href="../../details/details.html#Crit318">Crit318</a></p> (PP5)<p><a href="../../details/details.html#Crit319">Crit319</a></p> (BA1)<p><a href="../../details/details.html#Crit320">Crit320</a></p> (BS1)<p><a href="../../details/details.html#Crit321">Crit321</a></p> (BS2)<p><a href="../../details/details.html#Crit322">Crit322</a></p> (BS3)<p><a href="../../details/details.html#Crit323">Crit323</a></p> (BS4)<p><a href="../../details/details.html#Crit324">Crit324</a></p> (BP1)<p><a href="../../details/details.html#Crit325">Crit325</a></p> (BP2)<p><a href="../../details/details.html#Crit326">Crit326</a></p> (BP3)<p><a href="../../details/details.html#Crit327">Crit327</a></p> (BP4)<p><a href="../../details/details.html#Crit328">Crit328</a></p> (BP5)<p><a href="../../details/details.html#Crit329">Crit329</a></p> (BP6)<p><a href="../../details/details.html#Crit330">Crit330</a></p> (BP7)
+              <p><a href="../../details/details.html#SEPIO-CG:99022">SEPIO-CG:99022</a></p> (PVS1)<p><a href="../../details/details.html#SEPIO-CG:99023">SEPIO-CG:99023</a></p> (PS1)<p><a href="../../details/details.html#SEPIO-CG:99024">SEPIO-CG:99024</a></p> (PS2)<p><a href="../../details/details.html#SEPIO-CG:99025">SEPIO-CG:99025</a></p> (PS3)<p><a href="../../details/details.html#SEPIO-CG:99026">SEPIO-CG:99026</a></p> (PS4)<p><a href="../../details/details.html#SEPIO-CG:99027">SEPIO-CG:99027</a></p> (PM1)<p><a href="../../details/details.html#SEPIO-CG:99028">SEPIO-CG:99028</a></p> (PM2)<p><a href="../../details/details.html#SEPIO-CG:99029">SEPIO-CG:99029</a></p> (PM3)<p><a href="../../details/details.html#SEPIO-CG:99030">SEPIO-CG:99030</a></p> (PM4)<p><a href="../../details/details.html#SEPIO-CG:99031">SEPIO-CG:99031</a></p> (PM5)<p><a href="../../details/details.html#SEPIO-CG:99032">SEPIO-CG:99032</a></p> (PM6)<p><a href="../../details/details.html#SEPIO-CG:99033">SEPIO-CG:99033</a></p> (PP1)<p><a href="../../details/details.html#SEPIO-CG:99034">SEPIO-CG:99034</a></p> (PP2)<p><a href="../../details/details.html#SEPIO-CG:99035">SEPIO-CG:99035</a></p> (PP3)<p><a href="../../details/details.html#SEPIO-CG:99036">SEPIO-CG:99036</a></p> (PP4)<p><a href="../../details/details.html#SEPIO-CG:99037">SEPIO-CG:99037</a></p> (PP5)<p><a href="../../details/details.html#SEPIO-CG:99038">SEPIO-CG:99038</a></p> (BA1)<p><a href="../../details/details.html#SEPIO-CG:99039">SEPIO-CG:99039</a></p> (BS1)<p><a href="../../details/details.html#SEPIO-CG:99040">SEPIO-CG:99040</a></p> (BS2)<p><a href="../../details/details.html#SEPIO-CG:99041">SEPIO-CG:99041</a></p> (BS3)<p><a href="../../details/details.html#SEPIO-CG:99042">SEPIO-CG:99042</a></p> (BS4)<p><a href="../../details/details.html#SEPIO-CG:99043">SEPIO-CG:99043</a></p> (BP1)<p><a href="../../details/details.html#SEPIO-CG:99044">SEPIO-CG:99044</a></p> (BP2)<p><a href="../../details/details.html#SEPIO-CG:99045">SEPIO-CG:99045</a></p> (BP3)<p><a href="../../details/details.html#SEPIO-CG:99046">SEPIO-CG:99046</a></p> (BP4)<p><a href="../../details/details.html#SEPIO-CG:99047">SEPIO-CG:99047</a></p> (BP5)<p><a href="../../details/details.html#SEPIO-CG:99048">SEPIO-CG:99048</a></p> (BP6)<p><a href="../../details/details.html#SEPIO-CG:99049">SEPIO-CG:99049</a></p> (BP7)
          </td>
           <!--
           <td><div class="example_view" id="SEPIO:0000395"><pre><code>{
   "id": "SEPIO:0000395",
   "type": "ValueSet",
+  "label": "ACMG Criterion Value Set",
   "description": "TODO",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
-      "id": "Crit303",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99022",
+      "type": "VariantInterpretationCriterion",
+      "label": "PVS1",
       "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
-      "comments": "The two main concerns for applying this rule is:\na. Is LOF an established disease mechanism?\nb. Is LOF actually occurring?",
+      "usageNotes": "The two main concerns for applying this rule is:\na. Is LOF an established disease mechanism?\nb. Is LOF actually occurring?",
       "defaultStrength": {
         "id": "SEPIO:0000220",
+        "type": "Entity",
         "label": "Pathogenic Very Strong"
-      },
-      "label": "PVS1"
+      }
     },
     {
-      "id": "Crit304",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99023",
+      "type": "VariantInterpretationCriterion",
+      "label": "PS1",
       "description": "Same amino acid change as a previously established pathogenic variant regardless of nucleotide change",
-      "comments": "Beware of changes that impact splicing rather than at the amino acid/protein level\nFrom CSER paper: One site erroneously used this to apply prior publication of the same exact variant while this rule, as described in more depth on the ACMG/AMP guideline, only applies when the established pathogenic variant has a different nucleotide change than the variant being interpreted.",
+      "usageNotes": "Beware of changes that impact splicing rather than at the amino acid/protein level\nFrom CSER paper: One site erroneously used this to apply prior publication of the same exact variant while this rule, as described in more depth on the ACMG/AMP guideline, only applies when the established pathogenic variant has a different nucleotide change than the variant being interpreted.",
       "defaultStrength": {
         "id": "SEPIO:0000330",
+        "type": "Entity",
         "label": "Pathogenic Strong"
-      },
-      "label": "PS1"
+      }
     },
     {
-      "id": "Crit305",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99024",
+      "type": "VariantInterpretationCriterion",
+      "label": "PS2",
       "description": "De novo (both maternity and paternity confirmed) in a patient with the disease and no family history",
-      "comments": "MYH7 is adding specificity to this rule with\na. No family history = parents have had ECHO and ECG\nb. Only paternity confirmation required",
+      "usageNotes": "MYH7 is adding specificity to this rule with\na. No family history = parents have had ECHO and ECG\nb. Only paternity confirmation required",
       "defaultStrength": {
         "id": "SEPIO:0000330",
+        "type": "Entity",
         "label": "Pathogenic Strong"
-      },
-      "label": "PS2"
+      }
     },
     {
-      "id": "Crit306",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99025",
+      "type": "VariantInterpretationCriterion",
+      "label": "PS3",
       "description": "Well-established in vitro or in vivo functional studies supportive of a damaging effect on the gene or gene product",
-      "comments": "This particular rule will probably be downgraded often, given that there are not many “Functional studies that have been validated and shown to be reproducible and robust in a clinical diagnostic laboratory setting”",
+      "usageNotes": "This particular rule will probably be downgraded often, given that there are not many “Functional studies that have been validated and shown to be reproducible and robust in a clinical diagnostic laboratory setting”",
       "defaultStrength": {
         "id": "SEPIO:0000330",
+        "type": "Entity",
         "label": "Pathogenic Strong"
-      },
-      "label": "PS3"
+      }
     },
     {
-      "id": "Crit307",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99026",
+      "type": "VariantInterpretationCriterion",
+      "label": "PS4",
       "description": "The prevalence of the variant in affected individuals is significantly increased compared with the prevalence in controls",
       "defaultStrength": {
         "id": "SEPIO:0000330",
+        "type": "Entity",
         "label": "Pathogenic Strong"
-      },
-      "label": "PS4"
+      }
     },
     {
-      "id": "Crit308",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99027",
+      "type": "VariantInterpretationCriterion",
+      "label": "PM1",
       "description": "Located in a mutational hot spot and/or critical and well-established functional domain (e.g., active site of an enzyme) without benign variation",
-      "comments": "Suggested that this rule is NOT appropriate for LOF variants.\nAlso, note that when the region of interest is a “well-established functional domain” then it’s not necessary to show through evidence that it is intolerant of benign missense variants.  However, when a mutational hotspot is being defined, then showing it does not have benign missense variants is important.",
+      "usageNotes": "Suggested that this rule is NOT appropriate for LOF variants.\nAlso, note that when the region of interest is a “well-established functional domain” then it’s not necessary to show through evidence that it is intolerant of benign missense variants.  However, when a mutational hotspot is being defined, then showing it does not have benign missense variants is important.",
       "defaultStrength": {
         "id": "SEPIO:0000216",
+        "type": "Entity",
         "label": "Pathogenic Moderate"
-      },
-      "label": "PM1"
+      }
     },
     {
-      "id": "Crit309",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99028",
+      "type": "VariantInterpretationCriterion",
+      "label": "PM2",
       "description": "Absent from controls (or at extremely low frequency if recessive) (Table 6) in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
-      "comments": "Some groups are allowing to rule to be used if even not 100% absent\nFor instance, Cardio has allowed PM2 to be used if MAF is <0.05% with 95% CI if\nCI lower is ~0.00% (at 2 decimal places) AND CI upper is below 0.05%\n Caveat: Population data for insertions/deletions may be poorly called by next-generation sequencing",
+      "usageNotes": "Some groups are allowing to rule to be used if even not 100% absent\nFor instance, Cardio has allowed PM2 to be used if MAF is <0.05% with 95% CI if\nCI lower is ~0.00% (at 2 decimal places) AND CI upper is below 0.05%\n Caveat: Population data for insertions/deletions may be poorly called by next-generation sequencing",
       "defaultStrength": {
         "id": "SEPIO:0000216",
+        "type": "Entity",
         "label": "Pathogenic Moderate"
-      },
-      "label": "PM2"
+      }
     },
     {
-      "id": "Crit310",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99029",
+      "type": "VariantInterpretationCriterion",
+      "label": "PM3",
       "description": "For recessive disorders, detected in trans with a pathogenic variant",
-      "comments": "CSER - Laboratories discussed when to modify the strength of PM3, the variant is seen in trans with a pathogenic variant for recessive disorders. Published literature may not always explicitly state the phase of variants found in affected individuals which raises a challenge for invoking PM3.\nWhen phase has not been established, some felt that PM3 could be invoked as supporting evidence. Also, if the variant is seen in trans with a pathogenic variant in more than one individual it was felt that PM3 can be upgraded to strong. However, sites did not agree on how many additional observations were necessary to call the evidence strong (2 vs. 3) but concluded that such guidance would be useful.\n \nLMM - INCREASES IN STRENGTH IF VARIANT SEEN IN MULTIPLE COMPOUND HETS WITH DIFFERENT LIKELY PATHOGENIC/PATHOGENIC VARIANTS",
+      "usageNotes": "CSER - Laboratories discussed when to modify the strength of PM3, the variant is seen in trans with a pathogenic variant for recessive disorders. Published literature may not always explicitly state the phase of variants found in affected individuals which raises a challenge for invoking PM3.\nWhen phase has not been established, some felt that PM3 could be invoked as supporting evidence. Also, if the variant is seen in trans with a pathogenic variant in more than one individual it was felt that PM3 can be upgraded to strong. However, sites did not agree on how many additional observations were necessary to call the evidence strong (2 vs. 3) but concluded that such guidance would be useful.\n \nLMM - INCREASES IN STRENGTH IF VARIANT SEEN IN MULTIPLE COMPOUND HETS WITH DIFFERENT LIKELY PATHOGENIC/PATHOGENIC VARIANTS",
       "defaultStrength": {
         "id": "SEPIO:0000216",
+        "type": "Entity",
         "label": "Pathogenic Moderate"
-      },
-      "label": "PM3"
+      }
     },
     {
-      "id": "Crit311",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99030",
+      "type": "VariantInterpretationCriterion",
+      "label": "PM4",
       "description": "Protein length changes as a result of in-frame deletions/insertions in a nonrepeat region or stop-loss variants",
-      "comments": "Need to ensure that variant is not located within a repeat region\n\nThis rule is also (likely) applicable for frameshift variants that result in extension of the protein as opposed to truncation (similar to stop loss).",
+      "usageNotes": "Need to ensure that variant is not located within a repeat region\n\nThis rule is also (likely) applicable for frameshift variants that result in extension of the protein as opposed to truncation (similar to stop loss).",
       "defaultStrength": {
         "id": "SEPIO:0000216",
+        "type": "Entity",
         "label": "Pathogenic Moderate"
-      },
-      "label": "PM4"
+      }
     },
     {
-      "id": "Crit312",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99031",
+      "type": "VariantInterpretationCriterion",
+      "label": "PM5",
       "description": "Novel missense change at an amino acid residue where a different missense change determined to be pathogenic has been seen before",
-      "comments": "Need to be sure that pathogenic variant exists at the residue in question. Sometimes discrepancy resolution may be required. Some thing like Variantexplorer.org may be useful.\nSometimes no assertion is provided in ClinVar ...may require curation by lit. search.",
+      "usageNotes": "Need to be sure that pathogenic variant exists at the residue in question. Sometimes discrepancy resolution may be required. Some thing like Variantexplorer.org may be useful.\nSometimes no assertion is provided in ClinVar ...may require curation by lit. search.",
       "defaultStrength": {
         "id": "SEPIO:0000216",
+        "type": "Entity",
         "label": "Pathogenic Moderate"
-      },
-      "label": "PM5"
+      }
     },
     {
-      "id": "Crit313",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99032",
+      "type": "VariantInterpretationCriterion",
+      "label": "PM6",
       "description": "Assumed de novo, but without confirmation of paternity and maternity",
       "defaultStrength": {
         "id": "SEPIO:0000216",
+        "type": "Entity",
         "label": "Pathogenic Moderate"
-      },
-      "label": "PM6"
+      }
     },
     {
-      "id": "Crit314",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99033",
+      "type": "VariantInterpretationCriterion",
+      "label": "PP1",
       "description": "Cosegregation with disease in multiple affected family members in a gene definitively known to cause the disease",
       "defaultStrength": {
         "id": "SEPIO:0000329",
+        "type": "Entity",
         "label": "Pathogenic Supporting"
-      },
-      "label": "PP1"
+      }
     },
     {
-      "id": "Crit315",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99034",
+      "type": "VariantInterpretationCriterion",
+      "label": "PP2",
       "description": "Missense variant in a gene that has a low rate of benign missense variation and in which missense variants are a common mechanism of disease",
-      "comments": "Seems no one has established firm rules for when this rule is applicable so not sure how great any examples will be\nAgree with the lack of firm rules. Seems like one criteria may be observed missense variants over 5% allele frequency in ExAC. If this seems reasonable then I could generate a couple of examples.",
+      "usageNotes": "Seems no one has established firm rules for when this rule is applicable so not sure how great any examples will be\nAgree with the lack of firm rules. Seems like one criteria may be observed missense variants over 5% allele frequency in ExAC. If this seems reasonable then I could generate a couple of examples.",
       "defaultStrength": {
         "id": "SEPIO:0000329",
+        "type": "Entity",
         "label": "Pathogenic Supporting"
-      },
-      "label": "PP2"
+      }
     },
     {
-      "id": "Crit316",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99035",
+      "type": "VariantInterpretationCriterion",
+      "label": "PP3",
       "description": "Multiple lines of computational evidence support a deleterious effect on the gene or gene product (conservation, evolutionary, splicing impact, etc.)",
-      "comments": "Don’t know if there is a definition of “multiple” . If >1 then the algorithms chosen are at the discretion of the curator/lab.  There is a difference between lines of evidence and number of implementations.",
+      "usageNotes": "Don’t know if there is a definition of “multiple” . If >1 then the algorithms chosen are at the discretion of the curator/lab.  There is a difference between lines of evidence and number of implementations.",
       "defaultStrength": {
         "id": "SEPIO:0000329",
+        "type": "Entity",
         "label": "Pathogenic Supporting"
-      },
-      "label": "PP3"
+      }
     },
     {
-      "id": "Crit317",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99036",
+      "type": "VariantInterpretationCriterion",
+      "label": "PP4",
       "description": "Patient’s phenotype or family history is highly specific for a disease with a single genetic etiology",
       "defaultStrength": {
         "id": "SEPIO:0000329",
+        "type": "Entity",
         "label": "Pathogenic Supporting"
-      },
-      "label": "PP4"
+      }
     },
     {
-      "id": "Crit318",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99037",
+      "type": "VariantInterpretationCriterion",
+      "label": "PP5",
       "description": "Reputable source recently reports variant as pathogenic, but the evidence is not available to the laboratory to perform an independent evaluation",
       "defaultStrength": {
         "id": "SEPIO:0000329",
+        "type": "Entity",
         "label": "Pathogenic Supporting"
-      },
-      "label": "PP5"
+      }
     },
     {
-      "id": "Crit319",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99038",
+      "type": "VariantInterpretationCriterion",
+      "label": "BA1",
       "description": "Allele frequency is >5% in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium",
-      "comments": "Several groups have lowered the BA1 threshold (e.g. PTEN-1%). Also the sequence variant interpretation group is working on a modified version of this guideline including the minimum # of alleles that need to be examined and the population stratification effects, if any.",
+      "usageNotes": "Several groups have lowered the BA1 threshold (e.g. PTEN-1%). Also the sequence variant interpretation group is working on a modified version of this guideline including the minimum # of alleles that need to be examined and the population stratification effects, if any.",
       "defaultStrength": {
         "id": "SEPIO:0000325",
+        "type": "Entity",
         "label": "Benign Stand Alone"
-      },
-      "label": "BA1"
+      }
     },
     {
-      "id": "Crit320",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99039",
+      "type": "VariantInterpretationCriterion",
+      "label": "BS1",
       "description": "Allele frequency is greater than expected for disorder",
       "defaultStrength": {
         "id": "SEPIO:0000328",
+        "type": "Entity",
         "label": "Benign Strong"
-      },
-      "label": "BS1"
+      }
     },
     {
-      "id": "Crit321",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99040",
+      "type": "VariantInterpretationCriterion",
+      "label": "BS2",
       "description": "Observed in a healthy adult individual for a recessive (homozygous), dominant (heterozygous), or X-linked (hemizygous) disorder, with full penetrance expected at an early age",
-      "comments": "This rule should not be used for diseases with reduced penetrance or late/variable age of  onset (such as certain cardiomyopathies).",
+      "usageNotes": "This rule should not be used for diseases with reduced penetrance or late/variable age of  onset (such as certain cardiomyopathies).",
       "defaultStrength": {
         "id": "SEPIO:0000328",
+        "type": "Entity",
         "label": "Benign Strong"
-      },
-      "label": "BS2"
+      }
     },
     {
-      "id": "Crit322",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99041",
+      "type": "VariantInterpretationCriterion",
+      "label": "BS3",
       "description": "Well-established in vitro or in vivo functional studies show no damaging effect on protein function or splicing",
-      "comments": "\nThis will all depend on what is “established”, which could end up being defined by the different clinical domain working groups.\n",
+      "usageNotes": "This will all depend on what is “established”, which could end up being defined by the different clinical domain working groups.",
       "defaultStrength": {
         "id": "SEPIO:0000328",
+        "type": "Entity",
         "label": "Benign Strong"
-      },
-      "label": "BS3"
+      }
     },
     {
-      "id": "Crit323",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99042",
+      "type": "VariantInterpretationCriterion",
+      "label": "BS4",
       "description": "Lack of segregation in affected members of a family",
-      "comments": "This rule is for “lack of segregation” meaning phenotype positive / genotype negative (and not pheno neg / geno pos). Also need to be careful of phenocopies. Also need rules for how many cases are needed in use this rule",
+      "usageNotes": "This rule is for “lack of segregation” meaning phenotype positive / genotype negative (and not pheno neg / geno pos). Also need to be careful of phenocopies. Also need rules for how many cases are needed in use this rule",
       "defaultStrength": {
         "id": "SEPIO:0000328",
+        "type": "Entity",
         "label": "Benign Strong"
-      },
-      "label": "BS4"
+      }
     },
     {
-      "id": "Crit324",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99043",
+      "type": "VariantInterpretationCriterion",
+      "label": "BP1",
       "description": "Missense variant in a gene for which primarily truncating variants are known to cause disease",
-      "comments": "Is there any guidance on the proportion of pathogenic variants that are LOF to apply this rule?  99%? 90%? 75%?",
+      "usageNotes": "Is there any guidance on the proportion of pathogenic variants that are LOF to apply this rule?  99%? 90%? 75%?",
       "defaultStrength": {
         "id": "SEPIO:0000327",
+        "type": "Entity",
         "label": "Benign Supporting"
-      },
-      "label": "BP1"
+      }
     },
     {
-      "id": "Crit325",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99044",
+      "type": "VariantInterpretationCriterion",
+      "label": "BP2",
       "description": "Observed in trans with a pathogenic variant for a fully penetrant dominant gene/disorder or observed in cis with a pathogenic variant in any inheritance pattern",
       "defaultStrength": {
         "id": "SEPIO:0000327",
+        "type": "Entity",
         "label": "Benign Supporting"
-      },
-      "label": "BP2"
+      }
     },
     {
-      "id": "Crit326",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99045",
+      "type": "VariantInterpretationCriterion",
+      "label": "BP3",
       "description": "In-frame deletions/insertions in a repetitive region without a known function",
       "defaultStrength": {
         "id": "SEPIO:0000327",
+        "type": "Entity",
         "label": "Benign Supporting"
-      },
-      "label": "BP3"
+      }
     },
     {
-      "id": "Crit327",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99046",
+      "type": "VariantInterpretationCriterion",
+      "label": "BP4",
       "description": "Multiple lines of computational evidence suggest no impact on gene or gene product (conservation, evolutionary, splicing impact, etc.)",
-      "comments": "same issues as PP3.",
+      "usageNotes": "same issues as PP3.",
       "defaultStrength": {
         "id": "SEPIO:0000327",
+        "type": "Entity",
         "label": "Benign Supporting"
-      },
-      "label": "BP4"
+      }
     },
     {
-      "id": "Crit328",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99047",
+      "type": "VariantInterpretationCriterion",
+      "label": "BP5",
       "description": "Variant found in a case with an alternate molecular basis for disease",
       "defaultStrength": {
         "id": "SEPIO:0000327",
+        "type": "Entity",
         "label": "Benign Supporting"
-      },
-      "label": "BP5"
+      }
     },
     {
-      "id": "Crit329",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99048",
+      "type": "VariantInterpretationCriterion",
+      "label": "BP6",
       "description": "Reputable source recently reports variant as benign, but the evidence is not available to the laboratory to perform an independent evaluation",
       "defaultStrength": {
         "id": "SEPIO:0000327",
+        "type": "Entity",
         "label": "Benign Supporting"
-      },
-      "label": "BP6"
+      }
     },
     {
-      "id": "Crit330",
-      "type": "Criterion",
+      "id": "SEPIO-CG:99049",
+      "type": "VariantInterpretationCriterion",
+      "label": "BP7",
       "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
       "defaultStrength": {
         "id": "SEPIO:0000327",
+        "type": "Entity",
         "label": "Benign Supporting"
-      },
-      "label": "BP7"
+      }
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys024",
+      "id": "http://purl.obolibrary.org/obo/sepio-clingen#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/clingen",
+      "label": "ClinGen extensions to SEPIO",
       "prefix": "SEPIO-CG",
-      "label": "ClinGen extensions to SEPIO"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO-CG_"
     }
-  ],
-  "label": "Criterion"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO-CG:65132">SEPIO-CG:65132</a></p> (Assertion Method)</td>
+          <td><p><a href="../../details/details.html#SEPIO-CG:65132">SEPIO-CG:65132</a></p> (Variant Interpretation Guideline Value Set)</td>
+          <td>
+              <p>Variant Interpretation Guideline Value Set</p>
+         </td>
           <td>
               <p>TODO</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio-clingen#">http://purl.obolibrary.org/obo/sepio-clingen#</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
-              <p><a href="../../details/details.html#AssertMeth331">AssertMeth331</a></p>
+              <p><a href="../../details/details.html#CGEX:AssertMeth331">CGEX:AssertMeth331</a></p>
          </td>
           <!--
           <td><div class="example_view" id="SEPIO-CG:65132"><pre><code>{
   "id": "SEPIO-CG:65132",
   "type": "ValueSet",
+  "label": "Variant Interpretation Guideline Value Set",
   "description": "TODO",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
   "concept": [
     {
-      "id": "AssertMeth331",
-      "type": "AssertionMethod",
+      "id": "CGEX:AssertMeth331",
+      "type": "VariantPathogenicityInterpretationGuideline",
       "description": "ACMG ISV guidelines 2015",
       "url": "https://www.acmg.net/docs/Standards_Guidelines_for_the_Interpretation_of_Sequence_Variants.pdf",
       "version": "1.0",
       "scoringAlgorithm": {
-        "id": "SEPIO-CG:99300",
-        "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance."
+        "id": "SEPIO-CG:99300"
       }
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys024",
+      "id": "http://purl.obolibrary.org/obo/sepio-clingen#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/clingen",
+      "label": "ClinGen extensions to SEPIO",
       "prefix": "SEPIO-CG",
-      "label": "ClinGen extensions to SEPIO"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO-CG_"
     }
-  ],
-  "label": "Assertion Method"
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#SEPIO-CG:65133">SEPIO-CG:65133</a></p> (Assertion Method Algorithm)</td>
+          <td><p><a href="../../details/details.html#SEPIO-CG:65133">SEPIO-CG:65133</a></p> (Variant Interpretation Criterion Scoring Rules Value Set)</td>
           <td>
-              <p>TODO</p>
+              <p>Variant Interpretation Criterion Scoring Rules Value Set</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#SEPIO:0000365">SEPIO:0000365</a></p>
+              <p>This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance.</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#IdSys024">IdSys024</a></p> (ClinGen extensions to SEPIO)
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio-clingen#">http://purl.obolibrary.org/obo/sepio-clingen#</a></p> (ClinGen extensions to SEPIO)
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99300">SEPIO-CG:99300</a></p>
@@ -2729,26 +3013,59 @@
           <td><div class="example_view" id="SEPIO-CG:65133"><pre><code>{
   "id": "SEPIO-CG:65133",
   "type": "ValueSet",
-  "description": "TODO",
-  "conceptListExtensibility": {
-    "id": "SEPIO:0000365"
-  },
+  "label": "Variant Interpretation Criterion Scoring Rules Value Set",
+  "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance.",
   "concept": [
     {
-      "id": "SEPIO-CG:99300",
-      "description": "This is the description of how the weighting of the satisfied criterion are typically evaluated to arrive at a specific clinical significance."
+      "id": "SEPIO-CG:99300"
     }
   ],
-  "sourceIdentifierSystems": [
+  "valueSetIdentifierSystems": [
     {
-      "id": "IdSys024",
+      "id": "http://purl.obolibrary.org/obo/sepio-clingen#",
       "type": "IdentifierSystem",
-      "iri": "http://obofoundry.org/sepio/clingen",
+      "label": "ClinGen extensions to SEPIO",
       "prefix": "SEPIO-CG",
-      "label": "ClinGen extensions to SEPIO"
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO-CG_"
     }
-  ],
-  "label": "Assertion Method Algorithm"
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#SEPIO-CG:65140">SEPIO-CG:65140</a></p> (Inconsistent Segregation Status Value Set)</td>
+          <td>
+              <p>Inconsistent Segregation Status Value Set</p>
+         </td>
+          <td>
+              <p>TODO</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#http://purl.obolibrary.org/obo/sepio#">http://purl.obolibrary.org/obo/sepio#</a></p> (Scientific Evidence Provenance Information Ontology)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="SEPIO-CG:65140"><pre><code>{
+  "id": "SEPIO-CG:65140",
+  "type": "ValueSet",
+  "label": "Inconsistent Segregation Status Value Set",
+  "description": "TODO",
+  "valueSetIdentifierSystems": [
+    {
+      "id": "http://purl.obolibrary.org/obo/sepio#",
+      "type": "IdentifierSystem",
+      "label": "Scientific Evidence Provenance Information Ontology",
+      "prefix": "SEPIO",
+      "urlPattern": "http://purl.obolibrary.org/obo/SEPIO_"
+    }
+  ]
 }
           </code></pre></div></td>
           -->

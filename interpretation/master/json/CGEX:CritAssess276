@@ -1,0 +1,156 @@
+{
+  "id": "CGEX:CritAssess276",
+  "type": "CriterionAssessment",
+  "criterion": {
+    "id": "SEPIO-CG:99022",
+    "type": "VariantInterpretationCriterion",
+    "label": "PVS1",
+    "description": "null variant (nonsense, frameshift, canonical ±1 or 2 splice sites, initiation codon, single or multiexon deletion) in a gene where LOF is a known mechanism of disease",
+    "usageNotes": "The two main concerns for applying this rule is:\na. Is LOF an established disease mechanism?\nb. Is LOF actually occurring?",
+    "defaultStrength": {
+      "id": "SEPIO:0000220",
+      "type": "Entity",
+      "label": "Pathogenic Very Strong"
+    }
+  },
+  "variant": {
+    "id": "CAR:CA090898",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll002"
+  },
+  "condition": [
+    {
+      "id": "CGEX:GenCond001",
+      "type": "GeneticCondition",
+      "description": "Breast Ovarian Cancer, Autosomal Dominant",
+      "disease": [
+        {
+          "id": "MESH:D061325",
+          "type": "Entity",
+          "label": "hereditary breast ovarian cancer"
+        }
+      ],
+      "inheritancePattern": {
+        "id": "HP:0000006",
+        "type": "Entity",
+        "label": "Autosomal Dominant"
+      }
+    }
+  ],
+  "statementOutcome": {
+    "id": "SEPIO:0000223",
+    "type": "Entity",
+    "label": "Met"
+  },
+  "evidenceLine": [
+    {
+      "id": "CGEX:EvLn002",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:MolCon003",
+          "type": "AlleleMolecularConsequenceStatement",
+          "description": "LOF is predicted to occur as variant is >55bp from penultimate exon",
+          "contextualAllele": {
+            "id": "CGEX:CtxAll002",
+            "type": "ContextualAllele",
+            "canonicalAllele": {
+              "id": "CAR:CA090898",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll002"
+            },
+            "alleleName": {
+              "id": "CGEX:CtxNm9002",
+              "type": "ContextualAlleleName",
+              "name": "NM_000059.3(BRCA2):c.7762_7764delinsTT",
+              "preferred": true
+            }
+          },
+          "statementOutcome": {
+            "id": "SO:0001589",
+            "type": "Entity",
+            "label": "frameshift variant"
+          }
+        },
+        {
+          "id": "CGEX:Null397",
+          "type": "NullAlleleStatement",
+          "contextualAllele": {
+            "id": "CGEX:CtxAll002",
+            "type": "ContextualAllele",
+            "canonicalAllele": {
+              "id": "CAR:CA090898",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll002"
+            },
+            "alleleName": {
+              "id": "CGEX:CtxNm9002",
+              "type": "ContextualAlleleName",
+              "name": "NM_000059.3(BRCA2):c.7762_7764delinsTT",
+              "preferred": true
+            }
+          },
+          "statementOutcome": {
+            "id": "SO:0002055",
+            "type": "Entity",
+            "label": "null mutation"
+          }
+        },
+        {
+          "id": "CGEX:CondMech004",
+          "type": "ConditionMechanismStatement",
+          "description": "This is so well-known that it does not require a citation.",
+          "statementOutcome": {
+            "id": "SO:0002054",
+            "type": "Entity",
+            "label": "loss of function variant"
+          },
+          "mechanismConfidence": {
+            "id": "SEPIO:0000269",
+            "type": "Entity",
+            "label": "established"
+          },
+          "gene": {
+            "id": "HGNC:1101",
+            "type": "Entity",
+            "label": "BRCA2"
+          },
+          "condition": {
+            "id": "CGEX:GenCond001",
+            "type": "GeneticCondition",
+            "description": "Breast Ovarian Cancer, Autosomal Dominant",
+            "disease": [
+              {
+                "id": "MESH:D061325",
+                "type": "Entity",
+                "label": "hereditary breast ovarian cancer"
+              }
+            ],
+            "inheritancePattern": {
+              "id": "HP:0000006",
+              "type": "Entity",
+              "label": "Autosomal Dominant"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CGEX:Agent001",
+        "type": "Agent",
+        "label": "Harry Stevenson"
+      },
+      "contributionDate": "6/2/16 12:15 PM",
+      "contributionRole": {
+        "id": "SEPIO:0000154",
+        "type": "Entity",
+        "label": "assessor role"
+      }
+    }
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

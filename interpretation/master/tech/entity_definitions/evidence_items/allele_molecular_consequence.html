@@ -67,7 +67,7 @@
     
         <div class="row">
           <div class="col-sm-12">
-              <h1 class="header">AlleleMolecularConsequence</h1>
+              <h1 class="header">AlleleMolecularConsequenceStatement</h1>
               <ol class="breadcrumb bg-none margin-none">
                 <li><a href="../../../">Interpretation Model</a></li>
 <li><a href="../../">Technical Reference</a></li>
@@ -120,7 +120,7 @@
                 <td>SEPIO:0000275</td>
             </tr>
             <tr>
-                <td>consequence</td>
+                <td>statementOutcome</td>
                 <td>@id</td>
                 <td>1..1</td>
                 <td>Classification of allele based on the manner in which it alters the sequence</td>
@@ -144,11 +144,32 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>userLabel</td>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A name given to the resource.</td>
+                    <td>RDFS:label</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                    <td>DC:description</td>
+                </tr>
+                <tr>
+                    <td>userLabelDictionary</td>
                     <td>UserLabel</td>
                     <td>0..*</td>
                     <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
-                    <td></td>
+                    <td>SEPIO:0000422</td>
+                </tr>
+                <tr>
+                    <td>outcomeQualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                    <td>SEPIO:0000346</td>
                 </tr>
                 <tr>
                     <td>evidenceLine</td>
@@ -156,13 +177,6 @@
                     <td>0..*</td>
                     <td>supporting evidence</td>
                     <td>SEPIO:0000006</td>
-                </tr>
-                <tr>
-                    <td>description</td>
-                    <td>string</td>
-                    <td>0..1</td>
-                    <td>A human-readable description of the entity</td>
-                    <td>DC:description</td>
                 </tr>
                 <tr>
                     <td>contribution</td>
@@ -186,18 +200,17 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
-        <th>userLabel</th>
-        <th>evidenceLine</th>
+        <th>label</th>
         <th>description</th>
+        <th>userLabelDictionary</th>
+        <th>outcomeQualifier</th>
+        <th>evidenceLine</th>
         <th>contextualAllele</th>
-        <th>consequence</th>
+        <th>statementOutcome</th>
       </tr></thead>
       <tbody>
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon001">CG-EX:MolCon001</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon001">CGEX:MolCon001</a></p></td>
           <td>
               
          </td>
@@ -205,36 +218,52 @@
               <p>Protein ends at p.826 and this frameshift would create stop at p.852 (769+83) thus NMD would not occur. Instead an elongated protein</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll001">CG-EX:CtxAll001</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll001">CGEX:CtxAll001</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001589">SO:0001589</a></p> (frameshift variant)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon001"><pre><code>{
-  "id": "CG-EX:MolCon001",
-  "type": "AlleleMolecularConsequence",
+          <td><div class="example_view" id="CGEX:MolCon001"><pre><code>{
+  "id": "CGEX:MolCon001",
+  "type": "AlleleMolecularConsequenceStatement",
+  "description": "Protein ends at p.826 and this frameshift would create stop at p.852 (769+83) thus NMD would not occur. Instead an elongated protein",
   "contextualAllele": {
-    "id": "CG-EX:CtxAll001",
+    "id": "CGEX:CtxAll001",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA090943",
-    "alleleName": "NM_031844.2(HNRNPU):c.2304_2305del (p.Gly769Glufs*83)"
+    "canonicalAllele": {
+      "id": "CAR:CA090943",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll001"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9001",
+      "type": "ContextualAlleleName",
+      "name": "NM_031844.2(HNRNPU):c.2304_2305del (p.Gly769Glufs*83)",
+      "preferred": true
+    }
   },
-  "consequence": {
+  "statementOutcome": {
     "id": "SO:0001589",
+    "type": "Entity",
     "label": "frameshift variant"
-  },
-  "description": "Protein ends at p.826 and this frameshift would create stop at p.852 (769+83) thus NMD would not occur. Instead an elongated protein"
+  }
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon003">CG-EX:MolCon003</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon003">CGEX:MolCon003</a></p></td>
           <td>
               
          </td>
@@ -242,36 +271,52 @@
               <p>LOF is predicted to occur as variant is >55bp from penultimate exon</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll002">CG-EX:CtxAll002</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll002">CGEX:CtxAll002</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001589">SO:0001589</a></p> (frameshift variant)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon003"><pre><code>{
-  "id": "CG-EX:MolCon003",
-  "type": "AlleleMolecularConsequence",
+          <td><div class="example_view" id="CGEX:MolCon003"><pre><code>{
+  "id": "CGEX:MolCon003",
+  "type": "AlleleMolecularConsequenceStatement",
+  "description": "LOF is predicted to occur as variant is >55bp from penultimate exon",
   "contextualAllele": {
-    "id": "CG-EX:CtxAll002",
+    "id": "CGEX:CtxAll002",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA090898",
-    "alleleName": "NM_000059.3(BRCA2):c.7762_7764delinsTT"
+    "canonicalAllele": {
+      "id": "CAR:CA090898",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll002"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9002",
+      "type": "ContextualAlleleName",
+      "name": "NM_000059.3(BRCA2):c.7762_7764delinsTT",
+      "preferred": true
+    }
   },
-  "consequence": {
+  "statementOutcome": {
     "id": "SO:0001589",
+    "type": "Entity",
     "label": "frameshift variant"
-  },
-  "description": "LOF is predicted to occur as variant is >55bp from penultimate exon"
+  }
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon005">CG-EX:MolCon005</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon005">CGEX:MolCon005</a></p></td>
           <td>
               
          </td>
@@ -279,33 +324,108 @@
               <p>LOF is predicted but this transcript is rare</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll003">CG-EX:CtxAll003</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll003">CGEX:CtxAll003</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001589">SO:0001589</a></p> (frameshift variant)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon005"><pre><code>{
-  "id": "CG-EX:MolCon005",
-  "type": "AlleleMolecularConsequence",
+          <td><div class="example_view" id="CGEX:MolCon005"><pre><code>{
+  "id": "CGEX:MolCon005",
+  "type": "AlleleMolecularConsequenceStatement",
+  "description": "LOF is predicted but this transcript is rare",
   "contextualAllele": {
-    "id": "CG-EX:CtxAll003",
+    "id": "CGEX:CtxAll003",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA238217",
-    "alleleName": "NM_133437.4(TTN):c.10670dupG"
+    "canonicalAllele": {
+      "id": "CAR:CA238217",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll003"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9003",
+      "type": "ContextualAlleleName",
+      "name": "NM_133437.4(TTN):c.10670dupG",
+      "preferred": true
+    }
   },
-  "consequence": {
+  "statementOutcome": {
     "id": "SO:0001589",
+    "type": "Entity",
     "label": "frameshift variant"
-  },
-  "description": "LOF is predicted but this transcript is rare"
+  }
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon006">CG-EX:MolCon006</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon272">CGEX:MolCon272</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID:17186466).</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll127">CGEX:CtxAll127</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#SO:0001629">SO:0001629</a></p> (splice-site variant)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:MolCon272"><pre><code>{
+  "id": "CGEX:MolCon272",
+  "type": "AlleleMolecularConsequenceStatement",
+  "description": "This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID:17186466).",
+  "contextualAllele": {
+    "id": "CGEX:CtxAll127",
+    "type": "ContextualAllele",
+    "canonicalAllele": {
+      "id": "CAR:CA022880",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll127"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9127",
+      "type": "ContextualAlleleName",
+      "name": "NM_024422.3(DSC2): c.631-2A>G (p.?)",
+      "preferred": true
+    }
+  },
+  "statementOutcome": {
+    "id": "SO:0001629",
+    "type": "Entity",
+    "label": "splice-site variant"
+  },
+  "source": [
+    "PMID:17186466"
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CGEX:MolCon006">CGEX:MolCon006</a></p></td>
           <td>
               
          </td>
@@ -316,23 +436,39 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll004">CG-EX:CtxAll004</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll004">CGEX:CtxAll004</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0000191">SO:0000191</a></p> (interior intron)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon006"><pre><code>{
-  "id": "CG-EX:MolCon006",
-  "type": "AlleleMolecularConsequence",
+          <td><div class="example_view" id="CGEX:MolCon006"><pre><code>{
+  "id": "CGEX:MolCon006",
+  "type": "AlleleMolecularConsequenceStatement",
   "contextualAllele": {
-    "id": "CG-EX:CtxAll004",
+    "id": "CGEX:CtxAll004",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA238217",
-    "alleleName": "LRG_391t2:c.10303+2691dupG"
+    "canonicalAllele": {
+      "id": "CAR:CA238217",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll003"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9004",
+      "type": "ContextualAlleleName",
+      "name": "LRG_391t2:c.10303+2691dupG",
+      "preferred": true
+    }
   },
-  "consequence": {
+  "statementOutcome": {
     "id": "SO:0000191",
+    "type": "Entity",
     "label": "interior intron"
   }
 }
@@ -341,7 +477,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon066">CG-EX:MolCon066</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon066">CGEX:MolCon066</a></p></td>
           <td>
               
          </td>
@@ -352,37 +488,53 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll044">CG-EX:CtxAll044</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll044">CGEX:CtxAll044</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001825">SO:0001825</a></p> (conservative Inframe Deletion)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon066"><pre><code>{
-  "id": "CG-EX:MolCon066",
-  "type": "AlleleMolecularConsequence",
+          <td><div class="example_view" id="CGEX:MolCon066"><pre><code>{
+  "id": "CGEX:MolCon066",
+  "type": "AlleleMolecularConsequenceStatement",
   "contextualAllele": {
-    "id": "CG-EX:CtxAll044",
+    "id": "CGEX:CtxAll044",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA273136",
-    "alleleName": "NP_001360.1:p.Trp2490_Leu2496del",
-    "producedBy": "CG-EX:CtxAll039"
+    "canonicalAllele": {
+      "id": "CAR:CA273136",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll044"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9044",
+      "type": "ContextualAlleleName",
+      "name": "NP_001360.1:p.Trp2490_Leu2496del",
+      "preferred": true
+    }
   },
-  "consequence": {
+  "statementOutcome": {
     "id": "SO:0001825",
+    "type": "Entity",
     "label": "conservative Inframe Deletion"
   },
   "contribution": [
     {
       "type": "Contribution",
       "agent": {
-        "id": "CG-EX:Agent001",
+        "id": "CGEX:Agent001",
         "type": "Agent",
         "label": "Harry Stevenson"
       },
       "contributionDate": "6/1/16 2:03 PM",
       "contributionRole": {
         "id": "SEPIO:0000156",
+        "type": "Entity",
         "label": "curator role"
       }
     }
@@ -396,7 +548,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon070">CG-EX:MolCon070</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon070">CGEX:MolCon070</a></p></td>
           <td>
               
          </td>
@@ -407,24 +559,39 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll046">CG-EX:CtxAll046</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll046">CGEX:CtxAll046</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001825">SO:0001825</a></p> (conservative Inframe Deletion)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon070"><pre><code>{
-  "id": "CG-EX:MolCon070",
-  "type": "AlleleMolecularConsequence",
+          <td><div class="example_view" id="CGEX:MolCon070"><pre><code>{
+  "id": "CGEX:MolCon070",
+  "type": "AlleleMolecularConsequenceStatement",
   "contextualAllele": {
-    "id": "CG-EX:CtxAll046",
+    "id": "CGEX:CtxAll046",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA322149",
-    "alleleName": "NP_056375.2:p.Arg38_Ser43del",
-    "producedBy": "CG-EX:CtxAll045"
+    "canonicalAllele": {
+      "id": "CAR:CA322149",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll046"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9046",
+      "type": "ContextualAlleleName",
+      "name": "NP_056375.2:p.Arg38_Ser43del",
+      "preferred": true
+    }
   },
-  "consequence": {
+  "statementOutcome": {
     "id": "SO:0001825",
+    "type": "Entity",
     "label": "conservative Inframe Deletion"
   }
 }
@@ -433,7 +600,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon074">CG-EX:MolCon074</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon074">CGEX:MolCon074</a></p></td>
           <td>
               
          </td>
@@ -444,24 +611,39 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll048">CG-EX:CtxAll048</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll048">CGEX:CtxAll048</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001823">SO:0001823</a></p> (conservative Inframe Insertion)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon074"><pre><code>{
-  "id": "CG-EX:MolCon074",
-  "type": "AlleleMolecularConsequence",
+          <td><div class="example_view" id="CGEX:MolCon074"><pre><code>{
+  "id": "CGEX:MolCon074",
+  "type": "AlleleMolecularConsequenceStatement",
   "contextualAllele": {
-    "id": "CG-EX:CtxAll048",
+    "id": "CGEX:CtxAll048",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA501225",
-    "alleleName": "NP_003915.2:p.Ala260_Gly261insAlaAlaAlaAlaAla",
-    "producedBy": "CG-EX:CtxAll047"
+    "canonicalAllele": {
+      "id": "CAR:CA501225",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll048"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9048",
+      "type": "ContextualAlleleName",
+      "name": "NP_003915.2:p.Ala260_Gly261insAlaAlaAlaAlaAla",
+      "preferred": true
+    }
   },
-  "consequence": {
+  "statementOutcome": {
     "id": "SO:0001823",
+    "type": "Entity",
     "label": "conservative Inframe Insertion"
   }
 }
@@ -470,7 +652,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon075">CG-EX:MolCon075</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon075">CGEX:MolCon075</a></p></td>
           <td>
               
          </td>
@@ -481,24 +663,40 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll124">CG-EX:CtxAll124</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll124">CGEX:CtxAll124</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001819">SO:0001819</a></p> (synonymous variant)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon075"><pre><code>{
-  "id": "CG-EX:MolCon075",
-  "type": "AlleleMolecularConsequence",
-  "consequence": {
+          <td><div class="example_view" id="CGEX:MolCon075"><pre><code>{
+  "id": "CGEX:MolCon075",
+  "type": "AlleleMolecularConsequenceStatement",
+  "statementOutcome": {
     "id": "SO:0001819",
+    "type": "Entity",
     "label": "synonymous variant"
   },
   "contextualAllele": {
-    "id": "CG-EX:CtxAll124",
+    "id": "CGEX:CtxAll124",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA013536",
-    "alleleName": "NM_000257.2(MYH7):c.327C>T"
+    "canonicalAllele": {
+      "id": "CAR:CA013536",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll124"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9124",
+      "type": "ContextualAlleleName",
+      "name": "NM_000257.2(MYH7):c.327C>T",
+      "preferred": true
+    }
   }
 }
           </code></pre></div></td>
@@ -506,7 +704,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon117">CG-EX:MolCon117</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon117">CGEX:MolCon117</a></p></td>
           <td>
               
          </td>
@@ -517,23 +715,39 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll070">CG-EX:CtxAll070</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll070">CGEX:CtxAll070</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001583">SO:0001583</a></p> (missense variant)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon117"><pre><code>{
-  "id": "CG-EX:MolCon117",
-  "type": "AlleleMolecularConsequence",
+          <td><div class="example_view" id="CGEX:MolCon117"><pre><code>{
+  "id": "CGEX:MolCon117",
+  "type": "AlleleMolecularConsequenceStatement",
   "contextualAllele": {
-    "id": "CG-EX:CtxAll070",
+    "id": "CGEX:CtxAll070",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA016087",
-    "alleleName": "NM_000257.3(MYH7):c.5401G>A"
+    "canonicalAllele": {
+      "id": "CAR:CA016087",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll070"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9070",
+      "type": "ContextualAlleleName",
+      "name": "NM_000257.3(MYH7):c.5401G>A",
+      "preferred": true
+    }
   },
-  "consequence": {
+  "statementOutcome": {
     "id": "SO:0001583",
+    "type": "Entity",
     "label": "missense variant"
   }
 }
@@ -542,7 +756,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon169">CG-EX:MolCon169</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon169">CGEX:MolCon169</a></p></td>
           <td>
               
          </td>
@@ -553,23 +767,39 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll099">CG-EX:CtxAll099</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll099">CGEX:CtxAll099</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001583">SO:0001583</a></p> (missense variant)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon169"><pre><code>{
-  "id": "CG-EX:MolCon169",
-  "type": "AlleleMolecularConsequence",
+          <td><div class="example_view" id="CGEX:MolCon169"><pre><code>{
+  "id": "CGEX:MolCon169",
+  "type": "AlleleMolecularConsequenceStatement",
   "contextualAllele": {
-    "id": "CG-EX:CtxAll099",
+    "id": "CGEX:CtxAll099",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA256496",
-    "alleleName": "NM_133378.4(TTN): c.2926T>C"
+    "canonicalAllele": {
+      "id": "CAR:CA256496",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll099"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9099",
+      "type": "ContextualAlleleName",
+      "name": "NM_133378.4(TTN): c.2926T>C",
+      "preferred": true
+    }
   },
-  "consequence": {
+  "statementOutcome": {
     "id": "SO:0001583",
+    "type": "Entity",
     "label": "missense variant"
   }
 }
@@ -578,7 +808,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon198">CG-EX:MolCon198</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon198">CGEX:MolCon198</a></p></td>
           <td>
               
          </td>
@@ -589,23 +819,39 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll097">CG-EX:CtxAll097</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll097">CGEX:CtxAll097</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001583">SO:0001583</a></p> (missense variant)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon198"><pre><code>{
-  "id": "CG-EX:MolCon198",
-  "type": "AlleleMolecularConsequence",
+          <td><div class="example_view" id="CGEX:MolCon198"><pre><code>{
+  "id": "CGEX:MolCon198",
+  "type": "AlleleMolecularConsequenceStatement",
   "contextualAllele": {
-    "id": "CG-EX:CtxAll097",
+    "id": "CGEX:CtxAll097",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA020822",
-    "alleleName": "NM_000059.3(BRCA2) :c.4779A>C"
+    "canonicalAllele": {
+      "id": "CAR:CA020822",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll109"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9097",
+      "type": "ContextualAlleleName",
+      "name": "NM_000059.3(BRCA2) :c.4779A>C",
+      "preferred": true
+    }
   },
-  "consequence": {
+  "statementOutcome": {
     "id": "SO:0001583",
+    "type": "Entity",
     "label": "missense variant"
   }
 }
@@ -614,7 +860,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon201">CG-EX:MolCon201</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon201">CGEX:MolCon201</a></p></td>
           <td>
               
          </td>
@@ -625,23 +871,39 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll098">CG-EX:CtxAll098</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll098">CGEX:CtxAll098</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001583">SO:0001583</a></p> (missense variant)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon201"><pre><code>{
-  "id": "CG-EX:MolCon201",
-  "type": "AlleleMolecularConsequence",
+          <td><div class="example_view" id="CGEX:MolCon201"><pre><code>{
+  "id": "CGEX:MolCon201",
+  "type": "AlleleMolecularConsequenceStatement",
   "contextualAllele": {
-    "id": "CG-EX:CtxAll098",
+    "id": "CGEX:CtxAll098",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA090950",
-    "alleleName": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)"
+    "canonicalAllele": {
+      "id": "CAR:CA090950",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll098"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9098",
+      "type": "ContextualAlleleName",
+      "name": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)",
+      "preferred": true
+    }
   },
-  "consequence": {
+  "statementOutcome": {
     "id": "SO:0001583",
+    "type": "Entity",
     "label": "missense variant"
   }
 }
@@ -650,7 +912,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon203">CG-EX:MolCon203</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon203">CGEX:MolCon203</a></p></td>
           <td>
               
          </td>
@@ -661,23 +923,39 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll099">CG-EX:CtxAll099</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll099">CGEX:CtxAll099</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001583">SO:0001583</a></p> (missense variant)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon203"><pre><code>{
-  "id": "CG-EX:MolCon203",
-  "type": "AlleleMolecularConsequence",
+          <td><div class="example_view" id="CGEX:MolCon203"><pre><code>{
+  "id": "CGEX:MolCon203",
+  "type": "AlleleMolecularConsequenceStatement",
   "contextualAllele": {
-    "id": "CG-EX:CtxAll099",
+    "id": "CGEX:CtxAll099",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA256496",
-    "alleleName": "NM_133378.4(TTN): c.2926T>C"
+    "canonicalAllele": {
+      "id": "CAR:CA256496",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll099"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9099",
+      "type": "ContextualAlleleName",
+      "name": "NM_133378.4(TTN): c.2926T>C",
+      "preferred": true
+    }
   },
-  "consequence": {
+  "statementOutcome": {
     "id": "SO:0001583",
+    "type": "Entity",
     "label": "missense variant"
   }
 }
@@ -686,7 +964,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon223">CG-EX:MolCon223</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon223">CGEX:MolCon223</a></p></td>
           <td>
               
          </td>
@@ -697,24 +975,40 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll106">CG-EX:CtxAll106</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll106">CGEX:CtxAll106</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001825">SO:0001825</a></p> (conservative Inframe Deletion)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon223"><pre><code>{
-  "id": "CG-EX:MolCon223",
-  "type": "AlleleMolecularConsequence",
-  "consequence": {
+          <td><div class="example_view" id="CGEX:MolCon223"><pre><code>{
+  "id": "CGEX:MolCon223",
+  "type": "AlleleMolecularConsequenceStatement",
+  "statementOutcome": {
     "id": "SO:0001825",
+    "type": "Entity",
     "label": "conservative Inframe Deletion"
   },
   "contextualAllele": {
-    "id": "CG-EX:CtxAll106",
+    "id": "CGEX:CtxAll106",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA148212",
-    "alleleName": "NM_001271208.1(NEB):c.169_183delCTGGCACAGCCAGCA"
+    "canonicalAllele": {
+      "id": "CAR:CA148212",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll106"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9106",
+      "type": "ContextualAlleleName",
+      "name": "NM_001271208.1(NEB):c.169_183delCTGGCACAGCCAGCA",
+      "preferred": true
+    }
   }
 }
           </code></pre></div></td>
@@ -722,7 +1016,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon227">CG-EX:MolCon227</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon227">CGEX:MolCon227</a></p></td>
           <td>
               
          </td>
@@ -733,24 +1027,40 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll107">CG-EX:CtxAll107</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll107">CGEX:CtxAll107</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001589">SO:0001589</a></p> (frameshift variant)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon227"><pre><code>{
-  "id": "CG-EX:MolCon227",
-  "type": "AlleleMolecularConsequence",
-  "consequence": {
+          <td><div class="example_view" id="CGEX:MolCon227"><pre><code>{
+  "id": "CGEX:MolCon227",
+  "type": "AlleleMolecularConsequenceStatement",
+  "statementOutcome": {
     "id": "SO:0001589",
+    "type": "Entity",
     "label": "frameshift variant"
   },
   "contextualAllele": {
-    "id": "CG-EX:CtxAll107",
+    "id": "CGEX:CtxAll107",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA273551",
-    "alleleName": "NM_133378.4 (TTN): c.26752_26761delACGGCAGAGC"
+    "canonicalAllele": {
+      "id": "CAR:CA273551",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll107"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9107",
+      "type": "ContextualAlleleName",
+      "name": "NM_133378.4 (TTN): c.26752_26761delACGGCAGAGC",
+      "preferred": true
+    }
   }
 }
           </code></pre></div></td>
@@ -758,7 +1068,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon231">CG-EX:MolCon231</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon231">CGEX:MolCon231</a></p></td>
           <td>
               
          </td>
@@ -769,24 +1079,40 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll108">CG-EX:CtxAll108</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll108">CGEX:CtxAll108</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001823">SO:0001823</a></p> (conservative Inframe Insertion)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon231"><pre><code>{
-  "id": "CG-EX:MolCon231",
-  "type": "AlleleMolecularConsequence",
-  "consequence": {
+          <td><div class="example_view" id="CGEX:MolCon231"><pre><code>{
+  "id": "CGEX:MolCon231",
+  "type": "AlleleMolecularConsequenceStatement",
+  "statementOutcome": {
     "id": "SO:0001823",
+    "type": "Entity",
     "label": "conservative Inframe Insertion"
   },
   "contextualAllele": {
-    "id": "CG-EX:CtxAll108",
+    "id": "CGEX:CtxAll108",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA184168",
-    "alleleName": "NM_147196.2(TMIE):c.391_393dupAAG"
+    "canonicalAllele": {
+      "id": "CAR:CA184168",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll108"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9108",
+      "type": "ContextualAlleleName",
+      "name": "NM_147196.2(TMIE):c.391_393dupAAG",
+      "preferred": true
+    }
   }
 }
           </code></pre></div></td>
@@ -794,7 +1120,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon261">CG-EX:MolCon261</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon261">CGEX:MolCon261</a></p></td>
           <td>
               
          </td>
@@ -805,24 +1131,40 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll123">CG-EX:CtxAll123</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll123">CGEX:CtxAll123</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001819">SO:0001819</a></p> (synonymous variant)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon261"><pre><code>{
-  "id": "CG-EX:MolCon261",
-  "type": "AlleleMolecularConsequence",
-  "consequence": {
+          <td><div class="example_view" id="CGEX:MolCon261"><pre><code>{
+  "id": "CGEX:MolCon261",
+  "type": "AlleleMolecularConsequenceStatement",
+  "statementOutcome": {
     "id": "SO:0001819",
+    "type": "Entity",
     "label": "synonymous variant"
   },
   "contextualAllele": {
-    "id": "CG-EX:CtxAll123",
+    "id": "CGEX:CtxAll123",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA501232",
-    "alleleName": "NM_138691.2 (TMC1): c.684C>T"
+    "canonicalAllele": {
+      "id": "CAR:CA501232",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll123"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9123",
+      "type": "ContextualAlleleName",
+      "name": "NM_138691.2 (TMC1): c.684C>T",
+      "preferred": true
+    }
   }
 }
           </code></pre></div></td>
@@ -830,7 +1172,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon265">CG-EX:MolCon265</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon265">CGEX:MolCon265</a></p></td>
           <td>
               
          </td>
@@ -841,24 +1183,40 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll124">CG-EX:CtxAll124</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll124">CGEX:CtxAll124</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001819">SO:0001819</a></p> (synonymous variant)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon265"><pre><code>{
-  "id": "CG-EX:MolCon265",
-  "type": "AlleleMolecularConsequence",
-  "consequence": {
+          <td><div class="example_view" id="CGEX:MolCon265"><pre><code>{
+  "id": "CGEX:MolCon265",
+  "type": "AlleleMolecularConsequenceStatement",
+  "statementOutcome": {
     "id": "SO:0001819",
+    "type": "Entity",
     "label": "synonymous variant"
   },
   "contextualAllele": {
-    "id": "CG-EX:CtxAll124",
+    "id": "CGEX:CtxAll124",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA013536",
-    "alleleName": "NM_000257.2(MYH7):c.327C>T"
+    "canonicalAllele": {
+      "id": "CAR:CA013536",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll124"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9124",
+      "type": "ContextualAlleleName",
+      "name": "NM_000257.2(MYH7):c.327C>T",
+      "preferred": true
+    }
   }
 }
           </code></pre></div></td>
@@ -866,7 +1224,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon269">CG-EX:MolCon269</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:MolCon269">CGEX:MolCon269</a></p></td>
           <td>
               
          </td>
@@ -877,65 +1235,41 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll125">CG-EX:CtxAll125</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll125">CGEX:CtxAll125</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0001819">SO:0001819</a></p> (synonymous variant)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:MolCon269"><pre><code>{
-  "id": "CG-EX:MolCon269",
-  "type": "AlleleMolecularConsequence",
-  "consequence": {
+          <td><div class="example_view" id="CGEX:MolCon269"><pre><code>{
+  "id": "CGEX:MolCon269",
+  "type": "AlleleMolecularConsequenceStatement",
+  "statementOutcome": {
     "id": "SO:0001819",
+    "type": "Entity",
     "label": "synonymous variant"
   },
   "contextualAllele": {
-    "id": "CG-EX:CtxAll125",
+    "id": "CGEX:CtxAll125",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA177682",
-    "alleleName": "NM_002880.3(RAF1):c.321T>C"
+    "canonicalAllele": {
+      "id": "CAR:CA177682",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll125"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9125",
+      "type": "ContextualAlleleName",
+      "name": "NM_002880.3(RAF1):c.321T>C",
+      "preferred": true
+    }
   }
-}
-          </code></pre></div></td>
-          -->
-        </tr>
-
-        <tr>
-          <td><p><a href="../../details/details.html#CG-EX:MolCon272">CG-EX:MolCon272</a></p></td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p>This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466).</p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll127">CG-EX:CtxAll127</a></p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#SO:0001629">SO:0001629</a></p> (splice-site variant)
-         </td>
-          <!--
-          <td><div class="example_view" id="CG-EX:MolCon272"><pre><code>{
-  "id": "CG-EX:MolCon272",
-  "type": "AlleleMolecularConsequence",
-  "contextualAllele": {
-    "id": "CG-EX:CtxAll127",
-    "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA022880",
-    "alleleName": "NM_024422.3(DSC2): c.631-2A>G (p.?)"
-  },
-  "consequence": {
-    "id": "SO:0001629",
-    "label": "splice-site variant"
-  },
-  "description": "This variant occurs in the invariant region (+/- 1,2) of the splice consensus sequence and in vitro studies confirmed that it leads to aberrant splicing and reduced DSC2 protein levels (Heuser 2006 PMID: 17186466).",
-  "source": [
-    "PMID: 17186466"
-  ]
 }
           </code></pre></div></td>
           -->
@@ -982,7 +1316,7 @@ window.addEventListener('load', function () {
                 <h5><a href="../../../">Interpretation Overview</a></h5>
               </li>
               <li class='list-group-item'><h5><a href="../../../user/">User Guide</a></h5></li>
-              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../">Entity Definitions</a></li><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Evidence Item</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li><a href="allele_conservation.html">AlleleConservation</a></li><li><a href="allele_conservation_score.html">AlleleConservationScore</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li class="active"><a href="allele_molecular_consequence.html">AlleleMolecularConsequence</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="in_silico_prediction_score.html">InSilicoPredictionScore</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="individual_genotype.html">IndividualGenotype</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li><a href="region_type.html">RegionType</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul><li><a href="../../json_schema.html">JSON Schema</a></li></ul></li>
+              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../">Entity Definitions</a></li><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Evidence Item</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateCosegregationStatement</a></li><li><a href="allele_conservation.html">AlleleConservationStatement</a></li><li><a href="allele_conservation_score.html">AlleleConservationScoreStatement</a></li><li><a href="allele_frequency.html">PopulationAlleleFrequencyStatement</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpactStatement</a></li><li class="active"><a href="allele_molecular_consequence.html">AlleleMolecularConsequenceStatement</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRateStatement</a></li><li><a href="case_control.html">CaseControlAlleleFrequencyStatement</a></li><li><a href="condition_mechanism.html">ConditionMechanismStatement</a></li><li><a href="condition_penetrance.html">ConditionPenetranceStatement</a></li><li><a href="condition_prevelance.html">ConditionPrevelanceStatement</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyConditionStatement</a></li><li><a href="family_segregation.html">FamilyCosegregationStatement</a></li><li><a href="in_silico_prediction.html">InSilicoPredictionStatement</a></li><li><a href="in_silico_prediction_score.html">InSilicoPredictionScoreStatement</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritanceStatement</a></li><li><a href="individual_condition.html">IndividualConditionStatement</a></li><li><a href="individual_genotype.html">IndividualGenotypeStatement</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneityStatement</a></li><li><a href="null_allele.html">NullAlleleStatement</a></li><li><a href="region_alleles.html">RegionAllelesStatement</a></li><li><a href="region_type.html">RegionTypeStatement</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul><li><a href="../../json_schema.html">JSON Schema</a></li></ul></li>
               <!-- Old style.  We might still need the model here? -->
               <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
             </ul>

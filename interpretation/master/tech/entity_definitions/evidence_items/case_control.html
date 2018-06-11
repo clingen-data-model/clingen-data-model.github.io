@@ -67,7 +67,7 @@
     
         <div class="row">
           <div class="col-sm-12">
-              <h1 class="header">CaseControl</h1>
+              <h1 class="header">CaseControlAlleleFrequencyStatement</h1>
               <ol class="breadcrumb bg-none margin-none">
                 <li><a href="../../../">Interpretation Model</a></li>
 <li><a href="../../">Technical Reference</a></li>
@@ -188,11 +188,32 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>userLabel</td>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A name given to the resource.</td>
+                    <td>RDFS:label</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                    <td>DC:description</td>
+                </tr>
+                <tr>
+                    <td>userLabelDictionary</td>
                     <td>UserLabel</td>
                     <td>0..*</td>
                     <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
-                    <td></td>
+                    <td>SEPIO:0000422</td>
+                </tr>
+                <tr>
+                    <td>outcomeQualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                    <td>SEPIO:0000346</td>
                 </tr>
                 <tr>
                     <td>evidenceLine</td>
@@ -200,13 +221,6 @@
                     <td>0..*</td>
                     <td>supporting evidence</td>
                     <td>SEPIO:0000006</td>
-                </tr>
-                <tr>
-                    <td>description</td>
-                    <td>string</td>
-                    <td>0..1</td>
-                    <td>A human-readable description of the entity</td>
-                    <td>DC:description</td>
                 </tr>
                 <tr>
                     <td>contribution</td>
@@ -230,9 +244,11 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
-        <th>userLabel</th>
-        <th>evidenceLine</th>
+        <th>label</th>
         <th>description</th>
+        <th>userLabelDictionary</th>
+        <th>outcomeQualifier</th>
+        <th>evidenceLine</th>
         <th>canonicalAllele</th>
         <th>condition</th>
         <th>caseGroupFrequency</th>
@@ -244,10 +260,7 @@
       </tr></thead>
       <tbody>
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:CaseCtrl030">CG-EX:CaseCtrl030</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="../../details/details.html#CGEX:CaseCtrl030">CGEX:CaseCtrl030</a></p></td>
           <td>
               
          </td>
@@ -255,16 +268,25 @@
               <p>Treating ExAC data as controls</p>
          </td>
           <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA253316">CAR:CA253316</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#GenCond048">GenCond048</a></p> (Hearing Loss)
+              <p><a href="../../details/details.html#CGEX:GenCond048">CGEX:GenCond048</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:AllFreq029">CG-EX:AllFreq029</a></p>
+              <p><a href="../../details/details.html#CGEX:AllFreq029">CGEX:AllFreq029</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:AllFreq028">CG-EX:AllFreq028</a></p>
+              <p><a href="../../details/details.html#CGEX:AllFreq028">CGEX:AllFreq028</a></p>
          </td>
           <td>
               <p>9.1361</p>
@@ -279,201 +301,82 @@
               <p>13.5889</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:CaseCtrl030"><pre><code>{
-  "id": "CG-EX:CaseCtrl030",
-  "type": "CaseControl",
+          <td><div class="example_view" id="CGEX:CaseCtrl030"><pre><code>{
+  "id": "CGEX:CaseCtrl030",
+  "type": "CaseControlAlleleFrequencyStatement",
+  "description": "Treating ExAC data as controls",
   "canonicalAllele": {
     "id": "CAR:CA253316",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll025",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA253316",
-      "alleleName": "NM_000441.1(SLC26A4):c.1003T>C"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll025"
   },
   "condition": {
-    "id": "GenCond048",
+    "id": "CGEX:GenCond048",
     "type": "GeneticCondition",
+    "description": "Hearing Loss",
     "disease": [
       {
         "id": "Orphanet:87884",
+        "type": "Entity",
         "label": "nonsyndromic deafness"
       }
-    ],
-    "name": "Hearing Loss",
-    "label": "Hearing Loss"
+    ]
   },
   "oddsRatio": 9.1361,
   "confidenceLevel": 99.0,
   "confidenceIntervalLower": 6.1425,
   "confidenceIntervalUpper": 13.5889,
   "caseGroupFrequency": {
-    "id": "CG-EX:AllFreq029",
-    "type": "AlleleFrequency",
+    "id": "CGEX:AllFreq029",
+    "type": "PopulationAlleleFrequencyStatement",
     "ascertainment": {
-      "id": "CG-EX:Ascrt0001",
+      "id": "CGEX:Ascrt0001",
+      "type": "Entity",
       "label": "LMM Hearing Loss"
     },
     "allele": {
       "id": "CAR:CA253316",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": {
-        "id": "CG-EX:CtxAll025",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": "CAR:CA253316",
-        "alleleName": "NM_000441.1(SLC26A4):c.1003T>C"
-      }
+      "relatedContextualAllele": "CGEX:CtxAll025"
     },
     "alleleCount": 32,
     "alleleNumber": 4076,
-    "userLabel": [
+    "userLabelDictionary": [
       {
-        "id": "CG-EX:UsrLabl001",
+        "id": "CGEX:UsrLabl001",
         "type": "UserLabel",
+        "description": "Across all published data (and LMM data) with hearing loss.",
         "labelFor": {
-          "id": "CG-EX:Ascrt0001",
+          "id": "CGEX:Ascrt0001",
+          "type": "Entity",
           "label": "LMM Hearing Loss"
-        },
-        "description": "Across all published data (and LMM data) with hearing loss."
+        }
       }
     ]
   },
   "controlGroupFrequency": {
-    "id": "CG-EX:AllFreq028",
-    "type": "AlleleFrequency",
+    "id": "CGEX:AllFreq028",
+    "type": "PopulationAlleleFrequencyStatement",
     "ascertainment": {
       "id": "SEPIO:0000332",
+      "type": "Entity",
       "label": "ExAC ascertainment method"
     },
     "allele": {
       "id": "CAR:CA253316",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": {
-        "id": "CG-EX:CtxAll025",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": "CAR:CA253316",
-        "alleleName": "NM_000441.1(SLC26A4):c.1003T>C"
-      }
+      "relatedContextualAllele": "CGEX:CtxAll025"
     },
     "alleleCount": 105,
     "alleleNumber": 121336
-  },
-  "description": "Treating ExAC data as controls"
+  }
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:CaseCtrl033">CG-EX:CaseCtrl033</a></p></td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p>Did not calculate formal odds ratio</p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#CAR:CA024311">CAR:CA024311</a></p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#GenCond011">GenCond011</a></p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#CG-EX:AllFreq032">CG-EX:AllFreq032</a></p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#CG-EX:AllFreq031">CG-EX:AllFreq031</a></p>
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <!--
-          <td><div class="example_view" id="CG-EX:CaseCtrl033"><pre><code>{
-  "id": "CG-EX:CaseCtrl033",
-  "type": "CaseControl",
-  "canonicalAllele": {
-    "id": "CAR:CA024311",
-    "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll026",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA024311",
-      "alleleName": "NM_000540.2 (RYR1):c.1840C>T"
-    }
-  },
-  "condition": {
-    "id": "GenCond011",
-    "type": "GeneticCondition",
-    "disease": [
-      {
-        "id": "Orphanet:423",
-        "label": "Malignant hyperthermia"
-      }
-    ],
-    "inheritancePattern": {
-      "id": "HP:0000006",
-      "label": "Autosomal Dominant"
-    }
-  },
-  "caseGroupFrequency": {
-    "id": "CG-EX:AllFreq032",
-    "type": "AlleleFrequency",
-    "allele": {
-      "id": "CAR:CA024311",
-      "type": "CanonicalAllele",
-      "preferredCtxAllele": {
-        "id": "CG-EX:CtxAll026",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": "CAR:CA024311",
-        "alleleName": "NM_000540.2 (RYR1):c.1840C>T"
-      }
-    },
-    "description": "This allele is thought to account for between 2% and 10% of patients with Malignant hyperthermia."
-  },
-  "controlGroupFrequency": {
-    "id": "CG-EX:AllFreq031",
-    "type": "AlleleFrequency",
-    "ascertainment": {
-      "id": "SEPIO:0000332",
-      "label": "ExAC ascertainment method"
-    },
-    "allele": {
-      "id": "CAR:CA024311",
-      "type": "CanonicalAllele",
-      "preferredCtxAllele": {
-        "id": "CG-EX:CtxAll026",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": "CAR:CA024311",
-        "alleleName": "NM_000540.2 (RYR1):c.1840C>T"
-      }
-    },
-    "alleleCount": 9,
-    "alleleNumber": 66740
-  },
-  "description": "Did not calculate formal odds ratio"
-}
-          </code></pre></div></td>
-          -->
-        </tr>
-
-        <tr>
-          <td><p><a href="../../details/details.html#CG-EX:CaseCtrl036">CG-EX:CaseCtrl036</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="../../details/details.html#CGEX:CaseCtrl036">CGEX:CaseCtrl036</a></p></td>
           <td>
               
          </td>
@@ -481,16 +384,25 @@
               <p>Odds ratio is calculated by pooling samples from the six GENIUS T2D cohorts before calculation.</p>
          </td>
           <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
               <p><a href="../../details/details.html#CAR:CA123287">CAR:CA123287</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#GenCond012">GenCond012</a></p>
+              <p><a href="../../details/details.html#CGEX:GenCond012">CGEX:GenCond012</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:AllFreq034">CG-EX:AllFreq034</a></p>
+              <p><a href="../../details/details.html#CGEX:AllFreq034">CGEX:AllFreq034</a></p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:AllFreq035">CG-EX:AllFreq035</a></p>
+              <p><a href="../../details/details.html#CGEX:AllFreq035">CGEX:AllFreq035</a></p>
          </td>
           <td>
               <p>1.06</p>
@@ -505,25 +417,22 @@
               <p>1.18</p>
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:CaseCtrl036"><pre><code>{
-  "id": "CG-EX:CaseCtrl036",
-  "type": "CaseControl",
+          <td><div class="example_view" id="CGEX:CaseCtrl036"><pre><code>{
+  "id": "CGEX:CaseCtrl036",
+  "type": "CaseControlAlleleFrequencyStatement",
+  "description": "Odds ratio is calculated by pooling samples from the six GENIUS T2D cohorts before calculation.",
   "canonicalAllele": {
     "id": "CAR:CA123287",
     "type": "CanonicalAllele",
-    "preferredCtxAllele": {
-      "id": "CG-EX:CtxAll027",
-      "type": "ContextualAllele",
-      "relatedCanonicalAllele": "CAR:CA123287",
-      "alleleName": "NM_006208.2(ENPP1):c.517A>C"
-    }
+    "relatedContextualAllele": "CGEX:CtxAll027"
   },
   "condition": {
-    "id": "GenCond012",
+    "id": "CGEX:GenCond012",
     "type": "GeneticCondition",
     "phenotype": [
       {
         "id": "HP:0011014",
+        "type": "Entity",
         "label": "Abnormal Glucose Homeostasis"
       }
     ]
@@ -531,21 +440,17 @@
   "oddsRatio": 1.06,
   "confidenceLevel": 95.0,
   "caseGroupFrequency": {
-    "id": "CG-EX:AllFreq034",
-    "type": "AlleleFrequency",
+    "id": "CGEX:AllFreq034",
+    "type": "PopulationAlleleFrequencyStatement",
     "ascertainment": {
-      "id": "CG-EX:Ascrt0002",
+      "id": "CGEX:Ascrt0002",
+      "type": "Entity",
       "label": "GENIUS T2D Cases"
     },
     "allele": {
       "id": "CAR:CA123287",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": {
-        "id": "CG-EX:CtxAll027",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": "CAR:CA123287",
-        "alleleName": "NM_006208.2(ENPP1):c.517A>C"
-      }
+      "relatedContextualAllele": "CGEX:CtxAll027"
     },
     "alleleCount": 1198,
     "alleleNumber": 7344,
@@ -553,37 +458,35 @@
     "homozygousAlleleIndividualCount": 113,
     "heterozygousAlleleIndividualCount": 972,
     "population": {
-      "id": "BROAD-population-type:nfe",
+      "id": "GNOMAD:nfe",
+      "type": "Entity",
       "label": "Non-Finnish European"
     },
-    "userLabel": [
+    "userLabelDictionary": [
       {
-        "id": "CG-EX:UsrLabl002",
+        "id": "CGEX:UsrLabl002",
         "type": "UserLabel",
+        "description": "Case group is composed of cases from six cohorts from the GENIUS T2D consortium.  Case status is defined per-cohort.",
         "labelFor": {
-          "id": "CG-EX:Ascrt0002",
+          "id": "CGEX:Ascrt0002",
+          "type": "Entity",
           "label": "GENIUS T2D Cases"
-        },
-        "description": "Case group is composed of cases from six cohorts from the GENIUS T2D consortium.  Case status is defined per-cohort."
+        }
       }
     ]
   },
   "controlGroupFrequency": {
-    "id": "CG-EX:AllFreq035",
-    "type": "AlleleFrequency",
+    "id": "CGEX:AllFreq035",
+    "type": "PopulationAlleleFrequencyStatement",
     "ascertainment": {
-      "id": "CG-EX:Ascrt0003",
+      "id": "CGEX:Ascrt0003",
+      "type": "Entity",
       "label": "GENIUS T2D Controls"
     },
     "allele": {
       "id": "CAR:CA123287",
       "type": "CanonicalAllele",
-      "preferredCtxAllele": {
-        "id": "CG-EX:CtxAll027",
-        "type": "ContextualAllele",
-        "relatedCanonicalAllele": "CAR:CA123287",
-        "alleleName": "NM_006208.2(ENPP1):c.517A>C"
-      }
+      "relatedContextualAllele": "CGEX:CtxAll027"
     },
     "alleleCount": 936,
     "alleleNumber": 5870,
@@ -591,18 +494,20 @@
     "homozygousAlleleIndividualCount": 77,
     "heterozygousAlleleIndividualCount": 782,
     "population": {
-      "id": "BROAD-population-type:nfe",
+      "id": "GNOMAD:nfe",
+      "type": "Entity",
       "label": "Non-Finnish European"
     },
-    "userLabel": [
+    "userLabelDictionary": [
       {
-        "id": "CG-EX:UsrLabl003",
+        "id": "CGEX:UsrLabl003",
         "type": "UserLabel",
+        "description": "Controls group is composed of controls from six cohorts from the GENIUS T2D consortium.  Controls status is defined per-cohort.",
         "labelFor": {
-          "id": "CG-EX:Ascrt0003",
+          "id": "CGEX:Ascrt0003",
+          "type": "Entity",
           "label": "GENIUS T2D Controls"
-        },
-        "description": "Controls group is composed of controls from six cohorts from the GENIUS T2D consortium.  Controls status is defined per-cohort."
+        }
       }
     ]
   },
@@ -612,21 +517,119 @@
     {
       "type": "Contribution",
       "agent": {
-        "id": "CG-EX:Agent001",
+        "id": "CGEX:Agent001",
         "type": "Agent",
         "label": "Harry Stevenson"
       },
       "contributionDate": "9/13/16",
       "contributionRole": {
         "id": "SEPIO:0000156",
+        "type": "Entity",
         "label": "curator role"
       }
     }
   ],
   "source": [
     "http://www.ncbi.nlm.nih.gov/pubmed/23633196"
-  ],
-  "description": "Odds ratio is calculated by pooling samples from the six GENIUS T2D cohorts before calculation."
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CGEX:CaseCtrl033">CGEX:CaseCtrl033</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Did not calculate formal odds ratio</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CAR:CA024311">CAR:CA024311</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:GenCond011">CGEX:GenCond011</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:AllFreq032">CGEX:AllFreq032</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:AllFreq031">CGEX:AllFreq031</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:CaseCtrl033"><pre><code>{
+  "id": "CGEX:CaseCtrl033",
+  "type": "CaseControlAlleleFrequencyStatement",
+  "description": "Did not calculate formal odds ratio",
+  "canonicalAllele": {
+    "id": "CAR:CA024311",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll026"
+  },
+  "condition": {
+    "id": "CGEX:GenCond011",
+    "type": "GeneticCondition",
+    "disease": [
+      {
+        "id": "Orphanet:423",
+        "type": "Entity",
+        "label": "Malignant hyperthermia"
+      }
+    ],
+    "inheritancePattern": {
+      "id": "HP:0000006",
+      "type": "Entity",
+      "label": "Autosomal Dominant"
+    }
+  },
+  "caseGroupFrequency": {
+    "id": "CGEX:AllFreq032",
+    "type": "PopulationAlleleFrequencyStatement",
+    "description": "This allele is thought to account for between 2% and 10% of patients with Malignant hyperthermia.",
+    "allele": {
+      "id": "CAR:CA024311",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll026"
+    }
+  },
+  "controlGroupFrequency": {
+    "id": "CGEX:AllFreq031",
+    "type": "PopulationAlleleFrequencyStatement",
+    "ascertainment": {
+      "id": "SEPIO:0000332",
+      "type": "Entity",
+      "label": "ExAC ascertainment method"
+    },
+    "allele": {
+      "id": "CAR:CA024311",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll026"
+    },
+    "alleleCount": 9,
+    "alleleNumber": 66740
+  }
 }
           </code></pre></div></td>
           -->
@@ -673,7 +676,7 @@ window.addEventListener('load', function () {
                 <h5><a href="../../../">Interpretation Overview</a></h5>
               </li>
               <li class='list-group-item'><h5><a href="../../../user/">User Guide</a></h5></li>
-              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../">Entity Definitions</a></li><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Evidence Item</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li><a href="allele_conservation.html">AlleleConservation</a></li><li><a href="allele_conservation_score.html">AlleleConservationScore</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="allele_molecular_consequence.html">AlleleMolecularConsequence</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li class="active"><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="in_silico_prediction_score.html">InSilicoPredictionScore</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="individual_genotype.html">IndividualGenotype</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li><a href="region_type.html">RegionType</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul><li><a href="../../json_schema.html">JSON Schema</a></li></ul></li>
+              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../">Entity Definitions</a></li><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Evidence Item</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateCosegregationStatement</a></li><li><a href="allele_conservation.html">AlleleConservationStatement</a></li><li><a href="allele_conservation_score.html">AlleleConservationScoreStatement</a></li><li><a href="allele_frequency.html">PopulationAlleleFrequencyStatement</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpactStatement</a></li><li><a href="allele_molecular_consequence.html">AlleleMolecularConsequenceStatement</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRateStatement</a></li><li class="active"><a href="case_control.html">CaseControlAlleleFrequencyStatement</a></li><li><a href="condition_mechanism.html">ConditionMechanismStatement</a></li><li><a href="condition_penetrance.html">ConditionPenetranceStatement</a></li><li><a href="condition_prevelance.html">ConditionPrevelanceStatement</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyConditionStatement</a></li><li><a href="family_segregation.html">FamilyCosegregationStatement</a></li><li><a href="in_silico_prediction.html">InSilicoPredictionStatement</a></li><li><a href="in_silico_prediction_score.html">InSilicoPredictionScoreStatement</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritanceStatement</a></li><li><a href="individual_condition.html">IndividualConditionStatement</a></li><li><a href="individual_genotype.html">IndividualGenotypeStatement</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneityStatement</a></li><li><a href="null_allele.html">NullAlleleStatement</a></li><li><a href="region_alleles.html">RegionAllelesStatement</a></li><li><a href="region_type.html">RegionTypeStatement</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul><li><a href="../../json_schema.html">JSON Schema</a></li></ul></li>
               <!-- Old style.  We might still need the model here? -->
               <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
             </ul>

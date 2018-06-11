@@ -1,0 +1,162 @@
+{
+  "id": "CGEX:CritAssess358",
+  "type": "CriterionAssessment",
+  "criterion": {
+    "id": "SEPIO-CG:99049",
+    "type": "VariantInterpretationCriterion",
+    "label": "BP7",
+    "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
+    "defaultStrength": {
+      "id": "SEPIO:0000327",
+      "type": "Entity",
+      "label": "Benign Supporting"
+    }
+  },
+  "variant": {
+    "id": "CAR:CA501232",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll123"
+  },
+  "statementOutcome": {
+    "id": "SEPIO:0000223",
+    "type": "Entity",
+    "label": "Met"
+  },
+  "evidenceLine": [
+    {
+      "id": "CGEX:EvLn100",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:InSilicoPred258",
+          "type": "InSilicoPredictionStatement",
+          "transcript": {
+            "id": "REFSEQ:NM_138691.2",
+            "type": "Entity",
+            "label": "NM_138691.2"
+          },
+          "canonicalAllele": {
+            "id": "CAR:CA501232",
+            "type": "CanonicalAllele",
+            "relatedContextualAllele": "CGEX:CtxAll123"
+          },
+          "predictionType": {
+            "id": "SEPIO:0000323",
+            "type": "Entity",
+            "label": "splicing prediction"
+          },
+          "statementOutcome": "no impact"
+        },
+        {
+          "id": "CGEX:AllConserv259",
+          "type": "AlleleConservationStatement",
+          "allele": {
+            "id": "CAR:CA501232",
+            "type": "CanonicalAllele",
+            "relatedContextualAllele": "CGEX:CtxAll123"
+          },
+          "statementOutcome": {
+            "id": "SEPIO-CG:99017",
+            "type": "Entity",
+            "label": "not conserved region"
+          },
+          "algorithm": "phyloP",
+          "evidenceLine": [
+            {
+              "id": "CGEX:EvLn135",
+              "type": "EvidenceLine",
+              "evidenceItem": [
+                {
+                  "id": "CGEX:AllConservScore245",
+                  "type": "AlleleConservationScoreStatement",
+                  "allele": {
+                    "id": "CAR:CA501232",
+                    "type": "CanonicalAllele",
+                    "relatedContextualAllele": "CGEX:CtxAll123"
+                  },
+                  "algorithm": "phyloP",
+                  "score": -2.297
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "CGEX:AllConserv260",
+          "type": "AlleleConservationStatement",
+          "allele": {
+            "id": "CAR:CA501232",
+            "type": "CanonicalAllele",
+            "relatedContextualAllele": "CGEX:CtxAll123"
+          },
+          "statementOutcome": {
+            "id": "SEPIO-CG:99017",
+            "type": "Entity",
+            "label": "not conserved region"
+          },
+          "algorithm": "PhastCons",
+          "evidenceLine": [
+            {
+              "id": "CGEX:EvLn136",
+              "type": "EvidenceLine",
+              "evidenceItem": [
+                {
+                  "id": "CGEX:AllConservScore228",
+                  "type": "AlleleConservationScoreStatement",
+                  "allele": {
+                    "id": "CAR:CA501232",
+                    "type": "CanonicalAllele",
+                    "relatedContextualAllele": "CGEX:CtxAll123"
+                  },
+                  "algorithm": "PhastCons",
+                  "score": 0.039
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "CGEX:MolCon261",
+          "type": "AlleleMolecularConsequenceStatement",
+          "statementOutcome": {
+            "id": "SO:0001819",
+            "type": "Entity",
+            "label": "synonymous variant"
+          },
+          "contextualAllele": {
+            "id": "CGEX:CtxAll123",
+            "type": "ContextualAllele",
+            "canonicalAllele": {
+              "id": "CAR:CA501232",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll123"
+            },
+            "alleleName": {
+              "id": "CGEX:CtxNm9123",
+              "type": "ContextualAlleleName",
+              "name": "NM_138691.2 (TMC1): c.684C>T",
+              "preferred": true
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CGEX:Agent007",
+        "type": "Agent",
+        "label": "Stefan DiMarino"
+      },
+      "contributionDate": "10/10/16 8:04 AM",
+      "contributionRole": {
+        "id": "SEPIO:0000154",
+        "type": "Entity",
+        "label": "assessor role"
+      }
+    }
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

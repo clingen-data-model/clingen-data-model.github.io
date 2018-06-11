@@ -67,7 +67,7 @@
     
         <div class="row">
           <div class="col-sm-12">
-              <h1 class="header">AlleleFunctionalImpact</h1>
+              <h1 class="header">AlleleFunctionalImpactStatement</h1>
               <ol class="breadcrumb bg-none margin-none">
                 <li><a href="../../../">Interpretation Model</a></li>
 <li><a href="../../">Technical Reference</a></li>
@@ -131,7 +131,7 @@
                 <td>string</td>
                 <td>0..1</td>
                 <td>Result of the functional experiment</td>
-                <td>DC:description</td>
+                <td>SEPIO:0000424</td>
             </tr>
             <tr>
                 <td>assayType</td>
@@ -158,11 +158,32 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>userLabel</td>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A name given to the resource.</td>
+                    <td>RDFS:label</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                    <td>DC:description</td>
+                </tr>
+                <tr>
+                    <td>userLabelDictionary</td>
                     <td>UserLabel</td>
                     <td>0..*</td>
                     <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
-                    <td></td>
+                    <td>SEPIO:0000422</td>
+                </tr>
+                <tr>
+                    <td>outcomeQualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                    <td>SEPIO:0000346</td>
                 </tr>
                 <tr>
                     <td>evidenceLine</td>
@@ -170,13 +191,6 @@
                     <td>0..*</td>
                     <td>supporting evidence</td>
                     <td>SEPIO:0000006</td>
-                </tr>
-                <tr>
-                    <td>description</td>
-                    <td>string</td>
-                    <td>0..1</td>
-                    <td>A human-readable description of the entity</td>
-                    <td>DC:description</td>
                 </tr>
                 <tr>
                     <td>contribution</td>
@@ -200,9 +214,11 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
-        <th>userLabel</th>
-        <th>evidenceLine</th>
+        <th>label</th>
         <th>description</th>
+        <th>userLabelDictionary</th>
+        <th>outcomeQualifier</th>
+        <th>evidenceLine</th>
         <th>contextualAllele</th>
         <th>gene</th>
         <th>resultDescription</th>
@@ -210,202 +226,7 @@
       </tr></thead>
       <tbody>
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:Func021">CG-EX:Func021</a></p></td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll021">CG-EX:CtxAll021</a></p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#HGNC:11949">HGNC:11949</a></p> (TNNT2)
-         </td>
-          <td>
-              <p>the mutation lowered the Ca2+  affinity of the reconstituted thin filaments;</p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#AFAMID078">AFAMID078</a></p> (Binding assay)
-         </td>
-          <!--
-          <td><div class="example_view" id="CG-EX:Func021"><pre><code>{
-  "id": "CG-EX:Func021",
-  "type": "AlleleFunctionalImpact",
-  "resultDescription": "the mutation lowered the Ca2+  affinity of the reconstituted thin filaments;",
-  "assayType": {
-    "id": "AFAMID078",
-    "label": "Binding assay"
-  },
-  "contextualAllele": {
-    "id": "CG-EX:CtxAll021",
-    "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA501233",
-    "alleleName": "NP_001001431.1:p.Arg131Trp",
-    "producedBy": "CG-EX:CtxAll020"
-  },
-  "gene": {
-    "id": "HGNC:11949",
-    "label": "TNNT2"
-  }
-}
-          </code></pre></div></td>
-          -->
-        </tr>
-
-        <tr>
-          <td><p><a href="../../details/details.html#CG-EX:Func022">CG-EX:Func022</a></p></td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll021">CG-EX:CtxAll021</a></p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#HGNC:11949">HGNC:11949</a></p> (TNNT2)
-         </td>
-          <td>
-              <p>reduced Ca2 sensitivity of activation</p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#AFAMID077">AFAMID077</a></p> (ATPase assay)
-         </td>
-          <!--
-          <td><div class="example_view" id="CG-EX:Func022"><pre><code>{
-  "id": "CG-EX:Func022",
-  "type": "AlleleFunctionalImpact",
-  "resultDescription": "reduced Ca2 sensitivity of activation",
-  "assayType": {
-    "id": "AFAMID077",
-    "label": "ATPase assay"
-  },
-  "contextualAllele": {
-    "id": "CG-EX:CtxAll021",
-    "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA501233",
-    "alleleName": "NP_001001431.1:p.Arg131Trp",
-    "producedBy": "CG-EX:CtxAll020"
-  },
-  "gene": {
-    "id": "HGNC:11949",
-    "label": "TNNT2"
-  }
-}
-          </code></pre></div></td>
-          -->
-        </tr>
-
-        <tr>
-          <td><p><a href="../../details/details.html#CG-EX:Func023">CG-EX:Func023</a></p></td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll021">CG-EX:CtxAll021</a></p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#HGNC:11949">HGNC:11949</a></p> (TNNT2)
-         </td>
-          <td>
-              <p>reduced Ca2 sensitivity of activation</p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#AFAMID082">AFAMID082</a></p> (motility assay)
-         </td>
-          <!--
-          <td><div class="example_view" id="CG-EX:Func023"><pre><code>{
-  "id": "CG-EX:Func023",
-  "type": "AlleleFunctionalImpact",
-  "resultDescription": "reduced Ca2 sensitivity of activation",
-  "assayType": {
-    "id": "AFAMID082",
-    "label": "motility assay"
-  },
-  "contextualAllele": {
-    "id": "CG-EX:CtxAll021",
-    "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA501233",
-    "alleleName": "NP_001001431.1:p.Arg131Trp",
-    "producedBy": "CG-EX:CtxAll020"
-  },
-  "gene": {
-    "id": "HGNC:11949",
-    "label": "TNNT2"
-  }
-}
-          </code></pre></div></td>
-          -->
-        </tr>
-
-        <tr>
-          <td><p><a href="../../details/details.html#CG-EX:Func024">CG-EX:Func024</a></p></td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll021">CG-EX:CtxAll021</a></p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#HGNC:11949">HGNC:11949</a></p> (TNNT2)
-         </td>
-          <td>
-              <p>desensitized Ca2+ binding to the thin filament.</p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#AFAMID078">AFAMID078</a></p> (Binding assay)
-         </td>
-          <!--
-          <td><div class="example_view" id="CG-EX:Func024"><pre><code>{
-  "id": "CG-EX:Func024",
-  "type": "AlleleFunctionalImpact",
-  "resultDescription": "desensitized Ca2+ binding to the thin filament.",
-  "assayType": {
-    "id": "AFAMID078",
-    "label": "Binding assay"
-  },
-  "contextualAllele": {
-    "id": "CG-EX:CtxAll021",
-    "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA501233",
-    "alleleName": "NP_001001431.1:p.Arg131Trp",
-    "producedBy": "CG-EX:CtxAll020"
-  },
-  "gene": {
-    "id": "HGNC:11949",
-    "label": "TNNT2"
-  }
-}
-          </code></pre></div></td>
-          -->
-        </tr>
-
-        <tr>
-          <td><p><a href="../../details/details.html#CG-EX:Func025">CG-EX:Func025</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="../../details/details.html#CGEX:Func025">CGEX:Func025</a></p></td>
           <td>
               
          </td>
@@ -413,7 +234,16 @@
               <p>Expression of human SPG7 (with this mutation) in yeast with damaged m-AAA protease did not restore respiratory growth or MrpL32 processing, if the function of AFG3L2 was impaired.</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll022">CG-EX:CtxAll022</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll022">CGEX:CtxAll022</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#HGNC:11237">HGNC:11237</a></p> (SPG7)
@@ -422,35 +252,111 @@
               <p>Functionally Damaging</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#AFAMID084">AFAMID084</a></p> (Yeast complementation assay)
+              <p><a href="../../details/details.html#CGEX:AFAMID084">CGEX:AFAMID084</a></p> (Yeast complementation assay)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:Func025"><pre><code>{
-  "id": "CG-EX:Func025",
-  "type": "AlleleFunctionalImpact",
+          <td><div class="example_view" id="CGEX:Func025"><pre><code>{
+  "id": "CGEX:Func025",
+  "type": "AlleleFunctionalImpactStatement",
+  "description": "Expression of human SPG7 (with this mutation) in yeast with damaged m-AAA protease did not restore respiratory growth or MrpL32 processing, if the function of AFG3L2 was impaired.",
   "resultDescription": "Functionally Damaging",
   "assayType": {
-    "id": "AFAMID084",
+    "id": "CGEX:AFAMID084",
+    "type": "Entity",
     "label": "Yeast complementation assay"
   },
   "contextualAllele": {
-    "id": "CG-EX:CtxAll022",
+    "id": "CGEX:CtxAll022",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA090884",
-    "alleleName": "NM_003119.2 (SPG7):c.1529C>T"
+    "canonicalAllele": {
+      "id": "CAR:CA090884",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll072"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9022",
+      "type": "ContextualAlleleName",
+      "name": "NM_003119.2 (SPG7):c.1529C>T",
+      "preferred": true
+    }
   },
   "gene": {
     "id": "HGNC:11237",
+    "type": "Entity",
     "label": "SPG7"
-  },
-  "description": "Expression of human SPG7 (with this mutation) in yeast with damaged m-AAA protease did not restore respiratory growth or MrpL32 processing, if the function of AFG3L2 was impaired."
+  }
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:Func026">CG-EX:Func026</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:Func193">CGEX:Func193</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Both wild type and NP_000432..1:p.Leu117Phe localize to the same location</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll092">CGEX:CtxAll092</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HGNC:8818">HGNC:8818</a></p> (SLC26A4)
+         </td>
+          <td>
+              <p>localized to apical membrane</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:AFAMID079">CGEX:AFAMID079</a></p> (cellular localization)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Func193"><pre><code>{
+  "id": "CGEX:Func193",
+  "type": "AlleleFunctionalImpactStatement",
+  "description": "Both wild type and NP_000432..1:p.Leu117Phe localize to the same location",
+  "resultDescription": "localized to apical membrane",
+  "assayType": {
+    "id": "CGEX:AFAMID079",
+    "type": "Entity",
+    "label": "cellular localization"
+  },
+  "contextualAllele": {
+    "id": "CGEX:CtxAll092",
+    "type": "ContextualAllele",
+    "canonicalAllele": {
+      "id": "CAR:CA109417",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll092"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9092",
+      "type": "ContextualAlleleName",
+      "name": "NP_000432..1:p.Leu117Phe",
+      "preferred": true
+    }
+  },
+  "gene": {
+    "id": "HGNC:8818",
+    "type": "Entity",
+    "label": "SLC26A4"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CGEX:Func021">CGEX:Func021</a></p></td>
           <td>
               
          </td>
@@ -461,7 +367,269 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll024">CG-EX:CtxAll024</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll021">CGEX:CtxAll021</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HGNC:11949">HGNC:11949</a></p> (TNNT2)
+         </td>
+          <td>
+              <p>the mutation lowered the Ca2+  affinity of the reconstituted thin filaments;</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:AFAMID078">CGEX:AFAMID078</a></p> (Binding assay)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Func021"><pre><code>{
+  "id": "CGEX:Func021",
+  "type": "AlleleFunctionalImpactStatement",
+  "resultDescription": "the mutation lowered the Ca2+  affinity of the reconstituted thin filaments;",
+  "assayType": {
+    "id": "CGEX:AFAMID078",
+    "type": "Entity",
+    "label": "Binding assay"
+  },
+  "contextualAllele": {
+    "id": "CGEX:CtxAll021",
+    "type": "ContextualAllele",
+    "canonicalAllele": {
+      "id": "CAR:CA501233",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll021"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9021",
+      "type": "ContextualAlleleName",
+      "name": "NP_001001431.1:p.Arg131Trp",
+      "preferred": true
+    }
+  },
+  "gene": {
+    "id": "HGNC:11949",
+    "type": "Entity",
+    "label": "TNNT2"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CGEX:Func022">CGEX:Func022</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll021">CGEX:CtxAll021</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HGNC:11949">HGNC:11949</a></p> (TNNT2)
+         </td>
+          <td>
+              <p>reduced Ca2 sensitivity of activation</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:AFAMID077">CGEX:AFAMID077</a></p> (ATPase assay)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Func022"><pre><code>{
+  "id": "CGEX:Func022",
+  "type": "AlleleFunctionalImpactStatement",
+  "resultDescription": "reduced Ca2 sensitivity of activation",
+  "assayType": {
+    "id": "CGEX:AFAMID077",
+    "type": "Entity",
+    "label": "ATPase assay"
+  },
+  "contextualAllele": {
+    "id": "CGEX:CtxAll021",
+    "type": "ContextualAllele",
+    "canonicalAllele": {
+      "id": "CAR:CA501233",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll021"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9021",
+      "type": "ContextualAlleleName",
+      "name": "NP_001001431.1:p.Arg131Trp",
+      "preferred": true
+    }
+  },
+  "gene": {
+    "id": "HGNC:11949",
+    "type": "Entity",
+    "label": "TNNT2"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CGEX:Func023">CGEX:Func023</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll021">CGEX:CtxAll021</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HGNC:11949">HGNC:11949</a></p> (TNNT2)
+         </td>
+          <td>
+              <p>reduced Ca2 sensitivity of activation</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:AFAMID082">CGEX:AFAMID082</a></p> (motility assay)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Func023"><pre><code>{
+  "id": "CGEX:Func023",
+  "type": "AlleleFunctionalImpactStatement",
+  "resultDescription": "reduced Ca2 sensitivity of activation",
+  "assayType": {
+    "id": "CGEX:AFAMID082",
+    "type": "Entity",
+    "label": "motility assay"
+  },
+  "contextualAllele": {
+    "id": "CGEX:CtxAll021",
+    "type": "ContextualAllele",
+    "canonicalAllele": {
+      "id": "CAR:CA501233",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll021"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9021",
+      "type": "ContextualAlleleName",
+      "name": "NP_001001431.1:p.Arg131Trp",
+      "preferred": true
+    }
+  },
+  "gene": {
+    "id": "HGNC:11949",
+    "type": "Entity",
+    "label": "TNNT2"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CGEX:Func024">CGEX:Func024</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll021">CGEX:CtxAll021</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#HGNC:11949">HGNC:11949</a></p> (TNNT2)
+         </td>
+          <td>
+              <p>desensitized Ca2+ binding to the thin filament.</p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:AFAMID078">CGEX:AFAMID078</a></p> (Binding assay)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Func024"><pre><code>{
+  "id": "CGEX:Func024",
+  "type": "AlleleFunctionalImpactStatement",
+  "resultDescription": "desensitized Ca2+ binding to the thin filament.",
+  "assayType": {
+    "id": "CGEX:AFAMID078",
+    "type": "Entity",
+    "label": "Binding assay"
+  },
+  "contextualAllele": {
+    "id": "CGEX:CtxAll021",
+    "type": "ContextualAllele",
+    "canonicalAllele": {
+      "id": "CAR:CA501233",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll021"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9021",
+      "type": "ContextualAlleleName",
+      "name": "NP_001001431.1:p.Arg131Trp",
+      "preferred": true
+    }
+  },
+  "gene": {
+    "id": "HGNC:11949",
+    "type": "Entity",
+    "label": "TNNT2"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../../details/details.html#CGEX:Func026">CGEX:Func026</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll024">CGEX:CtxAll024</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#HGNC:6847">HGNC:6847</a></p> (MEK)
@@ -470,26 +638,36 @@
               <p>abnormal/deceased MEK activtation.</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#AFAMID076">AFAMID076</a></p> (Activation Assay)
+              <p><a href="../../details/details.html#CGEX:AFAMID076">CGEX:AFAMID076</a></p> (Activation Assay)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:Func026"><pre><code>{
-  "id": "CG-EX:Func026",
-  "type": "AlleleFunctionalImpact",
+          <td><div class="example_view" id="CGEX:Func026"><pre><code>{
+  "id": "CGEX:Func026",
+  "type": "AlleleFunctionalImpactStatement",
   "resultDescription": "abnormal/deceased MEK activtation.",
   "assayType": {
-    "id": "AFAMID076",
+    "id": "CGEX:AFAMID076",
+    "type": "Entity",
     "label": "Activation Assay"
   },
   "contextualAllele": {
-    "id": "CG-EX:CtxAll024",
+    "id": "CGEX:CtxAll024",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA093846",
-    "alleleName": "NP_004324.2:p.Gly596Val",
-    "producedBy": "CG-EX:CtxAll023"
+    "canonicalAllele": {
+      "id": "CAR:CA093846",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll024"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9024",
+      "type": "ContextualAlleleName",
+      "name": "NP_004324.2:p.Gly596Val",
+      "preferred": true
+    }
   },
   "gene": {
     "id": "HGNC:6847",
+    "type": "Entity",
     "label": "MEK"
   }
 }
@@ -498,7 +676,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:Func027">CG-EX:Func027</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:Func027">CGEX:Func027</a></p></td>
           <td>
               
          </td>
@@ -509,7 +687,13 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll024">CG-EX:CtxAll024</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll024">CGEX:CtxAll024</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#HGNC:6871">HGNC:6871</a></p> (ERK)
@@ -518,26 +702,36 @@
               <p>abnormal/deceased ERK activtation.</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#AFAMID076">AFAMID076</a></p> (Activation Assay)
+              <p><a href="../../details/details.html#CGEX:AFAMID076">CGEX:AFAMID076</a></p> (Activation Assay)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:Func027"><pre><code>{
-  "id": "CG-EX:Func027",
-  "type": "AlleleFunctionalImpact",
+          <td><div class="example_view" id="CGEX:Func027"><pre><code>{
+  "id": "CGEX:Func027",
+  "type": "AlleleFunctionalImpactStatement",
   "resultDescription": "abnormal/deceased ERK activtation.",
   "assayType": {
-    "id": "AFAMID076",
+    "id": "CGEX:AFAMID076",
+    "type": "Entity",
     "label": "Activation Assay"
   },
   "contextualAllele": {
-    "id": "CG-EX:CtxAll024",
+    "id": "CGEX:CtxAll024",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA093846",
-    "alleleName": "NP_004324.2:p.Gly596Val",
-    "producedBy": "CG-EX:CtxAll023"
+    "canonicalAllele": {
+      "id": "CAR:CA093846",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll024"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9024",
+      "type": "ContextualAlleleName",
+      "name": "NP_004324.2:p.Gly596Val",
+      "preferred": true
+    }
   },
   "gene": {
     "id": "HGNC:6871",
+    "type": "Entity",
     "label": "ERK"
   }
 }
@@ -546,7 +740,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:Func067">CG-EX:Func067</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:Func067">CGEX:Func067</a></p></td>
           <td>
               
          </td>
@@ -557,7 +751,13 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll130">CG-EX:CtxAll130</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll130">CGEX:CtxAll130</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#HGNC:11187">HGNC:11187</a></p> (SOS1)
@@ -566,29 +766,40 @@
               <p>increased ERK activtation</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#AFAMID076">AFAMID076</a></p> (Activation Assay)
+              <p><a href="../../details/details.html#CGEX:AFAMID076">CGEX:AFAMID076</a></p> (Activation Assay)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:Func067"><pre><code>{
-  "id": "CG-EX:Func067",
-  "type": "AlleleFunctionalImpact",
+          <td><div class="example_view" id="CGEX:Func067"><pre><code>{
+  "id": "CGEX:Func067",
+  "type": "AlleleFunctionalImpactStatement",
   "resultDescription": "increased ERK activtation",
   "assayType": {
-    "id": "AFAMID076",
+    "id": "CGEX:AFAMID076",
+    "type": "Entity",
     "label": "Activation Assay"
   },
   "contextualAllele": {
-    "id": "CG-EX:CtxAll130",
+    "id": "CGEX:CtxAll130",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA090930",
-    "alleleName": "NM_005633.3(SOS1):c.1010A>G (p.Tyr337Cys)"
+    "canonicalAllele": {
+      "id": "CAR:CA090930",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll130"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9130",
+      "type": "ContextualAlleleName",
+      "name": "NM_005633.3(SOS1):c.1010A>G (p.Tyr337Cys)",
+      "preferred": true
+    }
   },
   "gene": {
     "id": "HGNC:11187",
+    "type": "Entity",
     "label": "SOS1"
   },
   "source": [
-    "PMID: 23487764"
+    "PMID:23487764"
   ]
 }
           </code></pre></div></td>
@@ -596,7 +807,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:Func192">CG-EX:Func192</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:Func192">CGEX:Func192</a></p></td>
           <td>
               
          </td>
@@ -607,7 +818,13 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll092">CG-EX:CtxAll092</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll092">CGEX:CtxAll092</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#HGNC:8818">HGNC:8818</a></p> (SLC26A4)
@@ -616,26 +833,36 @@
               <p>Unchanged from reference</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#AFAMID081">AFAMID081</a></p> (iodide efflux)
+              <p><a href="../../details/details.html#CGEX:AFAMID081">CGEX:AFAMID081</a></p> (iodide efflux)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:Func192"><pre><code>{
-  "id": "CG-EX:Func192",
-  "type": "AlleleFunctionalImpact",
+          <td><div class="example_view" id="CGEX:Func192"><pre><code>{
+  "id": "CGEX:Func192",
+  "type": "AlleleFunctionalImpactStatement",
   "resultDescription": "Unchanged from reference",
   "assayType": {
-    "id": "AFAMID081",
+    "id": "CGEX:AFAMID081",
+    "type": "Entity",
     "label": "iodide efflux"
   },
   "contextualAllele": {
-    "id": "CG-EX:CtxAll092",
+    "id": "CGEX:CtxAll092",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA109417",
-    "alleleName": "NP_000432..1:p.Leu117Phe",
-    "producedBy": "CG-EX:CtxAll091"
+    "canonicalAllele": {
+      "id": "CAR:CA109417",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll092"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9092",
+      "type": "ContextualAlleleName",
+      "name": "NP_000432..1:p.Leu117Phe",
+      "preferred": true
+    }
   },
   "gene": {
     "id": "HGNC:8818",
+    "type": "Entity",
     "label": "SLC26A4"
   }
 }
@@ -644,56 +871,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:Func193">CG-EX:Func193</a></p></td>
-          <td>
-              
-         </td>
-          <td>
-              
-         </td>
-          <td>
-              <p>Both wild type and NP_000432..1:p.Leu117Phe localize to the same location</p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll092">CG-EX:CtxAll092</a></p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#HGNC:8818">HGNC:8818</a></p> (SLC26A4)
-         </td>
-          <td>
-              <p>localized to apical membrane</p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#AFAMID079">AFAMID079</a></p> (cellular localization)
-         </td>
-          <!--
-          <td><div class="example_view" id="CG-EX:Func193"><pre><code>{
-  "id": "CG-EX:Func193",
-  "type": "AlleleFunctionalImpact",
-  "resultDescription": "localized to apical membrane",
-  "assayType": {
-    "id": "AFAMID079",
-    "label": "cellular localization"
-  },
-  "contextualAllele": {
-    "id": "CG-EX:CtxAll092",
-    "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA109417",
-    "alleleName": "NP_000432..1:p.Leu117Phe",
-    "producedBy": "CG-EX:CtxAll091"
-  },
-  "gene": {
-    "id": "HGNC:8818",
-    "label": "SLC26A4"
-  },
-  "description": "Both wild type and NP_000432..1:p.Leu117Phe localize to the same location"
-}
-          </code></pre></div></td>
-          -->
-        </tr>
-
-        <tr>
-          <td><p><a href="../../details/details.html#CG-EX:Func194">CG-EX:Func194</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:Func194">CGEX:Func194</a></p></td>
           <td>
               
          </td>
@@ -704,7 +882,13 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll093">CG-EX:CtxAll093</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll093">CGEX:CtxAll093</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#HGNC:20249">HGNC:20249</a></p> (SPRED1)
@@ -713,25 +897,36 @@
               <p>Unchanged from reference</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#AFAMID080">AFAMID080</a></p> (Elk1 pohsphorylation via luciferase assay)
+              <p><a href="../../details/details.html#CGEX:AFAMID080">CGEX:AFAMID080</a></p> (Elk1 pohsphorylation via luciferase assay)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:Func194"><pre><code>{
-  "id": "CG-EX:Func194",
-  "type": "AlleleFunctionalImpact",
+          <td><div class="example_view" id="CGEX:Func194"><pre><code>{
+  "id": "CGEX:Func194",
+  "type": "AlleleFunctionalImpactStatement",
   "resultDescription": "Unchanged from reference",
   "assayType": {
-    "id": "AFAMID080",
+    "id": "CGEX:AFAMID080",
+    "type": "Entity",
     "label": "Elk1 pohsphorylation via luciferase assay"
   },
   "contextualAllele": {
-    "id": "CG-EX:CtxAll093",
+    "id": "CGEX:CtxAll093",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA501231",
-    "alleleName": "NM_152594.2(SPRED1): c.587C>T"
+    "canonicalAllele": {
+      "id": "CAR:CA501231",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll093"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9093",
+      "type": "ContextualAlleleName",
+      "name": "NM_152594.2(SPRED1): c.587C>T",
+      "preferred": true
+    }
   },
   "gene": {
     "id": "HGNC:20249",
+    "type": "Entity",
     "label": "SPRED1"
   }
 }
@@ -740,7 +935,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:Func195">CG-EX:Func195</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:Func195">CGEX:Func195</a></p></td>
           <td>
               
          </td>
@@ -751,7 +946,13 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:CtxAll093">CG-EX:CtxAll093</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:CtxAll093">CGEX:CtxAll093</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#HGNC:20249">HGNC:20249</a></p> (SPRED1)
@@ -760,25 +961,36 @@
               <p>localized to apical membrane</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#AFAMID080">AFAMID080</a></p> (Elk1 pohsphorylation via luciferase assay)
+              <p><a href="../../details/details.html#CGEX:AFAMID080">CGEX:AFAMID080</a></p> (Elk1 pohsphorylation via luciferase assay)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:Func195"><pre><code>{
-  "id": "CG-EX:Func195",
-  "type": "AlleleFunctionalImpact",
+          <td><div class="example_view" id="CGEX:Func195"><pre><code>{
+  "id": "CGEX:Func195",
+  "type": "AlleleFunctionalImpactStatement",
   "resultDescription": "localized to apical membrane",
   "assayType": {
-    "id": "AFAMID080",
+    "id": "CGEX:AFAMID080",
+    "type": "Entity",
     "label": "Elk1 pohsphorylation via luciferase assay"
   },
   "contextualAllele": {
-    "id": "CG-EX:CtxAll093",
+    "id": "CGEX:CtxAll093",
     "type": "ContextualAllele",
-    "relatedCanonicalAllele": "CAR:CA501231",
-    "alleleName": "NM_152594.2(SPRED1): c.587C>T"
+    "canonicalAllele": {
+      "id": "CAR:CA501231",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll093"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9093",
+      "type": "ContextualAlleleName",
+      "name": "NM_152594.2(SPRED1): c.587C>T",
+      "preferred": true
+    }
   },
   "gene": {
     "id": "HGNC:20249",
+    "type": "Entity",
     "label": "SPRED1"
   }
 }
@@ -827,7 +1039,7 @@ window.addEventListener('load', function () {
                 <h5><a href="../../../">Interpretation Overview</a></h5>
               </li>
               <li class='list-group-item'><h5><a href="../../../user/">User Guide</a></h5></li>
-              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../">Entity Definitions</a></li><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Evidence Item</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li><a href="allele_conservation.html">AlleleConservation</a></li><li><a href="allele_conservation_score.html">AlleleConservationScore</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li class="active"><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="allele_molecular_consequence.html">AlleleMolecularConsequence</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="in_silico_prediction_score.html">InSilicoPredictionScore</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="individual_genotype.html">IndividualGenotype</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li><a href="region_type.html">RegionType</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul><li><a href="../../json_schema.html">JSON Schema</a></li></ul></li>
+              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../">Entity Definitions</a></li><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Evidence Item</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateCosegregationStatement</a></li><li><a href="allele_conservation.html">AlleleConservationStatement</a></li><li><a href="allele_conservation_score.html">AlleleConservationScoreStatement</a></li><li><a href="allele_frequency.html">PopulationAlleleFrequencyStatement</a></li><li class="active"><a href="allele_functional_impact.html">AlleleFunctionalImpactStatement</a></li><li><a href="allele_molecular_consequence.html">AlleleMolecularConsequenceStatement</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRateStatement</a></li><li><a href="case_control.html">CaseControlAlleleFrequencyStatement</a></li><li><a href="condition_mechanism.html">ConditionMechanismStatement</a></li><li><a href="condition_penetrance.html">ConditionPenetranceStatement</a></li><li><a href="condition_prevelance.html">ConditionPrevelanceStatement</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyConditionStatement</a></li><li><a href="family_segregation.html">FamilyCosegregationStatement</a></li><li><a href="in_silico_prediction.html">InSilicoPredictionStatement</a></li><li><a href="in_silico_prediction_score.html">InSilicoPredictionScoreStatement</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritanceStatement</a></li><li><a href="individual_condition.html">IndividualConditionStatement</a></li><li><a href="individual_genotype.html">IndividualGenotypeStatement</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneityStatement</a></li><li><a href="null_allele.html">NullAlleleStatement</a></li><li><a href="region_alleles.html">RegionAllelesStatement</a></li><li><a href="region_type.html">RegionTypeStatement</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul><li><a href="../../json_schema.html">JSON Schema</a></li></ul></li>
               <!-- Old style.  We might still need the model here? -->
               <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
             </ul>

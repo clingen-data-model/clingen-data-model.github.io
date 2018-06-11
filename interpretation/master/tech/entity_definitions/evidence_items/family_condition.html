@@ -67,7 +67,7 @@
     
         <div class="row">
           <div class="col-sm-12">
-              <h1 class="header">FamilyCondition</h1>
+              <h1 class="header">FamilyConditionStatement</h1>
               <ol class="breadcrumb bg-none margin-none">
                 <li><a href="../../../">Interpretation Model</a></li>
 <li><a href="../../">Technical Reference</a></li>
@@ -127,7 +127,7 @@
                 <td>SEPIO:0000276</td>
             </tr>
             <tr>
-                <td>affectedStatusOutcome</td>
+                <td>statementOutcome</td>
                 <td>@id</td>
                 <td>1..1</td>
                 <td>Whether or not this family has the stated condition</td>
@@ -151,11 +151,32 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>userLabel</td>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A name given to the resource.</td>
+                    <td>RDFS:label</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                    <td>DC:description</td>
+                </tr>
+                <tr>
+                    <td>userLabelDictionary</td>
                     <td>UserLabel</td>
                     <td>0..*</td>
                     <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
-                    <td></td>
+                    <td>SEPIO:0000422</td>
+                </tr>
+                <tr>
+                    <td>outcomeQualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                    <td>SEPIO:0000346</td>
                 </tr>
                 <tr>
                     <td>evidenceLine</td>
@@ -163,13 +184,6 @@
                     <td>0..*</td>
                     <td>supporting evidence</td>
                     <td>SEPIO:0000006</td>
-                </tr>
-                <tr>
-                    <td>description</td>
-                    <td>string</td>
-                    <td>0..1</td>
-                    <td>A human-readable description of the entity</td>
-                    <td>DC:description</td>
                 </tr>
                 <tr>
                     <td>contribution</td>
@@ -193,16 +207,18 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
-        <th>userLabel</th>
-        <th>evidenceLine</th>
+        <th>label</th>
         <th>description</th>
+        <th>userLabelDictionary</th>
+        <th>outcomeQualifier</th>
+        <th>evidenceLine</th>
         <th>proband</th>
         <th>condition</th>
-        <th>affectedStatusOutcome</th>
+        <th>statementOutcome</th>
       </tr></thead>
       <tbody>
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:FamCond013">CG-EX:FamCond013</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:FamCond013">CGEX:FamCond013</a></p></td>
           <td>
               
          </td>
@@ -213,36 +229,45 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv333">CG-EX:Indiv333</a></p> (individual #001)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#GenCond052">GenCond052</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv333">CGEX:Indiv333</a></p> (individual #001)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:GenCond052">CGEX:GenCond052</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:FamCond013"><pre><code>{
-  "id": "CG-EX:FamCond013",
-  "type": "FamilyCondition",
+          <td><div class="example_view" id="CGEX:FamCond013"><pre><code>{
+  "id": "CGEX:FamCond013",
+  "type": "FamilyConditionStatement",
   "proband": {
-    "id": "CG-EX:Indiv333",
+    "id": "CGEX:Indiv333",
+    "type": "Entity",
     "label": "individual #001"
   },
   "condition": [
     {
-      "id": "GenCond052",
+      "id": "CGEX:GenCond052",
       "type": "GeneticCondition",
       "disease": [
         {
           "id": "Orphanet:217604",
+          "type": "Entity",
           "label": "dilated cardiomyopathy"
         }
       ]
     }
   ],
-  "affectedStatusOutcome": {
+  "statementOutcome": {
     "id": "SEPIO-CG:99010",
+    "type": "Entity",
     "label": "unaffected"
   }
 }
@@ -251,7 +276,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:FamCond016">CG-EX:FamCond016</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:FamCond016">CGEX:FamCond016</a></p></td>
           <td>
               
          </td>
@@ -262,38 +287,46 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv334">CG-EX:Indiv334</a></p> (individual #002)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#GenCond008">GenCond008</a></p> (desmin related myopathy)
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv334">CGEX:Indiv334</a></p> (individual #002)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:GenCond008">CGEX:GenCond008</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:FamCond016"><pre><code>{
-  "id": "CG-EX:FamCond016",
-  "type": "FamilyCondition",
+          <td><div class="example_view" id="CGEX:FamCond016"><pre><code>{
+  "id": "CGEX:FamCond016",
+  "type": "FamilyConditionStatement",
   "proband": {
-    "id": "CG-EX:Indiv334",
+    "id": "CGEX:Indiv334",
+    "type": "Entity",
     "label": "individual #002"
   },
   "condition": [
     {
-      "id": "GenCond008",
+      "id": "CGEX:GenCond008",
       "type": "GeneticCondition",
+      "description": "desmin related myopathy",
       "disease": [
         {
           "id": "OMIM:601419",
+          "type": "Entity",
           "label": "myofibrillar myopathy 1"
         }
-      ],
-      "name": "desmin related myopathy",
-      "label": "desmin related myopathy"
+      ]
     }
   ],
-  "affectedStatusOutcome": {
+  "statementOutcome": {
     "id": "SEPIO-CG:99010",
+    "type": "Entity",
     "label": "unaffected"
   }
 }
@@ -302,7 +335,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:FamCond019">CG-EX:FamCond019</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:FamCond019">CGEX:FamCond019</a></p></td>
           <td>
               
          </td>
@@ -313,32 +346,39 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv335">CG-EX:Indiv335</a></p> (individual #003)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#GenCond009">GenCond009</a></p> (Epilepsy with Mental Retardation)
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv335">CGEX:Indiv335</a></p> (individual #003)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:GenCond009">CGEX:GenCond009</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:FamCond019"><pre><code>{
-  "id": "CG-EX:FamCond019",
-  "type": "FamilyCondition",
+          <td><div class="example_view" id="CGEX:FamCond019"><pre><code>{
+  "id": "CGEX:FamCond019",
+  "type": "FamilyConditionStatement",
   "proband": {
-    "id": "CG-EX:Indiv335",
+    "id": "CGEX:Indiv335",
+    "type": "Entity",
     "label": "individual #003"
   },
   "condition": [
     {
-      "id": "GenCond009",
+      "id": "CGEX:GenCond009",
       "type": "GeneticCondition",
-      "name": "Epilepsy with Mental Retardation",
-      "label": "Epilepsy with Mental Retardation"
+      "description": "Epilepsy with Mental Retardation"
     }
   ],
-  "affectedStatusOutcome": {
+  "statementOutcome": {
     "id": "SEPIO-CG:99010",
+    "type": "Entity",
     "label": "unaffected"
   }
 }
@@ -347,7 +387,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:FamCond085">CG-EX:FamCond085</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:FamCond085">CGEX:FamCond085</a></p></td>
           <td>
               
          </td>
@@ -358,36 +398,45 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv339">CG-EX:Indiv339</a></p> (individual #007)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#GenCond018">GenCond018</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv339">CGEX:Indiv339</a></p> (individual #007)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:GenCond018">CGEX:GenCond018</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:FamCond085"><pre><code>{
-  "id": "CG-EX:FamCond085",
-  "type": "FamilyCondition",
+          <td><div class="example_view" id="CGEX:FamCond085"><pre><code>{
+  "id": "CGEX:FamCond085",
+  "type": "FamilyConditionStatement",
   "proband": {
-    "id": "CG-EX:Indiv339",
+    "id": "CGEX:Indiv339",
+    "type": "Entity",
     "label": "individual #007"
   },
   "condition": [
     {
-      "id": "GenCond018",
+      "id": "CGEX:GenCond018",
       "type": "GeneticCondition",
       "disease": [
         {
           "id": "Orphanet:122",
+          "type": "Entity",
           "label": "Birt-Hogg-Dube Syndrome"
         }
       ]
     }
   ],
-  "affectedStatusOutcome": {
+  "statementOutcome": {
     "id": "SEPIO-CG:99010",
+    "type": "Entity",
     "label": "unaffected"
   }
 }
@@ -396,7 +445,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:FamCond086">CG-EX:FamCond086</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:FamCond086">CGEX:FamCond086</a></p></td>
           <td>
               
          </td>
@@ -407,36 +456,45 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv340">CG-EX:Indiv340</a></p> (individual #008)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#GenCond018">GenCond018</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv340">CGEX:Indiv340</a></p> (individual #008)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:GenCond018">CGEX:GenCond018</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:FamCond086"><pre><code>{
-  "id": "CG-EX:FamCond086",
-  "type": "FamilyCondition",
+          <td><div class="example_view" id="CGEX:FamCond086"><pre><code>{
+  "id": "CGEX:FamCond086",
+  "type": "FamilyConditionStatement",
   "proband": {
-    "id": "CG-EX:Indiv340",
+    "id": "CGEX:Indiv340",
+    "type": "Entity",
     "label": "individual #008"
   },
   "condition": [
     {
-      "id": "GenCond018",
+      "id": "CGEX:GenCond018",
       "type": "GeneticCondition",
       "disease": [
         {
           "id": "Orphanet:122",
+          "type": "Entity",
           "label": "Birt-Hogg-Dube Syndrome"
         }
       ]
     }
   ],
-  "affectedStatusOutcome": {
+  "statementOutcome": {
     "id": "SEPIO-CG:99010",
+    "type": "Entity",
     "label": "unaffected"
   }
 }
@@ -445,7 +503,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:FamCond090">CG-EX:FamCond090</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:FamCond090">CGEX:FamCond090</a></p></td>
           <td>
               
          </td>
@@ -456,36 +514,45 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv341">CG-EX:Indiv341</a></p> (individual #009)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#GenCond019">GenCond019</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv341">CGEX:Indiv341</a></p> (individual #009)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:GenCond019">CGEX:GenCond019</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:FamCond090"><pre><code>{
-  "id": "CG-EX:FamCond090",
-  "type": "FamilyCondition",
+          <td><div class="example_view" id="CGEX:FamCond090"><pre><code>{
+  "id": "CGEX:FamCond090",
+  "type": "FamilyConditionStatement",
   "proband": {
-    "id": "CG-EX:Indiv341",
+    "id": "CGEX:Indiv341",
+    "type": "Entity",
     "label": "individual #009"
   },
   "condition": [
     {
-      "id": "GenCond019",
+      "id": "CGEX:GenCond019",
       "type": "GeneticCondition",
       "disease": [
         {
           "id": "Orphanet:1340",
+          "type": "Entity",
           "label": "cardiofaciocutaneous syndrome"
         }
       ]
     }
   ],
-  "affectedStatusOutcome": {
+  "statementOutcome": {
     "id": "SEPIO-CG:99010",
+    "type": "Entity",
     "label": "unaffected"
   }
 }
@@ -494,7 +561,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:FamCond093">CG-EX:FamCond093</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:FamCond093">CGEX:FamCond093</a></p></td>
           <td>
               
          </td>
@@ -505,36 +572,45 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv342">CG-EX:Indiv342</a></p> (individual #010)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#GenCond068">GenCond068</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv342">CGEX:Indiv342</a></p> (individual #010)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:GenCond068">CGEX:GenCond068</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:FamCond093"><pre><code>{
-  "id": "CG-EX:FamCond093",
-  "type": "FamilyCondition",
+          <td><div class="example_view" id="CGEX:FamCond093"><pre><code>{
+  "id": "CGEX:FamCond093",
+  "type": "FamilyConditionStatement",
   "proband": {
-    "id": "CG-EX:Indiv342",
+    "id": "CGEX:Indiv342",
+    "type": "Entity",
     "label": "individual #010"
   },
   "condition": [
     {
-      "id": "GenCond068",
+      "id": "CGEX:GenCond068",
       "type": "GeneticCondition",
       "disease": [
         {
           "id": "Orphanet:1340",
+          "type": "Entity",
           "label": "cardiofaciocutaneous syndrome"
         }
       ]
     }
   ],
-  "affectedStatusOutcome": {
+  "statementOutcome": {
     "id": "SEPIO-CG:99010",
+    "type": "Entity",
     "label": "unaffected"
   }
 }
@@ -543,7 +619,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:FamCond096">CG-EX:FamCond096</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:FamCond096">CGEX:FamCond096</a></p></td>
           <td>
               
          </td>
@@ -554,36 +630,45 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv343">CG-EX:Indiv343</a></p> (individual #011)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#GenCond068">GenCond068</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv343">CGEX:Indiv343</a></p> (individual #011)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:GenCond068">CGEX:GenCond068</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:FamCond096"><pre><code>{
-  "id": "CG-EX:FamCond096",
-  "type": "FamilyCondition",
+          <td><div class="example_view" id="CGEX:FamCond096"><pre><code>{
+  "id": "CGEX:FamCond096",
+  "type": "FamilyConditionStatement",
   "proband": {
-    "id": "CG-EX:Indiv343",
+    "id": "CGEX:Indiv343",
+    "type": "Entity",
     "label": "individual #011"
   },
   "condition": [
     {
-      "id": "GenCond068",
+      "id": "CGEX:GenCond068",
       "type": "GeneticCondition",
       "disease": [
         {
           "id": "Orphanet:1340",
+          "type": "Entity",
           "label": "cardiofaciocutaneous syndrome"
         }
       ]
     }
   ],
-  "affectedStatusOutcome": {
+  "statementOutcome": {
     "id": "SEPIO-CG:99010",
+    "type": "Entity",
     "label": "unaffected"
   }
 }
@@ -592,7 +677,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:FamCond099">CG-EX:FamCond099</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:FamCond099">CGEX:FamCond099</a></p></td>
           <td>
               
          </td>
@@ -603,36 +688,45 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv344">CG-EX:Indiv344</a></p> (individual #012)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#GenCond068">GenCond068</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv344">CGEX:Indiv344</a></p> (individual #012)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:GenCond068">CGEX:GenCond068</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:FamCond099"><pre><code>{
-  "id": "CG-EX:FamCond099",
-  "type": "FamilyCondition",
+          <td><div class="example_view" id="CGEX:FamCond099"><pre><code>{
+  "id": "CGEX:FamCond099",
+  "type": "FamilyConditionStatement",
   "proband": {
-    "id": "CG-EX:Indiv344",
+    "id": "CGEX:Indiv344",
+    "type": "Entity",
     "label": "individual #012"
   },
   "condition": [
     {
-      "id": "GenCond068",
+      "id": "CGEX:GenCond068",
       "type": "GeneticCondition",
       "disease": [
         {
           "id": "Orphanet:1340",
+          "type": "Entity",
           "label": "cardiofaciocutaneous syndrome"
         }
       ]
     }
   ],
-  "affectedStatusOutcome": {
+  "statementOutcome": {
     "id": "SEPIO-CG:99010",
+    "type": "Entity",
     "label": "unaffected"
   }
 }
@@ -641,7 +735,7 @@
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:FamCond112">CG-EX:FamCond112</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:FamCond112">CGEX:FamCond112</a></p></td>
           <td>
               
          </td>
@@ -652,36 +746,45 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Indiv362">CG-EX:Indiv362</a></p> (individual #030)
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#GenCond069">GenCond069</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Indiv362">CGEX:Indiv362</a></p> (individual #030)
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:GenCond069">CGEX:GenCond069</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:FamCond112"><pre><code>{
-  "id": "CG-EX:FamCond112",
-  "type": "FamilyCondition",
+          <td><div class="example_view" id="CGEX:FamCond112"><pre><code>{
+  "id": "CGEX:FamCond112",
+  "type": "FamilyConditionStatement",
   "proband": {
-    "id": "CG-EX:Indiv362",
+    "id": "CGEX:Indiv362",
+    "type": "Entity",
     "label": "individual #030"
   },
   "condition": [
     {
-      "id": "GenCond069",
+      "id": "CGEX:GenCond069",
       "type": "GeneticCondition",
       "disease": [
         {
           "id": "Orphanet:1340",
+          "type": "Entity",
           "label": "cardiofaciocutaneous syndrome"
         }
       ]
     }
   ],
-  "affectedStatusOutcome": {
+  "statementOutcome": {
     "id": "SEPIO-CG:99010",
+    "type": "Entity",
     "label": "unaffected"
   }
 }
@@ -730,7 +833,7 @@ window.addEventListener('load', function () {
                 <h5><a href="../../../">Interpretation Overview</a></h5>
               </li>
               <li class='list-group-item'><h5><a href="../../../user/">User Guide</a></h5></li>
-              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../">Entity Definitions</a></li><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Evidence Item</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li><a href="allele_conservation.html">AlleleConservation</a></li><li><a href="allele_conservation_score.html">AlleleConservationScore</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="allele_molecular_consequence.html">AlleleMolecularConsequence</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li class="active"><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="in_silico_prediction_score.html">InSilicoPredictionScore</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="individual_genotype.html">IndividualGenotype</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li><a href="region_type.html">RegionType</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul><li><a href="../../json_schema.html">JSON Schema</a></li></ul></li>
+              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../">Entity Definitions</a></li><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Evidence Item</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateCosegregationStatement</a></li><li><a href="allele_conservation.html">AlleleConservationStatement</a></li><li><a href="allele_conservation_score.html">AlleleConservationScoreStatement</a></li><li><a href="allele_frequency.html">PopulationAlleleFrequencyStatement</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpactStatement</a></li><li><a href="allele_molecular_consequence.html">AlleleMolecularConsequenceStatement</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRateStatement</a></li><li><a href="case_control.html">CaseControlAlleleFrequencyStatement</a></li><li><a href="condition_mechanism.html">ConditionMechanismStatement</a></li><li><a href="condition_penetrance.html">ConditionPenetranceStatement</a></li><li><a href="condition_prevelance.html">ConditionPrevelanceStatement</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li class="active"><a href="family_condition.html">FamilyConditionStatement</a></li><li><a href="family_segregation.html">FamilyCosegregationStatement</a></li><li><a href="in_silico_prediction.html">InSilicoPredictionStatement</a></li><li><a href="in_silico_prediction_score.html">InSilicoPredictionScoreStatement</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritanceStatement</a></li><li><a href="individual_condition.html">IndividualConditionStatement</a></li><li><a href="individual_genotype.html">IndividualGenotypeStatement</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneityStatement</a></li><li><a href="null_allele.html">NullAlleleStatement</a></li><li><a href="region_alleles.html">RegionAllelesStatement</a></li><li><a href="region_type.html">RegionTypeStatement</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul><li><a href="../../json_schema.html">JSON Schema</a></li></ul></li>
               <!-- Old style.  We might still need the model here? -->
               <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
             </ul>

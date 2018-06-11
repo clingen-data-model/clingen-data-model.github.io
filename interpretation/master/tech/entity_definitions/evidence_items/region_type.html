@@ -67,7 +67,7 @@
     
         <div class="row">
           <div class="col-sm-12">
-              <h1 class="header">RegionType</h1>
+              <h1 class="header">RegionTypeStatement</h1>
               <ol class="breadcrumb bg-none margin-none">
                 <li><a href="../../../">Interpretation Model</a></li>
 <li><a href="../../">Technical Reference</a></li>
@@ -120,18 +120,11 @@
                 <td>SEPIO:0000279</td>
             </tr>
             <tr>
-                <td>annotationOutcome</td>
+                <td>statementOutcome</td>
                 <td>@id</td>
                 <td>0..*</td>
                 <td>Annotation about the type or importance of a region</td>
                 <td>SEPIO:0000197</td>
-            </tr>
-            <tr>
-                <td>outcomeQualifier</td>
-                <td>string</td>
-                <td>0..1</td>
-                <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
-                <td>SEPIO:0000346</td>
             </tr>
             </tbody>
         </table>
@@ -151,11 +144,32 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>userLabel</td>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A name given to the resource.</td>
+                    <td>RDFS:label</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                    <td>DC:description</td>
+                </tr>
+                <tr>
+                    <td>userLabelDictionary</td>
                     <td>UserLabel</td>
                     <td>0..*</td>
                     <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
-                    <td></td>
+                    <td>SEPIO:0000422</td>
+                </tr>
+                <tr>
+                    <td>outcomeQualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                    <td>SEPIO:0000346</td>
                 </tr>
                 <tr>
                     <td>evidenceLine</td>
@@ -163,13 +177,6 @@
                     <td>0..*</td>
                     <td>supporting evidence</td>
                     <td>SEPIO:0000006</td>
-                </tr>
-                <tr>
-                    <td>description</td>
-                    <td>string</td>
-                    <td>0..1</td>
-                    <td>A human-readable description of the entity</td>
-                    <td>DC:description</td>
                 </tr>
                 <tr>
                     <td>contribution</td>
@@ -193,62 +200,75 @@
     <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
       <thead><tr>
         <th>ID</th>
-        <th>userLabel</th>
-        <th>evidenceLine</th>
+        <th>label</th>
         <th>description</th>
-        <th>region</th>
-        <th>annotationOutcome</th>
+        <th>userLabelDictionary</th>
         <th>outcomeQualifier</th>
+        <th>evidenceLine</th>
+        <th>region</th>
+        <th>statementOutcome</th>
       </tr></thead>
       <tbody>
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:RegTyp040">CG-EX:RegTyp040</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:RegTyp220">CGEX:RegTyp220</a></p></td>
           <td>
               
          </td>
           <td>
+              <p>region does not have a known function.</p>
+         </td>
+          <td>
               
          </td>
           <td>
-              <p>This region is the catalytic (kinase) domain.</p>
+              <p>NOT</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Loc432">CG-EX:Loc432</a></p>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Loc438">CGEX:Loc438</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0002188">SO:0002188</a></p> (functional region)
          </td>
-          <td>
-              
-         </td>
           <!--
-          <td><div class="example_view" id="CG-EX:RegTyp040"><pre><code>{
-  "id": "CG-EX:RegTyp040",
-  "type": "RegionType",
+          <td><div class="example_view" id="CGEX:RegTyp220"><pre><code>{
+  "id": "CGEX:RegTyp220",
+  "type": "RegionTypeStatement",
+  "description": "region does not have a known function.",
   "region": {
-    "id": "CG-EX:Loc432",
+    "id": "CGEX:Loc438",
     "type": "SequenceLocation",
     "referenceSequence": {
-      "id": "REFSEQ:NP_005219.2",
-      "label": "NP_005219.2"
+      "id": "REFSEQ:NM_001271208.1",
+      "type": "Entity",
+      "label": "NM_001271208.1"
     },
-    "start": 704,
-    "stop": 1016
+    "start": 154,
+    "stop": 183
   },
-  "annotationOutcome": [
+  "statementOutcome": [
     {
       "id": "SO:0002188",
+      "type": "Entity",
       "label": "functional region"
     }
   ],
-  "description": "This region is the catalytic (kinase) domain."
+  "outcomeQualifier": "NOT"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:RegTyp043">CG-EX:RegTyp043</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:RegTyp221">CGEX:RegTyp221</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>region is repeating.</p>
+         </td>
           <td>
               
          </td>
@@ -256,45 +276,50 @@
               
          </td>
           <td>
-              <p>This region is exon 15 in the transcript, and codes the serine-threonine-protein kinase catalytic domain.</p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#CG-EX:Loc433">CG-EX:Loc433</a></p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#SO:0002188">SO:0002188</a></p> (functional region)
-         </td>
-          <td>
               
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Loc438">CGEX:Loc438</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#SO:0000657">SO:0000657</a></p> (repeat region )
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:RegTyp043"><pre><code>{
-  "id": "CG-EX:RegTyp043",
-  "type": "RegionType",
+          <td><div class="example_view" id="CGEX:RegTyp221"><pre><code>{
+  "id": "CGEX:RegTyp221",
+  "type": "RegionTypeStatement",
+  "description": "region is repeating.",
   "region": {
-    "id": "CG-EX:Loc433",
+    "id": "CGEX:Loc438",
     "type": "SequenceLocation",
     "referenceSequence": {
-      "id": "REFSEQ:NM_004333.4",
-      "label": "NM_004333.4"
+      "id": "REFSEQ:NM_001271208.1",
+      "type": "Entity",
+      "label": "NM_001271208.1"
     },
-    "start": 1803,
-    "stop": 1921
+    "start": 154,
+    "stop": 183
   },
-  "annotationOutcome": [
+  "statementOutcome": [
     {
-      "id": "SO:0002188",
-      "label": "functional region"
+      "id": "SO:0000657",
+      "type": "Entity",
+      "label": "repeat region "
     }
-  ],
-  "description": "This region is exon 15 in the transcript, and codes the serine-threonine-protein kinase catalytic domain."
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:RegTyp046">CG-EX:RegTyp046</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:RegTyp225">CGEX:RegTyp225</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>The I-Band is a large region of repetitive Igg domains. </p>
+         </td>
           <td>
               
          </td>
@@ -302,48 +327,44 @@
               
          </td>
           <td>
-              <p>Region(NM_0001692[996..1012]) is a mutational hotspot.</p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#CG-EX:Loc434">CG-EX:Loc434</a></p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#SO:0002186">SO:0002186</a></p> (mutational hotspot)
-         </td>
-          <td>
               
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Loc439">CGEX:Loc439</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#SO:0000657">SO:0000657</a></p> (repeat region )
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:RegTyp046"><pre><code>{
-  "id": "CG-EX:RegTyp046",
-  "type": "RegionType",
+          <td><div class="example_view" id="CGEX:RegTyp225"><pre><code>{
+  "id": "CGEX:RegTyp225",
+  "type": "RegionTypeStatement",
+  "description": "The I-Band is a large region of repetitive Igg domains. ",
   "region": {
-    "id": "CG-EX:Loc434",
+    "id": "CGEX:Loc439",
     "type": "SequenceLocation",
     "referenceSequence": {
-      "id": "REFSEQ:NM_000169.2",
-      "label": "NM_000169.2"
+      "id": "REFSEQ:NM_133378.4",
+      "type": "Entity",
+      "label": "NM_133378.4"
     },
-    "start": 996,
-    "stop": 1012
+    "start": 6509,
+    "stop": 39262
   },
-  "annotationOutcome": [
+  "statementOutcome": [
     {
-      "id": "SO:0002186",
-      "label": "mutational hotspot"
+      "id": "SO:0000657",
+      "type": "Entity",
+      "label": "repeat region "
     }
-  ],
-  "description": "Region(NM_0001692[996..1012]) is a mutational hotspot."
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:RegTyp069">CG-EX:RegTyp069</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="../../details/details.html#CGEX:RegTyp069">CGEX:RegTyp069</a></p></td>
           <td>
               
          </td>
@@ -351,31 +372,40 @@
               <p>This is not a repreating region.</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Loc435">CG-EX:Loc435</a></p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#SO:0000657">SO:0000657</a></p> (repeat region )
+              
          </td>
           <td>
               <p>NOT</p>
          </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Loc435">CGEX:Loc435</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#SO:0000657">SO:0000657</a></p> (repeat region )
+         </td>
           <!--
-          <td><div class="example_view" id="CG-EX:RegTyp069"><pre><code>{
-  "id": "CG-EX:RegTyp069",
-  "type": "RegionType",
+          <td><div class="example_view" id="CGEX:RegTyp069"><pre><code>{
+  "id": "CGEX:RegTyp069",
+  "type": "RegionTypeStatement",
+  "description": "This is not a repreating region.",
   "region": {
-    "id": "CG-EX:Loc435",
+    "id": "CGEX:Loc435",
     "type": "SequenceLocation",
     "referenceSequence": {
       "id": "REFSEQ:NP_001360.1",
+      "type": "Entity",
       "label": "NP_001360.1"
     },
     "start": 2490,
     "stop": 2496
   },
-  "annotationOutcome": [
+  "statementOutcome": [
     {
       "id": "SO:0000657",
+      "type": "Entity",
       "label": "repeat region "
     }
   ],
@@ -384,31 +414,28 @@
     {
       "type": "Contribution",
       "agent": {
-        "id": "CG-EX:Agent007",
+        "id": "CGEX:Agent007",
         "type": "Agent",
         "label": "Stefan DiMarino"
       },
       "contributionDate": "6/1/16 2:10 PM",
       "contributionRole": {
         "id": "SEPIO:0000156",
+        "type": "Entity",
         "label": "curator role"
       }
     }
   ],
   "source": [
     "https://pcpgm.partners.org/lmm/alamut"
-  ],
-  "description": "This is not a repreating region."
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:RegTyp073">CG-EX:RegTyp073</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="../../details/details.html#CGEX:RegTyp073">CGEX:RegTyp073</a></p></td>
           <td>
               
          </td>
@@ -416,46 +443,51 @@
               <p>NP_056375.2[35..43] is not repeating.</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Loc436">CG-EX:Loc436</a></p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#SO:0000657">SO:0000657</a></p> (repeat region )
+              
          </td>
           <td>
               <p>NOT</p>
          </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Loc436">CGEX:Loc436</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#SO:0000657">SO:0000657</a></p> (repeat region )
+         </td>
           <!--
-          <td><div class="example_view" id="CG-EX:RegTyp073"><pre><code>{
-  "id": "CG-EX:RegTyp073",
-  "type": "RegionType",
+          <td><div class="example_view" id="CGEX:RegTyp073"><pre><code>{
+  "id": "CGEX:RegTyp073",
+  "type": "RegionTypeStatement",
+  "description": "NP_056375.2[35..43] is not repeating.",
   "region": {
-    "id": "CG-EX:Loc436",
+    "id": "CGEX:Loc436",
     "type": "SequenceLocation",
     "referenceSequence": {
       "id": "REFSEQ:NP_056375.2",
+      "type": "Entity",
       "label": "NP_056375.2"
     },
     "start": 35,
     "stop": 43
   },
-  "annotationOutcome": [
+  "statementOutcome": [
     {
       "id": "SO:0000657",
+      "type": "Entity",
       "label": "repeat region "
     }
   ],
-  "outcomeQualifier": "NOT",
-  "description": "NP_056375.2[35..43] is not repeating."
+  "outcomeQualifier": "NOT"
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:RegTyp077">CG-EX:RegTyp077</a></p></td>
-          <td>
-              
-         </td>
+          <td><p><a href="../../details/details.html#CGEX:RegTyp077">CGEX:RegTyp077</a></p></td>
           <td>
               
          </td>
@@ -463,42 +495,56 @@
               <p>NP_003915.2[241..260] is repeating.</p>
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Loc437">CG-EX:Loc437</a></p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#SO:0000657">SO:0000657</a></p> (repeat region )
+              
          </td>
           <td>
               
          </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Loc437">CGEX:Loc437</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#SO:0000657">SO:0000657</a></p> (repeat region )
+         </td>
           <!--
-          <td><div class="example_view" id="CG-EX:RegTyp077"><pre><code>{
-  "id": "CG-EX:RegTyp077",
-  "type": "RegionType",
+          <td><div class="example_view" id="CGEX:RegTyp077"><pre><code>{
+  "id": "CGEX:RegTyp077",
+  "type": "RegionTypeStatement",
+  "description": "NP_003915.2[241..260] is repeating.",
   "region": {
-    "id": "CG-EX:Loc437",
+    "id": "CGEX:Loc437",
     "type": "SequenceLocation",
     "referenceSequence": {
       "id": "REFSEQ:NP_003915.2",
+      "type": "Entity",
       "label": "NP_003915.2"
     },
     "start": 241,
     "stop": 260
   },
-  "annotationOutcome": [
+  "statementOutcome": [
     {
       "id": "SO:0000657",
+      "type": "Entity",
       "label": "repeat region "
     }
-  ],
-  "description": "NP_003915.2[241..260] is repeating."
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:RegTyp220">CG-EX:RegTyp220</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:RegTyp040">CGEX:RegTyp040</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>This region is the catalytic (kinase) domain.</p>
+         </td>
           <td>
               
          </td>
@@ -506,46 +552,50 @@
               
          </td>
           <td>
-              <p>region does not have a known function.</p>
+              
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Loc438">CG-EX:Loc438</a></p>
+              <p><a href="../../details/details.html#CGEX:Loc432">CGEX:Loc432</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0002188">SO:0002188</a></p> (functional region)
          </td>
-          <td>
-              <p>NOT</p>
-         </td>
           <!--
-          <td><div class="example_view" id="CG-EX:RegTyp220"><pre><code>{
-  "id": "CG-EX:RegTyp220",
-  "type": "RegionType",
+          <td><div class="example_view" id="CGEX:RegTyp040"><pre><code>{
+  "id": "CGEX:RegTyp040",
+  "type": "RegionTypeStatement",
+  "description": "This region is the catalytic (kinase) domain.",
   "region": {
-    "id": "CG-EX:Loc438",
+    "id": "CGEX:Loc432",
     "type": "SequenceLocation",
     "referenceSequence": {
-      "id": "REFSEQ:NM_001271208.1",
-      "label": "NM_001271208.1"
+      "id": "REFSEQ:NP_005219.2",
+      "type": "Entity",
+      "label": "NP_005219.2"
     },
-    "start": 154,
-    "stop": 183
+    "start": 704,
+    "stop": 1016
   },
-  "annotationOutcome": [
+  "statementOutcome": [
     {
       "id": "SO:0002188",
+      "type": "Entity",
       "label": "functional region"
     }
-  ],
-  "outcomeQualifier": "NOT",
-  "description": "region does not have a known function."
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:RegTyp221">CG-EX:RegTyp221</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:RegTyp043">CGEX:RegTyp043</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>This region is exon 15 in the transcript, and codes the serine-threonine-protein kinase catalytic domain.</p>
+         </td>
           <td>
               
          </td>
@@ -553,45 +603,50 @@
               
          </td>
           <td>
-              <p>region is repeating.</p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#CG-EX:Loc438">CG-EX:Loc438</a></p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#SO:0000657">SO:0000657</a></p> (repeat region )
-         </td>
-          <td>
               
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Loc433">CGEX:Loc433</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#SO:0002188">SO:0002188</a></p> (functional region)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:RegTyp221"><pre><code>{
-  "id": "CG-EX:RegTyp221",
-  "type": "RegionType",
+          <td><div class="example_view" id="CGEX:RegTyp043"><pre><code>{
+  "id": "CGEX:RegTyp043",
+  "type": "RegionTypeStatement",
+  "description": "This region is exon 15 in the transcript, and codes the serine-threonine-protein kinase catalytic domain.",
   "region": {
-    "id": "CG-EX:Loc438",
+    "id": "CGEX:Loc433",
     "type": "SequenceLocation",
     "referenceSequence": {
-      "id": "REFSEQ:NM_001271208.1",
-      "label": "NM_001271208.1"
+      "id": "REFSEQ:NM_004333.4",
+      "type": "Entity",
+      "label": "NM_004333.4"
     },
-    "start": 154,
-    "stop": 183
+    "start": 1803,
+    "stop": 1921
   },
-  "annotationOutcome": [
+  "statementOutcome": [
     {
-      "id": "SO:0000657",
-      "label": "repeat region "
+      "id": "SO:0002188",
+      "type": "Entity",
+      "label": "functional region"
     }
-  ],
-  "description": "region is repeating."
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:RegTyp225">CG-EX:RegTyp225</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:RegTyp046">CGEX:RegTyp046</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Region(NM_0001692[996..1012]) is a mutational hotspot.</p>
+         </td>
           <td>
               
          </td>
@@ -599,45 +654,44 @@
               
          </td>
           <td>
-              <p>The I-Band is a large region of repetitive Igg domains. </p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#CG-EX:Loc439">CG-EX:Loc439</a></p>
-         </td>
-          <td>
-              <p><a href="../../details/details.html#SO:0000657">SO:0000657</a></p> (repeat region )
-         </td>
-          <td>
               
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Loc434">CGEX:Loc434</a></p>
+         </td>
+          <td>
+              <p><a href="../../details/details.html#SO:0002186">SO:0002186</a></p> (mutational hotspot)
          </td>
           <!--
-          <td><div class="example_view" id="CG-EX:RegTyp225"><pre><code>{
-  "id": "CG-EX:RegTyp225",
-  "type": "RegionType",
+          <td><div class="example_view" id="CGEX:RegTyp046"><pre><code>{
+  "id": "CGEX:RegTyp046",
+  "type": "RegionTypeStatement",
+  "description": "Region(NM_0001692[996..1012]) is a mutational hotspot.",
   "region": {
-    "id": "CG-EX:Loc439",
+    "id": "CGEX:Loc434",
     "type": "SequenceLocation",
     "referenceSequence": {
-      "id": "REFSEQ:NM_133378.4",
-      "label": "NM_133378.4"
+      "id": "REFSEQ:NM_000169.2",
+      "type": "Entity",
+      "label": "NM_000169.2"
     },
-    "start": 6509,
-    "stop": 39262
+    "start": 996,
+    "stop": 1012
   },
-  "annotationOutcome": [
+  "statementOutcome": [
     {
-      "id": "SO:0000657",
-      "label": "repeat region "
+      "id": "SO:0002186",
+      "type": "Entity",
+      "label": "mutational hotspot"
     }
-  ],
-  "description": "The I-Band is a large region of repetitive Igg domains. "
+  ]
 }
           </code></pre></div></td>
           -->
         </tr>
 
         <tr>
-          <td><p><a href="../../details/details.html#CG-EX:RegTyp229">CG-EX:RegTyp229</a></p></td>
+          <td><p><a href="../../details/details.html#CGEX:RegTyp229">CGEX:RegTyp229</a></p></td>
           <td>
               
          </td>
@@ -648,31 +702,36 @@
               
          </td>
           <td>
-              <p><a href="../../details/details.html#CG-EX:Loc440">CG-EX:Loc440</a></p>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../../details/details.html#CGEX:Loc440">CGEX:Loc440</a></p>
          </td>
           <td>
               <p><a href="../../details/details.html#SO:0000657">SO:0000657</a></p> (repeat region )
          </td>
-          <td>
-              
-         </td>
           <!--
-          <td><div class="example_view" id="CG-EX:RegTyp229"><pre><code>{
-  "id": "CG-EX:RegTyp229",
-  "type": "RegionType",
+          <td><div class="example_view" id="CGEX:RegTyp229"><pre><code>{
+  "id": "CGEX:RegTyp229",
+  "type": "RegionTypeStatement",
   "region": {
-    "id": "CG-EX:Loc440",
+    "id": "CGEX:Loc440",
     "type": "SequenceLocation",
     "referenceSequence": {
       "id": "REFSEQ:NM_147196.2",
+      "type": "Entity",
       "label": "NM_147196.2"
     },
     "start": 522,
     "stop": 548
   },
-  "annotationOutcome": [
+  "statementOutcome": [
     {
       "id": "SO:0000657",
+      "type": "Entity",
       "label": "repeat region "
     }
   ]
@@ -722,7 +781,7 @@ window.addEventListener('load', function () {
                 <h5><a href="../../../">Interpretation Overview</a></h5>
               </li>
               <li class='list-group-item'><h5><a href="../../../user/">User Guide</a></h5></li>
-              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../">Entity Definitions</a></li><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Evidence Item</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateSegregation</a></li><li><a href="allele_conservation.html">AlleleConservation</a></li><li><a href="allele_conservation_score.html">AlleleConservationScore</a></li><li><a href="allele_frequency.html">AlleleFrequency</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpact</a></li><li><a href="allele_molecular_consequence.html">AlleleMolecularConsequence</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRate</a></li><li><a href="case_control.html">CaseControl</a></li><li><a href="condition_mechanism.html">ConditionMechanism</a></li><li><a href="condition_penetrance.html">ConditionPenetrance</a></li><li><a href="condition_prevelance.html">ConditionPrevelance</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyCondition</a></li><li><a href="family_segregation.html">FamilySegregation</a></li><li><a href="in_silico_prediction.html">InSilicoPrediction</a></li><li><a href="in_silico_prediction_score.html">InSilicoPredictionScore</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritance</a></li><li><a href="individual_condition.html">IndividualCondition</a></li><li><a href="individual_genotype.html">IndividualGenotype</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneity</a></li><li><a href="null_allele.html">NullAllele</a></li><li><a href="region_alleles.html">RegionAlleles</a></li><li class="active"><a href="region_type.html">RegionType</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul><li><a href="../../json_schema.html">JSON Schema</a></li></ul></li>
+              <li class="list-group-item"><h5><a href="../../">Technical Reference</a></h5><ul class='list-unstyled'><li class="active"><a href="../">Entity Definitions</a></li><ul class='list-unstyled'><li><a href="../core/">Core</a></li><li><a href="../domain_entities/">Domain Entities</a></li><li class="active"><a href="./">Evidence Item</a></li><ul class='list-unstyled'><li><a href="aggregate_segregation.html">AggregateCosegregationStatement</a></li><li><a href="allele_conservation.html">AlleleConservationStatement</a></li><li><a href="allele_conservation_score.html">AlleleConservationScoreStatement</a></li><li><a href="allele_frequency.html">PopulationAlleleFrequencyStatement</a></li><li><a href="allele_functional_impact.html">AlleleFunctionalImpactStatement</a></li><li><a href="allele_molecular_consequence.html">AlleleMolecularConsequenceStatement</a></li><li><a href="benign_missense_variation_rate.html">BenignMissenseVariationRateStatement</a></li><li><a href="case_control.html">CaseControlAlleleFrequencyStatement</a></li><li><a href="condition_mechanism.html">ConditionMechanismStatement</a></li><li><a href="condition_penetrance.html">ConditionPenetranceStatement</a></li><li><a href="condition_prevelance.html">ConditionPrevelanceStatement</a></li><li><a href="excluded_region_type.html">Haplotype</a></li><li><a href="family_condition.html">FamilyConditionStatement</a></li><li><a href="family_segregation.html">FamilyCosegregationStatement</a></li><li><a href="in_silico_prediction.html">InSilicoPredictionStatement</a></li><li><a href="in_silico_prediction_score.html">InSilicoPredictionScoreStatement</a></li><li><a href="individual_allele_inheritance.html">IndividualAlleleInheritanceStatement</a></li><li><a href="individual_condition.html">IndividualConditionStatement</a></li><li><a href="individual_genotype.html">IndividualGenotypeStatement</a></li><li><a href="locus_heterogeneity.html">LocusHeterogeneityStatement</a></li><li><a href="null_allele.html">NullAlleleStatement</a></li><li><a href="region_alleles.html">RegionAllelesStatement</a></li><li class="active"><a href="region_type.html">RegionTypeStatement</a></li></ul><li><a href="../provenance/">Provenance</a></li><li><a href="../terminology/">Terminology</a></li></ul><li><a href="../../json_schema.html">JSON Schema</a></li></ul></li>
               <!-- Old style.  We might still need the model here? -->
               <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
             </ul>

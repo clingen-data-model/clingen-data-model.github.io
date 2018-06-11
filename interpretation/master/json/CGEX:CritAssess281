@@ -1,0 +1,146 @@
+{
+  "id": "CGEX:CritAssess281",
+  "type": "CriterionAssessment",
+  "description": "IC1: Individual has condition, FH1: No family history, DNA1: variant is denovo (parentage confirmed)",
+  "criterion": {
+    "id": "SEPIO-CG:99024",
+    "type": "VariantInterpretationCriterion",
+    "label": "PS2",
+    "description": "De novo (both maternity and paternity confirmed) in a patient with the disease and no family history",
+    "usageNotes": "MYH7 is adding specificity to this rule with\na. No family history = parents have had ECHO and ECG\nb. Only paternity confirmation required",
+    "defaultStrength": {
+      "id": "SEPIO:0000330",
+      "type": "Entity",
+      "label": "Pathogenic Strong"
+    }
+  },
+  "variant": {
+    "id": "CAR:CA016441",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll017"
+  },
+  "condition": [
+    {
+      "id": "CGEX:GenCond052",
+      "type": "GeneticCondition",
+      "disease": [
+        {
+          "id": "Orphanet:217604",
+          "type": "Entity",
+          "label": "dilated cardiomyopathy"
+        }
+      ]
+    }
+  ],
+  "statementOutcome": {
+    "id": "SEPIO:0000223",
+    "type": "Entity",
+    "label": "Met"
+  },
+  "evidenceLine": [
+    {
+      "id": "CGEX:EvLn009",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:IndCond012",
+          "type": "IndividualConditionStatement",
+          "individual": {
+            "id": "CGEX:Indiv333",
+            "type": "Entity",
+            "label": "individual #001"
+          },
+          "condition": [
+            {
+              "id": "CGEX:GenCond052",
+              "type": "GeneticCondition",
+              "disease": [
+                {
+                  "id": "Orphanet:217604",
+                  "type": "Entity",
+                  "label": "dilated cardiomyopathy"
+                }
+              ]
+            }
+          ],
+          "statementOutcome": {
+            "id": "SEPIO-CG:99009",
+            "type": "Entity",
+            "label": "affected"
+          }
+        },
+        {
+          "id": "CGEX:FamCond013",
+          "type": "FamilyConditionStatement",
+          "proband": {
+            "id": "CGEX:Indiv333",
+            "type": "Entity",
+            "label": "individual #001"
+          },
+          "condition": [
+            {
+              "id": "CGEX:GenCond052",
+              "type": "GeneticCondition",
+              "disease": [
+                {
+                  "id": "Orphanet:217604",
+                  "type": "Entity",
+                  "label": "dilated cardiomyopathy"
+                }
+              ]
+            }
+          ],
+          "statementOutcome": {
+            "id": "SEPIO-CG:99010",
+            "type": "Entity",
+            "label": "unaffected"
+          }
+        },
+        {
+          "id": "CGEX:IndAllInh014",
+          "type": "IndividualAlleleInheritanceStatement",
+          "description": "parentage confirmed via haplotyping.",
+          "canonicalAllele": {
+            "id": "CAR:CA016441",
+            "type": "CanonicalAllele",
+            "relatedContextualAllele": "CGEX:CtxAll017"
+          },
+          "individual": {
+            "id": "CGEX:Indiv333",
+            "type": "Entity",
+            "label": "individual #001"
+          },
+          "parentalConfirmation": {
+            "id": "SEPIO-CG:99007",
+            "type": "Entity",
+            "label": "maternal and paternal confirmation"
+          },
+          "statementOutcome": [
+            {
+              "id": "GENO:0000880",
+              "type": "Entity",
+              "label": "de novo"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CGEX:Agent001",
+        "type": "Agent",
+        "label": "Harry Stevenson"
+      },
+      "contributionDate": "6/3/16 8:00 AM",
+      "contributionRole": {
+        "id": "SEPIO:0000154",
+        "type": "Entity",
+        "label": "assessor role"
+      }
+    }
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}

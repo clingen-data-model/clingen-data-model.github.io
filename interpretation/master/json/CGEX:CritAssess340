@@ -1,0 +1,156 @@
+{
+  "id": "CGEX:CritAssess340",
+  "type": "CriterionAssessment",
+  "description": "Homozygous truncating variants in LOXHD1 are associated with autosomal recessive hearing loss. This was demonstrated by both identification in human patients and a mouse model. (I used the OMIM entry as a source, but you could also directly use the papers.)",
+  "criterion": {
+    "id": "SEPIO-CG:99043",
+    "type": "VariantInterpretationCriterion",
+    "label": "BP1",
+    "description": "Missense variant in a gene for which primarily truncating variants are known to cause disease",
+    "usageNotes": "Is there any guidance on the proportion of pathogenic variants that are LOF to apply this rule?  99%? 90%? 75%?",
+    "defaultStrength": {
+      "id": "SEPIO:0000327",
+      "type": "Entity",
+      "label": "Benign Supporting"
+    }
+  },
+  "variant": {
+    "id": "CAR:CA090950",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll098"
+  },
+  "condition": [
+    {
+      "id": "CGEX:GenCond059",
+      "type": "GeneticCondition",
+      "description": "Hearing Loss, Autosomal Recessive",
+      "disease": [
+        {
+          "id": "Orphanet:87884",
+          "type": "Entity",
+          "label": "nonsyndromic deafness"
+        }
+      ],
+      "inheritancePattern": {
+        "id": "HP:0000007",
+        "type": "Entity",
+        "label": "Autosomal Recessive"
+      }
+    }
+  ],
+  "statementOutcome": {
+    "id": "SEPIO:0000223",
+    "type": "Entity",
+    "label": "Met"
+  },
+  "evidenceLine": [
+    {
+      "id": "CGEX:EvLn083",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:MolCon201",
+          "type": "AlleleMolecularConsequenceStatement",
+          "contextualAllele": {
+            "id": "CGEX:CtxAll098",
+            "type": "ContextualAllele",
+            "canonicalAllele": {
+              "id": "CAR:CA090950",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll098"
+            },
+            "alleleName": {
+              "id": "CGEX:CtxNm9098",
+              "type": "ContextualAlleleName",
+              "name": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)",
+              "preferred": true
+            }
+          },
+          "statementOutcome": {
+            "id": "SO:0001583",
+            "type": "Entity",
+            "label": "missense variant"
+          }
+        },
+        {
+          "id": "CGEX:Null415",
+          "type": "NullAlleleStatement",
+          "contextualAllele": {
+            "id": "CGEX:CtxAll098",
+            "type": "ContextualAllele",
+            "canonicalAllele": {
+              "id": "CAR:CA090950",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll098"
+            },
+            "alleleName": {
+              "id": "CGEX:CtxNm9098",
+              "type": "ContextualAlleleName",
+              "name": "NM_144612.6(LOXHD1 ): c.1028G>A (p.Arg343His)",
+              "preferred": true
+            }
+          },
+          "statementOutcome": {
+            "id": "SEPIO-CG:99015",
+            "type": "Entity",
+            "label": "function not lost"
+          }
+        },
+        {
+          "id": "CGEX:CondMech202",
+          "type": "ConditionMechanismStatement",
+          "description": "shown in both humans and mouse models",
+          "statementOutcome": {
+            "id": "SO:0002054",
+            "type": "Entity",
+            "label": "loss of function variant"
+          },
+          "mechanismConfidence": {
+            "id": "SEPIO:0000270",
+            "type": "Entity",
+            "label": "primary"
+          },
+          "gene": {
+            "id": "HGNC:26521",
+            "type": "Entity",
+            "label": "LOXHD1"
+          },
+          "condition": {
+            "id": "CGEX:GenCond059",
+            "type": "GeneticCondition",
+            "description": "Hearing Loss, Autosomal Recessive",
+            "disease": [
+              {
+                "id": "Orphanet:87884",
+                "type": "Entity",
+                "label": "nonsyndromic deafness"
+              }
+            ],
+            "inheritancePattern": {
+              "id": "HP:0000007",
+              "type": "Entity",
+              "label": "Autosomal Recessive"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CGEX:Agent007",
+        "type": "Agent",
+        "label": "Stefan DiMarino"
+      },
+      "contributionDate": "9/6/16 10:00 AM",
+      "contributionRole": {
+        "id": "SEPIO:0000154",
+        "type": "Entity",
+        "label": "assessor role"
+      }
+    }
+  ],
+  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+}
