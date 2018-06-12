@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      User Guide
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="stylesheets/bootstrap.css" rel="stylesheet" /><link href="stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="stylesheets/brand2.css" rel="stylesheet" /><link href="stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+    
+      <div class="container-fluid hero-background">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="images/clingen-doc-logo.png" />
+</a>            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+                    <li class="allele" >
+                      <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span> Allele Model</a></li>
+                    </li>
+                    <li class="interpretation" >
+                      <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span> Interpretation Model</a></li>
+                    </li>
+                <li>
+                    <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+          </div>
+    
+
+
+    
+        <div class="row">
+          <div class="col-sm-12">
+              <h1 class="header">User Guide</h1>
+              <ol class="breadcrumb bg-none margin-none">
+                <li><a href="./">Variant Pathogenicity Interpretation Model</a></li>
+<li><a href="getting_started.html">User Guide</a></li>
+
+              </ol>
+                <blockquote><p>The overall structure of ClinGen interpretations, and the use of SEPIO.</p>
+                </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
+          <article>
+            <p>This guide provides background, use cases, examples, future planning and
+collaborations surrounding ClinGen's Variant Interpretation Model. This portion
+of the documentation is targeted at the health care providers, scientists,
+geneticists, counselors, and researchers that work in or are interested in
+curating and interpreting variants.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>An interpretation is the outcome of structured reasoning applied to evidence.   Interpretations may be made about many kinds of entities using many kinds of evidence, and different formalized reasoning strategies.  Although the overall structure of an interpretation is the same for many cases, the initial version of the interpretation model is limited to interpretations on the pathogenicity of sequence variants made using the <a target="acmgguidelines" href="http://www.nature.com/gim/journal/v17/n5/full/gim201530a.html">ACMG Pathogenicity Guidelines</a>.   The discussion below will specifically use this context as an example, but the structure of the model is expected to remain largely unchanged as new interpretation contexts are added.</p>
+
+<h4 id="the-process-of-generating-this-type-of-interpretation-is-composed-of-three-kinds-of-activities">The process of generating this type of interpretation is composed of three kinds of activities:</h4>
+
+<ol>
+  <li>Collection of <strong>evidence</strong> from potentially many sources such as literature or databases.</li>
+  <li>Application of individual <strong>ACMG Guideline Criteria</strong> to the gathered evidence to produce <strong>assessments</strong> about whether individual criteria are satisfied by the evidence.</li>
+  <li>Combination of these assertions to create an overall <strong>interpretation</strong> of the evidence: a statement about the pathogenicity of a given allele.</li>
+</ol>
+
+<p>The outcome of this process is visualized as a tree.  The root node of the tree (the root of the JSON document) is the <strong>interpretation</strong>, and it draws upon the conclusions or <strong>assessments</strong> of individual ACMG criteria, and those in turn depend on the <strong>evidence</strong> (the leaves of the tree).</p>
+
+<p><img alt="Interpretation Figure 1" src="images/interp-f1.svg" /></p>
+
+<p>An interpretation without the supporting evidence and reasoning is merely an assertion.  Inclusion of the evidence and reasoning allows the receiver to draw their own conclusions, and to reasonably build upon the work carried out by an interpretations original creators.</p>
+
+<p>The model is loosely coupled; individual entities (assertions or primary data elements) have at least a conceptual existence outside a given interpretation, so that the same piece of evidence that is generated for one interpretation may be retained, along with its provenance, and used in later interpretations.</p>
+
+<p>The tree structure of the model is collapsible.  If a user is interested only in the final interpretation, they need to simply access the root node of the structure.  Suppose however, that a user has a discrepant interpretation.  The initial question in such a case would be "which ACMG criteria were used to generate the interpretation?"  The user can answer this question by moving one level in the graph to see which lines of evidence were used by the interpretation.  Suppose further that most of these assessments concur with the users' but that one is not.  Then the user may inspect the branch of the tree corresponding to that conflicting assessment, allowing inspection of the particular evidence and where that evidence came from.</p>
+
+<h2 id="sepio">SEPIO</h2>
+
+<p>The interpretation model requires a structure describing the relationship between a conclusion and the evidence that led to this conclusion;  the Scientific Evidence and Provenance Information Ontology (<a href="./sepio.html">SEPIO</a>) provides such a structure.  In SEPIO, an <a target="sepioassertion" href="https://github.com/monarch-initiative/SEPIO-ontology/wiki/Assertion">assertion</a> is the conclusion drawn from reasoning about <a target="sepioevidenceitem" href="https://github.com/monarch-initiative/SEPIO-ontology/wiki/Evidence-Item">information</a>.   This information can be either data, like an allele frequency, or a prior assertion.</p>
+
+<p>The ability for one SEPIO assertion to support another is the key in how we use SEPIO to structure our interpretation documents.   A VariantInterpretation is a SEPIO assertion, and it is supported by a CriteriaAssessment, which is also a ClinVar assertion. This CriteriaAssessment is, in turn, supported by measured data.  In other words, the data is used to create an intermediate assertion: a CriteriaAssessment saying that, for example, BA1 is satisfied for this variant.   This CriteriaAssessment (and potentially other such CriteriaAssessments) are then used to create the final VariantInterpretation in a second cycle of the basic SEPIO model.</p>
+
+<h2 id="evidence-lines">Evidence Lines</h2>
+
+<p>In the ClinGen interpretation model, as well as in SEPIO, assertions are not directly linked to their underlying evidence.  Rather, this link is mediated by an EvidenceLine node.  These nodes serve two purposes: First, they are structural nodes used as an umbrella to combine multiple individually-coded evidence statements that should be considered together.  Second, properties of EvidenceLines can be used for values that are not specific to the assertion or the supporting data, but to the relationship between them.</p>
+
+<p>In the ClinGen interpretation model,  one such property is the strength with which a CriteriaAssessment supports an Interpretation.  When an expert applies a criteria, they may find that a particular criteria is satisfied by a given set of data.   The particular criteria (such as PS1 or BP2) has a default strength describing how much weight should be given to this finding in creating the overall interpretation.  However, the expert analyst may override the default and find that in the case of this interpretation, this assessment may be judged to have increased or decreased strength.  This strength, then, is a property of the EvidenceLine, because it is a property of how much the assessment is used in the context of this specific interpretation.</p>
+
+<h2 id="contributions">Contributions</h2>
+
+<p>In addition to capturing the structure of interpretation arguments, the model captures granular statements about the provenance of particular entities.   Interpretations, Assessments, EvidenceLines, and Statements can each be tagged with a Contribution, defining <strong>when</strong> the entity was created it and <strong>who</strong> created it, along with the <strong>role</strong> in which they were acting.</p>
+
+<p>With this approach, multiple agents, both human and computational, can be noted as contributing to a specific element in a document, and different agents can be assigned as contributing to different precisely defined aspects of creating an interpretation.</p>
+
+<h2 id="json-ld">JSON-LD</h2>
+
+<p>The native encoding of ClinGen interpretations is JSON-LD.  In particular, instances of classes in the interpretation model are expressed as JSON objects with types matching the name of the class.  Property names in the model appear in the JSON-LD serialization as keys.</p>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<p>The user guide for the ClinGen model contains information about <a href="sepio.html">SEPIO</a> and <a href="projects.html">Projects</a> that either aid authoring of the ClinGen interpretation model or depend on the model.</p>
+
+<p>The <a href="../tech">technical reference</a> contains specifications of the classes and properties in which the model is expressed.</p>
+
+<p>The <a href="">examples</a> in the documentation are a large set of JSON-LD documents and snippets that explain</p>
+
+<ol>
+  <li>How each class is used.</li>
+  <li>How the assessment of ACMG criteria may be expressed.</li>
+  <li>How all of the entities fit together to create a complete interpretation document.</li>
+</ol>
+
+<p>The <a target="sepio" href="https://github.com/monarch-initiative/SEPIO-ontology/wiki">SEPIO documentation</a> describes the generic use of the SEPIO ontology.</p>
+
+          </article>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="list-group sidenav">
+            <ul class="list-unstyled">
+              <li class="list-group-item">
+                <h5><a href="./">Interpretation Overview</a></h5>
+              </li>
+              <li class="list-group-item">
+                <h5><a href="getting_started.html">Getting Started</a></h5>
+              </li>
+              <li class="list-group-item">
+                <h5><a href="deeper_dive.html">A Deeper Dive</a></h5>
+              </li>
+              <li class="list-group-item">
+                <h5><a href="faq.html">FAQ</a></h5>
+              </li>
+              <li class='list-group-item'><h5><a href="tech/">Entities</a></h5></li>
+              <li class='list-group-item'><h5><a href="terminology/">Terminology</a></h5></li>
+              <li class="list-group-item">
+                <h5><a href="projects.html">Projects and Tools</a></h5>
+              </li>
+              <!-- Old style.  We might still need the model here? -->
+              <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="container  background-trans padding-top-xl">
+      <div class="row">
+        <hr />
+        <div class="col-md-col-sm-12 text-center"> 
+          © 2017 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="javascripts/jquery.js"></script><script src="javascripts/bootstrap.js"></script><script src="javascripts/jquery.jsonview.js"></script><script src="javascripts/all.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>

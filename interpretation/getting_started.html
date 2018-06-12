@@ -14,7 +14,7 @@
 
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
 
-    <link href="../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../stylesheets/brand2.css" rel="stylesheet" /><link href="../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+    <link href="stylesheets/bootstrap.css" rel="stylesheet" /><link href="stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="stylesheets/brand2.css" rel="stylesheet" /><link href="stylesheets/jquery.jsonview.css" rel="stylesheet" />
 
       <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -41,7 +41,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="../images/clingen-doc-logo.png" />
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="images/clingen-doc-logo.png" />
 </a>            </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav navbar-right">
@@ -69,8 +69,8 @@
           <div class="col-sm-12">
               <h1 class="header">User Guide</h1>
               <ol class="breadcrumb bg-none margin-none">
-                <li><a href="../">Interpretation Model</a></li>
-<li><a href="./">User Guide</a></li>
+                <li><a href="./">Variant Pathogenicity Interpretation Model</a></li>
+<li><a href="getting_started.html">User Guide</a></li>
 
               </ol>
                 <blockquote><p>The overall structure of ClinGen interpretations, and the use of SEPIO.</p>
@@ -103,7 +103,7 @@ curating and interpreting variants.</p>
 
 <p>The outcome of this process is visualized as a tree.  The root node of the tree (the root of the JSON document) is the <strong>interpretation</strong>, and it draws upon the conclusions or <strong>assessments</strong> of individual ACMG criteria, and those in turn depend on the <strong>evidence</strong> (the leaves of the tree).</p>
 
-<p><img alt="Interpretation Figure 1" src="../images/interp-f1.svg" /></p>
+<p><img alt="Interpretation Figure 1" src="images/interp-f1.svg" /></p>
 
 <p>An interpretation without the supporting evidence and reasoning is merely an assertion.  Inclusion of the evidence and reasoning allows the receiver to draw their own conclusions, and to reasonably build upon the work carried out by an interpretations original creators.</p>
 
@@ -113,7 +113,7 @@ curating and interpreting variants.</p>
 
 <h2 id="sepio">SEPIO</h2>
 
-<p>The interpretation model requires a structure describing the relationship between a conclusion and the evidence that led to this conclusion;  the Scientific Evidence and Provenance Information Ontology (<a href="sepio.html">SEPIO</a>) provides such a structure.  In SEPIO, an <a target="sepioassertion" href="https://github.com/monarch-initiative/SEPIO-ontology/wiki/Assertion">assertion</a> is the conclusion drawn from reasoning about <a target="sepioevidenceitem" href="https://github.com/monarch-initiative/SEPIO-ontology/wiki/Evidence-Item">information</a>.   This information can be either data, like an allele frequency, or a prior assertion.</p>
+<p>The interpretation model requires a structure describing the relationship between a conclusion and the evidence that led to this conclusion;  the Scientific Evidence and Provenance Information Ontology (<a href="./sepio.html">SEPIO</a>) provides such a structure.  In SEPIO, an <a target="sepioassertion" href="https://github.com/monarch-initiative/SEPIO-ontology/wiki/Assertion">assertion</a> is the conclusion drawn from reasoning about <a target="sepioevidenceitem" href="https://github.com/monarch-initiative/SEPIO-ontology/wiki/Evidence-Item">information</a>.   This information can be either data, like an allele frequency, or a prior assertion.</p>
 
 <p>The ability for one SEPIO assertion to support another is the key in how we use SEPIO to structure our interpretation documents.   A VariantInterpretation is a SEPIO assertion, and it is supported by a CriteriaAssessment, which is also a ClinVar assertion. This CriteriaAssessment is, in turn, supported by measured data.  In other words, the data is used to create an intermediate assertion: a CriteriaAssessment saying that, for example, BA1 is satisfied for this variant.   This CriteriaAssessment (and potentially other such CriteriaAssessments) are then used to create the final VariantInterpretation in a second cycle of the basic SEPIO model.</p>
 
@@ -155,15 +155,22 @@ curating and interpreting variants.</p>
           <div class="list-group sidenav">
             <ul class="list-unstyled">
               <li class="list-group-item">
-                <h5><a href="../">Interpretation Overview</a></h5>
+                <h5><a href="./">Interpretation Overview</a></h5>
               </li>
-              <li class="list-group-item"><h5><a href="./">User Guide</a></h5><ul class='list-unstyled'><li><a href="discussion/">Discussion</a></li>
-<li><a href="examples.html">Examples</a></li>
-<li><a href="projects.html">Projects</a></li>
-<li><a href="release_notes.html">Release Notes</a></li>
-<li><a href="sepio.html">SEPIO</a></li>
-</ul></li>
-              <li class='list-group-item'><h5><a href="../tech/">Technical Reference</a></h5></li>
+              <li class="list-group-item">
+                <h5><a href="getting_started.html">Getting Started</a></h5>
+              </li>
+              <li class="list-group-item">
+                <h5><a href="deeper_dive.html">A Deeper Dive</a></h5>
+              </li>
+              <li class="list-group-item">
+                <h5><a href="faq.html">FAQ</a></h5>
+              </li>
+              <li class='list-group-item'><h5><a href="tech/">Entities</a></h5></li>
+              <li class='list-group-item'><h5><a href="terminology/">Terminology</a></h5></li>
+              <li class="list-group-item">
+                <h5><a href="projects.html">Projects and Tools</a></h5>
+              </li>
               <!-- Old style.  We might still need the model here? -->
               <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
             </ul>
@@ -182,7 +189,7 @@ curating and interpreting variants.</p>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../javascripts/jquery.js"></script><script src="../javascripts/bootstrap.js"></script><script src="../javascripts/jquery.jsonview.js"></script><script src="../javascripts/all.js"></script>
+    <script src="javascripts/jquery.js"></script><script src="javascripts/bootstrap.js"></script><script src="javascripts/jquery.jsonview.js"></script><script src="javascripts/all.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
 
   </body>
