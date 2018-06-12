@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Data Model
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../stylesheets/brand2.css" rel="stylesheet" /><link href="../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+    
+      <div class="container-fluid hero-background">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="../images/clingen-doc-logo.png" />
+</a>            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+                    <li class="allele" >
+                      <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span> Allele Model</a></li>
+                    </li>
+                    <li class="interpretation" >
+                      <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span> Interpretation Model</a></li>
+                    </li>
+                <li>
+                    <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+          </div>
+    
+
+
+    
+        <div class="row">
+          <div class="col-sm-12">
+              <h1 class="header"></h1>
+              <ol class="breadcrumb bg-none margin-none">
+                
+              </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
+          <article>
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2>Scope and Usage</h2>
+    <p>Used  to indicate if there are other  individuals that are affected by or exhibit  a condition in the proband's family.</p>
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>proband</td>
+                <td>@id</td>
+                <td>0..1</td>
+                <td>The person that was the original source of the condition in this family</td>
+                <td>SEPIO:0000281</td>
+            </tr>
+            <tr>
+                <td>condition</td>
+                <td>GeneticCondition</td>
+                <td>0..*</td>
+                <td>A condition that the family may or may not have</td>
+                <td>SEPIO:0000276</td>
+            </tr>
+            <tr>
+                <td>statementOutcome</td>
+                <td>@id</td>
+                <td>1..1</td>
+                <td>Whether or not this family has the stated condition</td>
+                <td>SEPIO:0000197</td>
+            </tr>
+            </tbody>
+        </table>
+
+<!--
+    <h2>Inherited Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A name given to the resource.</td>
+                    <td>RDFS:label</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                    <td>DC:description</td>
+                </tr>
+                <tr>
+                    <td>userLabelDictionary</td>
+                    <td>UserLabel</td>
+                    <td>0..*</td>
+                    <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
+                    <td>SEPIO:0000422</td>
+                </tr>
+                <tr>
+                    <td>outcomeQualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                    <td>SEPIO:0000346</td>
+                </tr>
+                <tr>
+                    <td>evidenceLine</td>
+                    <td>EvidenceLine</td>
+                    <td>0..*</td>
+                    <td>supporting evidence</td>
+                    <td>SEPIO:0000006</td>
+                </tr>
+                <tr>
+                    <td>contribution</td>
+                    <td>Contribution</td>
+                    <td>0..*</td>
+                    <td>The contributions (agent, time and role) made to this entity</td>
+                    <td>SEPIO:0000159</td>
+                </tr>
+                <tr>
+                    <td>source</td>
+                    <td>string</td>
+                    <td>0..*</td>
+                    <td>A string indicating the source of a Statement</td>
+                    <td>DC:source</td>
+                </tr>
+            </tbody>
+        </table>
+-->
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>label</th>
+        <th>description</th>
+        <th>userLabelDictionary</th>
+        <th>outcomeQualifier</th>
+        <th>evidenceLine</th>
+        <th>proband</th>
+        <th>condition</th>
+        <th>statementOutcome</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:FamCond013">CGEX:FamCond013</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv333">CGEX:Indiv333</a></p> (individual #001)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:GenCond052">CGEX:GenCond052</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamCond013"><pre><code>{
+  "id": "CGEX:FamCond013",
+  "type": "FamilyConditionStatement",
+  "proband": {
+    "id": "CGEX:Indiv333",
+    "label": "individual #001"
+  },
+  "condition": [
+    {
+      "id": "CGEX:GenCond052",
+      "type": "GeneticCondition",
+      "disease": [
+        {
+          "id": "Orphanet:217604",
+          "label": "dilated cardiomyopathy"
+        }
+      ]
+    }
+  ],
+  "statementOutcome": {
+    "id": "SEPIO-CG:99010",
+    "label": "unaffected"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:FamCond016">CGEX:FamCond016</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv334">CGEX:Indiv334</a></p> (individual #002)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:GenCond008">CGEX:GenCond008</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamCond016"><pre><code>{
+  "id": "CGEX:FamCond016",
+  "type": "FamilyConditionStatement",
+  "proband": {
+    "id": "CGEX:Indiv334",
+    "label": "individual #002"
+  },
+  "condition": [
+    {
+      "id": "CGEX:GenCond008",
+      "type": "GeneticCondition",
+      "description": "desmin related myopathy",
+      "disease": [
+        {
+          "id": "OMIM:601419",
+          "label": "myofibrillar myopathy 1"
+        }
+      ]
+    }
+  ],
+  "statementOutcome": {
+    "id": "SEPIO-CG:99010",
+    "label": "unaffected"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:FamCond019">CGEX:FamCond019</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv335">CGEX:Indiv335</a></p> (individual #003)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:GenCond009">CGEX:GenCond009</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamCond019"><pre><code>{
+  "id": "CGEX:FamCond019",
+  "type": "FamilyConditionStatement",
+  "proband": {
+    "id": "CGEX:Indiv335",
+    "label": "individual #003"
+  },
+  "condition": [
+    {
+      "id": "CGEX:GenCond009",
+      "type": "GeneticCondition",
+      "description": "Epilepsy with Mental Retardation"
+    }
+  ],
+  "statementOutcome": {
+    "id": "SEPIO-CG:99010",
+    "label": "unaffected"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:FamCond085">CGEX:FamCond085</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv339">CGEX:Indiv339</a></p> (individual #007)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:GenCond018">CGEX:GenCond018</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamCond085"><pre><code>{
+  "id": "CGEX:FamCond085",
+  "type": "FamilyConditionStatement",
+  "proband": {
+    "id": "CGEX:Indiv339",
+    "label": "individual #007"
+  },
+  "condition": [
+    {
+      "id": "CGEX:GenCond018",
+      "type": "GeneticCondition",
+      "disease": [
+        {
+          "id": "Orphanet:122",
+          "label": "Birt-Hogg-Dube Syndrome"
+        }
+      ]
+    }
+  ],
+  "statementOutcome": {
+    "id": "SEPIO-CG:99010",
+    "label": "unaffected"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:FamCond086">CGEX:FamCond086</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv340">CGEX:Indiv340</a></p> (individual #008)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:GenCond018">CGEX:GenCond018</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamCond086"><pre><code>{
+  "id": "CGEX:FamCond086",
+  "type": "FamilyConditionStatement",
+  "proband": {
+    "id": "CGEX:Indiv340",
+    "label": "individual #008"
+  },
+  "condition": [
+    {
+      "id": "CGEX:GenCond018",
+      "type": "GeneticCondition",
+      "disease": [
+        {
+          "id": "Orphanet:122",
+          "label": "Birt-Hogg-Dube Syndrome"
+        }
+      ]
+    }
+  ],
+  "statementOutcome": {
+    "id": "SEPIO-CG:99010",
+    "label": "unaffected"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:FamCond090">CGEX:FamCond090</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv341">CGEX:Indiv341</a></p> (individual #009)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:GenCond019">CGEX:GenCond019</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamCond090"><pre><code>{
+  "id": "CGEX:FamCond090",
+  "type": "FamilyConditionStatement",
+  "proband": {
+    "id": "CGEX:Indiv341",
+    "label": "individual #009"
+  },
+  "condition": [
+    {
+      "id": "CGEX:GenCond019",
+      "type": "GeneticCondition",
+      "disease": [
+        {
+          "id": "Orphanet:1340",
+          "label": "cardiofaciocutaneous syndrome"
+        }
+      ]
+    }
+  ],
+  "statementOutcome": {
+    "id": "SEPIO-CG:99010",
+    "label": "unaffected"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:FamCond093">CGEX:FamCond093</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv342">CGEX:Indiv342</a></p> (individual #010)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:GenCond068">CGEX:GenCond068</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamCond093"><pre><code>{
+  "id": "CGEX:FamCond093",
+  "type": "FamilyConditionStatement",
+  "proband": {
+    "id": "CGEX:Indiv342",
+    "label": "individual #010"
+  },
+  "condition": [
+    {
+      "id": "CGEX:GenCond068",
+      "type": "GeneticCondition",
+      "disease": [
+        {
+          "id": "Orphanet:1340",
+          "label": "cardiofaciocutaneous syndrome"
+        }
+      ]
+    }
+  ],
+  "statementOutcome": {
+    "id": "SEPIO-CG:99010",
+    "label": "unaffected"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:FamCond096">CGEX:FamCond096</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv343">CGEX:Indiv343</a></p> (individual #011)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:GenCond068">CGEX:GenCond068</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamCond096"><pre><code>{
+  "id": "CGEX:FamCond096",
+  "type": "FamilyConditionStatement",
+  "proband": {
+    "id": "CGEX:Indiv343",
+    "label": "individual #011"
+  },
+  "condition": [
+    {
+      "id": "CGEX:GenCond068",
+      "type": "GeneticCondition",
+      "disease": [
+        {
+          "id": "Orphanet:1340",
+          "label": "cardiofaciocutaneous syndrome"
+        }
+      ]
+    }
+  ],
+  "statementOutcome": {
+    "id": "SEPIO-CG:99010",
+    "label": "unaffected"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:FamCond099">CGEX:FamCond099</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv344">CGEX:Indiv344</a></p> (individual #012)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:GenCond068">CGEX:GenCond068</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamCond099"><pre><code>{
+  "id": "CGEX:FamCond099",
+  "type": "FamilyConditionStatement",
+  "proband": {
+    "id": "CGEX:Indiv344",
+    "label": "individual #012"
+  },
+  "condition": [
+    {
+      "id": "CGEX:GenCond068",
+      "type": "GeneticCondition",
+      "disease": [
+        {
+          "id": "Orphanet:1340",
+          "label": "cardiofaciocutaneous syndrome"
+        }
+      ]
+    }
+  ],
+  "statementOutcome": {
+    "id": "SEPIO-CG:99010",
+    "label": "unaffected"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:FamCond112">CGEX:FamCond112</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv362">CGEX:Indiv362</a></p> (individual #030)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:GenCond069">CGEX:GenCond069</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#SEPIO-CG:99010">SEPIO-CG:99010</a></p> (unaffected)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamCond112"><pre><code>{
+  "id": "CGEX:FamCond112",
+  "type": "FamilyConditionStatement",
+  "proband": {
+    "id": "CGEX:Indiv362",
+    "label": "individual #030"
+  },
+  "condition": [
+    {
+      "id": "CGEX:GenCond069",
+      "type": "GeneticCondition",
+      "disease": [
+        {
+          "id": "Orphanet:1340",
+          "label": "cardiofaciocutaneous syndrome"
+        }
+      ]
+    }
+  ],
+  "statementOutcome": {
+    "id": "SEPIO-CG:99010",
+    "label": "unaffected"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="list-group sidenav">
+            <ul class="list-unstyled">
+              <li class="list-group-item">
+                <h5><a href="../">Interpretation Overview</a></h5>
+              </li>
+              <li class='list-group-item'><h5><a href="../user/">User Guide</a></h5></li>
+              <li class='list-group-item'><h5><a href="../tech/">Technical Reference</a></h5></li>
+              <!-- Old style.  We might still need the model here? -->
+              <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="container  background-trans padding-top-xl">
+      <div class="row">
+        <hr />
+        <div class="col-md-col-sm-12 text-center"> 
+          © 2017 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../javascripts/jquery.js"></script><script src="../javascripts/bootstrap.js"></script><script src="../javascripts/jquery.jsonview.js"></script><script src="../javascripts/all.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>

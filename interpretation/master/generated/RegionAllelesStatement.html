@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Data Model
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../stylesheets/brand2.css" rel="stylesheet" /><link href="../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+    
+      <div class="container-fluid hero-background">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="../images/clingen-doc-logo.png" />
+</a>            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+                    <li class="allele" >
+                      <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span> Allele Model</a></li>
+                    </li>
+                    <li class="interpretation" >
+                      <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span> Interpretation Model</a></li>
+                    </li>
+                <li>
+                    <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+          </div>
+    
+
+
+    
+        <div class="row">
+          <div class="col-sm-12">
+              <h1 class="header"></h1>
+              <ol class="breadcrumb bg-none margin-none">
+                
+              </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
+          <article>
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2>Scope and Usage</h2>
+    
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>allele</td>
+                <td>ContextualAllele</td>
+                <td>0..*</td>
+                <td>Alleles that are being explicited assessed as either included or excluded from the region.</td>
+                <td>SEPIO:0000275</td>
+            </tr>
+            <tr>
+                <td>region</td>
+                <td>SequenceLocation</td>
+                <td>1..1</td>
+                <td>Region within which alleles are being measured</td>
+                <td>SEPIO:0000279</td>
+            </tr>
+            <tr>
+                <td>statementOutcome</td>
+                <td>@id</td>
+                <td>1..1</td>
+                <td>Assessed outcome of specified alleles as either included or excluded.</td>
+                <td>SEPIO:0000197</td>
+            </tr>
+            </tbody>
+        </table>
+
+<!--
+    <h2>Inherited Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A name given to the resource.</td>
+                    <td>RDFS:label</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                    <td>DC:description</td>
+                </tr>
+                <tr>
+                    <td>userLabelDictionary</td>
+                    <td>UserLabel</td>
+                    <td>0..*</td>
+                    <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
+                    <td>SEPIO:0000422</td>
+                </tr>
+                <tr>
+                    <td>outcomeQualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                    <td>SEPIO:0000346</td>
+                </tr>
+                <tr>
+                    <td>evidenceLine</td>
+                    <td>EvidenceLine</td>
+                    <td>0..*</td>
+                    <td>supporting evidence</td>
+                    <td>SEPIO:0000006</td>
+                </tr>
+                <tr>
+                    <td>contribution</td>
+                    <td>Contribution</td>
+                    <td>0..*</td>
+                    <td>The contributions (agent, time and role) made to this entity</td>
+                    <td>SEPIO:0000159</td>
+                </tr>
+                <tr>
+                    <td>source</td>
+                    <td>string</td>
+                    <td>0..*</td>
+                    <td>A string indicating the source of a Statement</td>
+                    <td>DC:source</td>
+                </tr>
+            </tbody>
+        </table>
+-->
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>label</th>
+        <th>description</th>
+        <th>userLabelDictionary</th>
+        <th>outcomeQualifier</th>
+        <th>evidenceLine</th>
+        <th>allele</th>
+        <th>region</th>
+        <th>statementOutcome</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:RegAll380">CGEX:RegAll380</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>This region is the catalytic (kinase) domain.</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:CtxAll126">CGEX:CtxAll126</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Loc432">CGEX:Loc432</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#RO:0002656">RO:0002656</a></p> (overlaps region)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:RegAll380"><pre><code>{
+  "id": "CGEX:RegAll380",
+  "type": "RegionAllelesStatement",
+  "description": "This region is the catalytic (kinase) domain.",
+  "region": {
+    "id": "CGEX:Loc432",
+    "type": "SequenceLocation",
+    "referenceSequence": {
+      "id": "REFSEQ:NP_005219.2",
+      "label": "NP_005219.2"
+    },
+    "start": 704,
+    "stop": 1016
+  },
+  "allele": [
+    {
+      "id": "CGEX:CtxAll126",
+      "type": "ContextualAllele",
+      "canonicalAllele": {
+        "id": "CAR:CA126726",
+        "type": "CanonicalAllele",
+        "relatedContextualAllele": "CGEX:CtxAll126"
+      },
+      "alleleName": {
+        "id": "CGEX:CtxNm9126",
+        "type": "ContextualAlleleName",
+        "name": "NP_005219.2:p.Thr790Met",
+        "preferred": true
+      }
+    }
+  ],
+  "statementOutcome": {
+    "id": "RO:0002656",
+    "label": "overlaps region"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:RegAll382">CGEX:RegAll382</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>This region is exon 15 in the transcript, and codes the serine-threonine-protein kinase catalytic domain.</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:CtxAll029">CGEX:CtxAll029</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Loc433">CGEX:Loc433</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#RO:0002656">RO:0002656</a></p> (overlaps region)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:RegAll382"><pre><code>{
+  "id": "CGEX:RegAll382",
+  "type": "RegionAllelesStatement",
+  "description": "This region is exon 15 in the transcript, and codes the serine-threonine-protein kinase catalytic domain.",
+  "region": {
+    "id": "CGEX:Loc433",
+    "type": "SequenceLocation",
+    "referenceSequence": {
+      "id": "REFSEQ:NM_004333.4",
+      "label": "NM_004333.4"
+    },
+    "start": 1803,
+    "stop": 1921
+  },
+  "allele": [
+    {
+      "id": "CGEX:CtxAll029",
+      "type": "ContextualAllele",
+      "canonicalAllele": {
+        "id": "CAR:CA123651",
+        "type": "CanonicalAllele",
+        "relatedContextualAllele": "CGEX:CtxAll029"
+      },
+      "alleleName": {
+        "id": "CGEX:CtxNm9029",
+        "type": "ContextualAlleleName",
+        "name": "NM_004333.4(BRAF):c.1789C>G",
+        "preferred": true
+      }
+    }
+  ],
+  "statementOutcome": {
+    "id": "RO:0002656",
+    "label": "overlaps region"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:RegAll384">CGEX:RegAll384</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>The region contains the following pathogenic variants: c.886A>G, c.890C>T, c.899T>C, & c.902G>A.</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:CtxAll031">CGEX:CtxAll031</a></p><p><a href="../tech/details/details.html#CGEX:CtxAll032">CGEX:CtxAll032</a></p><p><a href="../tech/details/details.html#CGEX:CtxAll033">CGEX:CtxAll033</a></p><p><a href="../tech/details/details.html#CGEX:CtxAll034">CGEX:CtxAll034</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Loc434">CGEX:Loc434</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#RO:0002656">RO:0002656</a></p> (overlaps region)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:RegAll384"><pre><code>{
+  "id": "CGEX:RegAll384",
+  "type": "RegionAllelesStatement",
+  "description": "The region contains the following pathogenic variants: c.886A>G, c.890C>T, c.899T>C, & c.902G>A.",
+  "region": {
+    "id": "CGEX:Loc434",
+    "type": "SequenceLocation",
+    "referenceSequence": {
+      "id": "REFSEQ:NM_000169.2",
+      "label": "NM_000169.2"
+    },
+    "start": 996,
+    "stop": 1012
+  },
+  "allele": [
+    {
+      "id": "CGEX:CtxAll031",
+      "type": "ContextualAllele",
+      "canonicalAllele": {
+        "id": "CAR:CA022141",
+        "type": "CanonicalAllele",
+        "relatedContextualAllele": "CGEX:CtxAll031"
+      },
+      "alleleName": {
+        "id": "CGEX:CtxNm9031",
+        "type": "ContextualAlleleName",
+        "name": "NM_000169.2(GLA): c.886A>G",
+        "preferred": true
+      }
+    },
+    {
+      "id": "CGEX:CtxAll032",
+      "type": "ContextualAllele",
+      "canonicalAllele": {
+        "id": "CAR:CA022153",
+        "type": "CanonicalAllele",
+        "relatedContextualAllele": "CGEX:CtxAll032"
+      },
+      "alleleName": {
+        "id": "CGEX:CtxNm9032",
+        "type": "ContextualAlleleName",
+        "name": "NM_000169.2(GLA):c.890C>T",
+        "preferred": true
+      }
+    },
+    {
+      "id": "CGEX:CtxAll033",
+      "type": "ContextualAllele",
+      "canonicalAllele": {
+        "id": "CAR:CA022159",
+        "type": "CanonicalAllele",
+        "relatedContextualAllele": "CGEX:CtxAll033"
+      },
+      "alleleName": {
+        "id": "CGEX:CtxNm9033",
+        "type": "ContextualAlleleName",
+        "name": "NM_000169.2(GLA):c.899T>C",
+        "preferred": true
+      }
+    },
+    {
+      "id": "CGEX:CtxAll034",
+      "type": "ContextualAllele",
+      "canonicalAllele": {
+        "id": "CAR:CA022189",
+        "type": "CanonicalAllele",
+        "relatedContextualAllele": "CGEX:CtxAll034"
+      },
+      "alleleName": {
+        "id": "CGEX:CtxNm9034",
+        "type": "ContextualAlleleName",
+        "name": "NM_000169.2(GLA):c.902G>A",
+        "preferred": true
+      }
+    }
+  ],
+  "statementOutcome": {
+    "id": "RO:0002656",
+    "label": "overlaps region"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:RegAll391">CGEX:RegAll391</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>region is repeating but does not have a known function.</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:CtxAll106">CGEX:CtxAll106</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Loc438">CGEX:Loc438</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#RO:0002656">RO:0002656</a></p> (overlaps region)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:RegAll391"><pre><code>{
+  "id": "CGEX:RegAll391",
+  "type": "RegionAllelesStatement",
+  "description": "region is repeating but does not have a known function.",
+  "region": {
+    "id": "CGEX:Loc438",
+    "type": "SequenceLocation",
+    "referenceSequence": {
+      "id": "REFSEQ:NM_001271208.1",
+      "label": "NM_001271208.1"
+    },
+    "start": 154,
+    "stop": 183
+  },
+  "allele": [
+    {
+      "id": "CGEX:CtxAll106",
+      "type": "ContextualAllele",
+      "canonicalAllele": {
+        "id": "CAR:CA148212",
+        "type": "CanonicalAllele",
+        "relatedContextualAllele": "CGEX:CtxAll106"
+      },
+      "alleleName": {
+        "id": "CGEX:CtxNm9106",
+        "type": "ContextualAlleleName",
+        "name": "NM_001271208.1(NEB):c.169_183delCTGGCACAGCCAGCA",
+        "preferred": true
+      }
+    }
+  ],
+  "statementOutcome": {
+    "id": "RO:0002656",
+    "label": "overlaps region"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:RegAll393">CGEX:RegAll393</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Allele NM_133378.4 (TTN): c.26752_26761delACGGCAGAGC is contained by this region.</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:CtxAll107">CGEX:CtxAll107</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Loc439">CGEX:Loc439</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#RO:0002656">RO:0002656</a></p> (overlaps region)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:RegAll393"><pre><code>{
+  "id": "CGEX:RegAll393",
+  "type": "RegionAllelesStatement",
+  "description": "Allele NM_133378.4 (TTN): c.26752_26761delACGGCAGAGC is contained by this region.",
+  "region": {
+    "id": "CGEX:Loc439",
+    "type": "SequenceLocation",
+    "referenceSequence": {
+      "id": "REFSEQ:NM_133378.4",
+      "label": "NM_133378.4"
+    },
+    "start": 6509,
+    "stop": 39262
+  },
+  "allele": [
+    {
+      "id": "CGEX:CtxAll107",
+      "type": "ContextualAllele",
+      "canonicalAllele": {
+        "id": "CAR:CA273551",
+        "type": "CanonicalAllele",
+        "relatedContextualAllele": "CGEX:CtxAll107"
+      },
+      "alleleName": {
+        "id": "CGEX:CtxNm9107",
+        "type": "ContextualAlleleName",
+        "name": "NM_133378.4 (TTN): c.26752_26761delACGGCAGAGC",
+        "preferred": true
+      }
+    }
+  ],
+  "statementOutcome": {
+    "id": "RO:0002656",
+    "label": "overlaps region"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:RegAll395">CGEX:RegAll395</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:CtxAll108">CGEX:CtxAll108</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Loc440">CGEX:Loc440</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#RO:0002656">RO:0002656</a></p> (overlaps region)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:RegAll395"><pre><code>{
+  "id": "CGEX:RegAll395",
+  "type": "RegionAllelesStatement",
+  "region": {
+    "id": "CGEX:Loc440",
+    "type": "SequenceLocation",
+    "referenceSequence": {
+      "id": "REFSEQ:NM_147196.2",
+      "label": "NM_147196.2"
+    },
+    "start": 522,
+    "stop": 548
+  },
+  "allele": [
+    {
+      "id": "CGEX:CtxAll108",
+      "type": "ContextualAllele",
+      "canonicalAllele": {
+        "id": "CAR:CA184168",
+        "type": "CanonicalAllele",
+        "relatedContextualAllele": "CGEX:CtxAll108"
+      },
+      "alleleName": {
+        "id": "CGEX:CtxNm9108",
+        "type": "ContextualAlleleName",
+        "name": "NM_147196.2(TMIE):c.391_393dupAAG",
+        "preferred": true
+      }
+    }
+  ],
+  "statementOutcome": {
+    "id": "RO:0002656",
+    "label": "overlaps region"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="list-group sidenav">
+            <ul class="list-unstyled">
+              <li class="list-group-item">
+                <h5><a href="../">Interpretation Overview</a></h5>
+              </li>
+              <li class='list-group-item'><h5><a href="../user/">User Guide</a></h5></li>
+              <li class='list-group-item'><h5><a href="../tech/">Technical Reference</a></h5></li>
+              <!-- Old style.  We might still need the model here? -->
+              <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="container  background-trans padding-top-xl">
+      <div class="row">
+        <hr />
+        <div class="col-md-col-sm-12 text-center"> 
+          © 2017 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../javascripts/jquery.js"></script><script src="../javascripts/bootstrap.js"></script><script src="../javascripts/jquery.jsonview.js"></script><script src="../javascripts/all.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>

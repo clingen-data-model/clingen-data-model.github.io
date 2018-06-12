@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Data Model
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../stylesheets/brand2.css" rel="stylesheet" /><link href="../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+    
+      <div class="container-fluid hero-background">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="../images/clingen-doc-logo.png" />
+</a>            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+                    <li class="allele" >
+                      <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span> Allele Model</a></li>
+                    </li>
+                    <li class="interpretation" >
+                      <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span> Interpretation Model</a></li>
+                    </li>
+                <li>
+                    <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+          </div>
+    
+
+
+    
+        <div class="row">
+          <div class="col-sm-12">
+              <h1 class="header"></h1>
+              <ol class="breadcrumb bg-none margin-none">
+                
+              </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
+          <article>
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2>Scope and Usage</h2>
+    
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>individual</td>
+                <td>@id</td>
+                <td>0..1</td>
+                <td>Person whose alleles the data represents</td>
+                <td>SEPIO:0000280</td>
+            </tr>
+            <tr>
+                <td>genotype</td>
+                <td>Genotype</td>
+                <td>1..*</td>
+                <td>Genotype the individual has</td>
+                <td>SEPIO:0000425</td>
+            </tr>
+            <tr>
+                <td>statementOutcome</td>
+                <td>@id</td>
+                <td>1..1</td>
+                <td></td>
+                <td>SEPIO:0000197</td>
+            </tr>
+            </tbody>
+        </table>
+
+<!--
+    <h2>Inherited Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A name given to the resource.</td>
+                    <td>RDFS:label</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                    <td>DC:description</td>
+                </tr>
+                <tr>
+                    <td>userLabelDictionary</td>
+                    <td>UserLabel</td>
+                    <td>0..*</td>
+                    <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
+                    <td>SEPIO:0000422</td>
+                </tr>
+                <tr>
+                    <td>outcomeQualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                    <td>SEPIO:0000346</td>
+                </tr>
+                <tr>
+                    <td>evidenceLine</td>
+                    <td>EvidenceLine</td>
+                    <td>0..*</td>
+                    <td>supporting evidence</td>
+                    <td>SEPIO:0000006</td>
+                </tr>
+                <tr>
+                    <td>contribution</td>
+                    <td>Contribution</td>
+                    <td>0..*</td>
+                    <td>The contributions (agent, time and role) made to this entity</td>
+                    <td>SEPIO:0000159</td>
+                </tr>
+                <tr>
+                    <td>source</td>
+                    <td>string</td>
+                    <td>0..*</td>
+                    <td>A string indicating the source of a Statement</td>
+                    <td>DC:source</td>
+                </tr>
+            </tbody>
+        </table>
+-->
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>label</th>
+        <th>description</th>
+        <th>userLabelDictionary</th>
+        <th>outcomeQualifier</th>
+        <th>evidenceLine</th>
+        <th>individual</th>
+        <th>genotype</th>
+        <th>statementOutcome</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno058">CGEX:IndGeno058</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband.</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv336">CGEX:Indiv336</a></p> (individual #004)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno378">CGEX:Geno378</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno058"><pre><code>{
+  "id": "CGEX:IndGeno058",
+  "type": "IndividualGenotypeStatement",
+  "description": "Father was het for c.9449delG variant and negative for c.7468_7488del variant. Mother was het for c.7468_7488del variant and negative for c.9449delG variant. Thus, variants are in trans in this proband.",
+  "individual": {
+    "id": "CGEX:Indiv336",
+    "label": "individual #004"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno378",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo376",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA090919",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll039"
+            }
+          ]
+        },
+        {
+          "id": "CGEX:Haplo377",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA273615",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll040"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CGEX:Agent001",
+        "type": "Agent",
+        "label": "Harry Stevenson"
+      },
+      "contributionDate": "5/31/16 9:15 AM",
+      "contributionRole": {
+        "id": "SEPIO:0000156",
+        "label": "curator role"
+      }
+    }
+  ],
+  "source": [
+    "http://partners.org/ppm/lmm/gi/case/123"
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno062">CGEX:IndGeno062</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Based on the NGS data, we are able to determine that c.298G>A and c.411+1G>A are in trans as no NGS reads carry both variants.</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv337">CGEX:Indiv337</a></p> (individual #005)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno381">CGEX:Geno381</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno062"><pre><code>{
+  "id": "CGEX:IndGeno062",
+  "type": "IndividualGenotypeStatement",
+  "description": "Based on the NGS data, we are able to determine that c.298G>A and c.411+1G>A are in trans as no NGS reads carry both variants.",
+  "individual": {
+    "id": "CGEX:Indiv337",
+    "label": "individual #005"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno381",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo379",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA176145",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll041"
+            }
+          ]
+        },
+        {
+          "id": "CGEX:Haplo380",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA501223",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll042"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno065">CGEX:IndGeno065</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv338">CGEX:Indiv338</a></p> (individual #006)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno383">CGEX:Geno383</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno065"><pre><code>{
+  "id": "CGEX:IndGeno065",
+  "type": "IndividualGenotypeStatement",
+  "individual": {
+    "id": "CGEX:Indiv338",
+    "label": "individual #006"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno383",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo382",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA090904",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll043"
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "GENO:0000136",
+        "label": "homozygous"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno172">CGEX:IndGeno172</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv345">CGEX:Indiv345</a></p> (individual #013)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno385">CGEX:Geno385</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno172"><pre><code>{
+  "id": "CGEX:IndGeno172",
+  "type": "IndividualGenotypeStatement",
+  "individual": {
+    "id": "CGEX:Indiv345",
+    "label": "individual #013"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno385",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo384",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA090918",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll087"
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "GENO:0000135",
+        "label": "heterozygous"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno173">CGEX:IndGeno173</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv346">CGEX:Indiv346</a></p> (individual #014)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno387">CGEX:Geno387</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno173"><pre><code>{
+  "id": "CGEX:IndGeno173",
+  "type": "IndividualGenotypeStatement",
+  "individual": {
+    "id": "CGEX:Indiv346",
+    "label": "individual #014"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno387",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo386",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA090918",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll087"
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "GENO:0000136",
+        "label": "homozygous"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno178">CGEX:IndGeno178</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv347">CGEX:Indiv347</a></p> (individual #015)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno389">CGEX:Geno389</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno178"><pre><code>{
+  "id": "CGEX:IndGeno178",
+  "type": "IndividualGenotypeStatement",
+  "individual": {
+    "id": "CGEX:Indiv347",
+    "label": "individual #015"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno389",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo388",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA008351",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll088"
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "GENO:0000135",
+        "label": "heterozygous"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno179">CGEX:IndGeno179</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv348">CGEX:Indiv348</a></p> (individual #016)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno391">CGEX:Geno391</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno179"><pre><code>{
+  "id": "CGEX:IndGeno179",
+  "type": "IndividualGenotypeStatement",
+  "individual": {
+    "id": "CGEX:Indiv348",
+    "label": "individual #016"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno391",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo390",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA008351",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll088"
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "GENO:0000135",
+        "label": "heterozygous"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno180">CGEX:IndGeno180</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv349">CGEX:Indiv349</a></p> (individual #017)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno393">CGEX:Geno393</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno180"><pre><code>{
+  "id": "CGEX:IndGeno180",
+  "type": "IndividualGenotypeStatement",
+  "individual": {
+    "id": "CGEX:Indiv349",
+    "label": "individual #017"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno393",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo392",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA008351",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll088"
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "GENO:0000135",
+        "label": "heterozygous"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno181">CGEX:IndGeno181</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv350">CGEX:Indiv350</a></p> (individual #018)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno395">CGEX:Geno395</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno181"><pre><code>{
+  "id": "CGEX:IndGeno181",
+  "type": "IndividualGenotypeStatement",
+  "individual": {
+    "id": "CGEX:Indiv350",
+    "label": "individual #018"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno395",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo394",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA008351",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll088"
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "GENO:0000135",
+        "label": "heterozygous"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno188">CGEX:IndGeno188</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv351">CGEX:Indiv351</a></p> (individual #019)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno397">CGEX:Geno397</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno188"><pre><code>{
+  "id": "CGEX:IndGeno188",
+  "type": "IndividualGenotypeStatement",
+  "individual": {
+    "id": "CGEX:Indiv351",
+    "label": "individual #019"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno397",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo396",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA013604",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll089"
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "GENO:0000135",
+        "label": "heterozygous"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno189">CGEX:IndGeno189</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv352">CGEX:Indiv352</a></p> (individual #020)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno399">CGEX:Geno399</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno189"><pre><code>{
+  "id": "CGEX:IndGeno189",
+  "type": "IndividualGenotypeStatement",
+  "individual": {
+    "id": "CGEX:Indiv352",
+    "label": "individual #020"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno399",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo398",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA013604",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll089"
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "GENO:0000135",
+        "label": "heterozygous"
+      }
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno206">CGEX:IndGeno206</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv353">CGEX:Indiv353</a></p> (individual #021)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno401">CGEX:Geno401</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno206"><pre><code>{
+  "id": "CGEX:IndGeno206",
+  "type": "IndividualGenotypeStatement",
+  "individual": {
+    "id": "CGEX:Indiv353",
+    "label": "individual #021"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno401",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo400",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA143572",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll100"
+            },
+            {
+              "id": "CAR:CA252233",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll101"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno207">CGEX:IndGeno207</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv354">CGEX:Indiv354</a></p> (individual #022)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno403">CGEX:Geno403</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno207"><pre><code>{
+  "id": "CGEX:IndGeno207",
+  "type": "IndividualGenotypeStatement",
+  "individual": {
+    "id": "CGEX:Indiv354",
+    "label": "individual #022"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno403",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo402",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA143572",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll100"
+            },
+            {
+              "id": "CAR:CA252233",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll101"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno211">CGEX:IndGeno211</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv355">CGEX:Indiv355</a></p> (individual #023)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno405">CGEX:Geno405</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno211"><pre><code>{
+  "id": "CGEX:IndGeno211",
+  "type": "IndividualGenotypeStatement",
+  "individual": {
+    "id": "CGEX:Indiv355",
+    "label": "individual #023"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno405",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo404",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA182840",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll102"
+            },
+            {
+              "id": "CAR:CA182839",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll103"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno214">CGEX:IndGeno214</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv356">CGEX:Indiv356</a></p> (individual #024)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno408">CGEX:Geno408</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno214"><pre><code>{
+  "id": "CGEX:IndGeno214",
+  "type": "IndividualGenotypeStatement",
+  "individual": {
+    "id": "CGEX:Indiv356",
+    "label": "individual #024"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno408",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo406",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA501235",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll104"
+            }
+          ]
+        },
+        {
+          "id": "CGEX:Haplo407",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA501236",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll105"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno241">CGEX:IndGeno241</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv357">CGEX:Indiv357</a></p> (individual #025)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno410">CGEX:Geno410</a></p><p><a href="../tech/details/details.html#CGEX:Geno412">CGEX:Geno412</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno241"><pre><code>{
+  "id": "CGEX:IndGeno241",
+  "type": "IndividualGenotypeStatement",
+  "individual": {
+    "id": "CGEX:Indiv357",
+    "label": "individual #025"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno410",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo409",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA012381",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll112"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CGEX:Geno412",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo411",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA005304",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll113"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno244">CGEX:IndGeno244</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv358">CGEX:Indiv358</a></p> (individual #026)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno414">CGEX:Geno414</a></p><p><a href="../tech/details/details.html#CGEX:Geno417">CGEX:Geno417</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno244"><pre><code>{
+  "id": "CGEX:IndGeno244",
+  "type": "IndividualGenotypeStatement",
+  "individual": {
+    "id": "CGEX:Indiv358",
+    "label": "individual #026"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno414",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo413",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA137502",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll114"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CGEX:Geno417",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo415",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA172240",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll115"
+            }
+          ]
+        },
+        {
+          "id": "CGEX:Haplo416",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA274460",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll116"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno249">CGEX:IndGeno249</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv359">CGEX:Indiv359</a></p> (individual #027)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno419">CGEX:Geno419</a></p><p><a href="../tech/details/details.html#CGEX:Geno421">CGEX:Geno421</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno249"><pre><code>{
+  "id": "CGEX:IndGeno249",
+  "type": "IndividualGenotypeStatement",
+  "individual": {
+    "id": "CGEX:Indiv359",
+    "label": "individual #027"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno419",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo418",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA137502",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll114"
+            }
+          ]
+        }
+      ],
+      "zygosity": {
+        "id": "GENO:0000136",
+        "label": "homozygous"
+      }
+    },
+    {
+      "id": "CGEX:Geno421",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo420",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA277980",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll117"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno253">CGEX:IndGeno253</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv360">CGEX:Indiv360</a></p> (individual #028)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno423">CGEX:Geno423</a></p><p><a href="../tech/details/details.html#CGEX:Geno425">CGEX:Geno425</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno253"><pre><code>{
+  "id": "CGEX:IndGeno253",
+  "type": "IndividualGenotypeStatement",
+  "individual": {
+    "id": "CGEX:Indiv360",
+    "label": "individual #028"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno423",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo422",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA204551",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll118"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CGEX:Geno425",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo424",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA254703",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll119"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:IndGeno366">CGEX:IndGeno366</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Indiv361">CGEX:Indiv361</a></p> (individual #029)
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:Geno428">CGEX:Geno428</a></p><p><a href="../tech/details/details.html#CGEX:Geno431">CGEX:Geno431</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:IndGeno366"><pre><code>{
+  "id": "CGEX:IndGeno366",
+  "type": "IndividualGenotypeStatement",
+  "individual": {
+    "id": "CGEX:Indiv361",
+    "label": "individual #029"
+  },
+  "genotype": [
+    {
+      "id": "CGEX:Geno428",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo426",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA090950",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll098"
+            }
+          ]
+        },
+        {
+          "id": "CGEX:Haplo427",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA253304",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll128"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "CGEX:Geno431",
+      "type": "Genotype",
+      "hasPart": [
+        {
+          "id": "CGEX:Haplo429",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA090950",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll098"
+            }
+          ]
+        },
+        {
+          "id": "CGEX:Haplo430",
+          "type": "Haplotype",
+          "hasPart": [
+            {
+              "id": "CAR:CA273665",
+              "type": "CanonicalAllele",
+              "relatedContextualAllele": "CGEX:CtxAll129"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="list-group sidenav">
+            <ul class="list-unstyled">
+              <li class="list-group-item">
+                <h5><a href="../">Interpretation Overview</a></h5>
+              </li>
+              <li class='list-group-item'><h5><a href="../user/">User Guide</a></h5></li>
+              <li class='list-group-item'><h5><a href="../tech/">Technical Reference</a></h5></li>
+              <!-- Old style.  We might still need the model here? -->
+              <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="container  background-trans padding-top-xl">
+      <div class="row">
+        <hr />
+        <div class="col-md-col-sm-12 text-center"> 
+          © 2017 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../javascripts/jquery.js"></script><script src="../javascripts/bootstrap.js"></script><script src="../javascripts/jquery.jsonview.js"></script><script src="../javascripts/all.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>

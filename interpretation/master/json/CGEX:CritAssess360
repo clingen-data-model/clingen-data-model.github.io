@@ -4,12 +4,11 @@
   "description": "This variant is a silent variant that does not result in an amino acid change. It is not very conserved and splicing tools suggest no change. However, BP7 does not apply because the variant is located in the first base of exon 4 of RAF1, which is part of the 3’ splice region of the exon. For that reason, we can’t fully trust computational tools. Functional assays would have to confirm that this variant truly does not alter splicing.",
   "criterion": {
     "id": "SEPIO-CG:99049",
-    "type": "VariantInterpretationCriterion",
+    "type": "VariantPathogenicityInterpretationCriterion",
     "label": "BP7",
     "description": "A synonymous (silent) variant for which splicing prediction algorithms predict no impact to the splice consensus sequence nor the creation of a new splice site AND the nucleotide is not highly conserved",
     "defaultStrength": {
       "id": "SEPIO:0000327",
-      "type": "Entity",
       "label": "Benign Supporting"
     }
   },
@@ -20,7 +19,6 @@
   },
   "statementOutcome": {
     "id": "SEPIO:0000224",
-    "type": "Entity",
     "label": "Not Met"
   },
   "evidenceLine": [
@@ -33,7 +31,6 @@
           "type": "InSilicoPredictionStatement",
           "transcript": {
             "id": "REFSEQ:NM_002880.3",
-            "type": "Entity",
             "label": "NM_002880.3"
           },
           "canonicalAllele": {
@@ -43,10 +40,12 @@
           },
           "predictionType": {
             "id": "SEPIO:0000323",
-            "type": "Entity",
             "label": "splicing prediction"
           },
-          "statementOutcome": "no impact"
+          "statementOutcome": {
+            "id": "CGEX:PredOutcome008",
+            "label": "No impact"
+          }
         },
         {
           "id": "CGEX:AllConserv267",
@@ -58,7 +57,6 @@
           },
           "statementOutcome": {
             "id": "SEPIO-CG:99017",
-            "type": "Entity",
             "label": "not conserved region"
           },
           "algorithm": "phyloP",
@@ -92,7 +90,6 @@
           },
           "statementOutcome": {
             "id": "SEPIO-CG:99017",
-            "type": "Entity",
             "label": "not conserved region"
           },
           "algorithm": "PhastCons",
@@ -121,7 +118,6 @@
           "type": "AlleleMolecularConsequenceStatement",
           "statementOutcome": {
             "id": "SO:0001819",
-            "type": "Entity",
             "label": "synonymous variant"
           },
           "contextualAllele": {
@@ -154,7 +150,6 @@
       "contributionDate": "10/10/16 8:06 AM",
       "contributionRole": {
         "id": "SEPIO:0000154",
-        "type": "Entity",
         "label": "assessor role"
       }
     }

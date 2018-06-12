@@ -1,0 +1,3933 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Data Model
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../stylesheets/brand2.css" rel="stylesheet" /><link href="../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+    
+      <div class="container-fluid hero-background">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="../images/clingen-doc-logo.png" />
+</a>            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+                    <li class="allele" >
+                      <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span> Allele Model</a></li>
+                    </li>
+                    <li class="interpretation" >
+                      <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span> Interpretation Model</a></li>
+                    </li>
+                <li>
+                    <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+          </div>
+    
+
+
+    
+        <div class="row">
+          <div class="col-sm-12">
+              <h1 class="header"></h1>
+              <ol class="breadcrumb bg-none margin-none">
+                
+              </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
+          <article>
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2>Scope and Usage</h2>
+    
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>relatedContextualAllele</td>
+                <td>ContextualAllele</td>
+                <td>1..*</td>
+                <td>HIDE from docs / USE in context</td>
+                <td>CG:0001</td>
+            </tr>
+            <tr>
+                <td>canonicalAlleleType</td>
+                <td>@id</td>
+                <td>1..1</td>
+                <td></td>
+                <td>CG:0013</td>
+            </tr>
+            <tr>
+                <td>complexity</td>
+                <td>@id</td>
+                <td>1..1</td>
+                <td></td>
+                <td>CG:0014</td>
+            </tr>
+            <tr>
+                <td>relatedIdentifier</td>
+                <td>@id</td>
+                <td>0..*</td>
+                <td></td>
+                <td>CG:0017</td>
+            </tr>
+            </tbody>
+        </table>
+
+<!--
+    <h2>Inherited Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A name given to the resource.</td>
+                    <td>RDFS:label</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                    <td>DC:description</td>
+                </tr>
+            </tbody>
+        </table>
+-->
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>label</th>
+        <th>description</th>
+        <th>relatedContextualAllele</th>
+        <th>canonicalAlleleType</th>
+        <th>complexity</th>
+        <th>relatedIdentifier</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA003449">CAR:CA003449</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll061</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA003449"><pre><code>{
+  "id": "CAR:CA003449",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll061"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA005304">CAR:CA005304</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll113</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA005304"><pre><code>{
+  "id": "CAR:CA005304",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll113"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA005477">CAR:CA005477</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll090</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA005477"><pre><code>{
+  "id": "CAR:CA005477",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll090"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA006429">CAR:CA006429</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll069</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA006429"><pre><code>{
+  "id": "CAR:CA006429",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll069"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA008351">CAR:CA008351</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll088</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA008351"><pre><code>{
+  "id": "CAR:CA008351",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll088"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA010136">CAR:CA010136</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll067</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA010136"><pre><code>{
+  "id": "CAR:CA010136",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll067"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA010777">CAR:CA010777</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll095</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA010777"><pre><code>{
+  "id": "CAR:CA010777",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll095"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA011797">CAR:CA011797</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll037</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA011797"><pre><code>{
+  "id": "CAR:CA011797",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll037"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA012381">CAR:CA012381</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll112</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA012381"><pre><code>{
+  "id": "CAR:CA012381",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll112"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA013536">CAR:CA013536</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll124</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA013536"><pre><code>{
+  "id": "CAR:CA013536",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll124"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA013604">CAR:CA013604</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll089</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA013604"><pre><code>{
+  "id": "CAR:CA013604",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll089"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA016087">CAR:CA016087</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll070</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA016087"><pre><code>{
+  "id": "CAR:CA016087",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll070"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA016113">CAR:CA016113</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll121</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA016113"><pre><code>{
+  "id": "CAR:CA016113",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll121"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA016441">CAR:CA016441</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll017</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA016441"><pre><code>{
+  "id": "CAR:CA016441",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll017"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA017597">CAR:CA017597</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll084</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA017597"><pre><code>{
+  "id": "CAR:CA017597",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll084"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA019369">CAR:CA019369</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll078</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA019369"><pre><code>{
+  "id": "CAR:CA019369",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll078"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA020822">CAR:CA020822</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll109</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA020822"><pre><code>{
+  "id": "CAR:CA020822",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll109"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA021738">CAR:CA021738</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll053</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA021738"><pre><code>{
+  "id": "CAR:CA021738",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll053"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA021744">CAR:CA021744</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll049</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA021744"><pre><code>{
+  "id": "CAR:CA021744",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll049"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA021749">CAR:CA021749</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll051</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA021749"><pre><code>{
+  "id": "CAR:CA021749",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll051"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA022019">CAR:CA022019</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll075</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA022019"><pre><code>{
+  "id": "CAR:CA022019",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll075"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA022141">CAR:CA022141</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll031</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA022141"><pre><code>{
+  "id": "CAR:CA022141",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll031"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA022153">CAR:CA022153</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll032</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA022153"><pre><code>{
+  "id": "CAR:CA022153",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll032"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA022159">CAR:CA022159</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll033</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA022159"><pre><code>{
+  "id": "CAR:CA022159",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll033"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA022189">CAR:CA022189</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll034</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA022189"><pre><code>{
+  "id": "CAR:CA022189",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll034"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA022880">CAR:CA022880</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll127</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA022880"><pre><code>{
+  "id": "CAR:CA022880",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll127"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA023690">CAR:CA023690</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll094</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA023690"><pre><code>{
+  "id": "CAR:CA023690",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll094"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA024311">CAR:CA024311</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll026</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA024311"><pre><code>{
+  "id": "CAR:CA024311",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll026"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA090410">CAR:CA090410</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll020</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA090410"><pre><code>{
+  "id": "CAR:CA090410",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll020"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA090884">CAR:CA090884</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll072</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA090884"><pre><code>{
+  "id": "CAR:CA090884",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll072"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA090891">CAR:CA090891</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll081</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA090891"><pre><code>{
+  "id": "CAR:CA090891",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll081"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA090898">CAR:CA090898</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll002</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA090898"><pre><code>{
+  "id": "CAR:CA090898",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll002"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA090904">CAR:CA090904</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll043</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA090904"><pre><code>{
+  "id": "CAR:CA090904",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll043"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA090910">CAR:CA090910</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll055</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA090910"><pre><code>{
+  "id": "CAR:CA090910",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll055"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA090915">CAR:CA090915</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll076</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA090915"><pre><code>{
+  "id": "CAR:CA090915",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll076"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA090918">CAR:CA090918</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll087</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA090918"><pre><code>{
+  "id": "CAR:CA090918",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll087"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA090919">CAR:CA090919</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll039</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA090919"><pre><code>{
+  "id": "CAR:CA090919",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll039"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA090926">CAR:CA090926</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll085</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA090926"><pre><code>{
+  "id": "CAR:CA090926",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll085"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA090928">CAR:CA090928</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll071</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA090928"><pre><code>{
+  "id": "CAR:CA090928",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll071"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA090930">CAR:CA090930</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll130</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA090930"><pre><code>{
+  "id": "CAR:CA090930",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll130"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA090938">CAR:CA090938</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll045</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA090938"><pre><code>{
+  "id": "CAR:CA090938",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll045"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA090943">CAR:CA090943</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll001</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA090943"><pre><code>{
+  "id": "CAR:CA090943",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll001"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA090950">CAR:CA090950</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll098</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA090950"><pre><code>{
+  "id": "CAR:CA090950",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll098"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA090951">CAR:CA090951</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll063</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA090951"><pre><code>{
+  "id": "CAR:CA090951",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll063"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA093846">CAR:CA093846</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll024</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA093846"><pre><code>{
+  "id": "CAR:CA093846",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll024"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA099228">CAR:CA099228</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll050</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA099228"><pre><code>{
+  "id": "CAR:CA099228",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll050"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA099236">CAR:CA099236</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll052</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA099236"><pre><code>{
+  "id": "CAR:CA099236",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll052"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA102369">CAR:CA102369</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll056</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA102369"><pre><code>{
+  "id": "CAR:CA102369",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll056"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA102377">CAR:CA102377</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll058</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA102377"><pre><code>{
+  "id": "CAR:CA102377",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll058"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA109417">CAR:CA109417</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll092</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA109417"><pre><code>{
+  "id": "CAR:CA109417",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll092"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA113946">CAR:CA113946</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll122</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA113946"><pre><code>{
+  "id": "CAR:CA113946",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll122"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA123287">CAR:CA123287</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll027</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA123287"><pre><code>{
+  "id": "CAR:CA123287",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll027"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA123651">CAR:CA123651</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll029</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA123651"><pre><code>{
+  "id": "CAR:CA123651",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll029"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA126726">CAR:CA126726</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll126</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA126726"><pre><code>{
+  "id": "CAR:CA126726",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll126"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA128479">CAR:CA128479</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll079</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA128479"><pre><code>{
+  "id": "CAR:CA128479",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll079"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA132727">CAR:CA132727</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll091</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA132727"><pre><code>{
+  "id": "CAR:CA132727",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll091"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA133141">CAR:CA133141</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll096</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA133141"><pre><code>{
+  "id": "CAR:CA133141",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll096"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA134997">CAR:CA134997</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll082</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA134997"><pre><code>{
+  "id": "CAR:CA134997",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll082"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA137502">CAR:CA137502</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll114</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA137502"><pre><code>{
+  "id": "CAR:CA137502",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll114"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA143213">CAR:CA143213</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll066</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA143213"><pre><code>{
+  "id": "CAR:CA143213",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll066"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA143572">CAR:CA143572</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll100</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA143572"><pre><code>{
+  "id": "CAR:CA143572",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll100"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA148212">CAR:CA148212</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll106</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA148212"><pre><code>{
+  "id": "CAR:CA148212",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll106"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA172240">CAR:CA172240</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll115</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA172240"><pre><code>{
+  "id": "CAR:CA172240",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll115"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA176145">CAR:CA176145</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll041</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA176145"><pre><code>{
+  "id": "CAR:CA176145",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll041"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA177682">CAR:CA177682</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll125</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA177682"><pre><code>{
+  "id": "CAR:CA177682",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll125"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA180540">CAR:CA180540</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll054</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA180540"><pre><code>{
+  "id": "CAR:CA180540",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll054"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA182839">CAR:CA182839</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll103</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA182839"><pre><code>{
+  "id": "CAR:CA182839",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll103"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA182840">CAR:CA182840</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll102</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA182840"><pre><code>{
+  "id": "CAR:CA182840",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll102"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA184168">CAR:CA184168</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll108</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA184168"><pre><code>{
+  "id": "CAR:CA184168",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll108"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA204551">CAR:CA204551</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll118</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA204551"><pre><code>{
+  "id": "CAR:CA204551",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll118"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA220155">CAR:CA220155</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll006</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA220155"><pre><code>{
+  "id": "CAR:CA220155",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll006"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA220157">CAR:CA220157</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll007</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA220157"><pre><code>{
+  "id": "CAR:CA220157",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll007"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA220161">CAR:CA220161</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll023</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA220161"><pre><code>{
+  "id": "CAR:CA220161",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll023"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA224454">CAR:CA224454</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll057</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA224454"><pre><code>{
+  "id": "CAR:CA224454",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll057"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA238217">CAR:CA238217</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll003</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA238217"><pre><code>{
+  "id": "CAR:CA238217",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll003"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA252233">CAR:CA252233</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll101</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA252233"><pre><code>{
+  "id": "CAR:CA252233",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll101"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA253304">CAR:CA253304</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll128</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA253304"><pre><code>{
+  "id": "CAR:CA253304",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll128"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA253316">CAR:CA253316</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll025</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA253316"><pre><code>{
+  "id": "CAR:CA253316",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll025"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA254703">CAR:CA254703</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll119</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA254703"><pre><code>{
+  "id": "CAR:CA254703",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll119"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA256480">CAR:CA256480</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll014</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA256480"><pre><code>{
+  "id": "CAR:CA256480",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll014"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA256481">CAR:CA256481</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll016</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA256481"><pre><code>{
+  "id": "CAR:CA256481",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll016"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA256496">CAR:CA256496</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll099</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA256496"><pre><code>{
+  "id": "CAR:CA256496",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll099"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA257646">CAR:CA257646</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll018</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA257646"><pre><code>{
+  "id": "CAR:CA257646",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll018"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA261606">CAR:CA261606</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll005</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA261606"><pre><code>{
+  "id": "CAR:CA261606",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll005"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA268383">CAR:CA268383</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll062</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA268383"><pre><code>{
+  "id": "CAR:CA268383",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll062"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA273136">CAR:CA273136</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll044</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA273136"><pre><code>{
+  "id": "CAR:CA273136",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll044"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA273141">CAR:CA273141</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll038</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA273141"><pre><code>{
+  "id": "CAR:CA273141",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll038"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA273507">CAR:CA273507</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll133</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA273507"><pre><code>{
+  "id": "CAR:CA273507",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll133"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA273509">CAR:CA273509</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll134</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA273509"><pre><code>{
+  "id": "CAR:CA273509",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll134"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA273551">CAR:CA273551</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll107</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA273551"><pre><code>{
+  "id": "CAR:CA273551",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll107"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA273615">CAR:CA273615</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll040</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA273615"><pre><code>{
+  "id": "CAR:CA273615",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll040"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA273665">CAR:CA273665</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll129</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA273665"><pre><code>{
+  "id": "CAR:CA273665",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll129"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA274460">CAR:CA274460</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll116</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA274460"><pre><code>{
+  "id": "CAR:CA274460",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll116"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA276116">CAR:CA276116</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll080</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA276116"><pre><code>{
+  "id": "CAR:CA276116",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll080"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA276195">CAR:CA276195</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll120</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA276195"><pre><code>{
+  "id": "CAR:CA276195",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll120"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA277980">CAR:CA277980</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll117</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA277980"><pre><code>{
+  "id": "CAR:CA277980",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll117"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA279966">CAR:CA279966</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll064</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA279966"><pre><code>{
+  "id": "CAR:CA279966",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll064"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA279976">CAR:CA279976</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll065</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA279976"><pre><code>{
+  "id": "CAR:CA279976",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll065"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA280055">CAR:CA280055</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll131</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA280055"><pre><code>{
+  "id": "CAR:CA280055",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll131"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA280057">CAR:CA280057</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll132</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA280057"><pre><code>{
+  "id": "CAR:CA280057",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll132"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA322149">CAR:CA322149</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll046</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA322149"><pre><code>{
+  "id": "CAR:CA322149",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll046"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA341206">CAR:CA341206</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll012</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA341206"><pre><code>{
+  "id": "CAR:CA341206",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll012"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA341207">CAR:CA341207</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll015</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA341207"><pre><code>{
+  "id": "CAR:CA341207",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll015"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA352275">CAR:CA352275</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll030</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA352275"><pre><code>{
+  "id": "CAR:CA352275",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll030"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA354186">CAR:CA354186</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll019</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA354186"><pre><code>{
+  "id": "CAR:CA354186",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll019"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA501220">CAR:CA501220</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll008</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA501220"><pre><code>{
+  "id": "CAR:CA501220",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll008"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA501221">CAR:CA501221</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll009</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA501221"><pre><code>{
+  "id": "CAR:CA501221",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll009"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA501222">CAR:CA501222</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll010</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA501222"><pre><code>{
+  "id": "CAR:CA501222",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll010"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA501223">CAR:CA501223</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll042</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA501223"><pre><code>{
+  "id": "CAR:CA501223",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll042"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA501224">CAR:CA501224</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll047</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA501224"><pre><code>{
+  "id": "CAR:CA501224",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll047"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA501225">CAR:CA501225</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll048</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA501225"><pre><code>{
+  "id": "CAR:CA501225",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll048"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA501226">CAR:CA501226</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll068</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA501226"><pre><code>{
+  "id": "CAR:CA501226",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll068"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA501227">CAR:CA501227</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll059</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA501227"><pre><code>{
+  "id": "CAR:CA501227",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll059"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA501228">CAR:CA501228</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll060</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA501228"><pre><code>{
+  "id": "CAR:CA501228",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll060"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA501229">CAR:CA501229</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll083</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA501229"><pre><code>{
+  "id": "CAR:CA501229",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll083"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA501230">CAR:CA501230</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll086</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA501230"><pre><code>{
+  "id": "CAR:CA501230",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll086"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA501231">CAR:CA501231</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll093</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA501231"><pre><code>{
+  "id": "CAR:CA501231",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll093"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA501232">CAR:CA501232</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll123</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA501232"><pre><code>{
+  "id": "CAR:CA501232",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll123"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA501233">CAR:CA501233</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll021</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA501233"><pre><code>{
+  "id": "CAR:CA501233",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll021"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA501234">CAR:CA501234</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll077</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA501234"><pre><code>{
+  "id": "CAR:CA501234",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll077"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA501235">CAR:CA501235</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll104</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA501235"><pre><code>{
+  "id": "CAR:CA501235",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll104"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA501236">CAR:CA501236</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll105</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA501236"><pre><code>{
+  "id": "CAR:CA501236",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll105"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CAR:CA501237">CAR:CA501237</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>CGEX:CtxAll111</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CAR:CA501237"><pre><code>{
+  "id": "CAR:CA501237",
+  "type": "CanonicalAllele",
+  "relatedContextualAllele": "CGEX:CtxAll111"
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="list-group sidenav">
+            <ul class="list-unstyled">
+              <li class="list-group-item">
+                <h5><a href="../">Interpretation Overview</a></h5>
+              </li>
+              <li class='list-group-item'><h5><a href="../user/">User Guide</a></h5></li>
+              <li class='list-group-item'><h5><a href="../tech/">Technical Reference</a></h5></li>
+              <!-- Old style.  We might still need the model here? -->
+              <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="container  background-trans padding-top-xl">
+      <div class="row">
+        <hr />
+        <div class="col-md-col-sm-12 text-center"> 
+          © 2017 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../javascripts/jquery.js"></script><script src="../javascripts/bootstrap.js"></script><script src="../javascripts/jquery.jsonview.js"></script><script src="../javascripts/all.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>

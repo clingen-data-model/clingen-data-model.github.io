@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Data Model
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../stylesheets/brand2.css" rel="stylesheet" /><link href="../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+    
+      <div class="container-fluid hero-background">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="../images/clingen-doc-logo.png" />
+</a>            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+                    <li class="allele" >
+                      <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span> Allele Model</a></li>
+                    </li>
+                    <li class="interpretation" >
+                      <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span> Interpretation Model</a></li>
+                    </li>
+                <li>
+                    <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+          </div>
+    
+
+
+    
+        <div class="row">
+          <div class="col-sm-12">
+              <h1 class="header"></h1>
+              <ol class="breadcrumb bg-none margin-none">
+                
+              </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
+          <article>
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2>Scope and Usage</h2>
+    
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>allele</td>
+                <td>CanonicalAllele</td>
+                <td>1..1</td>
+                <td>The allele for which conservation values are given</td>
+                <td>SEPIO:0000275</td>
+            </tr>
+            <tr>
+                <td>algorithm</td>
+                <td>string</td>
+                <td>0..1</td>
+                <td>Method or program used to calculate conservation</td>
+                <td>SEPIO:0000130</td>
+            </tr>
+            <tr>
+                <td>statementOutcome</td>
+                <td>@id</td>
+                <td>1..1</td>
+                <td>The conservation classification from sequence ontology.</td>
+                <td>SEPIO:0000197</td>
+            </tr>
+            </tbody>
+        </table>
+
+<!--
+    <h2>Inherited Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A name given to the resource.</td>
+                    <td>RDFS:label</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                    <td>DC:description</td>
+                </tr>
+                <tr>
+                    <td>userLabelDictionary</td>
+                    <td>UserLabel</td>
+                    <td>0..*</td>
+                    <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
+                    <td>SEPIO:0000422</td>
+                </tr>
+                <tr>
+                    <td>outcomeQualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                    <td>SEPIO:0000346</td>
+                </tr>
+                <tr>
+                    <td>evidenceLine</td>
+                    <td>EvidenceLine</td>
+                    <td>0..*</td>
+                    <td>supporting evidence</td>
+                    <td>SEPIO:0000006</td>
+                </tr>
+                <tr>
+                    <td>contribution</td>
+                    <td>Contribution</td>
+                    <td>0..*</td>
+                    <td>The contributions (agent, time and role) made to this entity</td>
+                    <td>SEPIO:0000159</td>
+                </tr>
+                <tr>
+                    <td>source</td>
+                    <td>string</td>
+                    <td>0..*</td>
+                    <td>A string indicating the source of a Statement</td>
+                    <td>DC:source</td>
+                </tr>
+            </tbody>
+        </table>
+-->
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>label</th>
+        <th>description</th>
+        <th>userLabelDictionary</th>
+        <th>outcomeQualifier</th>
+        <th>evidenceLine</th>
+        <th>allele</th>
+        <th>algorithm</th>
+        <th>statementOutcome</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:AllConserv071">CGEX:AllConserv071</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:EvLn133">CGEX:EvLn133</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CAR:CA013536">CAR:CA013536</a></p>
+         </td>
+          <td>
+              <p>phyloP</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#SEPIO-CG:99017">SEPIO-CG:99017</a></p> (not conserved region)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:AllConserv071"><pre><code>{
+  "id": "CGEX:AllConserv071",
+  "type": "AlleleConservationStatement",
+  "allele": {
+    "id": "CAR:CA013536",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll124"
+  },
+  "statementOutcome": {
+    "id": "SEPIO-CG:99017",
+    "label": "not conserved region"
+  },
+  "algorithm": "phyloP",
+  "evidenceLine": [
+    {
+      "id": "CGEX:EvLn133",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:AllConservScore116",
+          "type": "AlleleConservationScoreStatement",
+          "allele": {
+            "id": "CAR:CA013536",
+            "type": "CanonicalAllele",
+            "relatedContextualAllele": "CGEX:CtxAll124"
+          },
+          "algorithm": "phyloP",
+          "score": -0.76
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:AllConserv072">CGEX:AllConserv072</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:EvLn134">CGEX:EvLn134</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CAR:CA013536">CAR:CA013536</a></p>
+         </td>
+          <td>
+              <p>PhastCons</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#SEPIO-CG:99017">SEPIO-CG:99017</a></p> (not conserved region)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:AllConserv072"><pre><code>{
+  "id": "CGEX:AllConserv072",
+  "type": "AlleleConservationStatement",
+  "allele": {
+    "id": "CAR:CA013536",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll124"
+  },
+  "statementOutcome": {
+    "id": "SEPIO-CG:99017",
+    "label": "not conserved region"
+  },
+  "algorithm": "PhastCons",
+  "evidenceLine": [
+    {
+      "id": "CGEX:EvLn134",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:AllConservScore171",
+          "type": "AlleleConservationScoreStatement",
+          "allele": {
+            "id": "CAR:CA013536",
+            "type": "CanonicalAllele",
+            "relatedContextualAllele": "CGEX:CtxAll124"
+          },
+          "algorithm": "PhastCons",
+          "score": 0.63
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:AllConserv259">CGEX:AllConserv259</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:EvLn135">CGEX:EvLn135</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CAR:CA501232">CAR:CA501232</a></p>
+         </td>
+          <td>
+              <p>phyloP</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#SEPIO-CG:99017">SEPIO-CG:99017</a></p> (not conserved region)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:AllConserv259"><pre><code>{
+  "id": "CGEX:AllConserv259",
+  "type": "AlleleConservationStatement",
+  "allele": {
+    "id": "CAR:CA501232",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll123"
+  },
+  "statementOutcome": {
+    "id": "SEPIO-CG:99017",
+    "label": "not conserved region"
+  },
+  "algorithm": "phyloP",
+  "evidenceLine": [
+    {
+      "id": "CGEX:EvLn135",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:AllConservScore245",
+          "type": "AlleleConservationScoreStatement",
+          "allele": {
+            "id": "CAR:CA501232",
+            "type": "CanonicalAllele",
+            "relatedContextualAllele": "CGEX:CtxAll123"
+          },
+          "algorithm": "phyloP",
+          "score": -2.297
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:AllConserv260">CGEX:AllConserv260</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:EvLn136">CGEX:EvLn136</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CAR:CA501232">CAR:CA501232</a></p>
+         </td>
+          <td>
+              <p>PhastCons</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#SEPIO-CG:99017">SEPIO-CG:99017</a></p> (not conserved region)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:AllConserv260"><pre><code>{
+  "id": "CGEX:AllConserv260",
+  "type": "AlleleConservationStatement",
+  "allele": {
+    "id": "CAR:CA501232",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll123"
+  },
+  "statementOutcome": {
+    "id": "SEPIO-CG:99017",
+    "label": "not conserved region"
+  },
+  "algorithm": "PhastCons",
+  "evidenceLine": [
+    {
+      "id": "CGEX:EvLn136",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:AllConservScore228",
+          "type": "AlleleConservationScoreStatement",
+          "allele": {
+            "id": "CAR:CA501232",
+            "type": "CanonicalAllele",
+            "relatedContextualAllele": "CGEX:CtxAll123"
+          },
+          "algorithm": "PhastCons",
+          "score": 0.039
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:AllConserv263">CGEX:AllConserv263</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:EvLn137">CGEX:EvLn137</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CAR:CA013536">CAR:CA013536</a></p>
+         </td>
+          <td>
+              <p>phyloP</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#SEPIO-CG:99017">SEPIO-CG:99017</a></p> (not conserved region)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:AllConserv263"><pre><code>{
+  "id": "CGEX:AllConserv263",
+  "type": "AlleleConservationStatement",
+  "allele": {
+    "id": "CAR:CA013536",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll124"
+  },
+  "statementOutcome": {
+    "id": "SEPIO-CG:99017",
+    "label": "not conserved region"
+  },
+  "algorithm": "phyloP",
+  "evidenceLine": [
+    {
+      "id": "CGEX:EvLn137",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:AllConservScore230",
+          "type": "AlleleConservationScoreStatement",
+          "allele": {
+            "id": "CAR:CA013536",
+            "type": "CanonicalAllele",
+            "relatedContextualAllele": "CGEX:CtxAll124"
+          },
+          "algorithm": "phyloP",
+          "score": -0.76
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:AllConserv264">CGEX:AllConserv264</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:EvLn138">CGEX:EvLn138</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CAR:CA013536">CAR:CA013536</a></p>
+         </td>
+          <td>
+              <p>PhastCons</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#SEPIO-CG:99017">SEPIO-CG:99017</a></p> (not conserved region)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:AllConserv264"><pre><code>{
+  "id": "CGEX:AllConserv264",
+  "type": "AlleleConservationStatement",
+  "allele": {
+    "id": "CAR:CA013536",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll124"
+  },
+  "statementOutcome": {
+    "id": "SEPIO-CG:99017",
+    "label": "not conserved region"
+  },
+  "algorithm": "PhastCons",
+  "evidenceLine": [
+    {
+      "id": "CGEX:EvLn138",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:AllConservScore226",
+          "type": "AlleleConservationScoreStatement",
+          "allele": {
+            "id": "CAR:CA013536",
+            "type": "CanonicalAllele",
+            "relatedContextualAllele": "CGEX:CtxAll124"
+          },
+          "algorithm": "PhastCons",
+          "score": 0.63
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:AllConserv267">CGEX:AllConserv267</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:EvLn139">CGEX:EvLn139</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CAR:CA177682">CAR:CA177682</a></p>
+         </td>
+          <td>
+              <p>phyloP</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#SEPIO-CG:99017">SEPIO-CG:99017</a></p> (not conserved region)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:AllConserv267"><pre><code>{
+  "id": "CGEX:AllConserv267",
+  "type": "AlleleConservationStatement",
+  "allele": {
+    "id": "CAR:CA177682",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll125"
+  },
+  "statementOutcome": {
+    "id": "SEPIO-CG:99017",
+    "label": "not conserved region"
+  },
+  "algorithm": "phyloP",
+  "evidenceLine": [
+    {
+      "id": "CGEX:EvLn139",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:AllConservScore222",
+          "type": "AlleleConservationScoreStatement",
+          "allele": {
+            "id": "CAR:CA177682",
+            "type": "CanonicalAllele",
+            "relatedContextualAllele": "CGEX:CtxAll125"
+          },
+          "algorithm": "phyloP",
+          "score": 0.45
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:AllConserv268">CGEX:AllConserv268</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:EvLn140">CGEX:EvLn140</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CAR:CA177682">CAR:CA177682</a></p>
+         </td>
+          <td>
+              <p>PhastCons</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#SEPIO-CG:99017">SEPIO-CG:99017</a></p> (not conserved region)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:AllConserv268"><pre><code>{
+  "id": "CGEX:AllConserv268",
+  "type": "AlleleConservationStatement",
+  "allele": {
+    "id": "CAR:CA177682",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll125"
+  },
+  "statementOutcome": {
+    "id": "SEPIO-CG:99017",
+    "label": "not conserved region"
+  },
+  "algorithm": "PhastCons",
+  "evidenceLine": [
+    {
+      "id": "CGEX:EvLn140",
+      "type": "EvidenceLine",
+      "evidenceItem": [
+        {
+          "id": "CGEX:AllConservScore224",
+          "type": "AlleleConservationScoreStatement",
+          "allele": {
+            "id": "CAR:CA177682",
+            "type": "CanonicalAllele",
+            "relatedContextualAllele": "CGEX:CtxAll125"
+          },
+          "algorithm": "PhastCons",
+          "score": 1.0
+        }
+      ]
+    }
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="list-group sidenav">
+            <ul class="list-unstyled">
+              <li class="list-group-item">
+                <h5><a href="../">Interpretation Overview</a></h5>
+              </li>
+              <li class='list-group-item'><h5><a href="../user/">User Guide</a></h5></li>
+              <li class='list-group-item'><h5><a href="../tech/">Technical Reference</a></h5></li>
+              <!-- Old style.  We might still need the model here? -->
+              <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="container  background-trans padding-top-xl">
+      <div class="row">
+        <hr />
+        <div class="col-md-col-sm-12 text-center"> 
+          © 2017 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../javascripts/jquery.js"></script><script src="../javascripts/bootstrap.js"></script><script src="../javascripts/jquery.jsonview.js"></script><script src="../javascripts/all.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>

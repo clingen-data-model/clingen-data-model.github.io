@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Data Model
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../stylesheets/brand2.css" rel="stylesheet" /><link href="../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+    
+      <div class="container-fluid hero-background">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="../images/clingen-doc-logo.png" />
+</a>            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+                    <li class="allele" >
+                      <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span> Allele Model</a></li>
+                    </li>
+                    <li class="interpretation" >
+                      <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span> Interpretation Model</a></li>
+                    </li>
+                <li>
+                    <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+          </div>
+    
+
+
+    
+        <div class="row">
+          <div class="col-sm-12">
+              <h1 class="header"></h1>
+              <ol class="breadcrumb bg-none margin-none">
+                
+              </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
+          <article>
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2>Scope and Usage</h2>
+    
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>contextualAllele</td>
+                <td>ContextualAllele</td>
+                <td>0..1</td>
+                <td>Allele defined with respect to the measured transcript</td>
+                <td>SEPIO:0000275</td>
+            </tr>
+            <tr>
+                <td>gene</td>
+                <td>@id</td>
+                <td>0..1</td>
+                <td>Gene to which the functional data applies</td>
+                <td>SEPIO:0000278</td>
+            </tr>
+            <tr>
+                <td>resultDescription</td>
+                <td>string</td>
+                <td>0..1</td>
+                <td>Result of the functional experiment</td>
+                <td>SEPIO:0000424</td>
+            </tr>
+            <tr>
+                <td>assayType</td>
+                <td>@id</td>
+                <td>0..1</td>
+                <td>Specific type of functional data collected</td>
+                <td>SEPIO:0000255</td>
+            </tr>
+            </tbody>
+        </table>
+
+<!--
+    <h2>Inherited Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A name given to the resource.</td>
+                    <td>RDFS:label</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                    <td>DC:description</td>
+                </tr>
+                <tr>
+                    <td>userLabelDictionary</td>
+                    <td>UserLabel</td>
+                    <td>0..*</td>
+                    <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
+                    <td>SEPIO:0000422</td>
+                </tr>
+                <tr>
+                    <td>outcomeQualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                    <td>SEPIO:0000346</td>
+                </tr>
+                <tr>
+                    <td>evidenceLine</td>
+                    <td>EvidenceLine</td>
+                    <td>0..*</td>
+                    <td>supporting evidence</td>
+                    <td>SEPIO:0000006</td>
+                </tr>
+                <tr>
+                    <td>contribution</td>
+                    <td>Contribution</td>
+                    <td>0..*</td>
+                    <td>The contributions (agent, time and role) made to this entity</td>
+                    <td>SEPIO:0000159</td>
+                </tr>
+                <tr>
+                    <td>source</td>
+                    <td>string</td>
+                    <td>0..*</td>
+                    <td>A string indicating the source of a Statement</td>
+                    <td>DC:source</td>
+                </tr>
+            </tbody>
+        </table>
+-->
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>label</th>
+        <th>description</th>
+        <th>userLabelDictionary</th>
+        <th>outcomeQualifier</th>
+        <th>evidenceLine</th>
+        <th>contextualAllele</th>
+        <th>gene</th>
+        <th>resultDescription</th>
+        <th>assayType</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:Func025">CGEX:Func025</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Expression of human SPG7 (with this mutation) in yeast with damaged m-AAA protease did not restore respiratory growth or MrpL32 processing, if the function of AFG3L2 was impaired.</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:CtxAll022">CGEX:CtxAll022</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#HGNC:11237">HGNC:11237</a></p> (SPG7)
+         </td>
+          <td>
+              <p>Functionally Damaging</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:AFAMID084">CGEX:AFAMID084</a></p> (Yeast complementation assay)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Func025"><pre><code>{
+  "id": "CGEX:Func025",
+  "type": "AlleleFunctionalImpactStatement",
+  "description": "Expression of human SPG7 (with this mutation) in yeast with damaged m-AAA protease did not restore respiratory growth or MrpL32 processing, if the function of AFG3L2 was impaired.",
+  "resultDescription": "Functionally Damaging",
+  "assayType": {
+    "id": "CGEX:AFAMID084",
+    "label": "Yeast complementation assay"
+  },
+  "contextualAllele": {
+    "id": "CGEX:CtxAll022",
+    "type": "ContextualAllele",
+    "canonicalAllele": {
+      "id": "CAR:CA090884",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll072"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9022",
+      "type": "ContextualAlleleName",
+      "name": "NM_003119.2 (SPG7):c.1529C>T",
+      "preferred": true
+    }
+  },
+  "gene": {
+    "id": "HGNC:11237",
+    "label": "SPG7"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:Func193">CGEX:Func193</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Both wild type and NP_000432..1:p.Leu117Phe localize to the same location</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:CtxAll092">CGEX:CtxAll092</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#HGNC:8818">HGNC:8818</a></p> (SLC26A4)
+         </td>
+          <td>
+              <p>localized to apical membrane</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:AFAMID079">CGEX:AFAMID079</a></p> (cellular localization)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Func193"><pre><code>{
+  "id": "CGEX:Func193",
+  "type": "AlleleFunctionalImpactStatement",
+  "description": "Both wild type and NP_000432..1:p.Leu117Phe localize to the same location",
+  "resultDescription": "localized to apical membrane",
+  "assayType": {
+    "id": "CGEX:AFAMID079",
+    "label": "cellular localization"
+  },
+  "contextualAllele": {
+    "id": "CGEX:CtxAll092",
+    "type": "ContextualAllele",
+    "canonicalAllele": {
+      "id": "CAR:CA109417",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll092"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9092",
+      "type": "ContextualAlleleName",
+      "name": "NP_000432..1:p.Leu117Phe",
+      "preferred": true
+    }
+  },
+  "gene": {
+    "id": "HGNC:8818",
+    "label": "SLC26A4"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:Func021">CGEX:Func021</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:CtxAll021">CGEX:CtxAll021</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#HGNC:11949">HGNC:11949</a></p> (TNNT2)
+         </td>
+          <td>
+              <p>the mutation lowered the Ca2+  affinity of the reconstituted thin filaments;</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:AFAMID078">CGEX:AFAMID078</a></p> (Binding assay)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Func021"><pre><code>{
+  "id": "CGEX:Func021",
+  "type": "AlleleFunctionalImpactStatement",
+  "resultDescription": "the mutation lowered the Ca2+  affinity of the reconstituted thin filaments;",
+  "assayType": {
+    "id": "CGEX:AFAMID078",
+    "label": "Binding assay"
+  },
+  "contextualAllele": {
+    "id": "CGEX:CtxAll021",
+    "type": "ContextualAllele",
+    "canonicalAllele": {
+      "id": "CAR:CA501233",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll021"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9021",
+      "type": "ContextualAlleleName",
+      "name": "NP_001001431.1:p.Arg131Trp",
+      "preferred": true
+    }
+  },
+  "gene": {
+    "id": "HGNC:11949",
+    "label": "TNNT2"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:Func022">CGEX:Func022</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:CtxAll021">CGEX:CtxAll021</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#HGNC:11949">HGNC:11949</a></p> (TNNT2)
+         </td>
+          <td>
+              <p>reduced Ca2 sensitivity of activation</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:AFAMID077">CGEX:AFAMID077</a></p> (ATPase assay)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Func022"><pre><code>{
+  "id": "CGEX:Func022",
+  "type": "AlleleFunctionalImpactStatement",
+  "resultDescription": "reduced Ca2 sensitivity of activation",
+  "assayType": {
+    "id": "CGEX:AFAMID077",
+    "label": "ATPase assay"
+  },
+  "contextualAllele": {
+    "id": "CGEX:CtxAll021",
+    "type": "ContextualAllele",
+    "canonicalAllele": {
+      "id": "CAR:CA501233",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll021"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9021",
+      "type": "ContextualAlleleName",
+      "name": "NP_001001431.1:p.Arg131Trp",
+      "preferred": true
+    }
+  },
+  "gene": {
+    "id": "HGNC:11949",
+    "label": "TNNT2"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:Func023">CGEX:Func023</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:CtxAll021">CGEX:CtxAll021</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#HGNC:11949">HGNC:11949</a></p> (TNNT2)
+         </td>
+          <td>
+              <p>reduced Ca2 sensitivity of activation</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:AFAMID082">CGEX:AFAMID082</a></p> (motility assay)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Func023"><pre><code>{
+  "id": "CGEX:Func023",
+  "type": "AlleleFunctionalImpactStatement",
+  "resultDescription": "reduced Ca2 sensitivity of activation",
+  "assayType": {
+    "id": "CGEX:AFAMID082",
+    "label": "motility assay"
+  },
+  "contextualAllele": {
+    "id": "CGEX:CtxAll021",
+    "type": "ContextualAllele",
+    "canonicalAllele": {
+      "id": "CAR:CA501233",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll021"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9021",
+      "type": "ContextualAlleleName",
+      "name": "NP_001001431.1:p.Arg131Trp",
+      "preferred": true
+    }
+  },
+  "gene": {
+    "id": "HGNC:11949",
+    "label": "TNNT2"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:Func024">CGEX:Func024</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:CtxAll021">CGEX:CtxAll021</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#HGNC:11949">HGNC:11949</a></p> (TNNT2)
+         </td>
+          <td>
+              <p>desensitized Ca2+ binding to the thin filament.</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:AFAMID078">CGEX:AFAMID078</a></p> (Binding assay)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Func024"><pre><code>{
+  "id": "CGEX:Func024",
+  "type": "AlleleFunctionalImpactStatement",
+  "resultDescription": "desensitized Ca2+ binding to the thin filament.",
+  "assayType": {
+    "id": "CGEX:AFAMID078",
+    "label": "Binding assay"
+  },
+  "contextualAllele": {
+    "id": "CGEX:CtxAll021",
+    "type": "ContextualAllele",
+    "canonicalAllele": {
+      "id": "CAR:CA501233",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll021"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9021",
+      "type": "ContextualAlleleName",
+      "name": "NP_001001431.1:p.Arg131Trp",
+      "preferred": true
+    }
+  },
+  "gene": {
+    "id": "HGNC:11949",
+    "label": "TNNT2"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:Func026">CGEX:Func026</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:CtxAll024">CGEX:CtxAll024</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#HGNC:6847">HGNC:6847</a></p> (MEK)
+         </td>
+          <td>
+              <p>abnormal/deceased MEK activtation.</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:AFAMID076">CGEX:AFAMID076</a></p> (Activation Assay)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Func026"><pre><code>{
+  "id": "CGEX:Func026",
+  "type": "AlleleFunctionalImpactStatement",
+  "resultDescription": "abnormal/deceased MEK activtation.",
+  "assayType": {
+    "id": "CGEX:AFAMID076",
+    "label": "Activation Assay"
+  },
+  "contextualAllele": {
+    "id": "CGEX:CtxAll024",
+    "type": "ContextualAllele",
+    "canonicalAllele": {
+      "id": "CAR:CA093846",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll024"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9024",
+      "type": "ContextualAlleleName",
+      "name": "NP_004324.2:p.Gly596Val",
+      "preferred": true
+    }
+  },
+  "gene": {
+    "id": "HGNC:6847",
+    "label": "MEK"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:Func027">CGEX:Func027</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:CtxAll024">CGEX:CtxAll024</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#HGNC:6871">HGNC:6871</a></p> (ERK)
+         </td>
+          <td>
+              <p>abnormal/deceased ERK activtation.</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:AFAMID076">CGEX:AFAMID076</a></p> (Activation Assay)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Func027"><pre><code>{
+  "id": "CGEX:Func027",
+  "type": "AlleleFunctionalImpactStatement",
+  "resultDescription": "abnormal/deceased ERK activtation.",
+  "assayType": {
+    "id": "CGEX:AFAMID076",
+    "label": "Activation Assay"
+  },
+  "contextualAllele": {
+    "id": "CGEX:CtxAll024",
+    "type": "ContextualAllele",
+    "canonicalAllele": {
+      "id": "CAR:CA093846",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll024"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9024",
+      "type": "ContextualAlleleName",
+      "name": "NP_004324.2:p.Gly596Val",
+      "preferred": true
+    }
+  },
+  "gene": {
+    "id": "HGNC:6871",
+    "label": "ERK"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:Func067">CGEX:Func067</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:CtxAll130">CGEX:CtxAll130</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#HGNC:11187">HGNC:11187</a></p> (SOS1)
+         </td>
+          <td>
+              <p>increased ERK activtation</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:AFAMID076">CGEX:AFAMID076</a></p> (Activation Assay)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Func067"><pre><code>{
+  "id": "CGEX:Func067",
+  "type": "AlleleFunctionalImpactStatement",
+  "resultDescription": "increased ERK activtation",
+  "assayType": {
+    "id": "CGEX:AFAMID076",
+    "label": "Activation Assay"
+  },
+  "contextualAllele": {
+    "id": "CGEX:CtxAll130",
+    "type": "ContextualAllele",
+    "canonicalAllele": {
+      "id": "CAR:CA090930",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll130"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9130",
+      "type": "ContextualAlleleName",
+      "name": "NM_005633.3(SOS1):c.1010A>G (p.Tyr337Cys)",
+      "preferred": true
+    }
+  },
+  "gene": {
+    "id": "HGNC:11187",
+    "label": "SOS1"
+  },
+  "source": [
+    "PMID:23487764"
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:Func192">CGEX:Func192</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:CtxAll092">CGEX:CtxAll092</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#HGNC:8818">HGNC:8818</a></p> (SLC26A4)
+         </td>
+          <td>
+              <p>Unchanged from reference</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:AFAMID081">CGEX:AFAMID081</a></p> (iodide efflux)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Func192"><pre><code>{
+  "id": "CGEX:Func192",
+  "type": "AlleleFunctionalImpactStatement",
+  "resultDescription": "Unchanged from reference",
+  "assayType": {
+    "id": "CGEX:AFAMID081",
+    "label": "iodide efflux"
+  },
+  "contextualAllele": {
+    "id": "CGEX:CtxAll092",
+    "type": "ContextualAllele",
+    "canonicalAllele": {
+      "id": "CAR:CA109417",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll092"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9092",
+      "type": "ContextualAlleleName",
+      "name": "NP_000432..1:p.Leu117Phe",
+      "preferred": true
+    }
+  },
+  "gene": {
+    "id": "HGNC:8818",
+    "label": "SLC26A4"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:Func194">CGEX:Func194</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:CtxAll093">CGEX:CtxAll093</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#HGNC:20249">HGNC:20249</a></p> (SPRED1)
+         </td>
+          <td>
+              <p>Unchanged from reference</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:AFAMID080">CGEX:AFAMID080</a></p> (Elk1 pohsphorylation via luciferase assay)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Func194"><pre><code>{
+  "id": "CGEX:Func194",
+  "type": "AlleleFunctionalImpactStatement",
+  "resultDescription": "Unchanged from reference",
+  "assayType": {
+    "id": "CGEX:AFAMID080",
+    "label": "Elk1 pohsphorylation via luciferase assay"
+  },
+  "contextualAllele": {
+    "id": "CGEX:CtxAll093",
+    "type": "ContextualAllele",
+    "canonicalAllele": {
+      "id": "CAR:CA501231",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll093"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9093",
+      "type": "ContextualAlleleName",
+      "name": "NM_152594.2(SPRED1): c.587C>T",
+      "preferred": true
+    }
+  },
+  "gene": {
+    "id": "HGNC:20249",
+    "label": "SPRED1"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:Func195">CGEX:Func195</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:CtxAll093">CGEX:CtxAll093</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#HGNC:20249">HGNC:20249</a></p> (SPRED1)
+         </td>
+          <td>
+              <p>localized to apical membrane</p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:AFAMID080">CGEX:AFAMID080</a></p> (Elk1 pohsphorylation via luciferase assay)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Func195"><pre><code>{
+  "id": "CGEX:Func195",
+  "type": "AlleleFunctionalImpactStatement",
+  "resultDescription": "localized to apical membrane",
+  "assayType": {
+    "id": "CGEX:AFAMID080",
+    "label": "Elk1 pohsphorylation via luciferase assay"
+  },
+  "contextualAllele": {
+    "id": "CGEX:CtxAll093",
+    "type": "ContextualAllele",
+    "canonicalAllele": {
+      "id": "CAR:CA501231",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll093"
+    },
+    "alleleName": {
+      "id": "CGEX:CtxNm9093",
+      "type": "ContextualAlleleName",
+      "name": "NM_152594.2(SPRED1): c.587C>T",
+      "preferred": true
+    }
+  },
+  "gene": {
+    "id": "HGNC:20249",
+    "label": "SPRED1"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="list-group sidenav">
+            <ul class="list-unstyled">
+              <li class="list-group-item">
+                <h5><a href="../">Interpretation Overview</a></h5>
+              </li>
+              <li class='list-group-item'><h5><a href="../user/">User Guide</a></h5></li>
+              <li class='list-group-item'><h5><a href="../tech/">Technical Reference</a></h5></li>
+              <!-- Old style.  We might still need the model here? -->
+              <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="container  background-trans padding-top-xl">
+      <div class="row">
+        <hr />
+        <div class="col-md-col-sm-12 text-center"> 
+          © 2017 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../javascripts/jquery.js"></script><script src="../javascripts/bootstrap.js"></script><script src="../javascripts/jquery.jsonview.js"></script><script src="../javascripts/all.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>

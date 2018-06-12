@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen Data Model
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../stylesheets/brand2.css" rel="stylesheet" /><link href="../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+    
+      <div class="container-fluid hero-background">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="../images/clingen-doc-logo.png" />
+</a>            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+                    <li class="allele" >
+                      <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span> Allele Model</a></li>
+                    </li>
+                    <li class="interpretation" >
+                      <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span> Interpretation Model</a></li>
+                    </li>
+                <li>
+                    <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+          </div>
+    
+
+
+    
+        <div class="row">
+          <div class="col-sm-12">
+              <h1 class="header"></h1>
+              <ol class="breadcrumb bg-none margin-none">
+                
+              </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
+          <article>
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2>Scope and Usage</h2>
+    
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>canonicalAllele</td>
+                <td>CanonicalAllele</td>
+                <td>1..1</td>
+                <td>The allele studied in the case-control experiment</td>
+                <td>SEPIO:0000275</td>
+            </tr>
+            <tr>
+                <td>condition</td>
+                <td>GeneticCondition</td>
+                <td>1..1</td>
+                <td>The condition studied in the case-control experiment</td>
+                <td>SEPIO:0000276</td>
+            </tr>
+            <tr>
+                <td>caseGroupFrequency</td>
+                <td>AlleleFrequency</td>
+                <td>0..1</td>
+                <td>The group of individuals with the condition</td>
+                <td>SEPIO:0000304</td>
+            </tr>
+            <tr>
+                <td>controlGroupFrequency</td>
+                <td>AlleleFrequency</td>
+                <td>0..1</td>
+                <td>The group of individuals without the condition</td>
+                <td>SEPIO:0000305</td>
+            </tr>
+            <tr>
+                <td>oddsRatio</td>
+                <td>number</td>
+                <td>0..1</td>
+                <td>Ratio of the probability of having the condition given the allele to the probability of the condition without the allele.</td>
+                <td>SEPIO:0000309</td>
+            </tr>
+            <tr>
+                <td>confidenceLevel</td>
+                <td>number</td>
+                <td>0..1</td>
+                <td>Confidence level in percent</td>
+                <td>SEPIO:0000308</td>
+            </tr>
+            <tr>
+                <td>confidenceIntervalLower</td>
+                <td>number</td>
+                <td>0..1</td>
+                <td>Lower bound of the confidence interval for the odds ratio</td>
+                <td>SEPIO:0000306</td>
+            </tr>
+            <tr>
+                <td>confidenceIntervalUpper</td>
+                <td>number</td>
+                <td>0..1</td>
+                <td>Upper bound of the confidence interval for the odds ratio</td>
+                <td>SEPIO:0000307</td>
+            </tr>
+            </tbody>
+        </table>
+
+<!--
+    <h2>Inherited Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>label</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>A name given to the resource.</td>
+                    <td>RDFS:label</td>
+                </tr>
+                <tr>
+                    <td>description</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                    <td>DC:description</td>
+                </tr>
+                <tr>
+                    <td>userLabelDictionary</td>
+                    <td>UserLabel</td>
+                    <td>0..*</td>
+                    <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
+                    <td>SEPIO:0000422</td>
+                </tr>
+                <tr>
+                    <td>outcomeQualifier</td>
+                    <td>string</td>
+                    <td>0..1</td>
+                    <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                    <td>SEPIO:0000346</td>
+                </tr>
+                <tr>
+                    <td>evidenceLine</td>
+                    <td>EvidenceLine</td>
+                    <td>0..*</td>
+                    <td>supporting evidence</td>
+                    <td>SEPIO:0000006</td>
+                </tr>
+                <tr>
+                    <td>contribution</td>
+                    <td>Contribution</td>
+                    <td>0..*</td>
+                    <td>The contributions (agent, time and role) made to this entity</td>
+                    <td>SEPIO:0000159</td>
+                </tr>
+                <tr>
+                    <td>source</td>
+                    <td>string</td>
+                    <td>0..*</td>
+                    <td>A string indicating the source of a Statement</td>
+                    <td>DC:source</td>
+                </tr>
+            </tbody>
+        </table>
+-->
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>label</th>
+        <th>description</th>
+        <th>userLabelDictionary</th>
+        <th>outcomeQualifier</th>
+        <th>evidenceLine</th>
+        <th>canonicalAllele</th>
+        <th>condition</th>
+        <th>caseGroupFrequency</th>
+        <th>controlGroupFrequency</th>
+        <th>oddsRatio</th>
+        <th>confidenceLevel</th>
+        <th>confidenceIntervalLower</th>
+        <th>confidenceIntervalUpper</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:CaseCtrl030">CGEX:CaseCtrl030</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Treating ExAC data as controls</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CAR:CA253316">CAR:CA253316</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:GenCond048">CGEX:GenCond048</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:AllFreq029">CGEX:AllFreq029</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:AllFreq028">CGEX:AllFreq028</a></p>
+         </td>
+          <td>
+              <p>9.1361</p>
+         </td>
+          <td>
+              <p>99.0</p>
+         </td>
+          <td>
+              <p>6.1425</p>
+         </td>
+          <td>
+              <p>13.5889</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:CaseCtrl030"><pre><code>{
+  "id": "CGEX:CaseCtrl030",
+  "type": "CaseControlAlleleFrequencyStatement",
+  "description": "Treating ExAC data as controls",
+  "canonicalAllele": {
+    "id": "CAR:CA253316",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll025"
+  },
+  "condition": {
+    "id": "CGEX:GenCond048",
+    "type": "GeneticCondition",
+    "description": "Hearing Loss",
+    "disease": [
+      {
+        "id": "Orphanet:87884",
+        "label": "nonsyndromic deafness"
+      }
+    ]
+  },
+  "oddsRatio": 9.1361,
+  "confidenceLevel": 99.0,
+  "confidenceIntervalLower": 6.1425,
+  "confidenceIntervalUpper": 13.5889,
+  "caseGroupFrequency": {
+    "id": "CGEX:AllFreq029",
+    "type": "PopulationAlleleFrequencyStatement",
+    "ascertainment": {
+      "id": "CGEX:Ascrt0001",
+      "label": "LMM Hearing Loss"
+    },
+    "allele": {
+      "id": "CAR:CA253316",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll025"
+    },
+    "alleleCount": 32,
+    "alleleNumber": 4076,
+    "userLabelDictionary": [
+      {
+        "id": "CGEX:UsrLabl001",
+        "type": "UserLabel",
+        "description": "Across all published data (and LMM data) with hearing loss.",
+        "labelFor": {
+          "id": "CGEX:Ascrt0001",
+          "label": "LMM Hearing Loss"
+        }
+      }
+    ]
+  },
+  "controlGroupFrequency": {
+    "id": "CGEX:AllFreq028",
+    "type": "PopulationAlleleFrequencyStatement",
+    "ascertainment": {
+      "id": "SEPIO:0000332",
+      "label": "ExAC ascertainment method"
+    },
+    "allele": {
+      "id": "CAR:CA253316",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll025"
+    },
+    "alleleCount": 105,
+    "alleleNumber": 121336
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:CaseCtrl036">CGEX:CaseCtrl036</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Odds ratio is calculated by pooling samples from the six GENIUS T2D cohorts before calculation.</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CAR:CA123287">CAR:CA123287</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:GenCond012">CGEX:GenCond012</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:AllFreq034">CGEX:AllFreq034</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:AllFreq035">CGEX:AllFreq035</a></p>
+         </td>
+          <td>
+              <p>1.06</p>
+         </td>
+          <td>
+              <p>95.0</p>
+         </td>
+          <td>
+              <p>0.96</p>
+         </td>
+          <td>
+              <p>1.18</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:CaseCtrl036"><pre><code>{
+  "id": "CGEX:CaseCtrl036",
+  "type": "CaseControlAlleleFrequencyStatement",
+  "description": "Odds ratio is calculated by pooling samples from the six GENIUS T2D cohorts before calculation.",
+  "canonicalAllele": {
+    "id": "CAR:CA123287",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll027"
+  },
+  "condition": {
+    "id": "CGEX:GenCond012",
+    "type": "GeneticCondition",
+    "phenotype": [
+      {
+        "id": "HP:0011014",
+        "label": "Abnormal Glucose Homeostasis"
+      }
+    ]
+  },
+  "oddsRatio": 1.06,
+  "confidenceLevel": 95.0,
+  "caseGroupFrequency": {
+    "id": "CGEX:AllFreq034",
+    "type": "PopulationAlleleFrequencyStatement",
+    "ascertainment": {
+      "id": "CGEX:Ascrt0002",
+      "label": "GENIUS T2D Cases"
+    },
+    "allele": {
+      "id": "CAR:CA123287",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll027"
+    },
+    "alleleCount": 1198,
+    "alleleNumber": 7344,
+    "individualCount": 3672,
+    "homozygousAlleleIndividualCount": 113,
+    "heterozygousAlleleIndividualCount": 972,
+    "population": {
+      "id": "GNOMAD:nfe",
+      "label": "Non-Finnish European"
+    },
+    "userLabelDictionary": [
+      {
+        "id": "CGEX:UsrLabl002",
+        "type": "UserLabel",
+        "description": "Case group is composed of cases from six cohorts from the GENIUS T2D consortium.  Case status is defined per-cohort.",
+        "labelFor": {
+          "id": "CGEX:Ascrt0002",
+          "label": "GENIUS T2D Cases"
+        }
+      }
+    ]
+  },
+  "controlGroupFrequency": {
+    "id": "CGEX:AllFreq035",
+    "type": "PopulationAlleleFrequencyStatement",
+    "ascertainment": {
+      "id": "CGEX:Ascrt0003",
+      "label": "GENIUS T2D Controls"
+    },
+    "allele": {
+      "id": "CAR:CA123287",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll027"
+    },
+    "alleleCount": 936,
+    "alleleNumber": 5870,
+    "individualCount": 2935,
+    "homozygousAlleleIndividualCount": 77,
+    "heterozygousAlleleIndividualCount": 782,
+    "population": {
+      "id": "GNOMAD:nfe",
+      "label": "Non-Finnish European"
+    },
+    "userLabelDictionary": [
+      {
+        "id": "CGEX:UsrLabl003",
+        "type": "UserLabel",
+        "description": "Controls group is composed of controls from six cohorts from the GENIUS T2D consortium.  Controls status is defined per-cohort.",
+        "labelFor": {
+          "id": "CGEX:Ascrt0003",
+          "label": "GENIUS T2D Controls"
+        }
+      }
+    ]
+  },
+  "confidenceIntervalLower": 0.96,
+  "confidenceIntervalUpper": 1.18,
+  "contribution": [
+    {
+      "type": "Contribution",
+      "agent": {
+        "id": "CGEX:Agent001",
+        "type": "Agent",
+        "label": "Harry Stevenson"
+      },
+      "contributionDate": "9/13/16",
+      "contributionRole": {
+        "id": "SEPIO:0000156",
+        "label": "curator role"
+      }
+    }
+  ],
+  "source": [
+    "http://www.ncbi.nlm.nih.gov/pubmed/23633196"
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="../tech/details/details.html#CGEX:CaseCtrl033">CGEX:CaseCtrl033</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>Did not calculate formal odds ratio</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CAR:CA024311">CAR:CA024311</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:GenCond011">CGEX:GenCond011</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:AllFreq032">CGEX:AllFreq032</a></p>
+         </td>
+          <td>
+              <p><a href="../tech/details/details.html#CGEX:AllFreq031">CGEX:AllFreq031</a></p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:CaseCtrl033"><pre><code>{
+  "id": "CGEX:CaseCtrl033",
+  "type": "CaseControlAlleleFrequencyStatement",
+  "description": "Did not calculate formal odds ratio",
+  "canonicalAllele": {
+    "id": "CAR:CA024311",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll026"
+  },
+  "condition": {
+    "id": "CGEX:GenCond011",
+    "type": "GeneticCondition",
+    "disease": [
+      {
+        "id": "Orphanet:423",
+        "label": "Malignant hyperthermia"
+      }
+    ],
+    "inheritancePattern": {
+      "id": "HP:0000006",
+      "label": "Autosomal Dominant"
+    }
+  },
+  "caseGroupFrequency": {
+    "id": "CGEX:AllFreq032",
+    "type": "PopulationAlleleFrequencyStatement",
+    "description": "This allele is thought to account for between 2% and 10% of patients with Malignant hyperthermia.",
+    "allele": {
+      "id": "CAR:CA024311",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll026"
+    }
+  },
+  "controlGroupFrequency": {
+    "id": "CGEX:AllFreq031",
+    "type": "PopulationAlleleFrequencyStatement",
+    "ascertainment": {
+      "id": "SEPIO:0000332",
+      "label": "ExAC ascertainment method"
+    },
+    "allele": {
+      "id": "CAR:CA024311",
+      "type": "CanonicalAllele",
+      "relatedContextualAllele": "CGEX:CtxAll026"
+    },
+    "alleleCount": 9,
+    "alleleNumber": 66740
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="list-group sidenav">
+            <ul class="list-unstyled">
+              <li class="list-group-item">
+                <h5><a href="../">Interpretation Overview</a></h5>
+              </li>
+              <li class='list-group-item'><h5><a href="../user/">User Guide</a></h5></li>
+              <li class='list-group-item'><h5><a href="../tech/">Technical Reference</a></h5></li>
+              <!-- Old style.  We might still need the model here? -->
+              <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="container  background-trans padding-top-xl">
+      <div class="row">
+        <hr />
+        <div class="col-md-col-sm-12 text-center"> 
+          © 2017 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../javascripts/jquery.js"></script><script src="../javascripts/bootstrap.js"></script><script src="../javascripts/jquery.jsonview.js"></script><script src="../javascripts/all.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>
