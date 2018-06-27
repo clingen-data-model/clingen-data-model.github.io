@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen DataExchange Model
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../stylesheets/brand2.css" rel="stylesheet" /><link href="../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+    
+      <div class="container-fluid hero-background">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="../images/clingen-doc-logo.png" />
+</a>            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+                    <li class="allele" >
+                      <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span> Allele Model</a></li>
+                    </li>
+                    <li class="interpretation" >
+                      <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span> Interpretation Model</a></li>
+                    </li>
+                <li>
+                    <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+          </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+              <h1 class="header">InSilicoPredictionScoreStatement</h1>
+              <ol class="breadcrumb bg-none margin-none">
+                <li><a href="../">Interpretation Model</a></li>
+<li><a href="./">Entities</a></li>
+
+              </ol>
+                <blockquote><p>A statement describing a quantitative score fron an InSilico Prediction</p>
+                <STRONG>
+                  <div>SEPIO:0000368</div>
+                      <i>Descended from Statement</i>
+                </STRONG>
+                </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
+          <article>
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2>Scope and Usage</h2>
+    
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+                <th>Defined in</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>canonicalAllele</td>
+                <td>CanonicalAllele</td>
+                <td>1..1</td>
+                <td></td>
+                <td>SEPIO:0000275</td>
+                <td>InSilicoPredictionScoreStatement</td>
+            </tr>
+            <tr>
+                <td>transcript</td>
+                <td>@id</td>
+                <td>0..1</td>
+                <td>The transcript on which the prediction is made</td>
+                <td>SEPIO:0000283</td>
+                <td>InSilicoPredictionScoreStatement</td>
+            </tr>
+            <tr>
+                <td>predictionType</td>
+                <td>@id</td>
+                <td>1..1</td>
+                <td></td>
+                <td>SEPIO:0000255</td>
+                <td>InSilicoPredictionScoreStatement</td>
+            </tr>
+            <tr>
+                <td>prediction</td>
+                <td>number</td>
+                <td>1..1</td>
+                <td>The quantitative score ascribed by an InSilico predictor</td>
+                <td>SEPIO:0000168</td>
+                <td>InSilicoPredictionScoreStatement</td>
+            </tr>
+            <tr>
+                <td>algorithm</td>
+                <td>string</td>
+                <td>0..1</td>
+                <td></td>
+                <td>SEPIO:0000130</td>
+                <td>InSilicoPredictionScoreStatement</td>
+            </tr>
+            <tr>
+                <td>label</td>
+                <td>string</td>
+                <td>0..1</td>
+                <td>A name given to the resource.</td>
+                <td>RDFS:label</td>
+                <td>Entity</td>
+            </tr>
+            <tr>
+                <td>description</td>
+                <td>string</td>
+                <td>0..1</td>
+                <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                <td>DC:description</td>
+                <td>Entity</td>
+            </tr>
+            <tr>
+                <td>userLabelDictionary</td>
+                <td>UserLabel</td>
+                <td>0..*</td>
+                <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
+                <td>SEPIO:0000422</td>
+                <td>Statement</td>
+            </tr>
+            <tr>
+                <td>outcomeQualifier</td>
+                <td>string</td>
+                <td>0..1</td>
+                <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                <td>SEPIO:0000346</td>
+                <td>Statement</td>
+            </tr>
+            <tr>
+                <td>evidenceLine</td>
+                <td>EvidenceLine</td>
+                <td>0..*</td>
+                <td>supporting evidence</td>
+                <td>SEPIO:0000006</td>
+                <td>Statement</td>
+            </tr>
+            <tr>
+                <td>contribution</td>
+                <td>Contribution</td>
+                <td>0..*</td>
+                <td>The contributions (agent, time and role) made to this entity</td>
+                <td>SEPIO:0000159</td>
+                <td>Statement</td>
+            </tr>
+            <tr>
+                <td>source</td>
+                <td>string</td>
+                <td>0..*</td>
+                <td>A string indicating the source of a Statement</td>
+                <td>DC:source</td>
+                <td>Statement</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>label</th>
+        <th>description</th>
+        <th>userLabelDictionary</th>
+        <th>outcomeQualifier</th>
+        <th>evidenceLine</th>
+        <th>canonicalAllele</th>
+        <th>transcript</th>
+        <th>predictionType</th>
+        <th>prediction</th>
+        <th>algorithm</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="details/details.html#CGEX:InSilicoPredScore143">CGEX:InSilicoPredScore143</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CAR:CA022019">CAR:CA022019</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#REFSEQ:NM_000363.4">REFSEQ:NM_000363.4</a></p> (NM_000363.4)
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000323">SEPIO:0000323</a></p> (splicing prediction)
+         </td>
+          <td>
+              <p>71.53</p>
+         </td>
+          <td>
+              <p>SSF</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:InSilicoPredScore143"><pre><code>{
+  "id": "CGEX:InSilicoPredScore143",
+  "type": "InSilicoPredictionScoreStatement",
+  "transcript": {
+    "id": "REFSEQ:NM_000363.4",
+    "label": "NM_000363.4"
+  },
+  "canonicalAllele": {
+    "id": "CAR:CA022019",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll075"
+  },
+  "predictionType": {
+    "id": "SEPIO:0000323",
+    "label": "splicing prediction"
+  },
+  "algorithm": "SSF",
+  "prediction": 71.53
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:InSilicoPredScore144">CGEX:InSilicoPredScore144</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CAR:CA022019">CAR:CA022019</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#REFSEQ:NM_000363.4">REFSEQ:NM_000363.4</a></p> (NM_000363.4)
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000323">SEPIO:0000323</a></p> (splicing prediction)
+         </td>
+          <td>
+              <p>7.39</p>
+         </td>
+          <td>
+              <p>MaxEnt</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:InSilicoPredScore144"><pre><code>{
+  "id": "CGEX:InSilicoPredScore144",
+  "type": "InSilicoPredictionScoreStatement",
+  "transcript": {
+    "id": "REFSEQ:NM_000363.4",
+    "label": "NM_000363.4"
+  },
+  "canonicalAllele": {
+    "id": "CAR:CA022019",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll075"
+  },
+  "predictionType": {
+    "id": "SEPIO:0000323",
+    "label": "splicing prediction"
+  },
+  "algorithm": "MaxEnt",
+  "prediction": 7.39
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:InSilicoPredScore145">CGEX:InSilicoPredScore145</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CAR:CA022019">CAR:CA022019</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#REFSEQ:NM_000363.4">REFSEQ:NM_000363.4</a></p> (NM_000363.4)
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000323">SEPIO:0000323</a></p> (splicing prediction)
+         </td>
+          <td>
+              <p>0.87</p>
+         </td>
+          <td>
+              <p>NNSPLICE</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:InSilicoPredScore145"><pre><code>{
+  "id": "CGEX:InSilicoPredScore145",
+  "type": "InSilicoPredictionScoreStatement",
+  "transcript": {
+    "id": "REFSEQ:NM_000363.4",
+    "label": "NM_000363.4"
+  },
+  "canonicalAllele": {
+    "id": "CAR:CA022019",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll075"
+  },
+  "predictionType": {
+    "id": "SEPIO:0000323",
+    "label": "splicing prediction"
+  },
+  "algorithm": "NNSPLICE",
+  "prediction": 0.87
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:InSilicoPredScore146">CGEX:InSilicoPredScore146</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CAR:CA022019">CAR:CA022019</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#REFSEQ:NM_000363.4">REFSEQ:NM_000363.4</a></p> (NM_000363.4)
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000323">SEPIO:0000323</a></p> (splicing prediction)
+         </td>
+          <td>
+              <p>7.75</p>
+         </td>
+          <td>
+              <p>GeneSplicer</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:InSilicoPredScore146"><pre><code>{
+  "id": "CGEX:InSilicoPredScore146",
+  "type": "InSilicoPredictionScoreStatement",
+  "transcript": {
+    "id": "REFSEQ:NM_000363.4",
+    "label": "NM_000363.4"
+  },
+  "canonicalAllele": {
+    "id": "CAR:CA022019",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll075"
+  },
+  "predictionType": {
+    "id": "SEPIO:0000323",
+    "label": "splicing prediction"
+  },
+  "algorithm": "GeneSplicer",
+  "prediction": 7.75
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:InSilicoPredScore147">CGEX:InSilicoPredScore147</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CAR:CA022019">CAR:CA022019</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#REFSEQ:NM_000363.4">REFSEQ:NM_000363.4</a></p> (NM_000363.4)
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000323">SEPIO:0000323</a></p> (splicing prediction)
+         </td>
+          <td>
+              <p>81.75</p>
+         </td>
+          <td>
+              <p>HSF</p>
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:InSilicoPredScore147"><pre><code>{
+  "id": "CGEX:InSilicoPredScore147",
+  "type": "InSilicoPredictionScoreStatement",
+  "transcript": {
+    "id": "REFSEQ:NM_000363.4",
+    "label": "NM_000363.4"
+  },
+  "canonicalAllele": {
+    "id": "CAR:CA022019",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll075"
+  },
+  "predictionType": {
+    "id": "SEPIO:0000323",
+    "label": "splicing prediction"
+  },
+  "algorithm": "HSF",
+  "prediction": 81.75
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="list-group sidenav">
+            <ul class="list-unstyled">
+              <li class="list-group-item">
+                <h5><a href="../">Model Overview</a></h5>
+              </li>
+              <li class="list-group-item">
+                <h5><a href="../getting_started.html">Getting Started</a></h5>
+              </li>
+              <li class="list-group-item">
+                <h5><a href="../deeper_dive.html">A Deeper Dive</a></h5>
+              </li>
+              <li class="list-group-item">
+                <h5><a href="../faq.html">FAQ</a></h5>
+              </li>
+              <li class="list-group-item"><h5><a href="./">Entities</a></h5><ul class='list-unstyled'><li><a href="Agent.html"></a></li><li><a href="AggregateCosegregationStatement.html"></a></li><li><a href="AlleleConservationScoreStatement.html"></a></li><li><a href="AlleleConservationStatement.html"></a></li><li><a href="AlleleFunctionalImpactStatement.html"></a></li><li><a href="AlleleMolecularConsequenceStatement.html"></a></li><li><a href="BenignMissenseVariationRateStatement.html"></a></li><li><a href="CanonicalAllele.html"></a></li><li><a href="CaseControlAlleleFrequencyStatement.html"></a></li><li><a href="ConditionMechanismStatement.html"></a></li><li><a href="ConditionPenetranceStatement.html"></a></li><li><a href="ConditionPrevelanceStatement.html"></a></li><li><a href="ContextualAllele.html"></a></li><li><a href="ContextualAlleleName.html"></a></li><li><a href="Contribution.html"></a></li><li><a href="CriterionAssessment.html"></a></li><li><a href="DomainEntity.html"></a></li><li><a href="Entity.html"></a></li><li><a href="EvidenceLine.html"></a></li><li><a href="FamilyConditionStatement.html"></a></li><li><a href="FamilyCosegregationStatement.html"></a></li><li><a href="GeneticCondition.html"></a></li><li><a href="Genotype.html"></a></li><li><a href="Haplotype.html"></a></li><li><a href="IdentifierSystem.html"></a></li><li class="active"><a href="InSilicoPredictionScoreStatement.html"></a></li><li><a href="InSilicoPredictionStatement.html"></a></li><li><a href="IndividualAlleleInheritanceStatement.html"></a></li><li><a href="IndividualConditionStatement.html"></a></li><li><a href="IndividualGenotypeStatement.html"></a></li><li><a href="LocusHeterogeneityStatement.html"></a></li><li><a href="NullAlleleStatement.html"></a></li><li><a href="PopulationAlleleFrequencyStatement.html"></a></li><li><a href="Position.html"></a></li><li><a href="ReferenceCoordinate.html"></a></li><li><a href="RegionAllelesStatement.html"></a></li><li><a href="RegionTypeStatement.html"></a></li><li><a href="SequenceLocation.html"></a></li><li><a href="Statement.html"></a></li><li><a href="UserLabel.html"></a></li><li><a href="ValueSet.html"></a></li><li><a href="VariantPathogenicityInterpretation.html"></a></li><li><a href="VariantPathogenicityInterpretationCriterion.html"></a></li><li><a href="VariantPathogenicityInterpretationGuideline.html"></a></li><li><a href="json_schema.html">JSON Schema</a></li></ul></li>
+              <li class='list-group-item'><h5><a href="../terminologies/">Terminologies</a></h5></li>
+              <li class="list-group-item">
+                <h5><a href="../projects.html">Projects & Tools</a></h5>
+              </li>
+              <!-- Old style.  We might still need the model here? -->
+              <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="container  background-trans padding-top-xl">
+      <div class="row">
+        <hr />
+        <div class="col-md-col-sm-12 text-center"> 
+          © 2018 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../javascripts/jquery.js"></script><script src="../javascripts/bootstrap.js"></script><script src="../javascripts/jquery.jsonview.js"></script><script src="../javascripts/all.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>

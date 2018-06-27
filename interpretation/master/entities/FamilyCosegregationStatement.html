@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen DataExchange Model
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../stylesheets/brand2.css" rel="stylesheet" /><link href="../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+    
+      <div class="container-fluid hero-background">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="../images/clingen-doc-logo.png" />
+</a>            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+                    <li class="allele" >
+                      <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span> Allele Model</a></li>
+                    </li>
+                    <li class="interpretation" >
+                      <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span> Interpretation Model</a></li>
+                    </li>
+                <li>
+                    <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+          </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+              <h1 class="header">FamilyCosegregationStatement</h1>
+              <ol class="breadcrumb bg-none margin-none">
+                <li><a href="../">Interpretation Model</a></li>
+<li><a href="./">Entities</a></li>
+
+              </ol>
+                <blockquote><p>A statement describing the observed correlation between transmission of a particular allele and a particular genetic condition, across a single family pedigree (i.e. the co-segregation of an allele and a condition as observed across a family pedigree).
+</p>
+                <STRONG>
+                  <div>SEPIO:0000247</div>
+                      <i>Descended from Statement</i>
+                </STRONG>
+                </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
+          <article>
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2>Scope and Usage</h2>
+    <p>Co-segregatation' refers to the correlation between the presence of a particular allele and the manifestation of a condition in a family pedigree. When an allele and a condition are only found together in family members, they are said to co-segregate.</p>
+
+<p>When there are no individuals that have the allele without the condition or the condition without the allele, the allele and condition are said to co-segregate.</p>
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+                <th>Defined in</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>canonicalAllele</td>
+                <td>CanonicalAllele</td>
+                <td>1..1</td>
+                <td>Allele being tested for cosegregation</td>
+                <td>SEPIO:0000275</td>
+                <td>FamilyCosegregationStatement</td>
+            </tr>
+            <tr>
+                <td>condition</td>
+                <td>GeneticCondition</td>
+                <td>1..1</td>
+                <td>Condition being tested for cosegregation</td>
+                <td>SEPIO:0000276</td>
+                <td>FamilyCosegregationStatement</td>
+            </tr>
+            <tr>
+                <td>family</td>
+                <td>@id</td>
+                <td>1..1</td>
+                <td>Family in which segregation is being tested</td>
+                <td>SEPIO:0000282</td>
+                <td>FamilyCosegregationStatement</td>
+            </tr>
+            <tr>
+                <td>phenotypePositiveAllelePositive</td>
+                <td>integer</td>
+                <td>0..1</td>
+                <td>Number of (non-proband) individuals with both the condition and the allele</td>
+                <td>SEPIO:0000292</td>
+                <td>FamilyCosegregationStatement</td>
+            </tr>
+            <tr>
+                <td>phenotypePositiveAlleleNegative</td>
+                <td>integer</td>
+                <td>0..1</td>
+                <td>Number of (non-proband) individuals with the condition and without the allele</td>
+                <td>SEPIO:0000290</td>
+                <td>FamilyCosegregationStatement</td>
+            </tr>
+            <tr>
+                <td>phenotypeNegativeAllelePositive</td>
+                <td>integer</td>
+                <td>0..1</td>
+                <td>Number of (non-proband) individuals without the condition and with the allele</td>
+                <td>SEPIO:0000291</td>
+                <td>FamilyCosegregationStatement</td>
+            </tr>
+            <tr>
+                <td>phenotypeNegativeAlleleNegative</td>
+                <td>integer</td>
+                <td>0..1</td>
+                <td>The number of non-proband family members that have neither the allele nor the phenotype</td>
+                <td>SEPIO:0000289</td>
+                <td>FamilyCosegregationStatement</td>
+            </tr>
+            <tr>
+                <td>pedigree</td>
+                <td>string</td>
+                <td>0..*</td>
+                <td>Detailed information about the family structure, affected status, and genotypes in pedigree/linkage format.</td>
+                <td>SEPIO:0000318</td>
+                <td>FamilyCosegregationStatement</td>
+            </tr>
+            <tr>
+                <td>columns</td>
+                <td>string</td>
+                <td>0..*</td>
+                <td>Column names for the pedigree data element</td>
+                <td>SEPIO:0000316</td>
+                <td>FamilyCosegregationStatement</td>
+            </tr>
+            <tr>
+                <td>genotypeValues</td>
+                <td>string</td>
+                <td>0..*</td>
+                <td>Map describing how genotypes are represented in the pedigree</td>
+                <td>SEPIO:0000317</td>
+                <td>FamilyCosegregationStatement</td>
+            </tr>
+            <tr>
+                <td>affectedValues</td>
+                <td>string</td>
+                <td>0..*</td>
+                <td>Map describing how affected status is represented in the pedigree</td>
+                <td>SEPIO:0000313</td>
+                <td>FamilyCosegregationStatement</td>
+            </tr>
+            <tr>
+                <td>inconsistentSegregationsObserved</td>
+                <td>@id</td>
+                <td>0..1</td>
+                <td>Whether phenotype positive/allele negative or phenotype negative/allele positive individuals are in the family</td>
+                <td>SEPIO:0000314</td>
+                <td>FamilyCosegregationStatement</td>
+            </tr>
+            <tr>
+                <td>inconsistentSegregationCount</td>
+                <td>integer</td>
+                <td>0..1</td>
+                <td>The number of segregations inconsistent with allele pathogenicity</td>
+                <td>SEPIO:0000315</td>
+                <td>FamilyCosegregationStatement</td>
+            </tr>
+            <tr>
+                <td>label</td>
+                <td>string</td>
+                <td>0..1</td>
+                <td>A name given to the resource.</td>
+                <td>RDFS:label</td>
+                <td>Entity</td>
+            </tr>
+            <tr>
+                <td>description</td>
+                <td>string</td>
+                <td>0..1</td>
+                <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                <td>DC:description</td>
+                <td>Entity</td>
+            </tr>
+            <tr>
+                <td>userLabelDictionary</td>
+                <td>UserLabel</td>
+                <td>0..*</td>
+                <td>An optional label defined by the user. Used for custom entities or to clarify the preferred user label on existing entities with non-preferred labels.</td>
+                <td>SEPIO:0000422</td>
+                <td>Statement</td>
+            </tr>
+            <tr>
+                <td>outcomeQualifier</td>
+                <td>string</td>
+                <td>0..1</td>
+                <td>Use “NOT” as the value of this property to assert that the statement is negated.</td>
+                <td>SEPIO:0000346</td>
+                <td>Statement</td>
+            </tr>
+            <tr>
+                <td>evidenceLine</td>
+                <td>EvidenceLine</td>
+                <td>0..*</td>
+                <td>supporting evidence</td>
+                <td>SEPIO:0000006</td>
+                <td>Statement</td>
+            </tr>
+            <tr>
+                <td>contribution</td>
+                <td>Contribution</td>
+                <td>0..*</td>
+                <td>The contributions (agent, time and role) made to this entity</td>
+                <td>SEPIO:0000159</td>
+                <td>Statement</td>
+            </tr>
+            <tr>
+                <td>source</td>
+                <td>string</td>
+                <td>0..*</td>
+                <td>A string indicating the source of a Statement</td>
+                <td>DC:source</td>
+                <td>Statement</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>label</th>
+        <th>description</th>
+        <th>userLabelDictionary</th>
+        <th>outcomeQualifier</th>
+        <th>evidenceLine</th>
+        <th>canonicalAllele</th>
+        <th>condition</th>
+        <th>family</th>
+        <th>phenotypePositiveAllelePositive</th>
+        <th>phenotypePositiveAlleleNegative</th>
+        <th>phenotypeNegativeAllelePositive</th>
+        <th>phenotypeNegativeAlleleNegative</th>
+        <th>pedigree</th>
+        <th>columns</th>
+        <th>genotypeValues</th>
+        <th>affectedValues</th>
+        <th>inconsistentSegregationsObserved</th>
+        <th>inconsistentSegregationCount</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="details/details.html#CGEX:FamSeg103">CGEX:FamSeg103</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>identified in 1 individual with HCM. Segregation analysis determined 5 other members of the family also carried this variant. However, only 3 of those family members had HCM (aged 48-75). The 2 other family members were young and asymptomatic. So from this paper, only count 3 segregations. The two apparently refuting segregations can be ignored due to the age-dependent penetrance of HCM.</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CAR:CA010136">CAR:CA010136</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:GenCond020">CGEX:GenCond020</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Fam363">CGEX:Fam363</a></p> (Family #001)
+         </td>
+          <td>
+              <p>3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>2</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamSeg103"><pre><code>{
+  "id": "CGEX:FamSeg103",
+  "type": "FamilyCosegregationStatement",
+  "description": "identified in 1 individual with HCM. Segregation analysis determined 5 other members of the family also carried this variant. However, only 3 of those family members had HCM (aged 48-75). The 2 other family members were young and asymptomatic. So from this paper, only count 3 segregations. The two apparently refuting segregations can be ignored due to the age-dependent penetrance of HCM.",
+  "condition": {
+    "id": "CGEX:GenCond020",
+    "type": "GeneticCondition",
+    "disease": [
+      {
+        "id": "Orphanet:217569",
+        "label": "hypertrophic cardiomyopathy"
+      }
+    ],
+    "inheritancePattern": {
+      "id": "HP:0000006",
+      "label": "Autosomal Dominant"
+    }
+  },
+  "canonicalAllele": {
+    "id": "CAR:CA010136",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll067"
+  },
+  "family": {
+    "id": "CGEX:Fam363",
+    "label": "Family #001"
+  },
+  "phenotypePositiveAllelePositive": 3,
+  "phenotypeNegativeAllelePositive": 2,
+  "contribution": [
+    {
+      "id": "CGEX:Contrib481",
+      "type": "Contribution",
+      "agent": {
+        "id": "CGEX:Agent007",
+        "type": "Agent",
+        "label": "Stefan DiMarino"
+      },
+      "contributionDate": "9/13/16",
+      "contributionRole": {
+        "id": "SEPIO:0000156",
+        "label": "curator role"
+      }
+    }
+  ],
+  "source": [
+    "http://www.ncbi.nlm.nih.gov/pubmed/17081393"
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:FamSeg104">CGEX:FamSeg104</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>In LMM internal family, c.1351+1G>A was identified in 1 individual with HCM. Variant also found in individual’s sister - who also had clinical dx of HCM.</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CAR:CA010136">CAR:CA010136</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:GenCond020">CGEX:GenCond020</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Fam364">CGEX:Fam364</a></p> (Family #002)
+         </td>
+          <td>
+              <p>1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamSeg104"><pre><code>{
+  "id": "CGEX:FamSeg104",
+  "type": "FamilyCosegregationStatement",
+  "description": "In LMM internal family, c.1351+1G>A was identified in 1 individual with HCM. Variant also found in individual’s sister - who also had clinical dx of HCM.",
+  "condition": {
+    "id": "CGEX:GenCond020",
+    "type": "GeneticCondition",
+    "disease": [
+      {
+        "id": "Orphanet:217569",
+        "label": "hypertrophic cardiomyopathy"
+      }
+    ],
+    "inheritancePattern": {
+      "id": "HP:0000006",
+      "label": "Autosomal Dominant"
+    }
+  },
+  "canonicalAllele": {
+    "id": "CAR:CA010136",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll067"
+  },
+  "family": {
+    "id": "CGEX:Fam364",
+    "label": "Family #002"
+  },
+  "phenotypePositiveAllelePositive": 1,
+  "contribution": [
+    {
+      "id": "CGEX:Contrib482",
+      "type": "Contribution",
+      "agent": {
+        "id": "CGEX:Agent001",
+        "type": "Agent",
+        "label": "Harry Stevenson"
+      },
+      "contributionDate": "9/13/16",
+      "contributionRole": {
+        "id": "SEPIO:0000156",
+        "label": "curator role"
+      }
+    }
+  ],
+  "source": [
+    "http://partners.org/ppm/lmm/gi/variant/12345"
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:FamSeg107">CGEX:FamSeg107</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>proband and 5 affected family members all homozygous for NM_206933.2(USH2A):c.1000C>G (p.Arg334Gly).</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CAR:CA143213">CAR:CA143213</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:GenCond021">CGEX:GenCond021</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Fam365">CGEX:Fam365</a></p> (Family #003)
+         </td>
+          <td>
+              <p>5</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamSeg107"><pre><code>{
+  "id": "CGEX:FamSeg107",
+  "type": "FamilyCosegregationStatement",
+  "description": "proband and 5 affected family members all homozygous for NM_206933.2(USH2A):c.1000C>G (p.Arg334Gly).",
+  "condition": {
+    "id": "CGEX:GenCond021",
+    "type": "GeneticCondition",
+    "disease": [
+      {
+        "id": "Orphanet:886",
+        "label": "Usher syndrome"
+      }
+    ],
+    "inheritancePattern": {
+      "id": "HP:0000007",
+      "label": "Autosomal Recessive"
+    }
+  },
+  "canonicalAllele": {
+    "id": "CAR:CA143213",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll066"
+  },
+  "family": {
+    "id": "CGEX:Fam365",
+    "label": "Family #003"
+  },
+  "phenotypePositiveAllelePositive": 5
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:FamSeg108">CGEX:FamSeg108</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>c.1000C>T identified in het state in 1 individual with Usher. Individual compound het with Gly1840Val USH2A variant - confirmed in trans. Gly1840Val called Pathogenic. Individual has 3 affected sibs all of whom are compound het with 1000C>T & Gly1840Val. One additional sib only carried 1000C>T and is unaffected.</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CAR:CA143213">CAR:CA143213</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:GenCond021">CGEX:GenCond021</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Fam366">CGEX:Fam366</a></p> (Family #004)
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamSeg108"><pre><code>{
+  "id": "CGEX:FamSeg108",
+  "type": "FamilyCosegregationStatement",
+  "description": "c.1000C>T identified in het state in 1 individual with Usher. Individual compound het with Gly1840Val USH2A variant - confirmed in trans. Gly1840Val called Pathogenic. Individual has 3 affected sibs all of whom are compound het with 1000C>T & Gly1840Val. One additional sib only carried 1000C>T and is unaffected.",
+  "condition": {
+    "id": "CGEX:GenCond021",
+    "type": "GeneticCondition",
+    "disease": [
+      {
+        "id": "Orphanet:886",
+        "label": "Usher syndrome"
+      }
+    ],
+    "inheritancePattern": {
+      "id": "HP:0000007",
+      "label": "Autosomal Recessive"
+    }
+  },
+  "canonicalAllele": {
+    "id": "CAR:CA143213",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll066"
+  },
+  "family": {
+    "id": "CGEX:Fam366",
+    "label": "Family #004"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:FamSeg196">CGEX:FamSeg196</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>observed in one case diagnosed with Familial Hypercholesterolemia, characterized by elevated LDLC levels. Two siblings of the proband also have elevated LDLC levels but neither carry the 313+2T>C variant.</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CAR:CA023690">CAR:CA023690</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:GenCond035">CGEX:GenCond035</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Fam370">CGEX:Fam370</a></p> (Family #008)
+         </td>
+          <td>
+              <p>0</p>
+         </td>
+          <td>
+              <p>2</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO-CG:99011">SEPIO-CG:99011</a></p> (present)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamSeg196"><pre><code>{
+  "id": "CGEX:FamSeg196",
+  "type": "FamilyCosegregationStatement",
+  "description": "observed in one case diagnosed with Familial Hypercholesterolemia, characterized by elevated LDLC levels. Two siblings of the proband also have elevated LDLC levels but neither carry the 313+2T>C variant.",
+  "condition": {
+    "id": "CGEX:GenCond035",
+    "type": "GeneticCondition",
+    "disease": [
+      {
+        "id": "OMIM:143890",
+        "label": "Hypercholesterolemia, Familial"
+      }
+    ],
+    "inheritancePattern": {
+      "id": "HP:0000006",
+      "label": "Autosomal Dominant"
+    }
+  },
+  "canonicalAllele": {
+    "id": "CAR:CA023690",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll094"
+  },
+  "family": {
+    "id": "CGEX:Fam370",
+    "label": "Family #008"
+  },
+  "phenotypePositiveAllelePositive": 0,
+  "phenotypePositiveAlleleNegative": 2,
+  "inconsistentSegregationsObserved": {
+    "id": "SEPIO-CG:99011",
+    "label": "present"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:FamSeg197">CGEX:FamSeg197</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              <p>The individual with HCM but without the allele is likely a phenocopy explained
+by environmental factors (obese, alcohol)</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CAR:CA010777">CAR:CA010777</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:GenCond065">CGEX:GenCond065</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Fam371">CGEX:Fam371</a></p> (Family #009)
+         </td>
+          <td>
+              <p>3</p>
+         </td>
+          <td>
+              <p>1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO-CG:99011">SEPIO-CG:99011</a></p> (present)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamSeg197"><pre><code>{
+  "id": "CGEX:FamSeg197",
+  "type": "FamilyCosegregationStatement",
+  "description": "The individual with HCM but without the allele is likely a phenocopy explained\nby environmental factors (obese, alcohol)",
+  "condition": {
+    "id": "CGEX:GenCond065",
+    "type": "GeneticCondition",
+    "disease": [
+      {
+        "id": "Orphanet:217569",
+        "label": "hypertrophic cardiomyopathy"
+      }
+    ],
+    "inheritancePattern": {
+      "id": "HP:0000006",
+      "label": "Autosomal Dominant"
+    }
+  },
+  "canonicalAllele": {
+    "id": "CAR:CA010777",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll095"
+  },
+  "family": {
+    "id": "CGEX:Fam371",
+    "label": "Family #009"
+  },
+  "phenotypePositiveAllelePositive": 3,
+  "phenotypePositiveAlleleNegative": 1,
+  "inconsistentSegregationsObserved": {
+    "id": "SEPIO-CG:99011",
+    "label": "present"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:FamSeg076">CGEX:FamSeg076</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CAR:CA090930">CAR:CA090930</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:GenCond056">CGEX:GenCond056</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Fam373">CGEX:Fam373</a></p> (Family #011)
+         </td>
+          <td>
+              <p>0</p>
+         </td>
+          <td>
+              <p>0</p>
+         </td>
+          <td>
+              <p>2</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO-CG:99011">SEPIO-CG:99011</a></p> (present)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamSeg076"><pre><code>{
+  "id": "CGEX:FamSeg076",
+  "type": "FamilyCosegregationStatement",
+  "condition": {
+    "id": "CGEX:GenCond056",
+    "type": "GeneticCondition",
+    "disease": [
+      {
+        "id": "Orphanet:648",
+        "label": "noonan syndrome"
+      }
+    ],
+    "inheritancePattern": {
+      "id": "HP:0000006",
+      "label": "Autosomal Dominant"
+    }
+  },
+  "canonicalAllele": {
+    "id": "CAR:CA090930",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll130"
+  },
+  "family": {
+    "id": "CGEX:Fam373",
+    "label": "Family #011"
+  },
+  "phenotypePositiveAllelePositive": 0,
+  "phenotypeNegativeAllelePositive": 2,
+  "phenotypePositiveAlleleNegative": 0,
+  "inconsistentSegregationsObserved": {
+    "id": "SEPIO-CG:99011",
+    "label": "present"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:FamSeg111">CGEX:FamSeg111</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CAR:CA501226">CAR:CA501226</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:GenCond051">CGEX:GenCond051</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Fam367">CGEX:Fam367</a></p> (Family #005)
+         </td>
+          <td>
+              <p>2</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamSeg111"><pre><code>{
+  "id": "CGEX:FamSeg111",
+  "type": "FamilyCosegregationStatement",
+  "condition": {
+    "id": "CGEX:GenCond051",
+    "type": "GeneticCondition",
+    "description": "Breast Ovarian Cancer, Autosomal Dominant",
+    "disease": [
+      {
+        "id": "MESH:D061325",
+        "label": "hereditary breast ovarian cancer"
+      }
+    ],
+    "inheritancePattern": {
+      "id": "HP:0000006",
+      "label": "Autosomal Dominant"
+    }
+  },
+  "canonicalAllele": {
+    "id": "CAR:CA501226",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll068"
+  },
+  "family": {
+    "id": "CGEX:Fam367",
+    "label": "Family #005"
+  },
+  "phenotypePositiveAllelePositive": 2
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:FamSeg113">CGEX:FamSeg113</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CAR:CA006429">CAR:CA006429</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:GenCond002">CGEX:GenCond002</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Fam368">CGEX:Fam368</a></p> (Family #006)
+         </td>
+          <td>
+              <p>1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>1</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>[[Fam006,Fam006.1,0,0,1,2,0/0],
+   [Fam006,Fam006.2,0,0,2,1,0/0],
+   [Fam006,Fam006.3,Fam006.1,Fam006.2,2,3,0/0],
+   [Fam006,Fam006.4,Fam006.1,Fam006.2,1,2,1/2],
+   [Fam006,Fam006.5,Fam006.1,Fam006.2,2,1,1/1],
+   [Fam006,Fam006.6,Fam006.1,Fam006.2,1,2,1/2]]</p>
+         </td>
+          <td>
+              <p>[“Family”,”Individual”,”Father”,”Mother”,”Sex”,”Affected”,”Genotype”]</p>
+         </td>
+          <td>
+              <p>{0: “Unknown”,1:”Reference”, 2: CA65}</p>
+         </td>
+          <td>
+              <p>{1: “Unaffected”, 2: “Affected”, 3: “Any Cardiovascular Abnormality”}</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamSeg113"><pre><code>{
+  "id": "CGEX:FamSeg113",
+  "type": "FamilyCosegregationStatement",
+  "condition": {
+    "id": "CGEX:GenCond002",
+    "type": "GeneticCondition",
+    "disease": [
+      {
+        "id": "Orphanet:217604",
+        "label": "dilated cardiomyopathy"
+      }
+    ],
+    "inheritancePattern": {
+      "id": "HP:0000006",
+      "label": "Autosomal Dominant"
+    }
+  },
+  "canonicalAllele": {
+    "id": "CAR:CA006429",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll069"
+  },
+  "family": {
+    "id": "CGEX:Fam368",
+    "label": "Family #006"
+  },
+  "phenotypePositiveAllelePositive": 1,
+  "phenotypeNegativeAllelePositive": 1,
+  "columns": [
+    "[“Family”,”Individual”,”Father”,”Mother”,”Sex”,”Affected”,”Genotype”]"
+  ],
+  "affectedValues": [
+    "{1: “Unaffected”, 2: “Affected”, 3: “Any Cardiovascular Abnormality”}"
+  ],
+  "genotypeValues": [
+    "{0: “Unknown”,1:”Reference”, 2: CA65}"
+  ],
+  "pedigree": [
+    "[[Fam006,Fam006.1,0,0,1,2,0/0],\n   [Fam006,Fam006.2,0,0,2,1,0/0],\n   [Fam006,Fam006.3,Fam006.1,Fam006.2,2,3,0/0],\n   [Fam006,Fam006.4,Fam006.1,Fam006.2,1,2,1/2],\n   [Fam006,Fam006.5,Fam006.1,Fam006.2,2,1,1/1],\n   [Fam006,Fam006.6,Fam006.1,Fam006.2,1,2,1/2]]"
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:FamSeg114">CGEX:FamSeg114</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CAR:CA006429">CAR:CA006429</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:GenCond002">CGEX:GenCond002</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Fam369">CGEX:Fam369</a></p> (Family #007)
+         </td>
+          <td>
+              <p>2</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>3</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p>[[Fam007, Fam007.1, 0, 0, 1, 3, 0/0, 0],
+   [Fam007, Fam007.2, 0, 0, 2, 1, 0/0, 0],
+   [Fam007, Fam007.3, 0, 0, 1, 3, 0/0, 0],
+   [Fam007, Fam007.4, 0, 0, 2, 1, 0/0, 0],
+   [Fam007, Fam007.5, 0, 0, 1, 3, 0/0, 0],
+   [Fam007, Fam007.6, Fam007.1, Fam007.2, 2, 3, 1/2, 1],
+   [Fam007, Fam007.7,0, 0, 1, 1, 0/0, 0],
+   [Fam007, Fam007.8, Fam007.1, Fam007.2, 2, 1, 1/2, 1],
+   [Fam007, Fam007.9,Fam007.3, Fam007.4, 1, 1, 0/0, 0],
+   [Fam007, Fam007.10, 0, 0, 1, 1, 0/0, 0],
+   [Fam007, Fam007.11, Fam007.5, Fam007.6, 2, 2, 1/2, 0],
+   [Fam007, Fam007.12, Fam007.5, Fam007.6, 1,2, 0/0, 0],
+   [Fam007, Fam007.13, Fam007.5, Fam007.6, 2,1, 1/1,0],
+   [Fam007, Fam007.14, Fam007.5, Fam007.6, 1, 1, 1/1, 0],
+   [Fam007, Fam007.15, Fam007.7, Fam007.8, 1, 2, 1/2, 0],
+   [Fam007, Fam007.16, Fam007.8, Fam007.9, 1, 2, 1/2, 0],
+   [Fam007, Fam007.17, Fam007.8, Fam007.9, 1, 2, 0/0,0],
+   [Fam007, Fam007.18, Fam007.8, Fam007.9, 1, 2, 0/0, 0],
+   [Fam007, Fam007.19, Fam007.10, Fam007.11, 1, 2, 0/0,0],
+   [Fam007.20,Fam007.10, Fam007.11, 1,1,1/1,0]]</p>
+         </td>
+          <td>
+              <p>[“Family”,”Individual”,”Father”,”Mother”,”Sex”,”Affected”,”Genotype”,”ObligateGenotype”]</p>
+         </td>
+          <td>
+              <p>{0: “Unknown”,1:”Reference”, 2: CA65}</p>
+         </td>
+          <td>
+              <p>{1: “Unaffected”, 2: “Affected”, 3: “Any Cardiovascular Abnormality”}</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamSeg114"><pre><code>{
+  "id": "CGEX:FamSeg114",
+  "type": "FamilyCosegregationStatement",
+  "condition": {
+    "id": "CGEX:GenCond002",
+    "type": "GeneticCondition",
+    "disease": [
+      {
+        "id": "Orphanet:217604",
+        "label": "dilated cardiomyopathy"
+      }
+    ],
+    "inheritancePattern": {
+      "id": "HP:0000006",
+      "label": "Autosomal Dominant"
+    }
+  },
+  "canonicalAllele": {
+    "id": "CAR:CA006429",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll069"
+  },
+  "family": {
+    "id": "CGEX:Fam369",
+    "label": "Family #007"
+  },
+  "phenotypePositiveAllelePositive": 2,
+  "phenotypeNegativeAllelePositive": 3,
+  "columns": [
+    "[“Family”,”Individual”,”Father”,”Mother”,”Sex”,”Affected”,”Genotype”,”ObligateGenotype”]"
+  ],
+  "affectedValues": [
+    "{1: “Unaffected”, 2: “Affected”, 3: “Any Cardiovascular Abnormality”}"
+  ],
+  "genotypeValues": [
+    "{0: “Unknown”,1:”Reference”, 2: CA65}"
+  ],
+  "pedigree": [
+    "[[Fam007, Fam007.1, 0, 0, 1, 3, 0/0, 0],\n   [Fam007, Fam007.2, 0, 0, 2, 1, 0/0, 0],\n   [Fam007, Fam007.3, 0, 0, 1, 3, 0/0, 0],\n   [Fam007, Fam007.4, 0, 0, 2, 1, 0/0, 0],\n   [Fam007, Fam007.5, 0, 0, 1, 3, 0/0, 0],\n   [Fam007, Fam007.6, Fam007.1, Fam007.2, 2, 3, 1/2, 1],\n   [Fam007, Fam007.7,0, 0, 1, 1, 0/0, 0],\n   [Fam007, Fam007.8, Fam007.1, Fam007.2, 2, 1, 1/2, 1],\n   [Fam007, Fam007.9,Fam007.3, Fam007.4, 1, 1, 0/0, 0],\n   [Fam007, Fam007.10, 0, 0, 1, 1, 0/0, 0],\n   [Fam007, Fam007.11, Fam007.5, Fam007.6, 2, 2, 1/2, 0],\n   [Fam007, Fam007.12, Fam007.5, Fam007.6, 1,2, 0/0, 0],\n   [Fam007, Fam007.13, Fam007.5, Fam007.6, 2,1, 1/1,0],\n   [Fam007, Fam007.14, Fam007.5, Fam007.6, 1, 1, 1/1, 0],\n   [Fam007, Fam007.15, Fam007.7, Fam007.8, 1, 2, 1/2, 0],\n   [Fam007, Fam007.16, Fam007.8, Fam007.9, 1, 2, 1/2, 0],\n   [Fam007, Fam007.17, Fam007.8, Fam007.9, 1, 2, 0/0,0],\n   [Fam007, Fam007.18, Fam007.8, Fam007.9, 1, 2, 0/0, 0],\n   [Fam007, Fam007.19, Fam007.10, Fam007.11, 1, 2, 0/0,0],\n   [Fam007.20,Fam007.10, Fam007.11, 1,1,1/1,0]]"
+  ]
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:FamSeg271">CGEX:FamSeg271</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CAR:CA133141">CAR:CA133141</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:GenCond066">CGEX:GenCond066</a></p>
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Fam372">CGEX:Fam372</a></p> (Family #010)
+         </td>
+          <td>
+              <p>0</p>
+         </td>
+          <td>
+              <p>2</p>
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO-CG:99011">SEPIO-CG:99011</a></p> (present)
+         </td>
+          <td>
+              
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:FamSeg271"><pre><code>{
+  "id": "CGEX:FamSeg271",
+  "type": "FamilyCosegregationStatement",
+  "condition": {
+    "id": "CGEX:GenCond066",
+    "type": "GeneticCondition",
+    "disease": [
+      {
+        "id": "Orphanet:217569",
+        "label": "hypertrophic cardiomyopathy"
+      }
+    ],
+    "inheritancePattern": {
+      "id": "HP:0000006",
+      "label": "Autosomal Dominant"
+    }
+  },
+  "canonicalAllele": {
+    "id": "CAR:CA133141",
+    "type": "CanonicalAllele",
+    "relatedContextualAllele": "CGEX:CtxAll096"
+  },
+  "family": {
+    "id": "CGEX:Fam372",
+    "label": "Family #010"
+  },
+  "phenotypePositiveAllelePositive": 0,
+  "phenotypePositiveAlleleNegative": 2,
+  "inconsistentSegregationsObserved": {
+    "id": "SEPIO-CG:99011",
+    "label": "present"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="list-group sidenav">
+            <ul class="list-unstyled">
+              <li class="list-group-item">
+                <h5><a href="../">Model Overview</a></h5>
+              </li>
+              <li class="list-group-item">
+                <h5><a href="../getting_started.html">Getting Started</a></h5>
+              </li>
+              <li class="list-group-item">
+                <h5><a href="../deeper_dive.html">A Deeper Dive</a></h5>
+              </li>
+              <li class="list-group-item">
+                <h5><a href="../faq.html">FAQ</a></h5>
+              </li>
+              <li class="list-group-item"><h5><a href="./">Entities</a></h5><ul class='list-unstyled'><li><a href="Agent.html"></a></li><li><a href="AggregateCosegregationStatement.html"></a></li><li><a href="AlleleConservationScoreStatement.html"></a></li><li><a href="AlleleConservationStatement.html"></a></li><li><a href="AlleleFunctionalImpactStatement.html"></a></li><li><a href="AlleleMolecularConsequenceStatement.html"></a></li><li><a href="BenignMissenseVariationRateStatement.html"></a></li><li><a href="CanonicalAllele.html"></a></li><li><a href="CaseControlAlleleFrequencyStatement.html"></a></li><li><a href="ConditionMechanismStatement.html"></a></li><li><a href="ConditionPenetranceStatement.html"></a></li><li><a href="ConditionPrevelanceStatement.html"></a></li><li><a href="ContextualAllele.html"></a></li><li><a href="ContextualAlleleName.html"></a></li><li><a href="Contribution.html"></a></li><li><a href="CriterionAssessment.html"></a></li><li><a href="DomainEntity.html"></a></li><li><a href="Entity.html"></a></li><li><a href="EvidenceLine.html"></a></li><li><a href="FamilyConditionStatement.html"></a></li><li class="active"><a href="FamilyCosegregationStatement.html"></a></li><li><a href="GeneticCondition.html"></a></li><li><a href="Genotype.html"></a></li><li><a href="Haplotype.html"></a></li><li><a href="IdentifierSystem.html"></a></li><li><a href="InSilicoPredictionScoreStatement.html"></a></li><li><a href="InSilicoPredictionStatement.html"></a></li><li><a href="IndividualAlleleInheritanceStatement.html"></a></li><li><a href="IndividualConditionStatement.html"></a></li><li><a href="IndividualGenotypeStatement.html"></a></li><li><a href="LocusHeterogeneityStatement.html"></a></li><li><a href="NullAlleleStatement.html"></a></li><li><a href="PopulationAlleleFrequencyStatement.html"></a></li><li><a href="Position.html"></a></li><li><a href="ReferenceCoordinate.html"></a></li><li><a href="RegionAllelesStatement.html"></a></li><li><a href="RegionTypeStatement.html"></a></li><li><a href="SequenceLocation.html"></a></li><li><a href="Statement.html"></a></li><li><a href="UserLabel.html"></a></li><li><a href="ValueSet.html"></a></li><li><a href="VariantPathogenicityInterpretation.html"></a></li><li><a href="VariantPathogenicityInterpretationCriterion.html"></a></li><li><a href="VariantPathogenicityInterpretationGuideline.html"></a></li><li><a href="json_schema.html">JSON Schema</a></li></ul></li>
+              <li class='list-group-item'><h5><a href="../terminologies/">Terminologies</a></h5></li>
+              <li class="list-group-item">
+                <h5><a href="../projects.html">Projects & Tools</a></h5>
+              </li>
+              <!-- Old style.  We might still need the model here? -->
+              <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="container  background-trans padding-top-xl">
+      <div class="row">
+        <hr />
+        <div class="col-md-col-sm-12 text-center"> 
+          © 2018 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../javascripts/jquery.js"></script><script src="../javascripts/bootstrap.js"></script><script src="../javascripts/jquery.jsonview.js"></script><script src="../javascripts/all.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>

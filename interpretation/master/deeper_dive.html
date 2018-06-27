@@ -9,7 +9,7 @@
     <link rel="icon" href="#######">
 
     <title>
-      The Interpretation Model
+      Deeper Dive into the Model
     </title>
 
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
@@ -61,19 +61,16 @@
             </div>
         </nav>
           </div>
-    
 
-
-    
         <div class="row">
           <div class="col-sm-12">
-              <h1 class="header">The Interpretation Model</h1>
+              <h1 class="header">Deeper Dive into the Model</h1>
               <ol class="breadcrumb bg-none margin-none">
-                <li><a href="./">Variant Pathogenicity Interpretation Model</a></li>
-<li><a href="deeper_dive.html">The Interpretation Model</a></li>
+                <li><a href="./">Interpretation Model</a></li>
+<li><a href="deeper_dive.html">Deeper Dive into the Model</a></li>
 
               </ol>
-                <blockquote><p>A more detailed look</p>
+                <blockquote><p>A more detailed look at how the Variant Pathogenicity Interpretation Model is designed on top of the SEPIO model.</p>
                 </blockquote>
           </div>
         </div>
@@ -91,7 +88,7 @@
 
 <p>The interpretation model requires a structure describing the relationship between a conclusion and the evidence that led to this conclusion;  the Scientific Evidence and Provenance Information Ontology (<a href="./sepio.html">SEPIO</a>) provides such a structure.  In SEPIO, an <a target="sepioassertion" href="https://github.com/monarch-initiative/SEPIO-ontology/wiki/Assertion">assertion</a> is the conclusion drawn from reasoning about <a target="sepioevidenceitem" href="https://github.com/monarch-initiative/SEPIO-ontology/wiki/Evidence-Item">Evidence Items</a>.   This information can be either data, like an allele frequency, or a prior assertion.</p>
 
-<p><img alt="Interpretation Figure 1" src="images/SEPIO_UML.png" /></p>
+<p><img alt="Interpretation Figure 1" src="images/SEPIO_UML.jpg" /></p>
 
 <p>This ability for one SEPIO assertion to support another is integral to our use of SEPIO.   A VariantInterpretation is a SEPIO assertion, and it is supported by a CriteriaAssessment, which is also a ClinVar assertion. This CriteriaAssessment is, in turn, supported by measured data.  In other words, the data is used to create an intermediate assertion: a CriteriaAssessment saying that, for example, BA1 is satisfied for this variant.   This CriteriaAssessment (and potentially other such CriteriaAssessments) are then used to create the final VariantInterpretation in a second cycle of the basic SEPIO model.</p>
 
@@ -111,7 +108,7 @@
 
 <p>The following diagram displays the structure of a variant interpretation message.  An interpretation is essentially two cycles of the base SEPIO model.  First, an interpretation is supported by Criteria Assessments. Second, each Criteria Assessment is supported by Statements (usually Evidence Items).</p>
 
-<p><img alt="Interpretation Figure 2" src="images/CG_UML.png" /></p>
+<p><img alt="Interpretation Figure 2" src="images/CG_UML.jpg" /></p>
 
 <p>At each stage, the conclusions and evidence lines can be tagged with Contributions tracking provenance.  Furthermore, each assertion (the interpretation and the assessment) can both indicate the pre-specified rule by which they were created.  Information about the strength of support that evidence lends to a conclusion is attached to the evidence line between them.</p>
 
@@ -121,7 +118,7 @@
 
 <p>Many terms needed for variant pathogenicity interpretations were previously defined SEPIO. Variant pathogenicity interpretations also require specialized data elements related to specific types of entities (Alleles, Genes) or evidence (Segregation, Allele Frequencies).  In addition, ClinGen interpretations define new subclasses on SEPIO classes, such as distinguishing VariantInterpretations from CriteriaAssessments.  Each is a SEPIO interpretation, but with different properties. These terms do not make sense to add to the core SEPIO product, but have been added to ClinGen-specific extensions within the SEPIO project which are jointly maintained by the Monarch and ClinGen projects.</p>
 
-<p>For instance, the lines in the <a href="http://datamodel.clinicalgenome.org/interpretation/json/context">ClinGen interpretation context</a></p>
+<p>For instance, the lines in the <a href="http://dataexchange.clinicalgenome.org/interpretation/json/context">ClinGen interpretation context</a></p>
 
 <p><code>"VariantInterpretation": {
    "@id": "SEPIO:0000190"
@@ -131,7 +128,7 @@ indicate that a VariantInterpretation in a ClinGen JSON-LD document is the same 
 
 <h2 id="further-information">Further Information</h2>
 
-<p>This document has described the connection to the SEPIO model and the detailed structure of a message.   For details of the individual classes see the <a href="/tech">Class Documentation</a>.  For implementation topics, see the <a href="faq.html">FAQ</a>.</p>
+<p>This document has described the connection to the SEPIO model and the detailed structure of a message.   For details of the individual classes see the <a href="/entities">Entities</a>.  For implementation topics, see the <a href="faq.html">FAQ</a>.</p>
 
           </article>
         </div>
@@ -139,7 +136,7 @@ indicate that a VariantInterpretation in a ClinGen JSON-LD document is the same 
           <div class="list-group sidenav">
             <ul class="list-unstyled">
               <li class="list-group-item">
-                <h5><a href="./">Interpretation Overview</a></h5>
+                <h5><a href="./">Model Overview</a></h5>
               </li>
               <li class="list-group-item">
                 <h5><a href="getting_started.html">Getting Started</a></h5>
@@ -150,10 +147,10 @@ indicate that a VariantInterpretation in a ClinGen JSON-LD document is the same 
               <li class="list-group-item">
                 <h5><a href="faq.html">FAQ</a></h5>
               </li>
-              <li class='list-group-item'><h5><a href="tech/">Entities</a></h5></li>
-              <li class='list-group-item'><h5><a href="terminology/">Terminology</a></h5></li>
+              <li class='list-group-item'><h5><a href="entities/">Entities</a></h5></li>
+              <li class='list-group-item'><h5><a href="terminologies/">Terminologies</a></h5></li>
               <li class="list-group-item">
-                <h5><a href="projects.html">Projects and Tools</a></h5>
+                <h5><a href="projects.html">Projects & Tools</a></h5>
               </li>
               <!-- Old style.  We might still need the model here? -->
               <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
@@ -166,7 +163,7 @@ indicate that a VariantInterpretation in a ClinGen JSON-LD document is the same 
       <div class="row">
         <hr />
         <div class="col-md-col-sm-12 text-center"> 
-          © 2017 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+          © 2018 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
         </div>
     </div>
 

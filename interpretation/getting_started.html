@@ -9,7 +9,7 @@
     <link rel="icon" href="#######">
 
     <title>
-      Getting Started with the Variant Pathogenicity Interpretation Model
+      Getting Started with the Model
     </title>
 
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
@@ -61,19 +61,16 @@
             </div>
         </nav>
           </div>
-    
 
-
-    
         <div class="row">
           <div class="col-sm-12">
-              <h1 class="header">Getting Started with the Variant Pathogenicity Interpretation Model</h1>
+              <h1 class="header">Getting Started with the Model</h1>
               <ol class="breadcrumb bg-none margin-none">
-                <li><a href="./">Variant Pathogenicity Interpretation Model</a></li>
-<li><a href="getting_started.html">Getting Started with the Variant Pathogenicity Interpretation Model</a></li>
+                <li><a href="./">Interpretation Model</a></li>
+<li><a href="getting_started.html">Getting Started with the Model</a></li>
 
               </ol>
-                <blockquote><p>A Gentle Introduction</p>
+                <blockquote><p>An brief introduction to the Variant Pathogenicity Interpretation Model's basic structure.</p>
                 </blockquote>
           </div>
         </div>
@@ -89,37 +86,43 @@
 
 <h2 id="the-interpretation">The Interpretation</h2>
 
-<p>Suppose that we are interested in the variant NC_000017.11:g.43092919G&gt;A, which is a missense variant in the BRCA1 gene, and you've determined that this variant is benign.  This assertion is expressed by creating a <a href="tech/entity_definitions/core/variant_interpretation.html">VariantPathogenicityInterpretation</a> object, expressed in JSON-LD:</p>
+<p>Suppose that we are interested in the variant NC_000017.11:g.43092919G&gt;A, which is a missense variant in the BRCA1 gene, and you've determined that this variant is benign.  This assertion is expressed by creating a <a href="entities/VariantPathogenicityInterpretation.html">VariantPathogenicityInterpretation</a> object, expressed in JSON-LD:</p>
 
-<p>(Here, I think I'd like 2 columns.  On the right is the following JSON code box:</p>
-
-<p><code>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-12">
+      <span class="text-muted">JSON Message (See below explanation)</span>
+      <pre>
 {
-  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
+  "@context": "http://dataexchange.clinicalgenome.org/interpretation/json/context"
   "id": "EXAMPLE:001",
   "type": "VariantPathogenicityInterpretation",
   "variant":  "CAR:CA001721",
   "statementOutcome": {
-    "id": "LOINC:LA6675-8",
-    "label": "Benign"
+      "id": "LOINC:LA6675-8",
+      "label": "Benign"
   },
   "description": "NC_000017.11:g.43092919G&gt;A is benign (because it has a high population frequency)"
 }
-</code></p>
-
-<p>On the left, this list, either lined up with the JSON rows, or pointing to them or something?</p>
-
-<ol>
-  <li>A JSON-LD context, which maps attribute names to identifiers</li>
-  <li>An identifier for the interpretation</li>
-  <li>The type in the interpretation model that this JSON node represents.</li>
-  <li>A variant identifier: This is the variant that we are interpreting.</li>
-  <li>The outcome of the interpretation</li>
-  <li>A human readable description of the interpretation</li>
-</ol>
-
-<p>– Now back to normal text —</p>
-
+        </pre>
+        </div>
+        <div class="col-sm-12">
+        <span class="text-muted">JSON Explanation</span>
+        <dl class="dl-horizontal">
+          <dt>"@context":</dt>
+          <dd>A JSON-LD context, which maps attribute names to identifiers</dd>
+          <dt>"id":</dt>
+          <dd>An identifier for the interpretation</dd>
+          <dt>"variant":</dt>
+          <dd>A variant identifier: This is the variant that we are interpreting</dd>
+          <dt>"statementOutcome":</dt>
+          <dd>The outcome of the interpretation</dd>
+          <dt>"description":</dt>
+          <dd>A human readable description of the interpretation</dd>
+        </dl>
+    </div>
+  </div></div></div>
 <p>Even this simple statement shows off a few features of the model:</p>
 
 <ol>
@@ -127,8 +130,10 @@
   <li>It is valid to include either an identifier for an object, or a full representation of the object.  For instance, we represent the variant with an identifier from the <a href="https://reg.clinicalgenome.org/redmine/projects/registry/genboree_registry/landing">ClinGen Allele Registry</a>, which we could dereference to obtain a fuller representation.  We could also have included that representation inline - it's up to you and the receiver of the message to decide what you prefer.</li>
   <li>We use controlled vocabularies, defined in <a href="">ValueSets</a> for many terms, such as "Benign".</li>
   <li>Objects in the model can always have a human readable description.</li>
-  <li>The model is serialized in <a href="https://json-ld.org/">JSON-LD</a>, so we have a <a href="http://datamodel.clinicalgenome.org/interpretation/json/context">context file</a>.  Unless you are interested in transforming a message to RDF, you can can probably ignore this, but it will be helpful in integrating these interpretations with messages from other sources.</li>
+  <li>The model is serialized in <a href="https://json-ld.org/">JSON-LD</a>, so we have a <a href="http://dataexchange.clinicalgenome.org/interpretation/json/context">context file</a>.  Unless you are interested in transforming a message to RDF, you can can probably ignore this, but it will be helpful in integrating these interpretations with messages from other sources.</li>
 </ol>
+
+<hr class="col-sm-12" />
 
 <h2 id="show-your-work-the-criterionassessment">Show Your Work: The CriterionAssessment</h2>
 
@@ -138,9 +143,13 @@
 
 <p>Specifically, the variant in our example satisfied criteria BA1: "Allele frequency is &gt;5% in Exome Sequencing Project, 1000 Genomes Project, or Exome Aggregation Consortium", and we now want to express that in JSON-LD:</p>
 
-<p>–back to the two columns–
-right:
-<code>
+<div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        
+        <div class="col-sm-12">
+      <span class="text-muted">JSON Message (See below explanation)</span>
+          <pre>
 {
   "id": "EXAMPLE:002",
   "type": "CriterionAssessment",
@@ -161,37 +170,39 @@ right:
     "label": "Met"
   }
 }
-</code>
-left:</p>
-
-<ol>
-  <li>The identifier of this CriterionAssessment</li>
-  <li>The type of this object</li>
-  <li>The identifier of the variant being assessed</li>
-  <li>The criterion being used to assess the variant</li>
-  <li>the outcome of the assessment
-–back to the regular–</li>
-</ol>
-
+    </pre>
+  </div>
+  <div class="col-sm-12">
+          <span class="text-muted">JSON Explanation</span>
+          <dl class="dl-horizontal">
+            <dt>"id":</dt>
+            <dd>The identifier of this CriterionAssessment</dd>
+            <dt>"type":</dt>
+            <dd>The type of this object</dd>
+            <dt>"variant":</dt>
+            <dd>The identifier of the variant being assessed</dd>
+            <dt>"criterion":</dt>
+            <dd>The criterion being used to assess the variant</dd>
+            <dt>"statementOutcome":</dt>
+            <dd>the outcome of the assessment</dd>
+          </dl>
+        </div>
+</div>
+</div>
+</div>
 <p>In this JSON-LD snippet, we are expressing the idea that variant "CAR:CA001721" met the criteria in "SEPIO-CG:99038", which is the identifier for the rule labeled "BA1".  Here, we have included a full JSON-LD representation of the criterion, but this could also be replaced with just the id "SEPIO-CG:99038" for conciseness.   Note that unlike the CriterionAssessment or criterion, the values for defaultStrength and statementOutcome do not contain a "type".   These are examples of values that lack any structure, but are simply identifiers.</p>
+
+<hr class="col-sm-12" />
 
 <h2 id="show-your-work-2-the-evidence">Show Your Work 2: The Evidence</h2>
 
 <p>We now know that our Variant Pathogenicity Interpretation is supported by a Criterion Assessment.  But the Criterion Assessment is just another assertion; how do we know that it is true?  What Evidence supports it?  The Variant Pathogenicity Interpretation model contains a wide variety of evidence types that can be used to support assessments.  For instance, meeting BA1 requires a high allele frequency.  So the measured allele frequency is evidence that BA1 is met:</p>
-
-<p>—– Two columns:
-Left:</p>
-
-<ol>
-  <li>The identifier of this frequency statement</li>
-  <li>The method used to create the sample in which the frequency was measured</li>
-  <li>The ancestral background of the people in the sample</li>
-  <li>The allele</li>
-  <li>The frequency of the allele in the sample</li>
-</ol>
-
-<p>Right:
-<code>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+    <div class="col-sm-12">
+      <span class="text-muted">JSON Message (See below explanation)</span>
+    <pre>
 {
   "id": "EXAMPLE:003",
   "type": "PopulationAlleleFrequencyStatement",
@@ -204,66 +215,87 @@ Left:</p>
     "label": "Combined"
   },
   "allele":  "id": "CAR:001721",
-  "alleleFrequency": 0.41,
+  "alleleFrequency": 0.41
 }
-</code>
-—— One column</p>
+    </pre>
+  </div>
+  <div class="col-sm-12">
+          <span class="text-muted">JSON Explanation</span>
+          <dl class="dl-horizontal">
+            <dt>"id":</dt>
+            <dd>The identifier of this frequency statement</dd>
+            <dt>"ascertainment":</dt>
+            <dd>The method used to create the sample in which the frequency was measured</dd>
+            <dt>"type":</dt>
+            <dd>The ancestral background of the people in the sample</dd>
+            <dt>"allele":</dt>
+            <dd>The allele</dd>
+            <dt>"alleleFrequency":</dt>
+            <dd>The frequency of the allele in the sample</dd>
+          </dl>
+        </div>
+</div>
+</div>
+</div>
 
 <p>In English, the allele has a 41% allele frequency in the combined gnomAD population.   The PopulationAlleleFrequencyStatement has many optional attributes, like the number of chromosomes sampled, the number that have the allele, number of homozygotes, and so on.  These are useful attributes, but we have omitted them for this section.</p>
+
+<hr class="col-sm-12" />
 
 <h2 id="putting-it-all-together">Putting it all together</h2>
 
 <p>Some users may want to include only a subset of this information, but the true power of this model lies in its ability to encompass the entire evidence chain in a flexible and extensible way.  Typically, we envision sending a message that combines all of this information as depicted here:</p>
 
-<p>— two columns</p>
-
-<p>Left:
-<img alt="Interpretation Figure 1" src="images/interp-f1.svg" /></p>
-
-<p>Right:
-<code>
-{
-  "@context": "http://datamodel.clinicalgenome.org/interpretation/json/context"
-  "id": "EXAMPLE:001",
-  "type": "VariantPathogenicityInterpretation",
-  ...
-  "evidenceLine":[
-  {
-    "evidenceStrength": {
-       "id": "SEPIO:0000325"
-       "label": "Benign Stand Alone"
-    }
-    "evidenceItem": [
+<div class="col-sm-6">
+  <span class="text-muted">Diagram</span>
+  <img alt="Interpretation Figure 1" src="/images/getting_started_UML.jpg" />
+</div>
+<div class="col-sm-6">
+  <span class="text-muted">JSON Message</span>
+  <pre>
     {
-      "id": "EXAMPLE:002",
-      "type": "CriterionAssessment",
+      "@context": "http://dataexchange.clinicalgenome.org/interpretation/json/context"
+      "id": "EXAMPLE:001",
+      "type": "VariantPathogenicityInterpretation",
       ...
       "evidenceLine":[
       {
-        "evidenceItem":[
+        "evidenceStrength": {
+        "id": "SEPIO:0000325"
+        "label": "Benign Stand Alone"
+      }
+      "evidenceItem": [
+      {
+        "id": "EXAMPLE:002",
+        "type": "CriterionAssessment",
+        ...
+        "evidenceLine":[
         {
+          "evidenceItem":[
+          {
            "id": "EXAMPLE:003"
            "type": "PopulationAlleleFrequencyStatement",
            ...
-        }
-        ]
-      }
-      ]
-    }
-    ]
-  }
-  ]
-}
-</code>
-—— one column</p>
+         }
+         ]
+       }
+       ]
+     }
+     ]
+   }
+   ]
+ }
+</pre>
+</div>
 
 <p>The structure of this message is pretty simple: Our interpretation (EXAMPLE:001) is the root of the message.  It contains an EvidenceLine, which in turn contains, as an evidenceItem, the CriterionAssessment (EXAMPLE:002).  Through the same EvidenceLine mechanism, the assessment contains the evidence item that supports it, namely the allele frequency (EXAMPLE:003).</p>
 
 <p>The important part here is that supporting evidence is not directly connected to the supported statement, but is attached via an EvidenceLine. The reason for this is discussed later, but you can get a hint by noticing that the strength of the assessment in supporting the interpretation is not part of the interpretation or the assessment, but of the evidence line.</p>
+<hr class="col-sm-12" />
 
 <h2 id="next-steps">Next Steps</h2>
 
-<p>By now, you should have a pretty good idea about the main classes in the interpretation model and how they fit together.  But there's still lots of exciting details to plumb!  To learn about tracking provenance, value sets, alleles, SEPIO, and many other topics, you can continue on to the <a href="deeper_dive.html">more detailed documentation</a> and the <a href="faq.html">FAQ</a>.  Alternately, you can browse the <a href="../tech">class hierarchy</a>, the <a href="../tech">examples</a>, or some of the <a href="projects.html">projects</a> based on the model.</p>
+<p>By now, you should have a pretty good idea about the main classes in the interpretation model and how they fit together.  But there's still lots of exciting details to plumb!  To learn about tracking provenance, value sets, alleles, SEPIO, and many other topics, you can continue on to the <a href="deeper_dive.html">more detailed documentation</a> and the <a href="faq.html">FAQ</a>.  Alternately, you can browse the <a href="../entities">entities and their examples</a> or some of the <a href="projects.html">projects</a> associated with the model.</p>
 
           </article>
         </div>
@@ -271,7 +303,7 @@ Left:</p>
           <div class="list-group sidenav">
             <ul class="list-unstyled">
               <li class="list-group-item">
-                <h5><a href="./">Interpretation Overview</a></h5>
+                <h5><a href="./">Model Overview</a></h5>
               </li>
               <li class="list-group-item">
                 <h5><a href="getting_started.html">Getting Started</a></h5>
@@ -282,10 +314,10 @@ Left:</p>
               <li class="list-group-item">
                 <h5><a href="faq.html">FAQ</a></h5>
               </li>
-              <li class='list-group-item'><h5><a href="tech/">Entities</a></h5></li>
-              <li class='list-group-item'><h5><a href="terminology/">Terminology</a></h5></li>
+              <li class='list-group-item'><h5><a href="entities/">Entities</a></h5></li>
+              <li class='list-group-item'><h5><a href="terminologies/">Terminologies</a></h5></li>
               <li class="list-group-item">
-                <h5><a href="projects.html">Projects and Tools</a></h5>
+                <h5><a href="projects.html">Projects & Tools</a></h5>
               </li>
               <!-- Old style.  We might still need the model here? -->
               <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
@@ -298,7 +330,7 @@ Left:</p>
       <div class="row">
         <hr />
         <div class="col-md-col-sm-12 text-center"> 
-          © 2017 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+          © 2018 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
         </div>
     </div>
 

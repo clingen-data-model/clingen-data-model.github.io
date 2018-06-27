@@ -1,0 +1,5389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="#######">
+
+    <title>
+      ClinGen DataExchange Model
+    </title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.css"/>
+
+    <link href="../stylesheets/bootstrap.css" rel="stylesheet" /><link href="../stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="../stylesheets/brand2.css" rel="stylesheet" /><link href="../stylesheets/jquery.jsonview.css" rel="stylesheet" />
+
+      <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-49947422-3', 'auto');
+       ga('send', 'pageview');
+      </script>
+
+  </head>
+
+  <body class="documentation">
+    
+      <div class="container-fluid hero-background">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+<a class="navbar-brand" href="/">                <img width="240px" alt="ClinGen Data Model WG Documentation" class="img-responsive" src="../images/clingen-doc-logo.png" />
+</a>            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
+                </li>
+                    <li class="allele" >
+                      <li class="allele"><a href="/allele"><span class="glyphicon glyphicon-leaf"></span> Allele Model</a></li>
+                    </li>
+                    <li class="interpretation" >
+                      <li class="interpretation"><a href="/interpretation"><span class="glyphicon glyphicon-star"></span> Interpretation Model</a></li>
+                    </li>
+                <li>
+                    <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+          </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+              <h1 class="header">Contribution</h1>
+              <ol class="breadcrumb bg-none margin-none">
+                <li><a href="../">Interpretation Model</a></li>
+<li><a href="./">Entities</a></li>
+
+              </ol>
+                <blockquote><p>The actions taken by a particular agent in the creation, modification, assessment, or destruction of an artifact.</p>
+                <STRONG>
+                  <div>SEPIO:0000158</div>
+                      <i>Descended from Entity</i>
+                </STRONG>
+                </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
+          <article>
+            
+
+    <!-- this is primarily the Scope and Usage section -->
+    <h2>Scope and Usage</h2>
+    <p>A contribution describes the part played by a particular agent in the creation, modification, assessment, or descruction of an artifact. The scope of a given 'contribution' instance is constrained to include only the actions of a particular agent in contributing to a particular artifact. Contribution instances are used to organize information about when, where, how (e.g. what roles were played), and on whose behalf these actions were performed.</p>
+
+
+    <!-- image here if available -->
+
+    <h2>Attributes</h2>
+
+        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Cardinality</th>
+                <th>Description</th>
+                <th>IRI</th>
+                <th>Defined in</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>agent</td>
+                <td>Agent</td>
+                <td>1..1</td>
+                <td>A person, group of people, algorithm, or some other actor that could make a contribution</td>
+                <td>SEPIO:0000017</td>
+                <td>Contribution</td>
+            </tr>
+            <tr>
+                <td>contributionDate</td>
+                <td>Datetime</td>
+                <td>0..1</td>
+                <td>The date on which a contribution was completed</td>
+                <td>SEPIO:0000160</td>
+                <td>Contribution</td>
+            </tr>
+            <tr>
+                <td>contributionRole</td>
+                <td>@id</td>
+                <td>1..1</td>
+                <td>The particular role in which an agent was acting while making the contribution</td>
+                <td>BFO:0000055</td>
+                <td>Contribution</td>
+            </tr>
+            <tr>
+                <td>label</td>
+                <td>string</td>
+                <td>0..1</td>
+                <td>A name given to the resource.</td>
+                <td>RDFS:label</td>
+                <td>Entity</td>
+            </tr>
+            <tr>
+                <td>description</td>
+                <td>string</td>
+                <td>0..1</td>
+                <td>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</td>
+                <td>DC:description</td>
+                <td>Entity</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    <h2>Examples</h2>
+    <table class="datatables table table-striped table-bordered" cellspacing=0 width="100%">
+      <thead><tr>
+        <th>ID</th>
+        <th>label</th>
+        <th>description</th>
+        <th>agent</th>
+        <th>contributionDate</th>
+        <th>contributionRole</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib396">CGEX:Contrib396</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/1/16 10:10 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib396"><pre><code>{
+  "id": "CGEX:Contrib396",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/1/16 10:10 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib397">CGEX:Contrib397</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/2/16 12:15 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib397"><pre><code>{
+  "id": "CGEX:Contrib397",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/2/16 12:15 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib398">CGEX:Contrib398</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/2/16 2:22 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib398"><pre><code>{
+  "id": "CGEX:Contrib398",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/2/16 2:22 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib399">CGEX:Contrib399</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/2/16 3:22 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib399"><pre><code>{
+  "id": "CGEX:Contrib399",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/2/16 3:22 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib400">CGEX:Contrib400</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/2/16 4:22 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib400"><pre><code>{
+  "id": "CGEX:Contrib400",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/2/16 4:22 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib401">CGEX:Contrib401</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/2/16 5:22 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib401"><pre><code>{
+  "id": "CGEX:Contrib401",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/2/16 5:22 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib402">CGEX:Contrib402</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent002">CGEX:Agent002</a></p> (Noonan/Rasopathy WG (ClinGen))
+         </td>
+          <td>
+              <p>6/2/16 5:22 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib402"><pre><code>{
+  "id": "CGEX:Contrib402",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent002",
+    "type": "Agent",
+    "label": "Noonan/Rasopathy WG (ClinGen)"
+  },
+  "contributionDate": "6/2/16 5:22 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib403">CGEX:Contrib403</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/3/16 8:00 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib403"><pre><code>{
+  "id": "CGEX:Contrib403",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/3/16 8:00 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib404">CGEX:Contrib404</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/3/16 9:17 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib404"><pre><code>{
+  "id": "CGEX:Contrib404",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/3/16 9:17 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib405">CGEX:Contrib405</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/3/16 10:25 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib405"><pre><code>{
+  "id": "CGEX:Contrib405",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/3/16 10:25 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib406">CGEX:Contrib406</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent003">CGEX:Agent003</a></p> (Sasha Rande)
+         </td>
+          <td>
+              <p>6/3/16 2:50 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib406"><pre><code>{
+  "id": "CGEX:Contrib406",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent003",
+    "type": "Agent",
+    "label": "Sasha Rande"
+  },
+  "contributionDate": "6/3/16 2:50 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib407">CGEX:Contrib407</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent004">CGEX:Agent004</a></p> (CSER Bakeoff Project)
+         </td>
+          <td>
+              <p>6/3/16 2:50 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib407"><pre><code>{
+  "id": "CGEX:Contrib407",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent004",
+    "type": "Agent",
+    "label": "CSER Bakeoff Project"
+  },
+  "contributionDate": "6/3/16 2:50 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib408">CGEX:Contrib408</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent003">CGEX:Agent003</a></p> (Sasha Rande)
+         </td>
+          <td>
+              <p>6/3/16 6:09 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib408"><pre><code>{
+  "id": "CGEX:Contrib408",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent003",
+    "type": "Agent",
+    "label": "Sasha Rande"
+  },
+  "contributionDate": "6/3/16 6:09 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib409">CGEX:Contrib409</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent004">CGEX:Agent004</a></p> (CSER Bakeoff Project)
+         </td>
+          <td>
+              <p>6/3/16 6:09 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib409"><pre><code>{
+  "id": "CGEX:Contrib409",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent004",
+    "type": "Agent",
+    "label": "CSER Bakeoff Project"
+  },
+  "contributionDate": "6/3/16 6:09 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib410">CGEX:Contrib410</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/4/16 7:12 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib410"><pre><code>{
+  "id": "CGEX:Contrib410",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/4/16 7:12 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib411">CGEX:Contrib411</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent002">CGEX:Agent002</a></p> (Noonan/Rasopathy WG (ClinGen))
+         </td>
+          <td>
+              <p>6/4/16 7:12 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib411"><pre><code>{
+  "id": "CGEX:Contrib411",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent002",
+    "type": "Agent",
+    "label": "Noonan/Rasopathy WG (ClinGen)"
+  },
+  "contributionDate": "6/4/16 7:12 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib412">CGEX:Contrib412</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/5/16 10:24 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib412"><pre><code>{
+  "id": "CGEX:Contrib412",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/5/16 10:24 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib413">CGEX:Contrib413</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/5/16 2:39 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib413"><pre><code>{
+  "id": "CGEX:Contrib413",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/5/16 2:39 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib414">CGEX:Contrib414</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/5/16 4:12 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib414"><pre><code>{
+  "id": "CGEX:Contrib414",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/5/16 4:12 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib415">CGEX:Contrib415</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent003">CGEX:Agent003</a></p> (Sasha Rande)
+         </td>
+          <td>
+              <p>6/6/16 8:12 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib415"><pre><code>{
+  "id": "CGEX:Contrib415",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent003",
+    "type": "Agent",
+    "label": "Sasha Rande"
+  },
+  "contributionDate": "6/6/16 8:12 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib416">CGEX:Contrib416</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/6/16 10:53 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib416"><pre><code>{
+  "id": "CGEX:Contrib416",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/6/16 10:53 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib417">CGEX:Contrib417</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent002">CGEX:Agent002</a></p> (Noonan/Rasopathy WG (ClinGen))
+         </td>
+          <td>
+              <p>6/6/16 10:53 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib417"><pre><code>{
+  "id": "CGEX:Contrib417",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent002",
+    "type": "Agent",
+    "label": "Noonan/Rasopathy WG (ClinGen)"
+  },
+  "contributionDate": "6/6/16 10:53 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib418">CGEX:Contrib418</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/3/16 7:24 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib418"><pre><code>{
+  "id": "CGEX:Contrib418",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/3/16 7:24 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib419">CGEX:Contrib419</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/4/16 9:08 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib419"><pre><code>{
+  "id": "CGEX:Contrib419",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/4/16 9:08 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib420">CGEX:Contrib420</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/5/16 3:13 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib420"><pre><code>{
+  "id": "CGEX:Contrib420",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/5/16 3:13 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib421">CGEX:Contrib421</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/6/16 11:28 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib421"><pre><code>{
+  "id": "CGEX:Contrib421",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/6/16 11:28 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib422">CGEX:Contrib422</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/2/16 8:01 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib422"><pre><code>{
+  "id": "CGEX:Contrib422",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/2/16 8:01 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib423">CGEX:Contrib423</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/10/16 9:02 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib423"><pre><code>{
+  "id": "CGEX:Contrib423",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/10/16 9:02 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib424">CGEX:Contrib424</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/10/16 9:15 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib424"><pre><code>{
+  "id": "CGEX:Contrib424",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/10/16 9:15 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib425">CGEX:Contrib425</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent003">CGEX:Agent003</a></p> (Sasha Rande)
+         </td>
+          <td>
+              <p>6/12/16 7:30 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib425"><pre><code>{
+  "id": "CGEX:Contrib425",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent003",
+    "type": "Agent",
+    "label": "Sasha Rande"
+  },
+  "contributionDate": "6/12/16 7:30 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib426">CGEX:Contrib426</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent003">CGEX:Agent003</a></p> (Sasha Rande)
+         </td>
+          <td>
+              <p>6/12/16 8:31 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib426"><pre><code>{
+  "id": "CGEX:Contrib426",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent003",
+    "type": "Agent",
+    "label": "Sasha Rande"
+  },
+  "contributionDate": "6/12/16 8:31 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib427">CGEX:Contrib427</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/12/16 9:32 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib427"><pre><code>{
+  "id": "CGEX:Contrib427",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/12/16 9:32 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib428">CGEX:Contrib428</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent005">CGEX:Agent005</a></p> (G. Rajar)
+         </td>
+          <td>
+              <p>6/12/16 10:48 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib428"><pre><code>{
+  "id": "CGEX:Contrib428",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent005",
+    "type": "Agent",
+    "label": "G. Rajar"
+  },
+  "contributionDate": "6/12/16 10:48 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib429">CGEX:Contrib429</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent005">CGEX:Agent005</a></p> (G. Rajar)
+         </td>
+          <td>
+              <p>6/12/16 11:03 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib429"><pre><code>{
+  "id": "CGEX:Contrib429",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent005",
+    "type": "Agent",
+    "label": "G. Rajar"
+  },
+  "contributionDate": "6/12/16 11:03 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib430">CGEX:Contrib430</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>7/1/16 9:23 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib430"><pre><code>{
+  "id": "CGEX:Contrib430",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "7/1/16 9:23 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib431">CGEX:Contrib431</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>7/1/16 10:53 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib431"><pre><code>{
+  "id": "CGEX:Contrib431",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "7/1/16 10:53 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib432">CGEX:Contrib432</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent004">CGEX:Agent004</a></p> (CSER Bakeoff Project)
+         </td>
+          <td>
+              <p>7/1/16 10:53 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib432"><pre><code>{
+  "id": "CGEX:Contrib432",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent004",
+    "type": "Agent",
+    "label": "CSER Bakeoff Project"
+  },
+  "contributionDate": "7/1/16 10:53 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib433">CGEX:Contrib433</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent009">CGEX:Agent009</a></p> (George Geneticist)
+         </td>
+          <td>
+              <p>6/26/2015 12:03 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000331">SEPIO:0000331</a></p> (interpreter role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib433"><pre><code>{
+  "id": "CGEX:Contrib433",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent009",
+    "type": "Agent",
+    "label": "George Geneticist"
+  },
+  "contributionDate": "6/26/2015 12:03 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000331",
+    "label": "interpreter role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib434">CGEX:Contrib434</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>7/13/16 8:46 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000331">SEPIO:0000331</a></p> (interpreter role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib434"><pre><code>{
+  "id": "CGEX:Contrib434",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "7/13/16 8:46 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000331",
+    "label": "interpreter role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib435">CGEX:Contrib435</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent005">CGEX:Agent005</a></p> (G. Rajar)
+         </td>
+          <td>
+              <p>7/20/16 7:22 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib435"><pre><code>{
+  "id": "CGEX:Contrib435",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent005",
+    "type": "Agent",
+    "label": "G. Rajar"
+  },
+  "contributionDate": "7/20/16 7:22 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib436">CGEX:Contrib436</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent004">CGEX:Agent004</a></p> (CSER Bakeoff Project)
+         </td>
+          <td>
+              <p>7/20/16 7:22 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib436"><pre><code>{
+  "id": "CGEX:Contrib436",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent004",
+    "type": "Agent",
+    "label": "CSER Bakeoff Project"
+  },
+  "contributionDate": "7/20/16 7:22 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib437">CGEX:Contrib437</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>7/20/16 7:49 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib437"><pre><code>{
+  "id": "CGEX:Contrib437",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "7/20/16 7:49 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib438">CGEX:Contrib438</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>7/20/16 8:02 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib438"><pre><code>{
+  "id": "CGEX:Contrib438",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "7/20/16 8:02 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib439">CGEX:Contrib439</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>7/21/16 6:45 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib439"><pre><code>{
+  "id": "CGEX:Contrib439",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "7/21/16 6:45 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib440">CGEX:Contrib440</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>7/21/16 7:02 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib440"><pre><code>{
+  "id": "CGEX:Contrib440",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "7/21/16 7:02 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib441">CGEX:Contrib441</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>7/21/16 7:39 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib441"><pre><code>{
+  "id": "CGEX:Contrib441",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "7/21/16 7:39 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib442">CGEX:Contrib442</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent002">CGEX:Agent002</a></p> (Noonan/Rasopathy WG (ClinGen))
+         </td>
+          <td>
+              <p>7/21/16 8:11 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib442"><pre><code>{
+  "id": "CGEX:Contrib442",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent002",
+    "type": "Agent",
+    "label": "Noonan/Rasopathy WG (ClinGen)"
+  },
+  "contributionDate": "7/21/16 8:11 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib443">CGEX:Contrib443</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>7/21/16 9:41 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib443"><pre><code>{
+  "id": "CGEX:Contrib443",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "7/21/16 9:41 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib444">CGEX:Contrib444</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent005">CGEX:Agent005</a></p> (G. Rajar)
+         </td>
+          <td>
+              <p>7/21/16 10:29 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib444"><pre><code>{
+  "id": "CGEX:Contrib444",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent005",
+    "type": "Agent",
+    "label": "G. Rajar"
+  },
+  "contributionDate": "7/21/16 10:29 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib445">CGEX:Contrib445</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent004">CGEX:Agent004</a></p> (CSER Bakeoff Project)
+         </td>
+          <td>
+              <p>7/21/16 10:29 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib445"><pre><code>{
+  "id": "CGEX:Contrib445",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent004",
+    "type": "Agent",
+    "label": "CSER Bakeoff Project"
+  },
+  "contributionDate": "7/21/16 10:29 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib446">CGEX:Contrib446</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent005">CGEX:Agent005</a></p> (G. Rajar)
+         </td>
+          <td>
+              <p>7/21/16 12:15 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib446"><pre><code>{
+  "id": "CGEX:Contrib446",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent005",
+    "type": "Agent",
+    "label": "G. Rajar"
+  },
+  "contributionDate": "7/21/16 12:15 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib447">CGEX:Contrib447</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>7/21/16 2:46 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib447"><pre><code>{
+  "id": "CGEX:Contrib447",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "7/21/16 2:46 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib448">CGEX:Contrib448</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent006">CGEX:Agent006</a></p> (CSER classifier #6)
+         </td>
+          <td>
+              <p>6/26/2015 12:06 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000331">SEPIO:0000331</a></p> (interpreter role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib448"><pre><code>{
+  "id": "CGEX:Contrib448",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent006",
+    "type": "Agent",
+    "label": "CSER classifier #6"
+  },
+  "contributionDate": "6/26/2015 12:06 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000331",
+    "label": "interpreter role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib449">CGEX:Contrib449</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>8/28/16 2:00 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib449"><pre><code>{
+  "id": "CGEX:Contrib449",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "8/28/16 2:00 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib450">CGEX:Contrib450</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent004">CGEX:Agent004</a></p> (CSER Bakeoff Project)
+         </td>
+          <td>
+              <p>8/28/16 2:00 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib450"><pre><code>{
+  "id": "CGEX:Contrib450",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent004",
+    "type": "Agent",
+    "label": "CSER Bakeoff Project"
+  },
+  "contributionDate": "8/28/16 2:00 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib451">CGEX:Contrib451</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>8/29/16 3:00 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib451"><pre><code>{
+  "id": "CGEX:Contrib451",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "8/29/16 3:00 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib452">CGEX:Contrib452</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>8/29/16 4:00 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib452"><pre><code>{
+  "id": "CGEX:Contrib452",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "8/29/16 4:00 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib453">CGEX:Contrib453</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>8/29/16 5:00 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib453"><pre><code>{
+  "id": "CGEX:Contrib453",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "8/29/16 5:00 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib454">CGEX:Contrib454</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>8/29/16 6:00 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib454"><pre><code>{
+  "id": "CGEX:Contrib454",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "8/29/16 6:00 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib455">CGEX:Contrib455</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>8/29/16 7:00 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib455"><pre><code>{
+  "id": "CGEX:Contrib455",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "8/29/16 7:00 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib456">CGEX:Contrib456</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>8/29/16 8:00 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib456"><pre><code>{
+  "id": "CGEX:Contrib456",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "8/29/16 8:00 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib457">CGEX:Contrib457</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>8/29/16 9:00 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib457"><pre><code>{
+  "id": "CGEX:Contrib457",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "8/29/16 9:00 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib458">CGEX:Contrib458</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent005">CGEX:Agent005</a></p> (G. Rajar)
+         </td>
+          <td>
+              <p>8/29/16 10:00 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib458"><pre><code>{
+  "id": "CGEX:Contrib458",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent005",
+    "type": "Agent",
+    "label": "G. Rajar"
+  },
+  "contributionDate": "8/29/16 10:00 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib459">CGEX:Contrib459</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent005">CGEX:Agent005</a></p> (G. Rajar)
+         </td>
+          <td>
+              <p>8/29/16 11:00 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib459"><pre><code>{
+  "id": "CGEX:Contrib459",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent005",
+    "type": "Agent",
+    "label": "G. Rajar"
+  },
+  "contributionDate": "8/29/16 11:00 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib460">CGEX:Contrib460</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent004">CGEX:Agent004</a></p> (CSER Bakeoff Project)
+         </td>
+          <td>
+              <p>8/29/16 11:00 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib460"><pre><code>{
+  "id": "CGEX:Contrib460",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent004",
+    "type": "Agent",
+    "label": "CSER Bakeoff Project"
+  },
+  "contributionDate": "8/29/16 11:00 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib461">CGEX:Contrib461</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>8/30/16 6:00 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib461"><pre><code>{
+  "id": "CGEX:Contrib461",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "8/30/16 6:00 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib462">CGEX:Contrib462</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>9/5/16 6:00 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib462"><pre><code>{
+  "id": "CGEX:Contrib462",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "9/5/16 6:00 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib463">CGEX:Contrib463</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>9/5/16 6:30 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib463"><pre><code>{
+  "id": "CGEX:Contrib463",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "9/5/16 6:30 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib464">CGEX:Contrib464</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent004">CGEX:Agent004</a></p> (CSER Bakeoff Project)
+         </td>
+          <td>
+              <p>9/5/16 6:30 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib464"><pre><code>{
+  "id": "CGEX:Contrib464",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent004",
+    "type": "Agent",
+    "label": "CSER Bakeoff Project"
+  },
+  "contributionDate": "9/5/16 6:30 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib465">CGEX:Contrib465</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>9/5/16 7:01 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib465"><pre><code>{
+  "id": "CGEX:Contrib465",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "9/5/16 7:01 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib466">CGEX:Contrib466</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent004">CGEX:Agent004</a></p> (CSER Bakeoff Project)
+         </td>
+          <td>
+              <p>9/5/16 7:01 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000331">SEPIO:0000331</a></p> (interpreter role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib466"><pre><code>{
+  "id": "CGEX:Contrib466",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent004",
+    "type": "Agent",
+    "label": "CSER Bakeoff Project"
+  },
+  "contributionDate": "9/5/16 7:01 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000331",
+    "label": "interpreter role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib467">CGEX:Contrib467</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent006">CGEX:Agent006</a></p> (CSER classifier #6)
+         </td>
+          <td>
+              <p>6/26/2015 12:06 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000331">SEPIO:0000331</a></p> (interpreter role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib467"><pre><code>{
+  "id": "CGEX:Contrib467",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent006",
+    "type": "Agent",
+    "label": "CSER classifier #6"
+  },
+  "contributionDate": "6/26/2015 12:06 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000331",
+    "label": "interpreter role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib468">CGEX:Contrib468</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>9/5/16 9:01 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib468"><pre><code>{
+  "id": "CGEX:Contrib468",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "9/5/16 9:01 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib469">CGEX:Contrib469</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>9/5/16 9:31 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib469"><pre><code>{
+  "id": "CGEX:Contrib469",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "9/5/16 9:31 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib470">CGEX:Contrib470</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>9/5/16 9:51 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib470"><pre><code>{
+  "id": "CGEX:Contrib470",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "9/5/16 9:51 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib471">CGEX:Contrib471</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>9/5/16 10:51 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib471"><pre><code>{
+  "id": "CGEX:Contrib471",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "9/5/16 10:51 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib472">CGEX:Contrib472</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>9/5/16 11:00 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib472"><pre><code>{
+  "id": "CGEX:Contrib472",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "9/5/16 11:00 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib473">CGEX:Contrib473</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent005">CGEX:Agent005</a></p> (G. Rajar)
+         </td>
+          <td>
+              <p>9/6/16 8:00 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib473"><pre><code>{
+  "id": "CGEX:Contrib473",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent005",
+    "type": "Agent",
+    "label": "G. Rajar"
+  },
+  "contributionDate": "9/6/16 8:00 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib474">CGEX:Contrib474</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent005">CGEX:Agent005</a></p> (G. Rajar)
+         </td>
+          <td>
+              <p>9/6/16 9:00 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib474"><pre><code>{
+  "id": "CGEX:Contrib474",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent005",
+    "type": "Agent",
+    "label": "G. Rajar"
+  },
+  "contributionDate": "9/6/16 9:00 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib475">CGEX:Contrib475</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>9/6/16 10:00 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib475"><pre><code>{
+  "id": "CGEX:Contrib475",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "9/6/16 10:00 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib476">CGEX:Contrib476</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>9/6/16 11:00 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib476"><pre><code>{
+  "id": "CGEX:Contrib476",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "9/6/16 11:00 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib477">CGEX:Contrib477</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>9/6/16 12:00 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib477"><pre><code>{
+  "id": "CGEX:Contrib477",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "9/6/16 12:00 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib478">CGEX:Contrib478</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>9/6/16 1:00 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib478"><pre><code>{
+  "id": "CGEX:Contrib478",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "9/6/16 1:00 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib479">CGEX:Contrib479</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>9/6/16 2:00 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib479"><pre><code>{
+  "id": "CGEX:Contrib479",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "9/6/16 2:00 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib480">CGEX:Contrib480</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>9/13/16</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000156">SEPIO:0000156</a></p> (curator role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib480"><pre><code>{
+  "id": "CGEX:Contrib480",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "9/13/16",
+  "contributionRole": {
+    "id": "SEPIO:0000156",
+    "label": "curator role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib481">CGEX:Contrib481</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>9/13/16</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000156">SEPIO:0000156</a></p> (curator role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib481"><pre><code>{
+  "id": "CGEX:Contrib481",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "9/13/16",
+  "contributionRole": {
+    "id": "SEPIO:0000156",
+    "label": "curator role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib482">CGEX:Contrib482</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>9/13/16</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000156">SEPIO:0000156</a></p> (curator role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib482"><pre><code>{
+  "id": "CGEX:Contrib482",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "9/13/16",
+  "contributionRole": {
+    "id": "SEPIO:0000156",
+    "label": "curator role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib483">CGEX:Contrib483</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>5/31/16 8:46 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000156">SEPIO:0000156</a></p> (curator role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib483"><pre><code>{
+  "id": "CGEX:Contrib483",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "5/31/16 8:46 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000156",
+    "label": "curator role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib484">CGEX:Contrib484</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>5/31/16 9:15 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000156">SEPIO:0000156</a></p> (curator role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib484"><pre><code>{
+  "id": "CGEX:Contrib484",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "5/31/16 9:15 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000156",
+    "label": "curator role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib485">CGEX:Contrib485</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>5/31/16 11:01 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000331">SEPIO:0000331</a></p> (interpreter role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib485"><pre><code>{
+  "id": "CGEX:Contrib485",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "5/31/16 11:01 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000331",
+    "label": "interpreter role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib486">CGEX:Contrib486</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/1/16 2:03 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000156">SEPIO:0000156</a></p> (curator role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib486"><pre><code>{
+  "id": "CGEX:Contrib486",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/1/16 2:03 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000156",
+    "label": "curator role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib487">CGEX:Contrib487</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>6/1/16 2:10 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000156">SEPIO:0000156</a></p> (curator role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib487"><pre><code>{
+  "id": "CGEX:Contrib487",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "6/1/16 2:10 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000156",
+    "label": "curator role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib488">CGEX:Contrib488</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/1/16 2:15 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000156">SEPIO:0000156</a></p> (curator role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib488"><pre><code>{
+  "id": "CGEX:Contrib488",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/1/16 2:15 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000156",
+    "label": "curator role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib489">CGEX:Contrib489</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>9/15/16 8:12 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib489"><pre><code>{
+  "id": "CGEX:Contrib489",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "9/15/16 8:12 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib490">CGEX:Contrib490</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>9/15/16 9:23 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib490"><pre><code>{
+  "id": "CGEX:Contrib490",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "9/15/16 9:23 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib491">CGEX:Contrib491</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>9/15/16 10:40 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib491"><pre><code>{
+  "id": "CGEX:Contrib491",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "9/15/16 10:40 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib492">CGEX:Contrib492</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent005">CGEX:Agent005</a></p> (G. Rajar)
+         </td>
+          <td>
+              <p>10/4/16 8:02 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib492"><pre><code>{
+  "id": "CGEX:Contrib492",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent005",
+    "type": "Agent",
+    "label": "G. Rajar"
+  },
+  "contributionDate": "10/4/16 8:02 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib493">CGEX:Contrib493</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent006">CGEX:Agent006</a></p> (CSER classifier #6)
+         </td>
+          <td>
+              <p>6/26/2015 12:06 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000331">SEPIO:0000331</a></p> (interpreter role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib493"><pre><code>{
+  "id": "CGEX:Contrib493",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent006",
+    "type": "Agent",
+    "label": "CSER classifier #6"
+  },
+  "contributionDate": "6/26/2015 12:06 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000331",
+    "label": "interpreter role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib494">CGEX:Contrib494</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>10/4/16 10:37 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib494"><pre><code>{
+  "id": "CGEX:Contrib494",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "10/4/16 10:37 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib495">CGEX:Contrib495</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>10/4/16 11:42 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib495"><pre><code>{
+  "id": "CGEX:Contrib495",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "10/4/16 11:42 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib496">CGEX:Contrib496</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>10/6/16 8:30 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib496"><pre><code>{
+  "id": "CGEX:Contrib496",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "10/6/16 8:30 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib497">CGEX:Contrib497</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>10/6/16 8:54 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib497"><pre><code>{
+  "id": "CGEX:Contrib497",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "10/6/16 8:54 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib498">CGEX:Contrib498</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>10/6/16 9:09 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib498"><pre><code>{
+  "id": "CGEX:Contrib498",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "10/6/16 9:09 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib499">CGEX:Contrib499</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>10/6/16 9:45 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib499"><pre><code>{
+  "id": "CGEX:Contrib499",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "10/6/16 9:45 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib500">CGEX:Contrib500</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>10/10/16 8:02 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib500"><pre><code>{
+  "id": "CGEX:Contrib500",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "10/10/16 8:02 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib501">CGEX:Contrib501</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>10/10/16 8:03 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib501"><pre><code>{
+  "id": "CGEX:Contrib501",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "10/10/16 8:03 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib502">CGEX:Contrib502</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>10/10/16 8:04 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib502"><pre><code>{
+  "id": "CGEX:Contrib502",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "10/10/16 8:04 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib503">CGEX:Contrib503</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>10/10/16 8:05 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib503"><pre><code>{
+  "id": "CGEX:Contrib503",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "10/10/16 8:05 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib504">CGEX:Contrib504</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>10/10/16 8:06 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib504"><pre><code>{
+  "id": "CGEX:Contrib504",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "10/10/16 8:06 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib505">CGEX:Contrib505</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>01/17/17 9:12 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib505"><pre><code>{
+  "id": "CGEX:Contrib505",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "01/17/17 9:12 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib506">CGEX:Contrib506</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>03/07/2017 4:30 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib506"><pre><code>{
+  "id": "CGEX:Contrib506",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "03/07/2017 4:30 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib507">CGEX:Contrib507</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>03/07/2017 5:22 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib507"><pre><code>{
+  "id": "CGEX:Contrib507",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "03/07/2017 5:22 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib508">CGEX:Contrib508</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>03/08/2017 7:43 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib508"><pre><code>{
+  "id": "CGEX:Contrib508",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "03/08/2017 7:43 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib509">CGEX:Contrib509</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>03/08/2017 9:46 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib509"><pre><code>{
+  "id": "CGEX:Contrib509",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "03/08/2017 9:46 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib510">CGEX:Contrib510</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>03/08/2017 10:02 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib510"><pre><code>{
+  "id": "CGEX:Contrib510",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "03/08/2017 10:02 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib511">CGEX:Contrib511</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent008">CGEX:Agent008</a></p> (Gene Geneticist)
+         </td>
+          <td>
+              <p>8/14/2014 10:29 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000331">SEPIO:0000331</a></p> (interpreter role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib511"><pre><code>{
+  "id": "CGEX:Contrib511",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent008",
+    "type": "Agent",
+    "label": "Gene Geneticist"
+  },
+  "contributionDate": "8/14/2014 10:29 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000331",
+    "label": "interpreter role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib512">CGEX:Contrib512</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent009">CGEX:Agent009</a></p> (George Geneticist)
+         </td>
+          <td>
+              <p>8/14/2014 10:29 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000331">SEPIO:0000331</a></p> (interpreter role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib512"><pre><code>{
+  "id": "CGEX:Contrib512",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent009",
+    "type": "Agent",
+    "label": "George Geneticist"
+  },
+  "contributionDate": "8/14/2014 10:29 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000331",
+    "label": "interpreter role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib513">CGEX:Contrib513</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>3/14/2017 10:29 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib513"><pre><code>{
+  "id": "CGEX:Contrib513",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "3/14/2017 10:29 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib514">CGEX:Contrib514</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>3/14/2017 10:45 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib514"><pre><code>{
+  "id": "CGEX:Contrib514",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "3/14/2017 10:45 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib515">CGEX:Contrib515</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent010">CGEX:Agent010</a></p> (ACME Molecular Lab)
+         </td>
+          <td>
+              <p>6/11/2011 11:45 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib515"><pre><code>{
+  "id": "CGEX:Contrib515",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent010",
+    "type": "Agent",
+    "label": "ACME Molecular Lab"
+  },
+  "contributionDate": "6/11/2011 11:45 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib516">CGEX:Contrib516</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent010">CGEX:Agent010</a></p> (ACME Molecular Lab)
+         </td>
+          <td>
+              <p>6/11/2011 12:45:00</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib516"><pre><code>{
+  "id": "CGEX:Contrib516",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent010",
+    "type": "Agent",
+    "label": "ACME Molecular Lab"
+  },
+  "contributionDate": "6/11/2011 12:45:00",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib517">CGEX:Contrib517</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent010">CGEX:Agent010</a></p> (ACME Molecular Lab)
+         </td>
+          <td>
+              <p>6/10/2011 1:45 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib517"><pre><code>{
+  "id": "CGEX:Contrib517",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent010",
+    "type": "Agent",
+    "label": "ACME Molecular Lab"
+  },
+  "contributionDate": "6/10/2011 1:45 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib518">CGEX:Contrib518</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent010">CGEX:Agent010</a></p> (ACME Molecular Lab)
+         </td>
+          <td>
+              <p>6/12/2011 9:00 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000331">SEPIO:0000331</a></p> (interpreter role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib518"><pre><code>{
+  "id": "CGEX:Contrib518",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent010",
+    "type": "Agent",
+    "label": "ACME Molecular Lab"
+  },
+  "contributionDate": "6/12/2011 9:00 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000331",
+    "label": "interpreter role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib519">CGEX:Contrib519</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent010">CGEX:Agent010</a></p> (ACME Molecular Lab)
+         </td>
+          <td>
+              <p>7/2/2012 8:45 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib519"><pre><code>{
+  "id": "CGEX:Contrib519",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent010",
+    "type": "Agent",
+    "label": "ACME Molecular Lab"
+  },
+  "contributionDate": "7/2/2012 8:45 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib520">CGEX:Contrib520</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent011">CGEX:Agent011</a></p> (Genetics Diagnostic Laboratory,Children's Hospital of Eastern Ontario)
+         </td>
+          <td>
+              <p>6/1/2014 9:02 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000331">SEPIO:0000331</a></p> (interpreter role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib520"><pre><code>{
+  "id": "CGEX:Contrib520",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent011",
+    "type": "Agent",
+    "label": "Genetics Diagnostic Laboratory,Children's Hospital of Eastern Ontario"
+  },
+  "contributionDate": "6/1/2014 9:02 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000331",
+    "label": "interpreter role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib521">CGEX:Contrib521</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent012">CGEX:Agent012</a></p> (GeneDx)
+         </td>
+          <td>
+              <p>6/20/2016 11:12 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000331">SEPIO:0000331</a></p> (interpreter role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib521"><pre><code>{
+  "id": "CGEX:Contrib521",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent012",
+    "type": "Agent",
+    "label": "GeneDx"
+  },
+  "contributionDate": "6/20/2016 11:12 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000331",
+    "label": "interpreter role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib522">CGEX:Contrib522</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>7/1/16 10:53 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib522"><pre><code>{
+  "id": "CGEX:Contrib522",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "7/1/16 10:53 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib523">CGEX:Contrib523</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent004">CGEX:Agent004</a></p> (CSER Bakeoff Project)
+         </td>
+          <td>
+              <p>7/1/16 10:53 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib523"><pre><code>{
+  "id": "CGEX:Contrib523",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent004",
+    "type": "Agent",
+    "label": "CSER Bakeoff Project"
+  },
+  "contributionDate": "7/1/16 10:53 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib524">CGEX:Contrib524</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>6/2/16 8:01 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib524"><pre><code>{
+  "id": "CGEX:Contrib524",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "6/2/16 8:01 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib525">CGEX:Contrib525</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent003">CGEX:Agent003</a></p> (Sasha Rande)
+         </td>
+          <td>
+              <p>6/12/16 7:30 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib525"><pre><code>{
+  "id": "CGEX:Contrib525",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent003",
+    "type": "Agent",
+    "label": "Sasha Rande"
+  },
+  "contributionDate": "6/12/16 7:30 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib526">CGEX:Contrib526</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>03/08/2017 9:46 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib526"><pre><code>{
+  "id": "CGEX:Contrib526",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "03/08/2017 9:46 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib527">CGEX:Contrib527</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>7/1/16 9:23 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib527"><pre><code>{
+  "id": "CGEX:Contrib527",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "7/1/16 9:23 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib528">CGEX:Contrib528</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>03/07/2017 4:30 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib528"><pre><code>{
+  "id": "CGEX:Contrib528",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "03/07/2017 4:30 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib529">CGEX:Contrib529</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>03/08/2017 10:02 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib529"><pre><code>{
+  "id": "CGEX:Contrib529",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "03/08/2017 10:02 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib530">CGEX:Contrib530</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>10/10/16 8:05 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib530"><pre><code>{
+  "id": "CGEX:Contrib530",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "10/10/16 8:05 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib531">CGEX:Contrib531</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>03/08/2017 7:43 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib531"><pre><code>{
+  "id": "CGEX:Contrib531",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "03/08/2017 7:43 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib532">CGEX:Contrib532</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>01/17/17 9:12 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib532"><pre><code>{
+  "id": "CGEX:Contrib532",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "01/17/17 9:12 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib533">CGEX:Contrib533</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent001">CGEX:Agent001</a></p> (Harry Stevenson)
+         </td>
+          <td>
+              <p>03/07/2017 5:22 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib533"><pre><code>{
+  "id": "CGEX:Contrib533",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent001",
+    "type": "Agent",
+    "label": "Harry Stevenson"
+  },
+  "contributionDate": "03/07/2017 5:22 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib534">CGEX:Contrib534</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>3/14/2017 10:29 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib534"><pre><code>{
+  "id": "CGEX:Contrib534",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "3/14/2017 10:29 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib535">CGEX:Contrib535</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent007">CGEX:Agent007</a></p> (Stefan DiMarino)
+         </td>
+          <td>
+              <p>3/14/2017 10:45 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib535"><pre><code>{
+  "id": "CGEX:Contrib535",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent007",
+    "type": "Agent",
+    "label": "Stefan DiMarino"
+  },
+  "contributionDate": "3/14/2017 10:45 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib536">CGEX:Contrib536</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent010">CGEX:Agent010</a></p> (ACME Molecular Lab)
+         </td>
+          <td>
+              <p>6/11/2011 11:45 AM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib536"><pre><code>{
+  "id": "CGEX:Contrib536",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent010",
+    "type": "Agent",
+    "label": "ACME Molecular Lab"
+  },
+  "contributionDate": "6/11/2011 11:45 AM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib537">CGEX:Contrib537</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent010">CGEX:Agent010</a></p> (ACME Molecular Lab)
+         </td>
+          <td>
+              <p>6/11/2011 12:45:00</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib537"><pre><code>{
+  "id": "CGEX:Contrib537",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent010",
+    "type": "Agent",
+    "label": "ACME Molecular Lab"
+  },
+  "contributionDate": "6/11/2011 12:45:00",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+        <tr>
+          <td><p><a href="details/details.html#CGEX:Contrib538">CGEX:Contrib538</a></p></td>
+          <td>
+              
+         </td>
+          <td>
+              
+         </td>
+          <td>
+              <p><a href="details/details.html#CGEX:Agent010">CGEX:Agent010</a></p> (ACME Molecular Lab)
+         </td>
+          <td>
+              <p>6/10/2011 1:45 PM</p>
+         </td>
+          <td>
+              <p><a href="details/details.html#SEPIO:0000154">SEPIO:0000154</a></p> (assessor role)
+         </td>
+          <!--
+          <td><div class="example_view" id="CGEX:Contrib538"><pre><code>{
+  "id": "CGEX:Contrib538",
+  "type": "Contribution",
+  "agent": {
+    "id": "CGEX:Agent010",
+    "type": "Agent",
+    "label": "ACME Molecular Lab"
+  },
+  "contributionDate": "6/10/2011 1:45 PM",
+  "contributionRole": {
+    "id": "SEPIO:0000154",
+    "label": "assessor role"
+  }
+}
+          </code></pre></div></td>
+          -->
+        </tr>
+
+      </tbody>
+    </table>
+    <script>
+window.addEventListener('load', function() {
+    $('.datatables').DataTable();
+});
+    </script>
+    <!--
+    <script>
+var fix_ellipses = function ($view) {
+    $view.find('ul.obj li a:contains("id")').parent().parent().parent().children('.ellipsis').each(function () {
+        $(this).html('<em>' + $(this).next('ul').find('a:contains("id")').next('.string')[0].innerText + ', …</em>')
+    })
+    $view.find('ul.array').each(function () {
+        $(this).parent().children('.ellipsis').html('<em>… [' + $(this).children('li').size() + ']</em>')
+    })
+}
+
+window.addEventListener('load', function () {
+    $('.example_view').each(function() {
+        var $view = $(this);
+        $view.JSONView($(this).text(), {collapsed: true})
+        fix_ellipses($view)
+        $view.find('.collapser').click(function (e) { fix_ellipses($view); })
+        $view.next('a.prop').click(function (e) { fix_ellipses($view); })
+    })
+
+})
+    </script>
+    -->
+
+
+          </article>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-2">
+          <div class="list-group sidenav">
+            <ul class="list-unstyled">
+              <li class="list-group-item">
+                <h5><a href="../">Model Overview</a></h5>
+              </li>
+              <li class="list-group-item">
+                <h5><a href="../getting_started.html">Getting Started</a></h5>
+              </li>
+              <li class="list-group-item">
+                <h5><a href="../deeper_dive.html">A Deeper Dive</a></h5>
+              </li>
+              <li class="list-group-item">
+                <h5><a href="../faq.html">FAQ</a></h5>
+              </li>
+              <li class="list-group-item"><h5><a href="./">Entities</a></h5><ul class='list-unstyled'><li><a href="Agent.html"></a></li><li><a href="AggregateCosegregationStatement.html"></a></li><li><a href="AlleleConservationScoreStatement.html"></a></li><li><a href="AlleleConservationStatement.html"></a></li><li><a href="AlleleFunctionalImpactStatement.html"></a></li><li><a href="AlleleMolecularConsequenceStatement.html"></a></li><li><a href="BenignMissenseVariationRateStatement.html"></a></li><li><a href="CanonicalAllele.html"></a></li><li><a href="CaseControlAlleleFrequencyStatement.html"></a></li><li><a href="ConditionMechanismStatement.html"></a></li><li><a href="ConditionPenetranceStatement.html"></a></li><li><a href="ConditionPrevelanceStatement.html"></a></li><li><a href="ContextualAllele.html"></a></li><li><a href="ContextualAlleleName.html"></a></li><li class="active"><a href="Contribution.html"></a></li><li><a href="CriterionAssessment.html"></a></li><li><a href="DomainEntity.html"></a></li><li><a href="Entity.html"></a></li><li><a href="EvidenceLine.html"></a></li><li><a href="FamilyConditionStatement.html"></a></li><li><a href="FamilyCosegregationStatement.html"></a></li><li><a href="GeneticCondition.html"></a></li><li><a href="Genotype.html"></a></li><li><a href="Haplotype.html"></a></li><li><a href="IdentifierSystem.html"></a></li><li><a href="InSilicoPredictionScoreStatement.html"></a></li><li><a href="InSilicoPredictionStatement.html"></a></li><li><a href="IndividualAlleleInheritanceStatement.html"></a></li><li><a href="IndividualConditionStatement.html"></a></li><li><a href="IndividualGenotypeStatement.html"></a></li><li><a href="LocusHeterogeneityStatement.html"></a></li><li><a href="NullAlleleStatement.html"></a></li><li><a href="PopulationAlleleFrequencyStatement.html"></a></li><li><a href="Position.html"></a></li><li><a href="ReferenceCoordinate.html"></a></li><li><a href="RegionAllelesStatement.html"></a></li><li><a href="RegionTypeStatement.html"></a></li><li><a href="SequenceLocation.html"></a></li><li><a href="Statement.html"></a></li><li><a href="UserLabel.html"></a></li><li><a href="ValueSet.html"></a></li><li><a href="VariantPathogenicityInterpretation.html"></a></li><li><a href="VariantPathogenicityInterpretationCriterion.html"></a></li><li><a href="VariantPathogenicityInterpretationGuideline.html"></a></li><li><a href="json_schema.html">JSON Schema</a></li></ul></li>
+              <li class='list-group-item'><h5><a href="../terminologies/">Terminologies</a></h5></li>
+              <li class="list-group-item">
+                <h5><a href="../projects.html">Projects & Tools</a></h5>
+              </li>
+              <!-- Old style.  We might still need the model here? -->
+              <!--%= link_with_local_index "Entities", "/#{current_page.data.model}/vampi/entities/index.html" %-->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footer" class="container  background-trans padding-top-xl">
+      <div class="row">
+        <hr />
+        <div class="col-md-col-sm-12 text-center"> 
+          © 2018 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../javascripts/jquery.js"></script><script src="../javascripts/bootstrap.js"></script><script src="../javascripts/jquery.jsonview.js"></script><script src="../javascripts/all.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.13/fh-3.1.2/datatables.min.js"></script>
+
+  </body>
+</html>
