@@ -9,7 +9,7 @@
     <link rel="icon" href="#######">
 
     <title>
-      ClinGen Data Model
+      ClinGen Data Exchange
     </title>
 
     <link href="/stylesheets/bootstrap.css" rel="stylesheet" /><link href="/stylesheets/bootstrap-theme.css" rel="stylesheet" /><link href="/stylesheets/brand2.css" rel="stylesheet" />
@@ -46,10 +46,10 @@
                   <a href="/"><i class="glyphicon glyphicon-home"></i> Home</a>
                 </li>
                     <li class="allele" >
-                      <li class="allele"><a href="allele/master/index.html"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
+                      <li class="allele"><a href="allele/index.html"><span class="glyphicon glyphicon-leaf"></span>Allele</a></li>
                     </li>
                     <li class="interpretation" >
-                      <li class="interpretation"><a href="interpretation/master/index.html"><span class="glyphicon glyphicon-star"></span>Interpretation</a></li>
+                      <li class="interpretation"><a href="interpretation/index.html"><span class="glyphicon glyphicon-star"></span>Interpretation</a></li>
                     </li>
                 <li>
                     <a target="_blank" href="http://www.clinicalgenome.org"><i class="glyphicon glyphicon-new-window"></i> About ClinGen</a>
@@ -62,7 +62,7 @@
 
     <div class="row">
           <div class="col-sm-12">
-              <h1 class="header">ClinGen Data Model</h1>
+              <h1 class="header">ClinGen Data Exchange</h1>
           </div>
         </div>
       </div>
@@ -71,51 +71,56 @@
       <div class="row">
             <div class="col-sm-8 col-xs-12 col-md-9 col-lg-10">
       <article>
-        <p><a href="http://clinicalgenome.org">ClinGen</a> is an NIH-funded resource centered on clinically-relevant genomic alleles.  The goal of the ClinGen project is to enhance patient care through:</p>
+        <div style="text-align:right"><em><small>(last updated Jun.26.2018)</small></em></div>
 
+<div style="border:solid;padding:5px">
+<em>Pardon Our Appearence While We Reoganize!</em><br />
+We are in the process of overhauling our site to make it easier to access all the infromation about the Data Exchange. <br />
+However, the sections below should provide an overview of the activities and resources available now.
+</div>
+<p><br />
+This site is dedicated to providing updates on developments and documentation on the Data Exchange platform, data models and tools produced by the ClinGen Data Exchange Working Group.</p>
+
+<p>The ClinGen Data Exchange is a comprised of the platform, data models and tools that enable an environment of standardized exchange of genomic knowledge. The Data Exchange is designed to enable a consistent approach to produce and consume the full suite of genomic knowledge curated in ClinGen. Access to the Data Exchange is currently accessible to all systems within ClinGen and may potentially be made available to external systems in the future.</p>
+
+<h3 id="collaborations-interactions--integrations">Collaborations, Interactions &amp; Integrations</h3>
 <ul>
-  <li>Sharing of clinically-relevant genomic data</li>
-  <li>Expert curation, creating knowledge from genomic data</li>
-  <li>Machine learning on genomic data to discover new clinical relevance.</li>
+  <li><strong><a href="http://reg.genome.net">Allele Registry</a></strong> - The ClinGen Allele Registry has adopted the Allele Model.</li>
+  <li><strong>VCI's ClinVar Submission Process</strong> - <a href="http://dataexchange.clinicalgenome.org/interpretation/tools.html">Tools</a> have been developed to transform and generate the internal VCI representation of variant interpretations into valid clinvar submission records. Currently manual, soon to be integrated with the VCI's User Interface.</li>
+  <li><strong><a href="https://github.com/monarch-initiative/SEPIO-ontology/wiki">SEPIO</a></strong> - The Monarch Intiative's Scientific Evidence Provenance Information Ontology has become the basis for the Interpretation modeling approach. Plans are to continue developing all future knowledge models using the approach developed here.</li>
+  <li><strong><a href="http://www.ga4gh.org">GA4GH</a></strong> - ClinGen is a driver project for the GA4GH and heavily involved in the Genomic Knowledge Standards (GSK) workstream to harmonize our models for both Variants (aka Alleles) and Variant Annotations (aka Interpretations). The ClinVar Submitter tools are planned to be a pilot project to illustrate the utility of the GA4GH GKS Variant model.</li>
+  <li><strong><a href="http://www.hl7.org/Special/committees/clingenomics/overview.cfm">HL7 Clinical Genomics(CG)</a></strong> - ClinGen data exchange modeling members actively participate in HL7's CG WG to provide a communication channel for overlapping objectives.</li>
+</ul>
+
+<h3 id="data-models">Data Models</h3>
+<ul>
+  <li>The <a href="http://dataexchange.clinicalgenome.org/allele">Allele Model</a> was release in 2017 and is the basis for the JSON-LD representation of alleles in the <a href="http://reg.genome.net">ClinGen Allele Registry</a>.</li>
+  <li>The <a href="http://dataexchange.clinicalgenome.org/interpretation">Interpretation Model</a> was released in June 2018. This first interpertation model was scoped to provide support for Variant Pathogenicity Interpretations as specified by the 2015 ACMG ISV guidelines.</li>
 </ul>
 
 <p><br />
-The effectiveness of curation, analysis, and sharing is dependent upon the degree to which the structure of data and the meanings of terms can be agreed upon.  When data is transmitted from one system to another, both systems must agree on what that data means, and the format in which it is transmitted.</p>
+<b>Current Plans</b>
+There will be several more Interpretation models developed and implemented to support the sharing of the other types of curated genomic knowledge within ClinGen in the upcoming months.  These models will be documented on this site once released.</p>
 
-<p>The ClinGen <a href="https://clinicalgenome.org/working-groups/data-model/">Data Model Working Group</a> was formed in order to:</p>
+<h3 id="platform">Platform</h3>
+<p>The figure below illustrates the current platform also referred to as the ClinGen Data Exchange. Currently, the primary consumer of the platform data is the ClinGen website. And, several of the ClinGen curation systems are actively producing and sharing their data with the platform to be accessible on the website.</p>
 
-<ul>
-  <li>Develop a core conceptual model and data dictionary for the purposes of informing all other WG related activities with respect to data structure and content</li>
-  <li>Provide a common and consistent set of definitions around the core concepts, attributes and terminology throughout the ClinGen domain</li>
-  <li>Provide consistent representation of the information housed in the ClinGen resources to the public.</li>
-</ul>
+<p>In the upcoming phase of platform development all curated genomic knowledge types will be modified to standardized models by the data exchange working group. And further integration opportunities outside the website will be explored.</p>
 
-<p><br />
-The process by which the Data Model Working Group is approaching this set of goals is to:</p>
+<p><img alt="Infrastructure Diagram" title="The DataExchange Infrastructure" src="/images/dataexchange-overview.jpg" /></p>
 
-<ul>
-  <li>Define small useful data subsets to model</li>
-  <li>For each such domain, create a conceptual data model and data dictionary to describe it.</li>
-  <li>Use the conceptual model to define a resource model that can be used as the basis for a messaging serialization</li>
-  <li>Create documentation and examples explaining the use of the conceptual and resource models.</li>
-</ul>
+<h3 id="tools">Tools</h3>
+<p>Information on the tools available for working with our models is currently located on the <a href="http://dataexchange.clinicalgenome.org/interpretation/tools.html">Tools page</a> in the Interpretaion Model. This may be re-organized and moved in the future. This section will provide updates on how to access the information.</p>
 
-<p><br />
-This site documents the models created by the Data Model Working Group.  Following the links for each model listed below will lead to the documentation for that model. Note that the model is in pre-release status, caution is advised when building software based on the model (see <a href="/releases.html">release management</a>)</p>
-
-<p><a href="allele/">Allele Model</a>: Models the concepts of allele, reference and sequence.</p>
 
       </article>
     </div>
     <div class="col-sm-4 col-md-3 col-lg-2">
       <div class="list-group sidenav">
         <ul class="list-unstyled">
-          <li class="list-group-item"><h5><a href="/">Overview</a></h5></li>
-          <li class="list-group-item"><h5><a href="/fhir.html">FHIR</a></h5></li>
-          <li class="list-group-item"><h5><a href="/releases.html">Releases</a></h5></li>
-          <li class="list-group-item"><h5><a href="https://github.com/clingen-data-model/">GitHub Project</a></h5></li>
-            <li class="allele list-group-item"><h5><a href="allele/master/index.html"><span class="glyphicon glyphicon-leaf"></span>Allele</a></h5></li>
-            <li class="interpretation list-group-item"><h5><a href="interpretation/master/index.html"><span class="glyphicon glyphicon-star"></span>Interpretation</a></h5></li>
+          <li class="list-group-item"><h5>Data Models</h5></li>
+            <li class="allele list-group-item"><h5><a href="allele/index.html"><span class="glyphicon glyphicon-leaf"></span>Allele</a></h5></li>
+            <li class="interpretation list-group-item"><h5><a href="interpretation/index.html"><span class="glyphicon glyphicon-star"></span>Interpretation</a></h5></li>
         </ul>
       </div>
     </div>
@@ -126,15 +131,15 @@ This site documents the models created by the Data Model Working Group.  Followi
       <div class="row">
         <hr />
         <div class="col-md-col-sm-12 text-center"> 
-          © 2017 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
+          © 2018 <a href="/" title="ClinGen" class="">ClinGen</a> - All rights reserved
         </div>
     </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="http://datamodel.clinicalgenome.org/clingen-static-resources/javascripts/jquery.js">
-    </script><script src="http://datamodel.clinicalgenome.org/clingen-static-resources/javascripts/bootstrap.js"></script>
+    <script src="http://dataexchange.clinicalgenome.org/clingen-static-resources/javascripts/jquery.js">
+    </script><script src="http://dataexchange.clinicalgenome.org/clingen-static-resources/javascripts/bootstrap.js"></script>
 
   </body>
 </html>
