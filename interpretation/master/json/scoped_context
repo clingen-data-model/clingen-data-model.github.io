@@ -24,7 +24,7 @@
     "DOID": "http://purl.obolibrary.org/obo/DOID_",
     "ENSEMBL": "http://www.ensembl.org/",
     "EVS": "http://evs.gs.washington.edu/EVS/",
-    "GENE": "https://www.ncbi.nlm.nih.gov/gene/",
+    "NCBIGene": "https://www.ncbi.nlm.nih.gov/gene/",
     "GNOMAD": "http://gnomad.broadinstitute.org/",
     "HGNC": "http://www.genenames.org/",
     "HP": "http://purl.obolibrary.org/obo/HP_",
@@ -45,62 +45,6 @@
       "@context": {
         "label": "cg:label",
         "description": "cg:description"
-      }
-    },
-    "Agent": {
-      "@id": "cg:Agent",
-      "@context": {
-        "label": "cg:label",
-        "agentFor": {
-          "@id": "cg:agentFor",
-          "@type": "@id"
-        },
-        "description": "cg:description"
-      }
-    },
-    "Contribution": {
-      "@id": "cg:Contribution",
-      "@context": {
-        "label": "cg:label",
-        "agent": {
-          "@id": "cg:agent",
-          "@type": "@id"
-        },
-        "description": "cg:description",
-        "contributionDate": {
-          "@id": "cg:contributionDate",
-          "@type": "@id"
-        },
-        "contributionRole": {
-          "@id": "cg:contributionRole",
-          "@type": "@id"
-        }
-      }
-    },
-    "DomainEntity": {
-      "@id": "cg:DomainEntity",
-      "@context": {
-        "label": "cg:label",
-        "description": "cg:description"
-      }
-    },
-    "EvidenceLine": {
-      "@id": "cg:EvidenceLine",
-      "@context": {
-        "label": "cg:label",
-        "description": "cg:description",
-        "evidenceStrength": {
-          "@id": "cg:evidenceStrength",
-          "@type": "@id"
-        },
-        "evidenceItem": {
-          "@id": "cg:evidenceItem",
-          "@type": "@id"
-        },
-        "contribution": {
-          "@id": "cg:contribution",
-          "@type": "@id"
-        }
       }
     },
     "Statement": {
@@ -124,19 +68,75 @@
         "source": "cg:source"
       }
     },
-    "UserLabel": {
-      "@id": "cg:UserLabel",
+    "EvidenceLine": {
+      "@id": "cg:EvidenceLine",
       "@context": {
         "label": "cg:label",
-        "labelFor": {
-          "@id": "cg:labelFor",
+        "description": "cg:description",
+        "evidenceStrength": {
+          "@id": "cg:evidenceStrength",
           "@type": "@id"
         },
-        "description": "cg:description",
+        "evidenceItem": {
+          "@id": "cg:evidenceItem",
+          "@type": "@id"
+        },
         "contribution": {
           "@id": "cg:contribution",
           "@type": "@id"
         }
+      }
+    },
+    "Agent": {
+      "@id": "cg:Agent",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "agentFor": {
+          "@id": "cg:agentFor",
+          "@type": "@id"
+        }
+      }
+    },
+    "Contribution": {
+      "@id": "cg:Contribution",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "agent": {
+          "@id": "cg:agent",
+          "@type": "@id"
+        },
+        "contributionRole": {
+          "@id": "cg:contributionRole",
+          "@type": "@id"
+        },
+        "contributionDate": {
+          "@id": "cg:contributionDate",
+          "@type": "@id"
+        }
+      }
+    },
+    "UserLabel": {
+      "@id": "cg:UserLabel",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "labelFor": {
+          "@id": "cg:labelFor",
+          "@type": "@id"
+        },
+        "contribution": {
+          "@id": "cg:contribution",
+          "@type": "@id"
+        }
+      }
+    },
+    "DomainEntity": {
+      "@id": "cg:DomainEntity",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description"
       }
     },
     "ValueSet": {
@@ -158,33 +158,186 @@
         }
       }
     },
-    "AggregateCosegregationStatement": {
-      "@id": "cg:AggregateCosegregationStatement",
+    "IdentifierSystem": {
+      "@id": "cg:IdentifierSystem",
       "@context": {
-        "canonicalAllele": {
-          "@id": "cg:canonicalAllele",
-          "@type": "@id"
-        },
         "label": "cg:label",
         "description": "cg:description",
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
+        "prefix": "cg:prefix",
+        "urlPattern": "cg:urlPattern"
+      }
+    },
+    "VariantPathogenicityInterpretation": {
+      "@id": "cg:VariantPathogenicityInterpretation",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "variant": {
+          "@id": "cg:variant",
+          "@type": "@id"
+        },
+        "statementOutcome": {
+          "@id": "cg:statementOutcome",
           "@type": "@id"
         },
         "condition": {
           "@id": "cg:condition",
           "@type": "@id"
         },
-        "totalNumberOfSegregations": {
-          "@id": "cg:totalNumberOfSegregations",
+        "assertionMethod": {
+          "@id": "cg:assertionMethod",
+          "@type": "@id"
+        },
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
+          "@type": "@id"
+        },
+        "outcomeQualifier": "cg:outcomeQualifier",
+        "evidenceLine": {
+          "@id": "cg:evidenceLine",
+          "@type": "@id"
+        },
+        "contribution": {
+          "@id": "cg:contribution",
+          "@type": "@id"
+        },
+        "source": "cg:source"
+      }
+    },
+    "CriterionAssessment": {
+      "@id": "cg:CriterionAssessment",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "criterion": {
+          "@id": "cg:criterion",
+          "@type": "@id"
+        },
+        "variant": {
+          "@id": "cg:variant",
+          "@type": "@id"
+        },
+        "statementOutcome": {
+          "@id": "cg:statementOutcome",
+          "@type": "@id"
+        },
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
+          "@type": "@id"
+        },
+        "outcomeQualifier": "cg:outcomeQualifier",
+        "evidenceLine": {
+          "@id": "cg:evidenceLine",
+          "@type": "@id"
+        },
+        "contribution": {
+          "@id": "cg:contribution",
+          "@type": "@id"
+        },
+        "source": "cg:source"
+      }
+    },
+    "GeneticCondition": {
+      "@id": "cg:GeneticCondition",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "disease": {
+          "@id": "cg:disease",
+          "@type": "@id"
+        },
+        "phenotype": {
+          "@id": "cg:phenotype",
+          "@type": "@id"
+        },
+        "gene": {
+          "@id": "cg:gene",
+          "@type": "@id"
+        },
+        "inheritancePattern": {
+          "@id": "cg:inheritancePattern",
+          "@type": "@id"
+        }
+      }
+    },
+    "Haplotype": {
+      "@id": "cg:Haplotype",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "hasPart": {
+          "@id": "cg:hasPart",
+          "@type": "@id"
+        }
+      }
+    },
+    "Genotype": {
+      "@id": "cg:Genotype",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "hasPart": {
+          "@id": "cg:hasPart",
+          "@type": "@id"
+        },
+        "zygosity": {
+          "@id": "cg:zygosity",
+          "@type": "@id"
+        }
+      }
+    },
+    "VariantPathogenicityInterpretationCriterion": {
+      "@id": "cg:VariantPathogenicityInterpretationCriterion",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "defaultStrength": {
+          "@id": "cg:defaultStrength",
+          "@type": "@id"
+        },
+        "usageNotes": "cg:usageNotes"
+      }
+    },
+    "VariantPathogenicityInterpretationGuideline": {
+      "@id": "cg:VariantPathogenicityInterpretationGuideline",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "version": "cg:version",
+        "url": "cg:url",
+        "scoringAlgorithm": {
+          "@id": "cg:scoringAlgorithm",
+          "@type": "@id"
+        }
+      }
+    },
+    "AggregateCosegregationStatement": {
+      "@id": "cg:AggregateCosegregationStatement",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "canonicalAllele": {
+          "@id": "cg:canonicalAllele",
+          "@type": "@id"
+        },
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "inheritancePatternParameter": {
+          "@id": "cg:inheritancePatternParameter",
           "@type": "@id"
         },
         "familySegregation": {
           "@id": "cg:familySegregation",
           "@type": "@id"
         },
-        "inheritancePatternParameter": {
-          "@id": "cg:inheritancePatternParameter",
+        "totalNumberOfSegregations": {
+          "@id": "cg:totalNumberOfSegregations",
           "@type": "@id"
         },
         "totalOfAllelePosConditionPosIndividuals": {
@@ -215,6 +368,10 @@
           "@id": "cg:totalOfFamiliesWithInconsistentSegregations",
           "@type": "@id"
         },
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
+          "@type": "@id"
+        },
         "outcomeQualifier": "cg:outcomeQualifier",
         "evidenceLine": {
           "@id": "cg:evidenceLine",
@@ -230,19 +387,19 @@
     "AlleleConservationScoreStatement": {
       "@id": "cg:AlleleConservationScoreStatement",
       "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
         "allele": {
           "@id": "cg:allele",
           "@type": "@id"
         },
-        "label": "cg:label",
-        "description": "cg:description",
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
+        "score": {
+          "@id": "cg:score",
           "@type": "@id"
         },
         "algorithm": "cg:algorithm",
-        "score": {
-          "@id": "cg:score",
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
           "@type": "@id"
         },
         "outcomeQualifier": "cg:outcomeQualifier",
@@ -260,19 +417,19 @@
     "AlleleConservationStatement": {
       "@id": "cg:AlleleConservationStatement",
       "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
         "allele": {
           "@id": "cg:allele",
           "@type": "@id"
         },
-        "label": "cg:label",
-        "description": "cg:description",
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
+        "statementOutcome": {
+          "@id": "cg:statementOutcome",
           "@type": "@id"
         },
         "algorithm": "cg:algorithm",
-        "statementOutcome": {
-          "@id": "cg:statementOutcome",
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
           "@type": "@id"
         },
         "outcomeQualifier": "cg:outcomeQualifier",
@@ -290,14 +447,10 @@
     "AlleleFunctionalImpactStatement": {
       "@id": "cg:AlleleFunctionalImpactStatement",
       "@context": {
-        "contextualAllele": {
-          "@id": "cg:contextualAllele",
-          "@type": "@id"
-        },
         "label": "cg:label",
         "description": "cg:description",
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
+        "contextualAllele": {
+          "@id": "cg:contextualAllele",
           "@type": "@id"
         },
         "gene": {
@@ -307,6 +460,10 @@
         "resultDescription": "cg:resultDescription",
         "assayType": {
           "@id": "cg:assayType",
+          "@type": "@id"
+        },
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
           "@type": "@id"
         },
         "outcomeQualifier": "cg:outcomeQualifier",
@@ -324,49 +481,16 @@
     "AlleleMolecularConsequenceStatement": {
       "@id": "cg:AlleleMolecularConsequenceStatement",
       "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
         "contextualAllele": {
           "@id": "cg:contextualAllele",
           "@type": "@id"
         },
-        "label": "cg:label",
-        "description": "cg:description",
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
-          "@type": "@id"
-        },
         "statementOutcome": {
           "@id": "cg:statementOutcome",
           "@type": "@id"
         },
-        "outcomeQualifier": "cg:outcomeQualifier",
-        "evidenceLine": {
-          "@id": "cg:evidenceLine",
-          "@type": "@id"
-        },
-        "contribution": {
-          "@id": "cg:contribution",
-          "@type": "@id"
-        },
-        "source": "cg:source"
-      }
-    },
-    "BenignMissenseVariationRateStatement": {
-      "@id": "cg:BenignMissenseVariationRateStatement",
-      "@context": {
-        "label": "cg:label",
-        "gene": {
-          "@id": "cg:gene",
-          "@type": "@id"
-        },
-        "region": {
-          "@id": "cg:region",
-          "@type": "@id"
-        },
-        "statementOutcome": {
-          "@id": "cg:statementOutcome",
-          "@type": "@id"
-        },
-        "description": "cg:description",
         "userLabelDictionary": {
           "@id": "cg:userLabelDictionary",
           "@type": "@id"
@@ -387,17 +511,13 @@
       "@id": "cg:CaseControlAlleleFrequencyStatement",
       "@context": {
         "label": "cg:label",
+        "description": "cg:description",
         "canonicalAllele": {
           "@id": "cg:canonicalAllele",
           "@type": "@id"
         },
-        "description": "cg:description",
         "condition": {
           "@id": "cg:condition",
-          "@type": "@id"
-        },
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
           "@type": "@id"
         },
         "caseGroupFrequency": {
@@ -424,181 +544,8 @@
           "@id": "cg:confidenceIntervalUpper",
           "@type": "@id"
         },
-        "outcomeQualifier": "cg:outcomeQualifier",
-        "evidenceLine": {
-          "@id": "cg:evidenceLine",
-          "@type": "@id"
-        },
-        "contribution": {
-          "@id": "cg:contribution",
-          "@type": "@id"
-        },
-        "source": "cg:source"
-      }
-    },
-    "ConditionMechanismStatement": {
-      "@id": "cg:ConditionMechanismStatement",
-      "@context": {
-        "condition": {
-          "@id": "cg:condition",
-          "@type": "@id"
-        },
-        "label": "cg:label",
-        "description": "cg:description",
         "userLabelDictionary": {
           "@id": "cg:userLabelDictionary",
-          "@type": "@id"
-        },
-        "gene": {
-          "@id": "cg:gene",
-          "@type": "@id"
-        },
-        "statementOutcome": {
-          "@id": "cg:statementOutcome",
-          "@type": "@id"
-        },
-        "mechanismConfidence": {
-          "@id": "cg:mechanismConfidence",
-          "@type": "@id"
-        },
-        "outcomeQualifier": "cg:outcomeQualifier",
-        "evidenceLine": {
-          "@id": "cg:evidenceLine",
-          "@type": "@id"
-        },
-        "contribution": {
-          "@id": "cg:contribution",
-          "@type": "@id"
-        },
-        "source": "cg:source"
-      }
-    },
-    "ConditionPenetranceStatement": {
-      "@id": "cg:ConditionPenetranceStatement",
-      "@context": {
-        "label": "cg:label",
-        "condition": {
-          "@id": "cg:condition",
-          "@type": "@id"
-        },
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
-          "@type": "@id"
-        },
-        "statementOutcome": {
-          "@id": "cg:statementOutcome",
-          "@type": "@id"
-        },
-        "description": "cg:description",
-        "outcomeQualifier": "cg:outcomeQualifier",
-        "evidenceLine": {
-          "@id": "cg:evidenceLine",
-          "@type": "@id"
-        },
-        "contribution": {
-          "@id": "cg:contribution",
-          "@type": "@id"
-        },
-        "source": "cg:source"
-      }
-    },
-    "ConditionPrevelanceStatement": {
-      "@id": "cg:ConditionPrevelanceStatement",
-      "@context": {
-        "condition": {
-          "@id": "cg:condition",
-          "@type": "@id"
-        },
-        "label": "cg:label",
-        "description": "cg:description",
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
-          "@type": "@id"
-        },
-        "population": {
-          "@id": "cg:population",
-          "@type": "@id"
-        },
-        "minimum": {
-          "@id": "cg:minimum",
-          "@type": "@id"
-        },
-        "maximum": {
-          "@id": "cg:maximum",
-          "@type": "@id"
-        },
-        "prevelance": {
-          "@id": "cg:prevelance",
-          "@type": "@id"
-        },
-        "outcomeQualifier": "cg:outcomeQualifier",
-        "evidenceLine": {
-          "@id": "cg:evidenceLine",
-          "@type": "@id"
-        },
-        "contribution": {
-          "@id": "cg:contribution",
-          "@type": "@id"
-        },
-        "source": "cg:source"
-      }
-    },
-    "CriterionAssessment": {
-      "@id": "cg:CriterionAssessment",
-      "@context": {
-        "criterion": {
-          "@id": "cg:criterion",
-          "@type": "@id"
-        },
-        "label": "cg:label",
-        "description": "cg:description",
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
-          "@type": "@id"
-        },
-        "variant": {
-          "@id": "cg:variant",
-          "@type": "@id"
-        },
-        "condition": {
-          "@id": "cg:condition",
-          "@type": "@id"
-        },
-        "statementOutcome": {
-          "@id": "cg:statementOutcome",
-          "@type": "@id"
-        },
-        "outcomeQualifier": "cg:outcomeQualifier",
-        "evidenceLine": {
-          "@id": "cg:evidenceLine",
-          "@type": "@id"
-        },
-        "contribution": {
-          "@id": "cg:contribution",
-          "@type": "@id"
-        },
-        "source": "cg:source"
-      }
-    },
-    "FamilyConditionStatement": {
-      "@id": "cg:FamilyConditionStatement",
-      "@context": {
-        "proband": {
-          "@id": "cg:proband",
-          "@type": "@id"
-        },
-        "label": "cg:label",
-        "description": "cg:description",
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
-          "@type": "@id"
-        },
-        "condition": {
-          "@id": "cg:condition",
-          "@type": "@id"
-        },
-        "statementOutcome": {
-          "@id": "cg:statementOutcome",
           "@type": "@id"
         },
         "outcomeQualifier": "cg:outcomeQualifier",
@@ -616,14 +563,10 @@
     "FamilyCosegregationStatement": {
       "@id": "cg:FamilyCosegregationStatement",
       "@context": {
-        "canonicalAllele": {
-          "@id": "cg:canonicalAllele",
-          "@type": "@id"
-        },
         "label": "cg:label",
         "description": "cg:description",
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
+        "canonicalAllele": {
+          "@id": "cg:canonicalAllele",
           "@type": "@id"
         },
         "condition": {
@@ -650,10 +593,6 @@
           "@id": "cg:phenotypeNegativeAlleleNegative",
           "@type": "@id"
         },
-        "pedigree": "cg:pedigree",
-        "columns": "cg:columns",
-        "genotypeValues": "cg:genotypeValues",
-        "affectedValues": "cg:affectedValues",
         "inconsistentSegregationsObserved": {
           "@id": "cg:inconsistentSegregationsObserved",
           "@type": "@id"
@@ -662,107 +601,12 @@
           "@id": "cg:inconsistentSegregationCount",
           "@type": "@id"
         },
-        "outcomeQualifier": "cg:outcomeQualifier",
-        "evidenceLine": {
-          "@id": "cg:evidenceLine",
-          "@type": "@id"
-        },
-        "contribution": {
-          "@id": "cg:contribution",
-          "@type": "@id"
-        },
-        "source": "cg:source"
-      }
-    },
-    "IndividualAlleleInheritanceStatement": {
-      "@id": "cg:IndividualAlleleInheritanceStatement",
-      "@context": {
-        "canonicalAllele": {
-          "@id": "cg:canonicalAllele",
-          "@type": "@id"
-        },
-        "label": "cg:label",
-        "description": "cg:description",
+        "columns": "cg:columns",
+        "pedigree": "cg:pedigree",
+        "genotypeValues": "cg:genotypeValues",
+        "affectedValues": "cg:affectedValues",
         "userLabelDictionary": {
           "@id": "cg:userLabelDictionary",
-          "@type": "@id"
-        },
-        "individual": {
-          "@id": "cg:individual",
-          "@type": "@id"
-        },
-        "statementOutcome": {
-          "@id": "cg:statementOutcome",
-          "@type": "@id"
-        },
-        "parentalConfirmation": {
-          "@id": "cg:parentalConfirmation",
-          "@type": "@id"
-        },
-        "outcomeQualifier": "cg:outcomeQualifier",
-        "evidenceLine": {
-          "@id": "cg:evidenceLine",
-          "@type": "@id"
-        },
-        "contribution": {
-          "@id": "cg:contribution",
-          "@type": "@id"
-        },
-        "source": "cg:source"
-      }
-    },
-    "IndividualConditionStatement": {
-      "@id": "cg:IndividualConditionStatement",
-      "@context": {
-        "individual": {
-          "@id": "cg:individual",
-          "@type": "@id"
-        },
-        "label": "cg:label",
-        "description": "cg:description",
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
-          "@type": "@id"
-        },
-        "condition": {
-          "@id": "cg:condition",
-          "@type": "@id"
-        },
-        "statementOutcome": {
-          "@id": "cg:statementOutcome",
-          "@type": "@id"
-        },
-        "outcomeQualifier": "cg:outcomeQualifier",
-        "evidenceLine": {
-          "@id": "cg:evidenceLine",
-          "@type": "@id"
-        },
-        "contribution": {
-          "@id": "cg:contribution",
-          "@type": "@id"
-        },
-        "source": "cg:source"
-      }
-    },
-    "IndividualGenotypeStatement": {
-      "@id": "cg:IndividualGenotypeStatement",
-      "@context": {
-        "individual": {
-          "@id": "cg:individual",
-          "@type": "@id"
-        },
-        "label": "cg:label",
-        "description": "cg:description",
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
-          "@type": "@id"
-        },
-        "genotype": {
-          "@id": "cg:genotype",
-          "@type": "@id"
-        },
-        "statementOutcome": {
-          "@id": "cg:statementOutcome",
           "@type": "@id"
         },
         "outcomeQualifier": "cg:outcomeQualifier",
@@ -780,18 +624,18 @@
     "InSilicoPredictionScoreStatement": {
       "@id": "cg:InSilicoPredictionScoreStatement",
       "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
         "canonicalAllele": {
           "@id": "cg:canonicalAllele",
           "@type": "@id"
         },
-        "label": "cg:label",
-        "description": "cg:description",
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
-          "@type": "@id"
-        },
         "transcript": {
           "@id": "cg:transcript",
+          "@type": "@id"
+        },
+        "prediction": {
+          "@id": "cg:prediction",
           "@type": "@id"
         },
         "predictionType": {
@@ -799,8 +643,8 @@
           "@type": "@id"
         },
         "algorithm": "cg:algorithm",
-        "prediction": {
-          "@id": "cg:prediction",
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
           "@type": "@id"
         },
         "outcomeQualifier": "cg:outcomeQualifier",
@@ -818,60 +662,27 @@
     "InSilicoPredictionStatement": {
       "@id": "cg:InSilicoPredictionStatement",
       "@context": {
-        "canonicalAllele": {
-          "@id": "cg:canonicalAllele",
-          "@type": "@id"
-        },
         "label": "cg:label",
         "description": "cg:description",
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
+        "canonicalAllele": {
+          "@id": "cg:canonicalAllele",
           "@type": "@id"
         },
         "transcript": {
           "@id": "cg:transcript",
           "@type": "@id"
         },
+        "statementOutcome": {
+          "@id": "cg:statementOutcome",
+          "@type": "@id"
+        },
         "predictionType": {
           "@id": "cg:predictionType",
           "@type": "@id"
         },
-        "statementOutcome": {
-          "@id": "cg:statementOutcome",
-          "@type": "@id"
-        },
         "algorithm": "cg:algorithm",
-        "outcomeQualifier": "cg:outcomeQualifier",
-        "evidenceLine": {
-          "@id": "cg:evidenceLine",
-          "@type": "@id"
-        },
-        "contribution": {
-          "@id": "cg:contribution",
-          "@type": "@id"
-        },
-        "source": "cg:source"
-      }
-    },
-    "LocusHeterogeneityStatement": {
-      "@id": "cg:LocusHeterogeneityStatement",
-      "@context": {
-        "condition": {
-          "@id": "cg:condition",
-          "@type": "@id"
-        },
-        "label": "cg:label",
-        "description": "cg:description",
         "userLabelDictionary": {
           "@id": "cg:userLabelDictionary",
-          "@type": "@id"
-        },
-        "gene": {
-          "@id": "cg:gene",
-          "@type": "@id"
-        },
-        "statementOutcome": {
-          "@id": "cg:statementOutcome",
           "@type": "@id"
         },
         "outcomeQualifier": "cg:outcomeQualifier",
@@ -890,19 +701,19 @@
       "@id": "cg:NullAlleleStatement",
       "@context": {
         "label": "cg:label",
+        "description": "cg:description",
         "contextualAllele": {
           "@id": "cg:contextualAllele",
-          "@type": "@id"
-        },
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
           "@type": "@id"
         },
         "statementOutcome": {
           "@id": "cg:statementOutcome",
           "@type": "@id"
         },
-        "description": "cg:description",
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
+          "@type": "@id"
+        },
         "outcomeQualifier": "cg:outcomeQualifier",
         "evidenceLine": {
           "@id": "cg:evidenceLine",
@@ -918,26 +729,18 @@
     "PopulationAlleleFrequencyStatement": {
       "@id": "cg:PopulationAlleleFrequencyStatement",
       "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
         "allele": {
           "@id": "cg:allele",
           "@type": "@id"
         },
-        "label": "cg:label",
-        "description": "cg:description",
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
+        "alleleFrequency": {
+          "@id": "cg:alleleFrequency",
           "@type": "@id"
         },
         "population": {
           "@id": "cg:population",
-          "@type": "@id"
-        },
-        "ascertainment": {
-          "@id": "cg:ascertainment",
-          "@type": "@id"
-        },
-        "alleleFrequency": {
-          "@id": "cg:alleleFrequency",
           "@type": "@id"
         },
         "alleleCount": {
@@ -968,6 +771,14 @@
           "@id": "cg:medianCoverage",
           "@type": "@id"
         },
+        "ascertainment": {
+          "@id": "cg:ascertainment",
+          "@type": "@id"
+        },
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
+          "@type": "@id"
+        },
         "outcomeQualifier": "cg:outcomeQualifier",
         "evidenceLine": {
           "@id": "cg:evidenceLine",
@@ -983,22 +794,195 @@
     "RegionAllelesStatement": {
       "@id": "cg:RegionAllelesStatement",
       "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
         "allele": {
           "@id": "cg:allele",
           "@type": "@id"
         },
-        "label": "cg:label",
+        "statementOutcome": {
+          "@id": "cg:statementOutcome",
+          "@type": "@id"
+        },
         "region": {
           "@id": "cg:region",
           "@type": "@id"
         },
-        "description": "cg:description",
         "userLabelDictionary": {
           "@id": "cg:userLabelDictionary",
           "@type": "@id"
         },
+        "outcomeQualifier": "cg:outcomeQualifier",
+        "evidenceLine": {
+          "@id": "cg:evidenceLine",
+          "@type": "@id"
+        },
+        "contribution": {
+          "@id": "cg:contribution",
+          "@type": "@id"
+        },
+        "source": "cg:source"
+      }
+    },
+    "ConditionMechanismStatement": {
+      "@id": "cg:ConditionMechanismStatement",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "gene": {
+          "@id": "cg:gene",
+          "@type": "@id"
+        },
         "statementOutcome": {
           "@id": "cg:statementOutcome",
+          "@type": "@id"
+        },
+        "mechanismConfidence": {
+          "@id": "cg:mechanismConfidence",
+          "@type": "@id"
+        },
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
+          "@type": "@id"
+        },
+        "outcomeQualifier": "cg:outcomeQualifier",
+        "evidenceLine": {
+          "@id": "cg:evidenceLine",
+          "@type": "@id"
+        },
+        "contribution": {
+          "@id": "cg:contribution",
+          "@type": "@id"
+        },
+        "source": "cg:source"
+      }
+    },
+    "ConditionPenetranceStatement": {
+      "@id": "cg:ConditionPenetranceStatement",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "statementOutcome": {
+          "@id": "cg:statementOutcome",
+          "@type": "@id"
+        },
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
+          "@type": "@id"
+        },
+        "outcomeQualifier": "cg:outcomeQualifier",
+        "evidenceLine": {
+          "@id": "cg:evidenceLine",
+          "@type": "@id"
+        },
+        "contribution": {
+          "@id": "cg:contribution",
+          "@type": "@id"
+        },
+        "source": "cg:source"
+      }
+    },
+    "ConditionPrevelanceStatement": {
+      "@id": "cg:ConditionPrevelanceStatement",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "population": {
+          "@id": "cg:population",
+          "@type": "@id"
+        },
+        "minimum": {
+          "@id": "cg:minimum",
+          "@type": "@id"
+        },
+        "maximum": {
+          "@id": "cg:maximum",
+          "@type": "@id"
+        },
+        "prevelance": {
+          "@id": "cg:prevelance",
+          "@type": "@id"
+        },
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
+          "@type": "@id"
+        },
+        "outcomeQualifier": "cg:outcomeQualifier",
+        "evidenceLine": {
+          "@id": "cg:evidenceLine",
+          "@type": "@id"
+        },
+        "contribution": {
+          "@id": "cg:contribution",
+          "@type": "@id"
+        },
+        "source": "cg:source"
+      }
+    },
+    "LocusHeterogeneityStatement": {
+      "@id": "cg:LocusHeterogeneityStatement",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "gene": {
+          "@id": "cg:gene",
+          "@type": "@id"
+        },
+        "statementOutcome": {
+          "@id": "cg:statementOutcome",
+          "@type": "@id"
+        },
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
+          "@type": "@id"
+        },
+        "outcomeQualifier": "cg:outcomeQualifier",
+        "evidenceLine": {
+          "@id": "cg:evidenceLine",
+          "@type": "@id"
+        },
+        "contribution": {
+          "@id": "cg:contribution",
+          "@type": "@id"
+        },
+        "source": "cg:source"
+      }
+    },
+    "BenignMissenseVariationRateStatement": {
+      "@id": "cg:BenignMissenseVariationRateStatement",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "region": {
+          "@id": "cg:region",
+          "@type": "@id"
+        },
+        "gene": {
+          "@id": "cg:gene",
+          "@type": "@id"
+        },
+        "statementOutcome": {
+          "@id": "cg:statementOutcome",
+          "@type": "@id"
+        },
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
           "@type": "@id"
         },
         "outcomeQualifier": "cg:outcomeQualifier",
@@ -1017,19 +1001,19 @@
       "@id": "cg:RegionTypeStatement",
       "@context": {
         "label": "cg:label",
+        "description": "cg:description",
         "region": {
           "@id": "cg:region",
-          "@type": "@id"
-        },
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
           "@type": "@id"
         },
         "statementOutcome": {
           "@id": "cg:statementOutcome",
           "@type": "@id"
         },
-        "description": "cg:description",
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
+          "@type": "@id"
+        },
         "outcomeQualifier": "cg:outcomeQualifier",
         "evidenceLine": {
           "@id": "cg:evidenceLine",
@@ -1042,29 +1026,128 @@
         "source": "cg:source"
       }
     },
-    "VariantPathogenicityInterpretation": {
-      "@id": "cg:VariantPathogenicityInterpretation",
+    "FamilyConditionStatement": {
+      "@id": "cg:FamilyConditionStatement",
       "@context": {
-        "variant": {
-          "@id": "cg:variant",
-          "@type": "@id"
-        },
         "label": "cg:label",
         "description": "cg:description",
-        "userLabelDictionary": {
-          "@id": "cg:userLabelDictionary",
-          "@type": "@id"
-        },
-        "condition": {
-          "@id": "cg:condition",
+        "proband": {
+          "@id": "cg:proband",
           "@type": "@id"
         },
         "statementOutcome": {
           "@id": "cg:statementOutcome",
           "@type": "@id"
         },
-        "assertionMethod": {
-          "@id": "cg:assertionMethod",
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
+          "@type": "@id"
+        },
+        "outcomeQualifier": "cg:outcomeQualifier",
+        "evidenceLine": {
+          "@id": "cg:evidenceLine",
+          "@type": "@id"
+        },
+        "contribution": {
+          "@id": "cg:contribution",
+          "@type": "@id"
+        },
+        "source": "cg:source"
+      }
+    },
+    "IndividualAlleleInheritanceStatement": {
+      "@id": "cg:IndividualAlleleInheritanceStatement",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "individual": {
+          "@id": "cg:individual",
+          "@type": "@id"
+        },
+        "parentalConfirmation": {
+          "@id": "cg:parentalConfirmation",
+          "@type": "@id"
+        },
+        "statementOutcome": {
+          "@id": "cg:statementOutcome",
+          "@type": "@id"
+        },
+        "canonicalAllele": {
+          "@id": "cg:canonicalAllele",
+          "@type": "@id"
+        },
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
+          "@type": "@id"
+        },
+        "outcomeQualifier": "cg:outcomeQualifier",
+        "evidenceLine": {
+          "@id": "cg:evidenceLine",
+          "@type": "@id"
+        },
+        "contribution": {
+          "@id": "cg:contribution",
+          "@type": "@id"
+        },
+        "source": "cg:source"
+      }
+    },
+    "IndividualConditionStatement": {
+      "@id": "cg:IndividualConditionStatement",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "individual": {
+          "@id": "cg:individual",
+          "@type": "@id"
+        },
+        "statementOutcome": {
+          "@id": "cg:statementOutcome",
+          "@type": "@id"
+        },
+        "condition": {
+          "@id": "cg:condition",
+          "@type": "@id"
+        },
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
+          "@type": "@id"
+        },
+        "outcomeQualifier": "cg:outcomeQualifier",
+        "evidenceLine": {
+          "@id": "cg:evidenceLine",
+          "@type": "@id"
+        },
+        "contribution": {
+          "@id": "cg:contribution",
+          "@type": "@id"
+        },
+        "source": "cg:source"
+      }
+    },
+    "IndividualGenotypeStatement": {
+      "@id": "cg:IndividualGenotypeStatement",
+      "@context": {
+        "label": "cg:label",
+        "description": "cg:description",
+        "individual": {
+          "@id": "cg:individual",
+          "@type": "@id"
+        },
+        "statementOutcome": {
+          "@id": "cg:statementOutcome",
+          "@type": "@id"
+        },
+        "genotype": {
+          "@id": "cg:genotype",
+          "@type": "@id"
+        },
+        "userLabelDictionary": {
+          "@id": "cg:userLabelDictionary",
           "@type": "@id"
         },
         "outcomeQualifier": "cg:outcomeQualifier",
@@ -1083,10 +1166,6 @@
       "@id": "cg:CanonicalAllele",
       "@context": {
         "label": "cg:label",
-        "relatedContextualAllele": {
-          "@id": "cg:relatedContextualAllele",
-          "@type": "@id"
-        },
         "description": "cg:description",
         "canonicalAlleleType": {
           "@id": "cg:canonicalAlleleType",
@@ -1099,6 +1178,10 @@
         "relatedIdentifier": {
           "@id": "cg:relatedIdentifier",
           "@type": "@id"
+        },
+        "relatedContextualAllele": {
+          "@id": "cg:relatedContextualAllele",
+          "@type": "@id"
         }
       }
     },
@@ -1106,11 +1189,11 @@
       "@id": "cg:ContextualAllele",
       "@context": {
         "label": "cg:label",
-        "relatedCanonicalAllele": {
-          "@id": "cg:relatedCanonicalAllele",
+        "description": "cg:description",
+        "contextualAlleleType": {
+          "@id": "cg:contextualAlleleType",
           "@type": "@id"
         },
-        "description": "cg:description",
         "alleleName": {
           "@id": "cg:alleleName",
           "@type": "@id"
@@ -1120,8 +1203,8 @@
           "@id": "cg:referenceCoordinate",
           "@type": "@id"
         },
-        "contextualAlleleType": {
-          "@id": "cg:contextualAlleleType",
+        "relatedCanonicalAllele": {
+          "@id": "cg:relatedCanonicalAllele",
           "@type": "@id"
         }
       }
@@ -1130,93 +1213,35 @@
       "@id": "cg:ContextualAlleleName",
       "@context": {
         "label": "cg:label",
-        "name": "cg:name",
         "description": "cg:description",
-        "preferred": "cg:preferred",
+        "name": "cg:name",
         "nameType": {
           "@id": "cg:nameType",
           "@type": "@id"
-        }
-      }
-    },
-    "GeneticCondition": {
-      "@id": "cg:GeneticCondition",
-      "@context": {
-        "label": "cg:label",
-        "description": "cg:description",
-        "disease": {
-          "@id": "cg:disease",
-          "@type": "@id"
         },
-        "phenotype": {
-          "@id": "cg:phenotype",
-          "@type": "@id"
-        },
-        "inheritancePattern": {
-          "@id": "cg:inheritancePattern",
-          "@type": "@id"
-        },
-        "gene": {
-          "@id": "cg:gene",
-          "@type": "@id"
-        }
-      }
-    },
-    "Genotype": {
-      "@id": "cg:Genotype",
-      "@context": {
-        "label": "cg:label",
-        "hasPart": {
-          "@id": "cg:hasPart",
-          "@type": "@id"
-        },
-        "description": "cg:description",
-        "zygosity": {
-          "@id": "cg:zygosity",
-          "@type": "@id"
-        }
-      }
-    },
-    "Haplotype": {
-      "@id": "cg:Haplotype",
-      "@context": {
-        "label": "cg:label",
-        "hasPart": {
-          "@id": "cg:hasPart",
-          "@type": "@id"
-        },
-        "description": "cg:description"
-      }
-    },
-    "IdentifierSystem": {
-      "@id": "cg:IdentifierSystem",
-      "@context": {
-        "label": "cg:label",
-        "description": "cg:description",
-        "prefix": "cg:prefix",
-        "urlPattern": "cg:urlPattern"
+        "preferred": "cg:preferred"
       }
     },
     "Position": {
       "@id": "cg:Position",
       "@context": {
         "label": "cg:label",
+        "description": "cg:description",
         "index": {
           "@id": "cg:index",
           "@type": "@id"
-        },
-        "description": "cg:description"
+        }
       }
     },
     "ReferenceCoordinate": {
       "@id": "cg:ReferenceCoordinate",
       "@context": {
         "label": "cg:label",
+        "description": "cg:description",
         "referenceSequence": {
           "@id": "cg:referenceSequence",
           "@type": "@id"
         },
-        "description": "cg:description",
         "start": {
           "@id": "cg:start",
           "@type": "@id"
@@ -1232,42 +1257,17 @@
       "@id": "cg:SequenceLocation",
       "@context": {
         "label": "cg:label",
+        "description": "cg:description",
         "referenceSequence": {
           "@id": "cg:referenceSequence",
           "@type": "@id"
         },
-        "description": "cg:description",
         "start": {
           "@id": "cg:start",
           "@type": "@id"
         },
         "stop": {
           "@id": "cg:stop",
-          "@type": "@id"
-        }
-      }
-    },
-    "VariantPathogenicityInterpretationCriterion": {
-      "@id": "cg:VariantPathogenicityInterpretationCriterion",
-      "@context": {
-        "label": "cg:label",
-        "description": "cg:description",
-        "defaultStrength": {
-          "@id": "cg:defaultStrength",
-          "@type": "@id"
-        },
-        "usageNotes": "cg:usageNotes"
-      }
-    },
-    "VariantPathogenicityInterpretationGuideline": {
-      "@id": "cg:VariantPathogenicityInterpretationGuideline",
-      "@context": {
-        "label": "cg:label",
-        "description": "cg:description",
-        "url": "cg:url",
-        "version": "cg:version",
-        "scoringAlgorithm": {
-          "@id": "cg:scoringAlgorithm",
           "@type": "@id"
         }
       }
